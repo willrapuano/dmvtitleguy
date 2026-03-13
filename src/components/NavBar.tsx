@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: "Home",            href: "/" },
   { label: "Title Insurance", href: "/title-insurance" },
   { label: "Investor Services", href: "/investor-friendly-title-company" },
-  { label: "Calculators",     href: "/virginia-closing-cost-calculator" },
+  { label: "Calculators",     href: "/calculators" },
   { label: "Blog",            href: "/blog" },
   { label: "Contact",         href: "/#contact" },
 ];
