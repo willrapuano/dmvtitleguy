@@ -33,12 +33,11 @@ export default function SellerNetSheetPage() {
       <section className="section-light">
         <div className="container-xl">
           <iframe
-            src="https://pruitt-title.titlecapture.com/seller-net-sheet"
+            src="https://palmagent.com/app/calculators/selltonet"
             width="100%"
-            height="800"
-            frameBorder="0"
-            style={{ border: "none" }}
-            title="Pruitt Title — Seller Net Sheet Calculator"
+            style={{ border: "none", minHeight: "800px" }}
+            title="Seller Net Sheet Calculator — Pruitt Title LLC"
+            allow="clipboard-write"
           />
         </div>
       </section>
