@@ -34,12 +34,12 @@ const CALCULATORS = [
     tag: "Sellers",
   },
   {
-    href: "/calculators/rent-vs-buy",
-    title: "Rent vs. Buy Calculator",
+    href: "/calculators/sell-or-rent",
+    title: "Sell or Rent Calculator",
     description:
-      "Compare the true cost of renting versus buying a home in the DMV market.",
+      "Should you sell your home or rent it out? Compare projected returns, cash flow, and equity growth.",
     icon: "🏠",
-    tag: "Buyers",
+    tag: "Homeowners",
   },
   {
     href: "/calculators/monthly-affordability",
