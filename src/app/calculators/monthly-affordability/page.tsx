@@ -33,12 +33,11 @@ export default function MonthlyAffordabilityPage() {
       <section className="section-light">
         <div className="container-xl">
           <iframe
-            src="https://pruitt-title.titlecapture.com/monthly-affordability"
+            src="https://palmagent.com/app/calculators/MonthlyAffordability"
             width="100%"
-            height="800"
-            frameBorder="0"
-            style={{ border: "none" }}
-            title="Pruitt Title — Monthly Affordability Calculator"
+            style={{ border: "none", minHeight: "800px" }}
+            title="Monthly Affordability Calculator — Pruitt Title LLC"
+            allow="clipboard-write"
           />
         </div>
       </section>
