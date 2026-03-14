@@ -12,7 +12,7 @@ export default function NotFound() {
         <div className="flex flex-wrap justify-center gap-4">
           <Link href="/" className="btn-primary">← Back to Home</Link>
           <Link href="/virginia-closing-cost-calculator" className="btn-outline">VA Calculator</Link>
-          <Link href="/investor-friendly-title-company" className="btn-outline">Investor Services</Link>
+          <Link href="/title-insurance" className="btn-outline">Title Insurance</Link>
         </div>
       </div>
     </section>

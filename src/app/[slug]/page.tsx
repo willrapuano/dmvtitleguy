@@ -1,6 +1,6 @@
 /**
  * Root-level catch-all for all location pages and county pages.
- * Static routes (calculators, investor pages, blog, etc.) take priority
+ * Static routes (calculators, service pages, blog, etc.) take priority
  * over this dynamic route by Next.js routing rules.
  *
  * Matches: /title-company-{city}-{state} and /title-company-{county}-county-{state}
@@ -38,11 +38,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const { city, state } = result.data;
     return {
       title: `Title Company in ${city}, ${state} | DMV Title Guy`,
-      description: `Pruitt Title LLC provides professional title insurance and closing services in ${city}, ${state}. Fast turnarounds, investor-friendly, underwritten by First American Title. Call (703) 859-1467.`,
+      description: `Pruitt Title LLC provides professional title insurance and closing services in ${city}, ${state}. Fast turnarounds, underwritten by First American Title. Call (703) 859-1467.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
         title: `Title Company in ${city}, ${state} | DMV Title Guy`,
-        description: `Professional title & closing services in ${city}, ${state} — residential, commercial, and investor transactions.`,
+        description: `Professional title & closing services in ${city}, ${state} — residential, commercial, and all transaction types.`,
       },
     };
   }
@@ -107,7 +107,7 @@ function LocationPage({ location }: { location: Location }) {
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               {isSecondary
-                ? `Pruitt Title LLC — professional title insurance and closing services in ${city}, ${state}. Residential, commercial, and investor-friendly. Underwritten by First American Title.`
+                ? `Pruitt Title LLC — professional title insurance and closing services in ${city}, ${state}. Residential, commercial, and all transaction types. Underwritten by First American Title.`
                 : `DMV Title Guy is your trusted title and settlement partner in ${city}, ${state}. Fast, reliable closings for agents, lenders, and investors across ${county}. Underwritten by First American Title Insurance Company.`}
             </p>
             <div className="flex flex-wrap gap-3">
@@ -217,12 +217,12 @@ function LocationPage({ location }: { location: Location }) {
               </Link>
             </div>
             <div>
-              <h3 className="font-bold text-brand-navy mb-3">Investor Services</h3>
+              <h3 className="font-bold text-brand-navy mb-3">All Transaction Types</h3>
               <p className="text-sm text-brand-muted mb-3">
-                Wholesale, double closings, subject-to, novation — we handle deals other companies won&apos;t.
+                Residential, commercial, refinances, investment properties — we handle every type of closing professionally.
               </p>
               <Link href="/investor-friendly-title-company" className="text-sm text-brand-blue hover:underline">
-                View Investor Services →
+                Learn More →
               </Link>
             </div>
           </div>
@@ -254,7 +254,7 @@ function CountyPage({ county }: { county: County }) {
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">{stateFullName} Title Insurance</p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">Title Company in {fullName}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Pruitt Title LLC serves every city and community in {fullName}. Professional title search, title insurance, and settlement services — residential, commercial, and investor transactions.
+              Pruitt Title LLC serves every city and community in {fullName}. Professional title search, title insurance, and settlement services — residential, commercial, and all transaction types.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href={`/${slug}#quote`} className="btn-primary">Get a Free Quote →</Link>

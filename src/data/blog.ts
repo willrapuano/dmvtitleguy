@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "understanding-subject-to-transactions",
+    title: "Understanding Subject-To Transactions: What Buyers and Sellers Should Know",
+    date: "March 14, 2026",
+    dateISO: "2026-03-14",
+    excerpt: "Subject-to transactions are one of the most misunderstood deal structures in real estate. This guide explains how they work, the risks involved, and what both buyers and sellers should consider before entering a subject-to agreement.",
+    category: "Education",
+    readTime: "7 min read",
+  },
+  {
     slug: "using-zillow-traffic-data-to-close-more-deals",
     title: "Using Zillow Traffic Data to Close More Deals: A Strategic Guide for DMV Agents",
     date: "November 14, 2025",

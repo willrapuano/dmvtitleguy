@@ -91,8 +91,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Link href="/maryland-closing-cost-calculator" className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
                   MD Closing Cost Calculator →
                 </Link>
-                <Link href="/investor-friendly-title-company" className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
-                  Investor Services →
+                <Link href="/title-insurance" className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
+                  Title Insurance →
                 </Link>
               </div>
             </div>

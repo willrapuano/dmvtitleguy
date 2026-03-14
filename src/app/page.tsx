@@ -23,7 +23,7 @@ const SERVICES = [
   { title: "Title Search & Examination", desc: "Thorough examination of public records to verify clear title and identify any liens or encumbrances before closing." },
   { title: "Title Insurance", desc: "Owner's and lender's title insurance policies underwritten by First American Title Insurance Company — Fortune 500 protection." },
   { title: "Settlement & Escrow", desc: "Professional coordination of all parties, funds, and documents from contract to keys. Residential, commercial, and new construction." },
-  { title: "Investor Closings", desc: "Wholesale, double closings, subject-to, novation, and creative financing — we understand the deals other title companies won't touch." },
+  { title: "All Transaction Types", desc: "First-time buyers, investors, refinances, new construction, commercial — we handle every type of closing with the same professional care." },
 ];
 
 const WHY_CHOOSE = [
@@ -52,14 +52,14 @@ export default function HomePage() {
               Are You a Real Estate Agent or Mortgage Lender?
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-lg">
-              DMV Title Guy delivers fast, professional title and closing services across Washington DC, Maryland, and Virginia — with investor-friendly expertise and top-tier customer service.
+              DMV Title Guy delivers fast, professional title and closing services across Washington DC, Maryland, and Virginia — with top-tier expertise and customer service for every transaction type.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/#contact" className="btn-primary text-base px-7 py-3">
                 Get a Free Quote →
               </Link>
-              <Link href="/investor-friendly-title-company" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-7 py-3">
-                Investor Services
+              <Link href="/title-insurance" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-7 py-3">
+                Our Services
               </Link>
             </div>
           </div>

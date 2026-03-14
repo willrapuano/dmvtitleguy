@@ -100,12 +100,9 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-3">Services</h3>
           <ul className="space-y-1 text-sm text-gray-300">
-            <li><Link href="/investor-friendly-title-company" className="hover:text-brand-blue">Investor-Friendly Closings</Link></li>
-            <li><Link href="/wholesale-real-estate-closing" className="hover:text-brand-blue">Wholesale Closings</Link></li>
-            <li><Link href="/double-closing-title-company" className="hover:text-brand-blue">Double Closings</Link></li>
-            <li><Link href="/subject-to-closing-services" className="hover:text-brand-blue">Subject-To Closings</Link></li>
-            <li><Link href="/novation-real-estate-closing" className="hover:text-brand-blue">Novation Closings</Link></li>
-            <li><Link href="/creative-financing-closing" className="hover:text-brand-blue">Creative Financing</Link></li>
+            <li><Link href="/title-insurance" className="hover:text-brand-blue">Title Insurance</Link></li>
+            <li><Link href="/investor-friendly-title-company" className="hover:text-brand-blue">All Transaction Types</Link></li>
+            <li><Link href="/blog" className="hover:text-brand-blue">Blog &amp; Resources</Link></li>
           </ul>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-3 mt-6">Calculators</h3>
           <ul className="space-y-1 text-sm text-gray-300">
