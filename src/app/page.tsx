@@ -45,9 +45,7 @@ export default function HomePage() {
       >
         <div className="container-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-3">
-              Pruitt Title LLC
-            </p>
+
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5">
               Are You a Real Estate Agent or Mortgage Lender?
             </h1>

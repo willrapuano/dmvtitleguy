@@ -42,4 +42,10 @@
   .prose-subtitle {
     @apply text-lg text-brand-muted mt-4;
   }
+  .resource-download-btn {
+    background-color: #3BAEF7;
+  }
+  .resource-download-btn:hover {
+    background-color: #2A8FD7;
+  }
 }
