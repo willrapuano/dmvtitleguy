@@ -4,11 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 
 const NAV_LINKS = [
-  { label: "Home",            href: "/" },
+  { label: "Home", href: "/" },
   { label: "Title Insurance", href: "/title-insurance" },
-  { label: "Calculators",     href: "/calculators" },
-  { label: "Blog",            href: "/blog" },
-  { label: "Contact",         href: "/#contact" },
+  { label: "Why Choose Us", href: "/why-choose-us" },
+  { label: "Calculators", href: "/calculators" },
+  { label: "Classes", href: "/my-classes" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function NavBar() {
@@ -25,7 +27,7 @@ export function NavBar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-5 text-sm font-medium">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.href}

@@ -96,16 +96,21 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Services */}
+        {/* Services & Pages */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-3">Services</h3>
           <ul className="space-y-1 text-sm text-gray-300">
             <li><Link href="/title-insurance" className="hover:text-brand-blue">Title Insurance</Link></li>
             <li><Link href="/investor-friendly-title-company" className="hover:text-brand-blue">All Transaction Types</Link></li>
+            <li><Link href="/why-choose-us" className="hover:text-brand-blue">Why Choose Us</Link></li>
+            <li><Link href="/my-classes" className="hover:text-brand-blue">CE Classes &amp; Events</Link></li>
+            <li><Link href="/advertising-services" className="hover:text-brand-blue">Advertising Services</Link></li>
+            <li><Link href="/subscribe" className="hover:text-brand-blue">Subscribe</Link></li>
             <li><Link href="/blog" className="hover:text-brand-blue">Blog &amp; Resources</Link></li>
           </ul>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-3 mt-6">Calculators</h3>
           <ul className="space-y-1 text-sm text-gray-300">
+            <li><Link href="/calculators" className="hover:text-brand-blue">All Calculators</Link></li>
             <li><Link href="/virginia-closing-cost-calculator" className="hover:text-brand-blue">Virginia Calculator</Link></li>
             <li><Link href="/maryland-closing-cost-calculator" className="hover:text-brand-blue">Maryland Calculator</Link></li>
             <li><Link href="/dc-closing-cost-calculator" className="hover:text-brand-blue">DC Calculator</Link></li>

@@ -17,6 +17,7 @@ import {
   findBySlug,
   getNearbyCities,
   getLocationsInCounty,
+  getCountyPage,
   CALCULATOR_SLUGS,
   type Location,
   type County,
@@ -59,6 +60,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 function LocationPage({ location }: { location: Location }) {
   const { city, state, county, slug, tier, alsoServing } = location;
   const nearbyCities = getNearbyCities(location, 3);
+  const countyPage = getCountyPage(location);
   const calcSlug = CALCULATOR_SLUGS[state];
   const isSecondary = tier === 2;
   const stateFullName = state === "VA" ? "Virginia" : state === "MD" ? "Maryland" : "Washington DC";
@@ -192,7 +194,18 @@ function LocationPage({ location }: { location: Location }) {
       {/* INTERNAL LINKS */}
       <section className="section-gray">
         <div className="container-xl">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {countyPage && (
+              <div>
+                <h3 className="font-bold text-brand-navy mb-3">{countyPage.name}</h3>
+                <p className="text-sm text-brand-muted mb-3">
+                  View all title services across {countyPage.fullName}.
+                </p>
+                <Link href={`/${countyPage.slug}`} className="text-sm text-brand-blue hover:underline">
+                  {countyPage.name} Title Services →
+                </Link>
+              </div>
+            )}
             {nearbyCities.length > 0 && (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">Nearby Markets</h3>

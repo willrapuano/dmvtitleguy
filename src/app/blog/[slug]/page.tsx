@@ -27,14 +27,25 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.dateISO,
+    dateModified: post.dateISO,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.dmvtitleguy.io/blog/${post.slug}`,
+    },
     author: {
       "@type": "Person",
       name: "Will Rapuano",
       jobTitle: "Business Development, Pruitt Title LLC",
+      url: "https://www.dmvtitleguy.io",
+      sameAs: [
+        "https://www.linkedin.com/in/will-rapuano-86914b130",
+        "https://www.instagram.com/dmvtitleguy",
+        "https://www.youtube.com/@dmvtitleguy",
+      ],
     },
     publisher: {
       "@type": "Organization",
