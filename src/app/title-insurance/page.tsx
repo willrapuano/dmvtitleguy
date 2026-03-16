@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 };
 
 const resources = [
-  "Title Insurance FAQ",
-  "A Guide to Title Insurance",
-  "What is Title Insurance?",
-  "Why Title Insurance?",
-  "Types of Deeds in DMV",
-  "Wire Fraud Prevention Guide",
-  "Typical Settlement Costs in DMV",
-  "Contract to Close Chart",
+  { title: "Title Insurance FAQ", file: "/guides/title-insurance-faq.pdf" },
+  { title: "A Guide to Title Insurance", file: "/guides/a-guide-to-title-insurance.pdf" },
+  { title: "What is Title Insurance?", file: "/guides/what-is-title-insurance.pdf" },
+  { title: "Why Title Insurance?", file: "/guides/21-reasons-for-title-insurance.pdf" },
+  { title: "Types of Deeds in DMV", file: "/guides/property-deeds-guide.pdf" },
+  { title: "Wire Fraud Prevention Guide", file: "/guides/wire-fraud-prevention-guide.pdf" },
+  { title: "Typical Settlement Costs in DMV", file: "/guides/typical-settlement-costs-dmv.pdf" },
+  { title: "Contract to Close Chart", file: "/guides/contract-to-close-chart.pdf" },
 ];
 
 export default function TitleInsurancePage() {
@@ -44,14 +44,15 @@ export default function TitleInsurancePage() {
             Downloadable Resources
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {resources.map((title) => (
+            {resources.map((r) => (
               <a
-                key={title}
-                href="#"
+                key={r.title}
+                href={r.file}
+                download
                 className="resource-download-btn flex items-center gap-3 justify-center rounded-md px-6 py-4 font-semibold text-white transition-colors duration-200 text-center"
               >
                 <Download className="w-5 h-5 flex-shrink-0" />
-                <span>{title}</span>
+                <span>{r.title}</span>
               </a>
             ))}
           </div>
