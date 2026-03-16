@@ -121,7 +121,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 py-5">
         <div className="container-xl flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-gray-500">
-          <p>© {currentYear} Pruitt Title LLC dba DMV Title Guy. All rights reserved. Underwritten by First American Title Insurance Company.</p>
+          <p>© {currentYear} Pruitt Title LLC dba DMV Title Guy. All rights reserved.</p>
           <p>
             <Link href="/privacy-policy" className="hover:text-gray-300 mr-4">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gray-300">Terms</Link>

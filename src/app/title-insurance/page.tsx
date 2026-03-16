@@ -4,7 +4,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 
 export const metadata: Metadata = {
   title: "Title Insurance in DC, Maryland & Virginia | DMV Title Guy",
-  description: "Professional title insurance services underwritten by First American Title. Owner's and lender's policies for residential, commercial, and investor transactions across the DMV.",
+  description: "Professional title insurance services from Pruitt Title LLC. Owner's and lender's policies for residential, commercial, and investor transactions across the DMV.",
   alternates: { canonical: "/title-insurance" },
 };
 
@@ -14,12 +14,12 @@ export default function TitleInsurancePage() {
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Underwritten by First American Title</p>
+            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Pruitt Title LLC</p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               Title Insurance in DC, Maryland &amp; Virginia
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Pruitt Title LLC provides owner&apos;s and lender&apos;s title insurance backed by First American Title Insurance Company — one of the most financially secure title underwriters in the country. Founded 2007. Woman-owned.
+              Pruitt Title LLC provides owner&apos;s and lender&apos;s title insurance for residential, commercial, and investor transactions across the DMV. Founded 2007. Woman-owned.
             </p>
             <Link href="/#contact" className="btn-primary">Get a Policy Quote →</Link>
           </div>
@@ -38,8 +38,8 @@ export default function TitleInsurancePage() {
             <p>Protects the buyer&apos;s ownership interest against claims arising from the property&apos;s history — undiscovered liens, errors in public records, forgery, fraud, and more. A one-time premium at closing provides protection for as long as you own the property.</p>
             <h3 className="text-brand-navy font-bold text-lg mt-6">Lender&apos;s Title Insurance</h3>
             <p>Required by virtually all mortgage lenders. Protects the lender&apos;s interest in the property up to the loan amount. Typically issued simultaneously with owner&apos;s coverage at a discounted simultaneous issue rate.</p>
-            <h3 className="text-brand-navy font-bold text-lg mt-6">Why First American Title?</h3>
-            <p>Pruitt Title LLC is underwritten by First American Title Insurance Company — a Fortune 500 company and one of the largest title insurers in the United States. Their financial strength means claims get paid.</p>
+            <h3 className="text-brand-navy font-bold text-lg mt-6">Why Pruitt Title?</h3>
+            <p>Pruitt Title LLC has been protecting property owners across the DMV since 2007. Woman-owned, top 5% nationally recognized — our financial strength and expertise means your clients are always covered.</p>
           </div>
         </div>
       </section>

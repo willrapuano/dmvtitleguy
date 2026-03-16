@@ -50,8 +50,8 @@ const FAQ_ITEMS = [
     a: "We serve the entire DMV region — Washington DC, Maryland, and Virginia. Our office is in Vienna, VA, but we handle closings throughout the tri-state area.",
   },
   {
-    q: "Who underwrites your title insurance?",
-    a: "All policies are underwritten by First American Title Insurance Company — a Fortune 500 company providing industry-leading protection.",
+    q: "Who provides your title insurance?",
+    a: "Pruitt Title LLC provides comprehensive title insurance coverage for all transaction types — backed by decades of experience and top 5% national recognition.",
   },
 ];
 

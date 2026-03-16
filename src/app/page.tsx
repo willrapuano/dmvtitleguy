@@ -6,7 +6,7 @@ import { TIER1_LOCATIONS, COUNTIES } from "@/data/locations";
 export const metadata: Metadata = {
   title: "DMV Title Guy | Title Insurance & Closing Services — DC, Maryland & Virginia",
   description:
-    "Pruitt Title LLC — professional title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive. Underwritten by First American Title.",
+    "Pruitt Title LLC — professional title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive.",
   alternates: { canonical: "/" },
 };
 
@@ -21,14 +21,14 @@ const BLOG_POSTS = [
 
 const SERVICES = [
   { title: "Title Search & Examination", desc: "Thorough examination of public records to verify clear title and identify any liens or encumbrances before closing." },
-  { title: "Title Insurance", desc: "Owner's and lender's title insurance policies underwritten by First American Title Insurance Company — Fortune 500 protection." },
+  { title: "Title Insurance", desc: "Owner's and lender's title insurance policies for residential, commercial, and investor transactions across the DMV." },
   { title: "Settlement & Escrow", desc: "Professional coordination of all parties, funds, and documents from contract to keys. Residential, commercial, and new construction." },
   { title: "All Transaction Types", desc: "First-time buyers, investors, refinances, new construction, commercial — we handle every type of closing with the same professional care." },
 ];
 
 const WHY_CHOOSE = [
   { num: "01", title: "Top 5% Title Executive Nationwide", body: "Will Rapuano is recognized among the top 5% of title professionals in the country, with deep expertise in the DMV's unique market dynamics." },
-  { num: "02", title: "Comprehensive Title Insurance Coverage", body: "Underwritten by First American Title — a Fortune 500 company — giving your clients ironclad protection on every transaction." },
+  { num: "02", title: "Comprehensive Title Insurance Coverage", body: "Ironclad protection on every transaction — owner's and lender's policies for all deal types across DC, Maryland, and Virginia." },
   { num: "03", title: "Dedicated to Real Estate Professionals", body: "From CE classes to panel events, we invest in the DMV agent and lender community year-round. We're a partner, not just a vendor." },
 ];
 
@@ -46,13 +46,13 @@ export default function HomePage() {
         <div className="container-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-3">
-              Pruitt Title LLC — Underwritten by First American Title
+              Pruitt Title LLC
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-5">
               Are You a Real Estate Agent or Mortgage Lender?
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-lg">
-              DMV Title Guy delivers fast, professional title and closing services across Washington DC, Maryland, and Virginia — with top-tier expertise and customer service for every transaction type.
+              DMV Title Guy is one of the DMV&apos;s leading title insurance professionals, serving Washington DC, Maryland, and Virginia. As a licensed producer at Pruitt Title LLC, Will is backed by First American Title Insurance Company — Fortune 500 — and delivers top-tier professional expertise for residential, commercial, luxury, and new construction transactions.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/#contact" className="btn-primary text-base px-7 py-3">
@@ -75,17 +75,23 @@ export default function HomePage() {
           <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Who We Work With</p>
           <h2 className="prose-title mb-4">Are You a Real Estate Agent or Mortgage Lender?</h2>
           <p className="prose-subtitle max-w-2xl mx-auto mb-12">
-            DMV Title Guy is one of the DMV's leading title insurance professionals, serving Washington DC, Maryland, and Virginia. As a licensed producer at Pruitt Title LLC, Will is backed by First American Title Insurance Company — Fortune 500 — and delivers top-tier professional expertise for residential, commercial, luxury, and new construction transactions.
+            DMV Title Guy is one of the DMV's leading title insurance professionals, serving Washington DC, Maryland, and Virginia. As a licensed producer at Pruitt Title LLC, Will delivers top-tier professional expertise for residential, commercial, luxury, and new construction transactions.
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            {["Real Estate Agents", "Mortgage Lenders", "Real Estate Investors"].map((role) => (
-              <div key={role} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[
+              { role: "Real Estate Agents", desc: "We understand your workflow and make every closing smooth, on-time, and stress-free." },
+              { role: "Mortgage Lenders", desc: "We understand your workflow and make every closing smooth, on-time, and stress-free." },
+              { role: "Banks & Credit Unions", desc: "Institutional-grade title services with the reliability and compliance your organization demands." },
+              { role: "Home Builders", desc: "From lot closings to final sales, we handle every phase of your new construction pipeline." },
+              { role: "Real Estate Investors", desc: "We understand your workflow and make every closing smooth, on-time, and stress-free." },
+            ].map((item) => (
+              <div key={item.role} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div className="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-brand-blue text-xl">✓</span>
                 </div>
-                <h3 className="font-bold text-brand-navy text-lg mb-2">{role}</h3>
+                <h3 className="font-bold text-brand-navy text-lg mb-2">{item.role}</h3>
                 <p className="text-brand-muted text-sm">
-                  We understand your workflow and make every closing smooth, on-time, and stress-free.
+                  {item.desc}
                 </p>
               </div>
             ))}
@@ -100,7 +106,7 @@ export default function HomePage() {
             <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">What We Do</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white">Get Access to Real Estate Title Tools, Classes, and Marketing Ideas</h2>
             <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-              Comprehensive title services backed by First American Title — the most trusted name in title insurance.
+              Comprehensive title services for every transaction type across the DMV.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">

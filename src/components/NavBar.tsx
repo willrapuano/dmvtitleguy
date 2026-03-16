@@ -5,12 +5,13 @@ import { useState } from "react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "Subscribe", href: "/subscribe" },
+  { label: "My Classes", href: "/my-classes" },
+  { label: "My Blog", href: "/blog" },
   { label: "Title Insurance", href: "/title-insurance" },
-  { label: "Why Choose Us", href: "/why-choose-us" },
+  { label: "Why Pruitt Title?", href: "/why-choose-us" },
+  { label: "Advertising", href: "/advertising-services" },
   { label: "Calculators", href: "/calculators" },
-  { label: "Classes", href: "/my-classes" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 export function NavBar() {

@@ -48,7 +48,7 @@ export default function DCCalculatorPage() {
               <li>Typically split 50/50 between buyer and seller by contract</li>
               <li>First-time DC homebuyer exemptions available on recordation tax</li>
             </ul>
-            <p>DC title insurance rates are set by the DC Insurance Commissioner. Pruitt Title LLC provides owner&apos;s and lender&apos;s coverage underwritten by First American Title.</p>
+            <p>DC title insurance rates are set by the DC Insurance Commissioner. Pruitt Title LLC provides owner&apos;s and lender&apos;s coverage for all transaction types.</p>
           </div>
         </div>
       </section>

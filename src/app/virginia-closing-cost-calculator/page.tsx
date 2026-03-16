@@ -60,7 +60,7 @@ export default function VirginiaCalculatorPage() {
             </ul>
             <h3 className="text-brand-navy font-bold text-base mt-4">Title Insurance in Virginia</h3>
             <p>
-              Virginia is a "simultaneous issue" state, meaning lender&apos;s and owner&apos;s title insurance can be issued together at a discounted rate. Pruitt Title LLC is underwritten by First American Title Insurance Company — one of the most financially secure title underwriters in the country.
+              Virginia is a "simultaneous issue" state, meaning lender&apos;s and owner&apos;s title insurance can be issued together at a discounted rate. Pruitt Title LLC has been providing trusted title services across the DMV since 2007.
             </p>
           </div>
         </div>

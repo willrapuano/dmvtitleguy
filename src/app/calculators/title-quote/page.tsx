@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Title Quote Calculator | DMV Title Guy",
   description:
-    "Get an instant title insurance quote for your DC, Maryland, or Virginia real estate transaction. Powered by Pruitt Title LLC, underwritten by First American Title.",
+    "Get an instant title insurance quote for your DC, Maryland, or Virginia real estate transaction. Powered by Pruitt Title LLC.",
   alternates: { canonical: "/calculators/title-quote" },
 };
 

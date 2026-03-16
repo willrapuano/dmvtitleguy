@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const { city, state } = result.data;
     return {
       title: `Title Company in ${city}, ${state} | DMV Title Guy`,
-      description: `Pruitt Title LLC provides professional title insurance and closing services in ${city}, ${state}. Fast turnarounds, underwritten by First American Title. Call (703) 859-1467.`,
+      description: `Pruitt Title LLC provides professional title insurance and closing services in ${city}, ${state}. Fast turnarounds. Call (703) 859-1467.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
         title: `Title Company in ${city}, ${state} | DMV Title Guy`,
@@ -67,7 +67,7 @@ function LocationPage({ location }: { location: Location }) {
 
   const SERVICES_LIST = [
     "Title Search & Examination",
-    "Owner's Title Insurance (First American)",
+    "Owner's Title Insurance",
     "Lender's Title Insurance",
     "Settlement & Escrow Services",
     "Title Curative Work",
@@ -109,8 +109,8 @@ function LocationPage({ location }: { location: Location }) {
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               {isSecondary
-                ? `Pruitt Title LLC — professional title insurance and closing services in ${city}, ${state}. Residential, commercial, and all transaction types. Underwritten by First American Title.`
-                : `DMV Title Guy is your trusted title and settlement partner in ${city}, ${state}. Fast, reliable closings for agents, lenders, and investors across ${county}. Underwritten by First American Title Insurance Company.`}
+                ? `Pruitt Title LLC — professional title insurance and closing services in ${city}, ${state}. Residential, commercial, and all transaction types.`
+                : `DMV Title Guy is your trusted title and settlement partner in ${city}, ${state}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href={`/${slug}#quote`} className="btn-primary">Get a Free Quote →</Link>

@@ -5,7 +5,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 export const metadata: Metadata = {
   title: "Why Choose DMV Title Guy | Pruitt Title LLC",
   description:
-    "Learn why DMV Title Guy — Pruitt Title LLC is the trusted title partner for real estate agents, lenders, and investors across DC, Maryland & Virginia. Underwritten by First American Title.",
+    "Learn why DMV Title Guy — Pruitt Title LLC is the trusted title partner for real estate agents, lenders, and investors across DC, Maryland & Virginia.",
   alternates: { canonical: "/why-choose-us" },
 };
 
@@ -17,8 +17,8 @@ const DIFFERENTIATORS = [
   },
   {
     num: "02",
-    title: "Underwritten by First American Title",
-    desc: "Every policy is backed by First American Title Insurance Company — a Fortune 500 company. Your clients get ironclad protection on every deal, period.",
+    title: "Ironclad Title Insurance Coverage",
+    desc: "Every policy provides comprehensive protection for your clients. Ironclad coverage on every deal, period.",
   },
   {
     num: "03",

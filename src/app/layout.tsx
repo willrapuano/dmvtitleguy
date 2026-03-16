@@ -10,7 +10,7 @@ const siteUrl = "https://www.dmvtitleguy.io";
 const siteName = "DMV Title Guy";
 const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, Maryland & Virginia";
 const defaultDescription =
-  "Pruitt Title LLC — trusted title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive. Underwritten by First American Title.";
+  "Pruitt Title LLC — trusted title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
