@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
 
 const siteUrl = "https://www.dmvtitleguy.io";
 const siteName = "DMV Title Guy";
@@ -75,8 +75,8 @@ const LOCAL_BUSINESS_SCHEMA = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="antialiased bg-white text-brand-dark-text">
+    <html lang="en" className={openSans.variable}>
+      <body className="antialiased bg-white text-brand-dark-text font-sans">
         <script
           type="application/ld+json"
           suppressHydrationWarning

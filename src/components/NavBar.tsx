@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Subscribe", href: "/subscribe" },
   { label: "My Classes", href: "/my-classes" },
-  { label: "My Blog", href: "/blog" },
+  { label: "My Blog", href: "/my-blog" },
   { label: "Title Insurance", href: "/title-insurance" },
   { label: "Why Pruitt Title?", href: "/why-choose-us" },
   { label: "Advertising", href: "/advertising-services" },
@@ -21,14 +22,21 @@ export function NavBar() {
     <header className="bg-brand-navy text-white sticky top-0 z-50 shadow-lg">
       <div className="container-xl flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="DMV Title Guy"
+            width={40}
+            height={40}
+            className="rounded-sm"
+          />
           <span className="text-xl font-bold tracking-tight text-white">
             DMV <span className="text-brand-blue">Title Guy</span>
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-5 text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-5 text-sm font-medium">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.href}
@@ -45,19 +53,19 @@ export function NavBar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none"
+          className="lg:hidden p-2 rounded focus:outline-none"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <span className="block w-6 h-0.5 bg-white mb-1" />
-          <span className="block w-6 h-0.5 bg-white mb-1" />
-          <span className="block w-6 h-0.5 bg-white" />
+          <span className={`block w-6 h-0.5 bg-white transition-transform ${open ? "rotate-45 translate-y-1.5" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-white my-1 transition-opacity ${open ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-transform ${open ? "-rotate-45 -translate-y-1.5" : ""}`} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-brand-navy-dark border-t border-white/10 px-6 py-4 space-y-3">
+        <div className="lg:hidden bg-brand-navy-dark border-t border-white/10 px-6 py-4 space-y-3">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.href}

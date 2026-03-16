@@ -58,13 +58,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
-      {/* HERO */}
-      <section className="bg-brand-navy text-white py-12">
+      {/* Hero */}
+      <section className="bg-brand-navy text-white py-14 md:py-20">
         <div className="container-xl max-w-3xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/blog" className="hover:text-brand-blue">Blog</Link>
+            <Link href="/my-blog" className="hover:text-brand-blue">My Blog</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-300 truncate">{post.title.substring(0, 40)}…</span>
           </nav>
@@ -80,19 +80,18 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* CONTENT PLACEHOLDER */}
+      {/* Content */}
       <section className="section-light">
         <div className="container-xl grid md:grid-cols-3 gap-12 max-w-6xl">
           <article className="md:col-span-2 prose max-w-none">
             <div className="bg-brand-gray-bg border border-gray-200 rounded-lg p-6 text-center text-brand-muted">
               <p className="font-medium text-brand-navy mb-2">📝 Full Article Coming Soon</p>
               <p className="text-sm">
-                Taz (CMO) is writing full content for all blog posts. This placeholder preserves the URL routing and metadata for SEO while content is drafted.
+                Full content is being written for this article. This placeholder preserves the URL routing and metadata for SEO.
               </p>
               <p className="text-sm mt-3 italic">&ldquo;{post.excerpt}&rdquo;</p>
             </div>
 
-            {/* Internal links */}
             <div className="mt-10 pt-8 border-t border-gray-100">
               <h3 className="font-bold text-brand-navy mb-4">Related Resources</h3>
               <div className="grid sm:grid-cols-3 gap-4">
@@ -109,7 +108,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
           </article>
 
-          {/* Sidebar */}
           <aside className="space-y-6">
             <LeadCaptureForm compact title="Get a Free Quote" location={`blog-${post.slug}`} />
             <div>

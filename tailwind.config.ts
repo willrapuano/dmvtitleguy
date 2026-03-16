@@ -6,17 +6,19 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          navy:      "#1a2a3a",
-          "navy-dark": "#0f1c27",
-          blue:      "#3eb5e5",
-          "blue-dark": "#2a9fd4",
-          "gray-bg": "#f5f5f5",
-          "dark-text": "#333333",
-          muted:     "#666666",
+          navy:      "#0B1D3A",
+          "navy-dark": "#071428",
+          blue:      "#3BAEF7",
+          "blue-dark": "#2A8FD7",
+          green:     "#D5EDE5",
+          blush:     "#F5E6E8",
+          "gray-bg": "#f7f8fa",
+          "dark-text": "#1a1a2e",
+          muted:     "#555555",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-open-sans)", "system-ui", "sans-serif"],
       },
       container: {
         center: true,

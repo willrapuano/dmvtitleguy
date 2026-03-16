@@ -16,10 +16,10 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-semibold px-6 py-3 rounded transition-colors duration-200;
+    @apply inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-semibold px-6 py-3 rounded-md transition-colors duration-200;
   }
   .btn-outline {
-    @apply inline-block border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold px-6 py-3 rounded transition-colors duration-200;
+    @apply inline-block border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold px-6 py-3 rounded-md transition-colors duration-200;
   }
   .section-light {
     @apply bg-white py-16 md:py-20;
@@ -29,6 +29,13 @@
   }
   .section-navy {
     @apply bg-brand-navy py-16 md:py-20 text-white;
+  }
+  .section-blue {
+    @apply bg-brand-blue py-16 md:py-20 text-white;
+  }
+  .section-green {
+    background-color: #D5EDE5;
+    @apply py-16 md:py-20;
   }
   .container-xl {
     @apply max-w-6xl mx-auto px-6;
@@ -41,6 +48,9 @@
   }
   .prose-subtitle {
     @apply text-lg text-brand-muted mt-4;
+  }
+  .accent-divider {
+    @apply w-6 h-0.5 bg-brand-blue mx-auto mt-3 mb-4;
   }
   .resource-download-btn {
     background-color: #3BAEF7;
