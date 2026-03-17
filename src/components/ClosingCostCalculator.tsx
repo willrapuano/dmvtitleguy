@@ -30,10 +30,15 @@ const CONFIGS: Record<State, CalculatorConfig> = {
   },
 };
 
-function calculateVA(price: number, loanAmount: number, party: PartyType) {
+interface CalcResult {
+  buyerCosts: Record<string, number>;
+  sellerCosts: Record<string, number>;
+}
+
+function calculateVA(price: number, loanAmount: number, party: PartyType): CalcResult {
   const isResale = true;
 
-  const buyerCosts = {
+  const buyerCosts: Record<string, number> = {
     titleSearch: 250,
     titleInsuranceLender: price * 0.0035,
     titleInsuranceOwner: price * 0.004,
@@ -46,7 +51,7 @@ function calculateVA(price: number, loanAmount: number, party: PartyType) {
     prepaidItems: loanAmount * 0.015,
   };
 
-  const sellerCosts = {
+  const sellerCosts: Record<string, number> = {
     agentCommission: price * 0.025, // 2.5% seller side
     grantorTax: price * 0.001, // $0.50/$500
     settlementFee: 295,
@@ -58,10 +63,10 @@ function calculateVA(price: number, loanAmount: number, party: PartyType) {
   return { buyerCosts, sellerCosts };
 }
 
-function calculateMD(price: number, loanAmount: number, party: PartyType) {
+function calculateMD(price: number, loanAmount: number, party: PartyType): CalcResult {
   const countyTransferTax = 0.01; // Montgomery County default
 
-  const buyerCosts = {
+  const buyerCosts: Record<string, number> = {
     titleSearch: 250,
     titleInsuranceLender: price * 0.004,
     titleInsuranceOwner: price * 0.0045,
@@ -75,7 +80,7 @@ function calculateMD(price: number, loanAmount: number, party: PartyType) {
     prepaidItems: loanAmount * 0.015,
   };
 
-  const sellerCosts = {
+  const sellerCosts: Record<string, number> = {
     agentCommission: price * 0.025,
     stateTransferTax: price * 0.005,
     countyTransferTax: price * countyTransferTax,
@@ -87,12 +92,12 @@ function calculateMD(price: number, loanAmount: number, party: PartyType) {
   return { buyerCosts, sellerCosts };
 }
 
-function calculateDC(price: number, loanAmount: number, party: PartyType) {
+function calculateDC(price: number, loanAmount: number, party: PartyType): CalcResult {
   // DC: combined recordation + transfer = ~2.9% over $400K, split buyer/seller
   const combinedRate = price >= 400000 ? 0.029 : 0.022;
   const halfTax = (price * combinedRate) / 2;
 
-  const buyerCosts = {
+  const buyerCosts: Record<string, number> = {
     titleSearch: 250,
     titleInsuranceLender: price * 0.004,
     titleInsuranceOwner: price * 0.005,
@@ -105,7 +110,7 @@ function calculateDC(price: number, loanAmount: number, party: PartyType) {
     prepaidItems: loanAmount * 0.015,
   };
 
-  const sellerCosts = {
+  const sellerCosts: Record<string, number> = {
     agentCommission: price * 0.025,
     recordationTax: halfTax,
     transferTax: halfTax,
@@ -157,20 +162,61 @@ function CostBreakdown({ label, costs, total }: { label: string; costs: Record<s
   );
 }
 
-interface ClosingCostCalculatorProps {
-  state: State;
+/** Optional city-level overrides for localized calculator pages */
+export interface CityOverrides {
+  /** Additional local recordation/transfer tax rate (decimal, e.g. 0.001 for 0.1%) */
+  localRecordationTaxRate?: number;
+  /** County transfer tax rate (MD, decimal) */
+  countyTransferTaxRate?: number;
+  /** Additional local transfer tax rate (decimal) */
+  localTransferTaxRate?: number;
+  /** Override default purchase price */
+  defaultPrice?: number;
+  /** Override default loan amount */
+  defaultLoanAmount?: number;
+  /** Custom note to display below calculator */
+  localTaxNote?: string;
 }
 
-export function ClosingCostCalculator({ state }: ClosingCostCalculatorProps) {
+interface ClosingCostCalculatorProps {
+  state: State;
+  cityOverrides?: CityOverrides;
+}
+
+export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalculatorProps) {
   const config = CONFIGS[state];
-  const [price, setPrice] = useState(500000);
-  const [loanAmount, setLoanAmount] = useState(400000);
+  const defaultPrice = cityOverrides?.defaultPrice ?? 500000;
+  const defaultLoan = cityOverrides?.defaultLoanAmount ?? Math.round(defaultPrice * 0.8);
+  const [price, setPrice] = useState(defaultPrice);
+  const [loanAmount, setLoanAmount] = useState(defaultLoan);
   const [party, setParty] = useState<PartyType>("both");
 
-  const results = useMemo(
-    () => CALCULATORS[state](price, loanAmount, party),
-    [state, price, loanAmount, party]
-  );
+  const results = useMemo(() => {
+    const base = CALCULATORS[state](price, loanAmount, party);
+
+    // Apply city-level tax overrides if provided
+    if (cityOverrides) {
+      const localRecTax = (cityOverrides.localRecordationTaxRate ?? 0) * price;
+      const localTransferTax = (cityOverrides.localTransferTaxRate ?? 0) * price;
+
+      if (localRecTax > 0) {
+        base.buyerCosts = { ...base.buyerCosts, localRecordationTax: localRecTax };
+      }
+      if (localTransferTax > 0) {
+        base.buyerCosts = { ...base.buyerCosts, localTransferTax: localTransferTax / 2 };
+        base.sellerCosts = { ...base.sellerCosts, localTransferTax: localTransferTax / 2 };
+      }
+
+      // MD county transfer tax override
+      if (state === "MD" && cityOverrides.countyTransferTaxRate !== undefined) {
+        const countyTax = cityOverrides.countyTransferTaxRate * price;
+        base.buyerCosts = { ...base.buyerCosts, countyTransferTax: countyTax / 2 };
+        base.sellerCosts = { ...base.sellerCosts, countyTransferTax: countyTax / 2 };
+      }
+    }
+
+    return base;
+  }, [state, price, loanAmount, party, cityOverrides]);
 
   const buyerTotal = sumObj(results.buyerCosts);
   const sellerTotal = sumObj(results.sellerCosts);
@@ -249,7 +295,7 @@ export function ClosingCostCalculator({ state }: ClosingCostCalculatorProps) {
           </div>
         </div>
 
-        <p className="text-xs text-brand-muted mt-3">{config.transferTaxNote}</p>
+        <p className="text-xs text-brand-muted mt-3">{cityOverrides?.localTaxNote ?? config.transferTaxNote}</p>
       </div>
 
       {/* Breakdown tables */}
@@ -269,7 +315,7 @@ export function ClosingCostCalculator({ state }: ClosingCostCalculatorProps) {
           <p className="text-gray-300 text-sm">Contact Will Rapuano at Pruitt Title LLC — we&apos;ll walk through actual costs for your transaction.</p>
         </div>
         <div className="flex gap-3">
-          <Link href="/#contact" className="btn-primary whitespace-nowrap">Get a Real Quote</Link>
+          <Link href="/calculators/title-quote" className="btn-primary whitespace-nowrap">Get a Real Quote</Link>
           <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy whitespace-nowrap">Call Now</a>
         </div>
       </div>

@@ -124,7 +124,7 @@ export default function MyClassesPage() {
             title insurance deep-dive, a marketing workshop, or a technology training session — I&apos;ll build a program
             tailored to your team&apos;s specific needs and goals.
           </p>
-          <Link href="/#contact" className="btn-primary px-8">
+          <Link href="/calculators/title-quote" className="btn-primary px-8">
             Contact Me →
           </Link>
         </div>

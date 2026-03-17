@@ -145,3 +145,74 @@ export function CalculatorSchema({ state, slug }: CalculatorSchemaProps) {
     />
   );
 }
+
+interface CityCalculatorSchemaProps {
+  city: string;
+  state: string;
+  county: string;
+  slug: string;
+  faqs?: { question: string; answer: string }[];
+}
+
+export function CityCalculatorSchema({ city, state, county, slug, faqs }: CityCalculatorSchemaProps) {
+  const stateLabel = state === "DC" ? "DC" : state;
+  const cityLabel = state === "DC" ? "Washington, DC" : `${city}, ${stateLabel}`;
+
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "WebApplication",
+      name: `${cityLabel} Closing Cost Calculator`,
+      url: `${SITE_URL}/${slug}`,
+      applicationCategory: "FinanceApplication",
+      description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including local ${county} taxes.`,
+      provider: {
+        "@type": "LocalBusiness",
+        name: BUSINESS_NAME,
+        url: SITE_URL,
+        telephone: "(703) 859-1467",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "1900 Gallows Rd Suite 230",
+          addressLocality: "Vienna",
+          addressRegion: "VA",
+          postalCode: "22182",
+          addressCountry: "US",
+        },
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/${slug}#webpage`,
+      url: `${SITE_URL}/${slug}`,
+      name: `Closing Costs in ${cityLabel} | DMV Title Guy`,
+      isPartOf: { "@id": SITE_URL },
+    },
+  ];
+
+  if (faqs && faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}

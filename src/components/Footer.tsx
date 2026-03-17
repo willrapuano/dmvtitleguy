@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ALL_LOCATIONS } from "@/data/locations";
 
 const SOCIAL_LINKS = [
   { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", icon: "FB" },
@@ -13,6 +14,23 @@ export function Footer() {
 
   return (
     <footer className="bg-brand-navy text-white">
+      {/* Areas We Serve */}
+      <div className="border-b border-white/10 py-8">
+        <div className="container-xl">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Areas We Serve</h3>
+          <p className="text-gray-300 text-xs leading-relaxed">
+            {ALL_LOCATIONS.map((loc, i) => (
+              <span key={loc.slug}>
+                {i > 0 && <span className="mx-1">·</span>}
+                <Link href={`/${loc.slug}`} className="hover:text-brand-blue transition-colors">
+                  {loc.city}
+                </Link>
+              </span>
+            ))}
+          </p>
+        </div>
+      </div>
+
       <div className="container-xl py-14 grid gap-10 md:grid-cols-3">
         {/* Column 1: Brand tagline */}
         <div>
@@ -21,7 +39,7 @@ export function Footer() {
             <span className="text-xl font-bold">DMV <span className="text-brand-blue">Title Guy</span></span>
           </Link>
           <p className="text-sm text-gray-300 leading-relaxed max-w-xs">
-            Helping real estate agents and mortgage lenders throughout the DMV area implement unique marketing strategies and adopt a sustainable business model designed to help them grow.
+            Trusted title &amp; escrow services for real estate professionals, builders, and financial institutions — serving the DMV and clients nationwide.
           </p>
         </div>
 
@@ -68,7 +86,7 @@ export function Footer() {
               <li><Link href="/why-choose-us" className="hover:text-brand-blue transition-colors">Why Pruitt Title?</Link></li>
               <li><Link href="/my-classes" className="hover:text-brand-blue transition-colors">My Classes</Link></li>
               <li><Link href="/my-blog" className="hover:text-brand-blue transition-colors">My Blog</Link></li>
-              <li><Link href="/advertising-services" className="hover:text-brand-blue transition-colors">Advertising</Link></li>
+
               <li><Link href="/subscribe" className="hover:text-brand-blue transition-colors">Subscribe</Link></li>
               <li><Link href="/calculators" className="hover:text-brand-blue transition-colors">Calculators</Link></li>
             </ul>

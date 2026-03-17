@@ -33,14 +33,7 @@ const CALCULATORS = [
     icon: "💰",
     tag: "Sellers",
   },
-  {
-    href: "/calculators/sell-or-rent",
-    title: "Sell or Rent Calculator",
-    description:
-      "Should you sell your home or rent it out? Compare projected returns, cash flow, and equity growth.",
-    icon: "🏠",
-    tag: "Homeowners",
-  },
+
   {
     href: "/calculators/monthly-affordability",
     title: "Monthly Affordability Calculator",
@@ -96,6 +89,22 @@ const CALCULATORS = [
       "Know your equity, current LTV, and how much you can tap through a cash-out refi or HELOC.",
     icon: "🏡",
     tag: "Homeowners",
+  },
+  {
+    href: "/calculators/rent-vs-buy",
+    title: "Rent vs Buy Calculator",
+    description:
+      "Should you rent or buy? Compare the long-term financial impact of both options in the DMV market.",
+    icon: "🔑",
+    tag: "Buyers",
+  },
+  {
+    href: "/calculators/buy-now-or-later",
+    title: "Buy Now or Later Calculator",
+    description:
+      "Thinking about waiting? Compare the total cost of buying today versus waiting — with appreciation, rent, and rate changes.",
+    icon: "⏳",
+    tag: "Buyers",
   },
 ];
 

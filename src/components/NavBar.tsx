@@ -6,12 +6,11 @@ import { useState } from "react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Subscribe", href: "/subscribe" },
   { label: "My Classes", href: "/my-classes" },
   { label: "My Blog", href: "/my-blog" },
   { label: "Title Insurance", href: "/title-insurance" },
   { label: "Why Pruitt Title?", href: "/why-choose-us" },
-  { label: "Advertising", href: "/advertising-services" },
+
   { label: "Calculators", href: "/calculators" },
 ];
 
@@ -22,14 +21,7 @@ export function NavBar() {
     <header className="bg-brand-navy text-white sticky top-0 z-50 shadow-lg">
       <div className="container-xl flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt="DMV Title Guy"
-            width={40}
-            height={40}
-            className="rounded-sm"
-          />
+        <Link href="/" className="flex items-center">
           <span className="text-xl font-bold tracking-tight text-white">
             DMV <span className="text-brand-blue">Title Guy</span>
           </span>
@@ -46,7 +38,7 @@ export function NavBar() {
               {l.label}
             </Link>
           ))}
-          <Link href="/#contact" className="btn-primary text-sm py-2 px-5 ml-2">
+          <Link href="/calculators/title-quote" className="btn-primary text-sm py-2 px-5 ml-2">
             Get a Quote
           </Link>
         </nav>
@@ -76,7 +68,7 @@ export function NavBar() {
               {l.label}
             </Link>
           ))}
-          <Link href="/#contact" className="btn-primary block text-center text-sm mt-2" onClick={() => setOpen(false)}>
+          <Link href="/calculators/title-quote" className="btn-primary block text-center text-sm mt-2" onClick={() => setOpen(false)}>
             Get a Quote
           </Link>
         </div>

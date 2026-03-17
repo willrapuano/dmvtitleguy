@@ -10,6 +10,42 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "lenders-title-insurance-vs-owners-title-insurance",
+    title: "Lender's vs Owner's Title Insurance: What's the Difference?",
+    date: "March 17, 2026",
+    dateISO: "2026-03-17",
+    excerpt: "Lender's and owner's title insurance protect different parties in a real estate transaction. This guide explains how each policy works, what they cover, and why both matter when buying a home in DC, Maryland, or Virginia.",
+    category: "Title Insurance",
+    readTime: "6 min read",
+  },
+  {
+    slug: "what-is-a-title-settlement-fee",
+    title: "What Is a Title Settlement Fee? A Complete Breakdown",
+    date: "March 17, 2026",
+    dateISO: "2026-03-17",
+    excerpt: "Title settlement fees are one of the most common line items at closing — and one of the least understood. Here's what the fee covers, how it's calculated, and what DMV buyers and sellers should expect.",
+    category: "Closing Costs",
+    readTime: "5 min read",
+  },
+  {
+    slug: "what-does-a-title-company-do",
+    title: "What Does a Title Company Do? The Complete Guide",
+    date: "March 17, 2026",
+    dateISO: "2026-03-17",
+    excerpt: "Title companies play a critical role in every real estate transaction — from conducting title searches to issuing insurance and coordinating closings. Here's exactly what a title company does and why it matters.",
+    category: "Education",
+    readTime: "7 min read",
+  },
+  {
+    slug: "standard-vs-enhanced-title-insurance",
+    title: "Standard vs Enhanced Title Insurance: Which Policy Do You Need?",
+    date: "March 17, 2026",
+    dateISO: "2026-03-17",
+    excerpt: "Standard and enhanced title insurance policies offer different levels of coverage. This guide compares the two, explains when enhanced coverage is worth it, and what DMV buyers should know before choosing a policy.",
+    category: "Title Insurance",
+    readTime: "6 min read",
+  },
+  {
     slug: "understanding-subject-to-transactions",
     title: "Understanding Subject-To Transactions: What Buyers and Sellers Should Know",
     date: "March 14, 2026",

@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { ALL_LOCATIONS, COUNTIES } from "@/data/locations";
 import { BLOG_POSTS } from "@/data/blog";
+import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
 
 const BASE_URL = "https://www.dmvtitleguy.io";
 
@@ -46,5 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...locationPages, ...countyPages, ...blogPages];
+  const cityCalcPages: MetadataRoute.Sitemap = CITY_CALCULATOR_DATA.map((city) => ({
+    url: `${BASE_URL}/${city.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...locationPages, ...countyPages, ...cityCalcPages, ...blogPages];
 }

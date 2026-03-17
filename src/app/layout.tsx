@@ -16,6 +16,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: defaultTitle, template: `%s | DMV Title Guy` },
   description: defaultDescription,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: defaultTitle,
     description: defaultDescription,
@@ -30,6 +38,32 @@ export const metadata: Metadata = {
     description: defaultDescription,
   },
   robots: { index: true, follow: true },
+};
+
+const ORGANIZATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "DMV Title Guy — Pruitt Title LLC",
+  alternateName: "Pruitt Title LLC",
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
+  description: "Professional title insurance and closing services for real estate agents, mortgage lenders, banks, credit unions, and home builders in DC, Maryland, and Virginia.",
+  telephone: "(703) 859-1467",
+  email: "wrapuano@pruitt-title.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1900 Gallows Rd Suite 230",
+    addressLocality: "Vienna",
+    addressRegion: "VA",
+    postalCode: "22182",
+    addressCountry: "US",
+  },
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61556322698901",
+    "https://www.instagram.com/dmvtitleguy",
+    "https://www.linkedin.com/in/will-rapuano-86914b130",
+    "https://www.youtube.com/@dmvtitleguy",
+  ],
 };
 
 const LOCAL_BUSINESS_SCHEMA = {
@@ -77,6 +111,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={openSans.variable}>
       <body className="antialiased bg-white text-brand-dark-text font-sans">
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
+        />
         <script
           type="application/ld+json"
           suppressHydrationWarning

@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { LocationSchema, CountySchema } from "@/components/SchemaMarkup";
+import CityCalculatorPage from "@/components/CityCalculatorPage";
 import {
   ALL_LOCATIONS,
   COUNTIES,
@@ -22,16 +23,40 @@ import {
   type Location,
   type County,
 } from "@/data/locations";
+import {
+  CITY_CALCULATOR_DATA,
+  getCityCalcData,
+  getStateFullName,
+} from "@/data/closingCostData";
 
 // ─── Static Params ─────────────────────────────────────────────────────────────
 export async function generateStaticParams() {
   const locationSlugs = ALL_LOCATIONS.map((l) => ({ slug: l.slug }));
   const countySlugs = COUNTIES.map((c) => ({ slug: c.slug }));
-  return [...locationSlugs, ...countySlugs];
+  const cityCalcSlugs = CITY_CALCULATOR_DATA.map((c) => ({ slug: c.slug }));
+  return [...locationSlugs, ...countySlugs, ...cityCalcSlugs];
 }
 
 // ─── Metadata ──────────────────────────────────────────────────────────────────
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  // Check city calculator pages first
+  const cityCalcData = getCityCalcData(params.slug);
+  if (cityCalcData) {
+    const stateLabel = cityCalcData.state === "DC" ? "DC" : cityCalcData.state;
+    const cityLabel = cityCalcData.state === "DC" ? "Washington, DC" : `${cityCalcData.city}, ${stateLabel}`;
+    return {
+      title: `Closing Costs in ${cityLabel} — Free Calculator | DMV Title Guy`,
+      description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller costs including title insurance, transfer taxes, ${cityCalcData.county} fees, and more. Updated 2025 rates.`,
+      alternates: { canonical: `/${cityCalcData.slug}` },
+      openGraph: {
+        title: `Closing Costs in ${cityLabel} — Free Calculator`,
+        description: `Estimate buyer and seller closing costs for ${cityLabel} real estate. Includes local ${cityCalcData.county} tax rates.`,
+        url: `https://www.dmvtitleguy.io/${cityCalcData.slug}`,
+        type: "website",
+      },
+    };
+  }
+
   const result = findBySlug(params.slug);
   if (!result) return { title: "Not Found" };
 
@@ -320,6 +345,11 @@ function CountyPage({ county }: { county: County }) {
 
 // ─── Main Route Handler ────────────────────────────────────────────────────────
 export default function SlugPage({ params }: { params: { slug: string } }) {
+  // City calculator pages: /closing-costs-arlington-va, etc.
+  const cityCalcData = getCityCalcData(params.slug);
+  if (cityCalcData) return <CityCalculatorPage data={cityCalcData} />;
+
+  // Location & county pages
   const result = findBySlug(params.slug);
   if (!result) notFound();
   if (result.type === "location") return <LocationPage location={result.data} />;

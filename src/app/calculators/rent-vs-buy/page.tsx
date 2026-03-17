@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Sell or Rent Calculator | DMV Title Guy",
+  title: "Rent vs Buy Calculator | DMV Title Guy",
   description:
-    "Should you sell your home or rent it out? Use this free calculator to compare the financial outcomes of selling versus renting your property in the DC, Maryland, and Virginia market.",
-  alternates: { canonical: "/calculators/sell-or-rent" },
+    "Should you rent or buy in the DMV? Compare the long-term costs of renting versus buying a home in Washington DC, Maryland, and Virginia with this free calculator from Pruitt Title LLC.",
+  alternates: { canonical: "/calculators/rent-vs-buy" },
 };
 
-export default function SellOrRentPage() {
+export default function RentVsBuyPage() {
   return (
     <>
       <section className="bg-brand-navy text-white py-12">
@@ -18,14 +18,14 @@ export default function SellOrRentPage() {
             <span className="mx-2">/</span>
             <Link href="/calculators" className="hover:text-brand-blue">Calculators</Link>
             <span className="mx-2">/</span>
-            <span>Sell or Rent</span>
+            <span>Rent vs Buy</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Sell or Rent Calculator
+            Rent vs Buy Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Not sure whether to sell your property or keep it as a rental? Compare projected returns, cash flow, and equity growth to make the smartest financial decision.
+            Wondering whether it makes more sense to rent or buy in the DMV? Compare the long-term financial impact of both options including equity growth, tax benefits, and opportunity costs.
           </p>
         </div>
       </section>
@@ -33,10 +33,10 @@ export default function SellOrRentPage() {
       <section className="section-light">
         <div className="container-xl">
           <iframe
-            src="https://palmagent.com/app/calculators/sellorrent"
+            src="https://palmagent.com/app/calculators/RentVBuy"
             width="100%"
             style={{ border: "none", minHeight: "800px" }}
-            title="Sell or Rent Calculator — Pruitt Title LLC"
+            title="Rent vs Buy Calculator — Pruitt Title LLC"
             allow="clipboard-write"
           />
         </div>

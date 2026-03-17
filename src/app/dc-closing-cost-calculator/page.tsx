@@ -59,7 +59,7 @@ export default function DCCalculatorPage() {
             <h2 className="text-xl font-bold text-brand-navy mb-3">Need Help with Your DC Closing?</h2>
             <p className="text-brand-muted mb-5 text-sm">Contact Will Rapuano at Pruitt Title LLC for a precise quote on your DC transaction.</p>
             <div className="flex justify-center gap-4">
-              <Link href="/#contact" className="btn-primary">Get a Quote</Link>
+              <Link href="/calculators/title-quote" className="btn-primary">Get a Quote</Link>
               <Link href="/title-company-washington-dc" className="btn-outline">DC Title Services</Link>
             </div>
           </div>

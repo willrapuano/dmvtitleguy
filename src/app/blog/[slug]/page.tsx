@@ -4,6 +4,54 @@ import Link from "next/link";
 import { BLOG_POSTS, getBlogPost } from "@/data/blog";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 
+/** Internal linking map — cross-links between related blog posts and site pages */
+const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
+  "lenders-title-insurance-vs-owners-title-insurance": [
+    { label: "Title Insurance Resources", href: "/title-insurance" },
+    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
+    { label: "Standard vs Enhanced Title Insurance", href: "/blog/standard-vs-enhanced-title-insurance" },
+    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+  ],
+  "what-is-a-title-settlement-fee": [
+    { label: "Closing Costs in the DMV", href: "/blog/closing-costs-dmv-buyers-sellers" },
+    { label: "Title Insurance Resources", href: "/title-insurance" },
+    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
+    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+  ],
+  "what-does-a-title-company-do": [
+    { label: "Title Insurance Resources", href: "/title-insurance" },
+    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
+    { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
+    { label: "How to Choose the Right Title Company", href: "/blog/how-to-choose-right-title-company-dmv" },
+    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+  ],
+  "standard-vs-enhanced-title-insurance": [
+    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
+    { label: "Title Insurance Resources", href: "/title-insurance" },
+    { label: "Title Insurance Requirements: DC, MD, VA", href: "/blog/title-insurance-requirements-dc-md-va" },
+    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+  ],
+  "closing-costs-dmv-buyers-sellers": [
+    { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
+    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
+  ],
+  "how-to-choose-right-title-company-dmv": [
+    { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
+    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
+  ],
+  "title-insurance-requirements-dc-md-va": [
+    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
+    { label: "Standard vs Enhanced Title Insurance", href: "/blog/standard-vs-enhanced-title-insurance" },
+  ],
+  "title-companies-new-construction": [
+    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
+  ],
+  "title-insurance-real-estate-lenders-dmv": [
+    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
+    { label: "Standard vs Enhanced Title Insurance", href: "/blog/standard-vs-enhanced-title-insurance" },
+  ],
+};
+
 export async function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
 }
@@ -95,15 +143,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <div className="mt-10 pt-8 border-t border-gray-100">
               <h3 className="font-bold text-brand-navy mb-4">Related Resources</h3>
               <div className="grid sm:grid-cols-3 gap-4">
-                <Link href="/virginia-closing-cost-calculator" className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
-                  VA Closing Cost Calculator →
-                </Link>
-                <Link href="/maryland-closing-cost-calculator" className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
-                  MD Closing Cost Calculator →
-                </Link>
-                <Link href="/title-insurance" className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
-                  Title Insurance →
-                </Link>
+                {(INTERNAL_LINKS[post.slug] || [
+                  { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+                  { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+                  { label: "Title Insurance", href: "/title-insurance" },
+                ]).slice(0, 6).map((link) => (
+                  <Link key={link.href} href={link.href} className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
+                    {link.label} →
+                  </Link>
+                ))}
               </div>
             </div>
           </article>
