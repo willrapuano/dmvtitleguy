@@ -29,9 +29,13 @@ export default function MyBlogPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {BLOG_POSTS.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
-                <div className="bg-gradient-to-br from-brand-navy to-brand-navy-dark h-44 flex flex-col justify-end p-5">
-                  <span className="text-xs text-brand-blue font-medium">{post.category}</span>
-                  <span className="text-xs text-gray-400 mt-1">{post.date} · {post.readTime}</span>
+                <div className="relative h-44 overflow-hidden">
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-5">
+                    <span className="text-xs text-brand-blue font-medium">{post.category}</span>
+                    <span className="text-xs text-gray-400 mt-1 block">{post.date} · {post.readTime}</span>
+                  </div>
                 </div>
                 <div className="p-5">
                   <h2 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue transition-colors mb-2">{post.title}</h2>

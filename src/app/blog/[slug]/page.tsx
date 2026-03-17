@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: post.title,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: { title: post.title, description: post.excerpt, type: "article", publishedTime: post.dateISO },
+    openGraph: { title: post.title, description: post.excerpt, type: "article", publishedTime: post.dateISO, images: [{ url: post.image, width: 1024, height: 576 }] },
   };
 }
 
@@ -78,6 +78,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
+    image: `https://www.dmvtitleguy.io${post.image}`,
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     mainEntityOfPage: {
@@ -107,8 +108,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       {/* Hero */}
-      <section className="bg-brand-navy text-white py-14 md:py-20">
-        <div className="container-xl max-w-3xl">
+      <section className="relative bg-brand-navy text-white py-14 md:py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={post.image} alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-brand-navy/75" />
+        </div>
+        <div className="container-xl max-w-3xl relative z-10">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
             <span className="mx-2">/</span>
