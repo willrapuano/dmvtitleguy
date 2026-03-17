@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "My Classes | DMV Title Guy — Workshops & CE Courses",
+  title: "Real Estate Classes & Workshops — DMV Title Guy",
   description:
-    "Free workshops, CE courses, and educational events for real estate agents and lenders in DC, Maryland & Virginia. Hosted by Will Rapuano, Pruitt Title LLC.",
+    "Workshops, CE courses, and educational events for real estate agents and lenders in DC, Maryland & Virginia. Hosted by Will Rapuano, Pruitt Title LLC.",
   alternates: { canonical: "/my-classes" },
 };
 
@@ -69,8 +69,46 @@ export default function MyClassesPage() {
             My Classes
           </h1>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
-            Workshops, CE courses, and networking events designed to help DMV real estate professionals stay ahead and grow their businesses.
+            Workshops, CE courses, and networking events for DMV real estate professionals. I teach agents and lenders how to use AI, video marketing, and social media to grow their business.
           </p>
+        </div>
+      </section>
+
+      {/* Upcoming Classes & Events */}
+      <section className="section-light">
+        <div className="container-xl text-center max-w-2xl">
+          <h2 className="prose-title mb-2">Upcoming Classes &amp; Events</h2>
+          <div className="accent-divider" />
+          <div className="mt-8 bg-brand-gray-bg border border-gray-200 rounded-xl p-8">
+            <p className="text-2xl mb-3">📅</p>
+            <p className="text-brand-navy font-semibold text-lg mb-2">New classes for 2026 coming soon.</p>
+            <p className="text-brand-muted text-sm mb-6">
+              Follow me on Eventbrite to get notified first when new workshops, CE courses, and events are announced.
+            </p>
+            <a
+              href="https://www.eventbrite.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-8"
+            >
+              Follow on Eventbrite →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Training for Your Team */}
+      <section className="section-blue">
+        <div className="container-xl text-center max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Custom Training for Your Team</h2>
+          <p className="text-white/80 leading-relaxed mb-8">
+            I offer customized training sessions for real estate teams, brokerages, and mortgage companies. Whether it&apos;s a
+            title insurance deep-dive, a marketing workshop, or a technology training session — I&apos;ll build a program
+            tailored to your team&apos;s specific needs and goals.
+          </p>
+          <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+            Contact Me →
+          </Link>
         </div>
       </section>
 
@@ -93,40 +131,6 @@ export default function MyClassesPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Interested in Future Classes */}
-      <section className="section-blue">
-        <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Interested in Future Classes?</h2>
-          <p className="text-white/80 mb-8 max-w-xl mx-auto">
-            Follow me on Eventbrite to get notified about upcoming workshops, CE courses, and events.
-          </p>
-          <a
-            href="https://www.eventbrite.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors"
-          >
-            Follow on Eventbrite →
-          </a>
-        </div>
-      </section>
-
-      {/* Custom Training */}
-      <section className="section-light">
-        <div className="container-xl text-center max-w-2xl">
-          <h2 className="prose-title mb-2">Custom Training for Your Team</h2>
-          <div className="accent-divider" />
-          <p className="text-brand-muted leading-relaxed mt-6 mb-8">
-            I offer customized training sessions for real estate teams, brokerages, and mortgage companies. Whether it&apos;s a
-            title insurance deep-dive, a marketing workshop, or a technology training session — I&apos;ll build a program
-            tailored to your team&apos;s specific needs and goals.
-          </p>
-          <Link href="/calculators/title-quote" className="btn-primary px-8">
-            Contact Me →
-          </Link>
         </div>
       </section>
     </>

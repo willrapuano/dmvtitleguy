@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BLOG_POSTS, getBlogPost } from "@/data/blog";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { getBlogContent, extractFAQs } from "@/lib/blog-content";
+import { BlogArticle } from "@/components/BlogArticle";
 
 /** Internal linking map — cross-links between related blog posts and site pages */
 const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
@@ -72,6 +74,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   if (!post) notFound();
 
   const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const content = getBlogContent(params.slug);
+  const faqs = content ? extractFAQs(content) : [];
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -103,14 +107,30 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     },
   };
 
+  const faqSchema = faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  } : null;
+
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
 
       {/* Hero */}
       <section className="relative bg-brand-navy text-white py-14 md:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={post.image} alt="" className="w-full h-full object-cover opacity-20" />
+          <img src={post.image} alt="" className="w-full h-full object-cover opacity-20" loading="eager" />
           <div className="absolute inset-0 bg-brand-navy/75" />
         </div>
         <div className="container-xl max-w-3xl relative z-10">
@@ -136,14 +156,18 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Content */}
       <section className="section-light">
         <div className="container-xl grid md:grid-cols-3 gap-12 max-w-6xl">
-          <article className="md:col-span-2 prose max-w-none">
-            <div className="bg-brand-gray-bg border border-gray-200 rounded-lg p-6 text-center text-brand-muted">
-              <p className="font-medium text-brand-navy mb-2">📝 Full Article Coming Soon</p>
-              <p className="text-sm">
-                Full content is being written for this article. This placeholder preserves the URL routing and metadata for SEO.
-              </p>
-              <p className="text-sm mt-3 italic">&ldquo;{post.excerpt}&rdquo;</p>
-            </div>
+          <article className="md:col-span-2 prose prose-lg max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline prose-strong:text-brand-navy prose-table:text-sm">
+            {content ? (
+              <BlogArticle content={content} />
+            ) : (
+              <div className="bg-brand-gray-bg border border-gray-200 rounded-lg p-6 text-center text-brand-muted">
+                <p className="font-medium text-brand-navy mb-2">📝 Full Article Coming Soon</p>
+                <p className="text-sm">
+                  Full content is being written for this article. This placeholder preserves the URL routing and metadata for SEO.
+                </p>
+                <p className="text-sm mt-3 italic">&ldquo;{post.excerpt}&rdquo;</p>
+              </div>
+            )}
 
             <div className="mt-10 pt-8 border-t border-gray-100">
               <h3 className="font-bold text-brand-navy mb-4">Related Resources</h3>
@@ -153,7 +177,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
                   { label: "Title Insurance", href: "/title-insurance" },
                 ]).slice(0, 6).map((link) => (
-                  <Link key={link.href} href={link.href} className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block">
+                  <Link key={link.href} href={link.href} className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block no-underline">
                     {link.label} →
                   </Link>
                 ))}
