@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { CalculatorSchema } from "@/components/SchemaMarkup";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
@@ -31,12 +30,6 @@ export default function MarylandCalculatorPage() {
           <p className="text-lg text-gray-300 max-w-2xl">
             Estimate closing costs for Maryland real estate transactions. Covers state &amp; county transfer taxes, title insurance, recordation fees, and more.
           </p>
-        </div>
-      </section>
-
-      <section className="section-light">
-        <div className="container-xl">
-          <ClosingCostCalculator state="MD" />
         </div>
       </section>
 

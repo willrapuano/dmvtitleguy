@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { CalculatorSchema } from "@/components/SchemaMarkup";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
@@ -34,13 +33,6 @@ export default function VirginiaCalculatorPage() {
           <p className="text-lg text-gray-300 max-w-2xl">
             Estimate buyer and seller closing costs for Virginia real estate transactions. Includes title insurance, grantor tax, recordation fees, and more.
           </p>
-        </div>
-      </section>
-
-      {/* ── CALCULATOR ── */}
-      <section className="section-light">
-        <div className="container-xl">
-          <ClosingCostCalculator state="VA" />
         </div>
       </section>
 

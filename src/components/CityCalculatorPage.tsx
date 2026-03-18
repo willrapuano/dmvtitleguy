@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
-import type { CityOverrides } from "@/components/ClosingCostCalculator";
 import { CityCalculatorSchema } from "@/components/SchemaMarkup";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import {
@@ -30,15 +28,6 @@ export default function CityCalculatorPage({ data }: Props) {
   );
   const nearbyCities = matchedLocation ? getNearbyCities(matchedLocation, 4) : [];
 
-  // Build calculator overrides
-  const cityOverrides: CityOverrides = {
-    localRecordationTaxRate: data.localRecordationTaxRate,
-    countyTransferTaxRate: data.countyTransferTaxRate,
-    localTransferTaxRate: data.localTransferTaxRate,
-    defaultPrice: data.medianHomePrice,
-    defaultLoanAmount: Math.round(data.medianHomePrice * (1 - data.defaultDownPaymentPct / 100)),
-    localTaxNote: data.localTaxNote,
-  };
 
   // Get other city calculator pages for cross-linking (same state, max 4)
   const relatedCalcPages = CITY_CALCULATOR_DATA.filter(
@@ -85,13 +74,6 @@ export default function CityCalculatorPage({ data }: Props) {
               {data.county}
             </span>
           </div>
-        </div>
-      </section>
-
-      {/* ── CALCULATOR ── */}
-      <section className="section-light">
-        <div className="container-xl">
-          <ClosingCostCalculator state={data.state} cityOverrides={cityOverrides} />
         </div>
       </section>
 

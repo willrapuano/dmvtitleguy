@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { CalculatorSchema } from "@/components/SchemaMarkup";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 
@@ -28,12 +27,6 @@ export default function DCCalculatorPage() {
           <p className="text-lg text-gray-300 max-w-2xl">
             Estimate closing costs for DC real estate. Includes recordation tax, transfer tax, title insurance, and buyer &amp; seller fee breakdowns.
           </p>
-        </div>
-      </section>
-
-      <section className="section-light">
-        <div className="container-xl">
-          <ClosingCostCalculator state="DC" />
         </div>
       </section>
 
