@@ -86,7 +86,7 @@ export default function MyClassesPage() {
               Follow me on Eventbrite to get notified first when new workshops, CE courses, and events are announced.
             </p>
             <a
-              href="https://www.eventbrite.com"
+              href="https://www.eventbrite.com/o/46375500903"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary px-8"
