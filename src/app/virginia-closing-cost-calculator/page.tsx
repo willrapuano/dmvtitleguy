@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { CalculatorSchema } from "@/components/SchemaMarkup";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
@@ -42,6 +43,8 @@ export default function VirginiaCalculatorPage() {
           <ClosingCostCalculator state="VA" />
         </div>
       </section>
+
+      <TitleQuoteEmbed />
 
       {/* ── EXPLAINER ── */}
       <section className="section-gray">

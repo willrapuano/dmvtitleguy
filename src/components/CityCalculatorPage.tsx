@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import type { CityOverrides } from "@/components/ClosingCostCalculator";
 import { CityCalculatorSchema } from "@/components/SchemaMarkup";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import {
   CITY_CALCULATOR_DATA,
   getStateCalcSlug,
@@ -93,6 +94,8 @@ export default function CityCalculatorPage({ data }: Props) {
           <ClosingCostCalculator state={data.state} cityOverrides={cityOverrides} />
         </div>
       </section>
+
+      <TitleQuoteEmbed subtitle={`Use this live quote tool for a precise title and escrow estimate in ${cityLabel}.`} />
 
       {/* ── LOCAL TAX EXPLAINER ── */}
       <section className="section-gray">

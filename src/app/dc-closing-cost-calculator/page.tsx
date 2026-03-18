@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { CalculatorSchema } from "@/components/SchemaMarkup";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 
 export const metadata: Metadata = {
   title: "Washington DC Closing Cost Calculator | DMV Title Guy",
@@ -35,6 +36,8 @@ export default function DCCalculatorPage() {
           <ClosingCostCalculator state="DC" />
         </div>
       </section>
+
+      <TitleQuoteEmbed />
 
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
