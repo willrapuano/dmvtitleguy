@@ -3,12 +3,14 @@
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useRouter } from "next/navigation";
+import { upload } from "@vercel/blob/client";
 import { Upload, FileText, Loader2 } from "lucide-react";
 
 export default function UploadForm() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const [fileName, setFileName] = useState("");
+  const [status, setStatus] = useState("");
   const router = useRouter();
 
   const onDrop = useCallback(
@@ -16,24 +18,24 @@ export default function UploadForm() {
       const file = acceptedFiles[0];
       if (!file) return;
 
-      // Vercel serverless body limit is ~4.5MB
-      const MAX_SIZE_MB = 4;
-      if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-        setError(`File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Maximum size is ${MAX_SIZE_MB}MB. Try a smaller PDF or remove embedded images.`);
-        return;
-      }
-
       setFileName(file.name);
       setUploading(true);
       setError("");
 
       try {
-        const form = new FormData();
-        form.append("file", file);
+        // Step 1: Upload PDF to Vercel Blob (bypasses 4.5MB body limit)
+        setStatus("Uploading PDF...");
+        const blob = await upload(file.name, file, {
+          access: "public",
+          handleUploadUrl: "/api/agent-tools/contract-analyzer/upload-url",
+        });
 
+        // Step 2: Send blob URL to analyze endpoint
+        setStatus("Analyzing contract...");
         const res = await fetch("/api/agent-tools/contract-analyzer/upload", {
           method: "POST",
-          body: form,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ blobUrl: blob.url, fileName: file.name }),
         });
 
         const raw = await res.text();
@@ -54,7 +56,7 @@ export default function UploadForm() {
 
         router.push(`/agent-tools/contract-analyzer/analysis/${data.analysisId}`);
       } catch (e) {
-        setError(`Client error: ${(e as Error).message}`);
+        setError(`Error: ${(e as Error).message}`);
         setUploading(false);
       }
     },
@@ -85,7 +87,7 @@ export default function UploadForm() {
           <div className="flex flex-col items-center gap-3">
             <Loader2 className="h-10 w-10 animate-spin text-brand-blue" />
             <p className="text-sm font-medium text-gray-700">
-              Analyzing {fileName}...
+              {status || `Analyzing ${fileName}...`}
             </p>
             <p className="text-xs text-gray-500">
               This may take 15-30 seconds
@@ -104,7 +106,7 @@ export default function UploadForm() {
                 Drag & drop a contract PDF
               </p>
               <p className="text-xs text-gray-500">
-                or click to browse — NVAR K1321 / GCAAR 1301 / MAR
+                or click to browse — up to 50MB
               </p>
             </div>
           </div>

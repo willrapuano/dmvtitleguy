@@ -1,17 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// Allow larger PDF uploads (up to 10MB) and longer execution for AI analysis
-export const maxDuration = 60;
-
+import { del } from "@vercel/blob";
 import { getCurrentUser } from "@/lib/contract-analyzer/auth";
 import { prisma } from "@/lib/prisma";
 import { detectFormType } from "@/lib/contract-analyzer/detect-form";
 import { analyzeContract } from "@/lib/contract-analyzer/analyze";
 
+export const maxDuration = 60;
+
 async function parsePdf(buffer: Buffer): Promise<{ text: string }> {
   // Polyfill DOMMatrix for serverless environments (Vercel)
   if (typeof globalThis.DOMMatrix === "undefined") {
-    // Minimal DOMMatrix stub sufficient for pdfjs text extraction
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (globalThis as any).DOMMatrix = class DOMMatrix {
       a = 1; b = 0; c = 0; d = 1; e = 0; f = 0;
@@ -42,7 +40,6 @@ async function parsePdf(buffer: Buffer): Promise<{ text: string }> {
     };
   }
 
-  // Dynamic import to avoid build-time issues with pdf-parse
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mod: any = await import("pdf-parse");
   const fn = mod.default || mod;
@@ -59,14 +56,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Account pending approval" }, { status: 403 });
     }
 
-    const formData = await req.formData();
-    const file = formData.get("file") as File | null;
-    if (!file || file.type !== "application/pdf") {
-      return NextResponse.json({ error: "PDF file required" }, { status: 400 });
+    const { blobUrl, fileName } = await req.json();
+    if (!blobUrl || typeof blobUrl !== "string") {
+      return NextResponse.json({ error: "blobUrl required" }, { status: 400 });
     }
 
-    // Extract text from PDF
-    const buffer = Buffer.from(await file.arrayBuffer());
+    // Download PDF from Vercel Blob
+    const blobRes = await fetch(blobUrl);
+    if (!blobRes.ok) {
+      return NextResponse.json({ error: "Failed to fetch uploaded PDF" }, { status: 422 });
+    }
+    const buffer = Buffer.from(await blobRes.arrayBuffer());
+
+    // Extract text
     let rawText: string;
     try {
       const parsed = await parsePdf(buffer);
@@ -76,6 +78,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: `Failed to parse PDF: ${String(err)}` }, { status: 422 });
     }
 
+    // Clean up blob after reading (don't leave PDFs in storage)
+    try { await del(blobUrl); } catch { /* ignore cleanup errors */ }
+
     if (rawText.trim().length < 50) {
       return NextResponse.json(
         { error: "PDF appears to be empty or image-only. Text extraction failed." },
@@ -83,17 +88,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Detect form type
     const { formType } = detectFormType(rawText);
-
-    // Run analysis
     const result = await analyzeContract(rawText, formType);
 
-    // Persist
     const analysis = await prisma.analysis.create({
       data: {
         userId: user.id,
-        fileName: file.name,
+        fileName: fileName || "contract.pdf",
         formType,
         overallStatus: result.findings.some((f) => f.severity === "critical")
           ? "FAIL"
