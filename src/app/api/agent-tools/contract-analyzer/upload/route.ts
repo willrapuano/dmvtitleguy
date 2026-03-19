@@ -5,6 +5,39 @@ import { detectFormType } from "@/lib/contract-analyzer/detect-form";
 import { analyzeContract } from "@/lib/contract-analyzer/analyze";
 
 async function parsePdf(buffer: Buffer): Promise<{ text: string }> {
+  // Polyfill DOMMatrix for serverless environments (Vercel)
+  if (typeof globalThis.DOMMatrix === "undefined") {
+    // Minimal DOMMatrix stub sufficient for pdfjs text extraction
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (globalThis as any).DOMMatrix = class DOMMatrix {
+      a = 1; b = 0; c = 0; d = 1; e = 0; f = 0;
+      m11 = 1; m12 = 0; m13 = 0; m14 = 0;
+      m21 = 0; m22 = 1; m23 = 0; m24 = 0;
+      m31 = 0; m32 = 0; m33 = 1; m34 = 0;
+      m41 = 0; m42 = 0; m43 = 0; m44 = 1;
+      is2D = true; isIdentity = true;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      constructor(init?: any) {
+        if (Array.isArray(init) && init.length === 6) {
+          [this.a, this.b, this.c, this.d, this.e, this.f] = init;
+          this.m11 = this.a; this.m12 = this.b;
+          this.m21 = this.c; this.m22 = this.d;
+          this.m41 = this.e; this.m42 = this.f;
+          this.isIdentity = false;
+        }
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      inverse() { return new (globalThis as any).DOMMatrix(); }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      multiply() { return new (globalThis as any).DOMMatrix(); }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      scale() { return new (globalThis as any).DOMMatrix(); }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      translate() { return new (globalThis as any).DOMMatrix(); }
+      transformPoint(p: { x: number; y: number }) { return p; }
+    };
+  }
+
   // Dynamic import to avoid build-time issues with pdf-parse
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mod: any = await import("pdf-parse");
