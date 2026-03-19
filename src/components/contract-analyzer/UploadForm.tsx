@@ -16,6 +16,13 @@ export default function UploadForm() {
       const file = acceptedFiles[0];
       if (!file) return;
 
+      // Vercel serverless body limit is ~4.5MB
+      const MAX_SIZE_MB = 4;
+      if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+        setError(`File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Maximum size is ${MAX_SIZE_MB}MB. Try a smaller PDF or remove embedded images.`);
+        return;
+      }
+
       setFileName(file.name);
       setUploading(true);
       setError("");

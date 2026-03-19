@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+
+// Allow larger PDF uploads (up to 10MB) and longer execution for AI analysis
+export const maxDuration = 60;
+
 import { getCurrentUser } from "@/lib/contract-analyzer/auth";
 import { prisma } from "@/lib/prisma";
 import { detectFormType } from "@/lib/contract-analyzer/detect-form";

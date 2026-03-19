@@ -3,5 +3,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
-  "regions": ["iad1"]
+  "regions": ["iad1"],
+  "functions": {
+    "src/app/api/agent-tools/contract-analyzer/upload/route.ts": {
+      "maxDuration": 60
+    }
+  }
 }
