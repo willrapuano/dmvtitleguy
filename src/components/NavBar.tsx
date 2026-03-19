@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "Why Pruitt Title?", href: "/why-choose-us" },
 
   { label: "Calculators", href: "/calculators" },
+  { label: "Agent Tools", href: "/agent-tools" },
 ];
 
 export function NavBar() {

@@ -1,12 +1,34 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { BLOG_POSTS, getBlogPost } from "@/data/blog";
+import { BLOG_POSTS, getPublishedBlogPost } from "@/data/blog";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
-import { getBlogContent, extractFAQs } from "@/lib/blog-content";
+import { extractFAQs } from "@/lib/blog-content";
 import { BlogArticle } from "@/components/BlogArticle";
+import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
+import { PortableText } from "@portabletext/react";
 
-/** Internal linking map — cross-links between related blog posts and site pages */
+export const revalidate = 3600;
+
+/** Internal linking map — cross-links between related blog posts and site pages.
+ *  Only reference posts that have actual content files. */
+const STATIC_VALID_PATHS = new Set([
+  "/",
+  "/blog",
+  "/my-blog",
+  "/title-insurance",
+  "/why-choose-us",
+  "/virginia-closing-cost-calculator",
+  "/maryland-closing-cost-calculator",
+  "/dc-closing-cost-calculator",
+  "/subscribe",
+]);
+
+const VALID_INTERNAL_PATHS = new Set([
+  ...Array.from(STATIC_VALID_PATHS),
+  ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
+]);
+
 const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "lenders-title-insurance-vs-owners-title-insurance": [
     { label: "Title Insurance Resources", href: "/title-insurance" },
@@ -15,7 +37,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: "Why Pruitt Title?", href: "/why-choose-us" },
   ],
   "what-is-a-title-settlement-fee": [
-    { label: "Closing Costs in the DMV", href: "/blog/closing-costs-dmv-buyers-sellers" },
+    { label: "Closing Costs in Virginia (2026)", href: "/blog/closing-costs-in-virginia-2026" },
     { label: "Title Insurance Resources", href: "/title-insurance" },
     { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
     { label: "Why Pruitt Title?", href: "/why-choose-us" },
@@ -24,42 +46,72 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: "Title Insurance Resources", href: "/title-insurance" },
     { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
     { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
-    { label: "How to Choose the Right Title Company", href: "/blog/how-to-choose-right-title-company-dmv" },
     { label: "Why Pruitt Title?", href: "/why-choose-us" },
   ],
   "standard-vs-enhanced-title-insurance": [
     { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
     { label: "Title Insurance Resources", href: "/title-insurance" },
-    { label: "Title Insurance Requirements: DC, MD, VA", href: "/blog/title-insurance-requirements-dc-md-va" },
+    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
     { label: "Why Pruitt Title?", href: "/why-choose-us" },
   ],
-  "closing-costs-dmv-buyers-sellers": [
+  "closing-costs-in-virginia-2026": [
     { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
     { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
+    { label: "Title Insurance Resources", href: "/title-insurance" },
   ],
-  "how-to-choose-right-title-company-dmv": [
-    { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
+  "title-companies-in-northern-virginia": [
     { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
+    { label: "Title Companies in Fredericksburg", href: "/blog/title-companies-fredericksburg-va" },
+    { label: "Why Pruitt Title?", href: "/why-choose-us" },
   ],
-  "title-insurance-requirements-dc-md-va": [
-    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
-    { label: "Standard vs Enhanced Title Insurance", href: "/blog/standard-vs-enhanced-title-insurance" },
-  ],
-  "title-companies-new-construction": [
+  "title-companies-fredericksburg-va": [
+    { label: "Title Companies in Northern Virginia", href: "/blog/title-companies-in-northern-virginia" },
     { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
-  ],
-  "title-insurance-real-estate-lenders-dmv": [
-    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
-    { label: "Standard vs Enhanced Title Insurance", href: "/blog/standard-vs-enhanced-title-insurance" },
+    { label: "Why Pruitt Title?", href: "/why-choose-us" },
   ],
 };
 
+function slugifyHeading(input: string): string {
+  return input
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+function extractTOC(content: string | null): { id: string; label: string }[] {
+  if (!content) return [];
+  return content
+    .split("\n")
+    .filter((line) => /^##\s+/.test(line))
+    .map((line) => line.replace(/^##\s+/, "").trim())
+    .filter(Boolean)
+    .map((label) => ({ id: slugifyHeading(label), label }));
+}
+
+function extractKeyTakeaways(_content: string | null, excerpt: string): string[] {
+  const base = excerpt
+    .split(".")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .slice(0, 3);
+
+  if (base.length > 0) return base;
+
+  return [
+    "Understand what this means for your closing timeline.",
+    "Know which fees matter and where you can compare providers.",
+    "Use this guide to avoid preventable settlement mistakes.",
+  ];
+}
+
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((p) => ({ slug: p.slug }));
+  const slugs = await fetchAllBlogSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getBlogPost(params.slug);
+  const { post } = await fetchBlogPostBySlug(params.slug);
   if (!post) return { title: "Not Found" };
   return {
     title: post.title,
@@ -69,13 +121,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { post, portableTextBody, markdownContent } = await fetchBlogPostBySlug(params.slug);
   if (!post) notFound();
 
-  const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
-  const content = getBlogContent(params.slug);
-  const faqs = content ? extractFAQs(content) : [];
+  const allPosts = await fetchAllBlogPosts();
+  const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const faqs = markdownContent ? extractFAQs(markdownContent) : [];
+  const toc = extractTOC(markdownContent);
+  const takeaways = extractKeyTakeaways(markdownContent, post.excerpt);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -157,8 +211,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <section className="section-light">
         <div className="container-xl grid md:grid-cols-3 gap-12 max-w-6xl">
           <article className="md:col-span-2 prose prose-lg max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline prose-strong:text-brand-navy prose-table:text-sm">
-            {content ? (
-              <BlogArticle content={content} />
+            <div className="not-prose bg-blue-50 border border-blue-100 rounded-xl p-5 mb-8">
+              <h2 className="text-lg font-bold text-brand-navy mb-3">Key Takeaways</h2>
+              <ul className="list-disc pl-5 space-y-2 text-sm text-brand-muted">
+                {takeaways.map((item, i) => (
+                  <li key={`${post.slug}-takeaway-${i}`}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            {portableTextBody ? (
+              <div className="prose prose-lg max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue">
+                <PortableText value={portableTextBody} />
+              </div>
+            ) : markdownContent ? (
+              <BlogArticle content={markdownContent} />
             ) : (
               <div className="bg-brand-gray-bg border border-gray-200 rounded-lg p-6 text-center text-brand-muted">
                 <p className="font-medium text-brand-navy mb-2">📝 Full Article Coming Soon</p>
@@ -169,25 +236,44 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </div>
             )}
 
-            <div className="mt-10 pt-8 border-t border-gray-100">
+            <div className="not-prose mt-10 pt-8 border-t border-gray-100">
               <h3 className="font-bold text-brand-navy mb-4">Related Resources</h3>
               <div className="grid sm:grid-cols-3 gap-4">
                 {(INTERNAL_LINKS[post.slug] || [
                   { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
                   { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
                   { label: "Title Insurance", href: "/title-insurance" },
-                ]).slice(0, 6).map((link) => (
-                  <Link key={link.href} href={link.href} className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block no-underline">
-                    {link.label} →
-                  </Link>
-                ))}
+                ])
+                  .filter((link) => VALID_INTERNAL_PATHS.has(link.href))
+                  .slice(0, 6)
+                  .map((link) => (
+                    <Link key={link.href} href={link.href} className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block no-underline">
+                      {link.label} →
+                    </Link>
+                  ))}
               </div>
             </div>
           </article>
 
-          <aside className="space-y-6">
+          <aside className="space-y-6 md:sticky md:top-24 h-fit">
+            {toc.length > 0 && (
+              <div className="bg-white border border-gray-100 rounded-xl p-4">
+                <h3 className="font-bold text-brand-navy mb-3 text-sm">On This Page</h3>
+                <ul className="space-y-2">
+                  {toc.map((item) => (
+                    <li key={item.id}>
+                      <a href={`#${item.id}`} className="text-xs text-brand-blue hover:underline leading-snug block">
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <LeadCaptureForm compact title="Get a Free Quote" location={`blog-${post.slug}`} />
-            <div>
+
+            <div className="bg-white border border-gray-100 rounded-xl p-4">
               <h3 className="font-bold text-brand-navy mb-3 text-sm">Recent Posts</h3>
               <ul className="space-y-3">
                 {related.map((r) => (

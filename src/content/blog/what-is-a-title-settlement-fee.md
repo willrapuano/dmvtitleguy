@@ -90,31 +90,31 @@ What you *shouldn't* do is choose based on fee alone. A title company that cuts 
 
 ## Frequently Asked Questions
 
-## What is a title settlement fee?
+### What is a title settlement fee?
 
 A title settlement fee is the charge for the title company or settlement agent's professional services in conducting your real estate closing. It covers document preparation, coordination of all parties, conducting the closing, disbursing funds, and recording the deed. In the DMV area, this typically runs $400–$950 depending on the state and transaction complexity.
 
-## Is the title settlement fee the same as the closing fee?
+### Is the title settlement fee the same as the closing fee?
 
 Yes. "Settlement fee," "closing fee," and "title settlement closing fee" all refer to the same charge — the settlement agent's professional fee for handling the closing. Different companies and different Loan Estimates may label it differently, but they cover the same service.
 
-## What is a reasonable settlement closing fee in Virginia?
+### What is a reasonable settlement closing fee in Virginia?
 
 For a standard residential purchase in Virginia, a reasonable settlement fee is **$400–$700**. Transactions with construction loans, complex title issues, or multiple parties may run higher. If you see a fee significantly above $700 on a straightforward purchase, ask for an itemized explanation.
 
-## Who pays the title settlement fee — buyer or seller?
+### Who pays the title settlement fee — buyer or seller?
 
 In Virginia and Maryland, it's negotiable and typically spelled out in the purchase contract. In practice, buyers often pay the settlement fee on the lender's side, while sellers pay a separate fee for settlement services on their side. In DC, the split is also negotiable. Your real estate agent should clarify this in your contract terms.
 
-## Does the title settlement fee include title insurance?
+### Does the title settlement fee include title insurance?
 
 No. Title insurance (both the lender's policy and the optional owner's policy) is a separate line item. The settlement fee covers the settlement agent's professional services. [Title insurance][LINK:/title-insurance] protects you from title defects — they're related services, but separate costs.
 
-## Can I use my own title company, or does my lender choose?
+### Can I use my own title company, or does my lender choose?
 
 In most purchase transactions, you have the right to choose your settlement agent. Your lender may have a preferred title company, but federal RESPA rules generally prohibit them from requiring you to use a specific company as a condition of your loan. Ask your lender directly.
 
-## Why is the settlement fee higher in Maryland and DC than in Virginia?
+### Why is the settlement fee higher in Maryland and DC than in Virginia?
 
 Maryland requires attorney involvement in residential closings, which adds legal oversight (and cost). DC has additional compliance requirements — including rent control certifications, co-op documentation, and mandatory attorney review — that increase the work involved in each transaction.
 

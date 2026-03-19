@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model ToolUser {
+  id        String        @id @default(cuid())
+  email     String        @unique
+  approved  Boolean       @default(false)
+  isAdmin   Boolean       @default(false)
+  createdAt DateTime      @default(now())
+  sessions  ToolSession[]
+  logins    LoginCode[]
+  analyses  Analysis[]
+}
+
+model ToolSession {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  expiresAt DateTime
+  userId    String
+  user      ToolUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model LoginCode {
+  id        String    @id @default(cuid())
+  email     String
+  code      String
+  expiresAt DateTime
+  usedAt    DateTime?
+  userId    String?
+  user      ToolUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt DateTime  @default(now())
+}
+
+model Analysis {
+  id            String    @id @default(cuid())
+  userId        String
+  user          ToolUser  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fileName      String
+  formType      String
+  overallStatus String
+  summary       String
+  rawText       String
+  aiSource      String
+  sectionsJson  String
+  metadataJson  String
+  createdAt     DateTime  @default(now())
+  findings      Finding[]
+}
+
+model Finding {
+  id          String   @id @default(cuid())
+  analysisId  String
+  analysis    Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+  section     String
+  severity    String
+  title       String
+  description String
+  pageRef     String?
+  lineRef     String?
+  createdAt   DateTime @default(now())
+}

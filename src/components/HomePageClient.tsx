@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
-import { BLOG_POSTS } from "@/data/blog";
 import { ALL_LOCATIONS } from "@/data/locations";
 
 const SOCIAL_LINKS = [
@@ -24,8 +23,6 @@ const AUDIENCE_CARDS = [
 
 
 export function HomePageClient() {
-  const latestPosts = BLOG_POSTS.slice(0, 6);
-
   return (
     <>
       {/* ── SECTION 1: HERO ──────────────────────────────────────── */}
@@ -99,7 +96,7 @@ export function HomePageClient() {
       <section className="section-light">
         <div className="container-xl max-w-4xl text-center">
           <h2 className="text-3xl md:text-[42px] font-bold text-brand-navy leading-tight mb-3">
-            Are You a Real Estate Agent or Mortgage Lender?
+            Title Company &amp; Escrow Services in Virginia, Maryland, and Washington DC
           </h2>
           <div className="accent-divider" />
           <div className="text-brand-muted leading-relaxed space-y-4 text-left mt-8">
@@ -217,85 +214,132 @@ export function HomePageClient() {
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-left">
             {/* Virginia */}
             <div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Virginia</h3>
-              <ul className="space-y-1.5">
-                {ALL_LOCATIONS.filter((l) => l.tier === 1 && l.state === "VA").map((l) => (
-                  <li key={l.slug}>
-                    <Link href={`/${l.slug}`} className="text-brand-blue hover:underline text-sm">
-                      {l.city}
-                    </Link>
-                  </li>
-                ))}
+              <h3 className="font-bold text-brand-navy text-lg mb-2">Virginia Title &amp; Escrow Services</h3>
+              <p className="text-sm text-brand-muted mb-3">
+                We provide professional title insurance, escrow, and real estate closing services throughout Northern Virginia.
+              </p>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Arlington, VA</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-arlington-va" className="text-brand-blue hover:underline text-sm">Title Company in Arlington, VA</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Alexandria, VA</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-alexandria-va" className="text-brand-blue hover:underline text-sm">Title Company in Alexandria, VA</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Falls Church, VA</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-falls-church-va" className="text-brand-blue hover:underline text-sm">Title Company in Falls Church, VA</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Fairfax, VA</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-fairfax-va" className="text-brand-blue hover:underline text-sm">Title Company in Fairfax, VA</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Fairfax County, VA</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-mclean-va" className="text-brand-blue hover:underline text-sm">Title Company in McLean, VA</Link></li>
+                <li><Link href="/title-company-vienna-va" className="text-brand-blue hover:underline text-sm">Title Company in Vienna, VA</Link></li>
+                <li><Link href="/title-company-reston-va" className="text-brand-blue hover:underline text-sm">Title Company in Reston, VA</Link></li>
+                <li><Link href="/title-company-herndon-va" className="text-brand-blue hover:underline text-sm">Title Company in Herndon, VA</Link></li>
+                <li><Link href="/title-company-great-falls-va" className="text-brand-blue hover:underline text-sm">Title Company in Great Falls, VA</Link></li>
+                <li><Link href="/title-company-centreville-va" className="text-brand-blue hover:underline text-sm">Title Company in Centreville, VA</Link></li>
+                <li><Link href="/title-company-chantilly-va" className="text-brand-blue hover:underline text-sm">Title Company in Chantilly, VA</Link></li>
+                <li><Link href="/title-company-burke-va" className="text-brand-blue hover:underline text-sm">Title Company in Burke, VA</Link></li>
+                <li><Link href="/title-company-springfield-va" className="text-brand-blue hover:underline text-sm">Title Company in Springfield, VA</Link></li>
+                <li><Link href="/title-company-annandale-va" className="text-brand-blue hover:underline text-sm">Title Company in Annandale, VA</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Loudoun County, VA</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-ashburn-va" className="text-brand-blue hover:underline text-sm">Title Company in Ashburn, VA</Link></li>
+                <li><Link href="/title-company-leesburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Leesburg, VA</Link></li>
+                <li><Link href="/title-company-sterling-va" className="text-brand-blue hover:underline text-sm">Title Company in Sterling, VA</Link></li>
+                <li><Link href="/title-company-south-riding-va" className="text-brand-blue hover:underline text-sm">Title Company in South Riding, VA</Link></li>
+                <li><Link href="/title-company-brambleton-va" className="text-brand-blue hover:underline text-sm">Title Company in Brambleton, VA</Link></li>
+                <li><Link href="/title-company-purcellville-va" className="text-brand-blue hover:underline text-sm">Title Company in Purcellville, VA</Link></li>
+                <li><Link href="/title-company-middleburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Middleburg, VA</Link></li>
+                <li><Link href="/title-company-middleburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Aldie, VA</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Prince William County, VA</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Woodbridge, VA</Link></li>
+                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Dale City, VA</Link></li>
+                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Lake Ridge, VA</Link></li>
+                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Dumfries, VA</Link></li>
+                <li><Link href="/title-company-gainesville-va" className="text-brand-blue hover:underline text-sm">Title Company in Gainesville, VA</Link></li>
+                <li><Link href="/title-company-haymarket-va" className="text-brand-blue hover:underline text-sm">Title Company in Haymarket, VA</Link></li>
+                <li><Link href="/title-company-bristow-va" className="text-brand-blue hover:underline text-sm">Title Company in Bristow, VA</Link></li>
+                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Occoquan, VA</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Stafford County &amp; Fredericksburg Area</h4>
+              <ul className="space-y-1.5 list-disc pl-5">
+                <li><Link href="/title-company-stafford-va" className="text-brand-blue hover:underline text-sm">Title Company in Stafford, VA</Link></li>
+                <li><Link href="/title-company-fredericksburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Fredericksburg, VA</Link></li>
+                <li><Link href="/title-company-spotsylvania-va" className="text-brand-blue hover:underline text-sm">Title Company in Spotsylvania, VA</Link></li>
               </ul>
             </div>
             {/* Maryland */}
             <div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Maryland</h3>
-              <ul className="space-y-1.5">
-                {ALL_LOCATIONS.filter((l) => l.tier === 1 && l.state === "MD").map((l) => (
-                  <li key={l.slug}>
-                    <Link href={`/${l.slug}`} className="text-brand-blue hover:underline text-sm">
-                      {l.city}
-                    </Link>
-                  </li>
-                ))}
+              <h3 className="font-bold text-brand-navy text-lg mb-2">Maryland Title &amp; Escrow Services</h3>
+              <p className="text-sm text-brand-muted mb-3">
+                We provide professional title insurance, escrow, and real estate closing services throughout Montgomery County and Prince George&apos;s County, including:
+              </p>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Montgomery County, MD</h4>
+              <ul className="space-y-1.5 list-disc pl-5 mb-4">
+                <li><Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline text-sm">Title Company in Bethesda, MD</Link></li>
+                <li><Link href="/title-company-rockville-md" className="text-brand-blue hover:underline text-sm">Title Company in Rockville, MD</Link></li>
+                <li><Link href="/title-company-silver-spring-md" className="text-brand-blue hover:underline text-sm">Title Company in Silver Spring, MD</Link></li>
+                <li><Link href="/title-company-gaithersburg-md" className="text-brand-blue hover:underline text-sm">Title Company in Gaithersburg, MD</Link></li>
+                <li><Link href="/title-company-germantown-md" className="text-brand-blue hover:underline text-sm">Title Company in Germantown, MD</Link></li>
+                <li><Link href="/title-company-potomac-md" className="text-brand-blue hover:underline text-sm">Title Company in Potomac, MD</Link></li>
+                <li><Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline text-sm">Title Company in Chevy Chase, MD</Link></li>
+                <li><Link href="/title-company-silver-spring-md" className="text-brand-blue hover:underline text-sm">Title Company in Kensington, MD</Link></li>
+                <li><Link href="/title-company-gaithersburg-md" className="text-brand-blue hover:underline text-sm">Title Company in Olney, MD</Link></li>
+                <li><Link href="/title-company-potomac-md" className="text-brand-blue hover:underline text-sm">Title Company in North Potomac, MD</Link></li>
+              </ul>
+
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Prince George&apos;s County, MD</h4>
+              <ul className="space-y-1.5 list-disc pl-5">
+                <li><Link href="/title-company-bowie-md" className="text-brand-blue hover:underline text-sm">Title Company in Bowie, MD</Link></li>
+                <li><Link href="/title-company-college-park-md" className="text-brand-blue hover:underline text-sm">Title Company in College Park, MD</Link></li>
+                <li><Link href="/title-company-hyattsville-md" className="text-brand-blue hover:underline text-sm">Title Company in Greenbelt, MD</Link></li>
+                <li><Link href="/title-company-hyattsville-md" className="text-brand-blue hover:underline text-sm">Title Company in Hyattsville, MD</Link></li>
+                <li><Link href="/title-company-laurel-md" className="text-brand-blue hover:underline text-sm">Title Company in Laurel, MD</Link></li>
+                <li><Link href="/title-company-upper-marlboro-md" className="text-brand-blue hover:underline text-sm">Title Company in Upper Marlboro, MD</Link></li>
+                <li><Link href="/title-company-bowie-md" className="text-brand-blue hover:underline text-sm">Title Company in Fort Washington, MD</Link></li>
+                <li><Link href="/title-company-bowie-md" className="text-brand-blue hover:underline text-sm">Title Company in Clinton, MD</Link></li>
               </ul>
             </div>
             {/* Washington DC */}
             <div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Washington DC</h3>
-              <ul className="space-y-1.5">
-                {ALL_LOCATIONS.filter((l) => l.tier === 1 && l.state === "DC").map((l) => (
-                  <li key={l.slug}>
-                    <Link href={`/${l.slug}`} className="text-brand-blue hover:underline text-sm">
-                      {l.city}
-                    </Link>
-                  </li>
-                ))}
+              <h3 className="font-bold text-brand-navy text-lg mb-2">Washington DC Title &amp; Escrow Services</h3>
+              <p className="text-sm text-brand-muted mb-3">
+                We provide professional title insurance, escrow, and real estate closing services throughout Washington, DC, including:
+              </p>
+              <h4 className="font-semibold text-brand-navy text-sm mb-2">Washington, DC</h4>
+              <ul className="space-y-1.5 list-disc pl-5">
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Washington, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Georgetown, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Capitol Hill, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Navy Yard, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Dupont Circle, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Logan Circle, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Adams Morgan, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Shaw, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Columbia Heights, DC</Link></li>
+                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Brookland, DC</Link></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
-
-      {/* ── SECTION 7: LATEST BLOG POSTS ─────────────────────────── */}
-      <section className="section-light">
-        <div className="container-xl">
-          <div className="text-center mb-10">
-            <h2 className="prose-title">Latest Blog Posts</h2>
-            <div className="accent-divider" />
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {latestPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-5">
-                    <span className="text-xs text-brand-blue font-medium">{post.category}</span>
-                    <span className="text-xs text-gray-400 mt-1 block">{post.date}</span>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue transition-colors mb-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-xs text-brand-muted leading-relaxed line-clamp-3">{post.excerpt}</p>
-                  <span className="text-brand-blue text-xs mt-3 block font-medium">Read more →</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/my-blog" className="btn-outline">View All Posts</Link>
-          </div>
-        </div>
-      </section>
-
 
 
       {/* ── SECTION 9: LOOKING FOR IDEAS ─────────────────────────── */}

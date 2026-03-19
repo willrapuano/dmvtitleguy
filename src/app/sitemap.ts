@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { ALL_LOCATIONS, COUNTIES } from "@/data/locations";
-import { BLOG_POSTS } from "@/data/blog";
+import { PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
 
 const BASE_URL = "https://www.dmvtitleguy.io";
@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/maryland-closing-cost-calculator`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/dc-closing-cost-calculator`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/calculators`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/agent-tools`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/agent-tools/contract-analyzer`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/my-blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
@@ -40,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+  const blogPages: MetadataRoute.Sitemap = PUBLISHED_BLOG_POSTS.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.dateISO),
     changeFrequency: "yearly" as const,
