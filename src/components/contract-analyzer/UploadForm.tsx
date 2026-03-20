@@ -25,7 +25,7 @@ export default function UploadForm() {
       try {
         // Step 1: Upload PDF to Vercel Blob (bypasses 4.5MB body limit)
         setStatus("Uploading PDF...");
-        const blob = await upload(file.name, file, {
+        const blob = await upload(`contracts/${Date.now()}-${file.name}`, file, {
           access: "public",
           handleUploadUrl: "/api/agent-tools/contract-analyzer/upload-url",
         });
