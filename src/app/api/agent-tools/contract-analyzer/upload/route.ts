@@ -7,46 +7,12 @@ import { analyzeContract } from "@/lib/contract-analyzer/analyze";
 
 export const maxDuration = 60;
 
-async function parsePdf(buffer: Buffer): Promise<{ text: string }> {
-  // Polyfill DOMMatrix for serverless environments (Vercel)
-  if (typeof globalThis.DOMMatrix === "undefined") {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (globalThis as any).DOMMatrix = class DOMMatrix {
-      a = 1; b = 0; c = 0; d = 1; e = 0; f = 0;
-      m11 = 1; m12 = 0; m13 = 0; m14 = 0;
-      m21 = 0; m22 = 1; m23 = 0; m24 = 0;
-      m31 = 0; m32 = 0; m33 = 1; m34 = 0;
-      m41 = 0; m42 = 0; m43 = 0; m44 = 1;
-      is2D = true; isIdentity = true;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      constructor(init?: any) {
-        if (Array.isArray(init) && init.length === 6) {
-          [this.a, this.b, this.c, this.d, this.e, this.f] = init;
-          this.m11 = this.a; this.m12 = this.b;
-          this.m21 = this.c; this.m22 = this.d;
-          this.m41 = this.e; this.m42 = this.f;
-          this.isIdentity = false;
-        }
-      }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      inverse() { return new (globalThis as any).DOMMatrix(); }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      multiply() { return new (globalThis as any).DOMMatrix(); }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      scale() { return new (globalThis as any).DOMMatrix(); }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      translate() { return new (globalThis as any).DOMMatrix(); }
-      transformPoint(p: { x: number; y: number }) { return p; }
-    };
-  }
-
-  // pdf-parse v2 uses PDFParse class
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { PDFParse, VerbosityLevel } = await import("pdf-parse") as any;
-  PDFParse.setWorker(); // Required in serverless (no worker threads)
-  const parser = new PDFParse({ data: new Uint8Array(buffer), verbosity: VerbosityLevel?.ERRORS ?? 0 });
-  const result = await parser.getText();
-  return { text: result.text };
+async function parsePdf(buffer: Buffer): Promise<string> {
+  // pdf-parse v1 — simple function, works in serverless
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const pdfParse = require("pdf-parse");
+  const result = await pdfParse(buffer);
+  return result.text || "";
 }
 
 export async function POST(req: NextRequest) {
@@ -74,15 +40,14 @@ export async function POST(req: NextRequest) {
     // Extract text
     let rawText: string;
     try {
-      const parsed = await parsePdf(buffer);
-      rawText = parsed.text || "";
+      rawText = await parsePdf(buffer);
     } catch (err) {
       console.error("PDF parse error:", err);
       return NextResponse.json({ error: `Failed to parse PDF: ${String(err)}` }, { status: 422 });
     }
 
-    // Clean up blob after reading (don't leave PDFs in storage)
-    try { await del(blobUrl); } catch { /* ignore cleanup errors */ }
+    // Clean up blob after reading
+    try { await del(blobUrl); } catch { /* ignore */ }
 
     if (rawText.trim().length < 50) {
       return NextResponse.json(
