@@ -40,10 +40,12 @@ async function parsePdf(buffer: Buffer): Promise<{ text: string }> {
     };
   }
 
+  // pdf-parse v2 uses PDFParse class
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mod: any = await import("pdf-parse");
-  const fn = mod.default || mod;
-  return fn(buffer);
+  const { PDFParse } = await import("pdf-parse") as any;
+  const parser = new PDFParse({ data: buffer });
+  const result = await parser.getText();
+  return { text: result.text };
 }
 
 export async function POST(req: NextRequest) {
