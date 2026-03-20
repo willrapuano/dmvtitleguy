@@ -8,9 +8,9 @@ import { analyzeContract } from "@/lib/contract-analyzer/analyze";
 export const maxDuration = 60;
 
 async function parsePdf(buffer: Buffer): Promise<string> {
-  // pdf-parse v1 — simple function, works in serverless
+  // Import the lib directly to skip pdf-parse's broken test-file auto-run
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const pdfParse = require("pdf-parse");
+  const pdfParse = require("pdf-parse/lib/pdf-parse.js");
   const result = await pdfParse(buffer);
   return result.text || "";
 }
