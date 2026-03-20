@@ -18,9 +18,9 @@ export function Footer() {
       <div className="border-b border-white/10 py-8">
         <div className="container-xl">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Areas We Serve</h3>
-          <p className="text-gray-300 text-xs leading-relaxed overflow-hidden break-words">
+          <p className="text-gray-300 text-xs leading-loose overflow-hidden">
             {ALL_LOCATIONS.map((loc, i) => (
-              <span key={loc.slug}>
+              <span key={loc.slug} className="inline-block whitespace-nowrap">
                 {i > 0 && <span className="mx-1">·</span>}
                 <Link href={`/${loc.slug}`} className="hover:text-brand-blue transition-colors">
                   {loc.city}
