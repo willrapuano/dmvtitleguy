@@ -42,8 +42,9 @@ async function parsePdf(buffer: Buffer): Promise<{ text: string }> {
 
   // pdf-parse v2 uses PDFParse class
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { PDFParse } = await import("pdf-parse") as any;
-  const parser = new PDFParse({ data: buffer });
+  const { PDFParse, VerbosityLevel } = await import("pdf-parse") as any;
+  PDFParse.setWorker(); // Required in serverless (no worker threads)
+  const parser = new PDFParse({ data: new Uint8Array(buffer), verbosity: VerbosityLevel?.ERRORS ?? 0 });
   const result = await parser.getText();
   return { text: result.text };
 }
