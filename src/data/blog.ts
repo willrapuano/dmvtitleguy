@@ -33,8 +33,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "what-does-a-title-company-do",
     title: "What Does a Title Company Do? The Complete Guide",
-    date: "March 23, 2026",
-    dateISO: "2026-03-23",
+    date: "March 20, 2026",
+    dateISO: "2026-03-20",
     excerpt: "Title companies play a critical role in every real estate transaction — from conducting title searches to issuing insurance and coordinating closings. Here's exactly what a title company does and why it matters.",
     category: "Education",
     readTime: "7 min read",
@@ -43,8 +43,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "standard-vs-enhanced-title-insurance",
     title: "Standard vs Enhanced Title Insurance: Which Policy Do You Need?",
-    date: "March 26, 2026",
-    dateISO: "2026-03-26",
+    date: "March 20, 2026",
+    dateISO: "2026-03-20",
     excerpt: "Standard and enhanced title insurance policies offer different levels of coverage. This guide compares the two, explains when enhanced coverage is worth it, and what DMV buyers should know before choosing a policy.",
     category: "Title Insurance",
     readTime: "6 min read",

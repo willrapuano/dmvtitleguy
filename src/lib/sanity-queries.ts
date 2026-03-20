@@ -42,7 +42,7 @@ export async function getAllPosts(): Promise<SanityBlogPost[]> {
   if (!SANITY_READY) return [];
   try {
     return await sanityClient.fetch(
-      `*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
+      `*[_type == "post" && !(_id in path("drafts.**")) && publishedAt <= now()] | order(publishedAt desc) {
         ${POST_LIST_FIELDS}
       }`
     );
