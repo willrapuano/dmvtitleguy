@@ -24,7 +24,7 @@ export default async function MyBlogPage() {
             The DMV Title Guy Blog
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            Real Estate Closing Insights
+            DMV Title Guy - Blog
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
             Practical answers on title insurance, closing costs, and everything in between —
