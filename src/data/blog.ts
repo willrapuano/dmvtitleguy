@@ -335,3 +335,17 @@ export const BLOG_POSTS: BlogPost[] = [
 export function getBlogPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
 }
+
+const TODAY_ISO = new Date().toISOString().slice(0, 10);
+
+export const PUBLISHED_BLOG_POSTS: BlogPost[] = BLOG_POSTS
+  .filter((post) => post.dateISO <= TODAY_ISO)
+  .sort((a, b) => b.dateISO.localeCompare(a.dateISO));
+
+export function getBlogPost(slug: string): BlogPost | undefined {
+  return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function getPublishedBlogPost(slug: string): BlogPost | undefined {
+  return PUBLISHED_BLOG_POSTS.find((p) => p.slug === slug);
+}
