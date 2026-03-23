@@ -332,10 +332,6 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
-export function getBlogPost(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug);
-}
-
 const TODAY_ISO = new Date().toISOString().slice(0, 10);
 
 export const PUBLISHED_BLOG_POSTS: BlogPost[] = BLOG_POSTS
