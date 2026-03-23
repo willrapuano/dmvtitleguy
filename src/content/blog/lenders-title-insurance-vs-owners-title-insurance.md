@@ -1,4 +1,17 @@
+---
+title: "Lender's Title Insurance vs Owner's Title Insurance: What's the Difference?"
+slug: lenders-title-insurance-vs-owners-title-insurance
+client: dmvtitleguy
+target_keyword: "lenders title insurance"
+secondary_keywords: ["difference between lenders and owners title insurance", "what is lender's title insurance", "lender title insurance"]
+meta_description: "Lender's title insurance vs owner's title insurance explained in plain English — who pays, who's protected, and what's required in Virginia, Maryland, and DC."
+schema: ["FAQPage", "BlogPosting"]
+author: "Will Rapuano"
+status: approved
+publish_date: 2026-03-17
+---
 
+# Lender's Title Insurance vs Owner's Title Insurance: What's the Difference?
 
 If you've ever sat at a closing table and squinted at a line item that just says "title insurance" — you're not alone. Most buyers don't realize there are actually two separate policies at play: **lender's title insurance** and owner's title insurance. They sound similar. They cost money. And most people sign for both without fully understanding what they're buying or why it matters.
 

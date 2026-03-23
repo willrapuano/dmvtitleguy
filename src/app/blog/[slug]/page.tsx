@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { BLOG_POSTS, getPublishedBlogPost } from "@/data/blog";
+import { BLOG_POSTS } from "@/data/blog";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
-import { extractFAQs } from "@/lib/blog-content";
 import { BlogArticle } from "@/components/BlogArticle";
 import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
+import { splitBodyAndFAQ } from "@/lib/blog-content";
 import { PortableText } from "@portabletext/react";
 
 export const revalidate = 3600;
 
-/** Internal linking map — cross-links between related blog posts and site pages.
- *  Only reference posts that have actual content files. */
+/** Internal linking map */
 const STATIC_VALID_PATHS = new Set([
   "/",
   "/blog",
@@ -22,6 +21,7 @@ const STATIC_VALID_PATHS = new Set([
   "/maryland-closing-cost-calculator",
   "/dc-closing-cost-calculator",
   "/subscribe",
+  "/contact",
 ]);
 
 const VALID_INTERNAL_PATHS = new Set([
@@ -83,26 +83,10 @@ function extractTOC(content: string | null): { id: string; label: string }[] {
   if (!content) return [];
   return content
     .split("\n")
-    .filter((line) => /^##\s+/.test(line))
+    .filter((line) => /^##\s+/.test(line) && !/^##\s+(FAQ|Frequently)/i.test(line) && !line.match(/\?$/))
     .map((line) => line.replace(/^##\s+/, "").trim())
     .filter(Boolean)
     .map((label) => ({ id: slugifyHeading(label), label }));
-}
-
-function extractKeyTakeaways(_content: string | null, excerpt: string): string[] {
-  const base = excerpt
-    .split(".")
-    .map((s) => s.trim())
-    .filter(Boolean)
-    .slice(0, 3);
-
-  if (base.length > 0) return base;
-
-  return [
-    "Understand what this means for your closing timeline.",
-    "Know which fees matter and where you can compare providers.",
-    "Use this guide to avoid preventable settlement mistakes.",
-  ];
 }
 
 export async function generateStaticParams() {
@@ -117,7 +101,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: post.title,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: { title: post.title, description: post.excerpt, type: "article", publishedTime: post.dateISO, images: [{ url: post.image, width: 1024, height: 576 }] },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.dateISO,
+      images: [{ url: post.image, width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -127,9 +117,18 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   const allPosts = await fetchAllBlogPosts();
   const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
-  const faqs = markdownContent ? extractFAQs(markdownContent) : [];
-  const toc = extractTOC(markdownContent);
-  const takeaways = extractKeyTakeaways(markdownContent, post.excerpt);
+
+  // Split body and FAQs from markdown
+  const { body: bodyContent, faqs } = markdownContent
+    ? splitBodyAndFAQ(markdownContent)
+    : { body: null, faqs: [] };
+
+  const toc = extractTOC(bodyContent);
+
+  // Build share URLs
+  const canonicalUrl = `https://www.dmvtitleguy.io/blog/${post.slug}`;
+  const shareTitle = encodeURIComponent(post.title);
+  const shareUrl = encodeURIComponent(canonicalUrl);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -141,7 +140,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     dateModified: post.dateISO,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.dmvtitleguy.io/blog/${post.slug}`,
+      "@id": canonicalUrl,
     },
     author: {
       "@type": "Person",
@@ -161,132 +160,360 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     },
   };
 
-  const faqSchema = faqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  } : null;
+  const faqSchema = faqs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }
+    : null;
+
+  const relatedLinks = (
+    INTERNAL_LINKS[post.slug] || [
+      { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+      { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+      { label: "Title Insurance", href: "/title-insurance" },
+    ]
+  ).filter((link) => VALID_INTERNAL_PATHS.has(link.href)).slice(0, 4);
 
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {faqSchema && (
-        <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
       )}
 
-      {/* Hero */}
-      <section className="relative bg-brand-navy text-white py-14 md:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={post.image} alt="" className="w-full h-full object-cover opacity-20" loading="eager" />
-          <div className="absolute inset-0 bg-brand-navy/75" />
+      {/* ─── Hero Image ─── */}
+      <div className="w-full bg-brand-navy">
+        <div className="relative w-full" style={{ paddingBottom: "42%" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={post.image}
+            alt={post.title}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.85 }}
+            loading="eager"
+            onError={undefined}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-navy/20 to-brand-navy/60" />
         </div>
-        <div className="container-xl max-w-3xl relative z-10">
-          <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/my-blog" className="hover:text-brand-blue">My Blog</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-300 truncate">{post.title.substring(0, 40)}…</span>
+      </div>
+
+      {/* ─── Title + Meta ─── */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-3xl mx-auto px-6 py-8">
+          {/* Breadcrumb */}
+          <nav className="text-xs text-gray-400 mb-5 flex items-center gap-1.5">
+            <Link href="/" className="hover:text-brand-blue transition-colors">Home</Link>
+            <span>/</span>
+            <Link href="/my-blog" className="hover:text-brand-blue transition-colors">Blog</Link>
+            <span>/</span>
+            <span className="text-gray-500 truncate max-w-[200px]">{post.title}</span>
           </nav>
-          <div className="flex items-center gap-3 text-xs text-gray-400 mb-4">
-            <span className="bg-brand-blue/20 text-brand-blue px-2 py-0.5 rounded">{post.category}</span>
+
+          {/* Category tag */}
+          <span className="inline-block text-xs font-semibold text-brand-blue bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+            {post.category}
+          </span>
+
+          {/* Title */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-navy leading-tight mb-5">
+            {post.title}
+          </h1>
+
+          {/* Author + Date + Read time */}
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white text-xs font-bold">
+                WR
+              </div>
+              <span className="font-medium text-brand-navy">Will Rapuano</span>
+            </div>
+            <span className="text-gray-300">|</span>
             <span>{post.date}</span>
-            <span>·</span>
+            <span className="text-gray-300">|</span>
             <span>{post.readTime}</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight">{post.title}</h1>
-          <p className="text-gray-300 mt-4 text-lg">{post.excerpt}</p>
-          <p className="text-xs text-gray-500 mt-4">By Will Rapuano — Business Development, Pruitt Title LLC</p>
+
+          {/* Social Share */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs text-gray-400 uppercase tracking-wide mr-1">Share:</span>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-black hover:text-white hover:border-black transition-all"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Twitter/X
+            </a>
+            <a
+              href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-all"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a
+              href={`mailto:?subject=${shareTitle}&body=Check out this article: ${canonicalUrl}`}
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+              Email
+            </a>
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Content */}
-      <section className="section-light">
-        <div className="container-xl grid md:grid-cols-3 gap-12 max-w-6xl">
-          <article className="md:col-span-2 prose prose-lg max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline prose-strong:text-brand-navy prose-table:text-sm">
-            <div className="not-prose bg-blue-50 border border-blue-100 rounded-xl p-5 mb-8">
-              <h2 className="text-lg font-bold text-brand-navy mb-3">Key Takeaways</h2>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-brand-muted">
-                {takeaways.map((item, i) => (
-                  <li key={`${post.slug}-takeaway-${i}`}>{item}</li>
-                ))}
-              </ul>
-            </div>
+      {/* ─── Main Content ─── */}
+      <div className="bg-white">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="grid lg:grid-cols-3 gap-12">
 
-            {portableTextBody ? (
-              <div className="prose prose-lg max-w-none prose-headings:text-brand-navy prose-a:text-brand-blue">
-                <PortableText value={portableTextBody} />
+            {/* Article */}
+            <article className="lg:col-span-2">
+              {/* Excerpt lead */}
+              <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue pl-5">
+                {post.excerpt}
+              </p>
+
+              {/* Article body */}
+              <div className="
+                prose prose-lg max-w-none
+                prose-headings:text-brand-navy prose-headings:font-bold prose-headings:leading-tight
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-5
+                prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-brand-navy
+                prose-ul:my-4 prose-li:my-1
+                prose-table:text-sm
+                [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24
+              ">
+                {portableTextBody ? (
+                  <PortableText value={portableTextBody} />
+                ) : bodyContent ? (
+                  <BlogArticle content={bodyContent} />
+                ) : (
+                  <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 text-center">
+                    <p className="font-semibold text-brand-navy mb-2">📝 Full Article Coming Soon</p>
+                    <p className="text-sm text-brand-muted">
+                      This article is being finalized. The URL is live and indexed for SEO.
+                    </p>
+                  </div>
+                )}
               </div>
-            ) : markdownContent ? (
-              <BlogArticle content={markdownContent} />
-            ) : (
-              <div className="bg-brand-gray-bg border border-gray-200 rounded-lg p-6 text-center text-brand-muted">
-                <p className="font-medium text-brand-navy mb-2">📝 Full Article Coming Soon</p>
-                <p className="text-sm">
-                  Full content is being written for this article. This placeholder preserves the URL routing and metadata for SEO.
+
+              {/* ─── FAQ Section ─── */}
+              {faqs.length > 0 && (
+                <div className="mt-14 pt-10 border-t border-gray-100">
+                  <h2 className="text-2xl font-bold text-brand-navy mb-8">
+                    Frequently Asked Questions
+                  </h2>
+                  <div className="space-y-0 divide-y divide-gray-100">
+                    {faqs.map((faq, i) => (
+                      <details
+                        key={`faq-${i}`}
+                        className="group py-5 cursor-pointer"
+                        open={i === 0}
+                      >
+                        <summary className="flex items-start justify-between gap-4 list-none [&::-webkit-details-marker]:hidden select-none">
+                          <span className="font-semibold text-brand-navy text-base leading-snug pr-4">
+                            {faq.question}
+                          </span>
+                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-open:rotate-180 transition-transform">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M2 4l4 4 4-4" />
+                            </svg>
+                          </span>
+                        </summary>
+                        <p className="mt-3 text-gray-600 leading-relaxed text-sm">
+                          {faq.answer}
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* ─── CTA Section ─── */}
+              <div className="mt-14 bg-brand-navy rounded-2xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  Ready to Get a Title Quote?
+                </h3>
+                <p className="text-white/70 mb-6 max-w-md mx-auto">
+                  Pruitt Title serves buyers, sellers, and lenders across Virginia, Maryland, and Washington, DC. We make closing simple.
                 </p>
-                <p className="text-sm mt-3 italic">&ldquo;{post.excerpt}&rdquo;</p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link
+                    href="/why-choose-us"
+                    className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-7 py-3.5 rounded-lg transition-colors"
+                  >
+                    Get a Free Quote →
+                  </Link>
+                  <Link
+                    href="/title-insurance"
+                    className="inline-block border-2 border-white/30 hover:border-white text-white font-semibold px-7 py-3.5 rounded-lg transition-colors"
+                  >
+                    Learn About Title Insurance
+                  </Link>
+                </div>
               </div>
-            )}
 
-            <div className="not-prose mt-10 pt-8 border-t border-gray-100">
-              <h3 className="font-bold text-brand-navy mb-4">Related Resources</h3>
-              <div className="grid sm:grid-cols-3 gap-4">
-                {(INTERNAL_LINKS[post.slug] || [
-                  { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
-                  { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
-                  { label: "Title Insurance", href: "/title-insurance" },
-                ])
-                  .filter((link) => VALID_INTERNAL_PATHS.has(link.href))
-                  .slice(0, 6)
-                  .map((link) => (
-                    <Link key={link.href} href={link.href} className="text-sm text-brand-blue hover:underline border border-gray-100 rounded p-3 block no-underline">
-                      {link.label} →
-                    </Link>
-                  ))}
+              {/* ─── Related Resources ─── */}
+              {relatedLinks.length > 0 && (
+                <div className="mt-10 pt-8 border-t border-gray-100">
+                  <h3 className="font-bold text-brand-navy mb-4 text-base">Related Resources</h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {relatedLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="text-sm text-brand-blue hover:text-brand-blue-dark border border-gray-100 hover:border-brand-blue/30 rounded-lg p-3.5 block transition-all no-underline group"
+                      >
+                        <span className="group-hover:underline">{link.label}</span>
+                        <span className="ml-1 opacity-60">→</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </article>
+
+            {/* ─── Sidebar ─── */}
+            <aside className="space-y-6 lg:sticky lg:top-24 h-fit">
+              {/* Table of Contents */}
+              {toc.length > 0 && (
+                <div className="bg-gray-50 border border-gray-100 rounded-xl p-5">
+                  <h3 className="font-bold text-brand-navy mb-4 text-sm uppercase tracking-wide">
+                    On This Page
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {toc.map((item) => (
+                      <li key={item.id}>
+                        <a
+                          href={`#${item.id}`}
+                          className="text-xs text-gray-600 hover:text-brand-blue leading-snug block transition-colors"
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Lead Capture Form */}
+              <LeadCaptureForm
+                compact
+                title="Get a Free Quote"
+                location={`blog-${post.slug}`}
+              />
+
+              {/* Related Posts */}
+              {related.length > 0 && (
+                <div className="bg-white border border-gray-100 rounded-xl p-5">
+                  <h3 className="font-bold text-brand-navy mb-4 text-sm uppercase tracking-wide">
+                    More Articles
+                  </h3>
+                  <ul className="space-y-4">
+                    {related.map((r) => (
+                      <li key={r.slug}>
+                        <Link
+                          href={`/blog/${r.slug}`}
+                          className="text-sm font-medium text-brand-navy hover:text-brand-blue leading-snug block transition-colors"
+                        >
+                          {r.title}
+                        </Link>
+                        <span className="text-xs text-gray-400 mt-0.5 block">{r.date} · {r.readTime}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Author Card */}
+              <div className="bg-white border border-gray-100 rounded-xl p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 rounded-full bg-brand-navy flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                    WR
+                  </div>
+                  <div>
+                    <p className="font-bold text-brand-navy text-sm">Will Rapuano</p>
+                    <p className="text-xs text-gray-500">Business Development, Pruitt Title LLC</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Will is a title professional serving buyers, sellers, and lenders across the DMV area. He writes about real estate closings, title insurance, and navigating the DC/Maryland/Virginia markets.
+                </p>
               </div>
-            </div>
-          </article>
-
-          <aside className="space-y-6 md:sticky md:top-24 h-fit">
-            {toc.length > 0 && (
-              <div className="bg-white border border-gray-100 rounded-xl p-4">
-                <h3 className="font-bold text-brand-navy mb-3 text-sm">On This Page</h3>
-                <ul className="space-y-2">
-                  {toc.map((item) => (
-                    <li key={item.id}>
-                      <a href={`#${item.id}`} className="text-xs text-brand-blue hover:underline leading-snug block">
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <LeadCaptureForm compact title="Get a Free Quote" location={`blog-${post.slug}`} />
-
-            <div className="bg-white border border-gray-100 rounded-xl p-4">
-              <h3 className="font-bold text-brand-navy mb-3 text-sm">Recent Posts</h3>
-              <ul className="space-y-3">
-                {related.map((r) => (
-                  <li key={r.slug}>
-                    <Link href={`/blog/${r.slug}`} className="text-xs text-brand-blue hover:underline leading-snug block">{r.title}</Link>
-                    <span className="text-xs text-brand-muted">{r.date}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
+            </aside>
+          </div>
         </div>
-      </section>
+      </div>
+
+      {/* ─── Related Posts Section ─── */}
+      {related.length > 0 && (
+        <section className="bg-gray-50 py-16 border-t border-gray-100">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-2xl font-bold text-brand-navy mb-8 text-center">
+              You Might Also Like
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/blog/${r.slug}`}
+                  className="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group block"
+                >
+                  <div className="relative h-44 overflow-hidden bg-brand-navy">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={r.image}
+                      alt={r.title}
+                      className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4">
+                      <span className="text-xs text-brand-blue font-semibold">{r.category}</span>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue transition-colors mb-2 line-clamp-2">
+                      {r.title}
+                    </h3>
+                    <p className="text-xs text-gray-500">{r.date} · {r.readTime}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

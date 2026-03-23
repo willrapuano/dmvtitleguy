@@ -53,8 +53,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "closing-costs-in-virginia-2026",
     title: "Closing Costs in Virginia (2026): What Buyers and Sellers Actually Pay",
-    date: "March 14, 2026",
-    dateISO: "2026-03-14",
+    date: "March 21, 2026",
+    dateISO: "2026-03-21",
     excerpt: "A detailed breakdown of closing costs in Virginia for 2026 — what buyers pay, what sellers pay, and how to estimate your total costs before settlement day.",
     category: "Closing Costs",
     readTime: "8 min read",
@@ -63,8 +63,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "title-companies-in-northern-virginia",
     title: "Title Companies in Northern Virginia: What to Look For",
-    date: "March 12, 2026",
-    dateISO: "2026-03-12",
+    date: "March 28, 2026",
+    dateISO: "2026-03-28",
     excerpt: "Choosing the right title company in Northern Virginia can make or break your closing experience. Here's what agents, buyers, and sellers should look for.",
     category: "Title Insurance",
     readTime: "6 min read",
@@ -73,8 +73,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "title-companies-fredericksburg-va",
     title: "Title Companies in Fredericksburg, VA: A Local Guide",
-    date: "March 10, 2026",
-    dateISO: "2026-03-10",
+    date: "March 31, 2026",
+    dateISO: "2026-03-31",
     excerpt: "Looking for a title company in Fredericksburg, Virginia? Here's what to know about title and settlement services in the Fredericksburg area.",
     category: "Title Insurance",
     readTime: "5 min read",

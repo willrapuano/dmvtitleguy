@@ -1,4 +1,24 @@
+---
+title: "Title Companies in Northern Virginia: Your Complete Guide"
+slug: title-companies-in-northern-virginia
+client: dmvtitleguy
+target_keyword: "title companies in northern virginia"
+secondary_keywords: ["title company virginia", "title company northern virginia", "title companies fairfax va", "best title company northern virginia"]
+meta_description: "How to choose a title company in Northern Virginia — what they do, what to compare, and what top agents and lenders look for in Fairfax, Loudoun & Prince William."
+schema: ["FAQPage", "BlogPosting"]
+author: "Will Rapuano"
+status: approved
+compliance_notes: "APPROVED WITH NOTES 2026-03-20 — No violations. Confirm site footer EHO statement. See compliance-log/2026-03-20-dmvtitleguy-title-companies-northern-virginia.md"
+publish_date: 2026-03-28
+internal_links:
+  - /blog/what-does-a-title-company-do → "what a title company does"
+  - /blog/what-is-a-title-settlement-fee → "settlement fees"
+  - /blog/lenders-title-insurance-vs-owners-title-insurance → "title insurance"
+  - /blog/closing-costs-in-virginia-2026 → "closing costs"
+  - /contact → CTA
+---
 
+# Title Companies in Northern Virginia: Your Complete Guide
 
 If you're buying, selling, or refinancing in Northern Virginia, you'll need a title company. But most people — including experienced agents — don't think much about which one they use until something goes wrong. A missed lien. A delayed closing. A wire instruction that doesn't match. Then suddenly the title company matters a lot.
 

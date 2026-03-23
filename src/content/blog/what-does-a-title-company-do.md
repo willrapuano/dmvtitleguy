@@ -1,4 +1,17 @@
+---
+title: "What Does a Title Company Do? (And Why It Matters in the DMV)"
+slug: what-does-a-title-company-do
+client: dmvtitleguy
+target_keyword: "title and settlement services"
+secondary_keywords: ["title and closing services", "title settlement fee"]
+meta_description: "Learn what a title company actually does — title search, insurance, escrow, and closing. How title and settlement services work in DC, Maryland, and Virginia."
+schema: ["FAQPage", "BlogPosting"]
+author: "Will Rapuano"
+status: approved
+publish_date: 2026-03-24
+---
 
+# What Does a Title Company Do? (And Why It Matters in the DMV)
 
 Most homebuyers don't think much about the title company until they're staring at a closing disclosure and wondering why there's a line item called "title and settlement services" that costs anywhere from $800 to $2,500. Fair question. You're handing this company a significant chunk of money, and nobody's fully explained what they actually do for it.
 

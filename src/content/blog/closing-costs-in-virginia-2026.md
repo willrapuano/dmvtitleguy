@@ -1,4 +1,23 @@
+---
+title: "Closing Costs in Virginia: The Complete 2026 Breakdown"
+slug: closing-costs-in-virginia-2026
+client: dmvtitleguy
+target_keyword: "closing costs in virginia"
+secondary_keywords: ["title insurance cost virginia", "cost of title insurance in maryland", "title settlement closing fee", "virginia closing costs buyer", "how much are closing costs in virginia"]
+meta_description: "Virginia closing costs explained for 2026 — what buyers and sellers actually pay, line-by-line breakdowns, and how title insurance fees work in the DMV."
+schema: ["FAQPage", "BlogPosting"]
+author: "Will Rapuano"
+status: approved
+compliance_notes: "APPROVED WITH NOTES 2026-03-20 — No violations. Add EHO statement to post or confirm site footer carries it. See compliance-log/2026-03-20-dmvtitleguy-closing-costs-virginia-2026.md"
+publish_date: 2026-03-21
+internal_links:
+  - /blog/what-is-a-title-settlement-fee → "title settlement fee"
+  - /blog/lenders-title-insurance-vs-owners-title-insurance → "title insurance"
+  - /blog/what-does-a-title-company-do → "title company"
+  - /contact → CTA
+---
 
+# Closing Costs in Virginia: The Complete 2026 Breakdown
 
 You've negotiated the price. You've survived the inspection. The appraisal came back clean. Now you're staring at a closing disclosure with 30+ line items and a bottom-line number that's bigger than you expected.
 
