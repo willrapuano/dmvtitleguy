@@ -301,18 +301,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </p>
 
               {/* Article body */}
-              <div className="
-                prose prose-lg max-w-none
-                prose-headings:text-brand-navy prose-headings:font-bold prose-headings:leading-tight
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-5
-                prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-brand-navy
-                prose-ul:my-4 prose-li:my-1
-                prose-table:text-sm
-                [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24
-              ">
+              <div className="blog-content">
                 {portableTextBody ? (
                   <PortableText value={portableTextBody} />
                 ) : bodyContent ? (
