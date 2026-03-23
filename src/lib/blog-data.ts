@@ -24,12 +24,8 @@ function mapSanityPost(p: SanityBlogPost): BlogPost {
   };
 }
 
-/** Fetch all posts — Sanity first, static fallback */
+/** Fetch all posts — static only (Sanity disabled until CMS is repopulated) */
 export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
-  const sanityPosts = await getAllPosts();
-  if (sanityPosts.length > 0) {
-    return sanityPosts.map(mapSanityPost);
-  }
   return PUBLISHED_BLOG_POSTS;
 }
 
