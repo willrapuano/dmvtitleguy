@@ -8,7 +8,7 @@ import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib
 import { splitBodyAndFAQ } from "@/lib/blog-content";
 import { PortableText } from "@portabletext/react";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 /** Internal linking map */
 const STATIC_VALID_PATHS = new Set([

@@ -3,7 +3,7 @@
  * Tries Sanity first, falls back to static data + markdown files.
  */
 
-import { BlogPost, BLOG_POSTS } from "@/data/blog";
+import { BlogPost, BLOG_POSTS, PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { getAllPosts, getPostBySlug, getAllPostSlugs, SanityBlogPost } from "./sanity-queries";
 import { getBlogContent } from "./blog-content";
 
@@ -30,7 +30,7 @@ export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
   if (sanityPosts.length > 0) {
     return sanityPosts.map(mapSanityPost);
   }
-  return BLOG_POSTS;
+  return PUBLISHED_BLOG_POSTS;
 }
 
 /** Fetch a single post by slug — Sanity first, static fallback */

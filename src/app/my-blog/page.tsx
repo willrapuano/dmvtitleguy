@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 
-export const revalidate = 3600;
+export const revalidate = 0; // Force fresh render on every request (temporary — set back to 3600 when stable)
 
 export const metadata: Metadata = {
   title: "Title Insurance & Closing Tips | DMV Title Guy Blog",
