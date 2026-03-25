@@ -138,7 +138,7 @@ function LocationPage({ location }: { location: Location }) {
                 : `DMV Title Guy is your trusted title and settlement partner in ${city}, ${state}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${slug}#quote`} className="btn-primary">Get a Free Quote →</Link>
+              <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
                 📞 (703) 859-1467
               </a>
@@ -295,7 +295,7 @@ function CountyPage({ county }: { county: County }) {
               Pruitt Title LLC serves every city and community in {fullName}. Professional title search, title insurance, and settlement services — residential, commercial, and all transaction types.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${slug}#quote`} className="btn-primary">Get a Free Quote →</Link>
+              <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">📞 (703) 859-1467</a>
             </div>
           </div>

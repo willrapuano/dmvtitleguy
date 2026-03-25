@@ -358,7 +358,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
-                    href="/why-choose-us"
+                    href="/calculators/title-quote"
                     className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-7 py-3.5 rounded-lg transition-colors"
                   >
                     Get a Free Quote →
