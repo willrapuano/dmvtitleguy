@@ -223,28 +223,29 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             <span className="text-gray-500 truncate max-w-[200px]">{post.title}</span>
           </nav>
 
-          {/* Category tag */}
-          <span className="inline-block text-xs font-semibold text-brand-blue bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
-            {post.category}
-          </span>
+          {/* Category tag + Title + Byline — centered */}
+          <div className="text-center mb-6">
+            <span className="inline-block text-xs font-semibold text-brand-blue bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+              {post.category}
+            </span>
 
-          {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-navy leading-tight mb-5">
-            {post.title}
-          </h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-navy leading-tight mb-5">
+              {post.title}
+            </h1>
 
-          {/* Author + Date + Read time */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white text-xs font-bold">
-                WR
+            {/* Author + Date + Read time */}
+            <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-gray-500">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white text-xs font-bold">
+                  WR
+                </div>
+                <span className="font-medium text-brand-navy">Will Rapuano</span>
               </div>
-              <span className="font-medium text-brand-navy">Will Rapuano</span>
+              <span className="text-gray-300">|</span>
+              <span>{post.date}</span>
+              <span className="text-gray-300">|</span>
+              <span>{post.readTime}</span>
             </div>
-            <span className="text-gray-300">|</span>
-            <span>{post.date}</span>
-            <span className="text-gray-300">|</span>
-            <span>{post.readTime}</span>
           </div>
 
           {/* Social Share */}
