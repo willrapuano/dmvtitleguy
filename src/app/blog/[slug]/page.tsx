@@ -7,6 +7,9 @@ import { BlogArticle } from "@/components/BlogArticle";
 import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
 import { splitBodyAndFAQ } from "@/lib/blog-content";
 import { PortableText } from "@portabletext/react";
+import { Callout } from "@/components/portable-text/Callout";
+import { Table } from "@/components/portable-text/Table";
+import { Accordion } from "@/components/portable-text/Accordion";
 
 export const revalidate = 0;
 
@@ -303,7 +306,19 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               {/* Article body */}
               <div className="blog-content">
                 {portableTextBody ? (
-                  <PortableText value={portableTextBody} />
+                  <PortableText
+                    value={portableTextBody}
+                    components={{
+                      types: {
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        callout: ({ value }: any) => <Callout value={value} />,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        table: ({ value }: any) => <Table value={value} />,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        accordion: ({ value }: any) => <Accordion value={value} />,
+                      },
+                    }}
+                  />
                 ) : bodyContent ? (
                   <BlogArticle content={bodyContent} />
                 ) : (

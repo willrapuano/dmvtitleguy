@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { calloutBlock, tableBlock, accordionBlock } from "./blockTypes";
 
 export const post = defineType({
   name: "post",
@@ -87,6 +88,9 @@ export const post = defineType({
             defineField({ name: "caption", type: "string", title: "Caption" }),
           ],
         },
+        { type: "callout" },
+        { type: "table" },
+        { type: "accordion" },
       ],
     }),
   ],
