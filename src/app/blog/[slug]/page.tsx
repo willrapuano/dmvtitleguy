@@ -336,11 +336,21 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         normal: ({ children, value }: any) => {
                           const text = value?.children?.map((c: any) => c.text ?? "").join("").trim() ?? "";
                           // Render --- as hr
-                          if (text === "---" || text === "— —" || text === "- - -") {
+                          if (/^[-—\s]{3,}$/.test(text)) {
                             return <hr className="my-8 border-t border-gray-200" />;
                           }
                           // Suppress HTML comments
-                          if (/^<!--.*-->$/.test(text)) return null;
+                          if (/^<!--.*-->$/s.test(text)) return null;
+                          // Equal Housing disclaimer
+                          if (/equal housing opportunit/i.test(text)) {
+                            const clean = text.replace(/^\*+|\*+$/g, "").trim();
+                            return <p className="text-center text-sm italic font-semibold text-gray-500 mt-10">{clean}</p>;
+                          }
+                          // Pruitt Title boilerplate footer (starts with * and contains Pruitt Title)
+                          if (/^\*Pruitt Title/i.test(text)) {
+                            const clean = text.replace(/^\*+|\*+$/g, "").trim();
+                            return <p className="text-sm italic text-gray-500 mt-6 mb-2">{clean}</p>;
+                          }
                           // FAQ question detection: ends with ?, short, starts uppercase
                           if (
                             text.endsWith("?") &&
