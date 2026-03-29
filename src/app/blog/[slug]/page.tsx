@@ -307,7 +307,21 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <div className="blog-content">
                 {portableTextBody ? (
                   <PortableText
-                    value={portableTextBody}
+                    value={(() => {
+                      // Strip leading h1/h2 block if it duplicates the post title
+                      const blocks = portableTextBody as any[];
+                      if (blocks.length === 0) return blocks;
+                      const first = blocks[0];
+                      const firstText = first?.children?.map((c: any) => c.text).join("").trim() ?? "";
+                      const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+                      if (
+                        (first?.style === "h1" || first?.style === "h2") &&
+                        normalize(firstText) === normalize(post.title)
+                      ) {
+                        return blocks.slice(1);
+                      }
+                      return blocks;
+                    })()}
                     components={{
                       types: {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
