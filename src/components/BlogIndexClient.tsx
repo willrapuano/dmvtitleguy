@@ -58,6 +58,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
     <section className="section-light">
       <div className="container-xl">
         {/* 4 Featured Category Cards — prominent on all screen sizes */}
+        <h2 className="text-lg font-bold text-brand-navy mb-3">Browse by Category</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           {FILTER_CARDS.map((card) => {
             const count = posts.filter((p) => p.category === card.label).length;
