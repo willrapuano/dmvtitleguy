@@ -341,6 +341,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                           }
                           // Suppress HTML comments
                           if (/^<!--.*-->$/s.test(text)) return null;
+                          // Strip leading # markdown heading if it duplicates the post title
+                          if (/^#{1,3}\s/.test(text)) {
+                            const stripped = text.replace(/^#{1,3}\s+/, "").trim();
+                            const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+                            if (normalize(stripped) === normalize(post.title)) return null;
+                          }
                           // Equal Housing disclaimer
                           if (/equal housing opportunit/i.test(text)) {
                             const clean = text.replace(/^\*+|\*+$/g, "").trim();
