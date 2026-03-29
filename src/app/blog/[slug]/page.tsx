@@ -357,7 +357,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             text.length < 150 &&
                             /^[A-Z]/.test(text)
                           ) {
-                            return <p className="font-semibold text-brand-navy mt-8 mb-2 text-base">{children}</p>;
+                            return <p className="font-bold text-brand-blue mt-10 mb-1 text-base border-l-4 border-brand-blue pl-3">{children}</p>;
                           }
                           return <p className="mb-4 leading-relaxed">{children}</p>;
                         },
