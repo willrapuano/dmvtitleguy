@@ -331,6 +331,31 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         accordion: ({ value }: any) => <Accordion value={value} />,
                       },
+                      block: {
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        normal: ({ children, value }: any) => {
+                          const text = value?.children?.map((c: any) => c.text ?? "").join("").trim() ?? "";
+                          // Render --- as hr
+                          if (text === "---" || text === "— —" || text === "- - -") {
+                            return <hr className="my-8 border-t border-gray-200" />;
+                          }
+                          // Suppress HTML comments
+                          if (/^<!--.*-->$/.test(text)) return null;
+                          // FAQ question detection: ends with ?, short, starts uppercase
+                          if (
+                            text.endsWith("?") &&
+                            text.length < 150 &&
+                            /^[A-Z]/.test(text)
+                          ) {
+                            return <p className="font-semibold text-brand-navy mt-8 mb-2 text-base">{children}</p>;
+                          }
+                          return <p className="mb-4 leading-relaxed">{children}</p>;
+                        },
+                        h1: ({ children }: any) => <h1 className="text-3xl font-bold text-brand-navy mt-10 mb-4">{children}</h1>,
+                        h2: ({ children }: any) => <h2 className="text-2xl font-bold text-brand-navy mt-10 mb-4">{children}</h2>,
+                        h3: ({ children }: any) => <h3 className="text-xl font-bold text-brand-navy mt-8 mb-3">{children}</h3>,
+                        h4: ({ children }: any) => <h4 className="text-lg font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
+                      },
                     }}
                   />
                 ) : bodyContent ? (
