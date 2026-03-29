@@ -340,7 +340,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             return <hr className="my-8 border-t border-gray-200" />;
                           }
                           // Suppress HTML comments
-                          if (/^<!--.*-->$/s.test(text)) return null;
+                          if (/^<!--[\s\S]*-->$/.test(text)) return null;
                           // Strip leading # markdown heading if it duplicates the post title
                           if (/^#{1,3}\s/.test(text)) {
                             const stripped = text.replace(/^#{1,3}\s+/, "").trim();
