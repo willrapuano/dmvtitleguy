@@ -331,6 +331,28 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         accordion: ({ value }: any) => <Accordion value={value} />,
                       },
+                      marks: {
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        strong: ({ children }: any) => <strong className="font-semibold text-gray-900">{children}</strong>,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        em: ({ children }: any) => <em className="italic">{children}</em>,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        underline: ({ children }: any) => <span className="underline">{children}</span>,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        link: ({ value, children }: any) => {
+                          const href = value?.href || '';
+                          const isExternal = href.startsWith('http');
+                          return (
+                            <a
+                              href={href}
+                              className="text-brand-blue underline hover:text-brand-blue-dark transition-colors"
+                              {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                            >
+                              {children}
+                            </a>
+                          );
+                        },
+                      },
                       block: {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         normal: ({ children, value }: any) => {
