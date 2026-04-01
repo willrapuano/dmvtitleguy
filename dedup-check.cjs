@@ -93,6 +93,46 @@ const STEM_MAP = {
   'insurance': 'insurance',
   'mortgages': 'mortgage', 'mortgage': 'mortgage',
   'lenders': 'lender', 'lender': 'lender', 'lending': 'lender',
+  // --- Added 2026-03-27: plurals/variants that caused false negatives ---
+  'templates': 'template', 'template': 'template',
+  'designs': 'design', 'design': 'design', 'designing': 'design',
+  'banks': 'bank', 'bank': 'bank', 'banking': 'bank',
+  'builders': 'builder', 'builder': 'builder',
+  'investors': 'investor', 'investor': 'investor',
+  'buyers': 'buyer', 'buyer': 'buyer',
+  'sellers': 'seller', 'seller': 'seller',
+  'realtors': 'realtor', 'realtor': 'realtor',
+  'closings': 'closing', 'closing': 'closing',
+  'payments': 'payment', 'payment': 'payment',
+  'loans': 'loan', 'loan': 'loan',
+  'rates': 'rate', 'rate': 'rate',
+  'taxes': 'tax', 'tax': 'tax',
+  'fees': 'fee', 'fee': 'fee',
+  'options': 'option', 'option': 'option',
+  'platforms': 'platform', 'platform': 'platform',
+  'solutions': 'solution', 'solution': 'solution',
+  'systems': 'system', 'system': 'system',
+  'networks': 'network', 'network': 'network',
+  'leads': 'lead', 'lead': 'lead',
+  'emails': 'email', 'email': 'email',
+  'campaigns': 'campaign', 'campaign': 'campaign',
+  'ads': 'ad', 'ad': 'ad', 'advertising': 'ad',
+  'errors': 'error', 'error': 'error',
+  'mistakes': 'mistake', 'mistake': 'mistake',
+  'questions': 'question', 'question': 'question',
+  'answers': 'answer', 'answer': 'answer',
+  'reports': 'report', 'report': 'report',
+  'updates': 'update', 'update': 'update',
+  'changes': 'change', 'change': 'change',
+  'differences': 'difference', 'difference': 'difference',
+  'benefits': 'benefit', 'benefit': 'benefit',
+  'features': 'feature', 'feature': 'feature',
+  'types': 'type', 'type': 'type',
+  'ways': 'way', 'way': 'way',
+  'steps': 'step', 'step': 'step',
+  'reasons': 'reason', 'reason': 'reason',
+  'things': 'thing', 'thing': 'thing',
+  'examples': 'example', 'example': 'example',
 };
 
 // Year patterns to strip (2024, 2025, 2026, etc.)
@@ -166,13 +206,13 @@ function checkSimilarity(proposedTitle, proposedKeyword, existingTitle) {
   // 3. Core topic similarity (strips filler, years — catches "same topic, different framing")
   if (propCore.length > 0 && existCore.length > 0) {
     const coreJaccard = jaccard(new Set(propCore), new Set(existCore));
-    if (coreJaccard > 0.60) {
+    if (coreJaccard > 0.50) { // Lowered from 0.60 — caught the bank website design miss
       issues.push({ level: 'DUPLICATE', reason: `core topic overlap ${(coreJaccard * 100).toFixed(0)}%` });
     }
     // Also check containment: if one title's core is fully inside the other
     const cont1 = containment(propCore, existCore);
     const cont2 = containment(existCore, propCore);
-    if (cont1 > 0.70 || cont2 > 0.70) {
+    if (cont1 > 0.65 || cont2 > 0.65) { // Lowered from 0.70
       issues.push({ level: 'DUPLICATE', reason: `topic containment ${(Math.max(cont1, cont2) * 100).toFixed(0)}%` });
     }
   }
@@ -221,8 +261,8 @@ function checkContentTracker(proposedTitle, proposedKeyword) {
       const [dateStr, , , existingTitle, existingKeyword] = parts;
       const postDate = new Date(dateStr);
 
-      // Check keyword exact match within 30 days
-      if (proposedKeyword && existingKeyword && postDate > thirtyDaysAgo) {
+      // Check keyword exact match — same keyword EVER is a duplicate (no time limit)
+      if (proposedKeyword && existingKeyword) {
         const normProp = normalize(proposedKeyword);
         const normExist = normalize(existingKeyword);
         if (normProp === normExist) {
