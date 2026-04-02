@@ -151,19 +151,19 @@ Virginia's closing cost structure is relatively buyer-friendly compared to Maryl
 
 ## Frequently Asked Questions
 
-### How much are closing costs in Virginia in 2026?
+## How much are closing costs in Virginia in 2026?
 For buyers, expect 2–4% of the purchase price. On a $500,000 home, that's $10,000–$20,000. The exact amount depends on your loan type, lender, county, and title company.
 
-### Who pays closing costs in Virginia — buyer or seller?
+## Who pays closing costs in Virginia — buyer or seller?
 Both pay closing costs, but different ones. Buyers pay lender fees, title insurance, and prepaids. Sellers pay commissions, grantor's tax, and deed preparation. Some fees (like the settlement fee) are negotiable.
 
-### Are closing costs negotiable in Virginia?
+## Are closing costs negotiable in Virginia?
 Many are. The real estate commission, seller credits, and title company fees are all negotiable. Lender fees vary by provider. Government fees and taxes are fixed.
 
-### What is the grantor's tax in Virginia?
+## What is the grantor's tax in Virginia?
 $1 per $1,000 of the sale price. On a $500,000 sale, that's $500. In Northern Virginia, there's an additional congestion tax of $0.15 per $100 of the sale price ($750 on a $500K sale).
 
-### Can I roll closing costs into my mortgage in Virginia?
+## Can I roll closing costs into my mortgage in Virginia?
 Some loan programs allow it (VA loans, USDA loans). Conventional and FHA loans generally don't allow rolling in closing costs, but you can negotiate seller credits or lender credits to offset them.
 
 ---

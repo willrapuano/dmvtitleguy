@@ -131,19 +131,19 @@ Use this checklist when evaluating title companies in Northern Virginia:
 
 ## Frequently Asked Questions
 
-### Can I choose my own title company in Virginia?
+## Can I choose my own title company in Virginia?
 Yes. While agents often recommend a title company, the buyer has the legal right to choose. Under RESPA, no one can require you to use a specific title company as a condition of the sale (with limited exceptions for seller-paid title insurance).
 
-### How much does a title company charge in Northern Virginia?
+## How much does a title company charge in Northern Virginia?
 Settlement fees range from $450 to $795 depending on the company and transaction type. Title insurance premiums are separate and based on the property's purchase price and loan amount. Total title-related costs typically run $1,500–$3,000 for a purchase transaction.
 
-### Do I need a title company for a cash purchase?
+## Do I need a title company for a cash purchase?
 You don't legally need title insurance for a cash purchase, but you absolutely should use a title company. The title search protects you from buying a property with hidden liens or ownership disputes. Most cash buyers opt for owner's title insurance as well.
 
-### What's the difference between a title company and a settlement company?
+## What's the difference between a title company and a settlement company?
 In Virginia, they're effectively the same thing. "Title company" and "settlement company" are used interchangeably. Both refer to the entity that conducts the title search, issues title insurance, manages escrow, and coordinates the closing.
 
-### How long does closing take with a title company?
+## How long does closing take with a title company?
 The actual closing appointment takes 30–60 minutes. The full process — from contract ratification to closing — typically takes 30–45 days for financed purchases and 14–21 days for cash deals. The title company's work (title search, commitment, document prep) usually completes within the first 10–14 days.
 
 ---

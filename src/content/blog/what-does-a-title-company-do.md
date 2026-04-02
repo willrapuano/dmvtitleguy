@@ -130,31 +130,31 @@ For a full explanation of [why Pruitt Title][LINK:/why-choose-us] handles your c
 
 ## Frequently Asked Questions About Title and Settlement Services
 
-### ## What is a title and settlement company?
+## ## What is a title and settlement company?
 
 A title and settlement company handles the legal and financial mechanics of a real estate closing. They search the property's ownership history, issue title insurance, hold earnest money and closing funds in escrow, and coordinate the closing day signing. In the DMV, they also coordinate with lenders, real estate agents, and local recording offices.
 
-### ## What is the title settlement fee?
+## ## What is the title settlement fee?
 
 The title settlement fee (sometimes called a closing fee or escrow fee) is the charge for the title company's work conducting the closing — preparing documents, coordinating funds, managing the signing, and disbursing proceeds. In Northern Virginia and Maryland, this typically runs $400–$900 depending on transaction complexity. It's separate from the title insurance premium.
 
-### ## Do I need a title company in Virginia, Maryland, or DC?
+## ## Do I need a title company in Virginia, Maryland, or DC?
 
 Yes. All three DMV jurisdictions require a licensed settlement agent or attorney to conduct real estate closings. You cannot close on a home purchase without one. Your lender will also require a title company to issue a lender's title insurance policy.
 
-### ## What's the difference between title insurance and homeowners insurance?
+## ## What's the difference between title insurance and homeowners insurance?
 
 Homeowners insurance covers physical damage to your property — fire, theft, storm damage. Title insurance covers legal defects in your ownership — a lien you didn't know about, a forged signature in the chain of title, an heir who surfaces claiming ownership. They cover completely different risks. You need both.
 
-### ## What does it mean when a title company "clears title"?
+## ## What does it mean when a title company "clears title"?
 
 During the title search, the examiner may find issues that need to be resolved before closing can happen — an open lien that needs to be paid off, a deed that was improperly executed, a judgment against the seller that needs a release. "Clearing title" is the process of resolving those issues so the buyer gets clean ownership. Sometimes this is simple (paying off a contractor lien at closing). Sometimes it takes weeks and requires a title attorney.
 
-### ## Can I choose my own title company in the DMV?
+## ## Can I choose my own title company in the DMV?
 
 Yes — and you should. In Virginia and Maryland, the buyer and seller can negotiate who chooses the title company, and in most cases the buyer has the right to select it. You're not required to use whatever title company your lender or real estate agent recommends. Shopping around for title and closing services in the DMV is worth doing.
 
-### ## How long does a real estate closing take?
+## ## How long does a real estate closing take?
 
 Most purchase closings take 60–90 minutes at the table. The pre-closing work — title search, lender coordination, document preparation — typically happens over 2–4 weeks during the contract period. At Pruitt Title, we aim to have the closing disclosure to buyers at least 3 business days before closing (as required by law for purchase transactions with a mortgage).
 

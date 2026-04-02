@@ -130,19 +130,19 @@ Use these questions when evaluating title companies in the Fredericksburg area:
 
 ## Frequently Asked Questions
 
-### How much does a title company cost in Fredericksburg VA?
+## How much does a title company cost in Fredericksburg VA?
 Settlement fees typically range from $395 to $695. Total title-related costs — including title insurance premiums, title search, and settlement fee — usually run $1,200–$2,500 for a purchase transaction, depending on the property value and loan amount.
 
-### Can I choose my own title company in Fredericksburg?
+## Can I choose my own title company in Fredericksburg?
 Yes. Under federal law (RESPA), you have the right to choose your own title company. Your agent or lender may recommend one, but you're not required to use their recommendation.
 
-### Do I need a lawyer for closing in Fredericksburg VA?
+## Do I need a lawyer for closing in Fredericksburg VA?
 No. Virginia doesn't require an attorney at the closing table. Title companies in Virginia serve as the settlement agent and can conduct closings without an attorney present, though many companies employ attorneys on staff.
 
-### How long does closing take in Fredericksburg?
+## How long does closing take in Fredericksburg?
 The closing appointment itself takes 30–60 minutes. The full process from ratified contract to closing day is typically 30–45 days for financed transactions and 14–21 days for cash purchases.
 
-### Is Fredericksburg considered part of Northern Virginia for closing costs?
+## Is Fredericksburg considered part of Northern Virginia for closing costs?
 Not typically. Fredericksburg is classified as part of the Fredericksburg MSA, not the Washington-Arlington-Alexandria MSA. This means the NoVA regional congestion tax ($0.15 per $100 of sale price) does **not** apply to transactions in the City of Fredericksburg, Spotsylvania, or Stafford County — a meaningful savings on higher-priced properties.
 
 ---
