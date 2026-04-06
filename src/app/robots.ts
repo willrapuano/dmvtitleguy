@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://www.dmvtitleguy.io/sitemap.xml",
+    sitemap: "https://dmvtitleguy.io/sitemap.xml",
   };
 }

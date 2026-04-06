@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const toc = extractTOC(bodyContent);
 
   // Build share URLs
-  const canonicalUrl = `https://www.dmvtitleguy.io/blog/${post.slug}`;
+  const canonicalUrl = `https://dmvtitleguy.io/blog/${post.slug}`;
   const shareTitle = encodeURIComponent(post.title);
   const shareUrl = encodeURIComponent(canonicalUrl);
 
@@ -139,7 +139,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: post.image.startsWith("http") ? post.image : `https://www.dmvtitleguy.io${post.image}`,
+    image: post.image.startsWith("http") ? post.image : `https://dmvtitleguy.io${post.image}`,
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     mainEntityOfPage: {
@@ -150,7 +150,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       "@type": "Person",
       name: "Will Rapuano",
       jobTitle: "Business Development, Pruitt Title LLC",
-      url: "https://www.dmvtitleguy.io",
+      url: "https://dmvtitleguy.io",
       sameAs: [
         "https://www.linkedin.com/in/will-rapuano-86914b130",
         "https://www.instagram.com/dmvtitleguy",
@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     publisher: {
       "@type": "Organization",
       name: "DMV Title Guy — Pruitt Title LLC",
-      url: "https://www.dmvtitleguy.io",
+      url: "https://dmvtitleguy.io",
     },
   };
 

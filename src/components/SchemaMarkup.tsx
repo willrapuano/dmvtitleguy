@@ -4,7 +4,7 @@
  * WebPage for static pages, etc.
  */
 
-const SITE_URL = "https://www.dmvtitleguy.io";
+const SITE_URL = "https://dmvtitleguy.io";
 const BUSINESS_NAME = "DMV Title Guy — Pruitt Title LLC";
 
 interface LocationSchemaProps {

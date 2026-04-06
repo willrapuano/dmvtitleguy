@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
 
-const siteUrl = "https://www.dmvtitleguy.io";
+const siteUrl = "https://dmvtitleguy.io";
 const siteName = "DMV Title Guy";
 const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
 const defaultDescription =

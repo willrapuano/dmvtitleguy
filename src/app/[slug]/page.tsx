@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       openGraph: {
         title: `Closing Costs in ${cityLabel} — Free Calculator`,
         description: `Estimate buyer and seller closing costs for ${cityLabel} real estate. Includes local ${cityCalcData.county} tax rates.`,
-        url: `https://www.dmvtitleguy.io/${cityCalcData.slug}`,
+        url: `https://dmvtitleguy.io/${cityCalcData.slug}`,
         type: "website",
       },
     };
