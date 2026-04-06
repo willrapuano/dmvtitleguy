@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Post {
   slug: string;
@@ -10,6 +11,7 @@ interface Post {
   date: string;
   readTime: string;
   category: string;
+  image?: string;
 }
 
 const FILTER_CARDS = [
@@ -157,13 +159,25 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                 href={`/blog/${post.slug}`}
                 className="card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
               >
-                <div className="bg-gradient-to-br from-brand-navy to-brand-navy-dark h-44 flex flex-col justify-end p-5">
-                  <span className="text-xs text-brand-blue font-medium">
-                    {post.category}
-                  </span>
-                  <span className="text-xs text-gray-300 mt-1">
-                    {post.date} · {post.readTime}
-                  </span>
+                <div className="relative h-44 overflow-hidden bg-brand-navy">
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  ) : null}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-4 z-10">
+                    <span className="text-xs text-brand-blue font-medium">
+                      {post.category}
+                    </span>
+                    <span className="text-xs text-gray-300 mt-1 block">
+                      {post.date} · {post.readTime}
+                    </span>
+                  </div>
                 </div>
                 <div className="p-5">
                   <h3 className="font-bold text-brand-navy text-base leading-snug group-hover:text-brand-blue transition-colors mb-2 line-clamp-2">
