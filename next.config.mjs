@@ -7,6 +7,12 @@ const nextConfig = {
   },
   images: {
     formats: ["image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
   },
   async redirects() {
     return [
