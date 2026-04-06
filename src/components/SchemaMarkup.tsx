@@ -21,12 +21,13 @@ export function LocationSchema({ city, state, county, slug, description }: Locat
     "@graph": [
       {
         "@type": ["LocalBusiness", "LegalService"],
-        "@id": `${SITE_URL}/${slug}`,
+        "@id": `${SITE_URL}/${slug}#business`,
         name: `${BUSINESS_NAME} — ${city}, ${state}`,
         url: `${SITE_URL}/${slug}`,
         telephone: "(703) 859-1467",
         email: "wrapuano@pruitt-title.com",
         description,
+        image: `${SITE_URL}/logo.png`,
         address: {
           "@type": "PostalAddress",
           streetAddress: "1900 Gallows Rd Suite 230",
@@ -48,14 +49,17 @@ export function LocationSchema({ city, state, county, slug, description }: Locat
       },
       {
         "@type": "Service",
+        "@id": `${SITE_URL}/${slug}#service`,
         name: `Title Insurance & Closing Services in ${city}, ${state}`,
         provider: {
           "@type": "LocalBusiness",
+          "@id": `${SITE_URL}/${slug}#business`,
           name: BUSINESS_NAME,
         },
         areaServed: {
           "@type": "City",
           name: city,
+          ...(state !== "DC" ? { addressRegion: state } : {}),
         },
         description: `Professional title search, title insurance, and real estate closing services for buyers, sellers, agents, and lenders in ${city}, ${state}.`,
         serviceType: "Title Insurance & Settlement Services",
@@ -90,9 +94,11 @@ export function CountySchema({ countyName, state, slug }: CountySchemaProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "LegalService"],
+    "@id": `${SITE_URL}/${slug}#business`,
     name: `${BUSINESS_NAME} — ${countyName}`,
     url: `${SITE_URL}/${slug}`,
     telephone: "(703) 859-1467",
+    image: `${SITE_URL}/logo.png`,
     areaServed: {
       "@type": "AdministrativeArea",
       name: countyName,

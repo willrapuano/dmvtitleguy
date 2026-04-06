@@ -151,6 +151,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       name: "Will Rapuano",
       jobTitle: "Business Development, Pruitt Title LLC",
       url: "https://dmvtitleguy.io",
+      image: "https://dmvtitleguy.io/will-rapuano-headshot.jpg",
       sameAs: [
         "https://www.linkedin.com/in/will-rapuano-86914b130",
         "https://www.instagram.com/dmvtitleguy",
@@ -161,6 +162,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       "@type": "Organization",
       name: "DMV Title Guy — Pruitt Title LLC",
       url: "https://dmvtitleguy.io",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://dmvtitleguy.io/logo.png",
+      },
     },
   };
 
