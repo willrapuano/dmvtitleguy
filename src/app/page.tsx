@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { HomePageClient } from "@/components/HomePageClient";
 
 export const metadata: Metadata = {
-  title: "DMV Title Guy | Title Insurance & Real Estate Marketing — DC, Maryland & Virginia",
+  title: "DMV Title Guy | Title & Closing Services — DC, MD & VA",
   description:
-    "Will Rapuano — Business Development at Pruitt Title LLC. Professional title insurance and closing services for real estate agents, mortgage lenders, banks, credit unions, and home builders in Washington DC, Northern Virginia, and Maryland. Your trusted DMV title company.",
+    "Pruitt Title LLC — trusted title insurance and closing services across DC, Maryland, and Virginia. Serving agents, lenders, and buyers. Fast closings, top 5% title executive.",
   alternates: { canonical: "/" },
 };
 

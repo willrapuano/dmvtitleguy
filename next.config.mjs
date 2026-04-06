@@ -5,11 +5,24 @@ const nextConfig = {
       bodySizeLimit: "20mb",
     },
   },
+  images: {
+    formats: ["image/webp"],
+  },
   async redirects() {
     return [
       {
         source: '/what-does-a-title-company-do',
-        destination: '/what-does-a-title-company-do-dmv',
+        destination: '/blog/what-does-a-title-company-do',
+        permanent: true,
+      },
+      {
+        source: '/my-blog',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/my-blog/:path*',
+        destination: '/blog/:path*',
         permanent: true,
       },
     ];

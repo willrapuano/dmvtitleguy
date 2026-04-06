@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { BLOG_POSTS } from "@/data/blog";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { BlogArticle } from "@/components/BlogArticle";
@@ -201,14 +202,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       {/* ─── Hero Image ─── */}
       <div className="w-full bg-brand-navy">
         <div className="relative w-full" style={{ paddingBottom: "42%" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={post.image}
             alt={post.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
             style={{ opacity: 0.85 }}
-            loading="eager"
-            onError={undefined}
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-navy/20 to-brand-navy/60" />
         </div>
@@ -571,12 +572,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   className="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group block"
                 >
                   <div className="relative h-44 overflow-hidden bg-brand-navy">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                      <Image
                       src={r.image}
                       alt={r.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
+                      fill
+                      className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
                     <div className="absolute bottom-0 left-0 p-4">

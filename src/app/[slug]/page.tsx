@@ -45,8 +45,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const stateLabel = cityCalcData.state === "DC" ? "DC" : cityCalcData.state;
     const cityLabel = cityCalcData.state === "DC" ? "Washington, DC" : `${cityCalcData.city}, ${stateLabel}`;
     return {
-      title: `Closing Costs in ${cityLabel} — Free Calculator | DMV Title Guy`,
-      description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller costs including title insurance, transfer taxes, ${cityCalcData.county} fees, and more. Updated 2025 rates.`,
+      title: `${cityLabel} Closing Cost Calculator | DMV Title Guy`,
+      description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including title insurance, transfer taxes, and local fees.`,
       alternates: { canonical: `/${cityCalcData.slug}` },
       openGraph: {
         title: `Closing Costs in ${cityLabel} — Free Calculator`,

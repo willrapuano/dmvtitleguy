@@ -1,8 +1,14 @@
 import { requireApprovedUser } from "@/lib/contract-analyzer/auth";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import type { SectionStatus } from "@/lib/contract-analyzer/types";
 import { CheckCircle, XCircle, AlertTriangle, Info, ArrowLeft } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contract Analysis | DMV Title Guy",
+  robots: { index: false, follow: false },
+};
 import Link from "next/link";
 
 const severityConfig = {

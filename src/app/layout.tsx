@@ -8,7 +8,7 @@ const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" })
 
 const siteUrl = "https://www.dmvtitleguy.io";
 const siteName = "DMV Title Guy";
-const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, Maryland & Virginia";
+const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
 const defaultDescription =
   "Pruitt Title LLC — trusted title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive.";
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: defaultTitle,
+    title: "DMV Title Guy | Title & Closing Services — DC, MD & VA",
     description: defaultDescription,
     url: siteUrl,
     siteName,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: defaultTitle,
+    title: "DMV Title Guy | Title & Closing Services — DC, MD & VA",
     description: defaultDescription,
   },
   robots: { index: true, follow: true },
@@ -46,7 +46,10 @@ const ORGANIZATION_SCHEMA = {
   name: "DMV Title Guy — Pruitt Title LLC",
   alternateName: "Pruitt Title LLC",
   url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/logo.png`,
+  },
   description: "Professional title insurance and closing services for real estate agents, mortgage lenders, banks, credit unions, and home builders in DC, Maryland, and Virginia.",
   telephone: "(703) 859-1467",
   email: "wrapuano@pruitt-title.com",
@@ -75,7 +78,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   telephone: "(703) 859-1467",
   email: "wrapuano@pruitt-title.com",
   description: defaultDescription,
-  image: `${siteUrl}/og-image.jpg`,
+  image: `${siteUrl}/logo.png`,
   priceRange: "$$",
   foundingDate: "2007",
   areaServed: [

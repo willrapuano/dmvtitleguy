@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Pending Approval | Contract Analyzer | DMV Title Guy",
+  robots: { index: false, follow: false },
 };
 
 export default async function PendingPage() {

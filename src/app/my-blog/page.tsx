@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 
 export const revalidate = 0; // Force fresh render on every request (temporary — set back to 3600 when stable)
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
   title: "Title Insurance & Closing Tips | DMV Title Guy Blog",
   description:
     "Practical guidance on title insurance, closing costs, and navigating real estate transactions in DC, Maryland, and Virginia. Written by Will Rapuano, Pruitt Title LLC.",
-  alternates: { canonical: "/my-blog" },
+  alternates: { canonical: "/blog" },
+  robots: { index: false, follow: true },
 };
 
 export default async function MyBlogPage() {
@@ -46,12 +48,13 @@ export default async function MyBlogPage() {
             >
               {/* Image */}
               <div className="relative overflow-hidden rounded-2xl bg-brand-navy" style={{ paddingBottom: "56%" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                  <Image
                   src={featured.image}
                   alt={featured.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="eager"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/30 to-transparent" />
               </div>
@@ -98,12 +101,12 @@ export default async function MyBlogPage() {
                 >
                   {/* Card Image */}
                   <div className="relative overflow-hidden bg-brand-navy" style={{ paddingBottom: "52%" }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
-                      loading="lazy"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 to-transparent" />
                     <div className="absolute top-3 left-3">
