@@ -139,7 +139,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: `https://www.dmvtitleguy.io${post.image}`,
+    image: post.image.startsWith("http") ? post.image : `https://www.dmvtitleguy.io${post.image}`,
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     mainEntityOfPage: {
