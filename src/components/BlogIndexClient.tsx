@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 interface Post {
   slug: string;
@@ -14,185 +13,164 @@ interface Post {
   image?: string;
 }
 
-const FILTER_CARDS = [
-  {
-    label: "Title Insurance",
-    icon: "🛡️",
-    description: "Coverage, policies & protection",
-  },
-  {
-    label: "Settlement & Closing",
-    icon: "🏠",
-    description: "Closings, settlement & process",
-  },
-  {
-    label: "NoVA Market Intel",
-    icon: "📊",
-    description: "Northern Virginia market insights",
-  },
-  {
-    label: "Education",
-    icon: "🎓",
-    description: "Guides, explainers & how-tos",
-  },
-];
-
-const ALL_CATEGORIES = [
-  "All",
+const CATEGORY_ORDER = [
   "Title Insurance",
-  "Settlement & Closing",
-  "NoVA Market Intel",
-  "Education",
+  "Market Updates",
   "Closing Costs",
-  "Marketing",
-  "Lenders",
-  "Investors",
-  "New Construction",
+  "Education",
+  "For Agents",
+  "For Lenders",
 ];
 
 export default function BlogIndexClient({ posts }: { posts: Post[] }) {
   const [active, setActive] = useState("All");
 
+  const categories = useMemo(() => {
+    const available = CATEGORY_ORDER.filter((category) =>
+      posts.some((post) => post.category === category)
+    );
+    return ["All", ...available];
+  }, [posts]);
+
   const filtered =
-    active === "All" ? posts : posts.filter((p) => p.category === active);
+    active === "All" ? posts : posts.filter((post) => post.category === active);
+
+  const latest = filtered[0];
+  const gridPosts = active === "All" ? filtered.slice(1) : filtered;
 
   return (
     <section className="section-light">
       <div className="container-xl">
-        {/* 4 Featured Category Cards — prominent on all screen sizes */}
-        <h2 className="text-lg font-bold text-brand-navy mb-3">Browse by Category</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-          {FILTER_CARDS.map((card) => {
-            const count = posts.filter((p) => p.category === card.label).length;
-            const isActive = active === card.label;
-            return (
+        <div className="mb-8">
+          <p className="section-label">Insights & Resources</p>
+          <h2 className="section-title">Latest from DMV Title Guy</h2>
+          <div className="gold-divider" />
+          <p className="text-brand-muted max-w-2xl mt-4">
+            Straight answers on title insurance, settlement, closing costs, and local market topics for buyers, agents, and lenders.
+          </p>
+        </div>
+
+        <div className="mb-10">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-navy mb-3">
+            Filter by Category
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
               <button
-                key={card.label}
-                onClick={() => setActive(isActive ? "All" : card.label)}
-                className={`flex flex-col items-start p-4 rounded-xl border-2 text-left transition-all duration-200 ${
-                  isActive
-                    ? "bg-brand-blue border-brand-blue text-white shadow-md"
-                    : "bg-white border-gray-200 hover:border-brand-blue hover:shadow-sm"
+                key={category}
+                onClick={() => setActive(category)}
+                className={`px-4 py-2 rounded-full border text-sm font-medium transition-colors ${
+                  active === category
+                    ? "bg-brand-blue text-white border-brand-blue"
+                    : "bg-white text-gray-600 border-gray-200 hover:border-brand-blue hover:text-brand-blue"
                 }`}
               >
-                <span className="text-2xl mb-2">{card.icon}</span>
-                <span
-                  className={`font-bold text-sm leading-tight mb-1 ${isActive ? "text-white" : "text-brand-navy"}`}
-                >
-                  {card.label}
-                </span>
-                <span
-                  className={`text-xs leading-snug ${isActive ? "text-blue-100" : "text-gray-500"}`}
-                >
-                  {card.description}
-                </span>
-                <span
-                  className={`mt-2 text-xs font-semibold ${isActive ? "text-blue-200" : "text-brand-blue"}`}
-                >
-                  {count} {count === 1 ? "post" : "posts"}
-                </span>
+                {category}
               </button>
-            );
-          })}
-        </div>
-
-        {/* Additional category pill filters */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          {ALL_CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors border ${
-                active === cat
-                  ? "bg-brand-blue text-white border-brand-blue"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-brand-blue hover:text-brand-blue"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Latest post (only when showing All) */}
-        {active === "All" && filtered.length > 0 && (
-          <div className="mb-10">
-            <h2 className="text-xl font-bold text-brand-navy mb-4">
-              Latest Post
-            </h2>
-            <Link
-              href={`/blog/${filtered[0].slug}`}
-              className="block bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition-all"
-            >
-              <p className="text-xs text-brand-blue font-medium mb-2">
-                {filtered[0].category}
-              </p>
-              <h3 className="text-2xl font-bold text-brand-navy mb-2">
-                {filtered[0].title}
-              </h3>
-              <p className="text-sm text-brand-muted mb-4">
-                {filtered[0].excerpt}
-              </p>
-              <p className="text-xs text-gray-500">
-                {filtered[0].date} · {filtered[0].readTime}
-              </p>
-            </Link>
-          </div>
-        )}
-
-        {/* Post grid */}
-        <h2 className="text-xl font-bold text-brand-navy mb-4">
-          {active === "All" ? "All Articles" : active}
-          <span className="text-sm font-normal text-gray-400 ml-2">
-            ({filtered.length})
-          </span>
-        </h2>
-
-        {filtered.length === 0 ? (
-          <p className="text-brand-muted py-12 text-center">
-            No posts in this category yet.
-          </p>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {(active === "All" ? filtered.slice(1) : filtered).map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
-              >
-                <div className="relative h-44 overflow-hidden bg-brand-navy">
-                  {post.image ? (
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  ) : null}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-4 z-10">
-                    <span className="text-xs text-brand-blue font-medium">
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-gray-300 mt-1 block">
-                      {post.date} · {post.readTime}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-brand-navy text-base leading-snug group-hover:text-brand-blue transition-colors mb-2 line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm text-brand-muted leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <span className="text-brand-blue text-sm mt-3 block font-medium">
-                    Read post →
-                  </span>
-                </div>
-              </Link>
             ))}
           </div>
+        </div>
+
+        {latest ? (
+          <>
+            {active === "All" && (
+              <div className="mb-10">
+                <h3 className="text-xl font-bold text-brand-navy mb-4">Latest Post</h3>
+                <Link
+                  href={`/blog/${latest.slug}`}
+                  className="block bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-all"
+                >
+                  {latest.image ? (
+                    <div className="relative h-64 bg-brand-navy overflow-hidden">
+                      <img
+                        src={latest.image}
+                        alt={latest.title}
+                        className="w-full h-full object-cover"
+                        loading="eager"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
+                      <div className="absolute bottom-0 left-0 p-5">
+                        <p className="text-xs text-brand-blue font-medium mb-2">{latest.category}</p>
+                        <p className="text-xs text-gray-200">
+                          {latest.date} · {latest.readTime}
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
+                  <div className="p-6">
+                    {!latest.image ? (
+                      <p className="text-xs text-brand-blue font-medium mb-2">{latest.category}</p>
+                    ) : null}
+                    <h3 className="text-2xl font-bold text-brand-navy mb-2">{latest.title}</h3>
+                    <p className="text-sm text-brand-muted mb-4">{latest.excerpt}</p>
+                    {!latest.image ? (
+                      <p className="text-xs text-gray-500">
+                        {latest.date} · {latest.readTime}
+                      </p>
+                    ) : null}
+                  </div>
+                </Link>
+              </div>
+            )}
+
+            <div>
+              <h3 className="text-xl font-bold text-brand-navy mb-4">
+                {active === "All" ? "All Posts" : active}
+                <span className="text-sm font-normal text-gray-400 ml-2">({filtered.length})</span>
+              </h3>
+
+              {gridPosts.length === 0 ? (
+                <p className="text-brand-muted py-12 text-center">No posts in this category yet.</p>
+              ) : (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {gridPosts.map((post) => (
+                    <Link
+                      key={post.slug}
+                      href={`/blog/${post.slug}`}
+                      className="card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden"
+                    >
+                      {post.image ? (
+                        <div className="relative h-44 bg-brand-navy overflow-hidden">
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
+                          <div className="absolute bottom-0 left-0 p-5">
+                            <span className="text-xs text-brand-blue font-medium">{post.category}</span>
+                            <span className="text-xs text-gray-200 mt-1 block">
+                              {post.date} · {post.readTime}
+                            </span>
+                          </div>
+                        </div>
+                      ) : null}
+                      <div className="p-5 bg-white">
+                        {!post.image ? (
+                          <>
+                            <span className="text-xs text-brand-blue font-medium">{post.category}</span>
+                            <span className="text-xs text-gray-400 mt-1 block">
+                              {post.date} · {post.readTime}
+                            </span>
+                          </>
+                        ) : null}
+                        <h3 className="font-bold text-brand-navy text-base leading-snug group-hover:text-brand-blue transition-colors mb-2 line-clamp-2 mt-3">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-brand-muted leading-relaxed line-clamp-3">
+                          {post.excerpt}
+                        </p>
+                        <span className="text-brand-blue text-sm mt-3 block font-medium">Read post →</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <p className="text-brand-muted py-12 text-center">No posts available yet.</p>
         )}
       </div>
     </section>

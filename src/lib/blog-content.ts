@@ -30,6 +30,17 @@ export function getBlogContent(slug: string): string | null {
   }
 }
 
+export function getMarkdownBlogSlugs(): string[] {
+  try {
+    return fs
+      .readdirSync(CONTENT_DIR)
+      .filter((file) => file.endsWith(".md"))
+      .map((file) => file.replace(/\.md$/, ""));
+  } catch {
+    return [];
+  }
+}
+
 /**
  * Split markdown into body content (before FAQ section) and FAQ pairs.
  * FAQ section is identified by a ## FAQ heading or ## headings that end with ?
