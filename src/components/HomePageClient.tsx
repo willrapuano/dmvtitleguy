@@ -13,14 +13,21 @@ const SOCIAL_LINKS = [
 ];
 
 const AUDIENCE_CARDS = [
-  { role: "Real Estate Agents", desc: "Marketing strategies, CE classes, and a title partner who makes every closing smooth and stress-free.", icon: "🏠" },
-  { role: "Mortgage Lenders", desc: "Fast turnarounds, proactive communication, and reliable closings for your entire pipeline.", icon: "🏦" },
-  { role: "Banks & Credit Unions", desc: "Institutional-grade title services with the reliability and compliance your organization demands.", icon: "🏛️" },
-  { role: "Home Builders", desc: "From lot closings to final sales, we handle every phase of your new construction pipeline.", icon: "🔨" },
-  { role: "Real Estate Investors", desc: "Subject-to, wholesale, fix-and-flip, BRRRR — we understand your deal structures and move fast.", icon: "📈" },
+  { role: "For Buyers & Sellers", desc: "Clear title work, responsive communication, and smoother purchase, sale, and refinance closings across the DMV.", icon: "🏠", href: "/title-quote" },
+  { role: "For Realtors", desc: "Faster communication, fewer closing surprises, and a better client experience from contract to settlement.", icon: "🤝", href: "/title-company-for-realtors" },
+  { role: "For Lenders", desc: "Reliable coordination, cleaner files, and dependable settlement support for your active pipeline.", icon: "🏦", href: "/title-company-for-lenders" },
+  { role: "For Builders", desc: "Repeatable closing support for new construction, buyer coordination, and pipeline-ready settlement execution.", icon: "🔨", href: "/title-company-for-builders" },
+  { role: "For Banks & Credit Unions", desc: "Institutional-grade title and escrow support with the reliability and responsiveness your teams expect.", icon: "🏛️", href: "/title-company-for-credit-unions" },
 ];
 
-
+const MONEY_PAGES = [
+  { label: "Title Quote", href: "/title-quote", detail: "Start with a fast closing cost estimate." },
+  { label: "Title Company in Bethesda, MD", href: "/title-company-bethesda-md", detail: "Montgomery County title and settlement support." },
+  { label: "Closing Costs in Maryland", href: "/maryland-closing-cost-calculator", detail: "Estimate what buyers and sellers should expect." },
+  { label: "Title Company for Realtors", href: "/title-company-for-realtors", detail: "Routing for agent-focused closing support." },
+  { label: "Title Company for Builders", href: "/title-company-for-builders", detail: "New construction and builder pipeline support." },
+  { label: "Washington DC Title Company", href: "/title-company-washington-dc", detail: "Title, escrow, and settlement support in DC." },
+];
 
 export function HomePageClient() {
   return (
@@ -52,105 +59,144 @@ export function HomePageClient() {
           ))}
         </div>
 
-        <div className="container-xl relative z-10 grid md:grid-cols-2 gap-10 items-center py-20">
+        <div className="container-xl relative z-10 grid lg:grid-cols-[1.25fr_0.75fr] gap-10 items-center py-20">
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Welcome To</p>
-            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-bold text-white leading-none mb-6">
-              DMV Title Guy
+            <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Pruitt Title LLC • DMV Title Guy</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+              Title &amp; Settlement Services for Buyers, Realtors, Lenders, and Builders Across Virginia, Maryland, and Washington DC
             </h1>
-            <p className="text-lg text-gray-200 leading-relaxed max-w-lg mb-8">
-              I&apos;m <strong className="text-white">Will Rapuano</strong>, Business Development lead at{" "}
-              <strong className="text-white">Pruitt Title LLC</strong> in Vienna, VA. I help{" "}
-              <strong className="text-white">real estate agents</strong>,{" "}
-              <strong className="text-white">mortgage lenders</strong>,{" "}
-              <strong className="text-white">banks</strong>,{" "}
-              <strong className="text-white">credit unions</strong>, and{" "}
-              <strong className="text-white">home builders</strong> across the{" "}
-              <strong className="text-white">DMV</strong> and nationwide grow their business through smarter marketing, better tools, and a{" "}
-              <strong className="text-white">title partner</strong> who actually picks up the phone.
+            <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mb-4">
+              Fast closings. Local expertise. No surprises. Independent title and escrow support for residential, refinance, and builder transactions across the DMV.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="mailto:wrapuano@pruitt-title.com" className="btn-primary text-base px-8 py-3.5">
-                Get in Touch
-              </a>
-              <Link href="/subscribe" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-8 py-3.5">
-                Subscribe
+            <p className="text-base text-gray-300 max-w-2xl mb-8">
+              Whether you are buying, selling, refinancing, or coordinating a builder or lender-side closing, DMV Title Guy helps keep transactions moving with responsive communication, clear title work, and settlement support across Virginia, Maryland, and DC.
+            </p>
+            <div className="flex flex-wrap gap-4 mb-4">
+              <Link
+                href="/calculators/title-quote"
+                className="btn-primary text-base px-8 py-3.5"
+              >
+                Get a Title Quote →
+              </Link>
+              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-8 py-3.5">
+                Open Title
+              </Link>
+              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-8 py-3.5">
+                Start Your Closing
               </Link>
             </div>
+            <p className="text-sm text-gray-300">
+              Trusted local operator: <strong className="text-white">Will Rapuano / DMV Title Guy</strong> with Pruitt Title LLC.
+            </p>
           </div>
-          <div className="flex justify-center md:justify-end">
-            <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
-              <Image
-                src="/will-rapuano-headshot.jpg"
-                alt="Will Rapuano — DMV Title Guy"
-                fill
-                className="object-cover"
-                priority
-              />
+          <div className="bg-white/10 border border-white/15 rounded-2xl p-6 backdrop-blur-sm shadow-2xl">
+            <p className="text-sm uppercase tracking-[0.2em] text-gray-200 mb-3">Service Area &amp; Core Services</p>
+            <h2 className="text-2xl font-bold text-white mb-4">Title company, escrow, and settlement support across the DMV.</h2>
+            <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-100">
+              <div>
+                <p className="font-semibold text-white mb-2">Geography</p>
+                <ul className="space-y-1 text-gray-200">
+                  <li>• Virginia</li>
+                  <li>• Maryland</li>
+                  <li>• Washington DC</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-white mb-2">Transactions</p>
+                <ul className="space-y-1 text-gray-200">
+                  <li>• Purchase closings</li>
+                  <li>• Refinance closings</li>
+                  <li>• Builder transactions</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 2: ABOUT / BIO ───────────────────────────────── */}
+      {/* ── SECTION 2: MONEY PAGE ROUTING ──────────────────────── */}
       <section className="section-light">
-        <div className="container-xl max-w-4xl text-center">
-          <h2 className="text-3xl md:text-[42px] font-bold text-brand-navy leading-tight mb-3">
-            Title Company &amp; Escrow Services in Virginia, Maryland, and Washington DC
-          </h2>
-          <div className="accent-divider" />
-          <div className="text-brand-muted leading-relaxed space-y-4 text-left mt-8">
-            <p>
-              My name is Will Rapuano, and I am a Business Development Officer at <strong>Pruitt Title LLC</strong>, a
-              locally-owned, woman-owned title and settlement company established in 2007 and based in Vienna, Virginia.
-              I also lead Business Development for <strong>First American Title Insurance Company</strong>, the nation&apos;s
-              leading provider of title insurance and settlement services and a Fortune 500 company.
-            </p>
-            <p>
-              As the <strong>DMV Title Guy</strong>, my mission is to bring unique real estate marketing strategies,
-              educational workshops, and innovative tools to real estate agents and mortgage lenders across Washington DC,
-              Maryland, and Virginia. I&apos;m recognized among the top 5% of title insurance executives nationwide, and I use
-              that expertise to not only handle closings with precision, but to help my referral partners grow their businesses.
-            </p>
-            <p>
-              Whether you need a reliable title partner, want to attend a free CE class, or are looking for creative ways to
-              market your listings — I&apos;m here to help. I&apos;m an educator, a connector, and an advocate for real estate
-              professionals in the DMV.
+        <div className="container-xl">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-[42px] font-bold text-brand-navy leading-tight mb-3">
+              Start Here: Title Quotes, Closings, and Service Pages
+            </h2>
+            <div className="accent-divider" />
+            <p className="text-brand-muted max-w-3xl mx-auto mt-6">
+              Use the homepage to route directly into the pages that matter most for quotes, closing support, and local title service coverage across Virginia, Maryland, and Washington DC.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* ── AUDIENCE CARDS ────────────────────────────────────────── */}
-      <section className="section-gray">
-        <div className="container-xl">
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
-            {AUDIENCE_CARDS.map((item) => (
-              <div
-                key={item.role}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {MONEY_PAGES.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 block"
               >
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="font-bold text-brand-navy text-base mb-2">{item.role}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
-              </div>
+                <h3 className="font-bold text-brand-navy text-lg mb-2">{item.label}</h3>
+                <p className="text-brand-muted text-sm leading-relaxed">{item.detail}</p>
+                <p className="mt-3 text-brand-blue text-xs font-semibold">Go to page →</p>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 3: SUBSCRIBE CTA ─────────────────────────────── */}
+      {/* ── WHO WE WORK WITH ─────────────────────────────────────── */}
+      <section className="section-gray">
+        <div className="container-xl">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-2">Routing by Transaction Partner</h2>
+            <p className="text-brand-muted max-w-2xl mx-auto text-sm">Choose the closing path that matches your role. These pages route buyers, realtors, lenders, builders, and institutions into the right title, escrow, and settlement support.</p>
+          </div>
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {AUDIENCE_CARDS.map((item) => {
+              const inner = (
+                <>
+                  <div className="text-3xl mb-3">{item.icon}</div>
+                  <h3 className="font-bold text-brand-navy text-base mb-2">{item.role}</h3>
+                  <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
+                  {item.href && <p className="mt-3 text-brand-blue text-xs font-semibold">Learn more →</p>}
+                </>
+              );
+              return item.href ? (
+                <Link
+                  key={item.role}
+                  href={item.href}
+                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 block"
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <div
+                  key={item.role}
+                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+                >
+                  {inner}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3: QUICK START CTA ───────────────────────────── */}
       <section className="section-blue">
         <div className="container-xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Get Access to Real Estate Tools, Classes, and Marketing Ideas
+            Need to start a closing or get numbers fast?
           </h2>
-          <p className="text-white/80 mb-8 max-w-xl mx-auto">
-            Sign up now for exclusive access to resources designed to help real estate professionals grow their business in the DMV.
+          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+            Start with a title quote, open title for an active transaction, or contact the team for purchase, refinance, and builder closings across the DMV.
           </p>
-          <Link href="/subscribe" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
-            Subscribe Now →
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+              Get a Title Quote →
+            </Link>
+            <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-8 py-3.5">
+              Open Title
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -158,10 +204,10 @@ export function HomePageClient() {
       <section className="section-light">
         <div className="container-xl">
           <div className="text-center mb-12">
-            <h2 className="prose-title">What You Get When You Partner With DMV Title Guy</h2>
+            <h2 className="prose-title">Why Transactions Move Faster With DMV Title Guy</h2>
             <div className="accent-divider" />
             <p className="prose-subtitle max-w-2xl mx-auto">
-              Title expertise. Marketing firepower. A partner who&apos;s invested in your growth.
+              Title, escrow, and settlement support first — with communication and problem-solving built for real transactions.
             </p>
           </div>
 
@@ -172,25 +218,25 @@ export function HomePageClient() {
               </div>
               <h3 className="font-bold text-brand-navy text-lg mb-3">Title &amp; Escrow That Doesn&apos;t Slow You Down</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
-                Fast, reliable closings backed by First American Title Insurance Company. Residential, commercial, luxury, new construction — we handle it all across DC, Maryland, and Virginia. Your deals close on time because we don&apos;t drop the ball on title work.
+                Fast, reliable title work and settlement coordination for purchase, refinance, resale, and builder transactions across DC, Maryland, and Virginia.
               </p>
             </div>
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue text-2xl">💡</span>
+                <span className="text-brand-blue text-2xl">⏱️</span>
               </div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Marketing Strategies That Actually Work</h3>
+              <h3 className="font-bold text-brand-navy text-lg mb-3">Responsive Communication From Contract to Closing</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
-                Most title reps hand you a pen at closing. I hand you a marketing plan. From targeted listing ads to social media strategy, I help agents and lenders generate leads, impress sellers, and stand out in a crowded DMV market.
+                Buyers, agents, lenders, and builders get proactive updates, cleaner coordination, and fewer last-minute surprises at settlement.
               </p>
             </div>
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue text-2xl">📚</span>
+                <span className="text-brand-blue text-2xl">🧭</span>
               </div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Classes, Tools &amp; Resources — Free</h3>
+              <h3 className="font-bold text-brand-navy text-lg mb-3">Local DMV Expertise for Complex Closings</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
-                Regular workshops on AI for real estate, video marketing, social media ads, and more. Plus exclusive access to tools and templates designed specifically for DMV real estate professionals. No fluff, no upsells — just stuff that helps you close more deals.
+                From Montgomery County and Bethesda to Washington DC and Northern Virginia, the team understands local taxes, title issues, and settlement workflows that affect real transactions.
               </p>
             </div>
           </div>
@@ -342,10 +388,10 @@ export function HomePageClient() {
       </section>
 
 
-      {/* ── SECTION 9: LOOKING FOR IDEAS ─────────────────────────── */}
+      {/* ── SECTION 9: WILL / TRUST BUILDER ─────────────────────── */}
       <section className="section-light">
-        <div className="container-xl text-center max-w-3xl">
-          <h2 className="prose-title mb-6">Looking for Ideas to Grow Your Real Estate Business?</h2>
+        <div className="container-xl max-w-3xl text-center">
+          <h2 className="prose-title mb-6">Trusted Local Operator Behind DMV Title Guy</h2>
           <div className="accent-divider" />
           <div className="flex justify-center mb-6 mt-6">
             <Image
@@ -356,14 +402,27 @@ export function HomePageClient() {
               className="object-contain"
             />
           </div>
+          <div className="text-brand-muted leading-relaxed space-y-4 mb-8 text-left">
+            <p>
+              Will Rapuano leads business development for <strong>Pruitt Title LLC</strong> and serves as the operator behind DMV Title Guy. His role on the homepage is simple: be the trusted relationship-builder supporting the title, escrow, and settlement work — not the page&apos;s primary SEO object.
+            </p>
+            <p>
+              If you need a title partner for a live transaction in Virginia, Maryland, or Washington DC, the fastest next step is to request a quote, open title, or contact the team directly.
+            </p>
+          </div>
           <div className="text-brand-muted text-sm space-y-2 mb-8">
             <p><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue hover:underline">wrapuano@pruitt-title.com</a></p>
             <p><a href="tel:+17038591467" className="text-brand-blue hover:underline">(703) 859-1467</a></p>
             <p>1900 Gallows Rd Suite 230, Vienna, VA 22182</p>
           </div>
-          <Link href="/subscribe" className="btn-primary px-8">
-            Subscribe for Updates
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/calculators/title-quote" className="btn-primary px-8">
+              Get a Title Quote
+            </Link>
+            <Link href="/contact" className="btn-outline px-8">
+              Contact the Team
+            </Link>
+          </div>
         </div>
       </section>
     </>
