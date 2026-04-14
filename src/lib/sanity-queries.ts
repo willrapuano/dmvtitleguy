@@ -44,7 +44,9 @@ export async function getAllPosts(): Promise<SanityBlogPost[]> {
     return await sanityClient.fetch(
       `*[_type in ["post","blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()] | order(publishedAt desc) {
         ${POST_LIST_FIELDS}
-      }`
+      }`,
+      {},
+      { next: { revalidate: 0 } }
     );
   } catch {
     return [];
