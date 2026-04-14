@@ -42,7 +42,7 @@ export async function getAllPosts(): Promise<SanityBlogPost[]> {
   if (!SANITY_READY) return [];
   try {
     return await sanityClient.fetch(
-      `*[_type == "post" && !(_id in path("drafts.**")) && publishedAt <= now()] | order(publishedAt desc) {
+      `*[_type in ["post","blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()] | order(publishedAt desc) {
         ${POST_LIST_FIELDS}
       }`
     );
@@ -55,7 +55,7 @@ export async function getPostBySlug(slug: string): Promise<SanityBlogPost | null
   if (!SANITY_READY) return null;
   try {
     const result = await sanityClient.fetch(
-      `*[_type == "post" && slug.current == $slug && !(_id in path("drafts.**"))][0] {
+      `*[_type in ["post","blogPost"] && slug.current == $slug && !(_id in path("drafts.**"))][0] {
         ${POST_FULL_FIELDS}
       }`,
       { slug }
@@ -70,7 +70,7 @@ export async function getAllPostSlugs(): Promise<string[]> {
   if (!SANITY_READY) return [];
   try {
     const results = await sanityClient.fetch(
-      `*[_type == "post" && !(_id in path("drafts.**"))] { "slug": slug.current }`
+      `*[_type in ["post","blogPost"] && !(_id in path("drafts.**"))] { "slug": slug.current }`
     );
     return results.map((r: { slug: string }) => r.slug);
   } catch {
