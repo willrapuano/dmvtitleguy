@@ -3,7 +3,7 @@ import Link from "next/link";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 import BlogIndexClient from "@/components/BlogIndexClient";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Blog | DMV Title Guy — Title Insurance & Real Estate Tips",
