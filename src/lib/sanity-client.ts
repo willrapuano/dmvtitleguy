@@ -3,13 +3,22 @@ import imageUrlBuilder from "@sanity/image-url";
 
 // Force production dataset - environment variable was set incorrectly to 'development'
 const DATASET = "production";
+const PROJECT_ID = (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "4s0dloxi").trim();
+const TOKEN = process.env.SANITY_API_TOKEN;
+
+console.log('[SanityClient] Config:', {
+  projectId: PROJECT_ID,
+  dataset: DATASET,
+  hasToken: !!TOKEN,
+  tokenLength: TOKEN?.length || 0,
+});
 
 export const sanityClient = createClient({
-  projectId: (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "4s0dloxi").trim(),
+  projectId: PROJECT_ID,
   dataset: DATASET,
   apiVersion: "2024-01-01",
   useCdn: false,
-  token: process.env.SANITY_API_TOKEN || undefined,
+  token: TOKEN || undefined,
   stega: { enabled: false },
 });
 
