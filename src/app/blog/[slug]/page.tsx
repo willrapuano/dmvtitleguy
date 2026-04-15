@@ -11,6 +11,7 @@ import { PortableText } from "@portabletext/react";
 import { Callout } from "@/components/portable-text/Callout";
 import { Table } from "@/components/portable-text/Table";
 import { Accordion } from "@/components/portable-text/Accordion";
+import { FAQSection } from "@/components/FAQSection";
 
 export const revalidate = 0;
 
@@ -416,34 +417,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
               {/* ─── FAQ Section ─── */}
               {faqs.length > 0 && (
-                <div className="mt-14 pt-10 border-t border-gray-100">
-                  <h2 className="text-2xl font-bold text-brand-navy mb-8">
-                    Frequently Asked Questions
-                  </h2>
-                  <div className="space-y-0 divide-y divide-gray-100">
-                    {faqs.map((faq, i) => (
-                      <details
-                        key={`faq-${i}`}
-                        className="group py-5 cursor-pointer"
-                        open={i === 0}
-                      >
-                        <summary className="flex items-start justify-between gap-4 list-none [&::-webkit-details-marker]:hidden select-none">
-                          <span className="font-semibold text-brand-navy text-base leading-snug pr-4">
-                            {faq.question}
-                          </span>
-                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-open:rotate-180 transition-transform">
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M2 4l4 4 4-4" />
-                            </svg>
-                          </span>
-                        </summary>
-                        <p className="mt-3 text-gray-600 leading-relaxed text-sm">
-                          {faq.answer}
-                        </p>
-                      </details>
-                    ))}
-                  </div>
-                </div>
+                <FAQSection faqs={faqs} />
               )}
 
               {/* ─── CTA Section ─── */}

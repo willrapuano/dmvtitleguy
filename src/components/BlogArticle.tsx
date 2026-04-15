@@ -95,14 +95,28 @@ const components: Components = {
   ),
   th: ({ children }) => <th className="bg-brand-navy text-white px-4 py-2 text-left font-semibold border border-gray-200">{children}</th>,
   td: ({ children }) => <td className="px-4 py-2 border border-gray-200">{children}</td>,
+  // Explicitly handle strong and em to ensure markdown ** and * work properly
+  strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
+  em: ({ children }) => <em className="italic">{children}</em>,
 };
 
 export function BlogArticle({ content }: { content: string }) {
-  const processed = resolveLinks(content);
+  // Handle null/undefined/empty content gracefully
+  if (!content || typeof content !== 'string') {
+    return null;
+  }
 
-  return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
-      {processed}
-    </ReactMarkdown>
-  );
+  try {
+    const processed = resolveLinks(content);
+
+    return (
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+        {processed}
+      </ReactMarkdown>
+    );
+  } catch (error) {
+    console.error("BlogArticle render error:", error);
+    // Fallback to plain text if markdown parsing fails
+    return <p className="text-gray-700">{content}</p>;
+  }
 }

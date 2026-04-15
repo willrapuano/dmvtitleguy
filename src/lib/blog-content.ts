@@ -44,6 +44,7 @@ export function getMarkdownBlogSlugs(): string[] {
 /**
  * Split markdown into body content (before FAQ section) and FAQ pairs.
  * FAQ section is identified by a ## FAQ heading or ## headings that end with ?
+ * Supports both `## Question?` and `## ## Question?` formats
  */
 export function splitBodyAndFAQ(markdown: string): {
   body: string;
@@ -64,20 +65,42 @@ export function splitBodyAndFAQ(markdown: string): {
       continue;
     }
 
-    // Detect question headings (## ending with ?)
-    const questionMatch = line.match(/^##\s+(.+\?)\s*$/);
-    if (questionMatch) {
+    // Detect question headings - supports both `## Question?` and `## ## Question?` formats
+    const questionMatch = line.match(/^##\s+(?:##\s+)?(.+\?)\s*$/);
+    if (questionMatch && faqMode) {
       // Save previous FAQ if exists
       if (currentQuestion && currentAnswer.length > 0) {
         faqs.push({
           question: currentQuestion,
-          answer: currentAnswer.join(" ").trim(),
+          answer: currentAnswer.join("\n").trim(),
         });
       }
       currentQuestion = questionMatch[1];
       currentAnswer = [];
-      faqMode = true;
       continue;
+    }
+
+    // Also detect question headings outside of explicit FAQ mode (for backwards compat)
+    const standaloneQuestionMatch = line.match(/^##\s+(?:##\s+)?(.+\?)\s*$/);
+    if (standaloneQuestionMatch && !faqMode) {
+      // Check if this looks like a FAQ question (short, starts with capital, has question word)
+      const qText = standaloneQuestionMatch[1];
+      const isLikelyFAQ = qText.length < 150 && 
+                         /^[A-Z]/.test(qText) &&
+                         /\b(What|How|Why|When|Where|Who|Which|Is|Are|Do|Does|Can|Should)\b/.test(qText);
+      
+      if (isLikelyFAQ || lines.some(l => /^##\s+(FAQ|Frequently Asked)/i.test(l))) {
+        faqMode = true;
+        if (currentQuestion && currentAnswer.length > 0) {
+          faqs.push({
+            question: currentQuestion,
+            answer: currentAnswer.join("\n").trim(),
+          });
+        }
+        currentQuestion = qText;
+        currentAnswer = [];
+        continue;
+      }
     }
 
     if (faqMode) {
@@ -86,7 +109,7 @@ export function splitBodyAndFAQ(markdown: string): {
         if (currentQuestion && currentAnswer.length > 0) {
           faqs.push({
             question: currentQuestion,
-            answer: currentAnswer.join(" ").trim(),
+            answer: currentAnswer.join("\n").trim(),
           });
           currentQuestion = "";
           currentAnswer = [];
@@ -95,13 +118,10 @@ export function splitBodyAndFAQ(markdown: string): {
         bodyLines.push(line);
         continue;
       }
-      // Collect answer text
-      if (currentQuestion && line.trim() && !line.startsWith("#")) {
-        const clean = line
-          .replace(/\*\*([^*]+)\*\*/g, "$1")
-          .replace(/\*([^*]+)\*/g, "$1")
-          .trim();
-        if (clean) currentAnswer.push(clean);
+      // Collect answer text - PRESERVE markdown formatting (don't strip ** or *)
+      if (currentQuestion && !line.startsWith("#")) {
+        const trimmed = line.trim();
+        if (trimmed) currentAnswer.push(line); // Keep original line with markdown
       }
     } else {
       bodyLines.push(line);
@@ -112,7 +132,7 @@ export function splitBodyAndFAQ(markdown: string): {
   if (currentQuestion && currentAnswer.length > 0) {
     faqs.push({
       question: currentQuestion,
-      answer: currentAnswer.join(" ").trim(),
+      answer: currentAnswer.join("\n").trim(),
     });
   }
 
