@@ -76,8 +76,14 @@ function mergeUniquePosts(...groups: BlogPost[][]): BlogPost[] {
 
 /** Fetch all posts — Sanity first, then merge with static/markdown legacy inventory */
 export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
-  const sanityPosts = await getAllPosts();
-  console.log(`[BlogData] Sanity returned ${sanityPosts.length} posts`);
+  let sanityPosts: SanityBlogPost[] = [];
+  try {
+    sanityPosts = await getAllPosts();
+    console.log(`[BlogData] Sanity returned ${sanityPosts.length} posts`);
+  } catch (error) {
+    console.error('[BlogData] Error fetching from Sanity:', error);
+    // Continue with empty sanityPosts - will use static fallback
+  }
   const mappedSanityPosts = sanityPosts.map(mapSanityPost);
 
   const staticPosts = PUBLISHED_BLOG_POSTS.map((post) => ({
