@@ -41,15 +41,17 @@ const SANITY_READY = true;
 export async function getAllPosts(): Promise<SanityBlogPost[]> {
   if (!SANITY_READY) return [];
   try {
-    return await sanityClient.fetch(
+    const posts = await sanityClient.fetch(
       `*[_type in ["post","blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()] | order(publishedAt desc) {
         ${POST_LIST_FIELDS}
       }`,
       {},
       { next: { revalidate: 0 } }
     );
-  } catch {
-    return [];
+    return posts || [];
+  } catch (error) {
+    console.error('[Sanity] Error fetching posts:', error);
+    throw error;
   }
 }
 

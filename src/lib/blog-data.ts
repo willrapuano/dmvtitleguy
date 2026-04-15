@@ -76,7 +76,13 @@ function mergeUniquePosts(...groups: BlogPost[][]): BlogPost[] {
 
 /** Fetch all posts — Sanity first, then merge with static/markdown legacy inventory */
 export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
-  const sanityPosts = await getAllPosts();
+  let sanityPosts: SanityBlogPost[] = [];
+  try {
+    sanityPosts = await getAllPosts();
+    console.log(`[BlogData] Sanity returned ${sanityPosts.length} posts`);
+  } catch (error) {
+    console.error('[BlogData] Error fetching from Sanity:', error);
+  }
   const mappedSanityPosts = sanityPosts.map(mapSanityPost);
 
   const staticPosts = PUBLISHED_BLOG_POSTS.map((post) => ({
@@ -89,7 +95,9 @@ export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
     category: normalizeCategory(post.category, post.slug),
   }));
 
-  return mergeUniquePosts(mappedSanityPosts, staticPosts, markdownPosts);
+  const merged = mergeUniquePosts(mappedSanityPosts, staticPosts, markdownPosts);
+  console.log(`[BlogData] Total merged posts: ${merged.length}`);
+  return merged;
 }
 
 /** Fetch a single post — Sanity first, static fallback */
