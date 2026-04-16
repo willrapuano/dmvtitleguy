@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { PortableText } from "@portabletext/react";
 
 interface AccordionItem {
   question: string;
-  answer: string;
+  answer: string | any[]; // Can be string or portable text blocks
 }
 
 interface AccordionProps {
@@ -25,6 +26,24 @@ function cleanQuestion(question: string): string {
     .replace(/^\*\*/, '')   // Strip leading **
     .replace(/\*\*$/, '')   // Strip trailing **
     .trim();
+}
+
+/**
+ * Convert portable text blocks to plain text string
+ */
+function blocksToText(blocks: any[]): string {
+  if (!Array.isArray(blocks)) return "";
+  
+  return blocks
+    .map(block => {
+      if (block._type === 'block' && Array.isArray(block.children)) {
+        return block.children
+          .map((child: any) => child.text || "")
+          .join("");
+      }
+      return "";
+    })
+    .join("\n\n");
 }
 
 /**
@@ -69,6 +88,20 @@ function SafeAnswer({ content }: { content: string }) {
   );
 }
 
+/**
+ * Render answer as portable text or plain text
+ */
+function AnswerContent({ answer }: { answer: string | any[] }) {
+  // If answer is an array (portable text blocks), convert to text
+  if (Array.isArray(answer)) {
+    const textContent = blocksToText(answer);
+    return <SafeAnswer content={textContent} />;
+  }
+  
+  // If answer is a string, render directly
+  return <SafeAnswer content={answer} />;
+}
+
 export function Accordion({ value }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<string | null>(null);
   const items = value?.items || [];
@@ -108,7 +141,7 @@ export function Accordion({ value }: AccordionProps) {
             </button>
             {isOpen && item.answer && (
               <div className="px-5 pb-4 text-gray-700 text-base leading-relaxed bg-white">
-                <SafeAnswer content={item.answer} />
+                <AnswerContent answer={item.answer} />
               </div>
             )}
           </div>
