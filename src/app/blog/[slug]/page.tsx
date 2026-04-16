@@ -337,6 +337,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             return block.children.flatMap((li: any) =>
                               (li.children || []).map((childBlock: any) => ({
                                 ...childBlock,
+                                _type: "block",
                                 listItem: block.listItem,
                               }))
                             );
