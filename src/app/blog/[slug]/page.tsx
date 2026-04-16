@@ -369,6 +369,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         li: ({ children }: any) => <li className="leading-relaxed text-gray-700">{children}</li>,
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         normal: ({ children, value }: any) => {
+                          // Let PortableText handle list items (they have style: "normal" but listItem set)
+                          // Returning undefined lets PortableText use its default list rendering
+                          if (value?.listItem) return undefined;
                           const text = value?.children?.map((c: any) => c.text ?? "").join("").trim() ?? "";
                           // Render --- as hr
                           if (/^[-—\s]{3,}$/.test(text)) {
