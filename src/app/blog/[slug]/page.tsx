@@ -331,8 +331,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       // Sanity: { _type: "list", listItem: "bullet", children: [{ _type: "listItem", children: [{ _type: "block", ... }] }] }
                       // PortableText Toolkit: [{ _type: "block", listItem: "bullet", ... }, ...]
                       const transformBody = (body: any[]): any[] => {
+                        console.log("[DEBUG] transformBody called, body length:", body.length);
+                        const hasList = body.some(b => b._type === 'list');
+                        console.log("[DEBUG] body has list blocks:", hasList);
                         return body.flatMap((block) => {
                           if (block._type === "list") {
+                            console.log("[DEBUG] Found list block, listItem:", block.listItem);
                             // Flatten: extract listItem blocks as flat blocks
                             return block.children.flatMap((li: any) =>
                               (li.children || []).map((childBlock: any) => ({
