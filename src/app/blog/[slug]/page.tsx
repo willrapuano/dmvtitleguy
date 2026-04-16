@@ -332,6 +332,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       // PortableText Toolkit: [{ _type: "block", listItem: "bullet", ... }, ...]
                       const transformBody = (body: any[]): any[] => {
                         console.log("[DEBUG] transformBody called, body length:", body.length);
+                        // Find list blocks
+                        const listIndices = body.map((b, i) => b._type === 'list' ? i : -1).filter(i => i >= 0);
+                        console.log("[DEBUG] list block indices:", listIndices);
+                        if (listIndices.length > 0) {
+                          console.log("[DEBUG] first list block:", JSON.stringify(body[listIndices[0]], null, 2).slice(0, 500));
+                        }
                         const hasList = body.some(b => b._type === 'list');
                         console.log("[DEBUG] body has list blocks:", hasList);
                         return body.flatMap((block) => {
