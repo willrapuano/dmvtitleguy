@@ -327,7 +327,24 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       ) {
                         return blocks.slice(1);
                       }
-                      return blocks;
+                      // Transform Sanity's nested { _type: "list" } format to PortableText Toolkit format
+                      // Sanity: { _type: "list", listItem: "bullet", children: [{ _type: "listItem", children: [{ _type: "block", ... }] }] }
+                      // PortableText Toolkit: [{ _type: "block", listItem: "bullet", ... }, ...]
+                      const transformBody = (body: any[]): any[] => {
+                        return body.flatMap((block) => {
+                          if (block._type === "list") {
+                            // Flatten: extract listItem blocks as flat blocks
+                            return block.children.flatMap((li: any) =>
+                              (li.children || []).map((childBlock: any) => ({
+                                ...childBlock,
+                                listItem: block.listItem,
+                              }))
+                            );
+                          }
+                          return [block];
+                        });
+                      };
+                      return transformBody(blocks);
                     })()}
                     components={{
                       types: {
