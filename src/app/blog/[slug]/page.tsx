@@ -367,6 +367,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       // Top-level list/listItem: @portabletext/react renderList uses components.list
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       list: ({ children, value }: any) => {
+                        // DEBUG: log list rendering
+                        console.log("[LIST] Rendering list, listItem:", value?.listItem, "children:", children?.length);
                         if (value?.listItem === "bullet" || value?.listItem === "ul") {
                           return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
                         }
