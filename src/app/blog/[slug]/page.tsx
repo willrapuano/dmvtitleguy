@@ -336,10 +336,18 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         const listIndices = body.map((b, i) => b._type === 'list' ? i : -1).filter(i => i >= 0);
                         console.log("[DEBUG] list block indices:", listIndices);
                         if (listIndices.length > 0) {
-                          console.log("[DEBUG] first list block:", JSON.stringify(body[listIndices[0]], null, 2).slice(0, 500));
+                          console.log("[DEBUG] first list block:", JSON.stringify(body[listIndices[0]], null, 2));
                         }
                         const hasList = body.some(b => b._type === 'list');
                         console.log("[DEBUG] body has list blocks:", hasList);
+                        // If no list blocks found, force-check with a filter
+                        const listBlocks = body.filter(b => b._type === 'list');
+                        console.log("[DEBUG] filter found listBlocks:", listBlocks.length);
+                        
+                        // DEBUG: Check block types
+                        const types = new Set(body.map(b => b._type));
+                        console.log("[DEBUG] All types in body:", Array.from(types));
+                        
                         return body.flatMap((block) => {
                           if (block._type === "list") {
                             console.log("[DEBUG] Found list block, listItem:", block.listItem);

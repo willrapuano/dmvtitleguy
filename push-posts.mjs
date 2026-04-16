@@ -3,7 +3,7 @@ import { createClient } from '@sanity/client';
 const client = createClient({
   projectId: '4s0dloxi',
   dataset: 'production',
-  token: 'ska6iGYRXxTPxEYuKovacvY7vICRWKP8dKbKC9dyP3lykifZPOk93ETpg5CsqXdYtFToeSo7eMHddtSq2q0gYJXYb4lkeJJD7pJh04DWbbcqj8VmhoiouxwyE55vMVflTUmCtc4DXUYM0qgAgc1kMMx7njilGIarRM7gwWmHgqy3erBkWaxe',
+  token: 'sklGfROOV2NI8wOfagZwiVdikevZTrVXth3YyKW3pLvTLqpFlpDgQyBMU9L30MJKk72WX6cMYTUpOO4X4',
   useCdn: false,
   apiVersion: '2024-01-01',
 });
