@@ -337,13 +337,22 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         table: ({ value }: any) => <Table value={value} />,
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         accordion: ({ value }: any) => <Accordion value={value} />,
-                      },
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      list: ({ children, value }: any) => {
-                        if (value?.listItem === "bullet" || value?.listItem === "ul") {
-                          return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
-                        }
-                        return <ol className="list-decimal list-outside ml-5 my-4 space-y-2">{children}</ol>;
+                        // nestLists transforms list blocks to @list — handle as a list type
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        "@list": ({ children, value }: any) => {
+                          if (value?.listItem === "bullet" || value?.listItem === "ul") {
+                            return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
+                          }
+                          return <ol className="list-decimal list-outside ml-5 my-4 space-y-2">{children}</ol>;
+                        },
+                        // Fallback for @list (same renderer)
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        list: ({ children, value }: any) => {
+                          if (value?.listItem === "bullet" || value?.listItem === "ul") {
+                            return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
+                          }
+                          return <ol className="list-decimal list-outside ml-5 my-4 space-y-2">{children}</ol>;
+                        },
                       },
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       listItem: ({ children }: any) => <li className="leading-relaxed text-gray-700 mb-2">{children}</li>,
