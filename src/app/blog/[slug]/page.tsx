@@ -337,6 +337,18 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         table: ({ value }: any) => <Table value={value} />,
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         accordion: ({ value }: any) => <Accordion value={value} />,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        ul: ({ children }: any) => <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        ol: ({ children }: any) => <ol className="list-decimal list-outside ml-5 my-4 space-y-2">{children}</ol>,
+                      },
+                      listItem: {
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        bullet: ({ children }: any) => <li className="leading-relaxed text-gray-700 mb-2">{children}</li>,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        number: ({ children }: any) => <li className="leading-relaxed text-gray-700 mb-2">{children}</li>,
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        default: ({ children }: any) => <li className="leading-relaxed text-gray-700 mb-2">{children}</li>,
                       },
                       marks: {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -362,16 +374,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       },
                       block: {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        ol: ({ children }: any) => <ol className="list-decimal list-outside ml-5 my-4 space-y-1.5">{children}</ol>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        ul: ({ children }: any) => <ul className="list-disc list-outside ml-5 my-4 space-y-1.5">{children}</ul>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        li: ({ children }: any) => <li className="leading-relaxed text-gray-700">{children}</li>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         normal: ({ children, value }: any) => {
-                          // Let PortableText handle list items (they have style: "normal" but listItem set)
-                          // Returning undefined lets PortableText use its default list rendering
-                          if (value?.listItem) return undefined;
                           const text = value?.children?.map((c: any) => c.text ?? "").join("").trim() ?? "";
                           // Render --- as hr
                           if (/^[-—\s]{3,}$/.test(text)) {
