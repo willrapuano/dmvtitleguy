@@ -7,6 +7,11 @@ export default defineConfig({
   title: "DMV Title Guy — Blog CMS",
   projectId: "4s0dloxi",
   dataset: "production",
+  basePath: "/studio",
   plugins: [structureTool()],
   schema: { types: schemaTypes },
+  api: {
+    // Ensure proper API version for embedded studio
+    version: "2024-01-01",
+  },
 });
