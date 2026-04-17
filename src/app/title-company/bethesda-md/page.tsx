@@ -1,0 +1,194 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { FAQSection } from "@/components/FAQSection";
+import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { LocationSchema } from "@/components/SchemaMarkup";
+
+export const metadata: Metadata = {
+  title: "Title Company Bethesda MD | Settlement & Title Services",
+  description: "Pruitt Title LLC provides expert title and settlement services in Bethesda, MD. Fast closings, competitive rates, and local expertise since 2007.",
+  alternates: { canonical: "/title-company/bethesda-md" },
+};
+
+const faqs = [
+  {
+    question: "How much does title insurance cost in Montgomery County, MD?",
+    answer: "Maryland title insurance rates are filed with the Maryland Insurance Administration. For a $700,000 home in Bethesda, owner's title insurance typically costs $1,800-2,500. Maryland offers a simultaneous issue discount when both lender's and owner's policies are purchased together.",
+  },
+  {
+    question: "What are the transfer and recordation taxes in Bethesda?",
+    answer: "In Montgomery County, sellers pay a transfer tax ($0.00 per $1,000 for properties under $1M, with some exceptions). Buyers pay recordation taxes: state recordation ($0.005 per $100) plus Montgomery County recordation ($0.0085 per $100).",
+  },
+  {
+    question: "Does Maryland require attorney involvement at closing?",
+    answer: "Maryland law requires that an attorney or licensed title agent conduct the settlement. At Pruitt Title, our experienced team handles all legal aspects of your closing to ensure compliance and protect your interests.",
+  },
+  {
+    question: "What is unique about Bethesda real estate transactions?",
+    answer: "Bethesda's luxury market often involves high-value transactions with complex title issues, including trusts, estates, and multi-property holdings. Our team has extensive experience handling these sophisticated transactions while maintaining the highest standards of service.",
+  },
+  {
+    question: "How long does a Bethesda title search take?",
+    answer: "Montgomery County title searches typically take 5-7 business days. For new construction or complex titles involving estates, allow additional time for thorough research.",
+  },
+  {
+    question: "Are there first-time homebuyer exemptions in Montgomery County?",
+    answer: "Yes, first-time homebuyers in Montgomery County may qualify for exemptions from the county transfer tax. The state transfer tax is 0.5% and the county adds 1.0%, making exemptions valuable for qualifying buyers.",
+  },
+];
+
+export default function BethesdaTitlePage() {
+  return (
+    <>
+      <LocationSchema 
+        city="Bethesda" 
+        state="MD" 
+        county="Montgomery County" 
+        slug="title-company/bethesda-md"
+        description="Pruitt Title LLC provides expert title and settlement services in Bethesda, MD. Fast closings, competitive rates, and local expertise since 2007."
+      />
+
+      {/* HERO */}
+      <section className="bg-brand-navy text-white py-16 md:py-24">
+        <div className="container-xl">
+          <nav className="text-xs text-gray-400 mb-4">
+            <Link href="/" className="hover:text-brand-blue">Home</Link>
+            <span className="mx-2">/</span>
+            <Link href="/closing-costs/maryland" className="hover:text-brand-blue">Maryland Closing Costs</Link>
+            <span className="mx-2">/</span>
+            <span className="text-gray-200">Bethesda</span>
+          </nav>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Title Company Bethesda MD | Settlement & Title Services
+          </h1>
+          <p className="text-lg text-gray-300 max-w-2xl">
+            Pruitt Title LLC is Montgomery County's premier title services provider. From Bethesda's luxury estates to starter homes, we deliver the expertise and attention to detail your transaction deserves.
+          </p>
+        </div>
+      </section>
+
+      <ClosingCostCalculator state="MD" />
+
+      {/* LOCAL INSIGHT */}
+      <section className="py-8 bg-brand-blue text-white">
+        <div className="container-xl max-w-3xl">
+          <p className="text-lg font-medium">
+            <span className="text-brand-light-blue">💡 Local Insight:</span> Bethesda's median home price tops $800K—among the highest in MD. At these price points, a missing heir or undiscovered lien can derail a million-dollar deal. We specialize in complex titles for Bethesda's luxury market.
+          </p>
+        </div>
+      </section>
+
+      {/* LOCAL CONTEXT */}
+      <section className="section-gray">
+        <div className="container-xl max-w-3xl">
+          <h2 className="text-2xl font-bold text-brand-navy mb-4">Why Bethesda Real Estate Matters</h2>
+          <div className="space-y-4 text-brand-muted leading-relaxed">
+            <p>
+              Bethesda is one of Maryland's most desirable communities, known for its top-rated schools, vibrant downtown, and proximity to Washington DC. With median home prices exceeding $800,000, Bethesda attracts affluent buyers seeking a sophisticated suburban lifestyle.
+            </p>
+            <p>
+              The Bethesda market includes a mix of established homes, new construction, and luxury estates—particularly in neighborhoods like Chevy Chase, the Battery Lane area, and Glen Echo. Many transactions involve high-value properties where thorough title research is essential. Our team understands Bethesda's unique market dynamics and handles each closing with the precision it deserves.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-16 bg-white">
+        <div className="container-xl">
+          <h2 className="text-3xl font-bold text-brand-navy mb-8">Title Services in Bethesda</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-brand-navy mb-3">Title Searches</h3>
+              <p className="text-gray-600">Comprehensive title searches through Montgomery County land records.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
+              <p className="text-gray-600">Full coverage owner's title insurance to protect your Bethesda home investment.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
+              <p className="text-gray-600">ALTA lender's policies for all major Maryland lenders.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-brand-navy mb-3">Settlement Services</h3>
+              <p className="text-gray-600">Complete closing services from contract to recorded deed delivery.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-brand-navy mb-3">Commercial Title Services</h3>
+              <p className="text-gray-600">Specialized title and settlement services for commercial properties.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
+              <p className="text-gray-600">RON available for flexible signing options.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTERNAL LINKS */}
+      <section className="section-light">
+        <div className="container-xl">
+          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Resources</h2>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+              What is Title Insurance? →
+            </Link>
+            <Link href="/calculators" className="text-brand-blue hover:underline">
+              Closing Cost Calculators →
+            </Link>
+            <Link href="/closing-costs/maryland" className="text-brand-blue hover:underline">
+              Maryland Closing Costs Guide →
+            </Link>
+            <Link href="/maryland-closing-cost-calculator" className="text-brand-blue hover:underline">
+              Maryland Closing Cost Calculator →
+            </Link>
+            <Link href="/title-company/rockville-md" className="text-brand-blue hover:underline">
+              Rockville Title Services →
+            </Link>
+            <Link href="/title-company/silver-spring-md" className="text-brand-blue hover:underline">
+              Silver Spring Title Services →
+            </Link>
+            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+              Arlington Title Services →
+            </Link>
+            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+              Fairfax Title Services →
+            </Link>
+            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+              DC Closing Costs →
+            </Link>
+            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+              Virginia Closing Costs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-white">
+        <div className="container-xl max-w-3xl">
+          <FAQSection faqs={faqs} />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-brand-navy">
+        <div className="container-xl text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">Get Your Bethesda Title Quote</h2>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            Contact us for a competitive title insurance quote for your Bethesda property.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+              Get a Quote →
+            </Link>
+            <a href="tel:+15714744000" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">
+              Call (571) 474-4000
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
