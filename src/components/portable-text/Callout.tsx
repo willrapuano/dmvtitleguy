@@ -7,12 +7,21 @@ const TONE_STYLES: Record<string, { wrapper: string; icon: string }> = {
   tip:     { wrapper: "bg-purple-50 border-purple-400 text-purple-900", icon: "💡" },
 };
 
-export function Callout({ value }: { value: { tone?: string; title?: string; body?: string } }) {
+export function Callout({ value }: { value: { tone?: string; title?: string; body?: string | any[] } }) {
   const tone = value.tone || "info";
   const style = TONE_STYLES[tone] || TONE_STYLES.info;
 
+  // Handle body being string, array, or other type
+  let body = value.body;
+  if (Array.isArray(body)) {
+    // If body is an array (from PortableText), join the text from children
+    body = body.map((block: any) => 
+      block?.children?.map((c: any) => c.text || "").join("") || ""
+    ).join("\n");
+  }
+  body = String(body || "");
+
   // Split on bullet separator · or newline for list rendering
-  const body = value.body || "";
   const items = body.split(/\s*·\s*|\n/).map(s => s.trim()).filter(Boolean);
   const isList = items.length > 1;
 
