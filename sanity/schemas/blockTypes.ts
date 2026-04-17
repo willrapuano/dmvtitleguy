@@ -20,7 +20,7 @@ export const calloutBlock = defineType({
       initialValue: "info",
     }),
     defineField({ name: "title", type: "string", title: "Title (optional)" }),
-    defineField({ name: "body", type: "text", title: "Body text", rows: 3 }),
+    defineField({ name: "body", type: "text", title: "Body text" }),
   ],
   preview: {
     select: { title: "title", body: "body", tone: "tone" },
@@ -98,7 +98,7 @@ export const accordionBlock = defineType({
           title: "Item",
           fields: [
             defineField({ name: "question", type: "string", title: "Question" }),
-            defineField({ name: "answer", type: "text", title: "Answer", rows: 4 }),
+            defineField({ name: "answer", type: "text", title: "Answer" }),
           ],
           preview: {
             select: { question: "question" },
