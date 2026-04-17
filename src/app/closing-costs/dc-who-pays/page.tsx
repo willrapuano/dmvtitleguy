@@ -127,7 +127,7 @@ export default function DCWhoPaysClosingCostsPage() {
                 <tr className="bg-brand-navy text-white">
                   <th className="text-left p-3">Tax Type</th>
                   <th className="text-right p-3">Properties under $400K</th>
-                  <th className="text-right p-3">Properties >$400K</th>
+                  <th className="text-right p-3">Properties over $400K</th>
                   <th className="text-right p-3">Typically Paid By</th>
                 </tr>
               </thead>
