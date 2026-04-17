@@ -89,8 +89,8 @@ export default function DCWhoPaysClosingCostsPage() {
               <li><strong>Home Inspection Fees:</strong> Optional but recommended, costing $400-$600.</li>
               <li><strong>Prepaid Expenses:</strong> Includes property taxes, homeowners insurance, and prepaid interest from closing date to end of the month.</li>
               <li><strong>Recording Fees:</strong> Fees to record the deed and mortgage with DC authorities.</li>
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties ≤$400K) or 1.45% (properties >$400K) — typically split 50/50.</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties ≤$400K) or 1.45% (properties >$400K) — typically split 50/50.</li>
+              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50.</li>
+              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50.</li>
             </ul>
           </div>
         </div>
@@ -106,8 +106,8 @@ export default function DCWhoPaysClosingCostsPage() {
             </p>
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commissions:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties ≤$400K) or 1.45% (properties >$400K) — typically split 50/50 with buyer.</li>
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties ≤$400K) or 1.45% (properties >$400K) — typically split 50/50 with buyer.</li>
+              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50 with buyer.</li>
+              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50 with buyer.</li>
               <li><strong>Title Insurance for Buyer:</strong> Sellers often pay for the owner's title insurance policy as a concession.</li>
               <li><strong>Prorated Property Taxes:</strong> Property taxes from January 1 to the closing date.</li>
               <li><strong>Outstanding Liens:</strong> Any liens on the property must be paid at closing.</li>
@@ -126,7 +126,7 @@ export default function DCWhoPaysClosingCostsPage() {
               <thead>
                 <tr className="bg-brand-navy text-white">
                   <th className="text-left p-3">Tax Type</th>
-                  <th className="text-right p-3">Properties ≤$400K</th>
+                  <th className="text-right p-3">Properties under $400K</th>
                   <th className="text-right p-3">Properties >$400K</th>
                   <th className="text-right p-3">Typically Paid By</th>
                 </tr>
