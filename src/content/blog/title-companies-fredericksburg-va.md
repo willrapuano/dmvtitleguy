@@ -154,3 +154,10 @@ Fredericksburg's real estate market has its own character — historic propertie
 Take 15 minutes to compare. It's the best investment you'll make before closing day.
 
 **Need a title company for your Fredericksburg-area closing?** [Get a free estimate →](/contact)
+
+---
+
+## Next Steps
+
+- [Get a title quote in Alexandria](/title-company/alexandria-va)
+- [Get a title quote in Arlington](/title-company/arlington-va)

@@ -155,3 +155,11 @@ Your title company is the last line of defense between you and a clean closing. 
 Don't treat the title company as an afterthought. Ask questions. Compare fees. Check references. The 20 minutes you spend evaluating your options can save you days of stress at the closing table.
 
 **Looking for a title company in Northern Virginia?** [Get a free closing cost estimate →](/contact)
+
+---
+
+## Next Steps
+
+- [Get a title quote in Fairfax](/title-company/fairfax-va)
+- [Get a title quote in Arlington](/title-company/arlington-va)
+- [See Virginia closing costs](/closing-costs/virginia)

@@ -151,3 +151,10 @@ Title insurance premiums in the DMV are state-regulated and based on purchase pr
 ---
 
 *Will Rapuano is the founder of Pruitt Title LLC / DMV Title Guy, a settlement company serving Maryland, Virginia, and Washington, DC. Questions about your specific transaction? [Reach out to our team][LINK:/why-choose-us].*
+
+---
+
+## Next Steps
+
+- [Get a title quote in Bethesda](/title-company/bethesda-md)
+- [See DC closing costs](/closing-costs/dc)

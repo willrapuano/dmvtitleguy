@@ -183,3 +183,10 @@ At Pruitt Title, we walk every client through their policy options at closing â€
 **[Contact us to get started on your closing â†’](/contact)**
 
 *Will Rapuano is a title professional and owner of Pruitt Title LLC, serving buyers, sellers, and lenders across Virginia, Maryland, and Washington, DC.*
+
+---
+
+## Next Steps
+
+- [Get a title quote in Fairfax](/title-company/fairfax-va)
+- [Compare closing costs in Maryland](/closing-costs/maryland)

@@ -146,3 +146,11 @@ At Pruitt Title, we publish our fees before you ask. See [why that matters][LINK
 - [DC Closing Cost Calculator][LINK:/dc-closing-cost-calculator]
 
 Questions about your specific transaction? Call us directly. We'll walk through it with you.
+
+---
+
+## Next Steps
+
+- [Get a title quote in Falls Church](/title-company/falls-church-va)
+- [Compare Maryland closing costs](/closing-costs/maryland)
+- [Compare DC closing costs](/closing-costs/dc)

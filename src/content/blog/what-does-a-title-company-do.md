@@ -167,3 +167,10 @@ A title company's job is to make sure you actually own what you paid for — and
 In the DMV specifically, where you might be buying in one jurisdiction, the seller lives in another, and the lender is headquartered in a third state, having a title company that knows these markets is worth more than saving $200 by going with whoever your lender pushed.
 
 If you're buying or selling property in Northern Virginia, Maryland, or DC and want to talk through your closing before you're sitting at the table, [reach out to the Pruitt Title team][LINK:/why-choose-us]. We'll give you a straight answer.
+
+---
+
+## Next Steps
+
+- [Get a title quote in Alexandria](/title-company/alexandria-va)
+- [Get a title quote in Falls Church](/title-company/falls-church-va)
