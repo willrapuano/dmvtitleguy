@@ -189,4 +189,6 @@ At Pruitt Title, we walk every client through their policy options at closing â€
 ## Next Steps
 
 - [Get a title quote in Fairfax](/title-company/fairfax-va)
+- [Get a title quote in Arlington](/title-company/arlington-va)
 - [Compare closing costs in Maryland](/closing-costs/maryland)
+- [Compare DC closing costs](/closing-costs/dc)

@@ -179,4 +179,6 @@ Virginia closing costs aren't a mystery — they're a math problem. Know the lin
 ## Next Steps
 
 - [Get a title quote in Arlington](/title-company/arlington-va)
-- [Compare Virginia closing costs](/closing-costs/virginia)
+- [Get a title quote in Fairfax](/title-company/fairfax-va)
+- [Get a title quote in Alexandria](/title-company/alexandria-va)
+- [Compare Maryland closing costs](/closing-costs/maryland)
