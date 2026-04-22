@@ -186,6 +186,176 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
     { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
   ],
+  "closing-costs-maryland": [
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+  ],
+  "closing-costs-maryland-2026": [
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "closing-costs-virginia": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "escrow-companies-near-me-dmv": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "what-happens-at-closing": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "what-happens-at-closing-real-estate": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Falls Church", href: "/title-company/falls-church-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "why-is-title-insurance-so-expensive": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "how-much-does-title-insurance-cost": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "homeowner-title-insurance": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "owners-policy-vs-lenders-policy": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "title-search-refinance": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "settlement-closing-fee": [
+    { label: "Get a Title Quote in Falls Church", href: "/title-company/falls-church-va" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "title-company-washington-dc": [
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
+  ],
+  "dc-real-estate-taxes": [
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "firpta-explained-dmv": [
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+  ],
+  "net-sheet-calculator-dmv": [
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+  ],
+  "closing-protection-letter": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "how-to-choose-a-title-company-in-virginia-maryland-or-dc": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+  ],
+  "title-company-northern-virginia": [
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+    { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
+  ],
+  "title-insurance-cost-virginia": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "what-is-lenders-title-insurance": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "title-and-settlement-services": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "real-estate-closing-companies-near-me": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "virginia-real-estate-contract": [
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+  ],
+  "title-company-for-realtors": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+  ],
+  "title-insurance-enhanced-vs-standard": [
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+  ],
+  "what-is-enhanced-title-insurance": [
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "how-to-read-a-title-commitment": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "seller-net-sheet": [
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+  ],
+  "who-chooses-the-title-company-in-virginia": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+  ],
+  "enhanced-title-insurance-vs-standard": [
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+  ],
+  "title-search-vs-title-insurance": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "title-insurance-claims-process": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "what-is-a-deed-transfer": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
 };
 
 function slugifyHeading(input: string): string {
