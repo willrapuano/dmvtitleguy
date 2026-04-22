@@ -27,6 +27,16 @@ const STATIC_VALID_PATHS = new Set([
   "/dc-closing-cost-calculator",
   "/subscribe",
   "/contact",
+  "/title-company/arlington-va",
+  "/title-company/fairfax-va",
+  "/title-company/bethesda-md",
+  "/title-company/alexandria-va",
+  "/title-company/falls-church-va",
+  "/title-company/loudoun-county-va",
+  "/title-company/prince-william-county-va",
+  "/title-company/silver-spring-md",
+  "/closing-costs/maryland",
+  "/closing-costs/dc",
 ]);
 
 const VALID_INTERNAL_PATHS = new Set([
@@ -36,43 +46,145 @@ const VALID_INTERNAL_PATHS = new Set([
 
 const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "lenders-title-insurance-vs-owners-title-insurance": [
-    { label: "Title Insurance Resources", href: "/title-insurance" },
-    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
-    { label: "Standard vs Enhanced Title Insurance", href: "/blog/standard-vs-enhanced-title-insurance" },
-    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
   "what-is-a-title-settlement-fee": [
-    { label: "Closing Costs in Virginia (2026)", href: "/blog/closing-costs-in-virginia-2026" },
-    { label: "Title Insurance Resources", href: "/title-insurance" },
-    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
-    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+    { label: "Get a Title Quote in Falls Church", href: "/title-company/falls-church-va" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "what-does-a-title-company-do": [
-    { label: "Title Insurance Resources", href: "/title-insurance" },
-    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
-    { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
-    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+    { label: "Get a Title Quote in Alexandria", href: "/title-company/alexandria-va" },
+    { label: "Get a Title Quote in Falls Church", href: "/title-company/falls-church-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "standard-vs-enhanced-title-insurance": [
-    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
-    { label: "Title Insurance Resources", href: "/title-insurance" },
-    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
-    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
   ],
   "closing-costs-in-virginia-2026": [
-    { label: "What Is a Title Settlement Fee?", href: "/blog/what-is-a-title-settlement-fee" },
-    { label: "Lender's vs Owner's Title Insurance", href: "/blog/lenders-title-insurance-vs-owners-title-insurance" },
-    { label: "Title Insurance Resources", href: "/title-insurance" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "title-companies-in-northern-virginia": [
-    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
-    { label: "Title Companies in Fredericksburg", href: "/blog/title-companies-fredericksburg-va" },
-    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+    { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
   ],
   "title-companies-fredericksburg-va": [
-    { label: "Title Companies in Northern Virginia", href: "/blog/title-companies-in-northern-virginia" },
-    { label: "What Does a Title Company Do?", href: "/blog/what-does-a-title-company-do" },
-    { label: "Why Pruitt Title?", href: "/why-choose-us" },
+    { label: "Get a Title Quote in Alexandria", href: "/title-company/alexandria-va" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "how-to-choose-right-title-company-dmv": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+  ],
+  "closing-costs-dmv-buyers-sellers": [
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+  ],
+  "title-insurance-requirements-dc-md-va": [
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+  ],
+  "title-companies-new-construction": [
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+    { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+  ],
+  "title-insurance-real-estate-lenders-dmv": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "first-time-homebuyer-guide-dmv": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "understanding-wire-fraud-real-estate": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+  ],
+  "commercial-real-estate-title-insurance": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+  ],
+  "property-deeds-types-explained": [
+    { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
+  ],
+  "working-with-builders-title-perspective": [
+    { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
+    { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+  ],
+  "using-zillow-traffic-data-to-close-more-deals": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "real-estate-marketing-strategies-dmv-agents": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "video-marketing-real-estate-agents": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "ai-tools-real-estate-professionals": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "digital-closings-future-title-industry": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "social-media-strategies-realtors-2025": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "building-personal-brand-real-estate-agent": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "networking-tips-real-estate-professionals": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "direct-mail-marketing-real-estate": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "ce-continuing-education-real-estate-agents": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "real-estate-investing-strategies-dmv": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "nova-housing-market-update-2025": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "1031-exchange-guide-investors": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
+  ],
+  "understanding-subject-to-transactions": [
+    { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
+    { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
   ],
 };
 
@@ -184,9 +296,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   const relatedLinks = (
     INTERNAL_LINKS[post.slug] || [
-      { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
-      { label: "MD Closing Cost Calculator", href: "/maryland-closing-cost-calculator" },
-      { label: "Title Insurance", href: "/title-insurance" },
+      { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
+      { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+      { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
     ]
   ).filter((link) => VALID_INTERNAL_PATHS.has(link.href)).slice(0, 4);
 
