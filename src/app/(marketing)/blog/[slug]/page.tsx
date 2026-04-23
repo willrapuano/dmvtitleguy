@@ -732,6 +732,30 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                           ) {
                             return <p className="font-bold text-brand-blue mt-10 mb-1 text-base border-l-4 border-brand-blue pl-3">{children}</p>;
                           }
+                          // Parse markdown links [text](/path) into React elements
+                          const mdLinkRegex = /\[([^\]]+)\]\((\/[^)]+)\)/g;
+                          if (mdLinkRegex.test(text)) {
+                            const parts: React.ReactNode[] = [];
+                            let lastIdx = 0;
+                            mdLinkRegex.lastIndex = 0;
+                            let m: RegExpExecArray | null;
+                            let key = 0;
+                            while ((m = mdLinkRegex.exec(text)) !== null) {
+                              if (m.index > lastIdx) {
+                                parts.push(<span key={key++}>{text.slice(lastIdx, m.index)}</span>);
+                              }
+                              parts.push(
+                                <Link key={key++} href={m[2]} className="text-brand-blue hover:underline">
+                                  {m[1]}
+                                </Link>
+                              );
+                              lastIdx = m.index + m[0].length;
+                            }
+                            if (lastIdx < text.length) {
+                              parts.push(<span key={key++}>{text.slice(lastIdx)}</span>);
+                            }
+                            return <p className="mb-4 leading-relaxed">{parts}</p>;
+                          }
                           return <p className="mb-4 leading-relaxed">{children}</p>;
                         },
                         h1: ({ children }: any) => <h1 className="text-3xl font-bold text-brand-navy mt-10 mb-4">{children}</h1>,
