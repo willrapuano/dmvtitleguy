@@ -64,7 +64,7 @@ Spotsylvania County in particular has significant new-construction activity. Bui
 ## What to Compare When Choosing a Fredericksburg Title Company
 
 ### Settlement Fees
-[Settlement fees](/blog/what-is-a-title-settlement-fee) in Fredericksburg typically range from $395 to $695. That's generally lower than Northern Virginia, reflecting the lower transaction values and cost of doing business. But don't shop on price alone — a $395 settlement fee means nothing if the title search comes back incomplete or the closing gets delayed.
+[Settlement fees](/blog/what-is-a-title-settlement-fee) in Fredericksburg typically range from $395 to $695. That's generally lower than Northern Virginia, reflecting the lower transaction values and cost of doing business. (For comparison, see settlement fees in [Herndon](/title-company-herndon-va) or [Vienna](/title-company-vienna-va)). But don't shop on price alone — a $395 settlement fee means nothing if the title search comes back incomplete or the closing gets delayed.
 
 ### Title Search Turnaround
 How fast can they deliver a title commitment after receiving the order? In the Fredericksburg market, you should expect:

@@ -47,7 +47,7 @@ Fees vary based on the company, transaction complexity, loan type, and state. He
 
 In Virginia, the settlement fee for a standard residential purchase typically runs **$400–$700**. Attorney involvement is not required by state law, so most transactions are handled directly by a licensed settlement agent (title company). Transactions involving construction loans, complex title issues, or multiple parties on title can push fees higher — sometimes $750–$900.
 
-At Pruitt Title, our standard settlement fee for Virginia transactions is **$595**, which covers everything listed above. No hidden line items.
+At Pruitt Title, our standard settlement fee for Virginia transactions is **$595**, which covers everything listed above. No hidden line items. Our [Herndon](/title-company-herndon-va) and [Vienna](/title-company-vienna-va) offices handle thousands of residential closings annually across Northern Virginia.
 
 Use the [Virginia Closing Cost Calculator][LINK:/virginia-closing-cost-calculator] to see your full estimated costs.
 
@@ -151,7 +151,8 @@ Questions about your specific transaction? Call us directly. We'll walk through 
 
 ## Next Steps
 
-- [Get a title quote in Falls Church](/title-company/falls-church-va)
-- [Get a title quote in Arlington](/title-company/arlington-va)
+- [Get a free title quote](/calculators/title-quote)
+- [Contact us](/contact) to open a settlement order
+- [Title settlement fee guide](/blog/title-companies-in-northern-virginia)
 - [Compare Maryland closing costs](/closing-costs/maryland)
 - [Compare DC closing costs](/closing-costs/dc)

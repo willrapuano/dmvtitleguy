@@ -88,7 +88,7 @@ DC row houses, Takoma Park bungalows, Silver Spring colonials — these properti
 
 ### Lots with unclear boundary histories in Northern Virginia
 
-In Fairfax County, Prince William, and Loudoun, older subdivisions sometimes have informal access paths between neighbors that were never formally recorded. One buyer closes on a Falls Church split-level, installs a fence, and gets a letter from the neighbor claiming a prescriptive easement along the rear property line. Standard coverage typically won't respond to that post-closing claim. Enhanced will.
+In Fairfax County, Prince William, and Loudoun, older subdivisions sometimes have informal access paths between neighbors that were never formally recorded. One buyer closes on a Falls Church split-level, installs a fence, and gets a letter from the neighbor claiming a prescriptive easement along the rear property line. Standard coverage typically won't respond to that post-closing claim. Enhanced will. If you're buying in [Vienna](/title-company-vienna-va) or [Herndon](/title-company-herndon-va), where many neighborhoods date to the 1960s and 1970s, the enhanced policy is worth the conversation.
 
 ### New construction with prior agricultural or commercial use
 

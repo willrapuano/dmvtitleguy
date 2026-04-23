@@ -94,7 +94,7 @@ If you're financing your home purchase — which is most buyers — you'll be pa
 
 The answer is almost always yes. Here's why: the two policies are frequently issued simultaneously, which means you get a **simultaneous issue discount**. Instead of paying full price for each, the owner's policy premium is significantly reduced when purchased alongside the lender's policy at closing.
 
-In Virginia, for example, a lender's policy on a $500,000 loan might cost around $1,200. An owner's policy on the same transaction, purchased simultaneously, might add only $400–$600 more. For lifetime protection on what's likely your largest asset, that's a reasonable trade.
+In Virginia, for example, a lender's policy on a $500,000 loan might cost around $1,200. An owner's policy on the same transaction, purchased simultaneously, might add only $400–$600 more. For lifetime protection on what's likely your largest asset, that's a reasonable trade. Buyers closing in [Springfield](/title-company-springfield-va), [Vienna](/title-company-vienna-va), or anywhere across Fairfax County can request a detailed quote from us before they write their offer.
 
 Cash buyers who skip the lender's policy altogether still benefit from an owner's policy — and since there's no simultaneous issue discount available, they're paying full rate. Worth it anyway.
 
@@ -114,7 +114,7 @@ Use our [Virginia closing cost calculator][LINK:/virginia-closing-cost-calculato
 
 ### Maryland
 
-Maryland flips the script on owner's title insurance. **In Maryland, it's customary for the seller to pay for the owner's title insurance policy**, while the buyer pays for the lender's policy. This is a significant distinction for buyers — in Maryland, you may be getting owner's title coverage at no direct cost to you, paid by the seller as part of closing costs.
+Maryland flips the script on owner's title insurance. **In Maryland, it's customary for the seller to pay for the owner's title insurance policy**, while the buyer pays for the lender's policy. This is a significant distinction for buyers — in Maryland, you may be getting owner's title coverage at no direct cost to you, paid by the seller as part of closing costs. If you're buying in [Bethesda](/title-company-bethesda-md) or anywhere in Montgomery County, your closing settlement will follow this Maryland custom automatically.
 
 That said, this is custom, not law. In competitive markets or with seller concessions on the table, it can shift. Know what's standard before you negotiate.
 
