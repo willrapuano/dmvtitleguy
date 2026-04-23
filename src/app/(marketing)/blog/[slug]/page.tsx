@@ -35,9 +35,6 @@ const STATIC_VALID_PATHS = new Set([
   "/title-company/loudoun-county-va",
   "/title-company/prince-william-county-va",
   "/title-company/silver-spring-md",
-  "/title-company-herndon-va",
-  "/title-company-vienna-va",
-  "/title-company-springfield-va",
   "/closing-costs/maryland",
   "/closing-costs/dc",
 ]);
