@@ -97,7 +97,7 @@ Virginia also requires a **licensed settlement agent** or attorney to conduct cl
 
 ### Maryland
 
-Maryland is also a **wet closing state**, but with a nuance: the lender funds upon receipt of the signed documents (or sometimes within 24 hours). Most Maryland closings fund same-day. Maryland requires either a title company or an attorney to conduct closings.
+Maryland is also a **wet closing state**, but with a nuance: the lender funds upon receipt of the signed documents (or sometimes within 24 hours). Most Maryland closings fund same-day. Maryland requires either a title company or an attorney to conduct closings. Our [Bethesda title settlement team](/title-company-bethesda-md) handles residential and commercial closings throughout Montgomery County, coordinating with local lenders who know the drill.
 
 ### Washington, DC
 
