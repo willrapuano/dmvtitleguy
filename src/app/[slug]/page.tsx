@@ -61,14 +61,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!result) return { title: "Not Found" };
 
   if (result.type === "location") {
-    const { city, state } = result.data;
+    const { city, state, county } = result.data;
+    const countyLabel = county.endsWith(" County") ? county : county;
     return {
-      title: `Title Company in ${city}, ${state} | DMV Title Guy`,
-      description: `Pruitt Title LLC provides professional title insurance and closing services in ${city}, ${state}. Fast turnarounds. Call (703) 859-1467.`,
+      title: `${city} Title Company Since 2007 | Pruitt Title — DMV Title Guy`,
+      description: `Trusted title & settlement services in ${city}, ${state}. 17+ years serving ${countyLabel} buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
-        title: `Title Company in ${city}, ${state} | DMV Title Guy`,
-        description: `Professional title & closing services in ${city}, ${state} — residential, commercial, and all transaction types.`,
+        title: `${city} Title Company | Pruitt Title — DMV Title Guy`,
+        description: `Expert title search, insurance & closing services in ${city}, ${state}. Residential, commercial & investor transactions. Since 2007.`,
       },
     };
   }
