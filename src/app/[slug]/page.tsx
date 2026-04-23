@@ -63,6 +63,48 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (result.type === "location") {
     const { city, state, county } = result.data;
     const countyLabel = county.endsWith(" County") ? county : county;
+
+    // ─── CTR-optimized overrides for high-impression pages ───
+    const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
+      "title-company-herndon-va": {
+        title: "Herndon Title Company Since 2007 | Pruitt Title — DMV Title Guy",
+        description: "Trusted title & settlement services in Herndon, VA. 17+ years serving Fairfax County buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.",
+        ogTitle: "Herndon Title Company | Pruitt Title — DMV Title Guy",
+        ogDescription: "Expert title search, insurance & closing services in Herndon, VA. Residential, commercial & investor transactions. Since 2007.",
+      },
+      "title-company-vienna-va": {
+        title: "Vienna VA Title Company — Trusted Closings Since 2007 | DMV Title Guy",
+        description: "Vienna, VA's trusted title settlement company for residential & commercial closings. 17+ years serving Fairfax County. Free title quote: (703) 859-1467.",
+        ogTitle: "Vienna VA Title Settlement Company | DMV Title Guy",
+        ogDescription: "Professional title search, insurance & settlement services in Vienna, VA. Serving Oakton, McLean & all of Fairfax County since 2007.",
+      },
+      "title-company-bethesda-md": {
+        title: "Bethesda MD Title Settlement Company Since 2007 | DMV Title Guy",
+        description: "Bethesda's experienced title & settlement company. Serving Montgomery County buyers, sellers & lenders with fast closings. Get a free quote: (703) 859-1467.",
+        ogTitle: "Bethesda MD Title Settlement Company | DMV Title Guy",
+        ogDescription: "Expert title settlement services in Bethesda, MD. Residential, commercial & refinance closings across Montgomery County since 2007.",
+      },
+      "title-company-springfield-va": {
+        title: "Springfield VA Title Company | Fast Closings & Title Search",
+        description: "Springfield, VA title company trusted by buyers, sellers & investors since 2007. Fast closings, thorough title searches. Free quote: (703) 859-1467.",
+        ogTitle: "Springfield VA Title Company | DMV Title Guy",
+        ogDescription: "Professional title insurance and closing services in Springfield, VA. Residential, commercial & investor closings. Since 2007.",
+      },
+    };
+
+    if (result.data.slug && seoOverrides[result.data.slug]) {
+      const o = seoOverrides[result.data.slug];
+      return {
+        title: o.title,
+        description: o.description,
+        alternates: { canonical: `/${params.slug}` },
+        openGraph: {
+          title: o.ogTitle ?? o.title,
+          description: o.ogDescription ?? o.description,
+        },
+      };
+    }
+
     return {
       title: `${city} Title Company Since 2007 | Pruitt Title — DMV Title Guy`,
       description: `Trusted title & settlement services in ${city}, ${state}. 17+ years serving ${countyLabel} buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.`,
