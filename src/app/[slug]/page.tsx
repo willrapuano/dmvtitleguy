@@ -22,6 +22,7 @@ import {
   CALCULATOR_SLUGS,
   type Location,
   type County,
+  type FaqItem,
 } from "@/data/locations";
 import {
   CITY_CALCULATOR_DATA,
@@ -257,6 +258,39 @@ function LocationPage({ location }: { location: Location }) {
             </div>
           </div>
         </section>
+      )}
+
+      {/* FAQ — Phase 4 keyword expansion */}
+      {location.faqs && location.faqs.length > 0 && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: location.faqs.map((faq: FaqItem) => ({
+                  "@type": "Question",
+                  name: faq.question,
+                  acceptedAnswer: { "@type": "Answer", text: faq.answer },
+                })),
+              }),
+            }}
+          />
+          <section className="section-light border-t border-gray-100">
+            <div className="container-xl max-w-3xl">
+              <h2 className="text-2xl font-bold text-brand-navy mb-6">Frequently Asked Questions</h2>
+              <div className="space-y-6">
+                {location.faqs.map((faq: FaqItem, i: number) => (
+                  <div key={i}>
+                    <h3 className="text-lg font-semibold text-brand-navy mb-2">{faq.question}</h3>
+                    <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
       )}
 
       {/* INTERNAL LINKS */}

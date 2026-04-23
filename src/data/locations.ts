@@ -1,6 +1,11 @@
 export type Tier = 1 | 2;
 export type StateCode = "VA" | "MD" | "DC";
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface Location {
   city: string;
   slug: string;
@@ -9,6 +14,8 @@ export interface Location {
   tier: Tier;
   /** Tier 3 communities to mention as "also serving" */
   alsoServing?: string[];
+  /** FAQ content for SEO keyword expansion (Phase 4) */
+  faqs?: FaqItem[];
 }
 
 export interface County {
@@ -25,13 +32,21 @@ export const TIER1_LOCATIONS: Location[] = [
   { city: "Alexandria",       slug: "title-company-alexandria-va",    state: "VA", county: "Alexandria (independent city)",  tier: 1 },
   { city: "Fairfax",          slug: "title-company-fairfax-va",       state: "VA", county: "Fairfax County",                 tier: 1 },
   { city: "McLean",           slug: "title-company-mclean-va",        state: "VA", county: "Fairfax County",                 tier: 1 },
-  { city: "Vienna",           slug: "title-company-vienna-va",        state: "VA", county: "Fairfax County",                 tier: 1, alsoServing: ["Oakton"] },
+  { city: "Vienna",           slug: "title-company-vienna-va",        state: "VA", county: "Fairfax County",                 tier: 1, alsoServing: ["Oakton"], faqs: [
+      { question: "What does a title company do in Vienna, VA?", answer: "A title company in Vienna performs the title search, issues title insurance, manages escrow funds, and conducts the closing settlement — ensuring the property transfers cleanly from seller to buyer." },
+      { question: "How long does the closing process take in Northern Virginia?", answer: "Most closings in Northern Virginia take 30–45 days from contract to settlement. The timeline depends on your lender's underwriting speed, any title issues discovered during the search, and the closing date set in your purchase contract." },
+      { question: "Do I need owner's title insurance in Virginia?", answer: "Owner's title insurance is optional but strongly recommended. It protects you against hidden title defects, forged documents, unpaid liens, and errors in public records — for a one-time premium paid at closing." },
+    ] },
   { city: "Reston",           slug: "title-company-reston-va",        state: "VA", county: "Fairfax County",                 tier: 1 },
   { city: "Ashburn",          slug: "title-company-ashburn-va",       state: "VA", county: "Loudoun County",                 tier: 1 },
   { city: "Leesburg",         slug: "title-company-leesburg-va",      state: "VA", county: "Loudoun County",                 tier: 1 },
   { city: "Woodbridge",       slug: "title-company-woodbridge-va",    state: "VA", county: "Prince William County",          tier: 1, alsoServing: ["Dale City", "Lake Ridge", "Dumfries", "Occoquan"] },
   { city: "Fredericksburg",   slug: "title-company-fredericksburg-va",state: "VA", county: "Fredericksburg (independent city)", tier: 1 },
-  { city: "Bethesda",         slug: "title-company-bethesda-md",      state: "MD", county: "Montgomery County",              tier: 1, alsoServing: ["Chevy Chase"] },
+  { city: "Bethesda",         slug: "title-company-bethesda-md",      state: "MD", county: "Montgomery County",              tier: 1, alsoServing: ["Chevy Chase"], faqs: [
+      { question: "How does a title search work in Maryland?", answer: "In Maryland, a title company examines public records going back at least 50 years to verify clear ownership, identify any liens or encumbrances, and ensure no outstanding claims on the property before issuing title insurance." },
+      { question: "What's the difference between a title company and a settlement company in Maryland?", answer: "In Maryland, the terms are often used interchangeably. A title company focuses on title insurance, while a settlement company conducts the closing. Many firms, including DMV Title Guy, handle both roles." },
+      { question: "What are typical closing costs for a buyer in Bethesda, MD?", answer: "Bethesda buyer closing costs typically run 2–4% of the purchase price, including lender fees, title insurance, recording fees, and Maryland transfer taxes. Get a free estimate at our closing cost calculator." },
+    ] },
   { city: "Rockville",        slug: "title-company-rockville-md",     state: "MD", county: "Montgomery County",              tier: 1 },
   { city: "Silver Spring",    slug: "title-company-silver-spring-md", state: "MD", county: "Montgomery County",              tier: 1, alsoServing: ["Kensington", "Takoma Park", "Wheaton"] },
   { city: "Bowie",            slug: "title-company-bowie-md",         state: "MD", county: "Prince George's County",         tier: 1, alsoServing: ["Fort Washington", "Clinton"] },
@@ -40,12 +55,20 @@ export const TIER1_LOCATIONS: Location[] = [
 // ─── Tier 2 — Secondary Markets ───────────────────────────────────────────────
 export const TIER2_LOCATIONS: Location[] = [
   { city: "Tysons",           slug: "title-company-tysons-va",           state: "VA", county: "Fairfax County",          tier: 2, alsoServing: ["Merrifield", "Dunn Loring"] },
-  { city: "Herndon",          slug: "title-company-herndon-va",          state: "VA", county: "Fairfax County",          tier: 2 },
+  { city: "Herndon",          slug: "title-company-herndon-va",          state: "VA", county: "Fairfax County",          tier: 2, faqs: [
+      { question: "How much does title insurance cost in Herndon, VA?", answer: "Title insurance in Herndon typically costs $1,000–$2,500 for a standard residential purchase, depending on the purchase price. Virginia uses a competitive rate system, so premiums can vary by underwriter." },
+      { question: "How long does a title search take in Fairfax County?", answer: "A standard title search in Fairfax County takes 1–3 business days. Older properties with complex ownership history may take longer. Pruitt Title handles searches in-house for faster turnaround." },
+      { question: "Is a title company required for closings in Virginia?", answer: "Virginia requires a licensed title insurance agent or attorney to conduct the settlement. You can't close without one. Pruitt Title is a licensed Virginia title insurance settlement agent serving Herndon and all of Fairfax County." },
+    ] },
   { city: "Great Falls",      slug: "title-company-great-falls-va",      state: "VA", county: "Fairfax County",          tier: 2 },
   { city: "Centreville",      slug: "title-company-centreville-va",      state: "VA", county: "Fairfax County",          tier: 2 },
   { city: "Chantilly",        slug: "title-company-chantilly-va",        state: "VA", county: "Fairfax County",          tier: 2 },
   { city: "Burke",            slug: "title-company-burke-va",            state: "VA", county: "Fairfax County",          tier: 2, alsoServing: ["Lorton"] },
-  { city: "Springfield",      slug: "title-company-springfield-va",      state: "VA", county: "Fairfax County",          tier: 2, alsoServing: ["Lorton"] },
+  { city: "Springfield",      slug: "title-company-springfield-va",      state: "VA", county: "Fairfax County",          tier: 2, alsoServing: ["Lorton"], faqs: [
+      { question: "What should I expect at closing in Springfield, VA?", answer: "In Springfield, VA, a typical closing takes 45–90 minutes. You'll sign the deed, deed of trust, closing disclosure, and other loan documents. The settlement attorney reviews everything, then coordinates funding and recording with Fairfax County." },
+      { question: "Can I get a title insurance quote online?", answer: "Yes. DMV Title Guy offers free title insurance quotes online through our closing cost calculator or by calling (703) 859-1467. You'll get a detailed breakdown of all fees within one business day." },
+      { question: "Does title insurance cover boundary disputes in Virginia?", answer: "Standard title insurance in Virginia may cover some boundary and survey issues, but it depends on the policy. An enhanced owner's policy offers broader coverage than a standard policy." },
+    ] },
   { city: "Annandale",        slug: "title-company-annandale-va",        state: "VA", county: "Fairfax County",          tier: 2 },
   { city: "Falls Church",     slug: "title-company-falls-church-va",     state: "VA", county: "Falls Church / Fairfax",  tier: 2 },
   { city: "Sterling",         slug: "title-company-sterling-va",         state: "VA", county: "Loudoun County",          tier: 2 },
