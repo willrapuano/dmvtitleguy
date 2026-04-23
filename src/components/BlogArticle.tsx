@@ -17,6 +17,10 @@ const STATIC_VALID_PATHS = new Set([
   "/maryland-closing-cost-calculator",
   "/dc-closing-cost-calculator",
   "/subscribe",
+  "/title-company-herndon-va",
+  "/title-company-vienna-va",
+  "/title-company-springfield-va",
+  "/title-company-bethesda-md",
 ]);
 
 const VALID_INTERNAL_PATHS = new Set([
