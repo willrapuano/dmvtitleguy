@@ -464,13 +464,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       }
     : null;
 
-  const relatedLinks = (
-    INTERNAL_LINKS[post.slug] || [
-      { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-      { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
-      { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
-    ]
-  ).filter((link) => VALID_INTERNAL_PATHS.has(link.href)).slice(0, 4);
+  // INTERNAL_LINKS injection disabled 2026-04-24 — Sanity body links are the curated source
+  const relatedLinks: { label: string; href: string }[] = [];
 
   return (
     <>
