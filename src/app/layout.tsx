@@ -17,7 +17,7 @@ const defaultDescription =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: defaultTitle, template: `%s | DMV Title Guy` },
+  title: { default: defaultTitle, template: `%s` },
   description: defaultDescription,
   icons: {
     icon: [

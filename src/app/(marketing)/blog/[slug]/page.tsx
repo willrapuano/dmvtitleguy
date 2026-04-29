@@ -401,9 +401,7 @@ export async function generateMetadata({
   const { post, portableTextBody } = await fetchBlogPostBySlug(params.slug);
   if (!post) return { title: "Not Found" };
 
-  const title = post.title
-    ? `${post.title} | DMV Title Guy`
-    : "DMV Title Guy";
+  const title = post.title || "DMV Title Guy";
 
   const description =
     (post as any).seo?.description ||
@@ -452,11 +450,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const shareTitle = encodeURIComponent(post.title);
   const shareUrl = encodeURIComponent(canonicalUrl);
 
+  const articleSchemaDesc =
+    (post as any)?.seo?.description ||
+    (post.excerpt && post.excerpt.trim()) ||
+    stripPortableText(portableTextBody).slice(0, 155) ||
+    "DMV Title Guy shares practical guidance on title, closing, and real estate transactions across DC, Maryland, and Virginia.";
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
-    description: post.excerpt,
+    description: articleSchemaDesc,
     image: post.image.startsWith("http") ? post.image : `https://dmvtitleguy.io${post.image}`,
     datePublished: post.dateISO,
     dateModified: post.dateISO,
