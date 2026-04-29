@@ -381,19 +381,54 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { post } = await fetchBlogPostBySlug(params.slug);
+function stripPortableText(blocks: any[] = []): string {
+  return blocks
+    .map((block) =>
+      Array.isArray(block?.children)
+        ? block.children.map((child: any) => child.text || "").join("")
+        : ""
+    )
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { post, portableTextBody } = await fetchBlogPostBySlug(params.slug);
   if (!post) return { title: "Not Found" };
+
+  const title = post.title
+    ? `${post.title} | DMV Title Guy`
+    : "DMV Title Guy";
+
+  const description =
+    (post as any).seo?.description ||
+    (post.excerpt && post.excerpt.trim()) ||
+    stripPortableText(portableTextBody).slice(0, 155) ||
+    "DMV Title Guy shares practical guidance on title, closing, and real estate transactions across DC, Maryland, and Virginia.";
+
+  const canonical = `/blog/${post.slug}`;
+
   return {
-    title: post.title,
-    description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    title,
+    description,
+    alternates: { canonical },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
       type: "article",
+      url: canonical,
+      title,
+      description,
       publishedTime: post.dateISO,
       images: [{ url: post.image, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -464,6 +499,31 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       }
     : null;
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://dmvtitleguy.io/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://dmvtitleguy.io/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: canonicalUrl,
+      },
+    ],
+  };
+
   // INTERNAL_LINKS injection disabled 2026-04-24 — Sanity body links are the curated source
   const relatedLinks: { label: string; href: string }[] = [];
 
@@ -473,6 +533,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {faqSchema && (
         <script

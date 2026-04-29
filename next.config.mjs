@@ -31,6 +31,11 @@ const nextConfig = {
         destination: '/blog/:path*',
         permanent: true,
       },
+      {
+        source: '/title-quote',
+        destination: '/calculators/title-quote',
+        permanent: true,
+      },
     ];
   },
   typescript: {
