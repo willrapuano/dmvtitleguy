@@ -93,6 +93,28 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* START YOUR TRANSACTION */}
+      <section className="py-16 bg-brand-navy text-white">
+        <div className="container-xl text-center">
+          <h2 className="text-3xl font-bold mb-4">Start Your Transaction</h2>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">Ready to get started? Choose the service that fits your needs.</p>
+          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <Link href="/investor-due-diligence" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
+              <h3 className="font-semibold text-white mb-2">Investor Due Diligence</h3>
+              <p className="text-sm text-gray-300">Submit property info & start your title search.</p>
+            </Link>
+            <Link href="/upload-contract" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
+              <h3 className="font-semibold text-white mb-2">Upload Contract</h3>
+              <p className="text-sm text-gray-300">Upload your ratified contract for fast processing.</p>
+            </Link>
+            <Link href="/request-title-review" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
+              <h3 className="font-semibold text-white mb-2">Request Title Review</h3>
+              <p className="text-sm text-gray-300">Get clarity on a property&apos;s title status.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* QUICK LINKS */}
       <section className="py-16 bg-gray-50">
         <div className="container-xl">

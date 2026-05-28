@@ -152,6 +152,48 @@ export function CalculatorSchema({ state, slug }: CalculatorSchemaProps) {
   );
 }
 
+interface ServiceSchemaProps {
+  name: string;
+  description: string;
+  serviceType: string;
+}
+
+export function ServiceSchema({ name, description, serviceType }: ServiceSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    provider: {
+      "@type": "RealEstateAgent",
+      name: "DMV Title Guy | Pruitt Title LLC",
+      telephone: "+1-703-859-1467",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1900 Gallows Rd Suite 230",
+        addressLocality: "Vienna",
+        addressRegion: "VA",
+        postalCode: "22182",
+        addressCountry: "US",
+      },
+      areaServed: [
+        { "@type": "State", name: "Virginia" },
+        { "@type": "State", name: "Maryland" },
+        { "@type": "State", name: "District of Columbia" },
+      ],
+    },
+    serviceType,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 interface CityCalculatorSchemaProps {
   city: string;
   state: string;

@@ -18,6 +18,7 @@ import {
   TrendingUp,
   Handshake,
 } from "lucide-react";
+import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Investor Title Services in DC, Maryland & Virginia | DMV Title Guy",
@@ -154,17 +155,16 @@ const relatedPages = [
   { href: "/investor-due-diligence", label: "Investor Due Diligence" },
   { href: "/upload-contract", label: "Upload Contract" },
   { href: "/request-title-review", label: "Request Title Review" },
-  { href: "/title-company/arlington-va", label: "Arlington, VA" },
-  { href: "/title-company/fairfax-va", label: "Fairfax, VA" },
-  { href: "/title-company/mclean-va", label: "McLean, VA" },
-  { href: "/title-company/alexandria-va", label: "Alexandria, VA" },
-  { href: "/title-company/bethesda-md", label: "Bethesda, MD" },
-  { href: "/title-company/silver-spring-md", label: "Silver Spring, MD" },
 ];
 
 export default function InvestorTitleServicesPage() {
   return (
     <>
+      <ServiceSchema
+        name="Investor Title Services in DC, Maryland & Virginia"
+        description="Fast, reliable title services for real estate investors across the DMV. Title searches, auction support, wholesale closings, and investor due diligence."
+        serviceType="Investor Title Services"
+      />
       {/* HERO */}
       <section
         className="bg-brand-navy text-white py-16 md:py-24"

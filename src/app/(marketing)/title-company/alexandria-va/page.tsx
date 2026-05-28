@@ -126,6 +126,31 @@ export default function AlexandriaTitlePage() {
         </div>
       </section>
 
+
+      {/* INVESTOR SERVICES */}
+      <section className="py-12 bg-white">
+        <div className="container-xl">
+          <h2 className="text-xl font-bold text-brand-navy mb-6">Investor Services</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+              <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
+              <p className="text-sm text-brand-muted">Title searches, auction support & wholesale closings.</p>
+            </Link>
+            <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+              <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
+              <p className="text-sm text-brand-muted">Pre-auction title search & risk assessment.</p>
+            </Link>
+            <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+              <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
+              <p className="text-sm text-brand-muted">Surviving liens & chain-of-title review.</p>
+            </Link>
+            <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+              <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
+              <p className="text-sm text-brand-muted">Submit property info & start your title search.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
       {/* INTERNAL LINKS */}
       <section className="section-light">
         <div className="container-xl">

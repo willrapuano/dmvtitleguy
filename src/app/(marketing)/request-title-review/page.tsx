@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Clock, AlertTriangle, Home, Phone } from "lucide-react";
 import { TitleReviewForm } from "@/components/funnels/TitleReviewForm";
+import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Request a Title Review | DMV Title Guy",
@@ -26,6 +27,11 @@ const faqs = [
 export default function RequestTitleReviewPage() {
   return (
     <>
+      <ServiceSchema
+        name="Request a Title Review"
+        description="Need clarity on a property's title status? Submit your request and our team will respond within one business day."
+        serviceType="Title Review"
+      />
       {/* HERO */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
         <div className="container-xl grid md:grid-cols-2 gap-10 items-start">

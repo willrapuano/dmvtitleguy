@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Upload, Clock, FileCheck, Phone } from "lucide-react";
 import { UploadContractForm } from "@/components/funnels/UploadContractForm";
+import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Upload Your Contract — We'll Handle the Rest | DMV Title Guy",
@@ -24,6 +25,11 @@ const faqs = [
 export default function UploadContractPage() {
   return (
     <>
+      <ServiceSchema
+        name="Upload Your Contract"
+        description="Upload your ratified contract and we'll initiate the title process within 1 business hour. Fast, reliable title services across the DMV."
+        serviceType="Contract Upload & Title Processing"
+      />
       {/* HERO — Upload is the star */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
         <div className="container-xl">

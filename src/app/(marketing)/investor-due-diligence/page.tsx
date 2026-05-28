@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Clock, FileCheck, Phone } from "lucide-react";
 import { InvestorDueDiligenceForm } from "@/components/funnels/InvestorDueDiligenceForm";
+import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Investor Due Diligence Title Services | DMV Title Guy",
@@ -26,6 +27,11 @@ const faqs = [
 export default function InvestorDueDiligencePage() {
   return (
     <>
+      <ServiceSchema
+        name="Investor Due Diligence Title Services"
+        description="Fast, accurate title searches and due diligence for real estate investors across DC, Maryland & Virginia."
+        serviceType="Investor Due Diligence"
+      />
       {/* HERO */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
         <div className="container-xl grid md:grid-cols-2 gap-10 items-start">

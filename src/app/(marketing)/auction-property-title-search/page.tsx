@@ -20,6 +20,7 @@ import {
   CircleDollarSign,
   LayoutGrid,
 } from "lucide-react";
+import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Auction Property Title Search | DMV Title Guy",
@@ -154,17 +155,16 @@ const relatedPages = [
   { href: "/investor-due-diligence", label: "Investor Due Diligence" },
   { href: "/upload-contract", label: "Upload Contract" },
   { href: "/request-title-review", label: "Request Title Review" },
-  { href: "/title-company/arlington-va", label: "Arlington, VA" },
-  { href: "/title-company/fairfax-va", label: "Fairfax, VA" },
-  { href: "/title-company/alexandria-va", label: "Alexandria, VA" },
-  { href: "/title_company/falls-church-va", label: "Falls Church, VA" },
-  { href: "/title-company/bethesda-md", label: "Bethesda, MD" },
-  { href: "/title-company/silver-spring-md", label: "Silver Spring, MD" },
 ];
 
 export default function AuctionPropertyTitleSearchPage() {
   return (
     <>
+      <ServiceSchema
+        name="Auction Property Title Search"
+        description="Protect your auction bid with a comprehensive title search. We uncover hidden liens, judgment debts, and recording defects before you close."
+        serviceType="Auction Title Search"
+      />
       {/* HERO */}
       <section
         className="bg-brand-navy text-white py-16 md:py-24"

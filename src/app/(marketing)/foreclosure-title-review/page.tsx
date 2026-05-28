@@ -18,6 +18,7 @@ import {
   RotateCcw,
   MapPin,
 } from "lucide-react";
+import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Foreclosure Title Review in DC, MD & VA | DMV Title Guy",
@@ -162,17 +163,16 @@ const relatedPages = [
   { href: "/investor-due-diligence", label: "Investor Due Diligence" },
   { href: "/upload-contract", label: "Upload Contract" },
   { href: "/request-title-review", label: "Request Title Review" },
-  { href: "/title-company/arlington-va", label: "Arlington, VA" },
-  { href: "/title-company/fairfax-va", label: "Fairfax, VA" },
-  { href: "/title-company/loudoun-county-va", label: "Loudoun County, VA" },
-  { href: "/title-company/prince-william-county-va", label: "Prince William County, VA" },
-  { href: "/title-company/bethesda-md", label: "Bethesda, MD" },
-  { href: "/title-company/silver-spring-md", label: "Silver Spring, MD" },
 ];
 
 export default function ForeclosureTitleReviewPage() {
   return (
     <>
+      <ServiceSchema
+        name="Foreclosure Title Review in DC, MD & VA"
+        description="Foreclosure title review for DMV investors. We identify surviving liens, judgment debts, and chain-of-title defects unique to foreclosed properties."
+        serviceType="Foreclosure Title Review"
+      />
       {/* HERO */}
       <section
         className="bg-brand-navy text-white py-16 md:py-24"
