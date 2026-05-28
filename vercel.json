@@ -21,6 +21,9 @@
   "functions": {
     "src/app/api/agent-tools/contract-analyzer/upload/route.ts": {
       "maxDuration": 60
+    },
+    "src/app/api/funnels/upload-url/route.ts": {
+      "maxDuration": 60
     }
   }
 }
