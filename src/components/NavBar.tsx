@@ -12,28 +12,26 @@ interface NavGroup {
 
 const NAV_LINKS: (NavGroup | { label: string; href: string })[] = [
   { label: "Home", href: "/" },
-  { label: "My Classes", href: "/my-classes" },
-  { label: "My Blog", href: "/my-blog" },
-  { label: "Title Insurance", href: "/title-insurance" },
-  { label: "Why Pruitt Title?", href: "/why-choose-us" },
   {
-    label: "Investor Services",
+    label: "Services",
     children: [
+      { label: "Title Insurance", href: "/title-insurance" },
       { label: "Investor Title Services", href: "/investor-title-services", desc: "Title searches, auction support & wholesale closings" },
       { label: "Auction Property Title Search", href: "/auction-property-title-search", desc: "Pre-auction title search & risk assessment" },
       { label: "Foreclosure Title Review", href: "/foreclosure-title-review", desc: "Surviving liens & chain-of-title review" },
     ],
   },
   {
-    label: "Request Services",
+    label: "Get Started",
     children: [
-      { label: "Investor Due Diligence", href: "/investor-due-diligence", desc: "Submit property info & get a title search started" },
       { label: "Upload Contract", href: "/upload-contract", desc: "Upload your ratified contract for fast processing" },
+      { label: "Investor Due Diligence", href: "/investor-due-diligence", desc: "Submit property info & get a title search started" },
       { label: "Request Title Review", href: "/request-title-review", desc: "Get clarity on a property's title status" },
     ],
   },
   { label: "Calculators", href: "/calculators" },
-  { label: "Agent Tools", href: "/agent-tools" },
+  { label: "Classes", href: "/my-classes" },
+  { label: "Blog", href: "/my-blog" },
 ];
 
 function DropdownMenu({ items, onClose }: { items: { label: string; href: string; desc?: string }[]; onClose: () => void }) {
@@ -79,7 +77,7 @@ export function NavBar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-5 text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium">
           {NAV_LINKS.map((l) => {
             if ("children" in l && l.children) {
               return (
@@ -113,7 +111,7 @@ export function NavBar() {
               </Link>
             );
           })}
-          <Link href="/calculators/title-quote" className="btn-primary text-sm py-2 px-5 ml-2">
+          <Link href="/calculators/title-quote" className="btn-primary text-sm py-2 px-6 ml-3">
             Get a Quote
           </Link>
         </nav>
