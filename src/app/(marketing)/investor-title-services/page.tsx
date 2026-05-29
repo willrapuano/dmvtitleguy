@@ -35,8 +35,8 @@ const investorServices = [
   },
   {
     icon: FileCheck,
-    title: "Pre-Offer Title Verification",
-    desc: "Know what you're buying before you commit. We verify title condition on off-market and wholesale deals.",
+    title: "Pre-Purchase Title Search",
+    desc: "For investors who need answers before committing. Order a standalone paid title search — we review ownership, liens, judgments, easements, and title defects before you go under contract. No purchase contract required.",
   },
   {
     icon: Handshake,
@@ -194,7 +194,7 @@ export default function InvestorTitleServicesPage() {
               href="/investor-due-diligence"
               className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
             >
-              Start Due Diligence
+              Order a Title Search
             </Link>
             <a
               href="tel:+17038591467"
@@ -212,10 +212,13 @@ export default function InvestorTitleServicesPage() {
           <h2 className="prose-title text-center mb-4">
             What Investors Need From a Title Company
           </h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-brand-muted text-center text-lg mb-6 max-w-2xl mx-auto">
             Investor deals carry different risks than standard residential
             transactions. We know what to look for — and what to flag before it
             kills your deal.
+          </p>
+          <p className="text-center text-brand-blue font-semibold mb-12">
+            Standalone investor title searches available — order without a purchase contract.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {investorServices.map((s) => (
@@ -312,7 +315,7 @@ export default function InvestorTitleServicesPage() {
                     href={step.link}
                     className="text-brand-blue text-sm font-semibold mt-2 inline-block hover:underline"
                   >
-                    Get Started →
+                    Order Now →
                   </Link>
                 )}
               </div>
@@ -356,10 +359,10 @@ export default function InvestorTitleServicesPage() {
       >
         <div className="container-xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Move on Your Next Deal?
+            Order a Title Search for Your Next Deal
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Start your due diligence, upload a contract, or request a title
+            Order a paid title search, upload a contract, or request a title
             review — we&apos;ll take it from here.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
@@ -367,7 +370,7 @@ export default function InvestorTitleServicesPage() {
               href="/investor-due-diligence"
               className="btn-primary px-6 py-3 text-base font-semibold"
             >
-              Start Due Diligence
+              Order a Title Search
             </Link>
             <Link
               href="/upload-contract"
