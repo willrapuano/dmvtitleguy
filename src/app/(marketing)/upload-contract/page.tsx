@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Upload Your Contract — We'll Handle the Rest | DMV Title Guy",
   description: "Realtors and investors: upload your ratified contract and we'll initiate the title process within 1 business hour. Fast, reliable title services across the DMV.",
   alternates: { canonical: "https://dmvtitleguy.io/upload-contract" },
+  robots: { index: false, follow: true },
 };
 
 const nextSteps = [

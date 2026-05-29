@@ -192,7 +192,7 @@ export default function AuctionPropertyTitleSearchPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/investor-due-diligence"
+              href="/request-title-review"
               className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
             >
               Get Auction Title Search
@@ -310,7 +310,7 @@ export default function AuctionPropertyTitleSearchPage() {
             from a bad deal.
           </p>
           <Link
-            href="/investor-due-diligence"
+            href="/request-title-review"
             className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
           >
             Get Pre-Auction Title Search
@@ -356,11 +356,17 @@ export default function AuctionPropertyTitleSearchPage() {
             Protect Your Auction Bid
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Start your due diligence, upload a contract, or request a title
-            review. We&apos;ll identify the risks before they become your
+            Request a title review, start your due diligence, or upload a
+            contract. We&apos;ll identify the risks before they become your
             problem.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <Link
+              href="/request-title-review"
+              className="btn-primary px-6 py-3 text-base font-semibold"
+            >
+              Request Title Review
+            </Link>
             <Link
               href="/investor-due-diligence"
               className="btn-primary px-6 py-3 text-base font-semibold"
@@ -369,15 +375,9 @@ export default function AuctionPropertyTitleSearchPage() {
             </Link>
             <Link
               href="/upload-contract"
-              className="btn-primary px-6 py-3 text-base font-semibold"
-            >
-              Upload Contract
-            </Link>
-            <Link
-              href="/request-title-review"
               className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10"
             >
-              Request Title Review
+              Upload Contract
             </Link>
           </div>
           <p className="text-gray-400 text-sm">

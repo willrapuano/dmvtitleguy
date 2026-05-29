@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Request a Title Review | DMV Title Guy",
   description: "Need clarity on a property's title status? Submit your request and our team will respond within one business day. Full title searches, lien searches, and foreclosure reviews.",
   alternates: { canonical: "https://dmvtitleguy.io/request-title-review" },
+  robots: { index: false, follow: true },
 };
 
 const scenarios = [
