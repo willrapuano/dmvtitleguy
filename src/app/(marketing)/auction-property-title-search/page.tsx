@@ -23,9 +23,9 @@ import {
 import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Auction Property Title Search | DMV Title Guy",
+  title: "Paid Auction Title Search | DMV Title Guy",
   description:
-    "Protect your auction bid with a comprehensive title search. We uncover hidden liens, judgment debts, and recording defects before you close. Serving DC, Maryland & Virginia.",
+    "Order a paid title search on any auction property in the DMV. We uncover hidden liens, judgment debts, and recording defects before you bid. Fixed-fee pricing, no contract required.",
   alternates: {
     canonical: "https://dmvtitleguy.io/auction-property-title-search",
   },
@@ -182,20 +182,20 @@ export default function AuctionPropertyTitleSearchPage() {
             <span className="text-gray-200">Auction Property Title Search</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            Auction Property Title Search — DMV
+            Paid Auction Title Search — DMV
           </h1>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-            Hidden liens, judgment debts, and recording defects are common in
-            auction properties. Our specialized title search uncovers the risks
-            before they become your problem — protecting your bid and your
-            margin.
+          <p className="text-lg text-gray-300 mb-4 max-w-2xl">
+            Order a paid title search on any auction property before you bid. We uncover hidden liens, judgment debts, and recording defects so you know exactly what you&apos;re buying.
+          </p>
+          <p className="text-sm text-brand-blue font-semibold mb-8">
+            💰 Paid title search — you hire us, we run the search, you get the report. No purchase contract required.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/request-title-review"
               className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
             >
-              Get Auction Title Search
+              Order Auction Title Search
             </Link>
             <a
               href="tel:+17038591467"
@@ -313,7 +313,7 @@ export default function AuctionPropertyTitleSearchPage() {
             href="/request-title-review"
             className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
           >
-            Get Pre-Auction Title Search
+            Order Pre-Auction Title Search
           </Link>
         </div>
       </section>
@@ -353,7 +353,7 @@ export default function AuctionPropertyTitleSearchPage() {
       >
         <div className="container-xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Protect Your Auction Bid
+            Order a Paid Title Search for Your Auction Property
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
             Request a title review, start your due diligence, or upload a

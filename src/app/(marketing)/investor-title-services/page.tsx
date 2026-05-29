@@ -21,9 +21,9 @@ import {
 import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Investor Title Services in DC, Maryland & Virginia | DMV Title Guy",
+  title: "Paid Title Searches for Investors in DC, MD & VA | DMV Title Guy",
   description:
-    "Fast, reliable title services for real estate investors across the DMV. Title searches, auction support, wholesale closings, and investor due diligence. Call (703) 859-1467.",
+    "Order a standalone paid title search on any property in the DMV. Fixed-fee pricing, no purchase contract required. Auction, wholesale, off-market, and investment property title searches.",
   alternates: { canonical: "https://dmvtitleguy.io/investor-title-services" },
 };
 
@@ -182,12 +182,13 @@ export default function InvestorTitleServicesPage() {
             <span className="text-gray-200">Investor Title Services</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            Investor Title Services in the DMV
+            Paid Title Searches for DMV Investors
           </h1>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-            Fast, reliable title services built for real estate investors across
-            DC, Maryland, and Virginia. Title searches, auction support,
-            wholesale closings, and investor due diligence — all under one roof.
+          <p className="text-lg text-gray-300 mb-4 max-w-2xl">
+            Order a standalone title search on any property — before you bid, before you buy, before you go under contract. Fixed-fee pricing. No purchase contract required.
+          </p>
+          <p className="text-sm text-brand-blue font-semibold mb-8">
+            💰 Paid title searches are a standalone service — you hire us and we run the search, period.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -218,7 +219,7 @@ export default function InvestorTitleServicesPage() {
             kills your deal.
           </p>
           <p className="text-center text-brand-blue font-semibold mb-12">
-            Standalone investor title searches available — order without a purchase contract.
+            Standalone paid title searches — order without a purchase contract. Fixed-fee pricing.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {investorServices.map((s) => (

@@ -21,9 +21,9 @@ import {
 import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Foreclosure Title Review in DC, MD & VA | DMV Title Guy",
+  title: "Paid Foreclosure Title Review in DC, MD & VA | DMV Title Guy",
   description:
-    "Foreclosure title review for DMV investors. We identify surviving liens, judgment debts, and chain-of-title defects unique to foreclosed properties. Call (703) 859-1467.",
+    "Order a paid title review on any foreclosed property in the DMV. We identify surviving liens, judgment debts, and chain-of-title defects. Fixed-fee pricing, no contract required.",
   alternates: {
     canonical: "https://dmvtitleguy.io/foreclosure-title-review",
   },
@@ -190,20 +190,20 @@ export default function ForeclosureTitleReviewPage() {
             <span className="text-gray-200">Foreclosure Title Review</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            Foreclosure Title Review — DMV
+            Paid Foreclosure Title Review — DMV
           </h1>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-            Foreclosed properties carry unique title risks — surviving liens,
-            judgment debts, and chain-of-title defects that standard searches
-            often miss. Our foreclosure-specific review protects your
-            investment.
+          <p className="text-lg text-gray-300 mb-4 max-w-2xl">
+            Order a paid title review on any foreclosed property. We identify surviving liens, judgment debts, and chain-of-title defects that standard searches miss — so you know exactly what you&apos;re taking on.
+          </p>
+          <p className="text-sm text-brand-blue font-semibold mb-8">
+            💰 Paid foreclosure title review — you hire us, we run the search, you get the report. No purchase contract required.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/request-title-review"
               className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
             >
-              Request Foreclosure Review
+              Order Foreclosure Title Review
             </Link>
             <a
               href="tel:+17038591467"
@@ -369,7 +369,7 @@ export default function ForeclosureTitleReviewPage() {
       >
         <div className="container-xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Don&apos;t Guess on Foreclosure Title
+            Order a Paid Foreclosure Title Review
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
             Start your due diligence, upload a contract, or request a title
@@ -381,7 +381,7 @@ export default function ForeclosureTitleReviewPage() {
               href="/request-title-review"
               className="btn-primary px-6 py-3 text-base font-semibold"
             >
-              Request Foreclosure Review
+              Order Foreclosure Title Review
             </Link>
             <Link
               href="/investor-due-diligence"
