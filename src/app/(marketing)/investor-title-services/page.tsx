@@ -238,10 +238,10 @@ export default function InvestorTitleServicesPage() {
       {/* WHO WE SERVE */}
       <section className="section-light py-16">
         <div className="container-xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+          <h2 className="prose-title text-center mb-4">
             Who We Serve
           </h2>
-          <p className="text-gray-300 text-center text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
             From solo flippers to institutional funds — if you buy real estate
             as an investment in the DMV, we handle your title work.
           </p>
@@ -249,13 +249,13 @@ export default function InvestorTitleServicesPage() {
             {whoWeServe.map((s) => (
               <div
                 key={s.title}
-                className="bg-white/10 rounded-lg p-6 backdrop-blur-sm"
+                className="bg-white rounded-lg p-6 shadow-sm"
               >
                 <s.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-bold text-brand-navy mb-2">
                   {s.title}
                 </h3>
-                <p className="text-gray-300 text-sm">{s.desc}</p>
+                <p className="text-brand-muted text-sm">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -324,7 +324,7 @@ export default function InvestorTitleServicesPage() {
       {/* FAQ */}
       <section className="section-light py-16">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-10">
+          <h2 className="prose-title text-center mb-10">
             Frequently Asked Questions
           </h2>
           <div className="space-y-4">
