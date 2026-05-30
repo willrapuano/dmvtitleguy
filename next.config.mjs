@@ -36,6 +36,66 @@ const nextConfig = {
         destination: '/calculators/title-quote',
         permanent: true,
       },
+      {
+        source: '/blog/escrow-services-explained',
+        destination: '/blog/escrow-companies-near-me-dmv',
+        permanent: true,
+      },
+      {
+        source: '/blog/zillow-traffic-data-strategy-real-estate-agents',
+        destination: '/blog/using-zillow-traffic-data-to-close-more-deals',
+        permanent: true,
+      },
+      {
+        source: '/blog/title-insurance-vs-homeowners-insurance',
+        destination: '/blog/homeowners-insurance-vs-title-insurance',
+        permanent: true,
+      },
+      {
+        source: '/blog/title-insurance-commercial-real-estate',
+        destination: '/blog/commercial-real-estate-title-insurance',
+        permanent: true,
+      },
+      {
+        source: '/blog/extended-vs-standard-title-insurance',
+        destination: '/blog/enhanced-vs-standard-title-insurance',
+        permanent: true,
+      },
+      {
+        source: '/blog/title-insurance-requirements-dmv',
+        destination: '/blog/title-insurance-requirements-dc-md-va',
+        permanent: true,
+      },
+      {
+        source: '/blog/title-insurance-requirements-dmv-comparison',
+        destination: '/blog/title-insurance-requirements-dc-md-va',
+        permanent: true,
+      },
+      {
+        source: '/blog/choose-right-title-company-dmv',
+        destination: '/blog/how-to-choose-right-title-company-dmv',
+        permanent: true,
+      },
+      {
+        source: '/blog/settlement-costs-buyers-sellers',
+        destination: '/blog/closing-costs-dmv-buyers-sellers',
+        permanent: true,
+      },
+      {
+        source: '/blog/understanding-closing-costs-dmv',
+        destination: '/blog/closing-costs-dmv-buyers-sellers',
+        permanent: true,
+      },
+      {
+        source: '/blog/understanding-title-commitments-agents',
+        destination: '/blog/how-to-read-a-title-commitment',
+        permanent: true,
+      },
+      {
+        source: '/blog/title-insurance-first-time-buyers-dmv',
+        destination: '/blog/first-time-homebuyer-guide-dmv',
+        permanent: true,
+      },
     ];
   },
   typescript: {
