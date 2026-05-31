@@ -200,7 +200,7 @@ export default function CommercialRealEstateClosingsPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Request Commercial Title Review
+              Order Commercial Title Search
             </Link>
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Upload Contract
@@ -278,7 +278,7 @@ export default function CommercialRealEstateClosingsPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Request Commercial Title Review
+              Order Commercial Title Search
             </Link>
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Upload Contract

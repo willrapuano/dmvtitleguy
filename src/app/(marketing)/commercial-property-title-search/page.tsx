@@ -129,7 +129,7 @@ const relatedPages = [
   { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
   { href: "/investor-due-diligence", label: "Commercial Due Diligence" },
   { href: "/investor-title-services", label: "Investor Title Services" },
-  { href: "/request-title-review", label: "Request Title Review" },
+  { href: "/request-title-review", label: "Order Title Search" },
 ];
 
 const schema = {
@@ -207,7 +207,7 @@ export default function CommercialPropertyTitleSearchPage() {
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Request Title Review
+              Order Title Search
             </Link>
           </div>
         </div>
@@ -300,7 +300,7 @@ export default function CommercialPropertyTitleSearchPage() {
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Request Title Review
+              Order Title Search
             </Link>
           </div>
           <p className="text-gray-400 text-sm">

@@ -121,7 +121,7 @@ const relatedPages = [
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
   { href: "/upload-contract", label: "Upload Contract" },
-  { href: "/request-title-review", label: "Request Title Review" },
+  { href: "/request-title-review", label: "Order Title Search" },
 ];
 
 const schema = {
@@ -197,7 +197,7 @@ export default function TitleSearchFairfaxPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Request Title Review
+              Order Title Search
             </Link>
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Upload Contract
@@ -276,7 +276,7 @@ export default function TitleSearchFairfaxPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Request Title Review
+              Order Title Search
             </Link>
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Upload Contract
