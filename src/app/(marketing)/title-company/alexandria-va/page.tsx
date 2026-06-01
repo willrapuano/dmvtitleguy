@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "How do historic covenants affect Alexandria title?",
-    answer: "Many Old Town Alexandria properties have historic covenants and preservation restrictions that run with the land. Our title search specifically identifies these to ensure buyers understand any use restrictions before closing.",
+    answer: "Many Old Town properties have historic covenants and preservation restrictions that run with the land. Our title search specifically identifies these to ensure buyers understand any use restrictions before closing.",
   },
   {
     question: "Are RON closings available in Alexandria?",

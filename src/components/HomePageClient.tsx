@@ -62,11 +62,10 @@ const SERVICE_AREAS: ServiceAreaColumn[] = [
         heading: "City of Alexandria, VA",
         links: [
           { label: "Alexandria, VA", href: "/title-company-alexandria-va" },
-          { label: "Old Town Alexandria, VA", href: "/title-company-old-town-alexandria-va" },
-          { label: "Del Ray Alexandria, VA", href: "/title-company-del-ray-alexandria-va" },
-          { label: "Carlyle Alexandria, VA", href: "/title-company-carlyle-alexandria-va" },
-          { label: "Eisenhower Alexandria, VA", href: "/title-company-eisenhower-alexandria-va" },
-          { label: "Arlandria, VA", href: "/title-company-arlandria-va" },
+          { label: "Old Town, VA", href: "/title-company-old-town-alexandria-va" },
+          { label: "Del Ray, VA", href: "/title-company-del-ray-alexandria-va" },
+          { label: "Carlyle, VA", href: "/title-company-carlyle-alexandria-va" },
+          { label: "Eisenhower, VA", href: "/title-company-eisenhower-alexandria-va" },
         ],
       },
       {
