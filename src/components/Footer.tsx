@@ -12,7 +12,7 @@ const SOCIAL_LINKS = [
 const SERVICE_AREA_GROUPS = [
   { label: "Virginia", locations: ALL_LOCATIONS.filter((loc) => loc.state === "VA") },
   { label: "Maryland", locations: ALL_LOCATIONS.filter((loc) => loc.state === "MD") },
-  { label: "DC", locations: ALL_LOCATIONS.filter((loc) => loc.state === "DC") },
+  { label: "Washington DC", locations: ALL_LOCATIONS.filter((loc) => loc.state === "DC") },
 ];
 
 export function Footer() {
@@ -23,23 +23,26 @@ export function Footer() {
       {/* Areas We Serve */}
       <div className="border-b border-white/10 py-8">
         <div className="container-xl">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Areas We Serve</h3>
-          <div className="grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-3">
+          <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-blue">Areas We Serve</h3>
+          <div className="space-y-8">
             {SERVICE_AREA_GROUPS.map((group) => (
-              <div key={group.label}>
-                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/80">
+              <section key={group.label} aria-labelledby={`footer-${group.label.toLowerCase().replace(/\s+/g, "-")}`}>
+                <h4
+                  id={`footer-${group.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/80"
+                >
                   {group.label}
                 </h4>
-                <ul className="space-y-2 text-xs text-gray-300">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-xs text-gray-300 md:grid-cols-3">
                   {group.locations.map((loc) => (
-                    <li key={loc.slug}>
-                      <Link href={`/${loc.slug}`} className="hover:text-brand-blue transition-colors">
+                    <div key={loc.slug}>
+                      <Link href={`/${loc.slug}`} className="block transition-colors hover:text-brand-blue">
                         {loc.city}
                       </Link>
-                    </li>
+                    </div>
                   ))}
-                </ul>
-              </div>
+                </div>
+              </section>
             ))}
           </div>
         </div>
