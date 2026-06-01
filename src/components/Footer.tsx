@@ -9,11 +9,7 @@ const SOCIAL_LINKS = [
   { label: "YouTube",   href: "https://www.youtube.com/@dmvtitleguy",                   icon: "YT" },
 ];
 
-const SERVICE_AREA_GROUPS = [
-  { label: "Virginia", locations: ALL_LOCATIONS.filter((loc) => loc.state === "VA") },
-  { label: "Maryland", locations: ALL_LOCATIONS.filter((loc) => loc.state === "MD") },
-  { label: "Washington DC", locations: ALL_LOCATIONS.filter((loc) => loc.state === "DC") },
-];
+const SERVICE_AREAS = ALL_LOCATIONS;
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,25 +20,11 @@ export function Footer() {
       <div className="border-b border-white/10 py-8">
         <div className="container-xl">
           <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-blue">Areas We Serve</h3>
-          <div className="space-y-8">
-            {SERVICE_AREA_GROUPS.map((group) => (
-              <section key={group.label} aria-labelledby={`footer-${group.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <h4
-                  id={`footer-${group.label.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/80"
-                >
-                  {group.label}
-                </h4>
-                <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-xs text-gray-300 md:grid-cols-3">
-                  {group.locations.map((loc) => (
-                    <div key={loc.slug}>
-                      <Link href={`/${loc.slug}`} className="block transition-colors hover:text-brand-blue">
-                        {loc.city}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </section>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-xs text-gray-300 md:grid-cols-3 lg:grid-cols-4">
+            {SERVICE_AREAS.map((loc) => (
+              <Link key={loc.slug} href={`/${loc.slug}`} className="block transition-colors hover:text-brand-blue">
+                {loc.city}
+              </Link>
             ))}
           </div>
         </div>
