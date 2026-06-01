@@ -9,6 +9,12 @@ const SOCIAL_LINKS = [
   { label: "YouTube",   href: "https://www.youtube.com/@dmvtitleguy",                   icon: "YT" },
 ];
 
+const SERVICE_AREA_GROUPS = [
+  { label: "Virginia", locations: ALL_LOCATIONS.filter((loc) => loc.state === "VA") },
+  { label: "Maryland", locations: ALL_LOCATIONS.filter((loc) => loc.state === "MD") },
+  { label: "DC", locations: ALL_LOCATIONS.filter((loc) => loc.state === "DC") },
+];
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -18,16 +24,24 @@ export function Footer() {
       <div className="border-b border-white/10 py-8">
         <div className="container-xl">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Areas We Serve</h3>
-          <p className="text-gray-300 text-xs leading-loose overflow-hidden">
-            {ALL_LOCATIONS.map((loc, i) => (
-              <span key={loc.slug} className="inline-block whitespace-nowrap">
-                {i > 0 && <span className="mx-1">·</span>}
-                <Link href={`/${loc.slug}`} className="hover:text-brand-blue transition-colors">
-                  {loc.city}
-                </Link>
-              </span>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-6 md:grid-cols-3">
+            {SERVICE_AREA_GROUPS.map((group) => (
+              <div key={group.label}>
+                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/80">
+                  {group.label}
+                </h4>
+                <ul className="space-y-2 text-xs text-gray-300">
+                  {group.locations.map((loc) => (
+                    <li key={loc.slug}>
+                      <Link href={`/${loc.slug}`} className="hover:text-brand-blue transition-colors">
+                        {loc.city}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </p>
+          </div>
         </div>
       </div>
 
