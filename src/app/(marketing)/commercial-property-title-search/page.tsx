@@ -127,7 +127,7 @@ const faqs = [
 
 const relatedPages = [
   { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
-  { href: "/investor-due-diligence", label: "Commercial Due Diligence" },
+  { href: "/commercial-due-diligence", label: "Commercial Due Diligence" },
   { href: "/investor-title-services", label: "Investor Title Services" },
   { href: "/request-title-review", label: "Order Title Search" },
 ];
@@ -203,7 +203,7 @@ export default function CommercialPropertyTitleSearchPage() {
             entity issues, and title insurance risks before closing.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/investor-due-diligence" className="btn-primary px-6 py-3 text-base font-semibold">
+            <Link href="/commercial-due-diligence" className="btn-primary px-6 py-3 text-base font-semibold">
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
@@ -296,7 +296,7 @@ export default function CommercialPropertyTitleSearchPage() {
             needs, and commercial closing issues before they slow the transaction.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <Link href="/investor-due-diligence" className="btn-primary px-6 py-3 text-base font-semibold">
+            <Link href="/commercial-due-diligence" className="btn-primary px-6 py-3 text-base font-semibold">
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">

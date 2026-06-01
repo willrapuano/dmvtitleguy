@@ -123,7 +123,7 @@ const faqs = [
 
 const relatedPages = [
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
-  { href: "/investor-due-diligence", label: "Commercial Due Diligence" },
+  { href: "/commercial-due-diligence", label: "Commercial Due Diligence" },
   { href: "/investor-title-services", label: "Investor Title Services" },
   { href: "/upload-contract", label: "Upload Contract" },
 ];

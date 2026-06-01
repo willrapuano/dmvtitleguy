@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
-import { ALL_LOCATIONS } from "@/data/locations";
 
 const SOCIAL_LINKS = [
   { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", Icon: Facebook },
@@ -27,6 +26,140 @@ const MONEY_PAGES = [
   { label: "Title Company for Realtors", href: "/title-company-for-realtors", detail: "Routing for agent-focused closing support." },
   { label: "Title Company for Builders", href: "/title-company-for-builders", detail: "New construction and builder pipeline support." },
   { label: "Washington DC Title Company", href: "/title-company-washington-dc", detail: "Title, escrow, and settlement support in DC." },
+];
+
+type ServiceAreaGroup = {
+  heading: string;
+  links: { label: string; href: string }[];
+};
+
+type ServiceAreaColumn = {
+  title: string;
+  description: string;
+  groups: ServiceAreaGroup[];
+};
+
+const SERVICE_AREAS: ServiceAreaColumn[] = [
+  {
+    title: "Virginia Title & Escrow Services",
+    description: "Professional title insurance, escrow, and closing services throughout Northern Virginia.",
+    groups: [
+      {
+        heading: "Arlington, VA",
+        links: [{ label: "Arlington, VA", href: "/title-company-arlington-va" }],
+      },
+      {
+        heading: "Alexandria, VA",
+        links: [{ label: "Alexandria, VA", href: "/title-company-alexandria-va" }],
+      },
+      {
+        heading: "Fairfax County, VA",
+        links: [
+          { label: "Fairfax, VA", href: "/title-company-fairfax-va" },
+          { label: "Falls Church, VA", href: "/title-company-falls-church-va" },
+          { label: "McLean, VA", href: "/title-company-mclean-va" },
+          { label: "Vienna, VA", href: "/title-company-vienna-va" },
+          { label: "Reston, VA", href: "/title-company-reston-va" },
+          { label: "Herndon, VA", href: "/title-company-herndon-va" },
+          { label: "Great Falls, VA", href: "/title-company-great-falls-va" },
+          { label: "Centreville, VA", href: "/title-company-centreville-va" },
+          { label: "Chantilly, VA", href: "/title-company-chantilly-va" },
+          { label: "Burke, VA", href: "/title-company-burke-va" },
+          { label: "Springfield, VA", href: "/title-company-springfield-va" },
+          { label: "Annandale, VA", href: "/title-company-annandale-va" },
+        ],
+      },
+      {
+        heading: "Loudoun County, VA",
+        links: [
+          { label: "Ashburn, VA", href: "/title-company-ashburn-va" },
+          { label: "Leesburg, VA", href: "/title-company-leesburg-va" },
+          { label: "Sterling, VA", href: "/title-company-sterling-va" },
+          { label: "South Riding, VA", href: "/title-company-south-riding-va" },
+          { label: "Brambleton, VA", href: "/title-company-brambleton-va" },
+          { label: "Purcellville, VA", href: "/title-company-purcellville-va" },
+          { label: "Middleburg, VA", href: "/title-company-middleburg-va" },
+          { label: "Aldie, VA", href: "/title-company-middleburg-va" },
+        ],
+      },
+      {
+        heading: "Prince William County, VA",
+        links: [
+          { label: "Woodbridge, VA", href: "/title-company-woodbridge-va" },
+          { label: "Dale City, VA", href: "/title-company-woodbridge-va" },
+          { label: "Lake Ridge, VA", href: "/title-company-woodbridge-va" },
+          { label: "Dumfries, VA", href: "/title-company-woodbridge-va" },
+          { label: "Gainesville, VA", href: "/title-company-gainesville-va" },
+          { label: "Haymarket, VA", href: "/title-company-haymarket-va" },
+          { label: "Bristow, VA", href: "/title-company-bristow-va" },
+          { label: "Occoquan, VA", href: "/title-company-woodbridge-va" },
+        ],
+      },
+      {
+        heading: "Stafford County & Fredericksburg Area",
+        links: [
+          { label: "Stafford, VA", href: "/title-company-stafford-va" },
+          { label: "Fredericksburg, VA", href: "/title-company-fredericksburg-va" },
+          { label: "Spotsylvania, VA", href: "/title-company-spotsylvania-va" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Maryland Title & Escrow Services",
+    description: "Settlement and title support throughout Montgomery County and Prince George's County.",
+    groups: [
+      {
+        heading: "Montgomery County, MD",
+        links: [
+          { label: "Bethesda, MD", href: "/title-company-bethesda-md" },
+          { label: "Rockville, MD", href: "/title-company-rockville-md" },
+          { label: "Silver Spring, MD", href: "/title-company-silver-spring-md" },
+          { label: "Gaithersburg, MD", href: "/title-company-gaithersburg-md" },
+          { label: "Germantown, MD", href: "/title-company-germantown-md" },
+          { label: "Potomac, MD", href: "/title-company-potomac-md" },
+          { label: "Chevy Chase, MD", href: "/title-company-bethesda-md" },
+          { label: "Kensington, MD", href: "/title-company-silver-spring-md" },
+          { label: "Olney, MD", href: "/title-company-gaithersburg-md" },
+          { label: "North Potomac, MD", href: "/title-company-potomac-md" },
+        ],
+      },
+      {
+        heading: "Prince George's County, MD",
+        links: [
+          { label: "Bowie, MD", href: "/title-company-bowie-md" },
+          { label: "College Park, MD", href: "/title-company-college-park-md" },
+          { label: "Greenbelt, MD", href: "/title-company-hyattsville-md" },
+          { label: "Hyattsville, MD", href: "/title-company-hyattsville-md" },
+          { label: "Laurel, MD", href: "/title-company-laurel-md" },
+          { label: "Upper Marlboro, MD", href: "/title-company-upper-marlboro-md" },
+          { label: "Fort Washington, MD", href: "/title-company-bowie-md" },
+          { label: "Clinton, MD", href: "/title-company-bowie-md" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Washington DC Title & Escrow Services",
+    description: "Title insurance, escrow, and settlement services throughout Washington, DC.",
+    groups: [
+      {
+        heading: "Washington, DC",
+        links: [
+          { label: "Washington, DC", href: "/title-company-washington-dc" },
+          { label: "Georgetown, DC", href: "/title-company-washington-dc" },
+          { label: "Capitol Hill, DC", href: "/title-company-washington-dc" },
+          { label: "Navy Yard, DC", href: "/title-company-washington-dc" },
+          { label: "Dupont Circle, DC", href: "/title-company-washington-dc" },
+          { label: "Logan Circle, DC", href: "/title-company-washington-dc" },
+          { label: "Adams Morgan, DC", href: "/title-company-washington-dc" },
+          { label: "Shaw, DC", href: "/title-company-washington-dc" },
+          { label: "Columbia Heights, DC", href: "/title-company-washington-dc" },
+          { label: "Brookland, DC", href: "/title-company-washington-dc" },
+        ],
+      },
+    ],
+  },
 ];
 
 export function HomePageClient() {
@@ -257,132 +390,33 @@ export function HomePageClient() {
           <p className="prose-subtitle max-w-2xl mx-auto mb-10">
             Pruitt Title LLC provides professional title and settlement services throughout Washington DC, Northern Virginia, and Maryland.
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-left">
-            {/* Virginia */}
-            <div>
-              <h3 className="font-bold text-brand-navy text-lg mb-2">Virginia Title &amp; Escrow Services</h3>
-              <p className="text-sm text-brand-muted mb-3">
-                We provide professional title insurance, escrow, and real estate closing services throughout Northern Virginia.
-              </p>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Arlington, VA</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-arlington-va" className="text-brand-blue hover:underline text-sm">Title Company in Arlington, VA</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Alexandria, VA</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-alexandria-va" className="text-brand-blue hover:underline text-sm">Title Company in Alexandria, VA</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Falls Church, VA</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-falls-church-va" className="text-brand-blue hover:underline text-sm">Title Company in Falls Church, VA</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Fairfax, VA</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-fairfax-va" className="text-brand-blue hover:underline text-sm">Title Company in Fairfax, VA</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Fairfax County, VA</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-mclean-va" className="text-brand-blue hover:underline text-sm">Title Company in McLean, VA</Link></li>
-                <li><Link href="/title-company-vienna-va" className="text-brand-blue hover:underline text-sm">Title Company in Vienna, VA</Link></li>
-                <li><Link href="/title-company-reston-va" className="text-brand-blue hover:underline text-sm">Title Company in Reston, VA</Link></li>
-                <li><Link href="/title-company-herndon-va" className="text-brand-blue hover:underline text-sm">Title Company in Herndon, VA</Link></li>
-                <li><Link href="/title-company-great-falls-va" className="text-brand-blue hover:underline text-sm">Title Company in Great Falls, VA</Link></li>
-                <li><Link href="/title-company-centreville-va" className="text-brand-blue hover:underline text-sm">Title Company in Centreville, VA</Link></li>
-                <li><Link href="/title-company-chantilly-va" className="text-brand-blue hover:underline text-sm">Title Company in Chantilly, VA</Link></li>
-                <li><Link href="/title-company-burke-va" className="text-brand-blue hover:underline text-sm">Title Company in Burke, VA</Link></li>
-                <li><Link href="/title-company-springfield-va" className="text-brand-blue hover:underline text-sm">Title Company in Springfield, VA</Link></li>
-                <li><Link href="/title-company-annandale-va" className="text-brand-blue hover:underline text-sm">Title Company in Annandale, VA</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Loudoun County, VA</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-ashburn-va" className="text-brand-blue hover:underline text-sm">Title Company in Ashburn, VA</Link></li>
-                <li><Link href="/title-company-leesburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Leesburg, VA</Link></li>
-                <li><Link href="/title-company-sterling-va" className="text-brand-blue hover:underline text-sm">Title Company in Sterling, VA</Link></li>
-                <li><Link href="/title-company-south-riding-va" className="text-brand-blue hover:underline text-sm">Title Company in South Riding, VA</Link></li>
-                <li><Link href="/title-company-brambleton-va" className="text-brand-blue hover:underline text-sm">Title Company in Brambleton, VA</Link></li>
-                <li><Link href="/title-company-purcellville-va" className="text-brand-blue hover:underline text-sm">Title Company in Purcellville, VA</Link></li>
-                <li><Link href="/title-company-middleburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Middleburg, VA</Link></li>
-                <li><Link href="/title-company-middleburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Aldie, VA</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Prince William County, VA</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Woodbridge, VA</Link></li>
-                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Dale City, VA</Link></li>
-                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Lake Ridge, VA</Link></li>
-                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Dumfries, VA</Link></li>
-                <li><Link href="/title-company-gainesville-va" className="text-brand-blue hover:underline text-sm">Title Company in Gainesville, VA</Link></li>
-                <li><Link href="/title-company-haymarket-va" className="text-brand-blue hover:underline text-sm">Title Company in Haymarket, VA</Link></li>
-                <li><Link href="/title-company-bristow-va" className="text-brand-blue hover:underline text-sm">Title Company in Bristow, VA</Link></li>
-                <li><Link href="/title-company-woodbridge-va" className="text-brand-blue hover:underline text-sm">Title Company in Occoquan, VA</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Stafford County &amp; Fredericksburg Area</h4>
-              <ul className="space-y-1.5 list-disc pl-5">
-                <li><Link href="/title-company-stafford-va" className="text-brand-blue hover:underline text-sm">Title Company in Stafford, VA</Link></li>
-                <li><Link href="/title-company-fredericksburg-va" className="text-brand-blue hover:underline text-sm">Title Company in Fredericksburg, VA</Link></li>
-                <li><Link href="/title-company-spotsylvania-va" className="text-brand-blue hover:underline text-sm">Title Company in Spotsylvania, VA</Link></li>
-              </ul>
-            </div>
-            {/* Maryland */}
-            <div>
-              <h3 className="font-bold text-brand-navy text-lg mb-2">Maryland Title &amp; Escrow Services</h3>
-              <p className="text-sm text-brand-muted mb-3">
-                We provide professional title insurance, escrow, and real estate closing services throughout Montgomery County and Prince George&apos;s County, including:
-              </p>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Montgomery County, MD</h4>
-              <ul className="space-y-1.5 list-disc pl-5 mb-4">
-                <li><Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline text-sm">Title Company in Bethesda, MD</Link></li>
-                <li><Link href="/title-company-rockville-md" className="text-brand-blue hover:underline text-sm">Title Company in Rockville, MD</Link></li>
-                <li><Link href="/title-company-silver-spring-md" className="text-brand-blue hover:underline text-sm">Title Company in Silver Spring, MD</Link></li>
-                <li><Link href="/title-company-gaithersburg-md" className="text-brand-blue hover:underline text-sm">Title Company in Gaithersburg, MD</Link></li>
-                <li><Link href="/title-company-germantown-md" className="text-brand-blue hover:underline text-sm">Title Company in Germantown, MD</Link></li>
-                <li><Link href="/title-company-potomac-md" className="text-brand-blue hover:underline text-sm">Title Company in Potomac, MD</Link></li>
-                <li><Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline text-sm">Title Company in Chevy Chase, MD</Link></li>
-                <li><Link href="/title-company-silver-spring-md" className="text-brand-blue hover:underline text-sm">Title Company in Kensington, MD</Link></li>
-                <li><Link href="/title-company-gaithersburg-md" className="text-brand-blue hover:underline text-sm">Title Company in Olney, MD</Link></li>
-                <li><Link href="/title-company-potomac-md" className="text-brand-blue hover:underline text-sm">Title Company in North Potomac, MD</Link></li>
-              </ul>
-
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Prince George&apos;s County, MD</h4>
-              <ul className="space-y-1.5 list-disc pl-5">
-                <li><Link href="/title-company-bowie-md" className="text-brand-blue hover:underline text-sm">Title Company in Bowie, MD</Link></li>
-                <li><Link href="/title-company-college-park-md" className="text-brand-blue hover:underline text-sm">Title Company in College Park, MD</Link></li>
-                <li><Link href="/title-company-hyattsville-md" className="text-brand-blue hover:underline text-sm">Title Company in Greenbelt, MD</Link></li>
-                <li><Link href="/title-company-hyattsville-md" className="text-brand-blue hover:underline text-sm">Title Company in Hyattsville, MD</Link></li>
-                <li><Link href="/title-company-laurel-md" className="text-brand-blue hover:underline text-sm">Title Company in Laurel, MD</Link></li>
-                <li><Link href="/title-company-upper-marlboro-md" className="text-brand-blue hover:underline text-sm">Title Company in Upper Marlboro, MD</Link></li>
-                <li><Link href="/title-company-bowie-md" className="text-brand-blue hover:underline text-sm">Title Company in Fort Washington, MD</Link></li>
-                <li><Link href="/title-company-bowie-md" className="text-brand-blue hover:underline text-sm">Title Company in Clinton, MD</Link></li>
-              </ul>
-            </div>
-            {/* Washington DC */}
-            <div>
-              <h3 className="font-bold text-brand-navy text-lg mb-2">Washington DC Title &amp; Escrow Services</h3>
-              <p className="text-sm text-brand-muted mb-3">
-                We provide professional title insurance, escrow, and real estate closing services throughout Washington, DC, including:
-              </p>
-              <h4 className="font-semibold text-brand-navy text-sm mb-2">Washington, DC</h4>
-              <ul className="space-y-1.5 list-disc pl-5">
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Washington, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Georgetown, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Capitol Hill, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Navy Yard, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Dupont Circle, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Logan Circle, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Adams Morgan, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Shaw, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Columbia Heights, DC</Link></li>
-                <li><Link href="/title-company-washington-dc" className="text-brand-blue hover:underline text-sm">Title Company in Brookland, DC</Link></li>
-              </ul>
-            </div>
+          <div className="grid gap-6 lg:grid-cols-3 max-w-6xl mx-auto items-start">
+            {SERVICE_AREAS.map((area) => (
+              <div key={area.title} className="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm text-center">
+                <h3 className="font-bold text-brand-navy text-lg mb-3">{area.title}</h3>
+                <p className="text-sm text-brand-muted leading-relaxed mb-6">{area.description}</p>
+                <div className="space-y-6">
+                  {area.groups.map((group) => (
+                    <div key={group.heading}>
+                      <h4 className="font-semibold text-brand-navy text-sm uppercase tracking-[0.08em] mb-3">
+                        {group.heading}
+                      </h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2">
+                        {group.links.map((link) => (
+                          <Link
+                            key={`${group.heading}-${link.label}`}
+                            href={link.href}
+                            className="rounded-md border border-brand-blue/10 bg-brand-blue/5 px-3 py-2 text-sm font-medium text-brand-blue transition hover:border-brand-blue/30 hover:bg-brand-blue/10 hover:no-underline"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
