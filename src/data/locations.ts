@@ -108,6 +108,19 @@ export const TIER2_LOCATIONS: Location[] = [
 
 export const ALL_LOCATIONS: Location[] = [...TIER1_LOCATIONS, ...TIER2_LOCATIONS];
 
+/** Display a city/state label without duplicating District of Columbia. */
+export function formatLocationName(city: string, state: StateCode): string {
+  if (state === "DC") {
+    return city.toLowerCase().includes("dc") ? city : `${city} DC`;
+  }
+
+  return `${city}, ${state}`;
+}
+
+export function getLocationDisplayName(location: Location): string {
+  return formatLocationName(location.city, location.state);
+}
+
 // ─── County Pages ──────────────────────────────────────────────────────────────
 export const COUNTIES: County[] = [
   { name: "Fairfax County",          slug: "title-company-fairfax-county-va",          state: "VA", fullName: "Fairfax County, Virginia" },

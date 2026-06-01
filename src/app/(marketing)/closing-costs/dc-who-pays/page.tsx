@@ -60,7 +60,7 @@ export default function DCWhoPaysClosingCostsPage() {
             Who Pays Closing Costs in DC? A 2026 Breakdown
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Closing costs in Washington, DC, are typically split between buyers and sellers, but the specifics can vary based on negotiations and local customs.
+            Closing costs in Washington DC are typically split between buyers and sellers, but the specifics can vary based on negotiations and local customs.
           </p>
         </div>
       </section>

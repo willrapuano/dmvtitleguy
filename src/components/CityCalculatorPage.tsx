@@ -9,15 +9,14 @@ import {
   getLocationSlug,
   type CityClosingCostData,
 } from "@/data/closingCostData";
-import { ALL_LOCATIONS, getNearbyCities } from "@/data/locations";
+import { ALL_LOCATIONS, formatLocationName, getLocationDisplayName, getNearbyCities } from "@/data/locations";
 
 interface Props {
   data: CityClosingCostData;
 }
 
 export default function CityCalculatorPage({ data }: Props) {
-  const stateLabel = data.state === "DC" ? "DC" : data.state;
-  const cityLabel = data.state === "DC" ? "Washington, DC" : `${data.city}, ${stateLabel}`;
+  const cityLabel = formatLocationName(data.city, data.state);
   const stateCalcSlug = getStateCalcSlug(data.state);
   const stateFullName = getStateFullName(data.state);
   const locationSlug = getLocationSlug(data.city, data.state);
@@ -38,7 +37,7 @@ export default function CityCalculatorPage({ data }: Props) {
     <>
       <CityCalculatorSchema
         city={data.city}
-        state={stateLabel}
+        state={data.state}
         county={data.county}
         slug={data.slug}
         faqs={data.faqs}
@@ -166,7 +165,7 @@ export default function CityCalculatorPage({ data }: Props) {
               </h3>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
                 {relatedCalcPages.map((c) => {
-                  const label = c.state === "DC" ? "Washington, DC" : `${c.city}, ${c.state}`;
+                  const label = formatLocationName(c.city, c.state);
                   return (
                     <Link
                       key={c.slug}
@@ -194,7 +193,7 @@ export default function CityCalculatorPage({ data }: Props) {
                     href={`/${loc.slug}`}
                     className="text-sm text-brand-blue hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
                   >
-                    {loc.city}, {loc.state} →
+                    {getLocationDisplayName(loc)} →
                   </Link>
                 ))}
               </div>

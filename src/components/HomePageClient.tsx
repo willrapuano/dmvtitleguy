@@ -157,12 +157,12 @@ const SERVICE_AREAS: ServiceAreaColumn[] = [
   },
   {
     title: "Washington DC Title & Escrow Services",
-    description: "Title insurance, escrow, and settlement services throughout Washington, DC.",
+    description: "Title insurance, escrow, and settlement services throughout Washington DC.",
     groups: [
       {
-        heading: "Washington, DC",
+        heading: "Washington DC",
         links: [
-          { label: "Washington, DC", href: "/title-company-washington-dc" },
+          { label: "Washington DC", href: "/title-company-washington-dc" },
           { label: "Georgetown, DC", href: "/title-company-washington-dc" },
           { label: "Capitol Hill, DC", href: "/title-company-washington-dc" },
           { label: "Navy Yard, DC", href: "/title-company-washington-dc" },

@@ -852,7 +852,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   Ready to Get a Title Quote?
                 </h3>
                 <p className="text-white/70 mb-6 max-w-md mx-auto">
-                  Pruitt Title serves buyers, sellers, and lenders across Virginia, Maryland, and Washington, DC. We make closing simple.
+                  Pruitt Title serves buyers, sellers, and lenders across Virginia, Maryland, and Washington DC. We make closing simple.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link

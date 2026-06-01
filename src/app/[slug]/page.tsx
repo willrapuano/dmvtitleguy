@@ -20,6 +20,8 @@ import {
   getLocationsInCounty,
   getCountyPage,
   CALCULATOR_SLUGS,
+  formatLocationName,
+  getLocationDisplayName,
   type Location,
   type County,
   type FaqItem,
@@ -43,8 +45,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   // Check city calculator pages first
   const cityCalcData = getCityCalcData(params.slug);
   if (cityCalcData) {
-    const stateLabel = cityCalcData.state === "DC" ? "DC" : cityCalcData.state;
-    const cityLabel = cityCalcData.state === "DC" ? "Washington, DC" : `${cityCalcData.city}, ${stateLabel}`;
+    const cityLabel = formatLocationName(cityCalcData.city, cityCalcData.state);
     return {
       title: `${cityLabel} Closing Cost Calculator | DMV Title Guy`,
       description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including title insurance, transfer taxes, and local fees.`,
@@ -64,6 +65,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (result.type === "location") {
     const { city, state, county } = result.data;
     const countyLabel = county.endsWith(" County") ? county : county;
+    const locationName = getLocationDisplayName(result.data);
 
     // ─── CTR-optimized overrides for high-impression pages ───
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
@@ -108,23 +110,23 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
     if (result.data.parentSlug) {
       return {
-        title: `Title Company in ${city}, ${state} | DMV Title Guy`,
-        description: `Title search, title insurance, escrow, and settlement services in ${city}, ${state}. Serving ${countyLabel} buyers, sellers, investors, agents, and lenders.`,
+        title: `Title Company in ${locationName} | DMV Title Guy`,
+        description: `Title search, title insurance, escrow, and settlement services in ${locationName}. Serving ${countyLabel} buyers, sellers, investors, agents, and lenders.`,
         alternates: { canonical: `/${params.slug}` },
         openGraph: {
-          title: `Title Company in ${city}, ${state} | DMV Title Guy`,
-          description: `Local title and settlement services in ${city}, ${state}. Order a title search or start your closing with Pruitt Title LLC.`,
+          title: `Title Company in ${locationName} | DMV Title Guy`,
+          description: `Local title and settlement services in ${locationName}. Order a title search or start your closing with Pruitt Title LLC.`,
         },
       };
     }
 
     return {
-      title: `Title & Closing Services in ${city}, ${state} | DMV Title Guy`,
-      description: `Trusted title & settlement services in ${city}, ${state}. 17+ years serving ${countyLabel} buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.`,
+      title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
+      description: `Trusted title & settlement services in ${locationName}. 17+ years serving ${countyLabel} buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
-        title: `Title & Closing Services in ${city}, ${state} | DMV Title Guy`,
-        description: `Expert title search, insurance & closing services in ${city}, ${state}. Residential, commercial & investor transactions. Since 2007.`,
+        title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
+        description: `Expert title search, insurance & closing services in ${locationName}. Residential, commercial & investor transactions. Since 2007.`,
       },
     };
   }
@@ -151,6 +153,8 @@ function LocationPage({ location }: { location: Location }) {
   const isSecondary = tier === 2;
   const isNeighborhood = Boolean(parentLocation);
   const stateFullName = state === "VA" ? "Virginia" : state === "MD" ? "Maryland" : "Washington DC";
+  const locationName = getLocationDisplayName(location);
+  const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
 
   const SERVICES_LIST = [
     "Title Search & Examination",
@@ -177,7 +181,7 @@ function LocationPage({ location }: { location: Location }) {
 
   return (
     <>
-      <LocationSchema city={city} state={state} county={county} slug={slug} description={`Professional title insurance and closing services in ${city}, ${state} — Pruitt Title LLC.`} />
+      <LocationSchema city={city} state={state} county={county} slug={slug} description={`Professional title insurance and closing services in ${locationName} — Pruitt Title LLC.`} />
 
       {/* HERO */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
@@ -186,20 +190,20 @@ function LocationPage({ location }: { location: Location }) {
             <nav className="text-xs text-gray-400 mb-4">
               <Link href="/" className="hover:text-brand-blue">Home</Link>
               <span className="mx-2">/</span>
-              <span className="text-gray-200">{city}, {state}</span>
+              <span className="text-gray-200">{locationName}</span>
             </nav>
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">
               {stateFullName} Title Insurance
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              {isNeighborhood ? `Title Company in ${city}, ${state}` : "Reliable Title & Settlement Services"}
+              {isNeighborhood ? `Title Company in ${locationName}` : "Reliable Title & Settlement Services"}
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               {isNeighborhood && parentLocation
                 ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
                 : isSecondary
-                ? `Pruitt Title LLC — professional title insurance and closing services in ${city}, ${state}. Residential, commercial, and all transaction types.`
-                : `DMV Title Guy is your trusted title and settlement partner in ${city}, ${state}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
+                ? `Pruitt Title LLC — professional title insurance and closing services in ${locationName}. Residential, commercial, and all transaction types.`
+                : `DMV Title Guy is your trusted title and settlement partner in ${locationName}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
             </p>
             <div className="flex flex-wrap gap-3">
               {isNeighborhood ? (
@@ -224,7 +228,7 @@ function LocationPage({ location }: { location: Location }) {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">What We Offer</p>
-              <h2 className="text-3xl font-bold text-brand-navy mb-4">Title Services in {city}, {state}</h2>
+              <h2 className="text-3xl font-bold text-brand-navy mb-4">Title Services in {locationName}</h2>
               <p className="text-brand-muted mb-6">
                 Pruitt Title LLC has been serving the {stateFullName} real estate market since 2007. Our team handles every aspect of the title and settlement process — from search to closing — so your transaction closes on time, every time.
               </p>
@@ -238,7 +242,7 @@ function LocationPage({ location }: { location: Location }) {
               </ul>
             </div>
             <div id="quote">
-              <LeadCaptureForm title={`Get a Quote — ${city}, ${state}`} location={`location-${slug}-form`} />
+              <LeadCaptureForm title={`Get a Quote — ${locationName}`} location={`location-${slug}-form`} />
             </div>
           </div>
         </div>
@@ -251,7 +255,7 @@ function LocationPage({ location }: { location: Location }) {
             <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">How It Works</p>
             <h2 className="prose-title">The Closing Process in {city}</h2>
             <p className="prose-subtitle max-w-2xl mx-auto">
-              From contract to keys, here&apos;s what to expect when you work with DMV Title Guy in {city}, {state}.
+              From contract to keys, here&apos;s what to expect when you work with DMV Title Guy in {locationName}.
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-4">
@@ -323,7 +327,7 @@ function LocationPage({ location }: { location: Location }) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {parentLocation ? (
               <div>
-                <h3 className="font-bold text-brand-navy mb-3">{parentLocation.city}, {parentLocation.state}</h3>
+                <h3 className="font-bold text-brand-navy mb-3">{parentLocationName}</h3>
                 <p className="text-sm text-brand-muted mb-3">
                   View the parent market page for title services across {parentLocation.city}.
                 </p>
@@ -349,7 +353,7 @@ function LocationPage({ location }: { location: Location }) {
                   {nearbyCities.map((n) => (
                     <li key={n.slug}>
                       <Link href={`/${n.slug}`} className="text-sm text-brand-blue hover:underline">
-                        Title Company in {n.city}, {n.state} →
+                        Title Company in {getLocationDisplayName(n)} →
                       </Link>
                     </li>
                   ))}

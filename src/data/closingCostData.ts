@@ -103,7 +103,7 @@ const MD_FAQS = (city: string, county: string) => [
 
 const DC_FAQS = [
   {
-    question: "How much are closing costs in Washington, DC?",
+    question: "How much are closing costs in Washington DC?",
     answer: "DC closing costs are among the highest in the DMV area, typically 3% to 6% for buyers and 2% to 4% for sellers. The combined recordation and transfer taxes can exceed 2.9% on properties over $400,000.",
   },
   {
@@ -357,8 +357,8 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     countyTransferTaxRate: 0,
     localRecordationTaxRate: 0,
     localTaxNote: "DC charges both a recordation tax and a transfer tax. Properties ≤$400K: 1.1% each (2.2% combined). Properties >$400K: 1.45% each (2.9% combined).",
-    intro: "Calculate closing costs for Washington, DC real estate. DC has some of the highest transfer taxes in the region — combined recordation and transfer taxes can reach 2.9% on properties over $400,000. Median home prices are approximately $650,000.",
-    localTaxExplainer: "Washington, DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties up to $400,000, each tax is 1.1% (2.2% combined). For properties above $400,000, each increases to 1.45% (2.9% combined). These taxes are typically split between buyer and seller. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. DC does not have a separate county government — all taxes are at the district level.",
+    intro: "Calculate closing costs for Washington DC real estate. DC has some of the highest transfer taxes in the region — combined recordation and transfer taxes can reach 2.9% on properties over $400,000. Median home prices are approximately $650,000.",
+    localTaxExplainer: "Washington DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties up to $400,000, each tax is 1.1% (2.2% combined). For properties above $400,000, each increases to 1.45% (2.9% combined). These taxes are typically split between buyer and seller. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. DC does not have a separate county government — all taxes are at the district level.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: DC_FAQS,
   },

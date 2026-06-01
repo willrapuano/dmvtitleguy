@@ -4,6 +4,8 @@
  * WebPage for static pages, etc.
  */
 
+import { formatLocationName, type StateCode } from "@/data/locations";
+
 const SITE_URL = "https://dmvtitleguy.io";
 const BUSINESS_NAME = "DMV Title Guy — Pruitt Title LLC";
 
@@ -16,13 +18,14 @@ interface LocationSchemaProps {
 }
 
 export function LocationSchema({ city, state, county, slug, description }: LocationSchemaProps) {
+  const locationName = formatLocationName(city, state as StateCode);
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": ["LocalBusiness", "LegalService"],
         "@id": `${SITE_URL}/${slug}#business`,
-        name: `${BUSINESS_NAME} — ${city}, ${state}`,
+        name: `${BUSINESS_NAME} — ${locationName}`,
         url: `${SITE_URL}/${slug}`,
         telephone: "(703) 859-1467",
         email: "wrapuano@pruitt-title.com",
@@ -50,7 +53,7 @@ export function LocationSchema({ city, state, county, slug, description }: Locat
       {
         "@type": "Service",
         "@id": `${SITE_URL}/${slug}#service`,
-        name: `Title Insurance & Closing Services in ${city}, ${state}`,
+        name: `Title Insurance & Closing Services in ${locationName}`,
         provider: {
           "@type": "LocalBusiness",
           "@id": `${SITE_URL}/${slug}#business`,
@@ -61,14 +64,14 @@ export function LocationSchema({ city, state, county, slug, description }: Locat
           name: city,
           ...(state !== "DC" ? { addressRegion: state } : {}),
         },
-        description: `Professional title search, title insurance, and real estate closing services for buyers, sellers, agents, and lenders in ${city}, ${state}.`,
+        description: `Professional title search, title insurance, and real estate closing services for buyers, sellers, agents, and lenders in ${locationName}.`,
         serviceType: "Title Insurance & Settlement Services",
       },
       {
         "@type": "WebPage",
         "@id": `${SITE_URL}/${slug}#webpage`,
         url: `${SITE_URL}/${slug}`,
-        name: `Title & Closing Services in ${city}, ${state} | DMV Title Guy`,
+        name: `Title & Closing Services in ${locationName} | DMV Title Guy`,
         isPartOf: { "@id": SITE_URL },
         about: { "@id": `${SITE_URL}/${slug}` },
       },
@@ -203,8 +206,7 @@ interface CityCalculatorSchemaProps {
 }
 
 export function CityCalculatorSchema({ city, state, county, slug, faqs }: CityCalculatorSchemaProps) {
-  const stateLabel = state === "DC" ? "DC" : state;
-  const cityLabel = state === "DC" ? "Washington, DC" : `${city}, ${stateLabel}`;
+  const cityLabel = formatLocationName(city, state as StateCode);
 
   const graph: Record<string, unknown>[] = [
     {
