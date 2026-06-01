@@ -401,12 +401,12 @@ export function HomePageClient() {
                       <h4 className="font-semibold text-brand-navy text-sm uppercase tracking-[0.08em] mb-3">
                         {group.heading}
                       </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2">
+                      <div className="flex flex-wrap justify-center gap-2">
                         {group.links.map((link) => (
                           <Link
                             key={`${group.heading}-${link.label}`}
                             href={link.href}
-                            className="rounded-md border border-brand-blue/10 bg-brand-blue/5 px-3 py-2 text-sm font-medium text-brand-blue transition hover:border-brand-blue/30 hover:bg-brand-blue/10 hover:no-underline"
+                            className="inline-flex min-w-[9.5rem] items-center justify-center rounded-md border border-brand-blue/10 bg-brand-blue/5 px-3 py-2 text-center text-sm font-medium text-brand-blue transition hover:border-brand-blue/30 hover:bg-brand-blue/10 hover:no-underline"
                           >
                             {link.label}
                           </Link>
