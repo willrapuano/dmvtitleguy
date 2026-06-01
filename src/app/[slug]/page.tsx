@@ -106,6 +106,18 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       };
     }
 
+    if (result.data.parentSlug) {
+      return {
+        title: `Title Company in ${city}, ${state} | DMV Title Guy`,
+        description: `Title search, title insurance, escrow, and settlement services in ${city}, ${state}. Serving ${countyLabel} buyers, sellers, investors, agents, and lenders.`,
+        alternates: { canonical: `/${params.slug}` },
+        openGraph: {
+          title: `Title Company in ${city}, ${state} | DMV Title Guy`,
+          description: `Local title and settlement services in ${city}, ${state}. Order a title search or start your closing with Pruitt Title LLC.`,
+        },
+      };
+    }
+
     return {
       title: `Title & Closing Services in ${city}, ${state} | DMV Title Guy`,
       description: `Trusted title & settlement services in ${city}, ${state}. 17+ years serving ${countyLabel} buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.`,
@@ -127,11 +139,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 // ─── Location Page ─────────────────────────────────────────────────────────────
 function LocationPage({ location }: { location: Location }) {
-  const { city, state, county, slug, tier, alsoServing } = location;
-  const nearbyCities = getNearbyCities(location, 3);
+  const { city, state, county, slug, tier, alsoServing, parentSlug } = location;
+  const parentLocation = parentSlug ? ALL_LOCATIONS.find((l) => l.slug === parentSlug) : undefined;
+  const nearbyCities = parentSlug
+    ? ALL_LOCATIONS
+        .filter((l) => l.slug !== slug && l.slug !== parentSlug && l.county === county)
+        .slice(0, 3)
+    : getNearbyCities(location, 3);
   const countyPage = getCountyPage(location);
   const calcSlug = CALCULATOR_SLUGS[state];
   const isSecondary = tier === 2;
+  const isNeighborhood = Boolean(parentLocation);
   const stateFullName = state === "VA" ? "Virginia" : state === "MD" ? "Maryland" : "Washington DC";
 
   const SERVICES_LIST = [
@@ -174,15 +192,21 @@ function LocationPage({ location }: { location: Location }) {
               {stateFullName} Title Insurance
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              Reliable Title &amp; Settlement Services
+              {isNeighborhood ? `Title Company in ${city}, ${state}` : "Reliable Title & Settlement Services"}
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              {isSecondary
+              {isNeighborhood && parentLocation
+                ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
+                : isSecondary
                 ? `Pruitt Title LLC — professional title insurance and closing services in ${city}, ${state}. Residential, commercial, and all transaction types.`
                 : `DMV Title Guy is your trusted title and settlement partner in ${city}, ${state}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
+              {isNeighborhood ? (
+                <Link href="/request-title-review" className="btn-primary">Order Title Search</Link>
+              ) : (
+                <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
+              )}
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
                 📞 (703) 859-1467
               </a>
@@ -297,7 +321,17 @@ function LocationPage({ location }: { location: Location }) {
       <section className="section-gray">
         <div className="container-xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {countyPage && (
+            {parentLocation ? (
+              <div>
+                <h3 className="font-bold text-brand-navy mb-3">{parentLocation.city}, {parentLocation.state}</h3>
+                <p className="text-sm text-brand-muted mb-3">
+                  View the parent market page for title services across {parentLocation.city}.
+                </p>
+                <Link href={`/${parentLocation.slug}`} className="text-sm text-brand-blue hover:underline">
+                  {parentLocation.city} Title Services →
+                </Link>
+              </div>
+            ) : countyPage && (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">{countyPage.name}</h3>
                 <p className="text-sm text-brand-muted mb-3">
@@ -310,7 +344,7 @@ function LocationPage({ location }: { location: Location }) {
             )}
             {nearbyCities.length > 0 && (
               <div>
-                <h3 className="font-bold text-brand-navy mb-3">Nearby Markets</h3>
+                <h3 className="font-bold text-brand-navy mb-3">{isNeighborhood ? "Nearby Neighborhoods" : "Nearby Markets"}</h3>
                 <ul className="space-y-2">
                   {nearbyCities.map((n) => (
                     <li key={n.slug}>

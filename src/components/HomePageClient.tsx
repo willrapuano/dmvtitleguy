@@ -45,12 +45,29 @@ const SERVICE_AREAS: ServiceAreaColumn[] = [
     description: "Professional title insurance, escrow, and closing services throughout Northern Virginia.",
     groups: [
       {
-        heading: "Arlington, VA",
-        links: [{ label: "Arlington, VA", href: "/title-company-arlington-va" }],
+        heading: "Arlington County, VA",
+        links: [
+          { label: "Arlington, VA", href: "/title-company-arlington-va" },
+          { label: "Ballston, VA", href: "/title-company-ballston-va" },
+          { label: "Clarendon, VA", href: "/title-company-clarendon-va" },
+          { label: "Rosslyn, VA", href: "/title-company-rosslyn-va" },
+          { label: "Crystal City, VA", href: "/title-company-crystal-city-va" },
+          { label: "Pentagon City, VA", href: "/title-company-pentagon-city-va" },
+          { label: "Courthouse, VA", href: "/title-company-courthouse-va" },
+          { label: "Shirlington, VA", href: "/title-company-shirlington-va" },
+          { label: "Virginia Square, VA", href: "/title-company-virginia-square-va" },
+        ],
       },
       {
-        heading: "Alexandria, VA",
-        links: [{ label: "Alexandria, VA", href: "/title-company-alexandria-va" }],
+        heading: "City of Alexandria, VA",
+        links: [
+          { label: "Alexandria, VA", href: "/title-company-alexandria-va" },
+          { label: "Old Town Alexandria, VA", href: "/title-company-old-town-alexandria-va" },
+          { label: "Del Ray Alexandria, VA", href: "/title-company-del-ray-alexandria-va" },
+          { label: "Carlyle Alexandria, VA", href: "/title-company-carlyle-alexandria-va" },
+          { label: "Eisenhower Alexandria, VA", href: "/title-company-eisenhower-alexandria-va" },
+          { label: "Arlandria, VA", href: "/title-company-arlandria-va" },
+        ],
       },
       {
         heading: "Fairfax County, VA",

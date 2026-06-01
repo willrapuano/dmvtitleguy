@@ -12,6 +12,8 @@ export interface Location {
   state: StateCode;
   county: string;
   tier: Tier;
+  /** Parent market page for neighborhood/sub-area pages */
+  parentSlug?: string;
   /** Tier 3 communities to mention as "also serving" */
   alsoServing?: string[];
   /** FAQ content for SEO keyword expansion (Phase 4) */
@@ -54,6 +56,19 @@ export const TIER1_LOCATIONS: Location[] = [
 
 // ─── Tier 2 — Secondary Markets ───────────────────────────────────────────────
 export const TIER2_LOCATIONS: Location[] = [
+  { city: "Ballston",             slug: "title-company-ballston-va",             state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Clarendon", "Virginia Square", "Courthouse"] },
+  { city: "Clarendon",            slug: "title-company-clarendon-va",            state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Ballston", "Courthouse", "Rosslyn"] },
+  { city: "Rosslyn",              slug: "title-company-rosslyn-va",              state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Courthouse", "Clarendon", "Ballston"] },
+  { city: "Crystal City",         slug: "title-company-crystal-city-va",         state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Pentagon City", "Rosslyn", "Shirlington"] },
+  { city: "Pentagon City",        slug: "title-company-pentagon-city-va",        state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Crystal City", "Rosslyn", "Shirlington"] },
+  { city: "Courthouse",           slug: "title-company-courthouse-va",           state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Clarendon", "Rosslyn", "Virginia Square"] },
+  { city: "Shirlington",          slug: "title-company-shirlington-va",          state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Crystal City", "Pentagon City", "Alexandria"] },
+  { city: "Virginia Square",      slug: "title-company-virginia-square-va",      state: "VA", county: "Arlington County",              tier: 2, parentSlug: "title-company-arlington-va", alsoServing: ["Ballston", "Clarendon", "Courthouse"] },
+  { city: "Old Town Alexandria",  slug: "title-company-old-town-alexandria-va",  state: "VA", county: "Alexandria (independent city)", tier: 2, parentSlug: "title-company-alexandria-va", alsoServing: ["Del Ray Alexandria", "Carlyle Alexandria", "Eisenhower Alexandria"] },
+  { city: "Del Ray Alexandria",   slug: "title-company-del-ray-alexandria-va",   state: "VA", county: "Alexandria (independent city)", tier: 2, parentSlug: "title-company-alexandria-va", alsoServing: ["Old Town Alexandria", "Arlandria", "Carlyle Alexandria"] },
+  { city: "Carlyle Alexandria",   slug: "title-company-carlyle-alexandria-va",   state: "VA", county: "Alexandria (independent city)", tier: 2, parentSlug: "title-company-alexandria-va", alsoServing: ["Old Town Alexandria", "Eisenhower Alexandria", "Del Ray Alexandria"] },
+  { city: "Eisenhower Alexandria",slug: "title-company-eisenhower-alexandria-va",state: "VA", county: "Alexandria (independent city)", tier: 2, parentSlug: "title-company-alexandria-va", alsoServing: ["Carlyle Alexandria", "Old Town Alexandria", "Del Ray Alexandria"] },
+  { city: "Arlandria",            slug: "title-company-arlandria-va",            state: "VA", county: "Alexandria (independent city)", tier: 2, parentSlug: "title-company-alexandria-va", alsoServing: ["Del Ray Alexandria", "Old Town Alexandria", "Crystal City"] },
   { city: "Tysons",           slug: "title-company-tysons-va",           state: "VA", county: "Fairfax County",          tier: 2, alsoServing: ["Merrifield", "Dunn Loring"] },
   { city: "Herndon",          slug: "title-company-herndon-va",          state: "VA", county: "Fairfax County",          tier: 2, faqs: [
       { question: "How much does title insurance cost in Herndon, VA?", answer: "Title insurance in Herndon typically costs $1,000–$2,500 for a standard residential purchase, depending on the purchase price. Virginia uses a competitive rate system, so premiums can vary by underwriter." },
