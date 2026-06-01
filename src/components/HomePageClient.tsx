@@ -193,24 +193,22 @@ export function HomePageClient() {
         />
         <div className="absolute inset-0 bg-brand-navy/75" />
 
-        {/* Social sidebar — desktop only */}
-        <div className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 flex-col gap-3 z-10">
-          {SOCIAL_LINKS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="w-10 h-10 rounded-full bg-white/15 hover:bg-brand-blue flex items-center justify-center text-white transition-all duration-200"
-            >
-              <s.Icon className="w-5 h-5" />
-            </a>
-          ))}
-        </div>
-
         <div className="container-xl relative z-10 grid lg:grid-cols-[1.25fr_0.75fr] gap-10 items-center py-20">
           <div>
+            <div className="mb-6 flex gap-3">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-10 h-10 rounded-full bg-white/15 hover:bg-brand-blue flex items-center justify-center text-white transition-all duration-200"
+                >
+                  <s.Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
             <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Pruitt Title LLC • DMV Title Guy</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
               Title &amp; Settlement Services for Buyers, Realtors, Lenders, and Builders Across Virginia, Maryland, and Washington DC
