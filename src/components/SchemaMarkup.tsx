@@ -68,7 +68,7 @@ export function LocationSchema({ city, state, county, slug, description }: Locat
         "@type": "WebPage",
         "@id": `${SITE_URL}/${slug}#webpage`,
         url: `${SITE_URL}/${slug}`,
-        name: `Title Company in ${city}, ${state} | DMV Title Guy`,
+        name: `Title & Closing Services in ${city}, ${state} | DMV Title Guy`,
         isPartOf: { "@id": SITE_URL },
         about: { "@id": `${SITE_URL}/${slug}` },
       },

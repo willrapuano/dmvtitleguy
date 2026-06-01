@@ -5,7 +5,7 @@ import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Title Company Fairfax VA | Settlement & Title Services",
+  title: "Fairfax VA Title & Settlement Services | DMV Title Guy",
   description: "Pruitt Title LLC provides expert title and settlement services in Fairfax, VA. Fast closings, competitive rates, and local expertise since 2007.",
   alternates: { canonical: "/title-company/fairfax-va" },
 };
@@ -59,7 +59,7 @@ export default function FairfaxTitlePage() {
             <span className="text-gray-200">Fairfax</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Title Company Fairfax VA | Settlement & Title Services
+            Reliable Title &amp; Settlement Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Pruitt Title LLC is Fairfax County's trusted name in title services. With deep roots in the community and extensive experience with Fairfax County's unique requirements, we ensure your closing is efficient and stress-free.

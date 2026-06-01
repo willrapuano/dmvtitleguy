@@ -80,7 +80,7 @@ const LOCAL_BUSINESS_SCHEMA = {
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -92,8 +92,8 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
         dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
       />
       <NavBar />
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

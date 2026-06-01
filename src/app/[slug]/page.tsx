@@ -107,11 +107,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 
     return {
-      title: `${city} Title Company Since 2007 | Pruitt Title — DMV Title Guy`,
+      title: `Title & Closing Services in ${city}, ${state} | DMV Title Guy`,
       description: `Trusted title & settlement services in ${city}, ${state}. 17+ years serving ${countyLabel} buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
-        title: `${city} Title Company | Pruitt Title — DMV Title Guy`,
+        title: `Title & Closing Services in ${city}, ${state} | DMV Title Guy`,
         description: `Expert title search, insurance & closing services in ${city}, ${state}. Residential, commercial & investor transactions. Since 2007.`,
       },
     };
@@ -174,7 +174,7 @@ function LocationPage({ location }: { location: Location }) {
               {stateFullName} Title Insurance
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              Title Company in {city}, {state}
+              Reliable Title &amp; Settlement Services
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               {isSecondary

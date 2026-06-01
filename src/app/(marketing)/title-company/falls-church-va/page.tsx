@@ -5,7 +5,7 @@ import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Title Company Falls Church VA | Settlement & Title Services",
+  title: "Falls Church VA Title & Settlement Services | DMV Title Guy",
   description: "Pruitt Title LLC provides expert title and settlement services in Falls Church, VA. Fast closings, competitive rates, and local expertise since 2007.",
   alternates: { canonical: "/title-company/falls-church-va" },
 };
@@ -59,7 +59,7 @@ export default function FallsChurchTitlePage() {
             <span className="text-gray-200">Falls Church</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Title Company Falls Church VA | Settlement & Title Services
+            Reliable Title &amp; Settlement Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Pruitt Title LLC is proud to serve the Falls Church community. Our local expertise and personalized service make us the trusted choice for homeowners and real estate professionals in this unique Northern Virginia city.
