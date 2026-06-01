@@ -1,29 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Shield,
   AlertTriangle,
-  Search,
-  FileCheck,
-  Gavel,
-  Clock,
+  Building2,
+  CheckCircle2,
   ChevronDown,
+  ClipboardCheck,
+  FileCheck,
+  FileSearch,
+  FileWarning,
+  Gavel,
+  Landmark,
   Phone,
   Scale,
-  CircleDollarSign,
-  FileWarning,
-  Building2,
-  Home,
-  UserCheck,
-  RotateCcw,
-  MapPin,
+  Search,
+  Shield,
 } from "lucide-react";
-import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Paid Foreclosure Title Review in DC, MD & VA | DMV Title Guy",
+  title: "Foreclosure Title Review | DMV Title Guy",
   description:
-    "Order a paid title review on any foreclosed property in the DMV. We identify surviving liens, judgment debts, and chain-of-title defects. Fixed-fee pricing, no contract required.",
+    "Foreclosure title review for buyers who need liens, HUD issues, judgments, defects, and title risks reviewed before closing in DC, Maryland, and Virginia.",
   alternates: {
     canonical: "https://dmvtitleguy.io/foreclosure-title-review",
   },
@@ -33,147 +30,175 @@ const foreclosureRisks = [
   {
     icon: AlertTriangle,
     title: "Surviving Liens",
-    desc: "Not all junior liens are extinguished by foreclosure. HOA super-liens, federal tax liens, and certain municipal liens survive the sale and transfer to the new owner.",
+    desc: "Some liens may survive foreclosure depending on priority, jurisdiction, notice, and the recorded facts behind the sale.",
   },
   {
     icon: Scale,
-    title: "Prior Owner Judgments",
-    desc: "Judgment liens recorded against the previous owner may attach to the property. Some judgments survive foreclosure and can follow the property through multiple transfers.",
+    title: "Judgments",
+    desc: "Judgment liens against prior owners can attach to real estate and may require payoff, release, or underwriting review.",
   },
   {
-    icon: Building2,
-    title: "HOA Super-Liens",
-    desc: "In Virginia, HOA assessment liens for up to 6 months can survive a non-judicial foreclosure. Maryland and DC have their own HOA lien provisions. We check all three.",
+    icon: Landmark,
+    title: "HUD and Government Issues",
+    desc: "HUD, VA, FHA, tax, municipal, and government-related matters can create special title and closing requirements.",
   },
   {
     icon: FileWarning,
-    title: "Incomplete Recording Chain",
-    desc: "Distressed properties often have gaps in the chain of title — missing assignments, unrecorded transfers, and probate issues that don't appear in a basic search.",
+    title: "Foreclosure Process Defects",
+    desc: "Notice problems, trustee issues, missing assignments, defective appointments, or recording gaps can affect insurable title.",
   },
   {
-    icon: RotateCcw,
-    title: "Redemption Period Issues",
-    desc: "Some jurisdictions allow the former owner a redemption window after foreclosure. We verify whether the redemption period has expired and your ownership is secure.",
+    icon: Building2,
+    title: "HOA and Condo Claims",
+    desc: "Association liens, unpaid assessments, covenants, super-lien issues, and resale requirements can affect ownership cost.",
   },
   {
-    icon: CircleDollarSign,
-    title: "Federal Tax Liens",
-    desc: "IRS tax liens have a 120-day right of redemption after foreclosure sale. If a federal tax lien exists, the IRS can reclaim the property during this window.",
+    icon: Shield,
+    title: "Title Insurance Exceptions",
+    desc: "Post-foreclosure title insurance may require additional documentation, releases, affidavits, or underwriting approval.",
   },
 ];
 
 const reviewCovers = [
   {
     icon: Search,
-    title: "Priority Lien Analysis",
-    desc: "We identify which liens were extinguished by the foreclosure and which survive — so you know exactly what you're responsible for.",
+    title: "Ownership and Foreclosure Chain",
+    desc: "We review the chain of title, foreclosure deed, trustee or substitute trustee documents, and recorded transfer history.",
   },
   {
-    icon: Scale,
-    title: "Judgment Search",
-    desc: "Full judgment search against all prior owners in the chain of title, including district court and circuit court records.",
+    icon: FileSearch,
+    title: "Lien and Judgment Review",
+    desc: "Recorded liens, judgments, deeds of trust, tax items, municipal claims, and association matters are identified.",
   },
   {
-    icon: CircleDollarSign,
-    title: "Tax Lien Verification",
-    desc: "Federal, state, and local tax lien status with redemption period analysis and priority determination.",
-  },
-  {
-    icon: Building2,
-    title: "HOA Assessment Check",
-    desc: "HOA and condo association assessment status, pending liens, and super-lien provisions specific to the jurisdiction.",
+    icon: Landmark,
+    title: "HUD, Tax, and Government Items",
+    desc: "We flag HUD, federal tax, state tax, municipal, and government-related items that may affect title or closing.",
   },
   {
     icon: FileCheck,
-    title: "Chain of Title Reconstruction",
-    desc: "Complete reconstruction of the ownership chain, identifying gaps, missing assignments, and recording defects.",
+    title: "Defect and Cure Planning",
+    desc: "Findings focus on what may need release, payoff, corrective recording, affidavit, underwriting review, or other cure.",
   },
-  {
-    icon: RotateCcw,
-    title: "Redemption Rights Review",
-    desc: "Analysis of applicable redemption periods — including federal tax lien redemption rights — and confirmation of secure ownership.",
-  },
-];
-
-const whenYouNeed = [
   {
     icon: Gavel,
-    title: "After Winning at Auction",
-    desc: "You won the bid — now confirm what you actually bought. Our post-auction review identifies surviving liens and clears title for resale or refinance.",
+    title: "Auction and REO Support",
+    desc: "Foreclosure buyers, REO buyers, wholesalers, and investors get practical title findings before resale or refinance.",
   },
   {
-    icon: Home,
-    title: "Before Making an Offer on REO",
-    desc: "Bank-owned (REO) properties can still carry title defects from the foreclosure. A review before your offer protects your due diligence period.",
-  },
-  {
-    icon: UserCheck,
-    title: "Buying from a Wholesaler",
-    desc: "If the property was sourced from foreclosure and wholesaled to you, you need to verify the title was properly cleared through the assignment chain.",
-  },
-  {
-    icon: FileCheck,
-    title: "Inherited Foreclosure Properties",
-    desc: "Inheriting a property that went through foreclosure requires a full title review to confirm the foreclosure was properly conducted and all liens resolved.",
+    icon: Shield,
+    title: "Title Insurance Coordination",
+    desc: "We help identify title issues that may affect insurable title, lender approval, and post-closing policy work.",
   },
 ];
 
-const dmvRules = [
+const whyBeforeClosing = [
+  "Identify liens, judgments, and title defects before closing funds move",
+  "Understand whether foreclosure documents create title insurance concerns",
+  "Flag HUD, tax, HOA, municipal, and government-related title issues",
+  "Plan releases, payoffs, affidavits, or corrective recordings early",
+  "Support lender, resale, refinance, and investor exit strategy questions",
+  "Account for different foreclosure rules across DC, Maryland, and Virginia",
+];
+
+const process = [
   {
-    state: "Virginia",
-    rule: "Non-judicial foreclosure state. Trustee sales extinguish most junior liens, but HOA super-liens (6 months), federal tax liens, and certain municipal liens survive. No statutory right of redemption for borrowers.",
+    icon: ClipboardCheck,
+    title: "1. Send the Foreclosure File",
+    desc: "Provide the property address, contract or auction materials, foreclosure documents if available, and your closing deadline.",
   },
   {
-    state: "Maryland",
-    rule: "Judicial foreclosure state. All foreclosures go through the court system, providing more protection but longer timelines. HOA liens follow specific statutory provisions. Federal tax lien redemption rights apply.",
+    icon: Search,
+    title: "2. Review Title and Defects",
+    desc: "We review ownership, foreclosure chain, liens, judgments, taxes, HUD concerns, defects, and curative needs.",
   },
   {
-    state: "Washington DC",
-    rule: "DC has its own foreclosure process with specific notice requirements and mediation provisions. The city also has unique tenant protection laws that can affect foreclosure properties.",
+    icon: CheckCircle2,
+    title: "3. Get Closing Guidance",
+    desc: "You receive clear findings for closing, title insurance, cure, resale, refinance, or risk evaluation.",
   },
 ];
 
 const faqs = [
   {
-    q: "What's the difference between a foreclosure title review and a standard title search?",
-    a: "A standard title search identifies current liens and encumbrances. A foreclosure title review goes further — it analyzes which liens were extinguished by the foreclosure, which survived, and what you're legally responsible for as the new owner. It's specifically designed for the elevated risks of distressed properties.",
+    q: "What is foreclosure title review?",
+    a: "Foreclosure title review examines the recorded ownership chain, foreclosure documents, liens, judgments, taxes, HUD or government items, and defects that may affect a buyer&apos;s ability to close, insure, resell, or refinance the property.",
   },
   {
-    q: "Can I get title insurance on a foreclosed property?",
-    a: "Yes, but the title insurance company will require a clean title search first. Our foreclosure title review identifies exactly what needs to be resolved so you can get insured. Some insurers have specific requirements for post-foreclosure properties — we work with them to satisfy those requirements.",
+    q: "Why do I need title review before foreclosure closing?",
+    a: "Foreclosed properties can carry liens, judgments, process defects, HOA claims, tax issues, municipal charges, and title insurance requirements that are easier to address before closing than after ownership transfers.",
   },
   {
-    q: "What happens if you find surviving liens after I bought at auction?",
-    a: "We provide a detailed report of all surviving liens with priority rankings and estimated payoff amounts. You'll know exactly what needs to be cleared and the cost. In some cases, surviving liens can be negotiated down. We advise on the best path forward for each situation.",
+    q: "What foreclosure title risks do you look for?",
+    a: "We look for surviving liens, judgments, HUD and government-related issues, unpaid taxes, HOA or condo claims, unreleased deeds of trust, missing assignments, defective foreclosure documents, and chain-of-title gaps.",
   },
   {
-    q: "How do foreclosure rules differ between VA, MD, and DC?",
-    a: "Virginia uses non-judicial foreclosure (trustee sales), Maryland uses judicial foreclosure (court-supervised), and DC has its own hybrid process with mediation requirements. Each has different lien survival rules, redemption periods, and borrower protections. We're licensed and experienced in all three jurisdictions.",
+    q: "Can foreclosure title issues affect title insurance?",
+    a: "Yes. Title insurance underwriters may require releases, affidavits, corrective recordings, foreclosure documentation, payoff proof, or other curative items before issuing coverage.",
   },
   {
-    q: "Do I need a foreclosure review if the bank already did a title search?",
-    a: "The bank's title search protects the bank's interest — not yours. Their search may not flag issues that affect you as the buyer, like HOA super-liens, municipal encumbrances, or redemption period complications. A foreclosure title review is buyer-focused and identifies risks specific to your position.",
+    q: "Do you support foreclosure buyers across the DMV?",
+    a: "Yes. We support foreclosure title review for buyers, investors, wholesalers, flippers, auction buyers, and REO buyers across DC, Maryland, and Virginia.",
   },
 ];
 
 const relatedPages = [
-  { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/investor-title-services", label: "Investor Title Services" },
-  { href: "/investor-friendly-title-company", label: "Investor-Friendly Title Company" },
-  { href: "/investor-due-diligence", label: "Investor Due Diligence" },
-  { href: "/upload-contract", label: "Upload Contract" },
-  { href: "/request-title-review", label: "Request Title Review" },
+  { href: "/auction-property-title-search", label: "Auction Property Title Search" },
+  { href: "/commercial-due-diligence", label: "Commercial Due Diligence" },
+  { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
+  { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://dmvtitleguy.io/foreclosure-title-review#service",
+      name: "Foreclosure Title Review",
+      serviceType: "Foreclosure Title Review",
+      provider: {
+        "@type": "LegalService",
+        name: "DMV Title Guy | Pruitt Title LLC",
+        telephone: "+1-703-859-1467",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "1900 Gallows Rd Suite 230",
+          addressLocality: "Vienna",
+          addressRegion: "VA",
+          postalCode: "22182",
+          addressCountry: "US",
+        },
+      },
+      areaServed: [
+        { "@type": "State", name: "Virginia" },
+        { "@type": "State", name: "Maryland" },
+        { "@type": "AdministrativeArea", name: "Washington DC" },
+      ],
+      description:
+        "Foreclosure title review for buyers of foreclosure properties who need liens, judgments, HUD issues, title defects, curative needs, and closing risks reviewed across DC, Maryland, and Virginia.",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    },
+  ],
+};
 
 export default function ForeclosureTitleReviewPage() {
   return (
     <>
-      <ServiceSchema
-        name="Foreclosure Title Review in DC, MD & VA"
-        description="Foreclosure title review for DMV investors. We identify surviving liens, judgment debts, and chain-of-title defects unique to foreclosed properties."
-        serviceType="Foreclosure Title Review"
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      {/* HERO */}
+
       <section
         className="bg-brand-navy text-white py-16 md:py-24"
         style={{
@@ -183,60 +208,46 @@ export default function ForeclosureTitleReviewPage() {
       >
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">
-              Home
-            </Link>
+            <Link href="/" className="hover:text-brand-blue">Home</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-200">Foreclosure Title Review</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            Paid Foreclosure Title Review — DMV
+            Foreclosure Title Review
           </h1>
-          <p className="text-lg text-gray-300 mb-4 max-w-2xl">
-            Order a paid title review on any foreclosed property. We identify surviving liens, judgment debts, and chain-of-title defects that standard searches miss — so you know exactly what you&apos;re taking on.
-          </p>
-          <p className="text-sm text-brand-blue font-semibold mb-8">
-            💰 Paid foreclosure title review — you hire us, we run the search, you get the report. No purchase contract required.
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl">
+            Title review for foreclosure buyers who need liens, HUD issues,
+            judgments, defects, foreclosure documents, and curative needs
+            checked before closing.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link
-              href="/request-title-review"
-              className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
-            >
-              Order Foreclosure Title Review
+            <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
+              Order Title Search
             </Link>
-            <a
-              href="tel:+17038591467"
-              className="btn-outline px-6 py-3 text-base font-semibold inline-flex items-center gap-2 text-white border-white/40 hover:bg-white/10"
-            >
-              <Phone className="h-4 w-4" /> (703) 859-1467
-            </a>
+            <Link href="/auction-property-title-search" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
+              Auction Property Title Search
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* FORECLOSURE TITLE RISKS */}
       <section className="py-16 bg-white">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">
-            Foreclosure Title Risks
-          </h2>
+          <h2 className="prose-title text-center mb-4">Foreclosure Title Risks</h2>
           <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            Foreclosure doesn&apos;t wipe the slate clean. Many liens survive
-            the sale — and they become your responsibility the moment you take
-            ownership.
+            Foreclosure can clear some issues and leave others behind. Buyers
+            need to know what survived, what is defective, and what must be
+            resolved before closing.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {foreclosureRisks.map((r) => (
-              <div key={r.title} className="flex gap-4">
-                <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-50">
-                  <r.icon className="h-6 w-6 text-red-600" />
+            {foreclosureRisks.map((item) => (
+              <div key={item.title} className="flex gap-4">
+                <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-green">
+                  <item.icon className="h-6 w-6 text-brand-navy" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-1">
-                    {r.title}
-                  </h3>
-                  <p className="text-brand-muted text-sm">{r.desc}</p>
+                  <h3 className="text-lg font-bold text-brand-navy mb-1">{item.title}</h3>
+                  <p className="text-brand-muted text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -244,184 +255,111 @@ export default function ForeclosureTitleReviewPage() {
         </div>
       </section>
 
-      {/* WHAT OUR FORECLOSURE REVIEW COVERS */}
       <section className="section-light py-16">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">
-            What Our Foreclosure Review Covers
-          </h2>
+          <h2 className="prose-title text-center mb-4">What Foreclosure Title Review Covers</h2>
           <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            Our foreclosure title review is specifically designed for the risks
-            of distressed properties — going beyond a standard search to identify
-            what survived the foreclosure.
+            The review focuses on recorded matters and foreclosure-specific
+            title issues that can affect closing, title insurance, resale, and
+            refinance.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {reviewCovers.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white rounded-lg p-6 shadow-sm"
-              >
-                <s.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="text-lg font-bold text-brand-navy mb-2">
-                  {s.title}
-                </h3>
-                <p className="text-brand-muted text-sm">{s.desc}</p>
+            {reviewCovers.map((item) => (
+              <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
+                <item.icon className="h-8 w-8 text-brand-blue mb-3" />
+                <h3 className="text-lg font-bold text-brand-navy mb-2">{item.title}</h3>
+                <p className="text-brand-muted text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* WHEN YOU NEED A FORECLOSURE REVIEW */}
-      <section className="py-16 bg-brand-gray-bg">
-        <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">
-            When You Need a Foreclosure Review
-          </h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            Any transaction involving a foreclosed property — whether you bought
-            at auction, from a bank, or through a wholesaler — needs a
-            foreclosure-specific title review.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {whenYouNeed.map((w) => (
-              <div
-                key={w.title}
-                className="bg-white rounded-lg p-6 shadow-sm flex gap-4"
-              >
-                <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-green">
-                  <w.icon className="h-6 w-6 text-brand-navy" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-1">
-                    {w.title}
-                  </h3>
-                  <p className="text-brand-muted text-sm">{w.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DMV-SPECIFIC FORECLOSURE RULES */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-4xl">
-          <h2 className="prose-title text-center mb-4">
-            DMV-Specific Foreclosure Rules
-          </h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            Each jurisdiction in the DMV handles foreclosure differently. We
-            know the rules in all three — and we check for the specific risks
-            each one creates.
+          <h2 className="prose-title text-center mb-4">Why Title Review Before Foreclosure Closing Matters</h2>
+          <p className="text-brand-muted text-center text-lg mb-10 max-w-2xl mx-auto">
+            Title findings should be available while there is still time to
+            cure, negotiate, underwrite, or make a different decision.
           </p>
-          <div className="space-y-6">
-            {dmvRules.map((r) => (
-              <div
-                key={r.state}
-                className="bg-brand-gray-bg rounded-lg p-6"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <MapPin className="h-5 w-5 text-brand-blue" />
-                  <h3 className="text-lg font-bold text-brand-navy">
-                    {r.state}
-                  </h3>
-                </div>
-                <p className="text-brand-muted text-sm">{r.rule}</p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {whyBeforeClosing.map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-gray-50 rounded-lg p-4">
+                <CheckCircle2 className="h-5 w-5 text-brand-blue shrink-0 mt-0.5" />
+                <p className="text-brand-muted text-sm">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      <section className="section-light py-16">
+        <div className="container-xl">
+          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {process.map((step) => (
+              <div key={step.title} className="text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
+                  <step.icon className="h-7 w-7 text-brand-navy" />
+                </div>
+                <h3 className="text-lg font-bold text-brand-navy mb-2">{step.title}</h3>
+                <p className="text-brand-muted text-sm">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-navy text-white py-16 md:py-20">
+        <div className="container-xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Review Foreclosure Title Before Closing
+          </h2>
+          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Send the property details and we&apos;ll identify liens, judgments,
+            HUD issues, defects, and curative needs before closing.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
+              Order Title Search
+            </Link>
+            <Link href="/investor-title-services" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
+              Investor Title Services
+            </Link>
+          </div>
+          <p className="text-gray-400 text-sm">
+            Prefer to talk? Call{" "}
+            <a href="tel:+17038591467" className="text-white font-semibold hover:underline">
+              <Phone className="inline h-4 w-4" /> (703) 859-1467
+            </a>
+          </p>
+        </div>
+      </section>
+
       <section className="section-light py-16">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-10">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
           <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <details
-                key={i}
-                className="bg-white rounded-lg shadow-sm group"
-              >
+            {faqs.map((faq) => (
+              <details key={faq.q} className="bg-white rounded-lg shadow-sm group">
                 <summary className="flex items-center justify-between cursor-pointer p-5 font-semibold text-brand-navy">
                   <span>{faq.q}</span>
                   <ChevronDown className="h-5 w-5 text-brand-muted shrink-0 ml-4 transition-transform group-open:rotate-180" />
                 </summary>
-                <div className="px-5 pb-5 text-brand-muted text-sm">
-                  {faq.a}
-                </div>
+                <div className="px-5 pb-5 text-brand-muted text-sm">{faq.a}</div>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="bg-brand-navy text-white py-16 md:py-20"
-        style={{
-          background:
-            "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)",
-        }}
-      >
-        <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Order a Paid Foreclosure Title Review
-          </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Start your due diligence, upload a contract, or request a title
-            review. We&apos;ll identify the surviving liens and title defects
-            before they cost you.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <Link
-              href="/request-title-review"
-              className="btn-primary px-6 py-3 text-base font-semibold"
-            >
-              Order Foreclosure Title Review
-            </Link>
-            <Link
-              href="/investor-due-diligence"
-              className="btn-primary px-6 py-3 text-base font-semibold"
-            >
-              Start Due Diligence
-            </Link>
-            <Link
-              href="/upload-contract"
-              className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10"
-            >
-              Upload Contract
-            </Link>
-          </div>
-          <p className="text-gray-400 text-sm">
-            Prefer to talk? Call us at{" "}
-            <a
-              href="tel:+17038591467"
-              className="text-white font-semibold hover:underline"
-            >
-              (703) 859-1467
-            </a>
-          </p>
-        </div>
-      </section>
-
-      {/* RELATED PAGES */}
       <section className="py-12 bg-brand-gray-bg">
         <div className="container-xl">
-          <h3 className="text-lg font-bold text-brand-navy mb-6">
-            Related Pages
-          </h3>
+          <h3 className="text-lg font-bold text-brand-navy mb-6">Related Pages</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {relatedPages.map((p) => (
-              <Link
-                key={p.href}
-                href={p.href}
-                className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-brand-navy"
-              >
-                {p.label}
+            {relatedPages.map((page) => (
+              <Link key={page.href} href={page.href} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-brand-navy">
+                {page.label}
               </Link>
             ))}
           </div>

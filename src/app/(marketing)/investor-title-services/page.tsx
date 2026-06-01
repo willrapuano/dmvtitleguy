@@ -1,171 +1,191 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Shield,
-  Clock,
-  FileCheck,
   AlertTriangle,
   Building2,
+  CheckCircle2,
+  ChevronDown,
+  ClipboardCheck,
+  FileCheck,
+  FileSearch,
+  Gavel,
+  Landmark,
+  Phone,
+  Scale,
   Search,
+  Shield,
+  TrendingUp,
   Users,
   Zap,
-  MapPin,
-  UserCheck,
-  ChevronDown,
-  Phone,
-  Gavel,
-  Home,
-  TrendingUp,
-  Handshake,
 } from "lucide-react";
-import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Paid Title Searches for Investors in DC, MD & VA | DMV Title Guy",
+  title: "Investor Title Services | DMV Title Guy",
   description:
-    "Order a standalone paid title search on any property in the DMV. Fixed-fee pricing, no purchase contract required. Auction, wholesale, off-market, and investment property title searches.",
-  alternates: { canonical: "https://dmvtitleguy.io/investor-title-services" },
+    "Investor title services for real estate investors, wholesalers, and flippers who need fast title searches and closing support across DC, Maryland, and Virginia.",
+  alternates: {
+    canonical: "https://dmvtitleguy.io/investor-title-services",
+  },
 };
 
 const investorServices = [
   {
     icon: Search,
-    title: "Title Searches for Auction Properties",
-    desc: "Comprehensive title searches that uncover hidden liens, judgments, and defects before you bid at auction.",
+    title: "Fast Title Searches",
+    desc: "Ownership, liens, judgments, taxes, easements, restrictions, and title defects are reviewed before your timeline gets tight.",
   },
   {
-    icon: FileCheck,
-    title: "Pre-Purchase Title Search",
-    desc: "For investors who need answers before committing. Order a standalone paid title search — we review ownership, liens, judgments, easements, and title defects before you go under contract. No purchase contract required.",
+    icon: FileSearch,
+    title: "Distressed Property Review",
+    desc: "Auction, foreclosure, REO, estate, and off-market properties are checked for the recorded issues that can erase investor margin.",
   },
   {
-    icon: Handshake,
-    title: "Wholesale & Double Closing Support",
-    desc: "Assignment contracts, simultaneous closings, and investor-specific transaction structures handled correctly.",
-  },
-  {
-    icon: Building2,
-    title: "Portfolio Transaction Management",
-    desc: "Multi-property acquisitions and dispositions with coordinated title work and closing schedules.",
-  },
-  {
-    icon: Zap,
-    title: "Fast Turnaround",
-    desc: "5–7 business days standard. 1–3 business days rush. We know investors don't wait.",
-  },
-];
-
-const whoWeServe = [
-  {
-    icon: TrendingUp,
-    title: "Flip Investors",
-    desc: "Title cleared fast so you can renovate and resell without surprises.",
-  },
-  {
-    icon: Home,
-    title: "Buy-and-Hold Landlords",
-    desc: "Clean title for rental acquisitions — single-family and small multi-family.",
+    icon: Scale,
+    title: "Lien and Judgment Checks",
+    desc: "We identify recorded liens, judgments, tax items, HOA charges, municipal issues, and payoff concerns that need attention.",
   },
   {
     icon: Users,
-    title: "Wholesale Buyers",
-    desc: "We handle assignment contracts and double closings across the DMV.",
-  },
-  {
-    icon: Gavel,
-    title: "Auction Buyers",
-    desc: "Title searches before you bid and post-auction due diligence.",
+    title: "Wholesale Transaction Support",
+    desc: "Assignments, double closings, investor resales, and short contract windows require title support built for deal velocity.",
   },
   {
     icon: Building2,
-    title: "REIT & Fund Managers",
-    desc: "Institutional-grade title work for portfolio acquisitions and dispositions.",
-  },
-];
-
-const whyUs = [
-  {
-    icon: Clock,
-    title: "Speed Investors Need",
-    desc: "5–7 day standard turnaround. 1–3 day rush. We don't slow your deal down.",
-  },
-  {
-    icon: MapPin,
-    title: "Full DMV Coverage",
-    desc: "DC, Maryland, and Virginia — one team, all three jurisdictions. No handoffs.",
+    title: "Entity and Vesting Review",
+    desc: "LLCs, trusts, partnerships, and investor entities are checked for vesting, authority, and closing document requirements.",
   },
   {
     icon: Shield,
-    title: "Investor-Specific Expertise",
-    desc: "We understand auction risk, wholesale structures, and investment timelines — because we work with investors every day.",
-  },
-  {
-    icon: UserCheck,
-    title: "Single Point of Contact",
-    desc: "One person handles your file from search to close. No rotating coordinators.",
+    title: "Title Insurance Coordination",
+    desc: "We help move title issues toward cure, underwriting review, insurable title, and settlement readiness.",
   },
 ];
 
-const howItWorks = [
+const whySpecialized = [
   {
-    icon: FileCheck,
-    title: "1. Submit Your Deal",
-    desc: "Use our investor due diligence form to send property details, upload documents, and tell us your timeline.",
-    link: "/investor-due-diligence",
+    icon: Zap,
+    title: "Investor Timelines Are Short",
+    desc: "Investors often need answers before a bid, due diligence deadline, resale, or lender condition expires.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Hidden Title Risk Can Kill Profit",
+    desc: "Surviving liens, judgments, tax issues, HOA claims, and recording gaps can change the economics of a deal quickly.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Exit Strategy Depends on Title",
+    desc: "Clean title affects resale, refinance, title insurance, lender approval, and the next buyer&apos;s confidence.",
+  },
+];
+
+const dmvFocus = [
+  "Investor title searches across DC, Maryland, and Virginia",
+  "Auction, foreclosure, wholesale, flip, rental, and portfolio support",
+  "Lien, judgment, tax, HOA, municipal, and UCC issue spotting",
+  "Title exception review for resale, refinance, and closing readiness",
+  "Coordination for title insurance, lender review, and curative needs",
+  "Clear title findings written for practical investor decisions",
+];
+
+const process = [
+  {
+    icon: ClipboardCheck,
+    title: "1. Send the Property Details",
+    desc: "Provide the address, contract or auction information if available, investor entity details, and your deadline.",
   },
   {
     icon: Search,
-    title: "2. We Run Title",
-    desc: "Full title search, lien check, judgment search, and chain-of-title verification — tailored to your transaction type.",
+    title: "2. We Review Title Risk",
+    desc: "We search ownership, liens, judgments, taxes, recorded exceptions, entity concerns, and investor-specific title issues.",
   },
   {
-    icon: Shield,
-    title: "3. Get Results & Close",
-    desc: "Detailed title report with clear findings. Rush available for time-sensitive closings.",
+    icon: FileCheck,
+    title: "3. Get Clear Next Steps",
+    desc: "You receive practical findings for bidding, closing, cure, resale, refinance, or deciding whether to walk away.",
   },
 ];
 
 const faqs = [
   {
-    q: "What makes investor title services different from standard title work?",
-    a: "Investor transactions move faster and carry different risks. We look for the things that kill investor deals — surviving liens from foreclosures, judgment liens that follow the debtor, recording gaps in wholesale chains, and HOA super-liens. Standard residential title work often misses these.",
+    q: "What are investor title services?",
+    a: "Investor title services are title searches, lien reviews, title insurance coordination, and closing support built for real estate investors, wholesalers, flippers, landlords, and buyers working under short timelines.",
   },
   {
-    q: "How fast can you turn around a title search?",
-    a: "Standard turnaround is 5–7 business days. Rush service is 1–3 business days. For auction deadlines, we can often accommodate same-day preliminary searches — call us directly.",
+    q: "Why do investors need specialized title support?",
+    a: "Investor deals often involve distressed properties, short due diligence periods, assignments, double closings, entity buyers, and resale or refinance plans. Specialized title review focuses on issues that affect margin, closing speed, and exit strategy.",
   },
   {
-    q: "Do you handle double closings and assignment contracts?",
-    a: "Yes. We regularly process wholesale transactions including assignment contracts and simultaneous (double) closings. We coordinate with all parties to keep the transaction on schedule.",
+    q: "Can you help before I bid or go under contract?",
+    a: "Yes. Early title review can help identify liens, judgments, taxes, ownership problems, easements, restrictions, and title defects before you commit more money to the deal.",
   },
   {
-    q: "Can I get a title search before I bid at auction?",
-    a: "Absolutely — and we strongly recommend it. Auction properties carry elevated title risk. A pre-auction title search can save you from buying a property with surviving liens or title defects that wipe out your margin.",
+    q: "Do you work with wholesalers and flippers?",
+    a: "Yes. We support wholesalers, flippers, buy-and-hold investors, auction buyers, foreclosure buyers, and portfolio investors across the DMV area.",
   },
   {
-    q: "What does investor due diligence include?",
-    a: "Our due diligence package includes a full title search, lien and judgment check, ownership chain verification, easement review, tax status, and a comprehensive title report with recommendations and risk assessment.",
+    q: "What should I send to order title work?",
+    a: "Send the property address, legal description if available, contract or auction information, buyer entity details, known title concerns, and the deadline for your decision or closing.",
   },
 ];
 
 const relatedPages = [
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
-  { href: "/investor-friendly-title-company", label: "Investor-Friendly Title Company" },
-  { href: "/investor-due-diligence", label: "Investor Due Diligence" },
-  { href: "/upload-contract", label: "Upload Contract" },
-  { href: "/request-title-review", label: "Request Title Review" },
+  { href: "/commercial-due-diligence", label: "Commercial Due Diligence" },
+  { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
+  { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://dmvtitleguy.io/investor-title-services#service",
+      name: "Investor Title Services",
+      serviceType: "Investor Title Services",
+      provider: {
+        "@type": "LegalService",
+        name: "DMV Title Guy | Pruitt Title LLC",
+        telephone: "+1-703-859-1467",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "1900 Gallows Rd Suite 230",
+          addressLocality: "Vienna",
+          addressRegion: "VA",
+          postalCode: "22182",
+          addressCountry: "US",
+        },
+      },
+      areaServed: [
+        { "@type": "State", name: "Virginia" },
+        { "@type": "State", name: "Maryland" },
+        { "@type": "AdministrativeArea", name: "Washington DC" },
+      ],
+      description:
+        "Investor title services for real estate investors, wholesalers, flippers, and auction buyers who need fast title searches, lien review, title insurance coordination, and closing support across DC, Maryland, and Virginia.",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    },
+  ],
+};
 
 export default function InvestorTitleServicesPage() {
   return (
     <>
-      <ServiceSchema
-        name="Investor Title Services in DC, Maryland & Virginia"
-        description="Fast, reliable title services for real estate investors across the DMV. Title searches, auction support, wholesale closings, and investor due diligence."
-        serviceType="Investor Title Services"
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      {/* HERO */}
+
       <section
         className="bg-brand-navy text-white py-16 md:py-24"
         style={{
@@ -175,63 +195,45 @@ export default function InvestorTitleServicesPage() {
       >
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">
-              Home
-            </Link>
+            <Link href="/" className="hover:text-brand-blue">Home</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-200">Investor Title Services</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            Paid Title Searches for DMV Investors
+            Investor Title Services
           </h1>
-          <p className="text-lg text-gray-300 mb-4 max-w-2xl">
-            Order a standalone title search on any property — before you bid, before you buy, before you go under contract. Fixed-fee pricing. No purchase contract required.
-          </p>
-          <p className="text-sm text-brand-blue font-semibold mb-8">
-            💰 Paid title searches are a standalone service — you hire us and we run the search, period.
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl">
+            Fast title work for real estate investors, wholesalers, flippers,
+            auction buyers, and portfolio owners who need clear answers before
+            bidding, closing, reselling, or refinancing.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link
-              href="/investor-due-diligence"
-              className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2"
-            >
-              Order a Title Search
+            <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
+              Order Title Search
             </Link>
-            <a
-              href="tel:+17038591467"
-              className="btn-outline px-6 py-3 text-base font-semibold inline-flex items-center gap-2 text-white border-white/40 hover:bg-white/10"
-            >
-              <Phone className="h-4 w-4" /> (703) 859-1467
-            </a>
+            <Link href="/commercial-due-diligence" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
+              Commercial Due Diligence
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* WHAT INVESTORS NEED */}
       <section className="py-16 bg-white">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">
-            What Investors Need From a Title Company
-          </h2>
-          <p className="text-brand-muted text-center text-lg mb-6 max-w-2xl mx-auto">
-            Investor deals carry different risks than standard residential
-            transactions. We know what to look for — and what to flag before it
-            kills your deal.
-          </p>
-          <p className="text-center text-brand-blue font-semibold mb-12">
-            Standalone paid title searches — order without a purchase contract. Fixed-fee pricing.
+          <h2 className="prose-title text-center mb-4">What Investor Title Services Include</h2>
+          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+            Investor title work should answer what affects the property, what
+            needs cure, and whether the deal still works before your deadline.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {investorServices.map((s) => (
-              <div key={s.title} className="flex gap-4">
+            {investorServices.map((item) => (
+              <div key={item.title} className="flex gap-4">
                 <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-green">
-                  <s.icon className="h-6 w-6 text-brand-navy" />
+                  <item.icon className="h-6 w-6 text-brand-navy" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-1">
-                    {s.title}
-                  </h3>
-                  <p className="text-brand-muted text-sm">{s.desc}</p>
+                  <h3 className="text-lg font-bold text-brand-navy mb-1">{item.title}</h3>
+                  <p className="text-brand-muted text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -239,179 +241,110 @@ export default function InvestorTitleServicesPage() {
         </div>
       </section>
 
-      {/* WHO WE SERVE */}
       <section className="section-light py-16">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">
-            Who We Serve
-          </h2>
+          <h2 className="prose-title text-center mb-4">Why Investors Need Specialized Title Support</h2>
           <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            From solo flippers to institutional funds — if you buy real estate
-            as an investment in the DMV, we handle your title work.
+            Investment deals are often faster, more distressed, and less
+            forgiving than standard residential purchases.
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {whoWeServe.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white rounded-lg p-6 shadow-sm"
-              >
-                <s.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="text-lg font-bold text-brand-navy mb-2">
-                  {s.title}
-                </h3>
-                <p className="text-brand-muted text-sm">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY INVESTORS CHOOSE US */}
-      <section className="py-16 bg-brand-gray-bg">
-        <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">
-            Why Investors Choose DMV Title Guy
-          </h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            We work the way investors work — fast, decisive, and focused on
-            results.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {whyUs.map((w) => (
-              <div
-                key={w.title}
-                className="bg-white rounded-lg p-6 shadow-sm flex gap-4"
-              >
-                <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-green">
-                  <w.icon className="h-6 w-6 text-brand-navy" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-1">
-                    {w.title}
-                  </h3>
-                  <p className="text-brand-muted text-sm">{w.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="py-16 bg-white">
-        <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {howItWorks.map((step) => (
+            {whySpecialized.map((item) => (
+              <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
+                <item.icon className="h-8 w-8 text-brand-blue mb-3" />
+                <h3 className="text-lg font-bold text-brand-navy mb-2">{item.title}</h3>
+                <p className="text-brand-muted text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="container-xl max-w-4xl">
+          <h2 className="prose-title text-center mb-4">DMV-Area Investor Title Focus</h2>
+          <p className="text-brand-muted text-center text-lg mb-10 max-w-2xl mx-auto">
+            DC, Maryland, and Virginia each have different recording systems,
+            foreclosure rules, lien concerns, and closing expectations.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {dmvFocus.map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-gray-50 rounded-lg p-4">
+                <CheckCircle2 className="h-5 w-5 text-brand-blue shrink-0 mt-0.5" />
+                <p className="text-brand-muted text-sm">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-light py-16">
+        <div className="container-xl">
+          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {process.map((step) => (
               <div key={step.title} className="text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
                   <step.icon className="h-7 w-7 text-brand-navy" />
                 </div>
-                <h3 className="text-lg font-bold text-brand-navy mb-2">
-                  {step.title}
-                </h3>
+                <h3 className="text-lg font-bold text-brand-navy mb-2">{step.title}</h3>
                 <p className="text-brand-muted text-sm">{step.desc}</p>
-                {step.link && (
-                  <Link
-                    href={step.link}
-                    className="text-brand-blue text-sm font-semibold mt-2 inline-block hover:underline"
-                  >
-                    Order Now →
-                  </Link>
-                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      <section className="bg-brand-navy text-white py-16 md:py-20">
+        <div className="container-xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Order Investor Title Work
+          </h2>
+          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Send the property details and we&apos;ll identify title risks,
+            curative needs, and closing issues before they slow your deal.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
+              Order Title Search
+            </Link>
+            <Link href="/auction-property-title-search" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
+              Auction Property Title Search
+            </Link>
+          </div>
+          <p className="text-gray-400 text-sm">
+            Prefer to talk? Call{" "}
+            <a href="tel:+17038591467" className="text-white font-semibold hover:underline">
+              <Phone className="inline h-4 w-4" /> (703) 859-1467
+            </a>
+          </p>
+        </div>
+      </section>
+
       <section className="section-light py-16">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-10">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
           <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <details
-                key={i}
-                className="bg-white rounded-lg shadow-sm group"
-              >
+            {faqs.map((faq) => (
+              <details key={faq.q} className="bg-white rounded-lg shadow-sm group">
                 <summary className="flex items-center justify-between cursor-pointer p-5 font-semibold text-brand-navy">
                   <span>{faq.q}</span>
                   <ChevronDown className="h-5 w-5 text-brand-muted shrink-0 ml-4 transition-transform group-open:rotate-180" />
                 </summary>
-                <div className="px-5 pb-5 text-brand-muted text-sm">
-                  {faq.a}
-                </div>
+                <div className="px-5 pb-5 text-brand-muted text-sm">{faq.a}</div>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="bg-brand-navy text-white py-16 md:py-20"
-        style={{
-          background:
-            "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)",
-        }}
-      >
-        <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Order a Title Search for Your Next Deal
-          </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Order a paid title search, upload a contract, or request a title
-            review — we&apos;ll take it from here.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <Link
-              href="/investor-due-diligence"
-              className="btn-primary px-6 py-3 text-base font-semibold"
-            >
-              Order a Title Search
-            </Link>
-            <Link
-              href="/upload-contract"
-              className="btn-primary px-6 py-3 text-base font-semibold"
-            >
-              Upload Contract
-            </Link>
-            <Link
-              href="/request-title-review"
-              className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10"
-            >
-              Request Title Review
-            </Link>
-          </div>
-          <p className="text-gray-400 text-sm">
-            Prefer to talk? Call us at{" "}
-            <a
-              href="tel:+17038591467"
-              className="text-white font-semibold hover:underline"
-            >
-              (703) 859-1467
-            </a>
-          </p>
-        </div>
-      </section>
-
-      {/* RELATED PAGES */}
       <section className="py-12 bg-brand-gray-bg">
         <div className="container-xl">
-          <h3 className="text-lg font-bold text-brand-navy mb-6">
-            Related Pages
-          </h3>
+          <h3 className="text-lg font-bold text-brand-navy mb-6">Related Pages</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {relatedPages.map((p) => (
-              <Link
-                key={p.href}
-                href={p.href}
-                className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-brand-navy"
-              >
-                {p.label}
+            {relatedPages.map((page) => (
+              <Link key={page.href} href={page.href} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-brand-navy">
+                {page.label}
               </Link>
             ))}
           </div>
