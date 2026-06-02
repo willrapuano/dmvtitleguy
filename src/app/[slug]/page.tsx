@@ -67,6 +67,52 @@ const BETHESDA_FAQS: FaqItem[] = [
   },
 ];
 
+function BethesdaStructuredData() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "@id": "https://dmvtitleguy.io/title-company-bethesda-md#faq",
+        mainEntity: BETHESDA_FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://dmvtitleguy.io/title-company-bethesda-md#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dmvtitleguy.io/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Bethesda MD Title Company",
+            item: "https://dmvtitleguy.io/title-company-bethesda-md",
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 function BethesdaExpansionSections() {
   const sectionHeadingClass = "text-2xl md:text-3xl font-bold text-brand-navy mb-4";
   const bodyClass = "text-brand-muted leading-relaxed";
@@ -387,6 +433,7 @@ function LocationPage({ location }: { location: Location }) {
   return (
     <>
       <LocationSchema city={city} state={state} county={county} slug={slug} description={`Professional title insurance and closing services in ${locationName} — Pruitt Title LLC.`} />
+      {isBethesda && <BethesdaStructuredData />}
 
       {/* HERO */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
