@@ -70,8 +70,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     // ─── CTR-optimized overrides for high-impression pages ───
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Herndon Title Company Since 2007 | Pruitt Title — DMV Title Guy",
-        description: "Trusted title & settlement services in Herndon, VA. 17+ years serving Fairfax County buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.",
+        title: "Herndon VA Title Closings & Title Insurance | Pruitt Title",
+        description: "Title closings, title insurance, and settlement services in Herndon, VA. Fast turnarounds, competitive rates, and 17+ years serving Fairfax County. Order your title search online.",
         ogTitle: "Herndon Title Company | Pruitt Title — DMV Title Guy",
         ogDescription: "Expert title search, insurance & closing services in Herndon, VA. Residential, commercial & investor transactions. Since 2007.",
       },
@@ -196,7 +196,11 @@ function LocationPage({ location }: { location: Location }) {
               {stateFullName} Title Insurance
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-              {isNeighborhood ? `Title Company in ${locationName}` : "Reliable Title & Settlement Services"}
+              {slug === "title-company-herndon-va"
+                ? "Herndon VA Title Closings & Settlement Services"
+                : isNeighborhood
+                ? `Title Company in ${locationName}`
+                : "Reliable Title & Settlement Services"}
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               {isNeighborhood && parentLocation
