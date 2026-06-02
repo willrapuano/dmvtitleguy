@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import { CalculatorSchema } from "@/components/SchemaMarkup";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
@@ -14,6 +13,9 @@ export const metadata: Metadata = {
 };
 
 const MD_LOCATIONS = [...TIER1_LOCATIONS, ...TIER2_LOCATIONS].filter((l) => l.state === "MD");
+const SITE_URL = "https://dmvtitleguy.io";
+const PAGE_SLUG = "maryland-closing-cost-calculator";
+const PAGE_URL = `${SITE_URL}/${PAGE_SLUG}`;
 
 const verificationNotice =
   "⚠️ VERIFY BEFORE PUBLISH: Rates shown are approximate and for illustration only. Verify with current Maryland/county official sources before relying on these estimates.";
@@ -183,6 +185,80 @@ const faqs = [
   },
 ];
 
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": `${PAGE_URL}#calculator`,
+      name: "Maryland Closing Cost Calculator",
+      url: PAGE_URL,
+      applicationCategory: "FinanceApplication",
+      operatingSystem: "Web",
+      isAccessibleForFree: true,
+      description:
+        "Free interactive closing cost calculator for Maryland buyers and sellers. Estimate transfer tax, recordation fees, title insurance, and settlement charges.",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      provider: {
+        "@type": "LocalBusiness",
+        name: "DMV Title Guy - Pruitt Title LLC",
+        url: SITE_URL,
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${PAGE_URL}#webpage`,
+      url: PAGE_URL,
+      name: "Maryland Closing Cost Calculator | Buyer & Seller Costs in MD",
+      description:
+        "Calculate Maryland closing costs for buyers and sellers. Estimate MD transfer tax, recordation fees, title insurance, and Montgomery County costs. Get a free quote.",
+      isPartOf: { "@id": SITE_URL },
+      about: [
+        { "@type": "Thing", name: "Maryland closing costs" },
+        { "@type": "Thing", name: "Maryland recordation tax" },
+        { "@type": "Thing", name: "Maryland transfer tax" },
+        { "@type": "Thing", name: "Maryland title insurance" },
+        { "@type": "Thing", name: "Real estate settlement" },
+      ],
+      mainEntity: { "@id": `${PAGE_URL}#calculator` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Maryland Closing Cost Calculator",
+          item: PAGE_URL,
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${PAGE_URL}#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
+};
+
 function VerificationCallout({ children }: { children?: ReactNode }) {
   return (
     <div className="rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950">
@@ -195,7 +271,11 @@ function VerificationCallout({ children }: { children?: ReactNode }) {
 export default function MarylandCalculatorPage() {
   return (
     <>
-      <CalculatorSchema state="Maryland" slug="maryland-closing-cost-calculator" />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
 
       <section className="bg-brand-navy text-white py-12">
         <div className="container-xl">
