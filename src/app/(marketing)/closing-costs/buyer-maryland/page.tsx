@@ -166,7 +166,7 @@ export default function BuyerMarylandClosingCostsPage() {
             <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/title-company/bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
               Bethesda Title Services →
             </Link>
             <Link href="/title-company/silver-spring-md" className="text-brand-blue hover:underline">

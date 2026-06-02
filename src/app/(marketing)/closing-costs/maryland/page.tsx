@@ -283,7 +283,7 @@ export default function MarylandClosingCostsPage() {
             <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/title-company/bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
               Bethesda Title Services →
             </Link>
             <Link href="/title-company/rockville-md" className="text-brand-blue hover:underline">

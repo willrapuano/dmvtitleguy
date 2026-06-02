@@ -259,7 +259,7 @@ export default function DCClosingCostsPage() {
             <Link href="/title-company/falls-church-va" className="text-brand-blue hover:underline">
               Falls Church Title Services →
             </Link>
-            <Link href="/title-company/bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
               Bethesda Title Services →
             </Link>
           </div>

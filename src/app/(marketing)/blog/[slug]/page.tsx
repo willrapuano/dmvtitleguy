@@ -29,7 +29,7 @@ const STATIC_VALID_PATHS = new Set([
   "/contact",
   "/title-company/arlington-va",
   "/title-company/fairfax-va",
-  "/title-company/bethesda-md",
+  "/title-company-bethesda-md",
   "/title-company/alexandria-va",
   "/title-company/falls-church-va",
   "/title-company/loudoun-county-va",
@@ -61,7 +61,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "standard-vs-enhanced-title-insurance": [
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
   ],
@@ -83,7 +83,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "how-to-choose-right-title-company-dmv": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
     { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "closing-costs-dmv-buyers-sellers": [
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
@@ -118,7 +118,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "commercial-real-estate-title-insurance": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "property-deeds-types-explained": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
@@ -189,7 +189,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "closing-costs-maryland": [
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
     { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "closing-costs-maryland-2026": [
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
@@ -218,7 +218,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "why-is-title-insurance-so-expensive": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "how-much-does-title-insurance-cost": [
@@ -274,7 +274,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "how-to-choose-a-title-company-in-virginia-maryland-or-dc": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
     { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "title-company-northern-virginia": [
     { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
@@ -309,15 +309,15 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "title-company-for-realtors": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
     { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "title-insurance-enhanced-vs-standard": [
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
   ],
   "what-is-enhanced-title-insurance": [
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
     { label: "Get a Title Quote in Silver Spring", href: "/title-company/silver-spring-md" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
@@ -337,7 +337,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
   ],
   "enhanced-title-insurance-vs-standard": [
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
   ],
@@ -348,7 +348,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "title-insurance-claims-process": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Bethesda", href: "/title-company/bethesda-md" },
+    { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
   "what-is-a-deed-transfer": [

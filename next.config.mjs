@@ -42,6 +42,11 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: '/title-company/bethesda-md',
+        destination: '/title-company-bethesda-md',
+        statusCode: 301,
+      },
+      {
         source: '/blog/escrow-services-explained',
         destination: '/blog/escrow-companies-near-me-dmv',
         permanent: true,

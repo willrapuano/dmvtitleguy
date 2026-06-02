@@ -7,7 +7,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 export const metadata: Metadata = {
   title: "Title Company Bethesda MD | Settlement & Title Services",
   description: "Pruitt Title LLC provides expert title and settlement services in Bethesda, MD. Fast closings, competitive rates, and local expertise since 2007.",
-  alternates: { canonical: "/title-company/bethesda-md" },
+  alternates: { canonical: "/title-company-bethesda-md" },
 };
 
 const faqs = [

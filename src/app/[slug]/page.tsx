@@ -82,10 +82,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogDescription: "Professional title search, insurance & settlement services in Vienna, VA. Serving Oakton, McLean & all of Fairfax County since 2007.",
       },
       "title-company-bethesda-md": {
-        title: "Bethesda MD Title Settlement Company Since 2007 | DMV Title Guy",
-        description: "Bethesda's experienced title & settlement company. Serving Montgomery County buyers, sellers & lenders with fast closings. Get a free quote: (703) 859-1467.",
-        ogTitle: "Bethesda MD Title Settlement Company | DMV Title Guy",
-        ogDescription: "Expert title settlement services in Bethesda, MD. Residential, commercial & refinance closings across Montgomery County since 2007.",
+        title: "Bethesda-Chevy Chase MD Title Company & Escrow | Pruitt Title",
+        description: "Need a Bethesda title company? Pruitt Title handles title search, escrow, settlement, and title insurance across Bethesda-Chevy Chase and Montgomery County. Get a fast quote.",
+        ogTitle: "Bethesda-Chevy Chase MD Title Company & Escrow | Pruitt Title",
+        ogDescription: "Title search, escrow, settlement, and title insurance services across Bethesda-Chevy Chase and Montgomery County.",
       },
       "title-company-springfield-va": {
         title: "Springfield VA Title Company | Fast Closings & Title Search",
@@ -206,6 +206,8 @@ function LocationPage({ location }: { location: Location }) {
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               {slug === "title-company-herndon-va"
                 ? "Herndon VA Title Closings & Settlement Services"
+                : slug === "title-company-bethesda-md"
+                ? "Bethesda-Chevy Chase MD Title Company & Escrow Services"
                 : isNeighborhood
                 ? `Title Company in ${locationName}`
                 : "Reliable Title & Settlement Services"}

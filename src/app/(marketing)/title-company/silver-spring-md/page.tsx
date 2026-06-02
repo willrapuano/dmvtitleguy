@@ -178,7 +178,7 @@ export default function SilverSpringTitlePage() {
             <Link href="/maryland-closing-cost-calculator" className="text-brand-blue hover:underline">
               Maryland Closing Cost Calculator →
             </Link>
-            <Link href="/title-company/bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
               Bethesda Title Services →
             </Link>
             <Link href="/title-company/rockville-md" className="text-brand-blue hover:underline">

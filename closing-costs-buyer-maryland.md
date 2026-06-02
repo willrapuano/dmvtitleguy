@@ -21,7 +21,7 @@ Buying a home in Maryland comes with various closing costs that buyers need to p
 Use our [Maryland Closing Cost Calculator](/calculators) to get a personalized estimate based on your loan amount and location.
 
 ## Internal Links
-- Explore [title companies in Bethesda, MD](/title-company/bethesda-md).
+- Explore [title companies in Bethesda, MD](/title-company-bethesda-md).
 - Detailed breakdown of [closing costs in Maryland](/closing-costs/maryland).
 
 ## CTA: Get Your Buyer Closing Cost Estimate
