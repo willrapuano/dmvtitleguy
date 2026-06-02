@@ -122,7 +122,11 @@ export default function BuyerMarylandClosingCostsPage() {
           <h2 className="text-2xl font-bold text-brand-navy mb-4">How to Estimate Your Closing Costs</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
-              Use our Maryland Closing Cost Calculator to get a personalized estimate based on your loan amount and location.
+              Use our{" "}
+              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+                Maryland Closing Cost Calculator
+              </Link>{" "}
+              to calculate buyer closing costs in Maryland based on your loan amount, location, title insurance needs, and settlement cost inputs.
             </p>
             <div className="bg-brand-navy text-white p-6 rounded-lg">
               <h3 className="text-lg font-bold mb-2">Estimated Buyer Costs Example</h3>

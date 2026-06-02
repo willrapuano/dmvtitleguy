@@ -155,6 +155,14 @@ function LocationPage({ location }: { location: Location }) {
   const stateFullName = state === "VA" ? "Virginia" : state === "MD" ? "Maryland" : "Washington DC";
   const locationName = getLocationDisplayName(location);
   const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
+  const calculatorLinkLabel =
+    state === "MD"
+      ? `Estimate ${city} closing costs with the Maryland calculator`
+      : `Use the ${stateFullName} Calculator`;
+  const calculatorCopy =
+    state === "MD"
+      ? `Estimate your Maryland closing costs for ${locationName}, including county-sensitive title, transfer, and settlement cost inputs.`
+      : `Estimate your closing costs in ${stateFullName} with our free interactive calculator.`;
 
   const SERVICES_LIST = [
     "Title Search & Examination",
@@ -367,10 +375,10 @@ function LocationPage({ location }: { location: Location }) {
             <div>
               <h3 className="font-bold text-brand-navy mb-3">Closing Cost Calculator</h3>
               <p className="text-sm text-brand-muted mb-3">
-                Estimate your closing costs in {stateFullName} with our free interactive calculator.
+                {calculatorCopy}
               </p>
               <Link href={`/${calcSlug}`} className="text-sm text-brand-blue hover:underline">
-                Use the {stateFullName} Calculator →
+                {calculatorLinkLabel} →
               </Link>
             </div>
             <div>

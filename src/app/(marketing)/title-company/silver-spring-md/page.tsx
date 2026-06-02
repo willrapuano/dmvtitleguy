@@ -89,6 +89,16 @@ export default function SilverSpringTitlePage() {
             <p>
               The Silver Spring market is uniquely varied. Downtown Silver Spring features high-rise condos and apartments steps from the Metro. Neighborhoods like Woodmoor, Northwood, and Four Corners offer established single-family homes with mature trees and community character. The ongoing revitalization of the Wheaton and Silver Spring corridors is bringing new development, creating opportunities for buyers and investors alike. This diversity means title work can range from straightforward condo unit transfers to complex transactions involving historic properties, estate sales, and investment portfolios. Pruitt Title's Montgomery County expertise handles it all.
             </p>
+            <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
+              <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Silver Spring Closing Costs</h3>
+              <p>
+                Use the{" "}
+                <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+                  Maryland closing cost calculator
+                </Link>{" "}
+                to estimate Silver Spring closing costs before you request a final title quote. The calculator helps frame Montgomery County tax, title insurance, and settlement fee questions for buyers and sellers.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -89,6 +89,16 @@ export default function BethesdaTitlePage() {
             <p>
               The Bethesda market includes a mix of established homes, new construction, and luxury estates—particularly in neighborhoods like Chevy Chase, the Battery Lane area, and Glen Echo. Many transactions involve high-value properties where thorough title research is essential. Our team understands Bethesda's unique market dynamics and handles each closing with the precision it deserves.
             </p>
+            <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
+              <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Bethesda Closing Costs</h3>
+              <p>
+                Before comparing title and settlement options, estimate Bethesda closing costs with our{" "}
+                <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+                  Maryland closing cost calculator
+                </Link>
+                . It helps buyers and sellers organize Montgomery County title, tax, and settlement cost questions before requesting a final quote.
+              </p>
+            </div>
           </div>
         </div>
       </section>

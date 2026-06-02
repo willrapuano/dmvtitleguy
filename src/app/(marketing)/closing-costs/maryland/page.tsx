@@ -96,6 +96,21 @@ export default function MarylandClosingCostsPage() {
 
       <ClosingCostCalculator state="MD" />
 
+      <section className="py-8 bg-white border-b border-gray-100">
+        <div className="container-xl max-w-3xl">
+          <div className="rounded-lg border border-brand-blue/20 bg-brand-gray-bg p-5 text-brand-muted leading-relaxed">
+            <h2 className="text-lg font-bold text-brand-navy mb-2">Need a Maryland Closing Cost Estimate?</h2>
+            <p>
+              Use the{" "}
+              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+                Maryland closing cost calculator
+              </Link>{" "}
+              to estimate buyer and seller costs, including title insurance, transfer tax, recordation fees, and Montgomery County settlement costs before requesting a final quote.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-blue text-white">
         <div className="container-xl max-w-3xl">

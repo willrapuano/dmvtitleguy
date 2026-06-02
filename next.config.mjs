@@ -37,6 +37,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/title-company/rockville-md',
+        destination: '/title-company-rockville-md',
+        statusCode: 301,
+      },
+      {
         source: '/blog/escrow-services-explained',
         destination: '/blog/escrow-companies-near-me-dmv',
         permanent: true,
