@@ -32,6 +32,202 @@ import {
   getStateFullName,
 } from "@/data/closingCostData";
 
+const BETHESDA_FAQS: FaqItem[] = [
+  {
+    question: "What does a title company do in Bethesda MD?",
+    answer: "A Bethesda title company searches Montgomery County land records, reviews liens and ownership history, coordinates with the lender and agents, manages escrow funds, conducts settlement, records the deed, and issues title insurance policies after closing.",
+  },
+  {
+    question: "How much are closing costs in Bethesda?",
+    answer: "Bethesda closing costs depend on the purchase price, loan terms, title insurance, lender fees, recording charges, and Maryland and Montgomery County transfer and recordation taxes. Use the Maryland closing cost calculator for a personalized estimate, and treat all tax and rate examples as approximate until verified against current official sources.",
+  },
+  {
+    question: "Do I need title insurance in Bethesda-Chevy Chase?",
+    answer: "A lender's title insurance policy is usually required when you finance a Bethesda-Chevy Chase purchase. An owner's title insurance policy is optional but strongly recommended because it protects your ownership interest against covered title defects, liens, fraud, and recording issues that may surface after closing.",
+  },
+  {
+    question: "What is escrow and how does it work in a Bethesda closing?",
+    answer: "Escrow is the neutral handling of money and documents during the closing. Pruitt Title receives and safeguards funds, follows written settlement instructions, disburses money only when closing conditions are satisfied, and coordinates recording so the Bethesda transaction is completed properly.",
+  },
+  {
+    question: "How long does a title search take in Montgomery County?",
+    answer: "Many Montgomery County title searches can be completed in a few business days, but older homes, estate transfers, trusts, unreleased deeds of trust, judgments, or missing releases can extend the timeline. Pruitt Title flags those issues early so the parties can clear them before settlement.",
+  },
+  {
+    question: "Can Pruitt Title handle commercial real estate closings in Bethesda?",
+    answer: "Yes. Pruitt Title handles Bethesda commercial title and settlement work for office, medical, retail, mixed-use, investor, and lender-financed transactions, including title search, survey and easement review coordination, entity authority checks, escrow, endorsements, and settlement.",
+  },
+  {
+    question: "What settlement issues are common in Bethesda older homes?",
+    answer: "Older Bethesda homes can involve long chain-of-title histories, prior unreleased deeds of trust, estate or trust ownership, boundary or easement questions, judgments, tax liens, and teardown or rebuild history. A detailed title review helps identify those issues before closing day.",
+  },
+  {
+    question: "How do Montgomery County transfer taxes work for Bethesda buyers?",
+    answer: "Montgomery County and Maryland taxes can include state transfer tax, county transfer tax, and recordation tax, with responsibility sometimes affected by contract terms and local custom. Any sample rates should be treated as approximate and verified with current Maryland and Montgomery County official sources before relying on them.",
+  },
+];
+
+function BethesdaExpansionSections() {
+  const sectionHeadingClass = "text-2xl md:text-3xl font-bold text-brand-navy mb-4";
+  const bodyClass = "text-brand-muted leading-relaxed";
+  const linkClass = "font-semibold text-brand-blue hover:underline";
+
+  return (
+    <>
+      <section className="section-light border-t border-gray-100">
+        <div className="container-xl max-w-4xl">
+          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Bethesda-Chevy Chase Closings</p>
+          <h2 className={sectionHeadingClass}>Bethesda-Chevy Chase Title &amp; Escrow Services</h2>
+          <div className="space-y-4">
+            <p className={bodyClass}>
+              Pruitt Title handles the title search, lien review, escrow coordination, lender communication, settlement statement review, deed recording, and final title policy issuance for Bethesda-Chevy Chase real estate transactions. The work starts with public-record research and continues through funding, recording, and post-closing delivery.
+            </p>
+            <p className={bodyClass}>
+              Our team supports residential purchases, refinances, commercial closings, investor acquisitions, estate and trust transfers, and transactions where out-of-area buyers or lenders need a settlement team that understands Montgomery County procedures.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-gray">
+        <div className="container-xl max-w-4xl">
+          <h2 className={sectionHeadingClass}>Settlement Issues We Watch For in Bethesda</h2>
+          <p className={`${bodyClass} mb-5`}>
+            Bethesda files often deserve extra attention because property values are high, ownership history can be long, and many transactions involve trusts, estates, inherited property, condominiums, or redevelopment plans.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "High-value purchase and refinance transactions",
+              "Trust, estate, inherited-property, and entity ownership issues",
+              "Older chain-of-title histories and unreleased deeds of trust",
+              "Condo and HOA resale package coordination",
+              "New construction, teardown, and rebuild title questions",
+              "Judgments, tax liens, and payoff or release requirements",
+              "Cross-border lender expectations for DC and Virginia buyers",
+              "Easement, survey, and access questions before settlement",
+            ].map((item) => (
+              <div key={item} className="rounded-lg border border-gray-200 bg-white p-4 text-sm text-brand-dark-text">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-light">
+        <div className="container-xl max-w-4xl">
+          <h2 className={sectionHeadingClass}>Montgomery County Closing Cost Context</h2>
+          <div className="rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900 mb-5">
+            ⚠️ Rates shown are approximate and for illustration only. Verify with current Maryland/county official sources before relying on these estimates.
+          </div>
+          <p className={`${bodyClass} mb-4`}>
+            Bethesda buyers and sellers should plan around Maryland state charges and Montgomery County charges in addition to lender fees, title insurance, escrow, recording, prorations, and settlement fees. For personalized numbers, start with the{" "}
+            <Link href="/maryland-closing-cost-calculator" className={linkClass}>
+              Maryland closing cost calculator
+            </Link>
+            .
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="rounded-lg border border-gray-200 bg-white p-5">
+              <h3 className="font-bold text-brand-navy mb-2">State Transfer Tax</h3>
+              <p className="text-sm text-brand-muted">Approximately 0.5%, subject to Maryland rules, exemptions, and current official rate verification.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white p-5">
+              <h3 className="font-bold text-brand-navy mb-2">Recordation Tax</h3>
+              <p className="text-sm text-brand-muted">Montgomery County recordation tax may apply based on the recorded instrument and transaction details.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white p-5">
+              <h3 className="font-bold text-brand-navy mb-2">County Transfer Tax</h3>
+              <p className="text-sm text-brand-muted">Approximately 1.0% for improved residential property, subject to official verification and transaction-specific rules.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-gray">
+        <div className="container-xl max-w-4xl">
+          <h2 className={sectionHeadingClass}>Commercial Real Estate Closings in Bethesda</h2>
+          <p className={`${bodyClass} mb-5`}>
+            Bethesda commercial deals may involve office, medical, retail, and mixed-use assets where the title work must account for entity authority, leases, easements, surveys, lender requirements, endorsements, and timing-sensitive escrow instructions.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/commercial-real-estate-closings" className="btn-primary">
+              Commercial Real Estate Closings
+            </Link>
+            <Link href="/commercial-property-title-search" className="btn-outline">
+              Commercial Property Title Search
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-light">
+        <div className="container-xl max-w-4xl">
+          <h2 className={sectionHeadingClass}>Investor &amp; Pre-Purchase Title Search Support</h2>
+          <p className={`${bodyClass} mb-5`}>
+            Investors evaluating Bethesda, Chevy Chase, and broader Montgomery County opportunities should understand title risk before putting large earnest money at risk, waiving contingencies, or bidding at auction. A pre-purchase title search can identify liens, ownership gaps, foreclosure issues, and title exceptions before the deal becomes harder to unwind.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <Link href="/investor-title-services" className="rounded-lg border border-gray-200 bg-white p-5 hover:border-brand-blue transition-colors">
+              <h3 className="font-bold text-brand-navy mb-2">Investor Title Services</h3>
+              <p className="text-sm text-brand-muted">Title support for acquisitions, assignments, refinances, and portfolio decisions.</p>
+            </Link>
+            <Link href="/auction-property-title-search" className="rounded-lg border border-gray-200 bg-white p-5 hover:border-brand-blue transition-colors">
+              <h3 className="font-bold text-brand-navy mb-2">Auction Property Title Search</h3>
+              <p className="text-sm text-brand-muted">Review title issues before auction deposits or nonrefundable bidding decisions.</p>
+            </Link>
+            <Link href="/foreclosure-title-review" className="rounded-lg border border-gray-200 bg-white p-5 hover:border-brand-blue transition-colors">
+              <h3 className="font-bold text-brand-navy mb-2">Foreclosure Title Review</h3>
+              <p className="text-sm text-brand-muted">Check surviving liens, ownership history, and foreclosure-related title concerns.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-gray">
+        <div className="container-xl max-w-4xl">
+          <h2 className={sectionHeadingClass}>Bethesda Closing Cost Examples</h2>
+          <p className={`${bodyClass} mb-5`}>
+            These examples are approximate and illustrative only. Use the{" "}
+            <Link href="/maryland-closing-cost-calculator" className={linkClass}>
+              Maryland closing cost calculator
+            </Link>{" "}
+            for personalized numbers and verify rate assumptions before relying on any estimate.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="rounded-lg border border-gray-200 bg-white p-5">
+              <h3 className="font-bold text-brand-navy mb-2">Residential Buyer</h3>
+              <p className="text-sm text-brand-muted">A Bethesda buyer at an illustrative $950,000 price may need to budget for lender charges, title insurance, escrow, recording, transfer and recordation taxes, and prepaid items.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white p-5">
+              <h3 className="font-bold text-brand-navy mb-2">Seller</h3>
+              <p className="text-sm text-brand-muted">A seller example may include payoff handling, release tracking, owner policy custom, transfer charges allocated by contract, commissions, prorations, and settlement fees.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white p-5">
+              <h3 className="font-bold text-brand-navy mb-2">Investor</h3>
+              <p className="text-sm text-brand-muted">An investor example may add pre-purchase title search costs, entity review, assignment timing, auction requirements, payoff risk, and any curative work discovered before settlement.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-light">
+        <div className="container-xl max-w-3xl">
+          <h2 className="text-2xl font-bold text-brand-navy mb-6">Bethesda FAQs</h2>
+          <div className="space-y-6">
+            {BETHESDA_FAQS.map((faq, i) => (
+              <div key={i}>
+                <h3 className="text-lg font-semibold text-brand-navy mb-2">{faq.question}</h3>
+                <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
 // ─── Static Params ─────────────────────────────────────────────────────────────
 export async function generateStaticParams() {
   const locationSlugs = ALL_LOCATIONS.map((l) => ({ slug: l.slug }));
@@ -163,6 +359,7 @@ function LocationPage({ location }: { location: Location }) {
     state === "MD"
       ? `Estimate your Maryland closing costs for ${locationName}, including county-sensitive title, transfer, and settlement cost inputs.`
       : `Estimate your closing costs in ${stateFullName} with our free interactive calculator.`;
+  const isBethesda = slug === "title-company-bethesda-md";
 
   const SERVICES_LIST = [
     "Title Search & Examination",
@@ -286,6 +483,8 @@ function LocationPage({ location }: { location: Location }) {
         </div>
       </section>
 
+      {isBethesda && <BethesdaExpansionSections />}
+
       {/* ALSO SERVING */}
       {alsoServing && alsoServing.length > 0 && (
         <section className="section-light border-t border-gray-100">
@@ -303,7 +502,7 @@ function LocationPage({ location }: { location: Location }) {
       )}
 
       {/* FAQ — Phase 4 keyword expansion */}
-      {location.faqs && location.faqs.length > 0 && (
+      {!isBethesda && location.faqs && location.faqs.length > 0 && (
         <>
           <script
             type="application/ld+json"
