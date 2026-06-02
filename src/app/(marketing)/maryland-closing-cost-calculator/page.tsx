@@ -5,9 +5,9 @@ import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost Calculator | DMV Title Guy",
+  title: "Maryland Closing Cost Calculator | Buyer & Seller Costs in MD",
   description:
-    "Free Maryland closing cost calculator for buyers and sellers. Estimate title insurance, state and county transfer taxes, recordation fees, and all closing costs for MD real estate.",
+    "Calculate Maryland closing costs for buyers and sellers. Estimate MD transfer tax, recordation fees, title insurance, and Montgomery County costs. Get a free quote.",
   alternates: { canonical: "/maryland-closing-cost-calculator" },
 };
 
@@ -26,7 +26,7 @@ export default function MarylandCalculatorPage() {
             <span>Maryland Closing Cost Calculator</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Maryland Closing Cost Calculator</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Maryland Closing Cost Calculator for Buyers and Sellers</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Estimate closing costs for Maryland real estate transactions. Covers state &amp; county transfer taxes, title insurance, recordation fees, and more.
           </p>
