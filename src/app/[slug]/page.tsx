@@ -270,6 +270,30 @@ function BethesdaExpansionSections() {
           </div>
         </div>
       </section>
+
+      <section className="section-gray">
+        <div className="container-xl max-w-4xl">
+          <h2 className="text-2xl font-bold text-brand-navy mb-6">Bethesda &amp; Montgomery County Resources</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { href: "/maryland-closing-cost-calculator", label: "Maryland Closing Cost Calculator" },
+              { href: "/closing-costs-bethesda-md", label: "Bethesda Closing Cost Calculator" },
+              { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
+              { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
+              { href: "/investor-title-services", label: "Investor Title Services" },
+              { href: "/auction-property-title-search", label: "Auction Property Title Search" },
+              { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
+              { href: "/title-company-rockville-md", label: "Rockville Title Company" },
+              { href: "/title-company-silver-spring-md", label: "Silver Spring Title Company" },
+              { href: "/title-company-montgomery-county-md", label: "Montgomery County Title Company" },
+            ].map((link) => (
+              <Link key={link.href} href={link.href} className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-brand-blue hover:border-brand-blue transition-colors">
+                {link.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
