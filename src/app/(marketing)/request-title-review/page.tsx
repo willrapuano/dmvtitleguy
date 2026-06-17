@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Clock, AlertTriangle, Home, Phone } from "lucide-react";
 import { TitleReviewForm } from "@/components/funnels/TitleReviewForm";
+import { PayPalTitleSearchCheckout } from "@/components/TitleSearchCheckout";
 import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
@@ -74,6 +75,9 @@ export default function RequestTitleReviewPage() {
           </div>
           <div id="review-form">
             <TitleReviewForm />
+            <div className="mt-6">
+              <PayPalTitleSearchCheckout />
+            </div>
           </div>
         </div>
       </section>

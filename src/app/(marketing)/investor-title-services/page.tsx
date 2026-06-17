@@ -18,6 +18,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 
 export const metadata: Metadata = {
   title: "Investor Title Services | DMV Title Guy",
@@ -208,9 +209,7 @@ export default function InvestorTitleServicesPage() {
             bidding, closing, reselling, or refinancing.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
-            </Link>
+            <TitleSearchOrderButton defaultTransactionType="Investor/Wholesale" />
             <Link href="/commercial-due-diligence" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Commercial Due Diligence
             </Link>
@@ -305,9 +304,7 @@ export default function InvestorTitleServicesPage() {
             curative needs, and closing issues before they slow your deal.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
-            </Link>
+            <TitleSearchOrderButton defaultTransactionType="Investor/Wholesale" />
             <Link href="/auction-property-title-search" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Auction Property Title Search
             </Link>

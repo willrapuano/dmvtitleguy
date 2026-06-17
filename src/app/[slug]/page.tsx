@@ -12,6 +12,7 @@ import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { LocationSchema, CountySchema } from "@/components/SchemaMarkup";
 import CityCalculatorPage from "@/components/CityCalculatorPage";
+import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 import {
   ALL_LOCATIONS,
   COUNTIES,
@@ -266,9 +267,7 @@ function TysonsExpansionSections() {
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Send us the property address, contract, or deal details and we will help you start the title review process.
           </p>
-          <Link href="/request-title-review" className="btn-primary">
-            Order Title Search
-          </Link>
+          <TitleSearchOrderButton className="btn-primary" />
         </div>
       </section>
     </>
@@ -666,6 +665,7 @@ function LocationPage({ location }: { location: Location }) {
   const locationName = getLocationDisplayName(location);
   const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
   const isTysons = slug === "title-company-tysons-va";
+  const hasCheckoutCta = isTysons || slug === "title-company-herndon-va" || isNeighborhood;
   const calculatorLinkLabel =
     state === "MD"
       ? `Estimate ${city} closing costs with the Maryland calculator`
@@ -736,8 +736,8 @@ function LocationPage({ location }: { location: Location }) {
                 : `DMV Title Guy is your trusted title and settlement partner in ${locationName}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
             </p>
             <div className="flex flex-wrap gap-3">
-              {isNeighborhood || isTysons ? (
-                <Link href="/request-title-review" className="btn-primary">Order Title Search</Link>
+              {hasCheckoutCta ? (
+                <TitleSearchOrderButton className="btn-primary" />
               ) : (
                 <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
               )}

@@ -14,6 +14,7 @@ import {
   Search,
   Shield,
 } from "lucide-react";
+import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 
 export const metadata: Metadata = {
   title: "title search fairfax va for Closings | Pruitt Title",
@@ -196,9 +197,7 @@ export default function TitleSearchFairfaxPage() {
             and title defects so you know what you are taking on.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
-            </Link>
+            <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Upload Contract
             </Link>
@@ -275,9 +274,7 @@ export default function TitleSearchFairfaxPage() {
             title risks and help you understand the path to closing.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
-            </Link>
+            <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Upload Contract
             </Link>
