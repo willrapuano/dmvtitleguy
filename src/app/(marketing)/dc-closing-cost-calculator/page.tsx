@@ -58,6 +58,13 @@ export default function DCCalculatorPage() {
               <Link href="/calculators/title-quote" className="btn-primary">Get a Quote</Link>
               <Link href="/title-company-washington-dc" className="btn-outline">DC Title Services</Link>
             </div>
+            <p className="text-sm text-brand-muted mt-5">
+              Comparing nearby Maryland costs too? Use the{" "}
+              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+                Maryland closing cost calculator
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>

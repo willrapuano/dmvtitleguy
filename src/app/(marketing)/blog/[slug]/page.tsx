@@ -409,7 +409,10 @@ export async function generateMetadata({
     stripPortableText(portableTextBody).slice(0, 155) ||
     "DMV Title Guy shares practical guidance on title, closing, and real estate transactions across DC, Maryland, and Virginia.";
 
-  const canonical = `/blog/${post.slug}`;
+  const canonical =
+    post.slug === "title-company-vienna-va"
+      ? "/title-search-vienna-va"
+      : `/blog/${post.slug}`;
 
   return {
     title,
@@ -447,6 +450,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   // Build share URLs
   const canonicalUrl = `https://dmvtitleguy.io/blog/${post.slug}`;
+  const isViennaTitleCompanyPost = post.slug === "title-company-vienna-va";
   const shareTitle = encodeURIComponent(post.title);
   const shareUrl = encodeURIComponent(canonicalUrl);
 
@@ -655,6 +659,26 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue pl-5">
                 {post.excerpt}
               </p>
+
+              {isViennaTitleCompanyPost && (
+                <div className="mb-8 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue mb-2">
+                    Vienna title search services
+                  </p>
+                  <h2 className="text-2xl font-bold text-brand-navy mb-3">
+                    Looking for title search services in Vienna?
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed mb-5">
+                    This article explains how title companies work in Vienna, but if you need a property-specific title review, start with our dedicated Vienna title search service page.
+                  </p>
+                  <Link
+                    href="/title-search-vienna-va"
+                    className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                  >
+                    Order your Vienna VA title search
+                  </Link>
+                </div>
+              )}
 
               {/* Article body */}
               <div className="blog-content">

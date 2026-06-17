@@ -67,6 +67,214 @@ const BETHESDA_FAQS: FaqItem[] = [
   },
 ];
 
+const TYSONS_FAQS: FaqItem[] = [
+  {
+    question: "What title services does Pruitt Title provide in Tysons VA?",
+    answer: "Pruitt Title provides title searches, title insurance, escrow coordination, settlement services, refinance closings, commercial closings, and curative support for Tysons, Tysons Corner, McLean, and Fairfax County real estate transactions.",
+  },
+  {
+    question: "Do you handle commercial real estate closings in Tysons?",
+    answer: "Yes. Tysons has a large office, retail, mixed-use, and investor property market, and Pruitt Title supports commercial real estate closings that require entity review, lender coordination, title endorsements, escrow, and settlement.",
+  },
+  {
+    question: "How long does a title search take for a Tysons property?",
+    answer: "Many Fairfax County title searches can be completed in a few business days, but timing depends on the property history, lender requirements, estate or entity ownership, prior liens, and any curative work needed before closing.",
+  },
+  {
+    question: "Is Tysons the same as Tysons Corner for title and settlement purposes?",
+    answer: "Tysons and Tysons Corner commonly refer to the same Fairfax County market near McLean, Vienna, and the Capital Beltway. The title and settlement process generally runs through Fairfax County land records and transaction-specific lender or contract requirements.",
+  },
+  {
+    question: "Can Pruitt Title help with title insurance for a Tysons purchase?",
+    answer: "Yes. Pruitt Title can issue owner's and lender's title insurance policies for eligible Tysons purchases and refinances, including residential, commercial, investor, and lender-financed transactions.",
+  },
+  {
+    question: "How do I order a Tysons title search?",
+    answer: "Use the Order Title Search button to submit the property details or upload your contract. The team will review the file, confirm what is needed, and begin the title search and settlement process.",
+  },
+];
+
+function TysonsStructuredData() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "LegalService"],
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#business",
+        name: "DMV Title Guy — Pruitt Title LLC — Tysons VA Title Company",
+        url: "https://dmvtitleguy.io/title-company-tysons-va",
+        telephone: "(703) 859-1467",
+        email: "wrapuano@pruitt-title.com",
+        image: "https://dmvtitleguy.io/logo.png",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "1900 Gallows Rd Suite 230",
+          addressLocality: "Vienna",
+          addressRegion: "VA",
+          postalCode: "22182",
+          addressCountry: "US",
+        },
+        areaServed: [
+          { "@type": "City", name: "Tysons", addressRegion: "VA" },
+          { "@type": "Place", name: "Tysons Corner" },
+          { "@type": "City", name: "McLean", addressRegion: "VA" },
+          { "@type": "AdministrativeArea", name: "Fairfax County", addressRegion: "VA" },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dmvtitleguy.io/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Tysons VA Title Company",
+            item: "https://dmvtitleguy.io/title-company-tysons-va",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#faq",
+        mainEntity: TYSONS_FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+function TysonsExpansionSections() {
+  const sectionHeadingClass = "text-2xl md:text-3xl font-bold text-brand-navy mb-4";
+  const bodyClass = "text-brand-muted leading-relaxed";
+  const cardClass = "rounded-lg border border-gray-200 bg-white p-5";
+
+  return (
+    <>
+      <section className="section-light border-t border-gray-100">
+        <div className="container-xl max-w-4xl">
+          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Overview</p>
+          <h2 className={sectionHeadingClass}>Tysons VA Title Company for Residential and Commercial Closings</h2>
+          <div className="space-y-4">
+            <p className={bodyClass}>
+              Pruitt Title provides title search, title insurance, escrow, and settlement services for Tysons and Tysons Corner real estate transactions. Our office is nearby in Vienna, and our team regularly handles Fairfax County closings for buyers, sellers, agents, lenders, builders, and investors.
+            </p>
+            <p className={bodyClass}>
+              Tysons sits at the center of Northern Virginia's business corridor, with high-value condominiums, office properties, mixed-use redevelopment, retail assets, and nearby McLean and Vienna residential neighborhoods. That mix makes careful title work and clear settlement coordination especially important.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-gray">
+        <div className="container-xl max-w-5xl">
+          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Services</p>
+          <h2 className={sectionHeadingClass}>Title and Settlement Services in Tysons</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "Residential purchase and refinance closings",
+              "Owner's and lender's title insurance",
+              "Pre-purchase and investor title searches",
+              "Commercial real estate closings",
+              "Escrow and settlement coordination",
+              "Title curative work and release tracking",
+            ].map((item) => (
+              <div key={item} className={cardClass}>
+                <h3 className="font-bold text-brand-navy">{item}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-light">
+        <div className="container-xl max-w-4xl">
+          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Why Pruitt Title</p>
+          <h2 className={sectionHeadingClass}>Why Choose Pruitt Title for Tysons?</h2>
+          <div className="space-y-4">
+            <p className={bodyClass}>
+              Pruitt Title has served the DMV region since 2007, combining local settlement experience with practical communication for busy agents, lenders, and clients. Tysons transactions often involve tight lender timelines, entity ownership, high-value collateral, or commercial requirements, so we focus on identifying title issues early and keeping the parties aligned.
+            </p>
+            <p className={bodyClass}>
+              If you need title search support before a Tysons offer, closing, refinance, or commercial acquisition, start with our{" "}
+              <Link href="/title-search-vienna-va" className="font-semibold text-brand-blue hover:underline">
+                Vienna VA title search
+              </Link>{" "}
+              team or order a title review online.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-gray">
+        <div className="container-xl max-w-4xl">
+          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Local Expertise</p>
+          <h2 className={sectionHeadingClass}>Local Expertise Across Tysons Corner, McLean, and Fairfax County</h2>
+          <p className={`${bodyClass} mb-5`}>
+            Tysons closings can touch Fairfax County land records, HOA and condo documents, commercial leases, easements, access rights, prior releases, entity authority, and lender-specific title endorsements. Our nearby team understands the local market and coordinates with parties across Tysons Corner, McLean, Vienna, Merrifield, Dunn Loring, and the broader Fairfax County corridor.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-3">
+            <Link href="/title-company-mclean-va" className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-brand-blue hover:border-brand-blue transition-colors">
+              McLean Title Company →
+            </Link>
+            <Link href="/commercial-real-estate-closings" className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-brand-blue hover:border-brand-blue transition-colors">
+              Commercial Real Estate Closings →
+            </Link>
+            <Link href="/title-search-vienna-va" className="rounded-lg border border-gray-200 bg-white p-4 text-sm font-semibold text-brand-blue hover:border-brand-blue transition-colors">
+              Vienna Title Search →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-light">
+        <div className="container-xl max-w-3xl">
+          <h2 className="text-2xl font-bold text-brand-navy mb-6">Tysons Title Company FAQs</h2>
+          <div className="space-y-6">
+            {TYSONS_FAQS.map((faq, i) => (
+              <div key={i}>
+                <h3 className="text-lg font-semibold text-brand-navy mb-2">{faq.question}</h3>
+                <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-navy">
+        <div className="container-xl text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">Start a Tysons Title Search or Closing</h2>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            Send us the property address, contract, or deal details and we will help you start the title review process.
+          </p>
+          <Link href="/request-title-review" className="btn-primary">
+            Order Title Search
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function BethesdaStructuredData() {
   const schema = {
     "@context": "https://schema.org",
@@ -347,6 +555,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogTitle: "Vienna VA Title Settlement Company | DMV Title Guy",
         ogDescription: "Professional title search, insurance & settlement services in Vienna, VA. Serving Oakton, McLean & all of Fairfax County since 2007.",
       },
+      "title-company-tysons-va": {
+        title: "Tysons VA Title Company & Title Insurance | Pruitt Title",
+        description: "Tysons VA title company and title insurance services for Tysons Corner, McLean, and Fairfax County. Pruitt Title handles title searches, escrow, closings, and settlement services.",
+        ogTitle: "Tysons VA Title Company & Title Insurance | Pruitt Title",
+        ogDescription: "Title search, escrow, title insurance, and settlement services for Tysons Corner, McLean, and Fairfax County transactions.",
+      },
       "title-company-bethesda-md": {
         title: "Bethesda-Chevy Chase MD Title Company & Escrow | Pruitt Title",
         description: "Need a Bethesda title company? Pruitt Title handles title search, escrow, settlement, and title insurance across Bethesda-Chevy Chase and Montgomery County. Get a fast quote.",
@@ -421,6 +635,7 @@ function LocationPage({ location }: { location: Location }) {
   const stateFullName = state === "VA" ? "Virginia" : state === "MD" ? "Maryland" : "Washington DC";
   const locationName = getLocationDisplayName(location);
   const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
+  const isTysons = slug === "title-company-tysons-va";
   const calculatorLinkLabel =
     state === "MD"
       ? `Estimate ${city} closing costs with the Maryland calculator`
@@ -458,6 +673,7 @@ function LocationPage({ location }: { location: Location }) {
     <>
       <LocationSchema city={city} state={state} county={county} slug={slug} description={`Professional title insurance and closing services in ${locationName} — Pruitt Title LLC.`} />
       {isBethesda && <BethesdaStructuredData />}
+      {isTysons && <TysonsStructuredData />}
 
       {/* HERO */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
@@ -474,6 +690,8 @@ function LocationPage({ location }: { location: Location }) {
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               {slug === "title-company-herndon-va"
                 ? "Herndon VA Title Closings & Settlement Services"
+                : isTysons
+                ? "Tysons VA Title Closings & Settlement Services"
                 : slug === "title-company-bethesda-md"
                 ? "Bethesda-Chevy Chase MD Title Company & Escrow Services"
                 : isNeighborhood
@@ -488,7 +706,7 @@ function LocationPage({ location }: { location: Location }) {
                 : `DMV Title Guy is your trusted title and settlement partner in ${locationName}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
             </p>
             <div className="flex flex-wrap gap-3">
-              {isNeighborhood ? (
+              {isNeighborhood || isTysons ? (
                 <Link href="/request-title-review" className="btn-primary">Order Title Search</Link>
               ) : (
                 <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
@@ -555,6 +773,7 @@ function LocationPage({ location }: { location: Location }) {
       </section>
 
       {isBethesda && <BethesdaExpansionSections />}
+      {isTysons && <TysonsExpansionSections />}
 
       {/* ALSO SERVING */}
       {alsoServing && alsoServing.length > 0 && (
@@ -662,6 +881,17 @@ function LocationPage({ location }: { location: Location }) {
                 Learn More →
               </Link>
             </div>
+            {state === "VA" && slug !== "title-company-herndon-va" && (
+              <div>
+                <h3 className="font-bold text-brand-navy mb-3">Herndon Title Services</h3>
+                <p className="text-sm text-brand-muted mb-3">
+                  Need another Fairfax County settlement option? Learn more about working with a title company in Herndon.
+                </p>
+                <Link href="/title-company-herndon-va" className="text-sm text-brand-blue hover:underline">
+                  title company in Herndon →
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -722,6 +952,21 @@ function CountyPage({ county }: { county: County }) {
           </div>
         </div>
       </section>
+
+      {state === "VA" && (
+        <section className="py-10 bg-white border-t border-gray-100">
+          <div className="container-xl max-w-3xl">
+            <h2 className="text-xl font-bold text-brand-navy mb-3">Fairfax County Title Support</h2>
+            <p className="text-sm text-brand-muted leading-relaxed">
+              For another Northern Virginia settlement resource, learn more about working with a{" "}
+              <Link href="/title-company-herndon-va" className="font-semibold text-brand-blue hover:underline">
+                title company in Herndon
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* FULL FORM */}
       <section id="quote" className="section-navy">
