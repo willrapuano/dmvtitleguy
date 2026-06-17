@@ -6,10 +6,10 @@ import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost Calculator | Buyer & Seller Costs in MD",
+  title: "closing cost calculator maryland | MD Costs | Pruitt Title",
   description:
-    "Calculate Maryland closing costs for buyers and sellers. Estimate MD transfer tax, recordation fees, title insurance, and Montgomery County costs. Get a free quote.",
-  alternates: { canonical: "/maryland-closing-cost-calculator" },
+    "Maryland closing cost calculator for buyers and sellers. Estimate transfer taxes, title fees, and local costs, then request a Pruitt Title quote.",
+  alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 
 const MD_LOCATIONS = [...TIER1_LOCATIONS, ...TIER2_LOCATIONS].filter((l) => l.state === "MD");
@@ -488,7 +488,7 @@ export default function MarylandCalculatorPage() {
 
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Closing Cost FAQs</h2>
-            <FAQSection faqs={faqs} />
+            <FAQSection faqs={faqs} includeSchema={false} />
           </div>
 
           <div>

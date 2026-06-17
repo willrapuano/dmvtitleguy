@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { HomePageClient } from "@/components/HomePageClient";
 
 export const metadata: Metadata = {
-  title: "DMV Title Guy | Title & Closing Services — DC, MD & VA",
+  title: "Pruitt Title | DMV Title Company & Closing Services",
   description:
-    "Pruitt Title LLC — trusted title insurance and closing services across DC, Maryland, and Virginia. Serving agents, lenders, and buyers. Fast closings, top 5% title executive.",
-  alternates: { canonical: "/" },
+    "DMV title company for DC, Maryland, and Virginia closings. Pruitt Title brings 17+ years serving Fairfax County. Call today for a fast quote.",
+  alternates: { canonical: "https://dmvtitleguy.io/" },
 };
 
 export default function HomePage() {

@@ -393,6 +393,35 @@ function stripPortableText(blocks: any[] = []): string {
     .trim();
 }
 
+const BLOG_SEO_OVERRIDES: Record<string, { title: string; description: string; canonical?: string }> = {
+  "what-is-a-title-quote": {
+    title: "what is a title quote? DMV Closing Guide | Pruitt Title",
+    description:
+      "Title quote guide for DMV buyers, sellers, and agents. Learn what a title quote includes and when to request one from Pruitt Title online today.",
+  },
+  "what-is-a-title-settlement-fee": {
+    title: "what is a title settlement fee? DMV Guide | Pruitt Title",
+    description:
+      "Title settlement fee guide for DMV buyers and sellers. Learn what the fee covers, what is fair locally, and when to request a Pruitt quote today.",
+  },
+  "title-company-vienna-va": {
+    title: "vienna va title closings: How Closings Work | Pruitt Title",
+    description:
+      "Vienna title company guide explaining how closings work locally, with Pruitt Title insights from 17+ years serving Fairfax County. Call today.",
+    canonical: "/title-search-vienna-va",
+  },
+  "construction-loans-maryland": {
+    title: "construction loans maryland Title Review | Pruitt Title",
+    description:
+      "Construction loans Maryland guide for title, draw, and closing issues. Pruitt Title helps builders and buyers review title early. Call today.",
+  },
+  "settlement-services-arlington-va": {
+    title: "settlement services arlington va Guide | Pruitt Title",
+    description:
+      "Arlington settlement services guide for residential closings, title work, and escrow. Pruitt Title helps DMV deals close cleanly. Call today.",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -401,18 +430,21 @@ export async function generateMetadata({
   const { post, portableTextBody } = await fetchBlogPostBySlug(params.slug);
   if (!post) return { title: "Not Found" };
 
-  const title = post.title || "DMV Title Guy";
+  const seoOverride = BLOG_SEO_OVERRIDES[post.slug];
+  const title = seoOverride?.title || post.title || "DMV Title Guy";
 
   const description =
+    seoOverride?.description ||
     (post as any).seo?.description ||
     (post.excerpt && post.excerpt.trim()) ||
     stripPortableText(portableTextBody).slice(0, 155) ||
     "DMV Title Guy shares practical guidance on title, closing, and real estate transactions across DC, Maryland, and Virginia.";
 
   const canonical =
-    post.slug === "title-company-vienna-va"
+    seoOverride?.canonical ||
+    (post.slug === "title-company-vienna-va"
       ? "/title-search-vienna-va"
-      : `/blog/${post.slug}`;
+      : `/blog/${post.slug}`);
 
   return {
     title,
@@ -448,9 +480,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   const toc = extractTOC(bodyContent);
 
-  // Build share URLs
-  const canonicalUrl = `https://dmvtitleguy.io/blog/${post.slug}`;
   const isViennaTitleCompanyPost = post.slug === "title-company-vienna-va";
+  const canonicalPath = isViennaTitleCompanyPost
+    ? "/title-search-vienna-va"
+    : `/blog/${post.slug}`;
+  const canonicalUrl = `https://dmvtitleguy.io${canonicalPath}`;
+  // Build share URLs
   const shareTitle = encodeURIComponent(post.title);
   const shareUrl = encodeURIComponent(canonicalUrl);
 
@@ -867,7 +902,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
               {/* ─── FAQ Section ─── */}
               {faqs.length > 0 && (
-                <FAQSection faqs={faqs} />
+                <FAQSection faqs={faqs} includeSchema={false} />
               )}
 
               {/* ─── CTA Section ─── */}

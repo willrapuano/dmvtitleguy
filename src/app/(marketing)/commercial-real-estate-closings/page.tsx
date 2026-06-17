@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Commercial Real Estate Closings | DMV Title Guy",
+  title: "commercial closing Services for DMV Deals | Pruitt Title",
   description:
-    "Commercial real estate closings, title review, escrow coordination, and settlement support for commercial buyers, sellers, lenders, and investors.",
+    "Commercial closing support for DMV buyers, sellers, lenders, and investors. Pruitt Title coordinates title, escrow, and settlement. Call today.",
   alternates: {
     canonical: "https://dmvtitleguy.io/commercial-real-estate-closings",
   },

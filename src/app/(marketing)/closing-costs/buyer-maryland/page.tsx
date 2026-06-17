@@ -179,7 +179,7 @@ export default function BuyerMarylandClosingCostsPage() {
       {/* FAQ */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <FAQSection faqs={faqs} />
+          <FAQSection faqs={faqs} includeSchema={false} />
         </div>
       </section>
 

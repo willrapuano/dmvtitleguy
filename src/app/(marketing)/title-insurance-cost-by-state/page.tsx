@@ -3,9 +3,9 @@ import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 
 export const metadata: Metadata = {
-  title: "Title Insurance Cost by State: A 2026 Comparison | DMV Title Guy",
-  description: "Compare title insurance costs across the US. Learn how state regulations, property values, and local practices affect title insurance pricing.",
-  alternates: { canonical: "/title-insurance-cost-by-state" },
+  title: "title insurance cost by state Guide | Pruitt Title",
+  description: "Title insurance cost by state guide with DMV context. Compare VA, MD, DC, and other states, then request a quote from Pruitt Title online now.",
+  alternates: { canonical: "https://dmvtitleguy.io/title-insurance-cost-by-state" },
 };
 
 const faqs = [
@@ -262,7 +262,7 @@ export default function TitleInsuranceCostByStatePage() {
       {/* FAQ */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <FAQSection faqs={faqs} />
+          <FAQSection faqs={faqs} includeSchema={false} />
         </div>
       </section>
 

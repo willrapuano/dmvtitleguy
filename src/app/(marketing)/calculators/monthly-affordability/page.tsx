@@ -9,8 +9,38 @@ export const metadata: Metadata = {
 };
 
 export default function MonthlyAffordabilityPage() {
+  const faqs = [
+    {
+      question: "Does this include taxes and insurance?",
+      answer: "Yes, you can input taxes and insurance to get a more realistic monthly payment estimate.",
+    },
+    {
+      question: "Is this a mortgage pre-approval?",
+      answer: "No. This is a planning tool. Final approval depends on lender underwriting and documentation.",
+    },
+    {
+      question: "Should I use gross or net income?",
+      answer: "Use gross monthly income first, then stress-test your budget to ensure the payment still feels comfortable.",
+    },
+  ];
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          }),
+        }}
+      />
       <section className="bg-brand-navy text-white py-12">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">

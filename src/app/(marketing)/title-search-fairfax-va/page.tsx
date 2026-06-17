@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Title Search Fairfax VA | DMV Title Guy",
+  title: "title search fairfax va for Closings | Pruitt Title",
   description:
-    "Order a title search in Fairfax, VA. We review ownership, liens, judgments, taxes, easements, restrictions, and title defects before closing.",
+    "Fairfax title search service for ownership, liens, judgments, and title risks, with 17+ years serving Fairfax County. Order your review today.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-fairfax-va",
   },

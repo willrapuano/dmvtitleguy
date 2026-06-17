@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Title Quote Calculator | DMV Title Guy",
+  title: "title quote calculator for DMV Closings | Pruitt Title",
   description:
-    "Get an instant title insurance quote for your DC, Maryland, or Virginia real estate transaction. Powered by Pruitt Title LLC.",
-  alternates: { canonical: "/calculators/title-quote" },
+    "Title quote calculator for DC, Maryland, and Virginia closings. Estimate title insurance and settlement costs with Pruitt Title. Start today.",
+  alternates: { canonical: "https://dmvtitleguy.io/calculators/title-quote" },
 };
 
 export default function TitleQuotePage() {

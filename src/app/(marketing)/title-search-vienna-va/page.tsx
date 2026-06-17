@@ -15,9 +15,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Title Search Vienna VA | DMV Title Guy",
+  title: "title search vienna va for Closings | Pruitt Title",
   description:
-    "Order a title search in Vienna, VA. We review liens, judgments, easements, ownership history, and title risks before you buy, bid, or close.",
+    "Vienna title search service for liens, ownership, easements, and title risks. 17+ years serving Fairfax County. Order your review online now.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-vienna-va",
   },

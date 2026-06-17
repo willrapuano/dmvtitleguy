@@ -544,8 +544,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     // ─── CTR-optimized overrides for high-impression pages ───
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Herndon VA Title Closings & Title Insurance | Pruitt Title",
-        description: "Title closings, title insurance, and settlement services in Herndon, VA. Fast turnarounds, competitive rates, and 17+ years serving Fairfax County. Order your title search online.",
+        title: "herndon va title closings & Title Insurance | Pruitt Title",
+        description: "Herndon title closings and title insurance from Pruitt Title, with 17+ years serving Fairfax County. Order a title search or request a quote.",
         ogTitle: "Herndon Title Company | Pruitt Title — DMV Title Guy",
         ogDescription: "Expert title search, insurance & closing services in Herndon, VA. Residential, commercial & investor transactions. Since 2007.",
       },
@@ -562,16 +562,46 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogDescription: "Title search, escrow, title insurance, and settlement services for Tysons Corner, McLean, and Fairfax County transactions.",
       },
       "title-company-bethesda-md": {
-        title: "Bethesda-Chevy Chase MD Title Company & Escrow | Pruitt Title",
-        description: "Need a Bethesda title company? Pruitt Title handles title search, escrow, settlement, and title insurance across Bethesda-Chevy Chase and Montgomery County. Get a fast quote.",
+        title: "title company bethesda-chevy chase md | Pruitt Title",
+        description: "Bethesda title company for escrow, title insurance, and closings, serving Montgomery County and Chevy Chase. Request a fast Pruitt Title quote.",
         ogTitle: "Bethesda-Chevy Chase MD Title Company & Escrow | Pruitt Title",
         ogDescription: "Title search, escrow, settlement, and title insurance services across Bethesda-Chevy Chase and Montgomery County.",
       },
+      "title-company-reston-va": {
+        title: "title company reston va Closing Services | Pruitt Title",
+        description: "Reston title company for title insurance, escrow, and closings, with 17+ years serving Fairfax County. Request a fast Pruitt Title quote today.",
+        ogTitle: "Reston VA Title Company & Closing Services | Pruitt Title",
+        ogDescription: "Title insurance, escrow, and closing services in Reston and Fairfax County.",
+      },
+      "title-company-mclean-va": {
+        title: "title company mclean va Closing Services | Pruitt Title",
+        description: "McLean title company for title insurance, escrow, and closings, with 17+ years serving Fairfax County. Request a fast Pruitt Title quote today.",
+        ogTitle: "McLean VA Title Company & Closing Services | Pruitt Title",
+        ogDescription: "Title insurance, escrow, and closing services in McLean and Fairfax County.",
+      },
       "title-company-springfield-va": {
-        title: "Springfield VA Title Company | Fast Closings & Title Search",
-        description: "Springfield, VA title company trusted by buyers, sellers & investors since 2007. Fast closings, thorough title searches. Free quote: (703) 859-1467.",
+        title: "title company springfield va Closings | Pruitt Title",
+        description: "Springfield title company for title insurance, escrow, and closings, with 17+ years serving Fairfax County. Request a fast Pruitt Title quote.",
         ogTitle: "Springfield VA Title Company | DMV Title Guy",
         ogDescription: "Professional title insurance and closing services in Springfield, VA. Residential, commercial & investor closings. Since 2007.",
+      },
+      "title-company-falls-church-va": {
+        title: "title company falls church va Closings | Pruitt Title",
+        description: "Falls Church title company for title insurance, escrow, and closings, backed by 17+ years serving Fairfax County. Request a fast quote today.",
+        ogTitle: "Falls Church VA Title Company & Closings | Pruitt Title",
+        ogDescription: "Title insurance, escrow, and closing services in Falls Church and nearby Fairfax County.",
+      },
+      "title-company-stafford-va": {
+        title: "title and escrow stafford va Closings | Pruitt Title",
+        description: "Stafford title and escrow services for buyers, sellers, agents, and investors. Local closing support from Pruitt Title. Request a quote today.",
+        ogTitle: "Stafford VA Title and Escrow Closings | Pruitt Title",
+        ogDescription: "Title and escrow services for Stafford buyers, sellers, agents, and investors.",
+      },
+      "title-company-woodbridge-va": {
+        title: "title company woodbridge va Closings | Pruitt Title",
+        description: "Woodbridge title company for title insurance, escrow, and closings across Prince William County. Pruitt Title makes settlement simple. Call today.",
+        ogTitle: "Woodbridge VA Title Company & Closings | Pruitt Title",
+        ogDescription: "Title insurance, escrow, and closing services in Woodbridge and Prince William County.",
       },
     };
 

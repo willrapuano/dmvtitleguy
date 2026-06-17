@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Commercial Property Title Search | DMV Title Guy",
+  title: "commercial property title search Guide | Pruitt Title",
   description:
-    "Commercial property title search and due diligence for buyers, investors, lenders, and operators across DC, Maryland, and Virginia.",
+    "Commercial property title search for DMV buyers, lenders, and investors. Pruitt Title reviews liens, easements, entities, and risks. Call today.",
   alternates: {
     canonical: "https://dmvtitleguy.io/commercial-property-title-search",
   },

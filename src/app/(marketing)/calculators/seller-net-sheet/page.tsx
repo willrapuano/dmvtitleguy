@@ -9,8 +9,38 @@ export const metadata: Metadata = {
 };
 
 export default function SellerNetSheetPage() {
+  const faqs = [
+    {
+      question: "Is this my exact closing amount?",
+      answer: "No. It is an estimate for planning. Final numbers depend on the executed contract and final closing disclosures.",
+    },
+    {
+      question: "Does this include title and transfer costs?",
+      answer: "Yes, it is designed to help model common seller closing costs including title-related fees and transfer taxes.",
+    },
+    {
+      question: "Can I compare multiple offer scenarios?",
+      answer: "Absolutely. Run the calculator with different sale prices and concession amounts to compare outcomes quickly.",
+    },
+  ];
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          }),
+        }}
+      />
       <section className="bg-brand-navy text-white py-12">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
