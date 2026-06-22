@@ -102,6 +102,40 @@ const FAIRFAX_TITLE_SEARCH_LINK_SLUGS = new Set([
   "title-company-woodbridge-va",
 ]);
 
+function HerndonStructuredData() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://dmvtitleguy.io/title-company-herndon-va#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dmvtitleguy.io/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Herndon VA Title Company",
+            item: "https://dmvtitleguy.io/title-company-herndon-va",
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 function TysonsStructuredData() {
   const schema = {
     "@context": "https://schema.org",
@@ -550,10 +584,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     // ─── CTR-optimized overrides for high-impression pages ───
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "herndon va title closings & Title Insurance | Pruitt Title",
-        description: "Herndon title closings and title insurance from Pruitt Title, with 17+ years serving Fairfax County. Order a title search or request a quote.",
-        ogTitle: "Herndon Title Company | Pruitt Title — DMV Title Guy",
-        ogDescription: "Expert title search, insurance & closing services in Herndon, VA. Residential, commercial & investor transactions. Since 2007.",
+        title: "Herndon VA Title Company | Fast Closings & Title Search | Pruitt Title",
+        description: "Order your title search online with Pruitt Title. Fast Herndon VA title closings, competitive rates, and 17+ years serving Fairfax County.",
+        ogTitle: "Herndon VA Title Company, Closings & Title Search | Pruitt Title",
+        ogDescription: "Order a Herndon title search online or start a closing with Pruitt Title. Fast turnarounds, competitive rates, and Fairfax County experience.",
       },
       "title-company-vienna-va": {
         title: "Vienna VA Title Company — Trusted Closings Since 2007 | DMV Title Guy",
@@ -711,6 +745,7 @@ function LocationPage({ location }: { location: Location }) {
       <LocationSchema city={city} state={state} county={county} slug={slug} description={`Professional title insurance and closing services in ${locationName} — Pruitt Title LLC.`} />
       {isBethesda && <BethesdaStructuredData />}
       {isTysons && <TysonsStructuredData />}
+      {slug === "title-company-herndon-va" && <HerndonStructuredData />}
 
       {/* HERO */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
