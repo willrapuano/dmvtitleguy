@@ -95,6 +95,13 @@ const TYSONS_FAQS: FaqItem[] = [
   },
 ];
 
+const FAIRFAX_TITLE_SEARCH_LINK_SLUGS = new Set([
+  "title-company-herndon-va",
+  "title-company-vienna-va",
+  "title-company-stafford-va",
+  "title-company-woodbridge-va",
+]);
+
 function TysonsStructuredData() {
   const schema = {
     "@context": "https://schema.org",
@@ -911,6 +918,17 @@ function LocationPage({ location }: { location: Location }) {
                 Learn More →
               </Link>
             </div>
+            {FAIRFAX_TITLE_SEARCH_LINK_SLUGS.has(slug) && (
+              <div>
+                <h3 className="font-bold text-brand-navy mb-3">Fairfax Title Search</h3>
+                <p className="text-sm text-brand-muted mb-3">
+                  Need title search support in Fairfax County? Review ownership, liens, HOA issues, and recorded title risks before closing.
+                </p>
+                <Link href="/title-search-fairfax-va" className="text-sm text-brand-blue hover:underline">
+                  Fairfax title search →
+                </Link>
+              </div>
+            )}
             {state === "VA" && slug !== "title-company-herndon-va" && (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">Herndon Title Services</h3>

@@ -17,9 +17,9 @@ import {
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 
 export const metadata: Metadata = {
-  title: "title search fairfax va for Closings | Pruitt Title",
+  title: "title search fairfax va | Fairfax County Title Search | Pruitt Title",
   description:
-    "Fairfax title search service for ownership, liens, judgments, and title risks, with 17+ years serving Fairfax County. Order your review today.",
+    "Order a Fairfax VA title search for ownership, liens, HOA issues, new construction concerns, and closing risks. Fast Fairfax County title review from Pruitt Title.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-fairfax-va",
   },
@@ -61,18 +61,33 @@ const covers = [
 const whyFairfax = [
   {
     icon: MapPin,
-    title: "Dense Fairfax County Records",
-    desc: "Fairfax County has high transaction volume and deep land records. Thorough review helps avoid surprises in competitive deals.",
+    title: "Fairfax County Land Records",
+    desc: "Fairfax County land records are handled through the Circuit Court Land Records Division at the courthouse in Fairfax, where recorded deeds, trusts, liens, releases, plats, and related instruments are indexed.",
   },
   {
     icon: Building2,
-    title: "Wide Property Mix",
-    desc: "Fairfax includes condos, townhomes, single-family homes, estates, investor deals, and commercial properties with different title risks.",
+    title: "HOA-Heavy Neighborhoods",
+    desc: "Many Fairfax-area properties sit in HOA or condominium communities where declarations, resale requirements, assessments, parking rights, and association lien issues deserve early review.",
   },
   {
     icon: AlertTriangle,
-    title: "Older and Complex Titles",
-    desc: "Long ownership histories can involve unreleased liens, estate transfers, easements, or covenants that need early review.",
+    title: "New Construction and Redevelopment",
+    desc: "New homes, infill projects, and redeveloped parcels may involve subdivision plats, easements, builder entities, unreleased construction financing, or recently recorded covenants.",
+  },
+];
+
+const fairfaxCountyDetails = [
+  {
+    title: "Courthouse and records office",
+    desc: "Fairfax County land records are maintained by the Land Records Division of the Fairfax Circuit Court at the Fairfax County Courthouse, 4110 Chain Bridge Road, Suite 317, Fairfax, VA 22030.",
+  },
+  {
+    title: "Recording fees and taxes",
+    desc: "Fairfax recording costs vary by instrument. The county fee schedule lists deed clerk's fees by page count, plus items such as Technology Trust Fund, open space preservation, deed processing, state and county recordation taxes, transfer fees, and regional fees when applicable.",
+  },
+  {
+    title: "Typical title search turnaround",
+    desc: "Many Fairfax residential title searches can be completed in a few business days when the record chain is clean. Older properties, estates, trusts, foreclosures, investor files, missing releases, or HOA document issues can extend the review.",
   },
 ];
 
@@ -105,7 +120,7 @@ const faqs = [
   },
   {
     q: "How fast can you complete a title search in Fairfax?",
-    a: "Standard title search turnaround is typically 5-7 business days. Rush review may be available depending on the property, record complexity, and deadline.",
+    a: "Many Fairfax title searches can be completed in a few business days when the property history is straightforward. Rush review may be available depending on record complexity, HOA or condo issues, and the closing or auction deadline.",
   },
   {
     q: "Do Fairfax condos and HOAs need extra title review?",
@@ -114,6 +129,18 @@ const faqs = [
   {
     q: "Can a title search help with foreclosure or investor properties?",
     a: "Yes. Fairfax investor and foreclosure properties often require deeper review for surviving liens, judgment risks, missing releases, and chain-of-title defects. We flag those issues and explain the practical next steps.",
+  },
+  {
+    q: "Where are Fairfax County land records recorded?",
+    a: "Fairfax County land records are recorded with the Land Records Division of the Fairfax Circuit Court at the Fairfax County Courthouse in Fairfax, Virginia. A title search reviews those recorded instruments along with related lien, judgment, tax, and title information.",
+  },
+  {
+    q: "What Fairfax-specific title issues do you look for?",
+    a: "Common Fairfax issues include unreleased deeds of trust, old judgment liens, HOA or condominium assessment concerns, recorded covenants, easements, estate transfers, subdivision plats, builder or new construction documents, and gaps in the chain of title.",
+  },
+  {
+    q: "Are Fairfax County recording fees included in a title search?",
+    a: "A title search identifies recorded matters and helps estimate what may need to be recorded or released. Actual Fairfax County recording fees and recordation taxes depend on the instrument, page count, consideration, loan amount, exemptions, and current clerk fee schedule.",
   },
 ];
 
@@ -157,11 +184,30 @@ const schema = {
     },
     {
       "@type": "FAQPage",
+      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#faq",
       mainEntity: faqs.map((faq) => ({
         "@type": "Question",
         name: faq.q,
         acceptedAnswer: { "@type": "Answer", text: faq.a },
       })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://dmvtitleguy.io/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Title Search Fairfax VA",
+          item: "https://dmvtitleguy.io/title-search-fairfax-va",
+        },
+      ],
     },
   ],
 };
@@ -243,6 +289,30 @@ export default function TitleSearchFairfaxPage() {
                 <p className="text-brand-muted text-sm">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="container-xl max-w-5xl">
+          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Fairfax County Details</p>
+          <h2 className="prose-title mb-4">Local Title Search Details for Fairfax County</h2>
+          <p className="text-brand-muted text-lg mb-8 max-w-3xl">
+            A Fairfax VA title search should account for the way local records, recording fees, HOAs, condominiums, and new construction documents affect settlement and title insurance.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {fairfaxCountyDetails.map((item) => (
+              <div key={item.title} className="rounded-lg border border-gray-200 bg-brand-gray-bg p-5">
+                <h3 className="text-lg font-bold text-brand-navy mb-2">{item.title}</h3>
+                <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 rounded-lg border border-gray-200 p-5">
+            <h3 className="text-lg font-bold text-brand-navy mb-2">Fairfax title issues we watch closely</h3>
+            <p className="text-brand-muted leading-relaxed">
+              Fairfax transactions often involve mature subdivisions, active HOA and condo communities, townhome clusters, estate-owned properties, investor resales, and new construction or redevelopment files. Our review looks for recorded covenants, association liens, easements, access restrictions, unreleased trusts, judgment liens, tax matters, subdivision documents, and builder or entity authority issues before they disrupt closing.
+            </p>
           </div>
         </div>
       </section>
