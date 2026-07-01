@@ -584,10 +584,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     // ─── CTR-optimized overrides for high-impression pages ───
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Herndon VA Title Company | Fast Closings & Title Search | Pruitt Title",
-        description: "Order your title search online with Pruitt Title. Fast Herndon VA title closings, competitive rates, and 17+ years serving Fairfax County.",
-        ogTitle: "Herndon VA Title Company, Closings & Title Search | Pruitt Title",
-        ogDescription: "Order a Herndon title search online or start a closing with Pruitt Title. Fast turnarounds, competitive rates, and Fairfax County experience.",
+        title: "Herndon VA Title Closings, Insurance & Settlement Services | Pruitt Title",
+        description: "Herndon, VA title closings, Herndon, VA title services, Herndon, VA title insurance, Herndon, VA title company, and Herndon, VA closing services. Order your title search online with Pruitt Title.",
+        ogTitle: "Herndon VA Title Closings, Insurance & Settlement Services | Pruitt Title",
+        ogDescription: "Order a Herndon title search online or start a closing with Pruitt Title. Title insurance, settlement services, and Fairfax County closing support.",
       },
       "title-company-vienna-va": {
         title: "Vienna VA Title Company — Trusted Closings Since 2007 | DMV Title Guy",
@@ -761,7 +761,7 @@ function LocationPage({ location }: { location: Location }) {
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
               {slug === "title-company-herndon-va"
-                ? "Herndon VA Title Closings & Settlement Services"
+                ? "Herndon VA Title Closings"
                 : isTysons
                 ? "Tysons VA Title Closings & Settlement Services"
                 : slug === "title-company-bethesda-md"
@@ -771,7 +771,9 @@ function LocationPage({ location }: { location: Location }) {
                 : "Reliable Title & Settlement Services"}
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              {isNeighborhood && parentLocation
+              {slug === "title-company-herndon-va"
+                ? "Need title closings in Herndon? Pruitt Title handles Herndon title services, title insurance, escrow, settlement, and online title search orders for buyers, sellers, agents, lenders, and investors across Fairfax County."
+                : isNeighborhood && parentLocation
                 ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
                 : isSecondary
                 ? `Pruitt Title LLC — professional title insurance and closing services in ${locationName}. Residential, commercial, and all transaction types.`
