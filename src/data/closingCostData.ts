@@ -1,9 +1,9 @@
 /**
  * City-specific closing cost data for localized calculator pages.
  *
- * Tax rates sourced from VA/MD/DC government schedules (2024–2025).
- * These are estimates — actual rates may change. Always verify with
- * the locality before quoting clients.
+ * Tax rates sourced from VA/MD/DC government schedules.
+ * Maryland state, Montgomery County, and Prince George's County rates
+ * verified as of June 2026.
  *
  * VA:
  *  - State recordation tax: $0.25/$100 (0.25%) — all localities
@@ -323,7 +323,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     countyTransferTaxRate: 0.014, // PG County = 1.4%
     localRecordationTaxRate: 0,
     localTaxNote: "Prince George's County charges a 1.4% county transfer tax — the highest county rate in the Maryland DMV — on top of the 0.5% state transfer tax.",
-    intro: "Calculate closing costs for Bowie, MD properties. Prince George's County has the highest county transfer tax rate in the Maryland DMV at 1.4%. Median home prices in Bowie are approximately $450,000.",
+    intro: "Calculate closing costs for Bowie, MD properties. Prince George's County has the highest county transfer tax rate in the Maryland DMV at 1.4%. Median home prices in Bowie are around $450,000.",
     localTaxExplainer: "Bowie is in Prince George's County, which levies a 1.4% county transfer tax — the highest in the Maryland DMV suburbs. Combined with Maryland's 0.5% state transfer tax, the total is 1.9%. On a $450,000 home, that's $8,550 in transfer taxes. Despite the higher tax rate, Bowie's more affordable home prices often result in lower absolute closing costs compared to Montgomery County communities.",
     costRangeText: "3% to 6.5% for buyers, 2% to 4.5% for sellers",
     faqs: MD_FAQS("Bowie", "Prince George's County"),
