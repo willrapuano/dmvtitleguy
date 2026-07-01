@@ -5,6 +5,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 export const metadata: Metadata = {
   title: "Title Company Services for Realtors | DMV Title Guy",
   description: "DMVTitleGuy provides fast, reliable title services tailored specifically for real estate professionals in Northern Virginia, DC, and Maryland.",
+  alternates: { canonical: "https://dmvtitleguy.io/title-company-for-realtors" },
 };
 
 export default function RealtorsPage() {

@@ -5,6 +5,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 export const metadata: Metadata = {
   title: "Title Company Services for Credit Unions | DMV Title Guy",
   description: "DMVTitleGuy provides title services for credit unions in Northern Virginia, DC, and Maryland. Understanding of CU processes.",
+  alternates: { canonical: "https://dmvtitleguy.io/title-company-for-credit-unions" },
 };
 
 export default function CreditUnionsPage() {

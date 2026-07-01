@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Contract Analyzer | DMV Title Guy",
   description:
     "AI-powered real estate contract compliance checker for NVAR, GCAAR, and MAR contracts.",
+  alternates: { canonical: "https://dmvtitleguy.io/agent-tools/contract-analyzer" },
 };
 
 export default async function ContractAnalyzerPage() {

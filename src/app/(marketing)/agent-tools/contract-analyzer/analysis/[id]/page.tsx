@@ -5,10 +5,13 @@ import type { Metadata } from "next";
 import type { SectionStatus } from "@/lib/contract-analyzer/types";
 import { CheckCircle, XCircle, AlertTriangle, Info, ArrowLeft } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Contract Analysis | DMV Title Guy",
-  robots: { index: false, follow: false },
-};
+export function generateMetadata({ params }: { params: { id: string } }): Metadata {
+  return {
+    title: "Contract Analysis | DMV Title Guy",
+    robots: { index: false, follow: false },
+    alternates: { canonical: `https://dmvtitleguy.io/agent-tools/contract-analyzer/analysis/${params.id}` },
+  };
+}
 import Link from "next/link";
 
 const severityConfig = {

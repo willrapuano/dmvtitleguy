@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | DMV Title Guy",
   robots: { index: false },
+  alternates: { canonical: "https://dmvtitleguy.io/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

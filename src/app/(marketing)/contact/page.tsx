@@ -5,6 +5,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 export const metadata: Metadata = {
   title: "Contact DMV Title Guy | Pruitt Title LLC",
   description: "Contact DMV Title Guy for title insurance and closing services in Northern Virginia, DC, and Maryland. Call (703) 859-1467.",
+  alternates: { canonical: "https://dmvtitleguy.io/contact" },
 };
 
 export default function ContactPage() {

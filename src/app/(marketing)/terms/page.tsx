@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Terms of Service | DMV Title Guy", robots: { index: false } };
+export const metadata: Metadata = {
+  title: "Terms of Service | DMV Title Guy",
+  robots: { index: false },
+  alternates: { canonical: "https://dmvtitleguy.io/terms" },
+};
 export default function TermsPage() {
   return (
     <section className="section-light min-h-[60vh]">
