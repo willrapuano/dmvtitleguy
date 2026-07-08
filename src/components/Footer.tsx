@@ -82,6 +82,9 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-3">Quick Links</h3>
             <ul className="space-y-1 text-sm text-gray-300">
               <li><Link href="/title-insurance" className="hover:text-brand-blue transition-colors">Title Insurance</Link></li>
+              <li><Link href="/investor-title-services" className="hover:text-brand-blue transition-colors">Investor Title Services</Link></li>
+              <li><Link href="/auction-property-title-search" className="hover:text-brand-blue transition-colors">Auction Property Title Search</Link></li>
+              <li><Link href="/foreclosure-title-review" className="hover:text-brand-blue transition-colors">Foreclosure Title Review</Link></li>
               <li><Link href="/why-choose-us" className="hover:text-brand-blue transition-colors">Why Pruitt Title?</Link></li>
               <li><Link href="/my-classes" className="hover:text-brand-blue transition-colors">My Classes</Link></li>
               <li><Link href="/my-blog" className="hover:text-brand-blue transition-colors">My Blog</Link></li>
