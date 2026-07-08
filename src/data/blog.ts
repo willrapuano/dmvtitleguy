@@ -11,6 +11,16 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "title-insurance-cost-virginia-maryland",
+    title: "Title Insurance Costs in Virginia and Maryland: What Buyers Actually Pay at Closing",
+    date: "March 25, 2026",
+    dateISO: "2026-03-25",
+    excerpt: "How much does title insurance cost in Virginia, Maryland, and DC? Here's what buyers actually pay at closing, including owner's policies, lender's policies, rate formulas, and local title company considerations.",
+    category: "Title Insurance",
+    readTime: "7 min read",
+    image: "/blog/how-much-does-title-insurance-cost.png",
+  },
+  {
     slug: "lenders-title-insurance-vs-owners-title-insurance",
     title: "Lender's vs Owner's Title Insurance: What's the Difference?",
     date: "March 17, 2026",

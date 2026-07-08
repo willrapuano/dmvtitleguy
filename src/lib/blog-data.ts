@@ -7,6 +7,10 @@ import { BlogPost, BLOG_POSTS, PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { getAllPosts, getPostBySlug, getAllPostSlugs, SanityBlogPost } from "./sanity-queries";
 import { getBlogContent, getMarkdownBlogSlugs } from "./blog-content";
 
+const LOCAL_MARKDOWN_BODY_OVERRIDES = new Set([
+  "title-insurance-cost-virginia-maryland",
+]);
+
 function normalizeCategory(category?: string | null, slug?: string): string {
   const value = (category || "").trim();
 
@@ -109,17 +113,17 @@ export async function fetchBlogPostBySlug(slug: string): Promise<{
   markdownContent: string | null;
 }> {
   const sanityPost = await getPostBySlug(slug);
+  const markdownContent = getBlogContent(slug);
 
   if (sanityPost) {
     return {
       post: mapSanityPost(sanityPost),
-      portableTextBody: sanityPost.body || null,
-      markdownContent: null,
+      portableTextBody: LOCAL_MARKDOWN_BODY_OVERRIDES.has(slug) ? null : sanityPost.body || null,
+      markdownContent: LOCAL_MARKDOWN_BODY_OVERRIDES.has(slug) ? markdownContent : null,
     };
   }
 
   const post = BLOG_POSTS.find((p) => p.slug === slug) ?? null;
-  const markdownContent = getBlogContent(slug);
 
   return {
     post: post ? { ...post, category: normalizeCategory(post.category, post.slug) } : null,
