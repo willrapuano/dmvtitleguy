@@ -422,6 +422,88 @@ const BLOG_SEO_OVERRIDES: Record<string, { title: string; description: string; c
   },
 };
 
+const DMV_TITLE_SERVICES_POST_SLUG = "title-insurance-cost-virginia-maryland";
+
+const dmvTitleServiceLinks = [
+  {
+    href: "/title-company-washington-dc",
+    label: "Washington DC Title & Settlement Services",
+    description: "Escrow, title insurance, and closing support in the District",
+  },
+  {
+    href: "/title-company-bethesda-md",
+    label: "Bethesda, MD Title Company",
+    description: "Montgomery County title and settlement services",
+  },
+  {
+    href: "/title-company-fredericksburg-va",
+    label: "Fredericksburg, VA Title Services",
+    description: "Closing support for Fredericksburg and the I-95 corridor",
+  },
+  {
+    href: "/title-company-stafford-va",
+    label: "Stafford, VA Title Company",
+    description: "Northern Virginia title services south of Quantico",
+  },
+  {
+    href: "/maryland-closing-cost-calculator",
+    label: "Maryland Closing Cost Calculator",
+    description: "Estimate what buyers and sellers pay in MD",
+  },
+];
+
+function RelatedLocalTitleServices() {
+  return (
+    <section className="mt-10 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
+      <h2 className="text-2xl font-bold text-brand-navy mb-3">
+        Serving Buyers Across the DMV
+      </h2>
+      <p className="text-gray-700 leading-relaxed mb-5">
+        Need title insurance or settlement services near you? Pruitt Title serves buyers, realtors, and lenders across Virginia, Maryland, and Washington DC.
+      </p>
+      <ul className="space-y-3 mb-6">
+        {dmvTitleServiceLinks.map((link) => (
+          <li key={link.href} className="text-gray-700 leading-relaxed">
+            <Link href={link.href} className="font-semibold text-brand-blue hover:underline">
+              {link.label}
+            </Link>
+            <span className="text-gray-500"> - {link.description}</span>
+          </li>
+        ))}
+      </ul>
+      <Link
+        href="/calculators/title-quote"
+        className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+      >
+        Get a Title Quote →
+      </Link>
+    </section>
+  );
+}
+
+function DmvTitleServicesFooterLinks() {
+  return (
+    <p className="mb-4 leading-relaxed">
+      <strong className="font-semibold text-gray-900">DMV title services:</strong>{" "}
+      <Link href="/title-company-vienna-va" className="text-brand-blue hover:underline">
+        Vienna, VA
+      </Link>
+      {" | "}
+      <Link href="/title-company-springfield-va" className="text-brand-blue hover:underline">
+        Springfield, VA
+      </Link>
+      {" | "}
+      <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
+        Bethesda, MD
+      </Link>
+      {" | "}
+      <Link href="/title-company-washington-dc" className="text-brand-blue hover:underline">
+        Washington, DC
+      </Link>
+    </p>
+  );
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -481,6 +563,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const toc = extractTOC(bodyContent);
 
   const isViennaTitleCompanyPost = post.slug === "title-company-vienna-va";
+  const showDmvTitleServices = post.slug === DMV_TITLE_SERVICES_POST_SLUG;
   const canonicalPath = isViennaTitleCompanyPost
     ? "/title-search-vienna-va"
     : `/blog/${post.slug}`;
@@ -825,6 +908,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         normal: ({ children, value }: any) => {
                           const text = value?.children?.map((c: any) => c.text ?? "").join("").trim() ?? "";
+                          if (showDmvTitleServices && /^DMV title services:/i.test(text)) {
+                            return <DmvTitleServicesFooterLinks />;
+                          }
                           // Render --- as hr
                           if (/^[-—\s]{3,}$/.test(text)) {
                             return <hr className="my-8 border-t border-gray-200" />;
@@ -904,6 +990,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               {faqs.length > 0 && (
                 <FAQSection faqs={faqs} includeSchema={false} />
               )}
+
+              {showDmvTitleServices && <RelatedLocalTitleServices />}
 
               {/* ─── CTA Section ─── */}
               <div className="mt-14 bg-brand-navy rounded-2xl p-8 text-center">
