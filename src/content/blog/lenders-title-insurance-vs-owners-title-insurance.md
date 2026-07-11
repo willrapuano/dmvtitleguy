@@ -94,7 +94,7 @@ If you're financing your home purchase — which is most buyers — you'll be pa
 
 The answer is almost always yes. Here's why: the two policies are frequently issued simultaneously, which means you get a **simultaneous issue discount**. Instead of paying full price for each, the owner's policy premium is significantly reduced when purchased alongside the lender's policy at closing.
 
-In Virginia, for example, a lender's policy on a $500,000 loan might cost around $1,200. An owner's policy on the same transaction, purchased simultaneously, might add only $400–$600 more. For lifetime protection on what's likely your largest asset, that's a reasonable trade. Buyers closing in [Springfield](/title-company-springfield-va), [Vienna](/title-company-vienna-va), or anywhere across Fairfax County can request a detailed quote from us before they write their offer.
+In Virginia, for example, a lender's policy on a $500,000 loan might cost around $1,200. An owner's policy on the same transaction, purchased simultaneously, might add only $400–$600 more. For lifetime protection on what's likely your largest asset, that's a reasonable trade. Buyers closing in [Springfield](/title-company-springfield-va), [Vienna](/title-search-vienna-va), or anywhere across Fairfax County can request a detailed quote from us before they write their offer.
 
 Cash buyers who skip the lender's policy altogether still benefit from an owner's policy — and since there's no simultaneous issue discount available, they're paying full rate. Worth it anyway.
 

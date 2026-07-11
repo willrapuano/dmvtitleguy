@@ -149,7 +149,7 @@ The math is straightforward. What isn't straightforward is knowing who to call w
 
 That's the part that matters more than the premium.
 
-For local title service pages, see [Vienna title company services](/title-company-vienna-va), [Springfield title company services](/title-company-springfield-va), [Bethesda title company services](/title-company-bethesda-md), and [Washington DC title company services](/title-company-washington-dc).
+For local title service pages, see [Vienna title company services](/title-search-vienna-va), [Springfield title company services](/title-company-springfield-va), [Bethesda title company services](/title-company-bethesda-md), and [Washington DC title company services](/title-company-washington-dc).
 
 ---
 

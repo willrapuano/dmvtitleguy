@@ -3,7 +3,7 @@ import { createClient } from '@sanity/client';
 const client = createClient({
   projectId: '4s0dloxi',
   dataset: 'production',
-  token: 'sklGfROOV2NI8wOfagZwiVdikevZTrVXth3YyKW3pLvTLqpFlpDgQyBMU9L30MJKk72WX6cMYTUpOO4X4',
+  token: process.env.SANITY_API_TOKEN,
   useCdn: false,
   apiVersion: '2024-01-01',
 });

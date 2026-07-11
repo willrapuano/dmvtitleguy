@@ -32,9 +32,9 @@ export const TIER1_LOCATIONS: Location[] = [
   { city: "Washington DC",    slug: "title-company-washington-dc",    state: "DC", county: "—",                              tier: 1 },
   { city: "Arlington",        slug: "title-company-arlington-va",     state: "VA", county: "Arlington County",               tier: 1 },
   { city: "Alexandria",       slug: "title-company-alexandria-va",    state: "VA", county: "Alexandria (independent city)",  tier: 1 },
-  { city: "Fairfax",          slug: "title-company-fairfax-va",       state: "VA", county: "Fairfax County",                 tier: 1 },
+  { city: "Fairfax",          slug: "title-search-fairfax-va",       state: "VA", county: "Fairfax County",                 tier: 1 },
   { city: "McLean",           slug: "title-company-mclean-va",        state: "VA", county: "Fairfax County",                 tier: 1 },
-  { city: "Vienna",           slug: "title-company-vienna-va",        state: "VA", county: "Fairfax County",                 tier: 1, alsoServing: ["Oakton"], faqs: [
+  { city: "Vienna",           slug: "title-search-vienna-va",        state: "VA", county: "Fairfax County",                 tier: 1, alsoServing: ["Oakton"], faqs: [
       { question: "What does a title company do in Vienna, VA?", answer: "A title company in Vienna performs the title search, issues title insurance, manages escrow funds, and conducts the closing settlement — ensuring the property transfers cleanly from seller to buyer." },
       { question: "How long does the closing process take in Northern Virginia?", answer: "Most closings in Northern Virginia take 30–45 days from contract to settlement. The timeline depends on your lender's underwriting speed, any title issues discovered during the search, and the closing date set in your purchase contract." },
       { question: "Do I need owner's title insurance in Virginia?", answer: "Owner's title insurance is optional but strongly recommended. It protects you against hidden title defects, forged documents, unpaid liens, and errors in public records — for a one-time premium paid at closing." },

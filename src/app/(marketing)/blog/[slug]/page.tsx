@@ -28,7 +28,7 @@ const STATIC_VALID_PATHS = new Set([
   "/subscribe",
   "/contact",
   "/title-company/arlington-va",
-  "/title-company/fairfax-va",
+  "/title-search-fairfax-va",
   "/title-company-bethesda-md",
   "/title-company/alexandria-va",
   "/title-company/falls-church-va",
@@ -46,7 +46,7 @@ const VALID_INTERNAL_PATHS = new Set([
 
 const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "lenders-title-insurance-vs-owners-title-insurance": [
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
@@ -67,11 +67,11 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "closing-costs-in-virginia-2026": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "title-companies-in-northern-virginia": [
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
     { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
   ],
@@ -82,7 +82,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "how-to-choose-right-title-company-dmv": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "closing-costs-dmv-buyers-sellers": [
@@ -98,11 +98,11 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "title-companies-new-construction": [
     { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
     { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
   ],
   "title-insurance-real-estate-lenders-dmv": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
   "first-time-homebuyer-guide-dmv": [
@@ -112,7 +112,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "understanding-wire-fraud-real-estate": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
   "commercial-real-estate-title-insurance": [
@@ -122,13 +122,13 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "property-deeds-types-explained": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "working-with-builders-title-perspective": [
     { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
     { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
   ],
   "using-zillow-traffic-data-to-close-more-deals": [
     { label: "VA Closing Cost Calculator", href: "/virginia-closing-cost-calculator" },
@@ -198,7 +198,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "closing-costs-virginia": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "escrow-companies-near-me-dmv": [
@@ -208,7 +208,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "what-happens-at-closing": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "what-happens-at-closing-real-estate": [
@@ -228,7 +228,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "homeowner-title-insurance": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "owners-policy-vs-lenders-policy": [
@@ -238,7 +238,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "title-search-refinance": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "settlement-closing-fee": [
@@ -264,26 +264,26 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "net-sheet-calculator-dmv": [
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
   ],
   "closing-protection-letter": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
   "how-to-choose-a-title-company-in-virginia-maryland-or-dc": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "title-company-northern-virginia": [
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
     { label: "Get a Title Quote in Prince William County", href: "/title-company/prince-william-county-va" },
   ],
   "title-insurance-cost-virginia": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "what-is-lenders-title-insurance": [
@@ -293,7 +293,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "title-and-settlement-services": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "real-estate-closing-companies-near-me": [
@@ -302,13 +302,13 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
   ],
   "virginia-real-estate-contract": [
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
   ],
   "title-company-for-realtors": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Bethesda", href: "/title-company-bethesda-md" },
   ],
   "title-insurance-enhanced-vs-standard": [
@@ -323,17 +323,17 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "how-to-read-a-title-commitment": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "seller-net-sheet": [
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
     { label: "Compare DC Closing Costs", href: "/closing-costs/dc" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
   ],
   "who-chooses-the-title-company-in-virginia": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Get a Title Quote in Loudoun County", href: "/title-company/loudoun-county-va" },
   ],
   "enhanced-title-insurance-vs-standard": [
@@ -343,7 +343,7 @@ const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   ],
   "title-search-vs-title-insurance": [
     { label: "Get a Title Quote in Arlington", href: "/title-company/arlington-va" },
-    { label: "Get a Title Quote in Fairfax", href: "/title-company/fairfax-va" },
+    { label: "Get a Title Quote in Fairfax", href: "/title-search-fairfax-va" },
     { label: "Compare Maryland Closing Costs", href: "/closing-costs/maryland" },
   ],
   "title-insurance-claims-process": [
@@ -485,7 +485,7 @@ function DmvTitleServicesFooterLinks() {
   return (
     <p className="mb-4 leading-relaxed">
       <strong className="font-semibold text-gray-900">DMV title services:</strong>{" "}
-      <Link href="/title-company-vienna-va" className="text-brand-blue hover:underline">
+      <Link href="/title-search-vienna-va" className="text-brand-blue hover:underline">
         Vienna, VA
       </Link>
       {" | "}
@@ -524,7 +524,7 @@ export async function generateMetadata({
 
   const canonical =
     seoOverride?.canonical ||
-    (post.slug === "title-company-vienna-va"
+    (post.slug === "title-search-vienna-va"
       ? "/title-search-vienna-va"
       : `/blog/${post.slug}`);
 
@@ -562,7 +562,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   const toc = extractTOC(bodyContent);
 
-  const isViennaTitleCompanyPost = post.slug === "title-company-vienna-va";
+  const isViennaTitleCompanyPost = post.slug === "title-search-vienna-va";
   const showDmvTitleServices = post.slug === DMV_TITLE_SERVICES_POST_SLUG;
   const canonicalPath = isViennaTitleCompanyPost
     ? "/title-search-vienna-va"

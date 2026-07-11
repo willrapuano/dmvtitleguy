@@ -99,7 +99,7 @@ If a title company can't articulate their wire fraud prevention process in 30 se
 ## Northern Virginia Title Market: County by County
 
 ### Fairfax County
-The largest and most active title market in NoVA. High transaction volume, mature neighborhoods with complex title histories, and a competitive title company landscape. Expect settlement fees in the $500–$795 range. Multiple large and boutique title companies operate here — serving communities like [Vienna](/title-company-vienna-va), [Herndon](/title-company-herndon-va), and [Springfield](/title-company-springfield-va).
+The largest and most active title market in NoVA. High transaction volume, mature neighborhoods with complex title histories, and a competitive title company landscape. Expect settlement fees in the $500–$795 range. Multiple large and boutique title companies operate here — serving communities like [Vienna](/title-search-vienna-va), [Herndon](/title-company-herndon-va), and [Springfield](/title-company-springfield-va).
 
 ### Loudoun County
 Fastest-growing county in NoVA. Heavy new construction volume means cleaner title work but more builder-related coordination. Settlement fees typically $450–$695. Title companies here need builder department expertise.

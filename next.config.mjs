@@ -134,6 +134,26 @@ const nextConfig = {
         destination: '/blog/first-time-homebuyer-guide-dmv',
         permanent: true,
       },
+      {
+        source: '/title-company/herndon',
+        destination: '/title-company-herndon-va',
+        permanent: true,
+      },
+      {
+        source: '/closing-cost-calculator-maryland',
+        destination: '/maryland-closing-cost-calculator',
+        permanent: true,
+      },
+      {
+        source: '/title-company-vienna-va',
+        destination: '/title-search-vienna-va',
+        permanent: true,
+      },
+      {
+        source: '/title-company-fairfax-va',
+        destination: '/title-search-fairfax-va',
+        permanent: true,
+      },
     ];
   },
   typescript: {

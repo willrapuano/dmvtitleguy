@@ -29,14 +29,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/title-search-vienna-va`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/title-search-fairfax-va`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
 
-  const locationPages: MetadataRoute.Sitemap = ALL_LOCATIONS.map((loc) => ({
-    url: `${BASE_URL}/${loc.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: loc.tier === 1 ? 0.9 : 0.7,
-  }));
+  const locationPages: MetadataRoute.Sitemap = ALL_LOCATIONS
+    .filter((loc) => !['title-company-vienna-va', 'title-company-fairfax-va'].includes(loc.slug))
+    .map((loc) => ({
+      url: `${BASE_URL}/${loc.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: loc.tier === 1 ? 0.9 : 0.7,
+    }));
 
   const countyPages: MetadataRoute.Sitemap = COUNTIES.map((county) => ({
     url: `${BASE_URL}/${county.slug}`,

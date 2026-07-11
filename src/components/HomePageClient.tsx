@@ -71,10 +71,10 @@ const SERVICE_AREAS: ServiceAreaColumn[] = [
       {
         heading: "Fairfax County, VA",
         links: [
-          { label: "Fairfax, VA", href: "/title-company-fairfax-va" },
+          { label: "Fairfax, VA", href: "/title-search-fairfax-va" },
           { label: "Falls Church, VA", href: "/title-company-falls-church-va" },
           { label: "McLean, VA", href: "/title-company-mclean-va" },
-          { label: "Vienna, VA", href: "/title-company-vienna-va" },
+          { label: "Vienna, VA", href: "/title-search-vienna-va" },
           { label: "Reston, VA", href: "/title-company-reston-va" },
           { label: "Herndon, VA", href: "/title-company-herndon-va" },
           { label: "Great Falls, VA", href: "/title-company-great-falls-va" },

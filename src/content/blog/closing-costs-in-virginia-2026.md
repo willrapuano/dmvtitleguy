@@ -25,7 +25,7 @@ You've negotiated the price. You've survived the inspection. The appraisal came 
 
 Welcome to closing costs in Virginia.
 
-Most buyers budget 2–5% of the purchase price for closing costs — but that range is so wide it's almost useless. Whether you're buying a $450K townhouse in Woodbridge or an $850K single-family in [Vienna](/title-company-vienna-va), the actual dollars vary significantly depending on your lender, your loan type, the county you're buying in, and the title company you choose.
+Most buyers budget 2–5% of the purchase price for closing costs — but that range is so wide it's almost useless. Whether you're buying a $450K townhouse in Woodbridge or an $850K single-family in [Vienna](/title-search-vienna-va), the actual dollars vary significantly depending on your lender, your loan type, the county you're buying in, and the title company you choose.
 
 This guide breaks down every major closing cost line item Virginia buyers and sellers face in 2026, with real dollar ranges from the DMV market.
 

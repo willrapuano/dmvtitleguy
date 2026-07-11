@@ -7,7 +7,8 @@
     "build": "prisma generate && next build",
     "postinstall": "prisma generate",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",

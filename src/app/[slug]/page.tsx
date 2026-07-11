@@ -97,7 +97,7 @@ const TYSONS_FAQS: FaqItem[] = [
 
 const FAIRFAX_TITLE_SEARCH_LINK_SLUGS = new Set([
   "title-company-herndon-va",
-  "title-company-vienna-va",
+  "title-search-vienna-va",
   "title-company-stafford-va",
   "title-company-woodbridge-va",
 ]);
@@ -589,7 +589,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogTitle: "Herndon VA Title Closings, Insurance & Settlement Services | Pruitt Title",
         ogDescription: "Order a Herndon title search online or start a closing with Pruitt Title. Title insurance, settlement services, and Fairfax County closing support.",
       },
-      "title-company-vienna-va": {
+      "title-search-vienna-va": {
         title: "Vienna VA Title Company — Trusted Closings Since 2007 | DMV Title Guy",
         description: "Vienna, VA's trusted title settlement company for residential & commercial closings. 17+ years serving Fairfax County. Free title quote: (703) 859-1467.",
         ogTitle: "Vienna VA Title Settlement Company | DMV Title Guy",
