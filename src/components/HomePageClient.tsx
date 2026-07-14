@@ -439,15 +439,15 @@ export function HomePageClient() {
       {/* ── SECTION 9: WILL / TRUST BUILDER ─────────────────────── */}
       <section className="section-light">
         <div className="container-xl max-w-3xl text-center">
-          <h2 className="prose-title mb-2">Meet Will: The Face Behind DMV Title Guy</h2>
+          <h2 className="prose-title mb-2">Meet Will Rapuano — Your Local Title Partner in VA, MD & DC</h2>
           <p className="text-brand-blue font-semibold mb-6">Pruitt Title LLC</p>
           <div className="accent-divider" />
           <div className="text-brand-muted leading-relaxed space-y-4 mb-8 text-left">
             <p>
-              Will Rapuano isn&apos;t just a name on a business card—he&apos;s the person you call when you want to close more deals and keep your clients coming back. Based in Vienna, VA, Will works with real estate agents and lenders across Virginia, Maryland, and DC.
+              Will Rapuano is the driving force behind DMV Title Guy, bringing a personal touch to every transaction. As your go-to title partner in Virginia, Maryland, and Washington DC, Will focuses on building relationships—not just processing paperwork. Whether you're a real estate agent or a lender, you’ll appreciate his straightforward approach and commitment to making closings seamless.
             </p>
             <p>
-              He knows that smooth closings mean happier clients, more referrals, and repeat business for you. That&apos;s why he focuses on the details that matter: clear communication, no surprises at the table, and a team that actually answers the phone. No corporate runaround. Just a title partner who treats your business like it&apos;s his own.
+              Need a title partner you can count on? Reach out directly for a quote or to open a title.
             </p>
           </div>
           <div className="text-brand-muted text-sm space-y-2 mb-8">
