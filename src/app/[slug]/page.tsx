@@ -584,10 +584,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     // ─── CTR-optimized overrides for high-impression pages ───
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Herndon VA Title Closings, Insurance & Settlement Services | Pruitt Title",
-        description: "Herndon, VA title closings, Herndon, VA title services, Herndon, VA title insurance, Herndon, VA title company, and Herndon, VA closing services. Order your title search online with Pruitt Title.",
-        ogTitle: "Herndon VA Title Closings, Insurance & Settlement Services | Pruitt Title",
-        ogDescription: "Order a Herndon title search online or start a closing with Pruitt Title. Title insurance, settlement services, and Fairfax County closing support.",
+        title: "Herndon VA Title Company | Fast Closings & Online Quotes | Pruitt Title",
+        description: "Need a title company in Herndon, VA? We offer fast, reliable settlement services and title insurance for buyers, sellers, and realtors. Get your free title quote online in minutes.",
+        ogTitle: "Herndon VA Title Company | Fast Closings & Online Quotes | Pruitt Title",
+        ogDescription: "Fast, reliable settlement services and title insurance for Herndon buyers, sellers, and realtors. Get your free title quote online in minutes.",
       },
       "title-search-vienna-va": {
         title: "Vienna VA Title Company — Trusted Closings Since 2007 | DMV Title Guy",
@@ -602,10 +602,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogDescription: "Title search, escrow, title insurance, and settlement services for Tysons Corner, McLean, and Fairfax County transactions.",
       },
       "title-company-bethesda-md": {
-        title: "title company bethesda-chevy chase md | Pruitt Title",
-        description: "Bethesda title company for escrow, title insurance, and closings, serving Montgomery County and Chevy Chase. Request a fast Pruitt Title quote.",
-        ogTitle: "Bethesda-Chevy Chase MD Title Company & Escrow | Pruitt Title",
-        ogDescription: "Title search, escrow, settlement, and title insurance services across Bethesda-Chevy Chase and Montgomery County.",
+        title: "Bethesda MD Title Company | Settlement & Escrow Services | Pruitt Title",
+        description: "Need a title company in Bethesda, MD? We offer fast, reliable settlement, escrow, and title insurance services for buyers, sellers, and realtors. Get your free title quote online in minutes.",
+        ogTitle: "Bethesda MD Title Company | Settlement & Escrow Services | Pruitt Title",
+        ogDescription: "Fast, reliable settlement, escrow, and title insurance services across Bethesda-Chevy Chase and Montgomery County. Free title quote in minutes.",
       },
       "title-company-reston-va": {
         title: "title company reston va Closing Services | Pruitt Title",
