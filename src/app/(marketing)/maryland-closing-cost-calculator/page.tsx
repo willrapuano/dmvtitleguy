@@ -491,10 +491,10 @@ export default function MarylandCalculatorPage() {
                 settlement fees, and any HOA or condo documentation costs.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/title-company-montgomery-county-md" className="text-sm font-semibold text-brand-blue hover:underline">Montgomery County title company</Link>
-                <Link href="/title-company-bethesda-md" className="text-sm font-semibold text-brand-blue hover:underline">Bethesda title company</Link>
-                <Link href="/title-company-rockville-md" className="text-sm font-semibold text-brand-blue hover:underline">Rockville title company</Link>
-                <Link href="/title-company-silver-spring-md" className="text-sm font-semibold text-brand-blue hover:underline">Silver Spring title company</Link>
+                <Link href="/title-company-montgomery-county-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Montgomery County title company</Link>
+                <Link href="/title-company-bethesda-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bethesda title company</Link>
+                <Link href="/title-company-rockville-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Rockville title company</Link>
+                <Link href="/title-company-silver-spring-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Silver Spring title company</Link>
               </div>
             </div>
           </div>
@@ -512,9 +512,9 @@ export default function MarylandCalculatorPage() {
                 inputs rather than relying on Montgomery County or statewide assumptions.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/title-company-prince-georges-county-md" className="text-sm font-semibold text-brand-blue hover:underline">Prince George&apos;s County title company</Link>
-                <Link href="/title-company-bowie-md" className="text-sm font-semibold text-brand-blue hover:underline">Bowie title company</Link>
-                <Link href="/closing-costs-bowie-md" className="text-sm font-semibold text-brand-blue hover:underline">Bowie closing cost calculator</Link>
+                <Link href="/title-company-prince-georges-county-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Prince George&apos;s County title company</Link>
+                <Link href="/title-company-bowie-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bowie title company</Link>
+                <Link href="/closing-costs-bowie-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bowie closing cost calculator</Link>
               </div>
             </div>
           </div>
@@ -528,7 +528,7 @@ export default function MarylandCalculatorPage() {
                   <p className="text-sm leading-relaxed text-brand-muted mb-4">{item.copy}</p>
                   <div className="space-y-2">
                     {item.links.map((link) => (
-                      <Link key={link.href} href={link.href} className="block text-sm font-semibold text-brand-blue hover:underline">
+                      <Link key={link.href} href={link.href} className="block text-sm font-semibold text-brand-blue-deep hover:underline">
                         {link.label}
                       </Link>
                     ))}
@@ -566,8 +566,8 @@ export default function MarylandCalculatorPage() {
                 loan amount, policy type, and whether simultaneous issue pricing applies.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/title-insurance" className="text-sm font-semibold text-brand-blue hover:underline">Learn about title insurance</Link>
-                <Link href="/calculators/title-quote" className="text-sm font-semibold text-brand-blue hover:underline">Get a title insurance quote</Link>
+                <Link href="/title-insurance" className="text-sm font-semibold text-brand-blue-deep hover:underline">Learn about title insurance</Link>
+                <Link href="/calculators/title-quote" className="text-sm font-semibold text-brand-blue-deep hover:underline">Get a title insurance quote</Link>
               </div>
             </div>
           </div>
@@ -584,7 +584,7 @@ export default function MarylandCalculatorPage() {
                 <Link
                   key={resource.href}
                   href={resource.href}
-                  className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-brand-blue hover:border-brand-blue transition-colors"
+                  className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-brand-blue-deep hover:border-brand-blue-deep transition-colors"
                 >
                   {resource.label}
                 </Link>
@@ -599,7 +599,7 @@ export default function MarylandCalculatorPage() {
           <h2 className="text-xl font-bold text-brand-navy mb-6">Maryland Markets We Serve</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {MD_LOCATIONS.map((l) => (
-              <Link key={l.slug} href={`/${l.slug}`} className="text-sm text-brand-blue border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors">
+              <Link key={l.slug} href={`/${l.slug}`} className="text-sm text-brand-blue-deep border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors">
                 {l.city}, MD
               </Link>
             ))}

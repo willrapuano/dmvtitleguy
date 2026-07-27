@@ -103,12 +103,12 @@ export function WhyChooseUsClient() {
                   className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="bg-brand-blue text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
+                    <span className="bg-brand-action text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
                       {i + 1}
                     </span>
                     <span className="font-bold text-brand-navy">{item.title}</span>
                   </div>
-                  <span className={`text-brand-blue text-lg transition-transform duration-200 flex-shrink-0 ml-4 ${openItem === i ? "rotate-180" : ""}`}>
+                  <span className={`text-brand-blue-deep text-lg transition-transform duration-200 flex-shrink-0 ml-4 ${openItem === i ? "rotate-180" : ""}`}>
                     ▾
                   </span>
                 </button>
@@ -159,7 +159,7 @@ export function WhyChooseUsClient() {
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-3 mt-10">
             {REASONS_FOR_TITLE_INSURANCE.map((reason, i) => (
               <div key={i} className="flex items-start gap-3 py-2">
-                <span className="bg-brand-blue text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                <span className="bg-brand-action text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 <span className="text-brand-muted text-sm leading-relaxed">{reason}</span>
@@ -177,7 +177,7 @@ export function WhyChooseUsClient() {
             Contact Will Rapuano at Pruitt Title LLC for a title insurance quote or to open your order today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
               Get a Quote
             </Link>
             <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-blue px-8 py-3.5">

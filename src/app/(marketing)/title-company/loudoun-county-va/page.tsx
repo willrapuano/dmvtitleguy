@@ -70,7 +70,7 @@ export default function LoudounCountyTitlePage() {
       <ClosingCostCalculator state="VA" />
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
           <p className="text-lg font-medium">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Loudoun County's median home price is ~$775K with homes moving in about 10 days. In a market this fast and this expensive, a delayed title search can cost buyers their dream home. We turn Loudoun title reports around in 48 hours.
@@ -156,34 +156,34 @@ export default function LoudounCountyTitlePage() {
         <div className="container-xl">
           <h2 className="text-xl font-bold text-brand-navy mb-6">Related Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs Guide →
             </Link>
-            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
-            <Link href="/title-company/prince-william-county-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/prince-william-county-va" className="text-brand-blue-deep hover:underline">
               Prince William County Title Services →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/alexandria-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
-            <Link href="/closing-costs/maryland" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
           </div>
@@ -205,7 +205,7 @@ export default function LoudounCountyTitlePage() {
             Contact us for a competitive title insurance quote for your Loudoun County property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/virginia-closing-cost-calculator" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/virginia-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Get a Quote →
             </Link>
             <a href="tel:+15714744000" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

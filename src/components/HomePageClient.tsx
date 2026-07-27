@@ -282,7 +282,7 @@ export function HomePageClient() {
               >
                 <h3 className="font-bold text-brand-navy text-lg mb-2">{item.label}</h3>
                 <p className="text-brand-muted text-sm leading-relaxed">{item.detail}</p>
-                <p className="mt-3 text-brand-blue text-xs font-semibold">Go to page →</p>
+                <p className="mt-3 text-brand-blue-deep text-xs font-semibold">Go to page →</p>
               </Link>
             ))}
           </div>
@@ -303,7 +303,7 @@ export function HomePageClient() {
                   <div className="text-3xl mb-3">{item.icon}</div>
                   <h3 className="font-bold text-brand-navy text-base mb-2">{item.role}</h3>
                   <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
-                  {item.href && <p className="mt-3 text-brand-blue text-xs font-semibold">Learn more →</p>}
+                  {item.href && <p className="mt-3 text-brand-blue-deep text-xs font-semibold">Learn more →</p>}
                 </>
               );
               return item.href ? (
@@ -337,7 +337,7 @@ export function HomePageClient() {
             Start with a title quote, open title for an active transaction, or contact the team for purchase, refinance, and builder closings across the DMV.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
               Get a Title Quote →
             </Link>
             <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-8 py-3.5">
@@ -361,7 +361,7 @@ export function HomePageClient() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue text-2xl">🏠</span>
+                <span className="text-brand-blue-deep text-2xl">🏠</span>
               </div>
               <h3 className="font-bold text-brand-navy text-lg mb-3">Title &amp; Escrow That Doesn&apos;t Slow You Down</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
@@ -370,7 +370,7 @@ export function HomePageClient() {
             </div>
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue text-2xl">⏱️</span>
+                <span className="text-brand-blue-deep text-2xl">⏱️</span>
               </div>
               <h3 className="font-bold text-brand-navy text-lg mb-3">Responsive Communication From Contract to Closing</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
@@ -379,7 +379,7 @@ export function HomePageClient() {
             </div>
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue text-2xl">🧭</span>
+                <span className="text-brand-blue-deep text-2xl">🧭</span>
               </div>
               <h3 className="font-bold text-brand-navy text-lg mb-3">Local DMV Expertise for Complex Closings</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
@@ -420,7 +420,7 @@ export function HomePageClient() {
                           <Link
                             key={`${group.heading}-${link.label}`}
                             href={link.href}
-                            className="inline-flex min-w-[9.5rem] items-center justify-center rounded-md border border-brand-blue/10 bg-brand-blue/5 px-3 py-2 text-center text-sm font-medium text-brand-blue transition hover:border-brand-blue/30 hover:bg-brand-blue/10 hover:no-underline"
+                            className="inline-flex min-w-[9.5rem] items-center justify-center rounded-md border border-brand-blue/10 bg-brand-blue/5 px-3 py-2 text-center text-sm font-medium text-brand-blue-deep transition hover:border-brand-blue/30 hover:bg-brand-blue/10 hover:no-underline"
                           >
                             {link.label}
                           </Link>
@@ -440,7 +440,7 @@ export function HomePageClient() {
       <section className="section-light">
         <div className="container-xl max-w-3xl text-center">
           <h2 className="prose-title mb-2">Meet Will Rapuano — Your Local Title Partner in VA, MD & DC</h2>
-          <p className="text-brand-blue font-semibold mb-6">Pruitt Title LLC</p>
+          <p className="text-brand-blue-deep font-semibold mb-6">Pruitt Title LLC</p>
           <div className="accent-divider" />
           <div className="text-brand-muted leading-relaxed space-y-4 mb-8 text-left">
             <p>
@@ -452,8 +452,8 @@ export function HomePageClient() {
           </div>
           <div className="text-brand-muted text-sm space-y-2 mb-8">
             <p className="font-semibold text-brand-navy">Get in touch:</p>
-            <p><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue hover:underline">wrapuano@pruitt-title.com</a></p>
-            <p><a href="tel:+17038591467" className="text-brand-blue hover:underline">(703) 859-1467</a></p>
+            <p><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">wrapuano@pruitt-title.com</a></p>
+            <p><a href="tel:+17038591467" className="text-brand-blue-deep hover:underline">(703) 859-1467</a></p>
             <p>1900 Gallows Rd Suite 230, Vienna, VA 22182</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4">

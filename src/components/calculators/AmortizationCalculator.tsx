@@ -114,7 +114,7 @@ export function AmortizationCalculator() {
               </table>
             </div>
             {(results.yearlyRows.length > 5) && (
-              <button onClick={() => setShowFull(!showFull)} className="mt-3 text-sm text-brand-blue hover:underline font-medium">
+              <button onClick={() => setShowFull(!showFull)} className="mt-3 text-sm text-brand-blue-deep hover:underline font-medium">
                 {showFull ? "Show less ↑" : `Show all ${results.yearlyRows.length} years ↓`}
               </button>
             )}

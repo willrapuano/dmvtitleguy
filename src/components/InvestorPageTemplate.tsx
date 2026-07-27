@@ -106,7 +106,7 @@ export function InvestorPageTemplate({
           <ol className="max-w-2xl mx-auto space-y-4">
             {howItWorksSteps.map((step, i) => (
               <li key={i} className="flex gap-4 items-start">
-                <div className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
                   {i + 1}
                 </div>
                 <p className="text-brand-dark-text text-sm leading-relaxed pt-1">{step}</p>
@@ -140,7 +140,7 @@ export function InvestorPageTemplate({
               <Link
                 key={p.href}
                 href={p.href}
-                className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+                className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
               >
                 {p.label}
               </Link>

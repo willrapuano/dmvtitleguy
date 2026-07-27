@@ -295,7 +295,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="container-xl max-w-5xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Fairfax County Details</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Fairfax County Details</p>
           <h2 className="prose-title mb-4">Local Title Search Details for Fairfax County</h2>
           <p className="text-brand-muted text-lg mb-8 max-w-3xl">
             A Fairfax VA title search should account for the way local records, recording fees, HOAs, condominiums, and new construction documents affect settlement and title insurance.

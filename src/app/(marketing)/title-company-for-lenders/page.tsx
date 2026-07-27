@@ -66,7 +66,7 @@ export default function LendersPage() {
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us to set up your account.
           </p>
-          <Link href="/contact" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+          <Link href="/contact" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
             Get Started →
           </Link>
         </div>

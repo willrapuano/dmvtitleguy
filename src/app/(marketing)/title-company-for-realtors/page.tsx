@@ -65,21 +65,21 @@ export default function RealtorsPage() {
           <h2 className="text-3xl font-bold text-brand-navy mb-8">How We Support Your Business</h2>
           <div className="space-y-6">
             <div className="flex gap-4">
-              <div className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+              <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
               <div>
                 <h3 className="text-lg font-semibold text-brand-navy">Clear Title Issues Before They Delay Closings</h3>
                 <p className="text-gray-600">We identify and resolve problems early so your deals close on time.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+              <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
               <div>
                 <h3 className="text-lg font-semibold text-brand-navy">Weekly Pipeline Updates</h3>
                 <p className="text-gray-600">Stay informed on every transaction with regular status updates.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+              <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
               <div>
                 <h3 className="text-lg font-semibold text-brand-navy">Competitive Referral Bonuses</h3>
                 <p className="text-gray-600">Earn bonuses for every closed transaction you refer our way.</p>
@@ -90,11 +90,11 @@ export default function RealtorsPage() {
       </section>
 
       {/* UPLOAD CONTRACT CTA */}
-      <section className="py-12 bg-brand-blue text-white">
+      <section className="py-12 bg-brand-action text-white">
         <div className="container-xl text-center">
           <h2 className="text-2xl font-bold mb-3">Upload Your Contract</h2>
           <p className="text-lg mb-6 max-w-2xl mx-auto">Got a ratified contract? Upload it and we&apos;ll initiate the title process within 1 business hour.</p>
-          <Link href="/upload-contract" className="inline-block bg-white text-brand-blue font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
+          <Link href="/upload-contract" className="inline-block bg-white text-brand-action font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
             Upload Contract Now →
           </Link>
         </div>
@@ -107,7 +107,7 @@ export default function RealtorsPage() {
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Schedule a broker briefing to learn how we can support your business.
           </p>
-          <Link href="/contact" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+          <Link href="/contact" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
             Schedule a Broker Briefing →
           </Link>
         </div>

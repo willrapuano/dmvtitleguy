@@ -141,13 +141,13 @@ export default function CalculatorsPage() {
               >
                 <div className="flex items-start justify-between mb-3">
                   <span className="text-3xl">{calc.icon}</span>
-                  <span className="text-xs font-semibold text-brand-blue bg-blue-50 px-2 py-0.5 rounded-full">{calc.tag}</span>
+                  <span className="text-xs font-semibold text-brand-blue-deep bg-blue-50 px-2 py-0.5 rounded-full">{calc.tag}</span>
                 </div>
                 <h2 className="text-lg font-bold text-brand-navy group-hover:text-brand-blue mb-2 transition-colors">
                   {calc.title}
                 </h2>
                 <p className="text-sm text-brand-muted leading-relaxed">{calc.description}</p>
-                <span className="inline-block mt-4 text-sm text-brand-blue font-medium">
+                <span className="inline-block mt-4 text-sm text-brand-blue-deep font-medium">
                   Open Calculator →
                 </span>
               </Link>

@@ -66,7 +66,7 @@ export default function TitleInsuranceCostByStatePage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
           <p className="text-lg font-medium">
             <span className="text-brand-light-blue">💡 Local Insight:</span> In the DMV region, Virginia has regulated rates set by the state, while Maryland and DC allow more competition—meaning shopping around can yield savings.
@@ -234,25 +234,25 @@ export default function TitleInsuranceCostByStatePage() {
         <div className="container-xl">
           <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/closing-costs/maryland" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
           </div>
@@ -274,7 +274,7 @@ export default function TitleInsuranceCostByStatePage() {
             Contact Pruitt Title LLC for an accurate title insurance quote for your Virginia, Maryland, or DC property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/title-insurance" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/title-insurance" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Get a Quote →
             </Link>
             <Link href="/contact" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

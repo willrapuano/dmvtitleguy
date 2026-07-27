@@ -66,7 +66,7 @@ export default function BuildersPage() {
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us to discuss your upcoming projects.
           </p>
-          <Link href="/contact" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+          <Link href="/contact" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
             Get in Touch →
           </Link>
         </div>

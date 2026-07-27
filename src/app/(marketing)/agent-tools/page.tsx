@@ -92,7 +92,7 @@ export default function AgentToolsPage() {
             Have a tool idea?{" "}
             <a
               href="mailto:will@pruitt-title.com"
-              className="text-brand-blue hover:underline font-medium"
+              className="text-brand-blue-deep hover:underline font-medium"
             >
               Let us know
             </a>

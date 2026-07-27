@@ -464,7 +464,7 @@ function RelatedLocalTitleServices() {
       <ul className="space-y-3 mb-6">
         {dmvTitleServiceLinks.map((link) => (
           <li key={link.href} className="text-gray-700 leading-relaxed">
-            <Link href={link.href} className="font-semibold text-brand-blue hover:underline">
+            <Link href={link.href} className="font-semibold text-brand-blue-deep hover:underline">
               {link.label}
             </Link>
             <span className="text-gray-500"> - {link.description}</span>
@@ -473,7 +473,7 @@ function RelatedLocalTitleServices() {
       </ul>
       <Link
         href="/calculators/title-quote"
-        className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+        className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
       >
         Get a Title Quote →
       </Link>
@@ -485,19 +485,19 @@ function DmvTitleServicesFooterLinks() {
   return (
     <p className="mb-4 leading-relaxed">
       <strong className="font-semibold text-gray-900">DMV title services:</strong>{" "}
-      <Link href="/title-search-vienna-va" className="text-brand-blue hover:underline">
+      <Link href="/title-search-vienna-va" className="text-brand-blue-deep hover:underline">
         Vienna, VA
       </Link>
       {" | "}
-      <Link href="/title-company-springfield-va" className="text-brand-blue hover:underline">
+      <Link href="/title-company-springfield-va" className="text-brand-blue-deep hover:underline">
         Springfield, VA
       </Link>
       {" | "}
-      <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
+      <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
         Bethesda, MD
       </Link>
       {" | "}
-      <Link href="/title-company-washington-dc" className="text-brand-blue hover:underline">
+      <Link href="/title-company-washington-dc" className="text-brand-blue-deep hover:underline">
         Washington, DC
       </Link>
     </p>
@@ -702,7 +702,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </nav>
 
           {/* Category tag */}
-          <span className="inline-block text-xs font-semibold text-brand-blue bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+          <span className="inline-block text-xs font-semibold text-brand-blue-deep bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
             {post.category}
           </span>
 
@@ -791,7 +791,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   </p>
                   <Link
                     href="/title-search-vienna-va"
-                    className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                    className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
                   >
                     Order your Vienna VA title search
                   </Link>
@@ -954,7 +954,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                                 parts.push(<span key={key++}>{text.slice(lastIdx, m.index)}</span>);
                               }
                               parts.push(
-                                <Link key={key++} href={m[2]} className="text-brand-blue hover:underline">
+                                <Link key={key++} href={m[2]} className="text-brand-blue-deep hover:underline">
                                   {m[1]}
                                 </Link>
                               );
@@ -1004,7 +1004,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
                     href="/calculators/title-quote"
-                    className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-7 py-3.5 rounded-lg transition-colors"
+                    className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-7 py-3.5 rounded-lg transition-colors"
                   >
                     Get a Free Quote →
                   </Link>
