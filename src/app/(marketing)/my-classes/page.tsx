@@ -106,7 +106,7 @@ export default function MyClassesPage() {
             title insurance deep-dive, a marketing workshop, or a technology training session — I&apos;ll build a program
             tailored to your team&apos;s specific needs and goals.
           </p>
-          <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
             Contact Me →
           </Link>
         </div>
@@ -126,7 +126,7 @@ export default function MyClassesPage() {
                   <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">📅 {c.date}</span>
                   <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">🕐 {c.time}</span>
                   <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">📍 {c.location}</span>
-                  <span className="bg-brand-blue/10 px-3 py-1.5 rounded-full text-brand-blue font-semibold">{c.price}</span>
+                  <span className="bg-brand-blue/10 px-3 py-1.5 rounded-full text-brand-blue-deep font-semibold">{c.price}</span>
                 </div>
               </div>
             ))}

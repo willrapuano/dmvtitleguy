@@ -102,7 +102,7 @@ export default function MarylandClosingCostsPage() {
             <h2 className="text-lg font-bold text-brand-navy mb-2">Need a Maryland Closing Cost Estimate?</h2>
             <p>
               Use the{" "}
-              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                 Maryland closing cost calculator
               </Link>{" "}
               to estimate buyer and seller costs, including title insurance, transfer tax, recordation fees, and Montgomery County settlement costs before requesting a final quote.
@@ -112,7 +112,7 @@ export default function MarylandClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
           <p className="text-lg font-medium">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Maryland has the most variable closing costs in the DMV—Montgomery County's 1.5% transfer tax vs. Frederick's 1.0% can mean a $2,500 difference on a $500K home. We help buyers understand county-specific costs before signing.
@@ -257,7 +257,7 @@ export default function MarylandClosingCostsPage() {
               <Link
                 key={l.slug}
                 href={`/${l.slug}`}
-                className="text-sm text-brand-blue hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
+                className="text-sm text-brand-blue-deep hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
               >
                 {l.city}, MD →
               </Link>
@@ -271,28 +271,28 @@ export default function MarylandClosingCostsPage() {
         <div className="container-xl">
           <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
               Bethesda Title Services →
             </Link>
-            <Link href="/title-company/rockville-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company/rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
           </div>
@@ -314,7 +314,7 @@ export default function MarylandClosingCostsPage() {
             Contact Pruitt Title LLC for an accurate closing cost estimate for your Maryland transaction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Calculate Your Costs →
             </Link>
             <Link href="/maryland-closing-cost-calculator" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

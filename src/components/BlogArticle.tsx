@@ -70,7 +70,7 @@ const components: Components = {
         return <span className="text-brand-muted">{children}</span>;
       }
       return (
-        <Link href={href} className="text-brand-blue hover:underline">
+        <Link href={href} className="text-brand-blue-deep hover:underline">
           {children}
         </Link>
       );

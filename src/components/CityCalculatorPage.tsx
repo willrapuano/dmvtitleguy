@@ -170,7 +170,7 @@ export default function CityCalculatorPage({ data }: Props) {
                     <Link
                       key={c.slug}
                       href={`/${c.slug}`}
-                      className="text-sm text-brand-blue hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
+                      className="text-sm text-brand-blue-deep hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
                     >
                       Closing Costs: {label} →
                     </Link>
@@ -191,7 +191,7 @@ export default function CityCalculatorPage({ data }: Props) {
                   <Link
                     key={loc.slug}
                     href={`/${loc.slug}`}
-                    className="text-sm text-brand-blue hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
+                    className="text-sm text-brand-blue-deep hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
                   >
                     {getLocationDisplayName(loc)} →
                   </Link>

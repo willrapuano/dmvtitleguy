@@ -62,7 +62,7 @@ export default async function BlogIndexPage() {
             </p>
             <Link
               href="/subscribe"
-              className="mt-7 inline-flex items-center gap-2 rounded-lg bg-brand-blue px-8 py-3.5 font-semibold text-white transition-colors hover:bg-brand-blue-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+              className="mt-7 inline-flex items-center gap-2 rounded-lg bg-brand-action px-8 py-3.5 font-semibold text-white transition-colors hover:bg-brand-action-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
             >
               Subscribe Now
               <span aria-hidden="true">→</span>

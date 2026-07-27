@@ -98,9 +98,10 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 py-5">
-        <div className="container-xl flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-gray-500">
+        {/* slate-400 clears 6.4:1 on navy; gray-500 measured 3.47:1 and failed AA. */}
+        <div className="container-xl flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-slate-400">
           <p>© {currentYear} All Rights Reserved by DMV Title Guy</p>
-          <Link href="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link>
+          <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
         </div>
       </div>
     </footer>

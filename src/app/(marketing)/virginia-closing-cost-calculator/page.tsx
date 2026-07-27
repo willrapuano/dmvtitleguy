@@ -70,7 +70,7 @@ export default function VirginiaCalculatorPage() {
               <Link
                 key={l.slug}
                 href={`/${l.slug}`}
-                className="text-sm text-brand-blue hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
+                className="text-sm text-brand-blue-deep hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
               >
                 {l.city}, VA →
               </Link>

@@ -66,7 +66,7 @@ export default function BuyerMarylandClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
           <p className="text-lg font-medium">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Maryland's recordation tax is 0.5% of the loan amount, and the state transfer tax is 0.5% of the sales price—combined, buyers can expect to pay 1% of the purchase price in taxes at closing.
@@ -123,7 +123,7 @@ export default function BuyerMarylandClosingCostsPage() {
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Use our{" "}
-              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                 Maryland Closing Cost Calculator
               </Link>{" "}
               to calculate buyer closing costs in Maryland based on your loan amount, location, title insurance needs, and settlement cost inputs.
@@ -151,25 +151,25 @@ export default function BuyerMarylandClosingCostsPage() {
         <div className="container-xl">
           <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/maryland" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
               Bethesda Title Services →
             </Link>
-            <Link href="/title-company/silver-spring-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company/silver-spring-md" className="text-brand-blue-deep hover:underline">
               Silver Spring Title Services →
             </Link>
           </div>
@@ -191,7 +191,7 @@ export default function BuyerMarylandClosingCostsPage() {
             Contact Pruitt Title LLC for an accurate closing cost estimate for your Maryland home purchase.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Calculate Your Costs →
             </Link>
             <Link href="/contact" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

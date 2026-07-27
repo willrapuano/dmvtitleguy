@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
             DMV Title Guy (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting
             your privacy. This Privacy Policy explains how we collect, use, disclose,
             and safeguard your information when you visit our website{" "}
-            <a href="https://dmvtitleguy.io" className="text-brand-blue">
+            <a href="https://dmvtitleguy.io" className="text-brand-blue-deep hover:underline">
               dmvtitleguy.io
             </a>{" "}
             or use our services.
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p>
             To exercise any of these rights, contact us at{" "}
-            <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">
+            <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">
               wrapuano@pruitt-title.com
             </a>.
           </p>
@@ -142,13 +142,13 @@ export default function PrivacyPolicyPage() {
             <p>Will Rapuano</p>
             <p>
               Email:{" "}
-              <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">
+              <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">
                 wrapuano@pruitt-title.com
               </a>
             </p>
             <p>
               Website:{" "}
-              <a href="https://dmvtitleguy.io" className="text-brand-blue">
+              <a href="https://dmvtitleguy.io" className="text-brand-blue-deep hover:underline">
                 dmvtitleguy.io
               </a>
             </p>

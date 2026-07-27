@@ -60,7 +60,7 @@ export default function DCCalculatorPage() {
             </div>
             <p className="text-sm text-brand-muted mt-5">
               Comparing nearby Maryland costs too? Use the{" "}
-              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                 Maryland closing cost calculator
               </Link>
               .

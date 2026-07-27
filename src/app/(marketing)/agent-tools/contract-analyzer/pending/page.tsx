@@ -51,7 +51,7 @@ export default async function PendingPage() {
             Questions? Email{" "}
             <a
               href="mailto:will@pruitt-title.com"
-              className="text-brand-blue hover:underline"
+              className="text-brand-blue-deep hover:underline"
             >
               will@pruitt-title.com
             </a>

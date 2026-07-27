@@ -227,7 +227,7 @@ function CostBreakdown({ label, costs, total }: { label: string; costs: Record<s
       </div>
       <div className="border-t border-gray-100 pt-3 flex justify-between font-bold text-brand-navy">
         <span>Total</span>
-        <span className="text-brand-blue text-lg">{formatCurrency(total)}</span>
+        <span className="text-brand-blue-deep text-lg">{formatCurrency(total)}</span>
       </div>
       <p className="text-xs text-brand-muted mt-2">
         Tax rates verified as of June 2026. Rates are subject to change; confirm with the applicable circuit court clerk for the most current rates.
@@ -405,11 +405,11 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
           </div>
           <div className="bg-brand-blue/10 border border-brand-blue/20 rounded-lg p-4 text-center">
             <p className="text-xs text-brand-muted uppercase tracking-wide">Buyer</p>
-            <p className="font-bold text-brand-blue text-lg">{formatCurrency(buyerTotal)}</p>
+            <p className="font-bold text-brand-blue-deep text-lg">{formatCurrency(buyerTotal)}</p>
           </div>
           <div className="bg-brand-blue/10 border border-brand-blue/20 rounded-lg p-4 text-center">
             <p className="text-xs text-brand-muted uppercase tracking-wide">Seller</p>
-            <p className="font-bold text-brand-blue text-lg">{formatCurrency(sellerTotal)}</p>
+            <p className="font-bold text-brand-blue-deep text-lg">{formatCurrency(sellerTotal)}</p>
           </div>
         </div>
 

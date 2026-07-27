@@ -170,7 +170,7 @@ export default function AllTransactionsPage() {
               "You close on your timeline. We handle deed prep, recording, escrow, and fund disbursement.",
             ].map((step, i) => (
               <li key={i} className="flex gap-4 items-start">
-                <div className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
                   {i + 1}
                 </div>
                 <p className="text-brand-dark-text text-sm leading-relaxed pt-1">
@@ -246,19 +246,19 @@ export default function AllTransactionsPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/virginia-closing-cost-calculator"
-              className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+              className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
             >
               VA Closing Cost Calculator
             </Link>
             <Link
               href="/maryland-closing-cost-calculator"
-              className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+              className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
             >
               MD Closing Cost Calculator
             </Link>
             <Link
               href="/dc-closing-cost-calculator"
-              className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+              className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
             >
               DC Closing Cost Calculator
             </Link>

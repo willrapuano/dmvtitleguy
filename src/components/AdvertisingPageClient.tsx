@@ -154,7 +154,7 @@ export function AdvertisingPageClient() {
           <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-4xl mx-auto">
             {/* Listing Traffic Boost */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
-              <div className="bg-brand-blue text-white p-5 text-center">
+              <div className="bg-brand-action text-white p-5 text-center">
                 <h3 className="text-xl font-bold">Listing Traffic Boost</h3>
               </div>
               <div className="p-6">
@@ -166,7 +166,7 @@ export function AdvertisingPageClient() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-brand-blue font-semibold text-center italic">
+                <p className="text-xs text-brand-blue-deep font-semibold text-center italic">
                   Complimentary service for our referral partners
                 </p>
               </div>
@@ -174,7 +174,7 @@ export function AdvertisingPageClient() {
 
             {/* Sphere Marketing */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
-              <div className="bg-brand-blue text-white p-5 text-center">
+              <div className="bg-brand-action text-white p-5 text-center">
                 <h3 className="text-xl font-bold">Sphere Marketing</h3>
               </div>
               <div className="p-6">
@@ -186,7 +186,7 @@ export function AdvertisingPageClient() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-brand-blue font-semibold text-center italic">
+                <p className="text-xs text-brand-blue-deep font-semibold text-center italic">
                   Complimentary service for our referral partners
                 </p>
               </div>
@@ -218,7 +218,7 @@ export function AdvertisingPageClient() {
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
             Submit your listing above or contact us to get started. Complimentary for our referral partners.
           </p>
-          <Link href="/advertising-services" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/advertising-services" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
             Start Running Ads Today! →
           </Link>
         </div>
