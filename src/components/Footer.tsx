@@ -33,9 +33,28 @@ export function Footer() {
       <div className="container-xl py-14 grid gap-10 md:grid-cols-3">
         {/* Column 1: Brand tagline */}
         <div>
-          <Link href="/" className="flex items-center gap-3 mb-4">
-            <Image src="/logo.png" alt="DMV Title Guy" width={44} height={44} className="rounded-sm" />
-            <span className="text-xl font-bold">DMV <span className="text-brand-blue">Title Guy</span></span>
+          {/**
+           * logo.png is a 2046x690 horizontal wordmark (2.97:1), but it was
+           * declared 44x44, so it rendered as a ~44x15px sliver — and because the
+           * file is RGB with no alpha, its baked-in white background showed as a
+           * pale box against the navy footer.
+           *
+           * Correct proportions here, and knock the white out with invert+screen:
+           * invert turns the black artwork white and the white ground black, then
+           * screen drops black to transparent. A proper transparent light-on-dark
+           * export would make this unnecessary.
+           */}
+          <Link href="/" className="mb-5 inline-block" aria-label="DMV Title Guy — home">
+            <Image
+              src="/logo.png"
+              alt="DMV Title Guy — got your back on every contract"
+              width={2046}
+              height={690}
+              sizes="200px"
+              unoptimized
+              className="h-auto w-[200px] [filter:invert(1)] [mix-blend-mode:screen]"
+              priority={false}
+            />
           </Link>
           <p className="text-sm text-gray-300 leading-relaxed max-w-xs">
             Trusted title &amp; escrow services for real estate professionals, builders, and financial institutions — serving the DMV and clients nationwide.

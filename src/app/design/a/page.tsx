@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Fraunces, Inter } from "next/font/google";
 import { ArrowRight, Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin } from "lucide-react";
 import { BRAND, HERO, PROOF, AUDIENCES, DIFFERENTIATORS, NAV, CLOSING_CTA } from "../_content";
@@ -31,9 +32,19 @@ export default function DirectionA() {
       {/* Nav — a single rule, no filled bar */}
       <header style={{ borderBottom: `1px solid ${RULE}` }}>
         <div className="mx-auto flex max-w-6xl items-baseline justify-between px-6 py-6">
-          <span style={{ fontFamily: "var(--d-display)" }} className="text-xl font-semibold tracking-tight">
-            {BRAND.name}
-          </span>
+          {/* Real wordmark. On a light ground, multiply knocks out the file's
+              baked-in white background; no invert needed. */}
+          <Link href="/" aria-label={`${BRAND.name} — home`}>
+            <Image
+              src="/logo.png"
+              alt={BRAND.name}
+              width={2046}
+              height={690}
+              sizes="190px"
+              unoptimized
+              className="h-auto w-[190px] [mix-blend-mode:multiply]"
+            />
+          </Link>
           <nav className="hidden items-center gap-8 text-sm md:flex">
             {NAV.map((n) => (
               <Link key={n.href} href={n.href} className="opacity-70 transition-opacity hover:opacity-100">

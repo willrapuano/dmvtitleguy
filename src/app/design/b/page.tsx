@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { ArrowUpRight, Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin, Check } from "lucide-react";
 import { BRAND, HERO, PROOF, AUDIENCES, DIFFERENTIATORS, NAV, CLOSING_CTA } from "../_content";
@@ -30,12 +31,19 @@ export default function DirectionB() {
       <div style={{ background: NIGHT, color: "#E8EDF5" }}>
         <header style={{ borderBottom: `1px solid ${LINE}` }}>
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-            <span
-              style={{ fontFamily: "var(--d-display)" }}
-              className="text-lg font-bold tracking-[-0.03em]"
-            >
-              {BRAND.name}
-            </span>
+            {/* On the dark nav: invert flips the artwork to white, screen drops
+                the now-black ground to transparent. */}
+            <Link href="/" aria-label={`${BRAND.name} — home`}>
+              <Image
+                src="/logo.png"
+                alt={BRAND.name}
+                width={2046}
+                height={690}
+                sizes="180px"
+              unoptimized
+                className="h-auto w-[180px] [filter:invert(1)] [mix-blend-mode:screen]"
+              />
+            </Link>
             <nav className="hidden items-center gap-7 text-sm md:flex">
               {NAV.map((n) => (
                 <Link key={n.href} href={n.href} className="text-[#9FB0C9] transition-colors hover:text-white">

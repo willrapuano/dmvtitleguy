@@ -30,7 +30,17 @@ export default function DirectionC() {
     >
       <header>
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-          <span className="text-lg font-extrabold tracking-[-0.02em]">{BRAND.name}</span>
+          <Link href="/" aria-label={`${BRAND.name} — home`}>
+            <Image
+              src="/logo.png"
+              alt={BRAND.name}
+              width={2046}
+              height={690}
+              sizes="185px"
+              unoptimized
+              className="h-auto w-[185px] [mix-blend-mode:multiply]"
+            />
+          </Link>
           <nav className="hidden items-center gap-7 text-sm font-medium md:flex">
             {NAV.map((n) => (
               <Link key={n.href} href={n.href} className="opacity-70 hover:opacity-100">
