@@ -65,7 +65,7 @@ export default function MyClassesPage() {
       {/* Hero */}
       <section className="section-blue py-20 md:py-28">
         <div className="container-xl text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+          <h1 className="t-h1 text-white mb-4">
             My Classes
           </h1>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
@@ -100,7 +100,7 @@ export default function MyClassesPage() {
       {/* Custom Training for Your Team */}
       <section className="section-blue">
         <div className="container-xl text-center max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Custom Training for Your Team</h2>
+          <h2 className="t-h2 text-white mb-4">Custom Training for Your Team</h2>
           <p className="text-white/80 leading-relaxed mb-8">
             I offer customized training sessions for real estate teams, brokerages, and mortgage companies. Whether it&apos;s a
             title insurance deep-dive, a marketing workshop, or a technology training session — I&apos;ll build a program
@@ -120,7 +120,7 @@ export default function MyClassesPage() {
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {PAST_CLASSES.map((c) => (
               <div key={c.title} className="card p-6">
-                <h3 className="font-bold text-brand-navy text-lg mb-2">{c.title}</h3>
+                <h3 className="text-brand-navy t-h6 mb-2">{c.title}</h3>
                 <p className="text-brand-muted text-sm mb-4 leading-relaxed">{c.desc}</p>
                 <div className="flex flex-wrap gap-3 text-xs">
                   <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">📅 {c.date}</span>

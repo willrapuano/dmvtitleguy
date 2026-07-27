@@ -194,7 +194,7 @@ export default function CommercialPropertyTitleSearchPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Commercial Property Title Search</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Commercial Property Title Search
           </h1>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl">
@@ -224,7 +224,7 @@ export default function CommercialPropertyTitleSearchPage() {
             {differences.map((item) => (
               <div key={item.title} className="bg-gray-50 rounded-lg p-6">
                 <item.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="text-lg font-bold text-brand-navy mb-2">{item.title}</h3>
+                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
                 <p className="text-brand-muted text-sm">{item.desc}</p>
               </div>
             ))}
@@ -243,7 +243,7 @@ export default function CommercialPropertyTitleSearchPage() {
             {issues.map((item) => (
               <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
                 <item.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="text-lg font-bold text-brand-navy mb-2">{item.title}</h3>
+                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
                 <p className="text-brand-muted text-sm">{item.desc}</p>
               </div>
             ))}
@@ -278,7 +278,7 @@ export default function CommercialPropertyTitleSearchPage() {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
                   <step.icon className="h-7 w-7 text-brand-navy" />
                 </div>
-                <h3 className="text-lg font-bold text-brand-navy mb-2">{step.title}</h3>
+                <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
                 <p className="text-brand-muted text-sm">{step.desc}</p>
               </div>
             ))}
@@ -288,7 +288,7 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="bg-brand-navy text-white py-16 md:py-20">
         <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="t-h2 mb-4">
             Start Commercial Title Due Diligence
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
@@ -331,7 +331,7 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="py-12 bg-brand-gray-bg">
         <div className="container-xl">
-          <h3 className="text-lg font-bold text-brand-navy mb-6">Related Pages</h3>
+          <h3 className="t-h6 text-brand-navy mb-6">Related Pages</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {relatedPages.map((page) => (
               <Link key={page.href} href={page.href} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-brand-navy">

@@ -55,7 +55,7 @@ export function ExtraPaymentCalculator() {
   return (
     <div className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-4">
-        <h2 className="text-lg font-bold text-brand-navy">Loan Details</h2>
+        <h2 className="t-h6 text-brand-navy">Loan Details</h2>
 
         <div>
           <label className={labelClass}>Loan Amount</label>
@@ -91,7 +91,7 @@ export function ExtraPaymentCalculator() {
       </div>
 
       <div>
-        <h2 className="text-lg font-bold text-brand-navy mb-4">Payoff Impact</h2>
+        <h2 className="t-h6 text-brand-navy mb-4">Payoff Impact</h2>
         {!results ? (
           <div className="bg-brand-gray-bg rounded-xl p-6 text-center text-brand-muted text-sm">Enter loan details to calculate savings</div>
         ) : (

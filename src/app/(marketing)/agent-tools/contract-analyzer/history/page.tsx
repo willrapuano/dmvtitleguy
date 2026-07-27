@@ -29,7 +29,7 @@ export default async function HistoryPage() {
           <ArrowLeft className="h-4 w-4" /> Back to Upload
         </Link>
 
-        <h1 className="mb-6 text-2xl font-bold text-brand-navy">Analysis History</h1>
+        <h1 className="mb-6 t-h4 text-brand-navy">Analysis History</h1>
 
         {analyses.length === 0 ? (
           <div className="flex flex-col items-center gap-4 rounded-2xl border border-gray-200 bg-white py-16">

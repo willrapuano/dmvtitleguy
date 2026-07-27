@@ -58,7 +58,7 @@ export default function CityCalculatorPage({ data }: Props) {
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">
             Free Local Calculator
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Closing Costs in {cityLabel}
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">{data.intro}</p>
@@ -81,7 +81,7 @@ export default function CityCalculatorPage({ data }: Props) {
       {/* ── LOCAL TAX EXPLAINER ── */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">
+          <h2 className="t-h4 text-brand-navy mb-4">
             Local Taxes &amp; Fees in {cityLabel}
           </h2>
           <div className="text-brand-muted text-sm leading-relaxed space-y-4">
@@ -94,7 +94,7 @@ export default function CityCalculatorPage({ data }: Props) {
       {data.faqs.length > 0 && (
         <section className="section-light">
           <div className="container-xl max-w-3xl">
-            <h2 className="text-2xl font-bold text-brand-navy mb-6">
+            <h2 className="t-h4 text-brand-navy mb-6">
               Frequently Asked Questions — {cityLabel} Closing Costs
             </h2>
             <div className="space-y-6">
@@ -112,7 +112,7 @@ export default function CityCalculatorPage({ data }: Props) {
       {/* ── INTERNAL LINKS ── */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Resources</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {/* Location page */}
             <Link
@@ -160,7 +160,7 @@ export default function CityCalculatorPage({ data }: Props) {
           {/* Nearby city calculators */}
           {relatedCalcPages.length > 0 && (
             <div className="mt-8">
-              <h3 className="text-lg font-bold text-brand-navy mb-4">
+              <h3 className="t-h6 text-brand-navy mb-4">
                 Closing Costs in Nearby {stateFullName} Cities
               </h3>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -183,7 +183,7 @@ export default function CityCalculatorPage({ data }: Props) {
           {/* Nearby location pages */}
           {nearbyCities.length > 0 && (
             <div className="mt-6">
-              <h3 className="text-lg font-bold text-brand-navy mb-4">
+              <h3 className="t-h6 text-brand-navy mb-4">
                 Title Services in Nearby Cities
               </h3>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -206,7 +206,7 @@ export default function CityCalculatorPage({ data }: Props) {
       <section className="bg-brand-navy text-white py-10">
         <div className="container-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="text-2xl font-bold mb-2">Need a Precise Closing Cost Estimate?</h2>
+            <h2 className="t-h4 mb-2">Need a Precise Closing Cost Estimate?</h2>
             <p className="text-gray-300 text-sm max-w-xl">
               These are estimates based on standard {data.county} rates. Every transaction is different —
               contact Will Rapuano at Pruitt Title LLC for an accurate, line-by-line closing cost

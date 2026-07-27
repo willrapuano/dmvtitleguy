@@ -56,7 +56,7 @@ export default function DCWhoPaysClosingCostsPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Who Pays What</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Who Pays Closing Costs in DC? A 2026 Breakdown
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -77,7 +77,7 @@ export default function DCWhoPaysClosingCostsPage() {
       {/* BUYER RESPONSIBILITIES */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Buyer Responsibilities in DC</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Buyer Responsibilities in DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               DC buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. Here's what buyers are responsible for:
@@ -99,7 +99,7 @@ export default function DCWhoPaysClosingCostsPage() {
       {/* SELLER RESPONSIBILITIES */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Seller Responsibilities in DC</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Seller Responsibilities in DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               DC sellers typically pay <strong>1% to 3%</strong> of the sale price in closing costs (excluding real estate commissions). Here's what sellers are responsible for:
@@ -120,7 +120,7 @@ export default function DCWhoPaysClosingCostsPage() {
       {/* DC TAX RATES TABLE */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">DC Tax Rates: Who Pays What</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">DC Tax Rates: Who Pays What</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-brand-muted border-collapse">
               <thead>
@@ -162,7 +162,7 @@ export default function DCWhoPaysClosingCostsPage() {
       {/* NEGOTIATION */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Can Closing Costs Be Negotiated?</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Can Closing Costs Be Negotiated?</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Yes! While there's a customary 50/50 split for recordation and transfer taxes, buyers and sellers can negotiate who pays other fees:
@@ -183,7 +183,7 @@ export default function DCWhoPaysClosingCostsPage() {
       {/* INTERNAL LINKS */}
       <section className="py-10 bg-white border-b border-gray-100">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
@@ -217,7 +217,7 @@ export default function DCWhoPaysClosingCostsPage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Estimate Your DC Closing Costs</h2>
+          <h2 className="t-h3 text-white mb-4">Estimate Your DC Closing Costs</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate breakdown of what you'll pay or receive at closing in DC.
           </p>

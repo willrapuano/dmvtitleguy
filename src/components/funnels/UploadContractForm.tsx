@@ -77,7 +77,7 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
     return (
       <div className="bg-white rounded-xl shadow-lg p-8 text-center">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
-        <h3 className="text-xl font-bold text-brand-navy mb-2">Contract Received!</h3>
+        <h3 className="t-h5 text-brand-navy mb-2">Contract Received!</h3>
         <p className="text-brand-muted text-sm mb-4">
           We&apos;ll initiate the title process within 1 business hour.
         </p>

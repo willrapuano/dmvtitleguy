@@ -27,7 +27,7 @@ export default function OrderConfirmationPage({ searchParams }: OrderConfirmatio
       <div className="container-xl max-w-2xl">
         <div className="rounded-xl bg-white p-8 text-center shadow-lg">
           <CheckCircle2 className="mx-auto mb-4 h-14 w-14 text-green-600" />
-          <h1 className="mb-3 text-3xl font-bold text-brand-navy">
+          <h1 className="mb-3 t-h3 text-brand-navy">
             Thank you for your order!
           </h1>
           <p className="mb-8 text-brand-muted">

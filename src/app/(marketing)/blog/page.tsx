@@ -53,7 +53,7 @@ export default async function BlogIndexPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
               Stay in the loop
             </p>
-            <h2 className="mt-3 text-2xl md:text-3xl font-bold text-white">
+            <h2 className="mt-3 t-h3 text-white">
               Subscribe to My Newsletter
             </h2>
             <p className="mx-auto mt-4 max-w-xl leading-relaxed text-slate-200">

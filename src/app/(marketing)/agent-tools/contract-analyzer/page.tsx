@@ -27,7 +27,7 @@ export default async function ContractAnalyzerPage() {
 
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-brand-navy">
+            <h1 className="t-h4 text-brand-navy">
               Contract Analyzer
             </h1>
             <p className="text-sm text-gray-500">

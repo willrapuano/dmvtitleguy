@@ -58,7 +58,7 @@ export default function ArlingtonTitlePage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Arlington</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Title Company Arlington VA | Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -81,7 +81,7 @@ export default function ArlingtonTitlePage() {
       {/* LOCAL CONTEXT */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Why Arlington Matters</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Why Arlington Matters</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Arlington County is one of the most competitive real estate markets in the Washington DC metro area. With a median home price exceeding $700,000 and a high concentration of federal contractors and government employees, Arlington attracts buyers seeking proximity to DC without the DC price tag.
@@ -96,30 +96,30 @@ export default function ArlingtonTitlePage() {
       {/* SERVICES */}
       <section className="py-16 bg-white">
         <div className="container-xl">
-          <h2 className="text-3xl font-bold text-brand-navy mb-8">Title Services in Arlington</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">Title Services in Arlington</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Title Searches</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
               <p className="text-gray-600">Comprehensive title searches to identify any liens, encumbrances, or ownership issues before closing.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
               <p className="text-gray-600">Protect your investment with owner's title insurance coverage against hidden title defects.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
               <p className="text-gray-600">Required by most lenders, we issue ALTA owner's and lender's policies with competitive rates.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Settlement Services</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
               <p className="text-gray-600">We handle the entire closing process, from contract to recorded deed and title policy delivery.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Refinance Closings</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Refinance Closings</h3>
               <p className="text-gray-600">Streamlined refinance settlements with fast turn times and flexible scheduling.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
               <p className="text-gray-600">RON available for clients who cannot attend closing in person.</p>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function ArlingtonTitlePage() {
       {/* INVESTOR SERVICES */}
       <section className="py-12 bg-white">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Investor Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
@@ -154,7 +154,7 @@ export default function ArlingtonTitlePage() {
       {/* INTERNAL LINKS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Resources</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
@@ -197,7 +197,7 @@ export default function ArlingtonTitlePage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Arlington Title Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Arlington Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a competitive title insurance quote for your Arlington property.
           </p>

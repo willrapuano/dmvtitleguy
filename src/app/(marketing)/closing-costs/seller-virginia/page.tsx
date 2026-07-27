@@ -56,7 +56,7 @@ export default function SellerVirginiaClosingCostsPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Seller Costs</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Seller Closing Costs in Virginia: What to Expect in 2026
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -77,7 +77,7 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* MAIN CONTENT */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Common Seller Closing Costs in Virginia</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Common Seller Closing Costs in Virginia</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commission:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
@@ -94,7 +94,7 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* TRANSFER TAX INFO */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Virginia Transfer Tax</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Virginia Transfer Tax</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Virginia's state transfer tax is <strong>$1 per $1,000</strong> of the sale price (0.1%). Some localities may add additional transfer taxes or fees on top of the state rate.
@@ -112,13 +112,13 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* ESTIMATING COSTS */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">How to Estimate Your Closing Costs</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">How to Estimate Your Closing Costs</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Use our Virginia Closing Cost Calculator to get a personalized estimate based on your home's sale price and location.
             </p>
             <div className="bg-brand-navy text-white p-6 rounded-lg">
-              <h3 className="text-lg font-bold mb-2">Estimated Seller Costs Example</h3>
+              <h3 className="t-h6 mb-2">Estimated Seller Costs Example</h3>
               <p className="text-gray-300">For a $500,000 home in Virginia:</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>• Real Estate Commission (6%): $30,000</li>
@@ -136,7 +136,7 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* INTERNAL LINKS */}
       <section className="py-10 bg-white border-b border-gray-100">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
@@ -173,7 +173,7 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Virginia Seller Closing Cost Estimate</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Virginia Seller Closing Cost Estimate</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate closing cost estimate for your Virginia home sale.
           </p>

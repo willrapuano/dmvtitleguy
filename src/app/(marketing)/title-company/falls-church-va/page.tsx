@@ -58,7 +58,7 @@ export default function FallsChurchTitlePage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Falls Church</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Reliable Title &amp; Settlement Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -81,7 +81,7 @@ export default function FallsChurchTitlePage() {
       {/* LOCAL CONTEXT */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Why Falls Church Real Estate Matters</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Why Falls Church Real Estate Matters</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Falls Church City is one of Virginia's smallest independent cities, but it packs a punch. With highly-rated schools, a charming downtown, and excellent location between Arlington and Fairfax, Falls Church attracts families seeking quality education and community atmosphere.
@@ -96,30 +96,30 @@ export default function FallsChurchTitlePage() {
       {/* SERVICES */}
       <section className="py-16 bg-white">
         <div className="container-xl">
-          <h2 className="text-3xl font-bold text-brand-navy mb-8">Title Services in Falls Church</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">Title Services in Falls Church</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Title Searches</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
               <p className="text-gray-600">Efficient title searches through Falls Church city records.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
               <p className="text-gray-600">Comprehensive owner's title insurance to protect your investment.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
               <p className="text-gray-600">ALTA policies for all major lenders in Northern Virginia.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Settlement Services</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
               <p className="text-gray-600">Full-service closings from contract to recorded deed delivery.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Refinance Closings</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Refinance Closings</h3>
               <p className="text-gray-600">Streamlined refinance settlements with quick turn times.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
               <p className="text-gray-600">RON available for flexible signing options.</p>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function FallsChurchTitlePage() {
       {/* INVESTOR SERVICES */}
       <section className="py-12 bg-white">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Investor Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
@@ -154,7 +154,7 @@ export default function FallsChurchTitlePage() {
       {/* INTERNAL LINKS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Resources</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
@@ -197,7 +197,7 @@ export default function FallsChurchTitlePage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Falls Church Title Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Falls Church Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a competitive title insurance quote for your Falls Church property.
           </p>

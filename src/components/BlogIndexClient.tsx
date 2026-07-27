@@ -197,7 +197,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                 </div>
                 <div className="flex flex-col justify-center p-6 md:p-9">
                   <PostMeta post={featured} />
-                  <h2 className="mt-4 text-xl font-bold leading-snug text-brand-navy transition-colors group-hover:text-brand-blue-deep md:text-2xl">
+                  <h2 className="mt-4 t-h4 text-brand-navy transition-colors group-hover:text-brand-blue-deep">
                     {featured.title}
                   </h2>
                   <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-brand-muted">

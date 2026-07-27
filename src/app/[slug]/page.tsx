@@ -290,11 +290,11 @@ function TysonsExpansionSections() {
 
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-6">Tysons Title Company FAQs</h2>
+          <h2 className="t-h4 text-brand-navy mb-6">Tysons Title Company FAQs</h2>
           <div className="space-y-6">
             {TYSONS_FAQS.map((faq, i) => (
               <div key={i}>
-                <h3 className="text-lg font-semibold text-brand-navy mb-2">{faq.question}</h3>
+                <h3 className="t-h6 font-semibold text-brand-navy mb-2">{faq.question}</h3>
                 <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
               </div>
             ))}
@@ -304,7 +304,7 @@ function TysonsExpansionSections() {
 
       <section className="section-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Start a Tysons Title Search or Closing</h2>
+          <h2 className="t-h3 text-white mb-4">Start a Tysons Title Search or Closing</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Send us the property address, contract, or deal details and we will help you start the title review process.
           </p>
@@ -507,11 +507,11 @@ function BethesdaExpansionSections() {
 
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-6">Bethesda FAQs</h2>
+          <h2 className="t-h4 text-brand-navy mb-6">Bethesda FAQs</h2>
           <div className="space-y-6">
             {BETHESDA_FAQS.map((faq, i) => (
               <div key={i}>
-                <h3 className="text-lg font-semibold text-brand-navy mb-2">{faq.question}</h3>
+                <h3 className="t-h6 font-semibold text-brand-navy mb-2">{faq.question}</h3>
                 <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
               </div>
             ))}
@@ -521,7 +521,7 @@ function BethesdaExpansionSections() {
 
       <section className="section-gray">
         <div className="container-xl max-w-4xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-6">Bethesda &amp; Montgomery County Resources</h2>
+          <h2 className="t-h4 text-brand-navy mb-6">Bethesda &amp; Montgomery County Resources</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {[
               { href: "/maryland-closing-cost-calculator", label: "Maryland Closing Cost Calculator" },
@@ -759,7 +759,7 @@ function LocationPage({ location }: { location: Location }) {
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">
               {stateFullName} Title Insurance
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            <h1 className="t-h1 text-white mb-4">
               {slug === "title-company-herndon-va"
                 ? "Herndon VA Title Closings"
                 : isTysons
@@ -802,7 +802,7 @@ function LocationPage({ location }: { location: Location }) {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">What We Offer</p>
-              <h2 className="text-3xl font-bold text-brand-navy mb-4">Title Services in {locationName}</h2>
+              <h2 className="t-h3 text-brand-navy mb-4">Title Services in {locationName}</h2>
               <p className="text-brand-muted mb-6">
                 Pruitt Title LLC has been serving the {stateFullName} real estate market since 2007. Our team handles every aspect of the title and settlement process — from search to closing — so your transaction closes on time, every time.
               </p>
@@ -853,7 +853,7 @@ function LocationPage({ location }: { location: Location }) {
       {alsoServing && alsoServing.length > 0 && (
         <section className="section-light border-t border-gray-100">
           <div className="container-xl">
-            <h2 className="text-xl font-bold text-brand-navy mb-4">Also Serving Communities Near {city}</h2>
+            <h2 className="t-h5 text-brand-navy mb-4">Also Serving Communities Near {city}</h2>
             <div className="flex flex-wrap gap-3">
               {alsoServing.map((community) => (
                 <span key={community} className="text-sm bg-brand-gray-bg border border-gray-200 rounded-full px-4 py-1 text-brand-muted">
@@ -884,11 +884,11 @@ function LocationPage({ location }: { location: Location }) {
           />
           <section className="section-light border-t border-gray-100">
             <div className="container-xl max-w-3xl">
-              <h2 className="text-2xl font-bold text-brand-navy mb-6">Frequently Asked Questions</h2>
+              <h2 className="t-h4 text-brand-navy mb-6">Frequently Asked Questions</h2>
               <div className="space-y-6">
                 {location.faqs.map((faq: FaqItem, i: number) => (
                   <div key={i}>
-                    <h3 className="text-lg font-semibold text-brand-navy mb-2">{faq.question}</h3>
+                    <h3 className="t-h6 font-semibold text-brand-navy mb-2">{faq.question}</h3>
                     <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
                   </div>
                 ))}
@@ -1004,7 +1004,7 @@ function CountyPage({ county }: { county: County }) {
               <span className="text-gray-200">{fullName}</span>
             </nav>
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">{stateFullName} Title Insurance</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">Title Company in {fullName}</h1>
+            <h1 className="t-h1 text-white mb-4">Title Company in {fullName}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               Pruitt Title LLC serves every city and community in {fullName}. Professional title search, title insurance, and settlement services — residential, commercial, and all transaction types.
             </p>
@@ -1041,7 +1041,7 @@ function CountyPage({ county }: { county: County }) {
       {state === "VA" && (
         <section className="py-10 bg-white border-t border-gray-100">
           <div className="container-xl max-w-3xl">
-            <h2 className="text-xl font-bold text-brand-navy mb-3">Fairfax County Title Support</h2>
+            <h2 className="t-h5 text-brand-navy mb-3">Fairfax County Title Support</h2>
             <p className="text-sm text-brand-muted leading-relaxed">
               For another Northern Virginia settlement resource, learn more about working with a{" "}
               <Link href="/title-company-herndon-va" className="font-semibold text-brand-blue-deep hover:underline">
@@ -1057,7 +1057,7 @@ function CountyPage({ county }: { county: County }) {
       <section id="quote" className="section-navy">
         <div className="container-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-4">Start Your Order in {name}</h2>
+            <h2 className="t-h3 text-white mb-4">Start Your Order in {name}</h2>
             <p className="text-gray-300 mb-4">Contact Will Rapuano at Pruitt Title LLC to open your title order or get a quote for your next transaction in {fullName}.</p>
             <div className="space-y-2 text-sm text-gray-300">
               <p>📞 <a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>

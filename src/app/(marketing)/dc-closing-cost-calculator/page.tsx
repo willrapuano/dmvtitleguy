@@ -23,7 +23,7 @@ export default function DCCalculatorPage() {
             <span>DC Closing Cost Calculator</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Washington DC Closing Cost Calculator</h1>
+          <h1 className="t-h1 text-white mb-4">Washington DC Closing Cost Calculator</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Estimate closing costs for DC real estate. Includes recordation tax, transfer tax, title insurance, and buyer &amp; seller fee breakdowns.
           </p>
@@ -34,7 +34,7 @@ export default function DCCalculatorPage() {
 
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Understanding DC Closing Costs</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Understanding DC Closing Costs</h2>
           <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
             <p>Washington DC has some of the highest closing costs in the nation. Combined recordation and transfer taxes can reach <strong className="text-brand-dark-text">2.9%</strong> of the sales price for properties over $400,000 — typically split equally between buyer and seller.</p>
             <h3 className="text-brand-navy font-bold text-base">DC Tax Rates</h3>
@@ -52,7 +52,7 @@ export default function DCCalculatorPage() {
       <section className="section-light">
         <div className="container-xl">
           <div className="text-center">
-            <h2 className="text-xl font-bold text-brand-navy mb-3">Need Help with Your DC Closing?</h2>
+            <h2 className="t-h5 text-brand-navy mb-3">Need Help with Your DC Closing?</h2>
             <p className="text-brand-muted mb-5 text-sm">Contact Will Rapuano at Pruitt Title LLC for a precise quote on your DC transaction.</p>
             <div className="flex justify-center gap-4">
               <Link href="/calculators/title-quote" className="btn-primary">Get a Quote</Link>

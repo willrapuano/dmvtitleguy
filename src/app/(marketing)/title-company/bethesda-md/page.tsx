@@ -58,7 +58,7 @@ export default function BethesdaTitlePage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Bethesda</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Title Company Bethesda MD | Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -81,7 +81,7 @@ export default function BethesdaTitlePage() {
       {/* LOCAL CONTEXT */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Why Bethesda Real Estate Matters</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Why Bethesda Real Estate Matters</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Bethesda is one of Maryland's most desirable communities, known for its top-rated schools, vibrant downtown, and proximity to Washington DC. With median home prices exceeding $800,000, Bethesda attracts affluent buyers seeking a sophisticated suburban lifestyle.
@@ -106,30 +106,30 @@ export default function BethesdaTitlePage() {
       {/* SERVICES */}
       <section className="py-16 bg-white">
         <div className="container-xl">
-          <h2 className="text-3xl font-bold text-brand-navy mb-8">Title Services in Bethesda</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">Title Services in Bethesda</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Title Searches</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
               <p className="text-gray-600">Comprehensive title searches through Montgomery County land records.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
               <p className="text-gray-600">Full coverage owner's title insurance to protect your Bethesda home investment.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
               <p className="text-gray-600">ALTA lender's policies for all major Maryland lenders.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Settlement Services</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
               <p className="text-gray-600">Complete closing services from contract to recorded deed delivery.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Commercial Title Services</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Commercial Title Services</h3>
               <p className="text-gray-600">Specialized title and settlement services for commercial properties.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
               <p className="text-gray-600">RON available for flexible signing options.</p>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function BethesdaTitlePage() {
       {/* INVESTOR SERVICES */}
       <section className="py-12 bg-white">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Investor Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
@@ -164,7 +164,7 @@ export default function BethesdaTitlePage() {
       {/* INTERNAL LINKS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Resources</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
@@ -210,7 +210,7 @@ export default function BethesdaTitlePage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Bethesda Title Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Bethesda Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a competitive title insurance quote for your Bethesda property.
           </p>

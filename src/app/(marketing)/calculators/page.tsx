@@ -120,7 +120,7 @@ export default function CalculatorsPage() {
             <span>Calculators</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tools</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Real Estate Calculators
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -143,7 +143,7 @@ export default function CalculatorsPage() {
                   <span className="text-3xl">{calc.icon}</span>
                   <span className="text-xs font-semibold text-brand-blue-deep bg-blue-50 px-2 py-0.5 rounded-full">{calc.tag}</span>
                 </div>
-                <h2 className="text-lg font-bold text-brand-navy group-hover:text-brand-blue mb-2 transition-colors">
+                <h2 className="t-h6 text-brand-navy group-hover:text-brand-blue mb-2 transition-colors">
                   {calc.title}
                 </h2>
                 <p className="text-sm text-brand-muted leading-relaxed">{calc.description}</p>

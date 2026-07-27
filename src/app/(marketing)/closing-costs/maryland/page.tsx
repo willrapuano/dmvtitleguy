@@ -85,7 +85,7 @@ export default function MarylandClosingCostsPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Maryland Closing Costs</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Maryland Closing Costs Guide
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -99,7 +99,7 @@ export default function MarylandClosingCostsPage() {
       <section className="py-8 bg-white border-b border-gray-100">
         <div className="container-xl max-w-3xl">
           <div className="rounded-lg border border-brand-blue/20 bg-brand-gray-bg p-5 text-brand-muted leading-relaxed">
-            <h2 className="text-lg font-bold text-brand-navy mb-2">Need a Maryland Closing Cost Estimate?</h2>
+            <h2 className="t-h6 text-brand-navy mb-2">Need a Maryland Closing Cost Estimate?</h2>
             <p>
               Use the{" "}
               <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
@@ -123,7 +123,7 @@ export default function MarylandClosingCostsPage() {
       {/* BUYER COSTS */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">What Buyers Pay in Maryland</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">What Buyers Pay in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Maryland buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. These costs include:
@@ -149,7 +149,7 @@ export default function MarylandClosingCostsPage() {
       {/* SELLER COSTS */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">What Sellers Pay in Maryland</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">What Sellers Pay in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Maryland sellers typically pay <strong>1% to 3%</strong> of the sale price in closing costs (excluding real estate commissions). These costs include:
@@ -173,7 +173,7 @@ export default function MarylandClosingCostsPage() {
       {/* COUNTY SPECIFIC */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Transfer & Recordation Taxes by County</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Maryland Transfer & Recordation Taxes by County</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-brand-muted border-collapse">
               <thead>
@@ -227,7 +227,7 @@ export default function MarylandClosingCostsPage() {
       {/* TITLE INSURANCE */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Title Insurance in Maryland</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Maryland requires attorney or licensed title agent involvement at closing. Title insurance protects against hidden title defects that could affect your ownership rights.
@@ -251,7 +251,7 @@ export default function MarylandClosingCostsPage() {
       {/* LOCATION LINKS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Maryland Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Maryland Markets We Serve</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {MD_LOCATIONS.map((l) => (
               <Link
@@ -269,7 +269,7 @@ export default function MarylandClosingCostsPage() {
       {/* INTERNAL LINKS */}
       <section className="py-10 bg-white border-b border-gray-100">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
@@ -309,7 +309,7 @@ export default function MarylandClosingCostsPage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Maryland Title Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Maryland Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate closing cost estimate for your Maryland transaction.
           </p>

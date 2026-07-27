@@ -455,7 +455,7 @@ const dmvTitleServiceLinks = [
 function RelatedLocalTitleServices() {
   return (
     <section className="mt-10 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
-      <h2 className="text-2xl font-bold text-brand-navy mb-3">
+      <h2 className="t-h4 text-brand-navy mb-3">
         Serving Buyers Across the DMV
       </h2>
       <p className="text-gray-700 leading-relaxed mb-5">
@@ -707,7 +707,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </span>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-navy leading-tight mb-5">
+          <h1 className="t-h2 lg:text-5xl text-brand-navy mb-5">
             {post.title}
           </h1>
 
@@ -783,7 +783,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue mb-2">
                     Vienna title search services
                   </p>
-                  <h2 className="text-2xl font-bold text-brand-navy mb-3">
+                  <h2 className="t-h4 text-brand-navy mb-3">
                     Looking for title search services in Vienna?
                   </h2>
                   <p className="text-gray-700 leading-relaxed mb-5">
@@ -967,10 +967,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                           }
                           return <p className="mb-4 leading-relaxed">{children}</p>;
                         },
-                        h1: ({ children }: any) => <h1 className="text-3xl font-bold text-brand-navy mt-10 mb-4">{children}</h1>,
-                        h2: ({ children }: any) => <h2 className="text-2xl font-bold text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h3: ({ children }: any) => <h3 className="text-xl font-bold text-brand-navy mt-8 mb-3">{children}</h3>,
-                        h4: ({ children }: any) => <h4 className="text-lg font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
+                        h1: ({ children }: any) => <h1 className="t-h3 text-brand-navy mt-10 mb-4">{children}</h1>,
+                        h2: ({ children }: any) => <h2 className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
+                        h3: ({ children }: any) => <h3 className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
+                        h4: ({ children }: any) => <h4 className="t-h6 font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
                       },
                     }}
                   />
@@ -995,7 +995,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
               {/* ─── CTA Section ─── */}
               <div className="mt-14 bg-brand-navy rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-3">
+                <h3 className="t-h4 text-white mb-3">
                   Ready to Get a Title Quote?
                 </h3>
                 <p className="text-white/70 mb-6 max-w-md mx-auto">
@@ -1113,7 +1113,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       {related.length > 0 && (
         <section className="bg-gray-50 py-16 border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl font-bold text-brand-navy mb-8 text-center">
+            <h2 className="t-h4 text-brand-navy mb-8 text-center">
               You Might Also Like
             </h2>
             <div className="grid md:grid-cols-3 gap-6">

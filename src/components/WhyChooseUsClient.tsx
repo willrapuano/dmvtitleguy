@@ -79,7 +79,7 @@ export function WhyChooseUsClient() {
         />
         <div className="absolute inset-0 bg-brand-navy/80" />
         <div className="container-xl relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          <h1 className="t-display text-white">
             Why Pruitt Title?
           </h1>
         </div>
@@ -172,7 +172,7 @@ export function WhyChooseUsClient() {
       {/* Contact CTA */}
       <section className="section-blue">
         <div className="container-xl text-center max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
+          <h2 className="t-h2 text-white mb-4">Ready to Get Started?</h2>
           <p className="text-white/80 mb-8">
             Contact Will Rapuano at Pruitt Title LLC for a title insurance quote or to open your order today.
           </p>

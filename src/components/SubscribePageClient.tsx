@@ -39,7 +39,7 @@ export function SubscribePageClient() {
       {/* Hero */}
       <section className="section-blue py-20 md:py-28">
         <div className="container-xl text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Subscribe
           </h1>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
@@ -69,7 +69,7 @@ export function SubscribePageClient() {
             {status === "success" ? (
               <div className="text-center py-8">
                 <div className="text-4xl mb-3">✅</div>
-                <h3 className="text-xl font-bold text-brand-navy mb-2">You&apos;re subscribed!</h3>
+                <h3 className="t-h5 text-brand-navy mb-2">You&apos;re subscribed!</h3>
                 <p className="text-brand-muted text-sm">
                   Welcome to the community. Watch your inbox for exclusive resources and updates.
                 </p>

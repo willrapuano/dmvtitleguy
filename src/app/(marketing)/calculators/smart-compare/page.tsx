@@ -22,7 +22,7 @@ export default function SmartComparePage() {
             <span>Smart Compare</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Buyer Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Smart Compare Calculator</h1>
+          <h1 className="t-h1 text-white mb-4">Smart Compare Calculator</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Deciding between two properties or loan options? Put them side by side and see the real monthly cost difference — including P&I, taxes, insurance, and HOA.
           </p>

@@ -69,7 +69,7 @@ export default function LoginPage() {
               <Shield className="h-6 w-6 text-brand-navy" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-brand-navy">Sign In</h1>
+              <h1 className="t-h5 text-brand-navy">Sign In</h1>
               <p className="text-sm text-gray-500">
                 Access the Contract Analyzer
               </p>
