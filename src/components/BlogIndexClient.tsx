@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { sanityImageSrcSet, sanityImageUrl } from "@/lib/sanity-image";
 
 interface Post {
   slug: string;
@@ -23,8 +24,8 @@ const CATEGORY_ORDER = [
 ];
 
 /**
- * Placeholders repeat across ~80 posts, so vary the wash by slug to keep a long
- * grid from reading as one flat navy block. Deterministic, so SSR and client agree.
+ * Vary the fallback wash by slug so a run of placeholders doesn't read as one
+ * flat navy block. Deterministic, so SSR and client agree.
  */
 const PLACEHOLDER_WASHES = [
   "radial-gradient(circle at 28% 24%, #1B3F6B 0%, #0B1D3A 58%, #071428 100%)",
@@ -41,17 +42,22 @@ function placeholderWash(slug: string) {
 }
 
 /**
- * blog-data always fills `image` with a conventional `/blog/{slug}.png` path,
- * but only some of those files exist — so a plain <img> renders a broken-image
- * icon for most posts. Swap in a branded placeholder when the load fails.
+ * Nearly every post has a real Sanity image, so the branded fallback here is a
+ * safety net for the handful whose `/blog/{slug}.png` path has no file behind it
+ * — not the common case.
  */
 function PostImage({
   post,
   className,
+  widths,
+  sizes,
   priority = false,
 }: {
   post: Post;
   className: string;
+  /** Candidate widths for srcset, matched to this card's rendered size. */
+  widths: number[];
+  sizes: string;
   priority?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
@@ -78,13 +84,18 @@ function PostImage({
     );
   }
 
+  const widest = widths[widths.length - 1];
+
   return (
     <img
       ref={ref}
-      src={post.image}
+      src={sanityImageUrl(post.image, widest)}
+      srcSet={sanityImageSrcSet(post.image, widths)}
+      sizes={sizes}
       alt=""
       className={className}
       loading={priority ? "eager" : "lazy"}
+      decoding={priority ? "sync" : "async"}
       onError={() => setFailed(true)}
     />
   );
@@ -175,6 +186,9 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                   <PostImage
                     post={featured}
                     priority
+                    /* Full width on mobile, half the 1152px container on desktop. */
+                    widths={[640, 900, 1200]}
+                    sizes="(min-width: 768px) 576px, 100vw"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-navy shadow-sm">
@@ -226,6 +240,9 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                       <div className="relative aspect-[16/9] overflow-hidden bg-brand-navy">
                         <PostImage
                           post={post}
+                          /* 3-up at lg (~355px), 2-up at sm, full width on mobile. */
+                          widths={[400, 640, 800]}
+                          sizes="(min-width: 1024px) 355px, (min-width: 640px) 50vw, 100vw"
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       </div>
