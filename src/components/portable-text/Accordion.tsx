@@ -74,7 +74,7 @@ function SafeAnswer({ content }: { content: string }) {
         // Handle bold text **text**
         const parts = para.split(/(\*\*[^*]+\*\*)/g);
         return (
-          <p key={idx} className="text-gray-700 leading-relaxed">
+          <p key={idx} className="text-gray-700 leading-relaxed max-w-[68ch]">
             {parts.map((part, i) => {
               if (part.startsWith('**') && part.endsWith('**')) {
                 return <strong key={i} className="font-semibold text-gray-900">{part.slice(2, -2)}</strong>;

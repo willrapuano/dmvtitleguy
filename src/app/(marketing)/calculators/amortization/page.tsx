@@ -21,7 +21,7 @@ export default function AmortizationPage() {
             <span className="mx-2">/</span>
             <span>Amortization</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Buyer Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Buyer Tool</p>
           <h1 className="t-h1 text-white mb-4">Amortization Calculator</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             See your complete mortgage payment schedule — year by year. Understand exactly how much of each payment goes to principal vs. interest and when your loan is paid off.

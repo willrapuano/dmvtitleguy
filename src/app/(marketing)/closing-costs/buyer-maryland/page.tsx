@@ -68,7 +68,7 @@ export default function BuyerMarylandClosingCostsPage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Maryland's recordation tax is 0.5% of the loan amount, and the state transfer tax is 0.5% of the sales price—combined, buyers can expect to pay 1% of the purchase price in taxes at closing.
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function BuyerMarylandClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">How to Estimate Your Closing Costs</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Use our{" "}
               <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                 Maryland Closing Cost Calculator
@@ -130,7 +130,7 @@ export default function BuyerMarylandClosingCostsPage() {
             </p>
             <div className="bg-brand-navy text-white p-6 rounded-lg">
               <h3 className="t-h6 mb-2">Estimated Buyer Costs Example</h3>
-              <p className="text-gray-300">For a $500,000 home with 20% down ($400,000 loan):</p>
+              <p className="text-gray-300 max-w-[68ch] leading-relaxed">For a $500,000 home with 20% down ($400,000 loan):</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>• Loan Origination (1%): $4,000</li>
                 <li>• Title Insurance (Owner's + Lender's): $2,000-3,000</li>

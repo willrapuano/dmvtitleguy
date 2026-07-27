@@ -68,7 +68,7 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Virginia's transfer tax is $1 per $1,000 of sale price—one of the lowest in the DMV region. However, real estate commissions typically run 5-6% of the sale price, making this your largest closing cost.
           </p>
         </div>
@@ -96,13 +96,13 @@ export default function SellerVirginiaClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Virginia Transfer Tax</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Virginia's state transfer tax is <strong>$1 per $1,000</strong> of the sale price (0.1%). Some localities may add additional transfer taxes or fees on top of the state rate.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               <strong>Example:</strong> On a $500,000 home, the Virginia state transfer tax would be $500. Localities like Fairfax County may add additional fees.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               Unlike Maryland and DC, Virginia does not have a recordation tax based on loan amount—this makes Virginia one of the more affordable jurisdictions for closing costs in the DMV region.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function SellerVirginiaClosingCostsPage() {
             </p>
             <div className="bg-brand-navy text-white p-6 rounded-lg">
               <h3 className="t-h6 mb-2">Estimated Seller Costs Example</h3>
-              <p className="text-gray-300">For a $500,000 home in Virginia:</p>
+              <p className="text-gray-300 max-w-[68ch] leading-relaxed">For a $500,000 home in Virginia:</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>• Real Estate Commission (6%): $30,000</li>
                 <li>• Transfer Tax (0.1%): $500</li>

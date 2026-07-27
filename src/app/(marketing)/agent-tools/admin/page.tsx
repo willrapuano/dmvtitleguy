@@ -40,7 +40,7 @@ export default async function AdminPage() {
           </div>
           <div>
             <h1 className="t-h4 text-brand-navy">Admin Panel</h1>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 max-w-[68ch] leading-relaxed">
               Manage user access · Signed in as {admin.email}
             </p>
           </div>
@@ -62,8 +62,8 @@ export default async function AdminPage() {
                 className="flex items-center justify-between rounded-2xl border border-amber-200 bg-amber-50 p-4"
               >
                 <div>
-                  <p className="font-medium text-gray-900">{u.email}</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="font-medium text-gray-900 max-w-[68ch] leading-relaxed">{u.email}</p>
+                  <p className="text-xs text-gray-500 max-w-[68ch]">
                     Registered {new Date(u.createdAt).toLocaleDateString()}
                   </p>
                 </div>
@@ -85,14 +85,14 @@ export default async function AdminPage() {
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <p className="font-medium text-gray-900">{u.email}</p>
+                  <p className="font-medium text-gray-900 max-w-[68ch] leading-relaxed">{u.email}</p>
                   {u.isAdmin && (
                     <span className="rounded-full bg-brand-navy/10 px-2 py-0.5 text-xs font-medium text-brand-navy">
                       Admin
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-500 max-w-[68ch]">
                   {u._count.analyses} analyses ·{" "}
                   Joined {new Date(u.createdAt).toLocaleDateString()}
                 </p>

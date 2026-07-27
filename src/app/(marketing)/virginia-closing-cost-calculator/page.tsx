@@ -26,7 +26,7 @@ export default function VirginiaCalculatorPage() {
             <span className="mx-2">/</span>
             <span>Virginia Closing Cost Calculator</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
           <h1 className="t-h1 text-white mb-4">
             Virginia Closing Cost Calculator
           </h1>
@@ -43,7 +43,7 @@ export default function VirginiaCalculatorPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Understanding Virginia Closing Costs</h2>
           <div className="space-y-5 text-brand-muted text-sm leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Virginia closing costs typically range from <strong className="text-brand-dark-text">2% to 5%</strong> of the purchase price for buyers, and <strong className="text-brand-dark-text">1% to 3%</strong> for sellers (excluding agent commissions).
             </p>
             <h3 className="text-brand-navy font-bold text-base mt-4">Virginia-Specific Fees</h3>
@@ -54,7 +54,7 @@ export default function VirginiaCalculatorPage() {
               <li><strong>Deed of Trust Recording:</strong> Based on loan amount, varies by county.</li>
             </ul>
             <h3 className="text-brand-navy font-bold text-base mt-4">Title Insurance in Virginia</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Virginia is a "simultaneous issue" state, meaning lender&apos;s and owner&apos;s title insurance can be issued together at a discounted rate. Pruitt Title LLC has been providing trusted title services across the DMV since 2007.
             </p>
           </div>

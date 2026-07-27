@@ -166,7 +166,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
 
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-gray-200 bg-white px-6 py-16 text-center">
-            <p className="font-semibold text-brand-navy">No posts in this category yet.</p>
+            <p className="font-semibold text-brand-navy max-w-[68ch] mx-auto leading-relaxed">No posts in this category yet.</p>
             <button
               type="button"
               onClick={() => setActive("All")}
@@ -200,7 +200,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                   <h2 className="mt-4 t-h4 text-brand-navy transition-colors group-hover:text-brand-blue-deep">
                     {featured.title}
                   </h2>
-                  <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-brand-muted">
+                  <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-brand-muted max-w-[68ch]">
                     {featured.excerpt}
                   </p>
                   <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue-deep">
@@ -220,7 +220,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
               <>
                 <div className="mb-6 flex flex-wrap items-end justify-between gap-x-4 gap-y-1 border-b border-gray-200 pb-4">
                   <div>
-                    <p className="section-label">Insights &amp; Resources</p>
+                    <p className="section-label max-w-[68ch] leading-relaxed">Insights &amp; Resources</p>
                     <h2 className="section-title">
                       {active === "All" ? "More Articles" : active}
                     </h2>
@@ -251,7 +251,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                         <h3 className="mt-3 line-clamp-2 text-base font-bold leading-snug text-brand-navy transition-colors group-hover:text-brand-blue-deep">
                           {post.title}
                         </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-muted">
+                        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-muted max-w-[68ch]">
                           {post.excerpt}
                         </p>
                         <span className="mt-4 inline-flex items-center gap-1.5 pt-1 text-sm font-semibold text-brand-blue-deep">

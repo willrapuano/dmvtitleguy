@@ -100,7 +100,7 @@ export default function MarylandClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <div className="rounded-lg border border-brand-blue/20 bg-brand-gray-bg p-5 text-brand-muted leading-relaxed">
             <h2 className="t-h6 text-brand-navy mb-2">Need a Maryland Closing Cost Estimate?</h2>
-            <p>
+            <p className="max-w-[68ch]">
               Use the{" "}
               <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                 Maryland closing cost calculator
@@ -114,7 +114,7 @@ export default function MarylandClosingCostsPage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Maryland has the most variable closing costs in the DMV—Montgomery County's 1.5% transfer tax vs. Frederick's 1.0% can mean a $2,500 difference on a $500K home. We help buyers understand county-specific costs before signing.
           </p>
         </div>
@@ -125,7 +125,7 @@ export default function MarylandClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">What Buyers Pay in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Maryland buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. These costs include:
             </p>
             <ul className="list-disc list-inside space-y-2">
@@ -139,7 +139,7 @@ export default function MarylandClosingCostsPage() {
               <li><strong>Prorated Property Taxes:</strong> Property taxes from closing date through end of year</li>
               <li><strong>Recording Fees:</strong> Small fees to record the deed and mortgage</li>
             </ul>
-            <p>
+            <p className="max-w-[68ch]">
               <strong>Example:</strong> For a $500,000 home in Montgomery County with 20% down, buyer closing costs would be approximately $12,000-18,000.
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function MarylandClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">What Sellers Pay in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Maryland sellers typically pay <strong>1% to 3%</strong> of the sale price in closing costs (excluding real estate commissions). These costs include:
             </p>
             <ul className="list-disc list-inside space-y-2">
@@ -163,7 +163,7 @@ export default function MarylandClosingCostsPage() {
               <li><strong>Attorney Fees:</strong> If seller uses an attorney for the transaction</li>
               <li><strong>HOA Fees:</strong> Any outstanding homeowners association dues</li>
             </ul>
-            <p>
+            <p className="max-w-[68ch]">
               <strong>Example:</strong> For a $500,000 home in Montgomery County with a 6% commission, seller closing costs would be approximately $30,000-35,000.
             </p>
           </div>
@@ -218,7 +218,7 @@ export default function MarylandClosingCostsPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-sm text-brand-muted mt-4">
+          <p className="text-sm text-brand-muted mt-4 max-w-[68ch] leading-relaxed">
             <em>Note: These rates are subject to change. First-time homebuyers may qualify for exemptions in certain counties. Consult with your title company for current rates.</em>
           </p>
         </div>
@@ -229,19 +229,19 @@ export default function MarylandClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Maryland requires attorney or licensed title agent involvement at closing. Title insurance protects against hidden title defects that could affect your ownership rights.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Owner's Title Insurance</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Owner's title insurance protects your investment against claims against your ownership of the property. It's a one-time premium paid at closing and provides coverage for as long as you own the property. For a $500,000 home, owner's title insurance costs approximately $1,500-2,000.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Lender's Title Insurance</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Most lenders require lender's title insurance (also called a loan policy) to protect their interest in the property. This is typically a separate policy from the owner's coverage.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Simultaneous Issue Discount</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Maryland offers a simultaneous issue discount when both owner's and lender's title insurance are purchased together. This can save buyers 10-20% on their title insurance costs.
             </p>
           </div>

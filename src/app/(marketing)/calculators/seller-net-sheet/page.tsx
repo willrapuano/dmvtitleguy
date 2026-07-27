@@ -50,7 +50,7 @@ export default function SellerNetSheetPage() {
             <span className="mx-2">/</span>
             <span>Seller Net Sheet</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
           <h1 className="t-h1 text-white mb-4">
             Seller Net Sheet Calculator
           </h1>
@@ -64,7 +64,7 @@ export default function SellerNetSheetPage() {
         <div className="container-xl max-w-4xl">
           <div className="card p-8 mb-8 text-center">
             <h2 className="t-h4 text-brand-navy mb-3">Launch the Seller Net Sheet Tool</h2>
-            <p className="text-brand-muted mb-6">
+            <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
               Use the live PalmAgent calculator to estimate your projected proceeds after commissions, closing costs, title fees, and transfer taxes.
             </p>
             <a
@@ -79,17 +79,17 @@ export default function SellerNetSheetPage() {
 
           <div className="prose max-w-none text-brand-muted">
             <h2 className="text-brand-navy">Why Sellers Use a Net Sheet Before Listing</h2>
-            <p>
+            <p className="max-w-[68ch]">
               A seller net sheet estimates how much cash you may receive at closing after paying commissions, title and settlement fees, transfer/recordation taxes, and other transaction costs. For homeowners in DC, Maryland, and Virginia, this is one of the most important numbers to review before pricing a home.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               Running a net sheet early helps you plan your next purchase, compare offer scenarios, and avoid surprises at the closing table. We recommend updating your estimate whenever list price, concessions, or commission structure changes.
             </p>
 
             <h3 className="text-brand-navy">Frequently Asked Questions</h3>
-            <p><strong>Is this my exact closing amount?</strong><br />No. It is an estimate for planning. Final numbers depend on the executed contract and final closing disclosures.</p>
-            <p><strong>Does this include title and transfer costs?</strong><br />Yes, it is designed to help model common seller closing costs including title-related fees and transfer taxes.</p>
-            <p><strong>Can I compare multiple offer scenarios?</strong><br />Absolutely. Run the calculator with different sale prices and concession amounts to compare outcomes quickly.</p>
+            <p className="max-w-[68ch]"><strong>Is this my exact closing amount?</strong><br />No. It is an estimate for planning. Final numbers depend on the executed contract and final closing disclosures.</p>
+            <p className="max-w-[68ch]"><strong>Does this include title and transfer costs?</strong><br />Yes, it is designed to help model common seller closing costs including title-related fees and transfer taxes.</p>
+            <p className="max-w-[68ch]"><strong>Can I compare multiple offer scenarios?</strong><br />Absolutely. Run the calculator with different sale prices and concession amounts to compare outcomes quickly.</p>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">

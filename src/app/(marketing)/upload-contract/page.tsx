@@ -58,7 +58,7 @@ export default function UploadContractPage() {
             <h1 className="t-h1 text-white mb-4">
               Upload Your Contract — We&apos;ll Handle the Rest
             </h1>
-            <p className="text-lg text-gray-300 mb-4">
+            <p className="text-lg text-gray-300 mb-4 max-w-[68ch]">
               Realtors and investors: upload your ratified contract and we&apos;ll initiate the title process within 1 business hour.
             </p>
             <a href="tel:+17038591467" className="inline-flex items-center gap-2 text-brand-blue font-medium hover:text-white transition-colors">
@@ -84,7 +84,7 @@ export default function UploadContractPage() {
                   <step.icon className="h-7 w-7 text-brand-navy" />
                 </div>
                 <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm">{step.desc}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -99,7 +99,7 @@ export default function UploadContractPage() {
             {faqs.map((faq) => (
               <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
                 <h3 className="text-base font-bold text-brand-navy mb-2">{faq.q}</h3>
-                <p className="text-brand-muted text-sm">{faq.a}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -113,15 +113,15 @@ export default function UploadContractPage() {
           <div className="grid md:grid-cols-3 gap-4">
             <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted">Comprehensive title searches for real estate investors.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Comprehensive title searches for real estate investors.</p>
             </Link>
             <Link href="/request-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Request Title Review</h3>
-              <p className="text-sm text-brand-muted">Get clarity on a property&apos;s title status.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Get clarity on a property&apos;s title status.</p>
             </Link>
             <Link href="/calculators" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Closing Cost Calculator</h3>
-              <p className="text-sm text-brand-muted">Estimate your buyer or seller closing costs.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Estimate your buyer or seller closing costs.</p>
             </Link>
           </div>
         </div>

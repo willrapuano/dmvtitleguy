@@ -78,10 +78,10 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
       <div className="bg-white rounded-xl shadow-lg p-8 text-center">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
         <h3 className="t-h5 text-brand-navy mb-2">Contract Received!</h3>
-        <p className="text-brand-muted text-sm mb-4">
+        <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
           We&apos;ll initiate the title process within 1 business hour.
         </p>
-        <p className="text-brand-muted text-sm">
+        <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Questions? Call{" "}
           <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
         </p>
@@ -99,25 +99,25 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
           {uploadedFile ? (
             <div className="flex flex-col items-center gap-3">
               <CheckCircle className="h-10 w-10 text-green-500" />
-              <p className="text-sm font-medium text-gray-700">{uploadedFile.name}</p>
-              <p className="text-xs text-gray-500">Click or drop to replace</p>
+              <p className="text-sm font-medium text-gray-700 max-w-[68ch] leading-relaxed">{uploadedFile.name}</p>
+              <p className="text-xs text-gray-500 max-w-[68ch]">Click or drop to replace</p>
             </div>
           ) : isDragActive ? (
             <div className="flex flex-col items-center gap-3">
               <FileText className="h-10 w-10 text-brand-blue" />
-              <p className="text-sm font-medium text-brand-blue">Drop your PDF here</p>
+              <p className="text-sm font-medium text-brand-blue max-w-[68ch] leading-relaxed">Drop your PDF here</p>
             </div>
           ) : (
             <div className="flex flex-col items-center gap-3">
               <Upload className="h-10 w-10 text-gray-400" />
               <div className="text-center">
-                <p className="text-sm font-medium text-gray-700">Drag & drop your ratified contract</p>
-                <p className="text-xs text-gray-500">or click to browse — PDF only, up to 50MB</p>
+                <p className="text-sm font-medium text-gray-700 max-w-[68ch] leading-relaxed">Drag & drop your ratified contract</p>
+                <p className="text-xs text-gray-500 max-w-[68ch]">or click to browse — PDF only, up to 50MB</p>
               </div>
             </div>
           )}
         </div>
-        {uploadError && <p className="mt-2 text-sm text-red-600">{uploadError}</p>}
+        {uploadError && <p className="mt-2 text-sm text-red-600 max-w-[68ch] leading-relaxed">{uploadError}</p>}
       </div>
 
       {/* Contact Info */}
@@ -165,7 +165,7 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
       </button>
 
       {status === "error" && (
-        <p className="text-red-600 text-sm text-center">Something went wrong. Please call us at (703) 859-1467.</p>
+        <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
       )}
     </form>
   );

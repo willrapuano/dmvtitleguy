@@ -119,7 +119,7 @@ export default function CalculatorsPage() {
             <span className="mx-2">/</span>
             <span>Calculators</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tools</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tools</p>
           <h1 className="t-h1 text-white mb-4">
             Real Estate Calculators
           </h1>
@@ -146,7 +146,7 @@ export default function CalculatorsPage() {
                 <h2 className="t-h6 text-brand-navy group-hover:text-brand-blue mb-2 transition-colors">
                   {calc.title}
                 </h2>
-                <p className="text-sm text-brand-muted leading-relaxed">{calc.description}</p>
+                <p className="text-sm text-brand-muted leading-relaxed max-w-[68ch]">{calc.description}</p>
                 <span className="inline-block mt-4 text-sm text-brand-blue-deep font-medium">
                   Open Calculator →
                 </span>

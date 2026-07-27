@@ -86,7 +86,7 @@ export function ExtraPaymentCalculator() {
           <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
             <input type="number" placeholder="200" value={extraMonthly} onChange={e => setExtraMonthly(e.target.value)} className={inputClass + " pl-7"} />
           </div>
-          <p className="text-xs text-brand-muted mt-1">Applied directly to principal each month</p>
+          <p className="text-xs text-brand-muted mt-1 max-w-[68ch]">Applied directly to principal each month</p>
         </div>
       </div>
 

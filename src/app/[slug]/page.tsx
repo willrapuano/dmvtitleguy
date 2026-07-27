@@ -206,15 +206,15 @@ function TysonsStructuredData() {
 }
 
 function TysonsExpansionSections() {
-  const sectionHeadingClass = "text-2xl md:text-3xl font-bold text-brand-navy mb-4";
-  const bodyClass = "text-brand-muted leading-relaxed";
+  const sectionHeadingClass = "t-h3 text-brand-navy mb-4";
+  const bodyClass = "text-brand-muted leading-relaxed max-w-[68ch]";
   const cardClass = "rounded-lg border border-gray-200 bg-white p-5";
 
   return (
     <>
       <section className="section-light border-t border-gray-100">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Overview</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Overview</p>
           <h2 className={sectionHeadingClass}>Tysons VA Title Company for Residential and Commercial Closings</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
@@ -229,7 +229,7 @@ function TysonsExpansionSections() {
 
       <section className="section-gray">
         <div className="container-xl max-w-5xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Services</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Services</p>
           <h2 className={sectionHeadingClass}>Title and Settlement Services in Tysons</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -250,7 +250,7 @@ function TysonsExpansionSections() {
 
       <section className="section-light">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Why Pruitt Title</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Why Pruitt Title</p>
           <h2 className={sectionHeadingClass}>Why Choose Pruitt Title for Tysons?</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
@@ -269,7 +269,7 @@ function TysonsExpansionSections() {
 
       <section className="section-gray">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Local Expertise</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Local Expertise</p>
           <h2 className={sectionHeadingClass}>Local Expertise Across Tysons Corner, McLean, and Fairfax County</h2>
           <p className={`${bodyClass} mb-5`}>
             Tysons closings can touch Fairfax County land records, HOA and condo documents, commercial leases, easements, access rights, prior releases, entity authority, and lender-specific title endorsements. Our nearby team understands the local market and coordinates with parties across Tysons Corner, McLean, Vienna, Merrifield, Dunn Loring, and the broader Fairfax County corridor.
@@ -295,7 +295,7 @@ function TysonsExpansionSections() {
             {TYSONS_FAQS.map((faq, i) => (
               <div key={i}>
                 <h3 className="t-h6 font-semibold text-brand-navy mb-2">{faq.question}</h3>
-                <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
+                <p className="text-brand-muted leading-relaxed max-w-[68ch]">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -362,15 +362,15 @@ function BethesdaStructuredData() {
 }
 
 function BethesdaExpansionSections() {
-  const sectionHeadingClass = "text-2xl md:text-3xl font-bold text-brand-navy mb-4";
-  const bodyClass = "text-brand-muted leading-relaxed";
+  const sectionHeadingClass = "t-h3 text-brand-navy mb-4";
+  const bodyClass = "text-brand-muted leading-relaxed max-w-[68ch]";
   const linkClass = "font-semibold text-brand-blue-deep hover:underline";
 
   return (
     <>
       <section className="section-light border-t border-gray-100">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Bethesda-Chevy Chase Closings</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Bethesda-Chevy Chase Closings</p>
           <h2 className={sectionHeadingClass}>Bethesda-Chevy Chase Title &amp; Escrow Services</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
@@ -424,15 +424,15 @@ function BethesdaExpansionSections() {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="rounded-lg border border-gray-200 bg-white p-5">
               <h3 className="font-bold text-brand-navy mb-2">State Transfer Tax</h3>
-              <p className="text-sm text-brand-muted">Approximately 0.5%, subject to Maryland rules, exemptions, and current official rate verification.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Approximately 0.5%, subject to Maryland rules, exemptions, and current official rate verification.</p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-white p-5">
               <h3 className="font-bold text-brand-navy mb-2">Recordation Tax</h3>
-              <p className="text-sm text-brand-muted">Montgomery County recordation tax may apply based on the recorded instrument and transaction details.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Montgomery County recordation tax may apply based on the recorded instrument and transaction details.</p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-white p-5">
               <h3 className="font-bold text-brand-navy mb-2">County Transfer Tax</h3>
-              <p className="text-sm text-brand-muted">Approximately 1.0% for improved residential property, subject to official verification and transaction-specific rules.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Approximately 1.0% for improved residential property, subject to official verification and transaction-specific rules.</p>
             </div>
           </div>
         </div>
@@ -464,15 +464,15 @@ function BethesdaExpansionSections() {
           <div className="grid md:grid-cols-3 gap-4">
             <Link href="/investor-title-services" className="rounded-lg border border-gray-200 bg-white p-5 hover:border-brand-blue transition-colors">
               <h3 className="font-bold text-brand-navy mb-2">Investor Title Services</h3>
-              <p className="text-sm text-brand-muted">Title support for acquisitions, assignments, refinances, and portfolio decisions.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title support for acquisitions, assignments, refinances, and portfolio decisions.</p>
             </Link>
             <Link href="/auction-property-title-search" className="rounded-lg border border-gray-200 bg-white p-5 hover:border-brand-blue transition-colors">
               <h3 className="font-bold text-brand-navy mb-2">Auction Property Title Search</h3>
-              <p className="text-sm text-brand-muted">Review title issues before auction deposits or nonrefundable bidding decisions.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Review title issues before auction deposits or nonrefundable bidding decisions.</p>
             </Link>
             <Link href="/foreclosure-title-review" className="rounded-lg border border-gray-200 bg-white p-5 hover:border-brand-blue transition-colors">
               <h3 className="font-bold text-brand-navy mb-2">Foreclosure Title Review</h3>
-              <p className="text-sm text-brand-muted">Check surviving liens, ownership history, and foreclosure-related title concerns.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Check surviving liens, ownership history, and foreclosure-related title concerns.</p>
             </Link>
           </div>
         </div>
@@ -491,15 +491,15 @@ function BethesdaExpansionSections() {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="rounded-lg border border-gray-200 bg-white p-5">
               <h3 className="font-bold text-brand-navy mb-2">Residential Buyer</h3>
-              <p className="text-sm text-brand-muted">A Bethesda buyer at an illustrative $950,000 price may need to budget for lender charges, title insurance, escrow, recording, transfer and recordation taxes, and prepaid items.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">A Bethesda buyer at an illustrative $950,000 price may need to budget for lender charges, title insurance, escrow, recording, transfer and recordation taxes, and prepaid items.</p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-white p-5">
               <h3 className="font-bold text-brand-navy mb-2">Seller</h3>
-              <p className="text-sm text-brand-muted">A seller example may include payoff handling, release tracking, owner policy custom, transfer charges allocated by contract, commissions, prorations, and settlement fees.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">A seller example may include payoff handling, release tracking, owner policy custom, transfer charges allocated by contract, commissions, prorations, and settlement fees.</p>
             </div>
             <div className="rounded-lg border border-gray-200 bg-white p-5">
               <h3 className="font-bold text-brand-navy mb-2">Investor</h3>
-              <p className="text-sm text-brand-muted">An investor example may add pre-purchase title search costs, entity review, assignment timing, auction requirements, payoff risk, and any curative work discovered before settlement.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">An investor example may add pre-purchase title search costs, entity review, assignment timing, auction requirements, payoff risk, and any curative work discovered before settlement.</p>
             </div>
           </div>
         </div>
@@ -512,7 +512,7 @@ function BethesdaExpansionSections() {
             {BETHESDA_FAQS.map((faq, i) => (
               <div key={i}>
                 <h3 className="t-h6 font-semibold text-brand-navy mb-2">{faq.question}</h3>
-                <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
+                <p className="text-brand-muted leading-relaxed max-w-[68ch]">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -756,7 +756,7 @@ function LocationPage({ location }: { location: Location }) {
               <span className="mx-2">/</span>
               <span className="text-gray-200">{locationName}</span>
             </nav>
-            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">
+            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">
               {stateFullName} Title Insurance
             </p>
             <h1 className="t-h1 text-white mb-4">
@@ -801,9 +801,9 @@ function LocationPage({ location }: { location: Location }) {
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">What We Offer</p>
+              <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">What We Offer</p>
               <h2 className="t-h3 text-brand-navy mb-4">Title Services in {locationName}</h2>
-              <p className="text-brand-muted mb-6">
+              <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
                 Pruitt Title LLC has been serving the {stateFullName} real estate market since 2007. Our team handles every aspect of the title and settlement process — from search to closing — so your transaction closes on time, every time.
               </p>
               <ul className="grid grid-cols-2 gap-2">
@@ -826,7 +826,7 @@ function LocationPage({ location }: { location: Location }) {
       <section className="section-gray">
         <div className="container-xl">
           <div className="text-center mb-10">
-            <p className="text-sm uppercase tracking-widest text-brand-blue-deep-deep font-semibold mb-2">How It Works</p>
+            <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">How It Works</p>
             <h2 className="prose-title">The Closing Process in {city}</h2>
             <p className="prose-subtitle max-w-2xl mx-auto">
               From contract to keys, here&apos;s what to expect when you work with DMV Title Guy in {locationName}.
@@ -839,7 +839,7 @@ function LocationPage({ location }: { location: Location }) {
                   {s.step}
                 </div>
                 <h3 className="font-bold text-brand-navy text-sm mb-1">{s.title}</h3>
-                <p className="text-xs text-brand-muted leading-relaxed">{s.desc}</p>
+                <p className="text-xs text-brand-muted leading-relaxed max-w-[68ch]">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -889,7 +889,7 @@ function LocationPage({ location }: { location: Location }) {
                 {location.faqs.map((faq: FaqItem, i: number) => (
                   <div key={i}>
                     <h3 className="t-h6 font-semibold text-brand-navy mb-2">{faq.question}</h3>
-                    <p className="text-brand-muted leading-relaxed">{faq.answer}</p>
+                    <p className="text-brand-muted leading-relaxed max-w-[68ch]">{faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -905,7 +905,7 @@ function LocationPage({ location }: { location: Location }) {
             {parentLocation ? (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">{parentLocationName}</h3>
-                <p className="text-sm text-brand-muted mb-3">
+                <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
                   View the parent market page for title services across {parentLocation.city}.
                 </p>
                 <Link href={`/${parentLocation.slug}`} className="text-sm text-brand-blue-deep hover:underline">
@@ -915,7 +915,7 @@ function LocationPage({ location }: { location: Location }) {
             ) : countyPage && (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">{countyPage.name}</h3>
-                <p className="text-sm text-brand-muted mb-3">
+                <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
                   View all title services across {countyPage.fullName}.
                 </p>
                 <Link href={`/${countyPage.slug}`} className="text-sm text-brand-blue-deep hover:underline">
@@ -939,7 +939,7 @@ function LocationPage({ location }: { location: Location }) {
             )}
             <div>
               <h3 className="font-bold text-brand-navy mb-3">Closing Cost Calculator</h3>
-              <p className="text-sm text-brand-muted mb-3">
+              <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
                 {calculatorCopy}
               </p>
               <Link href={`/${calcSlug}`} className="text-sm text-brand-blue-deep hover:underline">
@@ -948,7 +948,7 @@ function LocationPage({ location }: { location: Location }) {
             </div>
             <div>
               <h3 className="font-bold text-brand-navy mb-3">All Transaction Types</h3>
-              <p className="text-sm text-brand-muted mb-3">
+              <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
                 Residential, commercial, refinances, investment properties — we handle every type of closing professionally.
               </p>
               <Link href="/investor-friendly-title-company" className="text-sm text-brand-blue-deep hover:underline">
@@ -958,7 +958,7 @@ function LocationPage({ location }: { location: Location }) {
             {FAIRFAX_TITLE_SEARCH_LINK_SLUGS.has(slug) && (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">Fairfax Title Search</h3>
-                <p className="text-sm text-brand-muted mb-3">
+                <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
                   Need title search support in Fairfax County? Review ownership, liens, HOA issues, and recorded title risks before closing.
                 </p>
                 <Link href="/title-search-fairfax-va" className="text-sm text-brand-blue-deep hover:underline">
@@ -969,7 +969,7 @@ function LocationPage({ location }: { location: Location }) {
             {state === "VA" && slug !== "title-company-herndon-va" && (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">Herndon Title Services</h3>
-                <p className="text-sm text-brand-muted mb-3">
+                <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
                   Need another Fairfax County settlement option? Learn more about working with a title company in Herndon.
                 </p>
                 <Link href="/title-company-herndon-va" className="text-sm text-brand-blue-deep hover:underline">
@@ -1003,7 +1003,7 @@ function CountyPage({ county }: { county: County }) {
               <span className="mx-2">/</span>
               <span className="text-gray-200">{fullName}</span>
             </nav>
-            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">{stateFullName} Title Insurance</p>
+            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">{stateFullName} Title Insurance</p>
             <h1 className="t-h1 text-white mb-4">Title Company in {fullName}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               Pruitt Title LLC serves every city and community in {fullName}. Professional title search, title insurance, and settlement services — residential, commercial, and all transaction types.
@@ -1023,15 +1023,15 @@ function CountyPage({ county }: { county: County }) {
       <section className="section-light">
         <div className="container-xl">
           <div className="text-center mb-10">
-            <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Service Coverage</p>
+            <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Service Coverage</p>
             <h2 className="prose-title">Cities &amp; Communities in {name}</h2>
             <p className="prose-subtitle max-w-xl mx-auto">We provide full-service title and closing services to every community in {fullName}.</p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {citiesInCounty.map((loc) => (
               <Link key={loc.slug} href={`/${loc.slug}`} className="bg-brand-gray-bg hover:bg-brand-blue hover:text-white border border-gray-200 rounded-lg p-4 text-center transition-colors group">
-                <p className="font-semibold text-brand-navy group-hover:text-white">{loc.city}</p>
-                <p className="text-xs text-brand-muted group-hover:text-blue-100 mt-1">{loc.tier === 1 ? "Primary Market" : "Service Area"}</p>
+                <p className="font-semibold text-brand-navy group-hover:text-white max-w-[68ch] leading-relaxed">{loc.city}</p>
+                <p className="text-xs text-brand-muted group-hover:text-blue-100 mt-1 max-w-[68ch]">{loc.tier === 1 ? "Primary Market" : "Service Area"}</p>
               </Link>
             ))}
           </div>
@@ -1042,7 +1042,7 @@ function CountyPage({ county }: { county: County }) {
         <section className="py-10 bg-white border-t border-gray-100">
           <div className="container-xl max-w-3xl">
             <h2 className="t-h5 text-brand-navy mb-3">Fairfax County Title Support</h2>
-            <p className="text-sm text-brand-muted leading-relaxed">
+            <p className="text-sm text-brand-muted leading-relaxed max-w-[68ch]">
               For another Northern Virginia settlement resource, learn more about working with a{" "}
               <Link href="/title-company-herndon-va" className="font-semibold text-brand-blue-deep hover:underline">
                 title company in Herndon
@@ -1058,7 +1058,7 @@ function CountyPage({ county }: { county: County }) {
         <div className="container-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="t-h3 text-white mb-4">Start Your Order in {name}</h2>
-            <p className="text-gray-300 mb-4">Contact Will Rapuano at Pruitt Title LLC to open your title order or get a quote for your next transaction in {fullName}.</p>
+            <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Contact Will Rapuano at Pruitt Title LLC to open your title order or get a quote for your next transaction in {fullName}.</p>
             <div className="space-y-2 text-sm text-gray-300">
               <p>📞 <a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>
               <p>✉️ <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">wrapuano@pruitt-title.com</a></p>

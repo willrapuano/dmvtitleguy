@@ -21,7 +21,7 @@ export default function HomeEquityPage() {
             <span className="mx-2">/</span>
             <span>Home Equity</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Homeowner Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Homeowner Tool</p>
           <h1 className="t-h1 text-white mb-4">Home Equity Calculator</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Know exactly how much equity you've built — and how much you can tap through a cash-out refi or HELOC. Enter your home value and mortgage balance to see your full equity picture.

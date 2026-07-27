@@ -72,7 +72,7 @@ export default function FairfaxTitlePage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Fairfax is Virginia's most populous county—with 1.1M residents, delays here mean bigger risks. Our local team has direct access to Fairfax County land records for 48-hour title turnarounds.
           </p>
         </div>
@@ -83,10 +83,10 @@ export default function FairfaxTitlePage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Why Fairfax Real Estate Matters</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Fairfax County is the most populous jurisdiction in Virginia and one of the wealthiest counties in America. With a median home price around $650,000 and top-rated schools, Fairfax attracts families and professionals seeking quality of life near Washington DC.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               The Fairfax real estate market is diverse, from starter homes in established neighborhoods to luxury estates in Great Falls and McLean. This variety means title issues can be complex—older properties may have easements, covenants, or heirship concerns that require careful research. Pruitt Title's local expertise catches these issues early, keeping your transaction on track.
             </p>
           </div>
@@ -100,27 +100,27 @@ export default function FairfaxTitlePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
-              <p className="text-gray-600">Thorough title research covering Fairfax County land records and court filings.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Thorough title research covering Fairfax County land records and court filings.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
-              <p className="text-gray-600">Protect your investment with comprehensive owner's title insurance coverage.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Protect your investment with comprehensive owner's title insurance coverage.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600">ALTA policies for all major lenders operating in Fairfax County.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">ALTA policies for all major lenders operating in Fairfax County.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
-              <p className="text-gray-600">Full-service closings from contract to recorded deed and title policy delivery.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Full-service closings from contract to recorded deed and title policy delivery.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">New Construction Closings</h3>
-              <p className="text-gray-600">Specialized title services for new construction purchases and builder transactions.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized title services for new construction purchases and builder transactions.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
-              <p className="text-gray-600">RON available for convenient remote signing options.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for convenient remote signing options.</p>
             </div>
           </div>
         </div>
@@ -134,19 +134,19 @@ export default function FairfaxTitlePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
-              <p className="text-sm text-brand-muted">Title searches, auction support & wholesale closings.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
             <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
-              <p className="text-sm text-brand-muted">Pre-auction title search & risk assessment.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
             <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
-              <p className="text-sm text-brand-muted">Surviving liens & chain-of-title review.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
             <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
           </div>
         </div>

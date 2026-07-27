@@ -70,7 +70,7 @@ export function SubscribePageClient() {
               <div className="text-center py-8">
                 <div className="text-4xl mb-3">✅</div>
                 <h3 className="t-h5 text-brand-navy mb-2">You&apos;re subscribed!</h3>
-                <p className="text-brand-muted text-sm">
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                   Welcome to the community. Watch your inbox for exclusive resources and updates.
                 </p>
               </div>
@@ -112,12 +112,12 @@ export function SubscribePageClient() {
                   {status === "submitting" ? "Subscribing…" : "Subscribe Now"}
                 </button>
                 {status === "error" && (
-                  <p className="text-red-600 text-sm text-center">Something went wrong. Please try again.</p>
+                  <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please try again.</p>
                 )}
               </form>
             )}
 
-            <p className="text-xs text-brand-muted text-center mt-4">
+            <p className="text-xs text-brand-muted text-center mt-4 max-w-[68ch] mx-auto">
               We respect your privacy. Unsubscribe at any time.
             </p>
           </div>

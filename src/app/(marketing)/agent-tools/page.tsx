@@ -75,7 +75,7 @@ export default function AgentToolsPage() {
                 <h2 className="t-h5 text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
                   {tool.title}
                 </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed max-w-[68ch]">
                   {tool.description}
                 </p>
                 <div className="mt-4 text-sm font-medium text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity">
@@ -88,7 +88,7 @@ export default function AgentToolsPage() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm max-w-[68ch] mx-auto leading-relaxed">
             Have a tool idea?{" "}
             <a
               href="mailto:will@pruitt-title.com"

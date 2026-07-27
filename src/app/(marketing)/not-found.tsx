@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <section className="section-light min-h-[60vh] flex items-center">
       <div className="container-xl text-center">
-        <p className="text-6xl font-bold text-brand-blue mb-4">404</p>
+        <p className="text-6xl font-bold text-brand-blue mb-4 max-w-[68ch]">404</p>
         <h1 className="t-h3 text-brand-navy mb-4">Page Not Found</h1>
         <p className="text-brand-muted mb-8 max-w-md mx-auto">
           The page you&apos;re looking for doesn&apos;t exist. Try navigating back home or find your city below.

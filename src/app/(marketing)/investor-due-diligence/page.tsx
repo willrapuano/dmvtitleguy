@@ -88,7 +88,7 @@ export default function InvestorDueDiligencePage() {
                   <step.icon className="h-7 w-7 text-brand-navy" />
                 </div>
                 <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm">{step.desc}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -103,7 +103,7 @@ export default function InvestorDueDiligencePage() {
             {faqs.map((faq) => (
               <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
                 <h3 className="text-base font-bold text-brand-navy mb-2">{faq.q}</h3>
-                <p className="text-brand-muted text-sm">{faq.a}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -117,15 +117,15 @@ export default function InvestorDueDiligencePage() {
           <div className="grid md:grid-cols-3 gap-4">
             <Link href="/upload-contract" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Upload Contract</h3>
-              <p className="text-sm text-brand-muted">Submit your ratified contract for fast title processing.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit your ratified contract for fast title processing.</p>
             </Link>
             <Link href="/request-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Request Title Review</h3>
-              <p className="text-sm text-brand-muted">Get clarity on a property&apos;s title status.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Get clarity on a property&apos;s title status.</p>
             </Link>
             <Link href="/title-insurance" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Title Insurance</h3>
-              <p className="text-sm text-brand-muted">Protect your investment with owner&apos;s title insurance.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Protect your investment with owner&apos;s title insurance.</p>
             </Link>
           </div>
         </div>

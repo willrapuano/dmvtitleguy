@@ -20,7 +20,7 @@ export default function TitleQuotePage() {
             <span className="mx-2">/</span>
             <span>Title Quote</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
           <h1 className="t-h1 text-white mb-4">
             Title Quote Calculator
           </h1>

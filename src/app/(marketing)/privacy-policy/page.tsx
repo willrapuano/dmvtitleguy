@@ -11,12 +11,12 @@ export default function PrivacyPolicyPage() {
     <section className="section-light min-h-[60vh]">
       <div className="container-xl max-w-3xl py-12">
         <h1 className="prose-title mb-8">Privacy Policy</h1>
-        <p className="text-brand-muted text-sm mb-6">
+        <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">
           <strong>Effective Date:</strong> March 20, 2026
         </p>
 
         <div className="prose prose-sm text-brand-muted space-y-6">
-          <p>
+          <p className="max-w-[68ch]">
             DMV Title Guy (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting
             your privacy. This Privacy Policy explains how we collect, use, disclose,
             and safeguard your information when you visit our website{" "}
@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
           </ul>
 
           <h2 className="t-h6 font-semibold text-brand-navy">4. Cookies and Tracking Technologies</h2>
-          <p>
+          <p className="max-w-[68ch]">
             We use cookies, web beacons, and similar technologies to enhance your experience,
             analyze site traffic, and understand usage patterns. You can control cookie preferences
             through your browser settings. Disabling cookies may affect site functionality.
@@ -93,14 +93,14 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h2 className="t-h6 font-semibold text-brand-navy">6. Data Security</h2>
-          <p>
+          <p className="max-w-[68ch]">
             We implement reasonable administrative, technical, and physical safeguards to protect
             your personal information. However, no method of electronic transmission or storage
             is 100% secure, and we cannot guarantee absolute security.
           </p>
 
           <h2 className="t-h6 font-semibold text-brand-navy">7. Data Retention</h2>
-          <p>
+          <p className="max-w-[68ch]">
             We retain your personal information only as long as necessary to fulfill the purposes
             outlined in this policy, comply with legal obligations, resolve disputes, and enforce
             our agreements.
@@ -122,14 +122,14 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h2 className="t-h6 font-semibold text-brand-navy">9. Children&apos;s Privacy</h2>
-          <p>
+          <p className="max-w-[68ch]">
             Our services are not directed to individuals under 18. We do not knowingly collect
             personal information from children. If we learn we have collected information from
             a child, we will take steps to delete it promptly.
           </p>
 
           <h2 className="t-h6 font-semibold text-brand-navy">10. Changes to This Policy</h2>
-          <p>
+          <p className="max-w-[68ch]">
             We may update this Privacy Policy from time to time. The updated version will be
             indicated by the &quot;Effective Date&quot; at the top of this page. We encourage you to
             review this policy periodically.
@@ -138,7 +138,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="t-h6 font-semibold text-brand-navy">11. Contact Us</h2>
           <p>If you have questions about this Privacy Policy, contact us at:</p>
           <div className="bg-gray-50 rounded-lg p-4">
-            <p className="font-medium text-brand-navy">DMV Title Guy</p>
+            <p className="font-medium text-brand-navy max-w-[68ch] leading-relaxed">DMV Title Guy</p>
             <p>Will Rapuano</p>
             <p>
               Email:{" "}

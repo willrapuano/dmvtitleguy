@@ -225,7 +225,7 @@ export default function CommercialPropertyTitleSearchPage() {
               <div key={item.title} className="bg-gray-50 rounded-lg p-6">
                 <item.icon className="h-8 w-8 text-brand-blue mb-3" />
                 <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
-                <p className="text-brand-muted text-sm">{item.desc}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -244,7 +244,7 @@ export default function CommercialPropertyTitleSearchPage() {
               <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
                 <item.icon className="h-8 w-8 text-brand-blue mb-3" />
                 <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
-                <p className="text-brand-muted text-sm">{item.desc}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -262,7 +262,7 @@ export default function CommercialPropertyTitleSearchPage() {
             {dueDiligence.map((item) => (
               <div key={item} className="flex items-start gap-3 bg-gray-50 rounded-lg p-4">
                 <CheckCircle2 className="h-5 w-5 text-brand-blue shrink-0 mt-0.5" />
-                <p className="text-brand-muted text-sm">{item}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -279,7 +279,7 @@ export default function CommercialPropertyTitleSearchPage() {
                   <step.icon className="h-7 w-7 text-brand-navy" />
                 </div>
                 <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm">{step.desc}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -303,7 +303,7 @@ export default function CommercialPropertyTitleSearchPage() {
               Order Title Search
             </Link>
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">
             Prefer to talk? Call{" "}
             <a href="tel:+17038591467" className="text-white font-semibold hover:underline">
               <Phone className="inline h-4 w-4" /> (703) 859-1467

@@ -68,7 +68,7 @@ export default function TitleInsuranceCostByStatePage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> In the DMV region, Virginia has regulated rates set by the state, while Maryland and DC allow more competition—meaning shopping around can yield savings.
           </p>
         </div>
@@ -150,19 +150,19 @@ export default function TitleInsuranceCostByStatePage() {
           <div className="space-y-6 text-brand-muted leading-relaxed">
             <div>
               <h3 className="text-brand-navy t-h6 mb-2">1. Home Value</h3>
-              <p>Higher-value homes typically cost more to insure. Title insurance premiums are calculated based on the purchase price of the property.</p>
+              <p className="max-w-[68ch]">Higher-value homes typically cost more to insure. Title insurance premiums are calculated based on the purchase price of the property.</p>
             </div>
             <div>
               <h3 className="text-brand-navy t-h6 mb-2">2. State Regulations</h3>
-              <p>Some states regulate rates (like Virginia and DC), while others allow competition (like Maryland). Regulated states have fixed rate schedules, while competitive states allow providers to set their own rates.</p>
+              <p className="max-w-[68ch]">Some states regulate rates (like Virginia and DC), while others allow competition (like Maryland). Regulated states have fixed rate schedules, while competitive states allow providers to set their own rates.</p>
             </div>
             <div>
               <h3 className="text-brand-navy t-h6 mb-2">3. Local Practices</h3>
-              <p>Urban areas may have higher costs due to more complex title histories, potential for liens, and higher property values. Rural properties may have different risk profiles.</p>
+              <p className="max-w-[68ch]">Urban areas may have higher costs due to more complex title histories, potential for liens, and higher property values. Rural properties may have different risk profiles.</p>
             </div>
             <div>
               <h3 className="text-brand-navy t-h6 mb-2">4. Endorsements</h3>
-              <p>Additional coverage options (endorsements) can increase the premium. Common endorsements include survey coverage, zoning endorsement, and contiguity insurance.</p>
+              <p className="max-w-[68ch]">Additional coverage options (endorsements) can increase the premium. Common endorsements include survey coverage, zoning endorsement, and contiguity insurance.</p>
             </div>
           </div>
         </div>
@@ -175,19 +175,19 @@ export default function TitleInsuranceCostByStatePage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-brand-navy t-h6 mb-3">Virginia</h3>
-              <p className="text-brand-muted text-sm">
+              <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                 Virginia has <strong>state-regulated rates</strong> set by the Virginia Bureau of Insurance. Rates are based on a schedule tied to the property's purchase price. Simultaneous issue discounts are available when buying both owner's and lender's policies together.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-brand-navy t-h6 mb-3">Maryland</h3>
-              <p className="text-brand-muted text-sm">
+              <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                 Maryland has a <strong>competitive market</strong> for title insurance, meaning rates can vary between providers. It's worth getting quotes from multiple title companies to find the best rate. Maryland also offers simultaneous issue discounts.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-brand-navy t-h6 mb-3">Washington DC</h3>
-              <p className="text-brand-muted text-sm">
+              <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                 DC has <strong>regulated rates</strong> set by the DC Insurance Commissioner. For a $500,000 home, owner's title insurance typically costs $1,800-2,400. DC requires an attorney or licensed title agent to conduct all real estate settlements.
               </p>
             </div>

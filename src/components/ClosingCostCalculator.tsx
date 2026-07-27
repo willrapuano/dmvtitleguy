@@ -229,7 +229,7 @@ function CostBreakdown({ label, costs, total }: { label: string; costs: Record<s
         <span>Total</span>
         <span className="text-brand-blue-deep text-lg">{formatCurrency(total)}</span>
       </div>
-      <p className="text-xs text-brand-muted mt-2">
+      <p className="text-xs text-brand-muted mt-2 max-w-[68ch]">
         Tax rates verified as of June 2026. Rates are subject to change; confirm with the applicable circuit court clerk for the most current rates.
       </p>
     </div>
@@ -396,31 +396,31 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
         {/* Summary bar */}
         <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-lg p-4 text-center">
-            <p className="text-xs text-brand-muted uppercase tracking-wide">Sale Price</p>
-            <p className="font-bold text-brand-navy text-lg">{formatCurrency(price)}</p>
+            <p className="text-xs text-brand-muted uppercase tracking-wide max-w-[68ch]">Sale Price</p>
+            <p className="font-bold text-brand-navy text-lg max-w-[68ch]">{formatCurrency(price)}</p>
           </div>
           <div className="bg-white rounded-lg p-4 text-center">
-            <p className="text-xs text-brand-muted uppercase tracking-wide">Loan Amount</p>
-            <p className="font-bold text-brand-navy text-lg">{formatCurrency(loanAmount)}</p>
+            <p className="text-xs text-brand-muted uppercase tracking-wide max-w-[68ch]">Loan Amount</p>
+            <p className="font-bold text-brand-navy text-lg max-w-[68ch]">{formatCurrency(loanAmount)}</p>
           </div>
           <div className="bg-brand-blue/10 border border-brand-blue/20 rounded-lg p-4 text-center">
-            <p className="text-xs text-brand-muted uppercase tracking-wide">Buyer</p>
-            <p className="font-bold text-brand-blue-deep text-lg">{formatCurrency(buyerTotal)}</p>
+            <p className="text-xs text-brand-muted uppercase tracking-wide max-w-[68ch]">Buyer</p>
+            <p className="font-bold text-brand-blue-deep text-lg max-w-[68ch]">{formatCurrency(buyerTotal)}</p>
           </div>
           <div className="bg-brand-blue/10 border border-brand-blue/20 rounded-lg p-4 text-center">
-            <p className="text-xs text-brand-muted uppercase tracking-wide">Seller</p>
-            <p className="font-bold text-brand-blue-deep text-lg">{formatCurrency(sellerTotal)}</p>
+            <p className="text-xs text-brand-muted uppercase tracking-wide max-w-[68ch]">Seller</p>
+            <p className="font-bold text-brand-blue-deep text-lg max-w-[68ch]">{formatCurrency(sellerTotal)}</p>
           </div>
         </div>
 
-        <p className="text-xs text-brand-muted mt-3">{cityOverrides?.localTaxNote ?? config.transferTaxNote}</p>
+        <p className="text-xs text-brand-muted mt-3 max-w-[68ch]">{cityOverrides?.localTaxNote ?? config.transferTaxNote}</p>
         {state === "MD" && marylandCounty === "montgomery" && (
-          <p className="text-xs text-brand-muted mt-2">
+          <p className="text-xs text-brand-muted mt-2 max-w-[68ch]">
             Montgomery County recordation tax uses the Bill 17-23 tiered schedule and applies the first $100,000 owner-occupied residential exemption when selected.
           </p>
         )}
         {state === "MD" && marylandCounty === "princeGeorges" && (
-          <p className="text-xs text-brand-muted mt-2">
+          <p className="text-xs text-brand-muted mt-2 max-w-[68ch]">
             Prince George&apos;s County uses 0.55% recordation tax and 1.4% county transfer tax. The 1.4% local transfer tax also applies to mortgages and deeds of trust.
           </p>
         )}
@@ -440,7 +440,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
       <div className="bg-brand-navy text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
           <h3 className="t-h6">Ready for a Precise Quote?</h3>
-          <p className="text-gray-300 text-sm">Contact Will Rapuano at Pruitt Title LLC — we&apos;ll walk through actual costs for your transaction.</p>
+          <p className="text-gray-300 text-sm max-w-[68ch] leading-relaxed">Contact Will Rapuano at Pruitt Title LLC — we&apos;ll walk through actual costs for your transaction.</p>
         </div>
         <div className="flex gap-3">
           <Link href="/calculators/title-quote" className="btn-primary whitespace-nowrap">Get a Real Quote</Link>

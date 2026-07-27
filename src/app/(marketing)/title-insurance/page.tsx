@@ -114,26 +114,26 @@ export default function TitleInsurancePage() {
           <div>
             <h2 className="prose-title mb-4">A Word About Real Estate</h2>
             <div className="space-y-4 text-brand-muted leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Real estate has traditionally been a family&apos;s most valuable
                 asset in the DMV area. It is a form of wealth that is protected
                 by many laws in Washington D.C., Maryland, and Virginia. These
                 laws have been enacted to protect one&apos;s ownership of real
                 estate and the improvements located on the land.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 The owner, the owner&apos;s family, and the owner&apos;s heirs
                 have extremely strong rights in and to the property you are
                 purchasing. In addition to the owner, there may be others who
                 have rights or claims in and to the property that you are buying.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Those who may have an interest in or lien upon the property could
                 be governmental bodies, contractors, lenders, judgment creditors,
                 the Internal Revenue Service or various other individuals or
                 corporations.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 The real estate may be sold to you without the knowledge of the
                 party having claim in and to the property. In addition, you may
                 purchase the real estate without having any knowledge of these
@@ -150,19 +150,19 @@ export default function TitleInsurancePage() {
               Title Insurance Protects Your Assets
             </h2>
             <div className="space-y-4 text-brand-muted leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Title insurance gives you the assurance that possible clouds on
                 title to the property you are purchasing in the DMV—which can be
                 discovered from the public records—have been called to your
                 attention so that such defects can be corrected before you buy.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Additionally, it is insurance that if any undiscovered claims
                 covered by your policy arise out of the past to threaten your
                 ownership of real estate, it will be disposed of, or you will be
                 reimbursed exactly as your title insurance policy provides.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Pruitt Title LLC works with First American Title Insurance
                 Company, a respected Fortune 500 leader in the industry,
                 combining local DMV expertise with national financial strength to
@@ -175,14 +175,14 @@ export default function TitleInsurancePage() {
           <div>
             <h2 className="prose-title mb-4">Will You Get Clear Title?</h2>
             <div className="space-y-4 text-brand-muted leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 It is of utmost importance that you receive clear title to the
                 property when you purchase real estate in Washington D.C.,
                 Maryland, or Virginia. In order to do so, you must first be
                 informed of any existing rights or claims that may be asserted by
                 any party against the title to the property.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Any of those rights or claims that are unacceptable to you must
                 be resolved or extinguished prior to your purchase of the
                 property. In addition, you will want to be protected against any
@@ -202,26 +202,26 @@ export default function TitleInsurancePage() {
               How Do You Find Out What Claims Exist?
             </h2>
             <div className="space-y-4 text-brand-muted leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 In order to determine the status of title, First American Title
                 conducts a diligent search of the public records in Washington
                 D.C., Maryland, and Virginia for the documents associated with
                 the property.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 First American Title then examines those recorded documents in
                 order to determine if there are any rights or claims that may
                 have an impact upon the title such as unpaid taxes, unsatisfied
                 mortgages, judgments, and tax liens against the current or past
                 owners, easements, restrictions, and court actions.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 These recorded defects, liens, and encumbrances are reported to
                 you prior to your purchase of the property. Once reported, these
                 matters can be accepted, resolved or extinguished prior to the
                 closing of the transaction.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 In addition, you are protected against any recorded defects,
                 liens, or encumbrances upon the title that are unreported to you
                 and which are within the coverage of the particular policy issued
@@ -235,7 +235,7 @@ export default function TitleInsurancePage() {
           <div>
             <h2 className="prose-title mb-4">Only One Title Premium</h2>
             <div className="space-y-4 text-brand-muted leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Unlike other forms of insurance, the original premium is your
                 only cost as long as you or your heirs own the property. There
                 are no annual payments to keep your Owner&apos;s Title Insurance
@@ -250,17 +250,17 @@ export default function TitleInsurancePage() {
               What About Undiscovered Claims?
             </h2>
             <div className="space-y-4 text-brand-muted leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 The title to the property that you have purchased could be
                 seriously threatened or lost completely by hazards that are
                 considered &ldquo;hidden risks.&rdquo;
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 &ldquo;Hidden risks&rdquo; are those matters, rights, or claims
                 that are not shown by the public records and, therefore are not
                 discoverable by a search and examination of the public records.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Matters such as forgery, incompetency or incapacity of the
                 parties, fraudulent impersonation, and unknown errors in the
                 records are examples of &ldquo;hidden risks&rdquo; which could

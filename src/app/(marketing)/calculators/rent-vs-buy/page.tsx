@@ -20,7 +20,7 @@ export default function RentVsBuyPage() {
             <span className="mx-2">/</span>
             <span>Rent vs Buy</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
           <h1 className="t-h1 text-white mb-4">
             Rent vs Buy Calculator
           </h1>

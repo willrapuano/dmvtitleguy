@@ -80,10 +80,10 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
       <div className="bg-white rounded-xl shadow-lg p-8 text-center">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
         <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
-        <p className="text-brand-muted text-sm mb-4">
+        <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
           Our team will review your submission and respond within one business day.
         </p>
-        <p className="text-brand-muted text-sm">
+        <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           For immediate assistance, call{" "}
           <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
         </p>
@@ -94,7 +94,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
   return (
     <div className="bg-white rounded-xl shadow-lg p-8">
       <h3 className="t-h5 text-brand-navy mb-2">Start Your Due Diligence</h3>
-      <p className="text-brand-muted text-sm mb-6">Fill out the form below and we&apos;ll begin your title search immediately.</p>
+      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Fill out the form below and we&apos;ll begin your title search immediately.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Full Name */}
@@ -161,8 +161,8 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
           <div {...getRootProps()} className={`flex min-h-[120px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors ${isDragActive ? "border-brand-blue bg-blue-50" : "border-gray-300 bg-white hover:border-brand-blue hover:bg-blue-50/50"}`}>
             <input {...getInputProps()} />
             <Upload className="h-8 w-8 text-gray-400 mb-2" />
-            <p className="text-sm text-gray-600">Drag & drop contracts, deeds, or prior title policies</p>
-            <p className="text-xs text-gray-400 mt-1">PDF, Word, or images — up to 5 files</p>
+            <p className="text-sm text-gray-600 max-w-[68ch] leading-relaxed">Drag & drop contracts, deeds, or prior title policies</p>
+            <p className="text-xs text-gray-400 mt-1 max-w-[68ch]">PDF, Word, or images — up to 5 files</p>
           </div>
           {uploadedFiles.length > 0 && (
             <div className="mt-2 space-y-1">
@@ -175,7 +175,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
               ))}
             </div>
           )}
-          {uploadError && <p className="mt-2 text-sm text-red-600">{uploadError}</p>}
+          {uploadError && <p className="mt-2 text-sm text-red-600 max-w-[68ch] leading-relaxed">{uploadError}</p>}
         </div>
 
         {/* Notes */}
@@ -190,7 +190,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         </button>
 
         {status === "error" && (
-          <p className="text-red-600 text-sm text-center">Something went wrong. Please call us at (703) 859-1467.</p>
+          <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
         )}
       </form>
     </div>
