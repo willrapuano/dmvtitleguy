@@ -10,6 +10,9 @@ const config: Config = {
           "navy-dark": "#071428",
           blue:      "#3BAEF7",
           "blue-dark": "#2A8FD7",
+          /* AA-compliant (5.4:1) accent for small text on white — the lighter
+             brand blues only clear 3:1 and fail for body-size copy. */
+          "blue-deep": "#1B6FA8",
           green:     "#D5EDE5",
           blush:     "#F5E6E8",
           "gray-bg": "#f7f8fa",

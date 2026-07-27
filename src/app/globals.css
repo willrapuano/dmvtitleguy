@@ -213,6 +213,13 @@
   .card {
     @apply bg-white rounded-lg shadow-md overflow-hidden;
   }
+  /* Eyebrow + heading pair for section headers on light backgrounds. */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue-deep;
+  }
+  .section-title {
+    @apply text-xl md:text-2xl font-bold text-brand-navy mt-1.5;
+  }
   .prose-title {
     @apply text-3xl md:text-4xl font-bold text-brand-navy;
   }
@@ -228,4 +235,14 @@
   .resource-download-btn:hover {
     background-color: #2A8FD7;
   }
+}
+
+/* Edge-to-edge scrolling filter rows keep their swipe affordance without
+   a visible scrollbar cutting through the chips. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

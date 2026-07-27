@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 
 interface Post {
@@ -22,6 +22,89 @@ const CATEGORY_ORDER = [
   "For Lenders",
 ];
 
+/**
+ * Placeholders repeat across ~80 posts, so vary the wash by slug to keep a long
+ * grid from reading as one flat navy block. Deterministic, so SSR and client agree.
+ */
+const PLACEHOLDER_WASHES = [
+  "radial-gradient(circle at 28% 24%, #1B3F6B 0%, #0B1D3A 58%, #071428 100%)",
+  "radial-gradient(circle at 72% 30%, #17395F 0%, #0B1D3A 60%, #071428 100%)",
+  "linear-gradient(135deg, #123458 0%, #0B1D3A 55%, #071428 100%)",
+];
+
+function placeholderWash(slug: string) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i += 1) {
+    hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+  }
+  return PLACEHOLDER_WASHES[hash % PLACEHOLDER_WASHES.length];
+}
+
+/**
+ * blog-data always fills `image` with a conventional `/blog/{slug}.png` path,
+ * but only some of those files exist — so a plain <img> renders a broken-image
+ * icon for most posts. Swap in a branded placeholder when the load fails.
+ */
+function PostImage({
+  post,
+  className,
+  priority = false,
+}: {
+  post: Post;
+  className: string;
+  priority?: boolean;
+}) {
+  const [failed, setFailed] = useState(false);
+  const ref = useRef<HTMLImageElement>(null);
+
+  // A 404 can resolve before React attaches its onError listener during
+  // hydration, so re-check the decoded size once on mount to catch those.
+  useEffect(() => {
+    const img = ref.current;
+    if (img?.complete && img.naturalWidth === 0) setFailed(true);
+  }, []);
+
+  if (!post.image || failed) {
+    return (
+      <div
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ backgroundImage: placeholderWash(post.slug) }}
+      >
+        {/* Decorative watermark — the category already appears as a chip below. */}
+        <span aria-hidden="true" className="text-base font-bold tracking-tight text-white/40">
+          DMV <span className="text-brand-blue/70">Title Guy</span>
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      ref={ref}
+      src={post.image}
+      alt=""
+      className={className}
+      loading={priority ? "eager" : "lazy"}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
+function PostMeta({ post, className = "" }: { post: Post; className?: string }) {
+  return (
+    <div className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-xs ${className}`}>
+      <span className="rounded-full bg-sky-50 px-2.5 py-1 font-semibold text-brand-blue-deep">
+        {post.category}
+      </span>
+      <span className="text-gray-500">{post.date}</span>
+      <span aria-hidden="true" className="text-gray-300">
+        ·
+      </span>
+      <span className="text-gray-500">{post.readTime}</span>
+    </div>
+  );
+}
+
 export default function BlogIndexClient({ posts }: { posts: Post[] }) {
   const [active, setActive] = useState("All");
 
@@ -35,142 +118,141 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
   const filtered =
     active === "All" ? posts : posts.filter((post) => post.category === active);
 
-  const latest = filtered[0];
-  const gridPosts = active === "All" ? filtered.slice(1) : filtered;
+  // Only the unfiltered view gets a featured treatment — inside a category the
+  // posts are peers, so promoting one just creates an odd hierarchy.
+  const featured = active === "All" ? filtered[0] : undefined;
+  const gridPosts = featured ? filtered.slice(1) : filtered;
 
   return (
-    <section className="section-light">
+    <section className="bg-brand-gray-bg py-12 md:py-16">
       <div className="container-xl">
-        <div className="mb-8">
-          <p className="section-label">Insights & Resources</p>
-          <h2 className="section-title">Latest from DMV Title Guy</h2>
-          <div className="gold-divider" />
-          <p className="text-brand-muted max-w-2xl mt-4">
-            Straight answers on title insurance, settlement, closing costs, and local market topics for buyers, agents, and lenders.
-          </p>
-        </div>
-
-        <div className="mb-10">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-navy mb-3">
-            Filter by Category
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActive(category)}
-                className={`px-4 py-2 rounded-full border text-sm font-medium transition-colors ${
-                  active === category
-                    ? "bg-brand-blue text-white border-brand-blue"
-                    : "bg-white text-gray-600 border-gray-200 hover:border-brand-blue hover:text-brand-blue"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+        <div
+          className="-mx-6 mb-10 overflow-x-auto px-6 no-scrollbar md:mx-0 md:overflow-x-visible md:px-0"
+          role="group"
+          aria-label="Filter posts by category"
+        >
+          <div className="flex gap-2 md:flex-wrap">
+            {categories.map((category) => {
+              const isActive = active === category;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => setActive(category)}
+                  aria-pressed={isActive}
+                  className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue-deep ${
+                    isActive
+                      ? "border-brand-navy bg-brand-navy text-white"
+                      : "border-gray-200 bg-white text-gray-700 hover:border-brand-blue-deep hover:text-brand-blue-deep"
+                  }`}
+                >
+                  {category}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {latest ? (
+        {filtered.length === 0 ? (
+          <div className="rounded-2xl border border-gray-200 bg-white px-6 py-16 text-center">
+            <p className="font-semibold text-brand-navy">No posts in this category yet.</p>
+            <button
+              type="button"
+              onClick={() => setActive("All")}
+              className="mt-3 text-sm font-semibold text-brand-blue-deep hover:underline"
+            >
+              View all posts
+            </button>
+          </div>
+        ) : (
           <>
-            {active === "All" && (
-              <div className="mb-10">
-                <h3 className="text-xl font-bold text-brand-navy mb-4">Latest Post</h3>
-                <Link
-                  href={`/blog/${latest.slug}`}
-                  className="block bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-all"
-                >
-                  {latest.image ? (
-                    <div className="relative h-64 bg-brand-navy overflow-hidden">
-                      <img
-                        src={latest.image}
-                        alt={latest.title}
-                        className="w-full h-full object-cover"
-                        loading="eager"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-5">
-                        <p className="text-xs text-brand-blue font-medium mb-2">{latest.category}</p>
-                        <p className="text-xs text-gray-200">
-                          {latest.date} · {latest.readTime}
-                        </p>
-                      </div>
-                    </div>
-                  ) : null}
-                  <div className="p-6">
-                    {!latest.image ? (
-                      <p className="text-xs text-brand-blue font-medium mb-2">{latest.category}</p>
-                    ) : null}
-                    <h3 className="text-2xl font-bold text-brand-navy mb-2">{latest.title}</h3>
-                    <p className="text-sm text-brand-muted mb-4">{latest.excerpt}</p>
-                    {!latest.image ? (
-                      <p className="text-xs text-gray-500">
-                        {latest.date} · {latest.readTime}
-                      </p>
-                    ) : null}
-                  </div>
-                </Link>
-              </div>
+            {featured && (
+              <Link
+                href={`/blog/${featured.slug}`}
+                className="group mb-12 grid overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl md:grid-cols-2"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden bg-brand-navy md:aspect-auto md:min-h-[300px]">
+                  <PostImage
+                    post={featured}
+                    priority
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-navy shadow-sm">
+                    Featured
+                  </span>
+                </div>
+                <div className="flex flex-col justify-center p-6 md:p-9">
+                  <PostMeta post={featured} />
+                  <h2 className="mt-4 text-xl font-bold leading-snug text-brand-navy transition-colors group-hover:text-brand-blue-deep md:text-2xl">
+                    {featured.title}
+                  </h2>
+                  <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-brand-muted">
+                    {featured.excerpt}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue-deep">
+                    Read article
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-200 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </span>
+                </div>
+              </Link>
             )}
 
-            <div>
-              <h3 className="text-xl font-bold text-brand-navy mb-4">
-                {active === "All" ? "All Posts" : active}
-                <span className="text-sm font-normal text-gray-400 ml-2">({filtered.length})</span>
-              </h3>
+            {gridPosts.length > 0 && (
+              <>
+                <div className="mb-6 flex flex-wrap items-end justify-between gap-x-4 gap-y-1 border-b border-gray-200 pb-4">
+                  <div>
+                    <p className="section-label">Insights &amp; Resources</p>
+                    <h2 className="section-title">
+                      {active === "All" ? "More Articles" : active}
+                    </h2>
+                  </div>
+                  <span className="text-sm text-gray-500">
+                    {filtered.length} {filtered.length === 1 ? "post" : "posts"}
+                  </span>
+                </div>
 
-              {gridPosts.length === 0 ? (
-                <p className="text-brand-muted py-12 text-center">No posts in this category yet.</p>
-              ) : (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {gridPosts.map((post) => (
                     <Link
                       key={post.slug}
                       href={`/blog/${post.slug}`}
-                      className="card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group overflow-hidden"
+                      className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     >
-                      {post.image ? (
-                        <div className="relative h-44 bg-brand-navy overflow-hidden">
-                          <img
-                            src={post.image}
-                            alt={post.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
-                          <div className="absolute bottom-0 left-0 p-5">
-                            <span className="text-xs text-brand-blue font-medium">{post.category}</span>
-                            <span className="text-xs text-gray-200 mt-1 block">
-                              {post.date} · {post.readTime}
-                            </span>
-                          </div>
-                        </div>
-                      ) : null}
-                      <div className="p-5 bg-white">
-                        {!post.image ? (
-                          <>
-                            <span className="text-xs text-brand-blue font-medium">{post.category}</span>
-                            <span className="text-xs text-gray-400 mt-1 block">
-                              {post.date} · {post.readTime}
-                            </span>
-                          </>
-                        ) : null}
-                        <h3 className="font-bold text-brand-navy text-base leading-snug group-hover:text-brand-blue transition-colors mb-2 line-clamp-2 mt-3">
+                      <div className="relative aspect-[16/9] overflow-hidden bg-brand-navy">
+                        <PostImage
+                          post={post}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex flex-1 flex-col p-5">
+                        <PostMeta post={post} />
+                        <h3 className="mt-3 line-clamp-2 text-base font-bold leading-snug text-brand-navy transition-colors group-hover:text-brand-blue-deep">
                           {post.title}
                         </h3>
-                        <p className="text-sm text-brand-muted leading-relaxed line-clamp-3">
+                        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-muted">
                           {post.excerpt}
                         </p>
-                        <span className="text-brand-blue text-sm mt-3 block font-medium">Read post →</span>
+                        <span className="mt-4 inline-flex items-center gap-1.5 pt-1 text-sm font-semibold text-brand-blue-deep">
+                          Read post
+                          <span
+                            aria-hidden="true"
+                            className="transition-transform duration-200 group-hover:translate-x-1"
+                          >
+                            →
+                          </span>
+                        </span>
                       </div>
                     </Link>
                   ))}
                 </div>
-              )}
-            </div>
+              </>
+            )}
           </>
-        ) : (
-          <p className="text-brand-muted py-12 text-center">No posts available yet.</p>
         )}
       </div>
     </section>
