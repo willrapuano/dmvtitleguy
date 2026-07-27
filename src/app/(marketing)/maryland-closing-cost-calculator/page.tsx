@@ -308,7 +308,7 @@ export default function MarylandCalculatorPage() {
             <span className="mx-2">/</span>
             <span>Maryland Closing Cost Calculator</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
           <h1 className="t-h1 text-white mb-4">Maryland Closing Cost Calculator for Buyers and Sellers</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Estimate Maryland closing costs for buyers and sellers before settlement. Covers state and county transfer taxes, title insurance, recordation fees, lender charges, seller costs, and county-specific assumptions for Montgomery County and Prince George&apos;s County.
@@ -329,13 +329,13 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Closing Cost Calculator Maryland</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 This closing cost calculator Maryland page is built for buyers, sellers, agents, and lenders who need
                 a Maryland-specific estimate instead of a generic national calculator. Enter the purchase price, loan
                 amount, party type, county, and first-time homebuyer details to compare buyer cash-to-close and seller
                 closing cost exposure.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 The calculator is most useful before ordering a title quote, reviewing a lender estimate, or checking
                 whether a contract allocates transfer taxes to the buyer, seller, or both sides.
               </p>
@@ -345,12 +345,12 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">How Maryland Closing Costs Are Calculated</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland closing costs combine lender fees, title insurance, settlement fees, recordation taxes,
                 transfer taxes, recording fees, prepaid taxes and insurance, escrow deposits, and prorations.
                 The calculator is a starting point for organizing those line items before a final title quote.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Buyer costs commonly vary by loan amount, property type, county, contract terms, and whether the
                 buyer qualifies as a first-time Maryland homebuyer. Seller costs depend heavily on payoff, commission,
                 contract credits, prorations, and how transfer taxes are allocated.
@@ -361,11 +361,11 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Maryland Recordation Tax Explained</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Recordation tax is tied to the recording of deeds, deeds of trust, mortgages, and certain other
                 instruments in Maryland land records. It is separate from title insurance and settlement fees.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland law sets the state recordation tax base at $2.50 per $500, and each county sets its own
                 rate. Montgomery County uses a tiered schedule under Bill 17-23, while Prince George&apos;s County uses
                 0.55%, equal to $2.75 per $500.
@@ -388,7 +388,7 @@ export default function MarylandCalculatorPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy">
+              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy max-w-[68ch] leading-relaxed">
                 {taxRateNotice}
               </p>
             </div>
@@ -397,12 +397,12 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Maryland Transfer Tax Calculator</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland transfer tax calculations separate state transfer tax from county transfer tax. The standard
                 Maryland state transfer tax is 0.5% of consideration. For qualifying first-time Maryland homebuyers,
                 the state transfer tax rate is 0.25% and must be paid by the seller.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Use the Maryland transfer tax calculator controls above to compare Montgomery County and Prince
                 George&apos;s County. The final allocation still depends on the contract and any negotiated tax split.
               </p>
@@ -424,7 +424,7 @@ export default function MarylandCalculatorPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy">
+              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy max-w-[68ch] leading-relaxed">
                 {taxRateNotice}
               </p>
             </div>
@@ -433,12 +433,12 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Maryland Seller Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed mb-5">
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland seller closing costs commonly include broker commission, mortgage payoff, seller settlement
                 fee, prorated taxes, HOA or condo resale documents, lien releases, and any transfer taxes or buyer
                 credits assigned to the seller by contract.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 A seller net estimate should be reviewed with the payoff, contract, county, expected closing date, and
                 any negotiated repair credits before the seller relies on the final net proceeds number.
               </p>
@@ -458,7 +458,7 @@ export default function MarylandCalculatorPage() {
                 </ul>
               </div>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-brand-muted">
+            <p className="mt-4 text-sm leading-relaxed text-brand-muted max-w-[68ch]">
               Transfer tax allocation is often handled by the contract and local custom. A title company should review
               the signed contract before either side relies on an estimate.
             </p>
@@ -481,12 +481,12 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Montgomery County Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Montgomery County closing cost estimates need county-specific tax handling because Bethesda, Rockville,
                 Silver Spring, Gaithersburg, Germantown, and Potomac transactions can involve different property types,
                 price points, lender requirements, and contract allocations.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Use a Montgomery County-specific quote when reviewing transfer tax, recordation charges, title insurance,
                 settlement fees, and any HOA or condo documentation costs.
               </p>
@@ -502,12 +502,12 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Prince George&apos;s County Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Prince George&apos;s County closing cost examples should account for the 1.4% county transfer tax,
                 0.55% recordation tax, and the additional county transfer tax that applies to mortgages and deeds of
                 trust. That means the loan amount can matter in addition to the purchase price.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Buyers and sellers in Bowie, Hyattsville, Upper Marlboro, Laurel, and College Park should use county
                 inputs rather than relying on Montgomery County or statewide assumptions.
               </p>
@@ -525,7 +525,7 @@ export default function MarylandCalculatorPage() {
               {cityExamples.map((item) => (
                 <div key={item.city} className="rounded-lg bg-white p-5 shadow-sm">
                   <h3 className="t-h6 text-brand-navy mb-3">{item.city}</h3>
-                  <p className="text-sm leading-relaxed text-brand-muted mb-4">{item.copy}</p>
+                  <p className="text-sm leading-relaxed text-brand-muted mb-4 max-w-[68ch]">{item.copy}</p>
                   <div className="space-y-2">
                     {item.links.map((link) => (
                       <Link key={link.href} href={link.href} className="block text-sm font-semibold text-brand-blue-deep hover:underline">
@@ -541,12 +541,12 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">First-Time Homebuyer Closing Cost Benefits in Maryland</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Qualifying first-time Maryland homebuyers receive a reduced 0.25% Maryland state transfer tax rate,
                 paid by the seller. County-specific benefits or exemptions can also affect the calculation when
                 both purchase price and loan amount are part of the closing cost review.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Eligibility can depend on the buyer, occupancy, property type, county, transaction documents, and
                 timing. Pruitt Title can review the documents for the actual transaction before settlement.
               </p>
@@ -556,12 +556,12 @@ export default function MarylandCalculatorPage() {
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Maryland Title Insurance and Settlement Fees</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Title insurance protects against covered title defects, liens, and ownership issues. Maryland buyers
                 often see separate lender's title insurance and owner's title insurance line items, depending on the
                 loan and contract.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland title insurance rates are filed or regulated, and the exact premium depends on purchase price,
                 loan amount, policy type, and whether simultaneous issue pricing applies.
               </p>

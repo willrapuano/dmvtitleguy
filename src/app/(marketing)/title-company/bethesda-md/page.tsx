@@ -72,7 +72,7 @@ export default function BethesdaTitlePage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Bethesda's median home price tops $800K—among the highest in MD. At these price points, a missing heir or undiscovered lien can derail a million-dollar deal. We specialize in complex titles for Bethesda's luxury market.
           </p>
         </div>
@@ -83,15 +83,15 @@ export default function BethesdaTitlePage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Why Bethesda Real Estate Matters</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Bethesda is one of Maryland's most desirable communities, known for its top-rated schools, vibrant downtown, and proximity to Washington DC. With median home prices exceeding $800,000, Bethesda attracts affluent buyers seeking a sophisticated suburban lifestyle.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               The Bethesda market includes a mix of established homes, new construction, and luxury estates—particularly in neighborhoods like Chevy Chase, the Battery Lane area, and Glen Echo. Many transactions involve high-value properties where thorough title research is essential. Our team understands Bethesda's unique market dynamics and handles each closing with the precision it deserves.
             </p>
             <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
               <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Bethesda Closing Costs</h3>
-              <p>
+              <p className="max-w-[68ch]">
                 Before comparing title and settlement options, estimate Bethesda closing costs with our{" "}
                 <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                   Maryland closing cost calculator
@@ -110,27 +110,27 @@ export default function BethesdaTitlePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
-              <p className="text-gray-600">Comprehensive title searches through Montgomery County land records.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive title searches through Montgomery County land records.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
-              <p className="text-gray-600">Full coverage owner's title insurance to protect your Bethesda home investment.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Full coverage owner's title insurance to protect your Bethesda home investment.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600">ALTA lender's policies for all major Maryland lenders.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">ALTA lender's policies for all major Maryland lenders.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
-              <p className="text-gray-600">Complete closing services from contract to recorded deed delivery.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Complete closing services from contract to recorded deed delivery.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Commercial Title Services</h3>
-              <p className="text-gray-600">Specialized title and settlement services for commercial properties.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized title and settlement services for commercial properties.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
-              <p className="text-gray-600">RON available for flexible signing options.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for flexible signing options.</p>
             </div>
           </div>
         </div>
@@ -144,19 +144,19 @@ export default function BethesdaTitlePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
-              <p className="text-sm text-brand-muted">Title searches, auction support & wholesale closings.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
             <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
-              <p className="text-sm text-brand-muted">Pre-auction title search & risk assessment.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
             <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
-              <p className="text-sm text-brand-muted">Surviving liens & chain-of-title review.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
             <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
           </div>
         </div>

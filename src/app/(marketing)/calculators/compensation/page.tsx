@@ -21,7 +21,7 @@ export default function CompensationPage() {
             <span className="mx-2">/</span>
             <span>Compensation Calculator</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Agent Tool</p>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Agent Tool</p>
           <h1 className="t-h1 text-white mb-4">Agent Compensation Calculator</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Know exactly what you'll net from any transaction. Enter the sale price, commission rate, your broker split, and any referral fees to see your real take-home.

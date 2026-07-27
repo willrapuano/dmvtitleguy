@@ -266,7 +266,7 @@ export default function TitleSearchFairfaxPage() {
                 </div>
                 <div>
                   <h3 className="t-h6 text-brand-navy mb-1">{item.title}</h3>
-                  <p className="text-brand-muted text-sm">{item.desc}</p>
+                  <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -286,7 +286,7 @@ export default function TitleSearchFairfaxPage() {
               <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
                 <item.icon className="h-8 w-8 text-brand-blue mb-3" />
                 <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
-                <p className="text-brand-muted text-sm">{item.desc}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -295,7 +295,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="container-xl max-w-5xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2">Fairfax County Details</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Fairfax County Details</p>
           <h2 className="prose-title mb-4">Local Title Search Details for Fairfax County</h2>
           <p className="text-brand-muted text-lg mb-8 max-w-3xl">
             A Fairfax VA title search should account for the way local records, recording fees, HOAs, condominiums, and new construction documents affect settlement and title insurance.
@@ -304,13 +304,13 @@ export default function TitleSearchFairfaxPage() {
             {fairfaxCountyDetails.map((item) => (
               <div key={item.title} className="rounded-lg border border-gray-200 bg-brand-gray-bg p-5">
                 <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
               </div>
             ))}
           </div>
           <div className="mt-8 rounded-lg border border-gray-200 p-5">
             <h3 className="t-h6 text-brand-navy mb-2">Fairfax title issues we watch closely</h3>
-            <p className="text-brand-muted leading-relaxed">
+            <p className="text-brand-muted leading-relaxed max-w-[68ch]">
               Fairfax transactions often involve mature subdivisions, active HOA and condo communities, townhome clusters, estate-owned properties, investor resales, and new construction or redevelopment files. Our review looks for recorded covenants, association liens, easements, access restrictions, unreleased trusts, judgment liens, tax matters, subdivision documents, and builder or entity authority issues before they disrupt closing.
             </p>
           </div>
@@ -327,7 +327,7 @@ export default function TitleSearchFairfaxPage() {
                   <step.icon className="h-7 w-7 text-brand-navy" />
                 </div>
                 <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm">{step.desc}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -349,7 +349,7 @@ export default function TitleSearchFairfaxPage() {
               Upload Contract
             </Link>
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">
             Prefer to talk? Call{" "}
             <a href="tel:+17038591467" className="text-white font-semibold hover:underline">
               <Phone className="inline h-4 w-4" /> (703) 859-1467

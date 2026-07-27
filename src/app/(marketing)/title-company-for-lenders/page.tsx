@@ -41,19 +41,19 @@ export default function LendersPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600">Comprehensive coverage to protect your mortgage investment.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive coverage to protect your mortgage investment.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Fast Turnaround</h3>
-              <p className="text-gray-600">We meet your funding deadlines with quick title commitments.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We meet your funding deadlines with quick title commitments.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Online Status Tracking</h3>
-              <p className="text-gray-600">Real-time updates on title status through your pipeline.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Real-time updates on title status through your pipeline.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Competitive Rates</h3>
-              <p className="text-gray-600">Volume discounts available for frequent lender partners.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Volume discounts available for frequent lender partners.</p>
             </div>
           </div>
         </div>

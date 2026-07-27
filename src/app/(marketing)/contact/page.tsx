@@ -27,15 +27,15 @@ export default function ContactPage() {
               Get in touch with DMV Title Guy for title insurance and closing services across the DMV.
             </p>
             <div className="space-y-3">
-              <p className="text-gray-300">
+              <p className="text-gray-300 max-w-[68ch] leading-relaxed">
                 <span className="text-brand-blue font-semibold">Phone:</span>{" "}
                 <a href="tel:+17038591467" className="hover:text-white">(703) 859-1467</a>
               </p>
-              <p className="text-gray-300">
+              <p className="text-gray-300 max-w-[68ch] leading-relaxed">
                 <span className="text-brand-blue font-semibold">Email:</span>{" "}
                 <a href="mailto:wrapuano@pruitt-title.com" className="hover:text-white">wrapuano@pruitt-title.com</a>
               </p>
-              <p className="text-gray-300">
+              <p className="text-gray-300 max-w-[68ch] leading-relaxed">
                 <span className="text-brand-blue font-semibold">Address:</span>{" "}
                 1900 Gallows Rd Suite 230, Vienna, VA 22182
               </p>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   <span className="font-semibold text-brand-navy">Closed</span>
                 </div>
               </div>
-              <p className="text-gray-600 mt-6">
+              <p className="text-gray-600 mt-6 max-w-[68ch] leading-relaxed">
                 <span className="font-semibold text-brand-navy">Emergency Closings:</span>{" "}
                 After-hours support available for scheduled closings.
               </p>
@@ -78,15 +78,15 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <h3 className="font-semibold text-brand-navy mb-2">Virginia</h3>
-                  <p className="text-gray-600 text-sm">Arlington, Fairfax, Alexandria, Loudoun, Prince William Counties</p>
+                  <p className="text-gray-600 text-sm max-w-[68ch] leading-relaxed">Arlington, Fairfax, Alexandria, Loudoun, Prince William Counties</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-navy mb-2">Maryland</h3>
-                  <p className="text-gray-600 text-sm">Montgomery County, Prince George's County</p>
+                  <p className="text-gray-600 text-sm max-w-[68ch] leading-relaxed">Montgomery County, Prince George's County</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-navy mb-2">Washington DC</h3>
-                  <p className="text-gray-600 text-sm">All DC neighborhoods and wards</p>
+                  <p className="text-gray-600 text-sm max-w-[68ch] leading-relaxed">All DC neighborhoods and wards</p>
                 </div>
               </div>
             </div>
@@ -102,15 +102,15 @@ export default function ContactPage() {
           <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <Link href="/investor-due-diligence" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
               <h3 className="font-semibold text-white mb-2">Investor Due Diligence</h3>
-              <p className="text-sm text-gray-300">Submit property info & start your title search.</p>
+              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
             <Link href="/upload-contract" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
               <h3 className="font-semibold text-white mb-2">Upload Contract</h3>
-              <p className="text-sm text-gray-300">Upload your ratified contract for fast processing.</p>
+              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Upload your ratified contract for fast processing.</p>
             </Link>
             <Link href="/request-title-review" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
               <h3 className="font-semibold text-white mb-2">Request Title Review</h3>
-              <p className="text-sm text-gray-300">Get clarity on a property&apos;s title status.</p>
+              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Get clarity on a property&apos;s title status.</p>
             </Link>
           </div>
         </div>
@@ -123,15 +123,15 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/calculators/title-quote" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="t-h6 font-semibold text-brand-navy mb-2">Get a Title Quote</h3>
-              <p className="text-gray-600">Instant title insurance quotes for your transaction.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Instant title insurance quotes for your transaction.</p>
             </Link>
             <Link href="/calculators" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="t-h6 font-semibold text-brand-navy mb-2">Closing Cost Calculator</h3>
-              <p className="text-gray-600">Estimate buyer and seller closing costs.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Estimate buyer and seller closing costs.</p>
             </Link>
             <Link href="/my-classes" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="t-h6 font-semibold text-brand-navy mb-2">Agent Education</h3>
-              <p className="text-gray-600">CE classes and training for real estate professionals.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">CE classes and training for real estate professionals.</p>
             </Link>
           </div>
         </div>

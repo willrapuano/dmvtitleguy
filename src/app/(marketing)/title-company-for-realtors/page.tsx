@@ -41,19 +41,19 @@ export default function RealtorsPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">24-Hour Preliminary Title Reports</h3>
-              <p className="text-gray-600">Get fast preliminary title reports for your listings so you can keep transactions moving.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Get fast preliminary title reports for your listings so you can keep transactions moving.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Flexible Closing Scheduling</h3>
-              <p className="text-gray-600">We offer evening and weekend closings to fit your clients' schedules.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We offer evening and weekend closings to fit your clients' schedules.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Dedicated Closing Coordinators</h3>
-              <p className="text-gray-600">Your team gets a dedicated coordinator who knows your transactions inside out.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Your team gets a dedicated coordinator who knows your transactions inside out.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Digital Document Signing</h3>
-              <p className="text-gray-600">Remote online notarization (RON) available for clients who can't attend in person.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Remote online notarization (RON) available for clients who can't attend in person.</p>
             </div>
           </div>
         </div>
@@ -68,21 +68,21 @@ export default function RealtorsPage() {
               <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
               <div>
                 <h3 className="t-h6 font-semibold text-brand-navy">Clear Title Issues Before They Delay Closings</h3>
-                <p className="text-gray-600">We identify and resolve problems early so your deals close on time.</p>
+                <p className="text-gray-600 max-w-[68ch] leading-relaxed">We identify and resolve problems early so your deals close on time.</p>
               </div>
             </div>
             <div className="flex gap-4">
               <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
               <div>
                 <h3 className="t-h6 font-semibold text-brand-navy">Weekly Pipeline Updates</h3>
-                <p className="text-gray-600">Stay informed on every transaction with regular status updates.</p>
+                <p className="text-gray-600 max-w-[68ch] leading-relaxed">Stay informed on every transaction with regular status updates.</p>
               </div>
             </div>
             <div className="flex gap-4">
               <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
               <div>
                 <h3 className="t-h6 font-semibold text-brand-navy">Competitive Referral Bonuses</h3>
-                <p className="text-gray-600">Earn bonuses for every closed transaction you refer our way.</p>
+                <p className="text-gray-600 max-w-[68ch] leading-relaxed">Earn bonuses for every closed transaction you refer our way.</p>
               </div>
             </div>
           </div>

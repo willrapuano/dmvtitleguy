@@ -97,7 +97,7 @@ export default function DCClosingCostsPage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> DC has the highest closing costs in the DMV—properties over $400K pay 2.9% in combined taxes. But first-time buyers can save $10K+ through DC's recordation tax exemptions. We help buyers navigate these programs.
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function DCClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">What Buyers Pay in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               DC buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. The high costs are primarily due to DC's recordation and transfer taxes, which are among the highest in the nation.
             </p>
             <ul className="list-disc list-inside space-y-2">
@@ -132,7 +132,7 @@ export default function DCClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">What Sellers Pay in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               DC sellers typically pay <strong>1% to 3%</strong> of the sale price in closing costs (excluding real estate commissions). These costs include:
             </p>
             <ul className="list-disc list-inside space-y-2">
@@ -181,8 +181,8 @@ export default function DCClosingCostsPage() {
             </table>
           </div>
           <div className="mt-6 space-y-3 text-brand-muted text-sm">
-            <p><strong>Note:</strong> By custom (not law), buyers and sellers typically split these taxes 50/50. This is negotiated in the purchase contract.</p>
-            <p><strong>First-Time Homebuyer Exemption:</strong> First-time DC homebuyers may be exempt from the recordation tax on properties up to $500,000. This can save buyers thousands of dollars at closing.</p>
+            <p className="max-w-[68ch]"><strong>Note:</strong> By custom (not law), buyers and sellers typically split these taxes 50/50. This is negotiated in the purchase contract.</p>
+            <p className="max-w-[68ch]"><strong>First-Time Homebuyer Exemption:</strong> First-time DC homebuyers may be exempt from the recordation tax on properties up to $500,000. This can save buyers thousands of dollars at closing.</p>
           </div>
         </div>
       </section>
@@ -192,19 +192,19 @@ export default function DCClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               DC law requires an attorney or licensed title agent to conduct all real estate settlements. Title insurance protects against hidden title defects that could affect your ownership rights.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Owner's Title Insurance</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Owner's title insurance protects your investment against claims against your ownership of the property. It's a one-time premium paid at closing and provides coverage for as long as you own the property. For a $600,000 home in DC, owner's title insurance costs approximately $2,000-2,500.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Lender's Title Insurance</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Most lenders require lender's title insurance (a loan policy) to protect their interest in the property. This is typically a separate policy from the owner's coverage.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Simultaneous Issue Discount</h3>
-            <p>
+            <p className="max-w-[68ch]">
               DC allows a simultaneous issue discount when both owner's and lender's title insurance are purchased together. This can save buyers approximately 10-15% on their title insurance costs.
             </p>
           </div>

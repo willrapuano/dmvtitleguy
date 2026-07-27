@@ -41,19 +41,19 @@ export default function BuildersPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">New Construction Closings</h3>
-              <p className="text-gray-600">Specialized expertise in new construction transactions and builder settlements.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized expertise in new construction transactions and builder settlements.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Fast Turnaround Times</h3>
-              <p className="text-gray-600">We understand builder timelines and deliver on your schedule.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We understand builder timelines and deliver on your schedule.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Multi-Unit Closings</h3>
-              <p className="text-gray-600">Experience handling multiple simultaneous closings for developments.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Experience handling multiple simultaneous closings for developments.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Dedicated Account Manager</h3>
-              <p className="text-gray-600">Single point of contact for all your projects and transactions.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Single point of contact for all your projects and transactions.</p>
             </div>
           </div>
         </div>

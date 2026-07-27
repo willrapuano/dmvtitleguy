@@ -208,7 +208,7 @@ export function HomePageClient() {
                 </a>
               ))}
             </div>
-            <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Pruitt Title LLC • DMV Title Guy</p>
+            <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3 max-w-[68ch] leading-relaxed">Pruitt Title LLC • DMV Title Guy</p>
             <h1 className="t-display text-white mb-5">
               Title &amp; Settlement Services for Buyers, Realtors, Lenders, and Builders Across Virginia, Maryland, and Washington DC
             </h1>
@@ -232,16 +232,16 @@ export function HomePageClient() {
                 Start Your Closing
               </Link>
             </div>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">
               Trusted local operator: <strong className="text-white">Will Rapuano / DMV Title Guy</strong> with Pruitt Title LLC.
             </p>
           </div>
           <div className="bg-white/10 border border-white/15 rounded-2xl p-6 backdrop-blur-sm shadow-2xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-gray-200 mb-3">Service Area &amp; Core Services</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-gray-200 mb-3 max-w-[68ch] leading-relaxed">Service Area &amp; Core Services</p>
             <h2 className="t-h4 text-white mb-4">Title company, escrow, and settlement support across the DMV.</h2>
             <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-100">
               <div>
-                <p className="font-semibold text-white mb-2">Geography</p>
+                <p className="font-semibold text-white mb-2 max-w-[68ch] leading-relaxed">Geography</p>
                 <ul className="space-y-1 text-gray-200">
                   <li>• Virginia</li>
                   <li>• Maryland</li>
@@ -249,7 +249,7 @@ export function HomePageClient() {
                 </ul>
               </div>
               <div>
-                <p className="font-semibold text-white mb-2">Transactions</p>
+                <p className="font-semibold text-white mb-2 max-w-[68ch] leading-relaxed">Transactions</p>
                 <ul className="space-y-1 text-gray-200">
                   <li>• Purchase closings</li>
                   <li>• Refinance closings</li>
@@ -281,8 +281,8 @@ export function HomePageClient() {
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 block"
               >
                 <h3 className="text-brand-navy t-h6 mb-2">{item.label}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{item.detail}</p>
-                <p className="mt-3 text-brand-blue-deep text-xs font-semibold">Go to page →</p>
+                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.detail}</p>
+                <p className="mt-3 text-brand-blue-deep text-xs font-semibold max-w-[68ch]">Go to page →</p>
               </Link>
             ))}
           </div>
@@ -302,8 +302,8 @@ export function HomePageClient() {
                 <>
                   <div className="text-3xl mb-3">{item.icon}</div>
                   <h3 className="font-bold text-brand-navy text-base mb-2">{item.role}</h3>
-                  <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
-                  {item.href && <p className="mt-3 text-brand-blue-deep text-xs font-semibold">Learn more →</p>}
+                  <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
+                  {item.href && <p className="mt-3 text-brand-blue-deep text-xs font-semibold max-w-[68ch]">Learn more →</p>}
                 </>
               );
               return item.href ? (
@@ -364,7 +364,7 @@ export function HomePageClient() {
                 <span className="text-brand-blue-deep text-2xl">🏠</span>
               </div>
               <h3 className="text-brand-navy t-h6 mb-3">Title &amp; Escrow That Doesn&apos;t Slow You Down</h3>
-              <p className="text-brand-muted text-sm leading-relaxed">
+              <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
                 Fast, reliable title work and settlement coordination for purchase, refinance, resale, and builder transactions across DC, Maryland, and Virginia.
               </p>
             </div>
@@ -373,7 +373,7 @@ export function HomePageClient() {
                 <span className="text-brand-blue-deep text-2xl">⏱️</span>
               </div>
               <h3 className="text-brand-navy t-h6 mb-3">Responsive Communication From Contract to Closing</h3>
-              <p className="text-brand-muted text-sm leading-relaxed">
+              <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
                 Buyers, agents, lenders, and builders get proactive updates, cleaner coordination, and fewer last-minute surprises at settlement.
               </p>
             </div>
@@ -382,7 +382,7 @@ export function HomePageClient() {
                 <span className="text-brand-blue-deep text-2xl">🧭</span>
               </div>
               <h3 className="text-brand-navy t-h6 mb-3">Local DMV Expertise for Complex Closings</h3>
-              <p className="text-brand-muted text-sm leading-relaxed">
+              <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
                 From Montgomery County and Bethesda to Washington DC and Northern Virginia, the team understands local taxes, title issues, and settlement workflows that affect real transactions.
               </p>
             </div>
@@ -408,7 +408,7 @@ export function HomePageClient() {
             {SERVICE_AREAS.map((area) => (
               <div key={area.title} className="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm text-center">
                 <h3 className="text-brand-navy t-h6 mb-3">{area.title}</h3>
-                <p className="text-sm text-brand-muted leading-relaxed mb-6">{area.description}</p>
+                <p className="text-sm text-brand-muted leading-relaxed mb-6 max-w-[68ch]">{area.description}</p>
                 <div className="space-y-6">
                   {area.groups.map((group) => (
                     <div key={group.heading}>
@@ -440,10 +440,10 @@ export function HomePageClient() {
       <section className="section-light">
         <div className="container-xl max-w-3xl text-center">
           <h2 className="prose-title mb-2">Meet Will Rapuano — Your Local Title Partner in VA, MD & DC</h2>
-          <p className="text-brand-blue-deep font-semibold mb-6">Pruitt Title LLC</p>
+          <p className="text-brand-blue-deep font-semibold mb-6 max-w-[68ch] mx-auto leading-relaxed">Pruitt Title LLC</p>
           <div className="accent-divider" />
           <div className="text-brand-muted leading-relaxed space-y-4 mb-8 text-left">
-            <p>
+            <p className="max-w-[68ch]">
               Will Rapuano is the driving force behind DMV Title Guy, bringing a personal touch to every transaction. As your go-to title partner in Virginia, Maryland, and Washington DC, Will focuses on building relationships—not just processing paperwork. Whether you're a real estate agent or a lender, you’ll appreciate his straightforward approach and commitment to making closings seamless.
             </p>
             <p>
@@ -451,7 +451,7 @@ export function HomePageClient() {
             </p>
           </div>
           <div className="text-brand-muted text-sm space-y-2 mb-8">
-            <p className="font-semibold text-brand-navy">Get in touch:</p>
+            <p className="font-semibold text-brand-navy max-w-[68ch] mx-auto leading-relaxed">Get in touch:</p>
             <p><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">wrapuano@pruitt-title.com</a></p>
             <p><a href="tel:+17038591467" className="text-brand-blue-deep hover:underline">(703) 859-1467</a></p>
             <p>1900 Gallows Rd Suite 230, Vienna, VA 22182</p>

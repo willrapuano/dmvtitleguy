@@ -28,7 +28,7 @@ export function Callout({ value }: { value: { tone?: string; title?: string; bod
   return (
     <div className={`border-l-4 rounded-r-xl px-5 py-4 my-6 ${style.wrapper}`}>
       {value.title && (
-        <p className="font-semibold text-sm mb-2">
+        <p className="font-semibold text-sm mb-2 max-w-[68ch] leading-relaxed">
           {style.icon} {value.title}
         </p>
       )}
@@ -42,7 +42,7 @@ export function Callout({ value }: { value: { tone?: string; title?: string; bod
           ))}
         </ul>
       ) : (
-        <p className="text-[15px] leading-relaxed">{body}</p>
+        <p className="text-[15px] leading-relaxed max-w-[68ch]">{body}</p>
       )}
     </div>
   );

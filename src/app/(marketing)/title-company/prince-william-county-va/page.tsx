@@ -72,7 +72,7 @@ export default function PrinceWilliamCountyTitlePage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Prince William County offers some of the best value in Northern Virginia with a median home price around $525K. But with 15 average days on market, buyers still need a title partner who can move fast. We keep Prince William closings on schedule.
           </p>
         </div>
@@ -83,10 +83,10 @@ export default function PrinceWilliamCountyTitlePage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Why Prince William County Real Estate Matters</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Prince William County is Northern Virginia's most populous county and one of its most affordable major jurisdictions. With a median home price around $525,000 and homes typically selling in about 15 days, Prince William attracts first-time buyers, growing families, and military personnel stationed at Quantico.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               The county's real estate market is incredibly diverse. Woodbridge and Dale City offer established neighborhoods with mature trees and community amenities. Gainesville and Bristow feature newer construction with modern floor plans. Manassas and Manassas Park provide historic charm with urban conveniences. Each area presents unique title considerations, from HOA covenants in planned communities to historic easements in older districts. Our team's deep knowledge of Prince William County ensures smooth closings no matter the property type.
             </p>
           </div>
@@ -100,27 +100,27 @@ export default function PrinceWilliamCountyTitlePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
-              <p className="text-gray-600">Thorough title research through Prince William County Circuit Court records and land records.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Thorough title research through Prince William County Circuit Court records and land records.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
-              <p className="text-gray-600">Comprehensive owner's title insurance to protect your Prince William County home investment.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive owner's title insurance to protect your Prince William County home investment.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600">ALTA policies for all major lenders in the Prince William County market.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">ALTA policies for all major lenders in the Prince William County market.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
-              <p className="text-gray-600">Complete closing services from contract to recorded deed and title policy delivery.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Complete closing services from contract to recorded deed and title policy delivery.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">HOA & CDA Expertise</h3>
-              <p className="text-gray-600">Specialized handling of HOA and Community Development Authority properties common in Prince William County.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized handling of HOA and Community Development Authority properties common in Prince William County.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
-              <p className="text-gray-600">RON available for military families, remote buyers, and busy professionals.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for military families, remote buyers, and busy professionals.</p>
             </div>
           </div>
         </div>
@@ -134,19 +134,19 @@ export default function PrinceWilliamCountyTitlePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
-              <p className="text-sm text-brand-muted">Title searches, auction support & wholesale closings.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
             <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
-              <p className="text-sm text-brand-muted">Pre-auction title search & risk assessment.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
             <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
-              <p className="text-sm text-brand-muted">Surviving liens & chain-of-title review.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
             <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
           </div>
         </div>

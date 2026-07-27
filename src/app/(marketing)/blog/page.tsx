@@ -26,7 +26,7 @@ export default async function BlogIndexPage() {
           aria-hidden="true"
         />
         <div className="container-xl relative text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue max-w-[68ch] mx-auto">
             The DMV Title Guy Blog
           </p>
           <h1 className="mt-3 text-3xl md:text-5xl font-bold text-white leading-tight">
@@ -37,7 +37,7 @@ export default async function BlogIndexPage() {
             agents, and lenders across DC, Maryland, and Virginia.
           </p>
           {posts.length > 0 && (
-            <p className="mt-5 text-sm text-slate-300">
+            <p className="mt-5 text-sm text-slate-300 max-w-[68ch] mx-auto leading-relaxed">
               {posts.length} {posts.length === 1 ? "article" : "articles"} · written by Will Rapuano,
               Pruitt Title LLC
             </p>
@@ -50,7 +50,7 @@ export default async function BlogIndexPage() {
       <section className="bg-brand-navy py-14 md:py-20">
         <div className="container-xl">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue max-w-[68ch] mx-auto">
               Stay in the loop
             </p>
             <h2 className="mt-3 t-h3 text-white">

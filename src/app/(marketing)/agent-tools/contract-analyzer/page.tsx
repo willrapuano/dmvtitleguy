@@ -30,7 +30,7 @@ export default async function ContractAnalyzerPage() {
             <h1 className="t-h4 text-brand-navy">
               Contract Analyzer
             </h1>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 max-w-[68ch] leading-relaxed">
               Upload a contract PDF to check for compliance issues
             </p>
           </div>

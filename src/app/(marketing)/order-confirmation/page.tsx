@@ -30,7 +30,7 @@ export default function OrderConfirmationPage({ searchParams }: OrderConfirmatio
           <h1 className="mb-3 t-h3 text-brand-navy">
             Thank you for your order!
           </h1>
-          <p className="mb-8 text-brand-muted">
+          <p className="mb-8 text-brand-muted max-w-[68ch] leading-relaxed">
             Pruitt Title will contact you within one business day.
           </p>
 

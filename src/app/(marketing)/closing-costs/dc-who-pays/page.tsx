@@ -68,7 +68,7 @@ export default function DCWhoPaysClosingCostsPage() {
       {/* LOCAL INSIGHT */}
       <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> DC has some of the highest closing costs in the nation. The combined recordation and transfer taxes reach 2.9% for properties over $400,000—typically split 50/50 between buyer and seller by custom.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function DCWhoPaysClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Buyer Responsibilities in DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               DC buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. Here's what buyers are responsible for:
             </p>
             <ul className="list-disc list-inside space-y-3">
@@ -101,7 +101,7 @@ export default function DCWhoPaysClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Seller Responsibilities in DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               DC sellers typically pay <strong>1% to 3%</strong> of the sale price in closing costs (excluding real estate commissions). Here's what sellers are responsible for:
             </p>
             <ul className="list-disc list-inside space-y-3">
@@ -164,7 +164,7 @@ export default function DCWhoPaysClosingCostsPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Can Closing Costs Be Negotiated?</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Yes! While there's a customary 50/50 split for recordation and transfer taxes, buyers and sellers can negotiate who pays other fees:
             </p>
             <ul className="list-disc list-inside space-y-2">
@@ -173,7 +173,7 @@ export default function DCWhoPaysClosingCostsPage() {
               <li><strong>Attorney Fees:</strong> Can be split or paid by either party</li>
               <li><strong>Home Warranty:</strong> Often paid by seller as part of the sale</li>
             </ul>
-            <p>
+            <p className="max-w-[68ch]">
               In a competitive market, sellers may offer to pay more closing costs to attract buyers. In a buyer's market, buyers may request seller concessions.
             </p>
           </div>

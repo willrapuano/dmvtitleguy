@@ -41,19 +41,19 @@ export default function CreditUnionsPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Credit Union Expertise</h3>
-              <p className="text-gray-600">We understand credit union lending processes and requirements.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We understand credit union lending processes and requirements.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Member-Focused Service</h3>
-              <p className="text-gray-600">Treat your members like family with our white-glove service.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Treat your members like family with our white-glove service.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Competitive Pricing</h3>
-              <p className="text-gray-600">Special rates for credit union partners and their members.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Special rates for credit union partners and their members.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Dedicated Support</h3>
-              <p className="text-gray-600">Single point of contact for all your lending partnerships.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Single point of contact for all your lending partnerships.</p>
             </div>
           </div>
         </div>

@@ -55,7 +55,7 @@ export default function CityCalculatorPage({ data }: Props) {
             <span className="mx-2">/</span>
             <span>{cityLabel}</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">
             Free Local Calculator
           </p>
           <h1 className="t-h1 text-white mb-4">
@@ -101,7 +101,7 @@ export default function CityCalculatorPage({ data }: Props) {
               {data.faqs.map((faq, i) => (
                 <div key={i} className="border-b border-gray-100 pb-5">
                   <h3 className="font-bold text-brand-dark-text mb-2">{faq.question}</h3>
-                  <p className="text-brand-muted text-sm leading-relaxed">{faq.answer}</p>
+                  <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{faq.answer}</p>
                 </div>
               ))}
             </div>
@@ -119,11 +119,11 @@ export default function CityCalculatorPage({ data }: Props) {
               href={`/${locationSlug}`}
               className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1">Title Services</p>
-              <p className="font-bold text-brand-navy text-sm">
+              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Title Services</p>
+              <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
                 Title Company in {cityLabel}
               </p>
-              <p className="text-xs text-brand-muted mt-1">
+              <p className="text-xs text-brand-muted mt-1 max-w-[68ch]">
                 Full-service title &amp; settlement in {data.city}
               </p>
             </Link>
@@ -133,11 +133,11 @@ export default function CityCalculatorPage({ data }: Props) {
               href={`/${stateCalcSlug}`}
               className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1">Calculator</p>
-              <p className="font-bold text-brand-navy text-sm">
+              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Calculator</p>
+              <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
                 {stateFullName} Closing Cost Calculator
               </p>
-              <p className="text-xs text-brand-muted mt-1">
+              <p className="text-xs text-brand-muted mt-1 max-w-[68ch]">
                 Statewide rates &amp; fee breakdown
               </p>
             </Link>
@@ -147,11 +147,11 @@ export default function CityCalculatorPage({ data }: Props) {
               href="/title-insurance"
               className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1">Guide</p>
-              <p className="font-bold text-brand-navy text-sm">
+              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Guide</p>
+              <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
                 Title Insurance Explained
               </p>
-              <p className="text-xs text-brand-muted mt-1">
+              <p className="text-xs text-brand-muted mt-1 max-w-[68ch]">
                 What it covers, costs, and why you need it
               </p>
             </Link>
