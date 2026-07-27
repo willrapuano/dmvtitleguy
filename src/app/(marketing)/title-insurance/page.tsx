@@ -76,7 +76,7 @@ export default function TitleInsurancePage() {
       <section className="relative bg-brand-navy text-white py-20 md:py-28">
         <div className="absolute inset-0 bg-black/50" />
         <div className="container-xl relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h1 className="t-h1">
             Title Insurance Resources
           </h1>
         </div>
@@ -88,7 +88,7 @@ export default function TitleInsurancePage() {
         style={{ backgroundColor: "#F5E6E8" }}
       >
         <div className="container-xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy text-center mb-10">
+          <h2 className="t-h2 text-brand-navy text-center mb-10">
             Downloadable Resources
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">

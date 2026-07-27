@@ -72,7 +72,7 @@ export default function AgentToolsPage() {
                     </span>
                   )}
                 </div>
-                <h2 className="text-xl font-bold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+                <h2 className="t-h5 text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
                   {tool.title}
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed">

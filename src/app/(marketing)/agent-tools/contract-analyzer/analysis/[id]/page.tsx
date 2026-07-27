@@ -55,7 +55,7 @@ export default async function AnalysisPage({
         <div className="mb-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="flex items-start justify-between">
             <div>
-              <h1 className="text-xl font-bold text-brand-navy">{analysis.fileName}</h1>
+              <h1 className="t-h5 text-brand-navy">{analysis.fileName}</h1>
               <p className="mt-1 text-sm text-gray-500">
                 {analysis.formType} · Analyzed{" "}
                 {new Date(analysis.createdAt).toLocaleString()}
@@ -113,7 +113,7 @@ export default async function AnalysisPage({
         </div>
 
         {/* Section Overview */}
-        <h2 className="mb-3 text-lg font-semibold text-brand-navy">Section Overview</h2>
+        <h2 className="mb-3 t-h6 font-semibold text-brand-navy">Section Overview</h2>
         <div className="mb-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {sections.map((s) => (
             <div
@@ -140,7 +140,7 @@ export default async function AnalysisPage({
         </div>
 
         {/* Findings */}
-        <h2 className="mb-3 text-lg font-semibold text-brand-navy">
+        <h2 className="mb-3 t-h6 font-semibold text-brand-navy">
           Findings ({analysis.findings.length})
         </h2>
         <div className="space-y-3">

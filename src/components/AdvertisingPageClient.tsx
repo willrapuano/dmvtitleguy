@@ -67,7 +67,7 @@ export function AdvertisingPageClient() {
       <section className="section-light">
         <div className="container-xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-navy leading-tight mb-4">
+            <h1 className="t-h1 text-brand-navy mb-4">
               Amplify Your Listings With Strategic Ad Campaigns
             </h1>
             <p className="text-brand-muted text-lg max-w-2xl mx-auto">
@@ -78,11 +78,11 @@ export function AdvertisingPageClient() {
           <div className="grid md:grid-cols-2 gap-10 items-start">
             {/* Listing Submission Form */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
-              <h2 className="text-xl font-bold text-brand-navy mb-4">Get Started</h2>
+              <h2 className="t-h5 text-brand-navy mb-4">Get Started</h2>
               {status === "success" ? (
                 <div className="text-center py-8">
                   <div className="text-4xl mb-3">🚀</div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-2">We&apos;re on it!</h3>
+                  <h3 className="t-h6 text-brand-navy mb-2">We&apos;re on it!</h3>
                   <p className="text-brand-muted text-sm">Your listing has been submitted. We&apos;ll launch your campaign within 48 hours.</p>
                 </div>
               ) : (
@@ -155,7 +155,7 @@ export function AdvertisingPageClient() {
             {/* Listing Traffic Boost */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
               <div className="bg-brand-action text-white p-5 text-center">
-                <h3 className="text-xl font-bold">Listing Traffic Boost</h3>
+                <h3 className="t-h5">Listing Traffic Boost</h3>
               </div>
               <div className="p-6">
                 <ul className="space-y-3 mb-6">
@@ -175,7 +175,7 @@ export function AdvertisingPageClient() {
             {/* Sphere Marketing */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
               <div className="bg-brand-action text-white p-5 text-center">
-                <h3 className="text-xl font-bold">Sphere Marketing</h3>
+                <h3 className="t-h5">Sphere Marketing</h3>
               </div>
               <div className="p-6">
                 <ul className="space-y-3 mb-6">
@@ -214,7 +214,7 @@ export function AdvertisingPageClient() {
       {/* Final CTA */}
       <section className="section-blue">
         <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Amplify Your Listings?</h2>
+          <h2 className="t-h2 text-white mb-4">Ready to Amplify Your Listings?</h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
             Submit your listing above or contact us to get started. Complimentary for our referral partners.
           </p>

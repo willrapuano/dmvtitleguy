@@ -93,7 +93,7 @@ export default function AllTransactionsPage() {
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">
               Professional Title Services
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            <h1 className="t-h1 text-white mb-4">
               We Handle Every Type of Real Estate Transaction
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
@@ -207,7 +207,7 @@ export default function AllTransactionsPage() {
       {/* RELATED SERVICES — Investor */}
       <section className="py-12 bg-white">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
@@ -240,7 +240,7 @@ export default function AllTransactionsPage() {
       {/* RELATED */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">
+          <h2 className="t-h5 text-brand-navy mb-4">
             Helpful Tools
           </h2>
           <div className="flex flex-wrap gap-3">

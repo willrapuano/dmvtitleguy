@@ -227,22 +227,33 @@
     @apply bg-white rounded-lg shadow-md overflow-hidden;
   }
   /* ── Type scale ──
-     Replaces ad-hoc per-page sizing (text-sm appeared 528 times, text-lg 215,
-     with no consistent step between levels). Each rung pairs a size with the
-     line-height and weight it actually wants. */
+     Of 596 headings, only 77 carried a responsive step: the rest rendered one
+     fixed size at every breakpoint, and <h2> alone appeared at four different
+     sizes. These rungs are VISUAL levels, not semantic ones — t-h3 does not
+     imply an <h3>. Each rung keeps the desktop size that was already in use
+     and adds the missing mobile step below it, so applying them changes how
+     headings scale on small screens without moving the desktop layout. */
+  /* Starts at text-3xl: these headings run long (the homepage H1 is 16 words),
+     and at text-4xl a phone showed nothing but the heading. Unchanged from sm up. */
   .t-display {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight;
   }
   .t-h1 {
-    @apply text-3xl md:text-4xl font-bold leading-[1.12] tracking-tight;
+    @apply text-4xl md:text-5xl font-bold leading-[1.08] tracking-tight;
   }
   .t-h2 {
-    @apply text-2xl md:text-3xl font-bold leading-tight;
+    @apply text-3xl md:text-4xl font-bold leading-[1.14] tracking-tight;
   }
   .t-h3 {
-    @apply text-xl md:text-2xl font-bold leading-snug;
+    @apply text-2xl md:text-3xl font-bold leading-tight;
   }
   .t-h4 {
+    @apply text-xl md:text-2xl font-bold leading-snug;
+  }
+  .t-h5 {
+    @apply text-lg md:text-xl font-bold leading-snug;
+  }
+  .t-h6 {
     @apply text-base md:text-lg font-bold leading-snug;
   }
   .t-body-lg {
@@ -263,14 +274,14 @@
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue-deep;
   }
   .section-title {
-    @apply t-h3 text-brand-navy mt-1.5;
+    @apply t-h4 text-brand-navy mt-1.5;
   }
   /* Same eyebrow on navy/photo, where the light brand blue is legible again. */
   .section-label-on-dark {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue;
   }
   .prose-title {
-    @apply t-h1 text-brand-navy;
+    @apply t-h2 text-brand-navy;
   }
   .prose-subtitle {
     @apply t-body-lg text-brand-ink mt-4;

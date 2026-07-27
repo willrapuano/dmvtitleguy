@@ -209,7 +209,7 @@ function sumObj(obj: Record<string, number>) {
 function CostBreakdown({ label, costs, total }: { label: string; costs: Record<string, number>; total: number }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-6">
-      <h3 className="font-bold text-brand-navy text-lg mb-4">{label}</h3>
+      <h3 className="text-brand-navy t-h6 mb-4">{label}</h3>
       <div className="space-y-2 mb-4">
         {Object.entries(costs).map(([key, val]) => {
           const label = key
@@ -306,7 +306,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
     <div className="space-y-8">
       {/* Inputs */}
       <div className="bg-brand-gray-bg rounded-xl p-6">
-        <h2 className="text-xl font-bold text-brand-navy mb-6">{config.stateFullName} Closing Cost Calculator</h2>
+        <h2 className="t-h5 text-brand-navy mb-6">{config.stateFullName} Closing Cost Calculator</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div>
             <label className="block text-sm font-medium text-brand-dark-text mb-1">
@@ -439,7 +439,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
       {/* CTA */}
       <div className="bg-brand-navy text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
-          <h3 className="font-bold text-lg">Ready for a Precise Quote?</h3>
+          <h3 className="t-h6">Ready for a Precise Quote?</h3>
           <p className="text-gray-300 text-sm">Contact Will Rapuano at Pruitt Title LLC — we&apos;ll walk through actual costs for your transaction.</p>
         </div>
         <div className="flex gap-3">

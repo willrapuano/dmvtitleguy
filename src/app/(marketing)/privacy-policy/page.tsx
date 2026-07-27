@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
             or use our services.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">1. Information We Collect</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">1. Information We Collect</h2>
 
           <h3 className="text-base font-medium text-brand-navy">Personal Information</h3>
           <p>We may collect personal information that you voluntarily provide, including:</p>
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
             <li>Device identifiers and usage data</li>
           </ul>
 
-          <h2 className="text-lg font-semibold text-brand-navy">2. How We Use Your Information</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">2. How We Use Your Information</h2>
           <p>We use the information we collect to:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>Provide, operate, and maintain our services</li>
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
             <li>Comply with legal obligations</li>
           </ul>
 
-          <h2 className="text-lg font-semibold text-brand-navy">3. Sharing of Information</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">3. Sharing of Information</h2>
           <p>We do not sell your personal information. We may share your information with:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>
@@ -73,14 +73,14 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className="text-lg font-semibold text-brand-navy">4. Cookies and Tracking Technologies</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">4. Cookies and Tracking Technologies</h2>
           <p>
             We use cookies, web beacons, and similar technologies to enhance your experience,
             analyze site traffic, and understand usage patterns. You can control cookie preferences
             through your browser settings. Disabling cookies may affect site functionality.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">5. Third-Party Services</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">5. Third-Party Services</h2>
           <p>Our website may contain links to third-party websites or integrate with services such as:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>Google Analytics for website analytics</li>
@@ -92,21 +92,21 @@ export default function PrivacyPolicyPage() {
             These third parties have their own privacy policies, and we encourage you to review them.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">6. Data Security</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">6. Data Security</h2>
           <p>
             We implement reasonable administrative, technical, and physical safeguards to protect
             your personal information. However, no method of electronic transmission or storage
             is 100% secure, and we cannot guarantee absolute security.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">7. Data Retention</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">7. Data Retention</h2>
           <p>
             We retain your personal information only as long as necessary to fulfill the purposes
             outlined in this policy, comply with legal obligations, resolve disputes, and enforce
             our agreements.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">8. Your Rights</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">8. Your Rights</h2>
           <p>Depending on your location, you may have the right to:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>Access, correct, or delete your personal information</li>
@@ -121,21 +121,21 @@ export default function PrivacyPolicyPage() {
             </a>.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">9. Children&apos;s Privacy</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">9. Children&apos;s Privacy</h2>
           <p>
             Our services are not directed to individuals under 18. We do not knowingly collect
             personal information from children. If we learn we have collected information from
             a child, we will take steps to delete it promptly.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">10. Changes to This Policy</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">10. Changes to This Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. The updated version will be
             indicated by the &quot;Effective Date&quot; at the top of this page. We encourage you to
             review this policy periodically.
           </p>
 
-          <h2 className="text-lg font-semibold text-brand-navy">11. Contact Us</h2>
+          <h2 className="t-h6 font-semibold text-brand-navy">11. Contact Us</h2>
           <p>If you have questions about this Privacy Policy, contact us at:</p>
           <div className="bg-gray-50 rounded-lg p-4">
             <p className="font-medium text-brand-navy">DMV Title Guy</p>

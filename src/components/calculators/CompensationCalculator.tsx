@@ -36,7 +36,7 @@ export function CompensationCalculator() {
     <div className="grid lg:grid-cols-2 gap-8">
       {/* INPUTS */}
       <div className="space-y-4">
-        <h2 className="text-lg font-bold text-brand-navy">Transaction Details</h2>
+        <h2 className="t-h6 text-brand-navy">Transaction Details</h2>
 
         <div>
           <label className={labelClass}>Sale Price</label>
@@ -93,7 +93,7 @@ export function CompensationCalculator() {
 
       {/* RESULTS */}
       <div>
-        <h2 className="text-lg font-bold text-brand-navy mb-4">Compensation Breakdown</h2>
+        <h2 className="t-h6 text-brand-navy mb-4">Compensation Breakdown</h2>
         {!parseFloat(salePrice) ? (
           <div className="bg-brand-gray-bg rounded-xl p-6 text-center text-brand-muted text-sm">Enter a sale price to see the breakdown</div>
         ) : (

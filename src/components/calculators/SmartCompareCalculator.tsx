@@ -111,7 +111,7 @@ export function SmartCompareCalculator() {
 
       {hasData && (
         <div>
-          <h2 className="text-lg font-bold text-brand-navy mb-4">Side-by-Side Comparison</h2>
+          <h2 className="t-h6 text-brand-navy mb-4">Side-by-Side Comparison</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>

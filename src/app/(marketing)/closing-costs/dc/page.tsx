@@ -83,7 +83,7 @@ export default function DCClosingCostsPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">DC Closing Costs</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Washington DC Closing Costs Guide
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -106,7 +106,7 @@ export default function DCClosingCostsPage() {
       {/* BUYER COSTS */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">What Buyers Pay in Washington DC</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">What Buyers Pay in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               DC buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. The high costs are primarily due to DC's recordation and transfer taxes, which are among the highest in the nation.
@@ -130,7 +130,7 @@ export default function DCClosingCostsPage() {
       {/* SELLER COSTS */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">What Sellers Pay in Washington DC</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">What Sellers Pay in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               DC sellers typically pay <strong>1% to 3%</strong> of the sale price in closing costs (excluding real estate commissions). These costs include:
@@ -153,7 +153,7 @@ export default function DCClosingCostsPage() {
       {/* DC TAX RATES */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">DC Recordation & Transfer Tax Rates</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">DC Recordation & Transfer Tax Rates</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-brand-muted border-collapse">
               <thead>
@@ -190,7 +190,7 @@ export default function DCClosingCostsPage() {
       {/* TITLE INSURANCE */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Title Insurance in Washington DC</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               DC law requires an attorney or licensed title agent to conduct all real estate settlements. Title insurance protects against hidden title defects that could affect your ownership rights.
@@ -214,7 +214,7 @@ export default function DCClosingCostsPage() {
       {/* DC SPECIFICS */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">What Makes DC Closings Unique</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">What Makes DC Closings Unique</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Washington DC real estate transactions have several unique characteristics that differ from Maryland and Virginia:
@@ -233,7 +233,7 @@ export default function DCClosingCostsPage() {
       {/* INTERNAL LINKS */}
       <section className="py-10 bg-white border-b border-gray-100">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
@@ -276,7 +276,7 @@ export default function DCClosingCostsPage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your DC Title Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your DC Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate closing cost estimate for your DC transaction.
           </p>

@@ -48,7 +48,7 @@ export function FAQSection({
         />
       )}
       <div className="mt-14 pt-10 border-t border-gray-100">
-        <h2 className="text-2xl font-bold text-brand-navy mb-8">
+        <h2 className="t-h4 text-brand-navy mb-8">
           Frequently Asked Questions
         </h2>
         <div className="space-y-0 divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">

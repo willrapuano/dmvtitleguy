@@ -22,7 +22,7 @@ export default function FlipPage() {
             <span>Flip Calculator</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Investor Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">House Flip Calculator</h1>
+          <h1 className="t-h1 text-white mb-4">House Flip Calculator</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Run your fix-and-flip numbers before you make an offer. Calculate estimated profit, ROI, and your Maximum Allowable Offer (MAO) based on ARV, rehab costs, and holding expenses.
           </p>

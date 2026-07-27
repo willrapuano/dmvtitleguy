@@ -27,7 +27,7 @@ export default function VirginiaCalculatorPage() {
             <span>Virginia Closing Cost Calculator</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Virginia Closing Cost Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -41,7 +41,7 @@ export default function VirginiaCalculatorPage() {
       {/* ── EXPLAINER ── */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Understanding Virginia Closing Costs</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Understanding Virginia Closing Costs</h2>
           <div className="space-y-5 text-brand-muted text-sm leading-relaxed">
             <p>
               Virginia closing costs typically range from <strong className="text-brand-dark-text">2% to 5%</strong> of the purchase price for buyers, and <strong className="text-brand-dark-text">1% to 3%</strong> for sellers (excluding agent commissions).
@@ -64,7 +64,7 @@ export default function VirginiaCalculatorPage() {
       {/* ── LOCATION LINKS ── */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Virginia Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Virginia Markets We Serve</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {VA_LOCATIONS.map((l) => (
               <Link

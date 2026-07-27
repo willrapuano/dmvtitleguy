@@ -59,7 +59,7 @@ export function InvestorPageTemplate({
               <span className="text-gray-200">Investor Services</span>
             </nav>
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">{heroTag}</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">{h1}</h1>
+            <h1 className="t-h1 text-white mb-4">{h1}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">{heroBody}</p>
             <div className="flex flex-wrap gap-3">
               <Link href={`/${slug}#quote`} className="btn-primary">Start Your Order →</Link>
@@ -134,7 +134,7 @@ export function InvestorPageTemplate({
       {/* RELATED PAGES */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Related Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Related Services</h2>
           <div className="flex flex-wrap gap-3">
             {relatedPages.map((p) => (
               <Link

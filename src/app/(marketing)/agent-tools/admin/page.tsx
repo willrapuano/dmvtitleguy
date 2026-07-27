@@ -39,7 +39,7 @@ export default async function AdminPage() {
             <Shield className="h-6 w-6 text-brand-navy" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-brand-navy">Admin Panel</h1>
+            <h1 className="t-h4 text-brand-navy">Admin Panel</h1>
             <p className="text-sm text-gray-500">
               Manage user access · Signed in as {admin.email}
             </p>
@@ -47,7 +47,7 @@ export default async function AdminPage() {
         </div>
 
         {/* Pending Approvals */}
-        <h2 className="text-lg font-semibold text-brand-navy mb-3">
+        <h2 className="t-h6 font-semibold text-brand-navy mb-3">
           Pending Approval ({pending.length})
         </h2>
         {pending.length === 0 ? (
@@ -74,7 +74,7 @@ export default async function AdminPage() {
         )}
 
         {/* Approved Users */}
-        <h2 className="text-lg font-semibold text-brand-navy mb-3">
+        <h2 className="t-h6 font-semibold text-brand-navy mb-3">
           Approved Users ({approved.length})
         </h2>
         <div className="space-y-3">

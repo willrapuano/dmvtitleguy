@@ -49,7 +49,7 @@ export function LeadCaptureForm({
     return (
       <div className={`bg-white rounded-xl shadow-lg p-8 text-center ${compact ? "p-6" : ""}`}>
         <div className="text-4xl mb-3">✅</div>
-        <h3 className="text-xl font-bold text-brand-navy mb-2">Got it — we&apos;ll be in touch!</h3>
+        <h3 className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</h3>
         <p className="text-brand-muted text-sm">
           Will typically responds within one business day. You can also call directly at{" "}
           <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
@@ -62,7 +62,7 @@ export function LeadCaptureForm({
     <div className={`bg-white rounded-xl shadow-lg ${compact ? "p-6" : "p-8"}`}>
       {!compact && (
         <div className="mb-6">
-          <h3 className="text-xl font-bold text-brand-navy">{title}</h3>
+          <h3 className="t-h5 text-brand-navy">{title}</h3>
           <p className="text-brand-muted text-sm mt-1">{subtitle}</p>
         </div>
       )}

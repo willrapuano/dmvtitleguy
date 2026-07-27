@@ -22,7 +22,7 @@ export default function ExtraPaymentPage() {
             <span>Extra Loan Payment</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Buyer Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Extra Loan Payment Calculator</h1>
+          <h1 className="t-h1 text-white mb-4">Extra Loan Payment Calculator</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Even a small extra payment each month can save you tens of thousands in interest and pay off your mortgage years early. See exactly how much with this free tool.
           </p>

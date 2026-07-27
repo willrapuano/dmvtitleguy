@@ -30,7 +30,7 @@ export default async function PendingPage() {
             <Clock className="h-8 w-8 text-amber-500" />
           </div>
 
-          <h1 className="text-xl font-bold text-brand-navy mb-2">
+          <h1 className="t-h5 text-brand-navy mb-2">
             Pending Approval
           </h1>
 

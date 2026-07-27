@@ -51,7 +51,7 @@ export default function SellerNetSheetPage() {
             <span>Seller Net Sheet</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Seller Net Sheet Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -63,7 +63,7 @@ export default function SellerNetSheetPage() {
       <section className="section-light">
         <div className="container-xl max-w-4xl">
           <div className="card p-8 mb-8 text-center">
-            <h2 className="text-2xl font-bold text-brand-navy mb-3">Launch the Seller Net Sheet Tool</h2>
+            <h2 className="t-h4 text-brand-navy mb-3">Launch the Seller Net Sheet Tool</h2>
             <p className="text-brand-muted mb-6">
               Use the live PalmAgent calculator to estimate your projected proceeds after commissions, closing costs, title fees, and transfer taxes.
             </p>

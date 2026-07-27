@@ -78,7 +78,7 @@ function CheckoutForm({
 export function PayPalTitleSearchCheckout(props: CheckoutFormProps) {
   return (
     <div className="rounded-xl bg-white p-6 shadow-lg">
-      <h3 className="text-xl font-bold text-brand-navy mb-2">Order a Title Search</h3>
+      <h3 className="t-h5 text-brand-navy mb-2">Order a Title Search</h3>
       <p className="text-sm text-brand-muted mb-5">
         Start a standard title search for $125 and share the property details before payment.
       </p>
@@ -111,7 +111,7 @@ export function TitleSearchOrderButton({
             >
               <X className="h-5 w-5" />
             </button>
-            <h2 className="pr-10 text-2xl font-bold text-brand-navy">Order Title Search</h2>
+            <h2 className="pr-10 t-h4 text-brand-navy">Order Title Search</h2>
             <p className="mt-2 mb-5 text-sm text-brand-muted">
               Complete payment for a standard DMVTitleGuy title search.
             </p>

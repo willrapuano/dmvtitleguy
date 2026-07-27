@@ -76,7 +76,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
     return (
       <div className="bg-white rounded-xl shadow-lg p-8 text-center">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
-        <h3 className="text-xl font-bold text-brand-navy mb-2">Request Submitted!</h3>
+        <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
         <p className="text-brand-muted text-sm mb-4">
           Our title team will review your request and respond within one business day.
         </p>
@@ -90,7 +90,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-8">
-      <h3 className="text-xl font-bold text-brand-navy mb-2">Request a Title Review</h3>
+      <h3 className="t-h5 text-brand-navy mb-2">Request a Title Review</h3>
       <p className="text-brand-muted text-sm mb-6">Tell us about the property and what you need. We&apos;ll take it from here.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">

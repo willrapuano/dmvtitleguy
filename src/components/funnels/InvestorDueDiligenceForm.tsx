@@ -79,7 +79,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
     return (
       <div className="bg-white rounded-xl shadow-lg p-8 text-center">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
-        <h3 className="text-xl font-bold text-brand-navy mb-2">Request Submitted!</h3>
+        <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
         <p className="text-brand-muted text-sm mb-4">
           Our team will review your submission and respond within one business day.
         </p>
@@ -93,7 +93,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-8">
-      <h3 className="text-xl font-bold text-brand-navy mb-2">Start Your Due Diligence</h3>
+      <h3 className="t-h5 text-brand-navy mb-2">Start Your Due Diligence</h3>
       <p className="text-brand-muted text-sm mb-6">Fill out the form below and we&apos;ll begin your title search immediately.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">

@@ -48,7 +48,7 @@ export function FlipCalculator() {
     <div className="grid lg:grid-cols-2 gap-8">
       {/* INPUTS */}
       <div className="space-y-4">
-        <h2 className="text-lg font-bold text-brand-navy">Deal Details</h2>
+        <h2 className="t-h6 text-brand-navy">Deal Details</h2>
 
         <div>
           <label className={labelClass}>After Repair Value (ARV)</label>
@@ -98,7 +98,7 @@ export function FlipCalculator() {
 
       {/* RESULTS */}
       <div>
-        <h2 className="text-lg font-bold text-brand-navy mb-4">Results</h2>
+        <h2 className="t-h6 text-brand-navy mb-4">Results</h2>
         {!results ? (
           <div className="bg-brand-gray-bg rounded-xl p-6 text-center text-brand-muted text-sm">Enter ARV to see your numbers</div>
         ) : (

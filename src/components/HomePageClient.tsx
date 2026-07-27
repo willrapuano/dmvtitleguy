@@ -209,7 +209,7 @@ export function HomePageClient() {
               ))}
             </div>
             <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Pruitt Title LLC • DMV Title Guy</p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+            <h1 className="t-display text-white mb-5">
               Title &amp; Settlement Services for Buyers, Realtors, Lenders, and Builders Across Virginia, Maryland, and Washington DC
             </h1>
             <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mb-4">
@@ -238,7 +238,7 @@ export function HomePageClient() {
           </div>
           <div className="bg-white/10 border border-white/15 rounded-2xl p-6 backdrop-blur-sm shadow-2xl">
             <p className="text-sm uppercase tracking-[0.2em] text-gray-200 mb-3">Service Area &amp; Core Services</p>
-            <h2 className="text-2xl font-bold text-white mb-4">Title company, escrow, and settlement support across the DMV.</h2>
+            <h2 className="t-h4 text-white mb-4">Title company, escrow, and settlement support across the DMV.</h2>
             <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-100">
               <div>
                 <p className="font-semibold text-white mb-2">Geography</p>
@@ -280,7 +280,7 @@ export function HomePageClient() {
                 href={item.href}
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 block"
               >
-                <h3 className="font-bold text-brand-navy text-lg mb-2">{item.label}</h3>
+                <h3 className="text-brand-navy t-h6 mb-2">{item.label}</h3>
                 <p className="text-brand-muted text-sm leading-relaxed">{item.detail}</p>
                 <p className="mt-3 text-brand-blue-deep text-xs font-semibold">Go to page →</p>
               </Link>
@@ -293,7 +293,7 @@ export function HomePageClient() {
       <section className="section-gray">
         <div className="container-xl">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-2">Routing by Transaction Partner</h2>
+            <h2 className="t-h3 text-brand-navy mb-2">Routing by Transaction Partner</h2>
             <p className="text-brand-muted max-w-2xl mx-auto text-sm">Choose the closing path that matches your role. These pages route buyers, realtors, lenders, builders, and institutions into the right title, escrow, and settlement support.</p>
           </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
@@ -330,7 +330,7 @@ export function HomePageClient() {
       {/* ── SECTION 3: QUICK START CTA ───────────────────────────── */}
       <section className="section-blue">
         <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="t-h2 text-white mb-4">
             Need to start a closing or get numbers fast?
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
@@ -363,7 +363,7 @@ export function HomePageClient() {
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
                 <span className="text-brand-blue-deep text-2xl">🏠</span>
               </div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Title &amp; Escrow That Doesn&apos;t Slow You Down</h3>
+              <h3 className="text-brand-navy t-h6 mb-3">Title &amp; Escrow That Doesn&apos;t Slow You Down</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
                 Fast, reliable title work and settlement coordination for purchase, refinance, resale, and builder transactions across DC, Maryland, and Virginia.
               </p>
@@ -372,7 +372,7 @@ export function HomePageClient() {
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
                 <span className="text-brand-blue-deep text-2xl">⏱️</span>
               </div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Responsive Communication From Contract to Closing</h3>
+              <h3 className="text-brand-navy t-h6 mb-3">Responsive Communication From Contract to Closing</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
                 Buyers, agents, lenders, and builders get proactive updates, cleaner coordination, and fewer last-minute surprises at settlement.
               </p>
@@ -381,7 +381,7 @@ export function HomePageClient() {
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
                 <span className="text-brand-blue-deep text-2xl">🧭</span>
               </div>
-              <h3 className="font-bold text-brand-navy text-lg mb-3">Local DMV Expertise for Complex Closings</h3>
+              <h3 className="text-brand-navy t-h6 mb-3">Local DMV Expertise for Complex Closings</h3>
               <p className="text-brand-muted text-sm leading-relaxed">
                 From Montgomery County and Bethesda to Washington DC and Northern Virginia, the team understands local taxes, title issues, and settlement workflows that affect real transactions.
               </p>
@@ -407,7 +407,7 @@ export function HomePageClient() {
           <div className="grid gap-6 lg:grid-cols-3 max-w-6xl mx-auto items-start">
             {SERVICE_AREAS.map((area) => (
               <div key={area.title} className="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm text-center">
-                <h3 className="font-bold text-brand-navy text-lg mb-3">{area.title}</h3>
+                <h3 className="text-brand-navy t-h6 mb-3">{area.title}</h3>
                 <p className="text-sm text-brand-muted leading-relaxed mb-6">{area.description}</p>
                 <div className="space-y-6">
                   {area.groups.map((group) => (
