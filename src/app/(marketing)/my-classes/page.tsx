@@ -79,7 +79,6 @@ export default function MyClassesPage() {
       <section className="section-light">
         <div className="container-xl text-center max-w-2xl">
           <h2 className="prose-title mb-2">Upcoming Classes &amp; Events</h2>
-          <div className="accent-divider" />
           <div className="mt-8 bg-brand-gray-bg border border-gray-200 rounded-xl p-8">
             <p className="mb-3"><CalendarDays size={26} strokeWidth={1.5} className="text-brand-blue-deep" aria-hidden="true" /></p>
             <p className="text-brand-navy font-semibold text-lg mb-2 max-w-[68ch]">New classes for 2026 coming soon.</p>
@@ -117,7 +116,6 @@ export default function MyClassesPage() {
       <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">Past Classes &amp; Workshops</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {PAST_CLASSES.map((c) => (
               <div key={c.title} className="card p-6">

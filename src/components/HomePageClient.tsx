@@ -3,6 +3,7 @@
 import { Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { SectionHead } from "@/components/SectionHead";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
 /**
@@ -185,52 +186,6 @@ const SERVICE_AREAS: ServiceAreaColumn[] = [
     ],
   },
 ];
-
-/**
- * One section header for the whole page.
- *
- * Six of seven sections previously opened with an identical centred stack —
- * heading, decorative dash, centred paragraph — which is what made the page read
- * as templated regardless of typeface. This pairs a numbered small-caps label
- * with a display heading and left-aligns by default, so the sections share a
- * left edge and the numbers give the page a spine. Centring is reserved for the
- * one deliberately loud CTA band.
- */
-function SectionHead({
-  index,
-  label,
-  title,
-  lede,
-  center = false,
-}: {
-  index: string;
-  label: string;
-  title: React.ReactNode;
-  lede?: string;
-  center?: boolean;
-}) {
-  return (
-    <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p
-        className={`flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-blue-deep ${
-          center ? "justify-center" : ""
-        }`}
-      >
-        <span className="font-display text-sm tabular-nums">{index}</span>
-        <span aria-hidden="true" className="h-px w-8 bg-brand-blue-deep/40" />
-        {label}
-      </p>
-      <h2 className="t-h2 mt-4 text-brand-navy">{title}</h2>
-      {lede && (
-        <p
-          className={`mt-4 max-w-[62ch] leading-relaxed text-brand-muted ${center ? "mx-auto" : ""}`}
-        >
-          {lede}
-        </p>
-      )}
-    </div>
-  );
-}
 
 export function HomePageClient() {
   return (

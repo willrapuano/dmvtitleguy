@@ -290,9 +290,6 @@
   .prose-subtitle {
     @apply t-body-lg text-brand-ink mt-4;
   }
-  .accent-divider {
-    @apply w-6 h-0.5 bg-brand-blue mx-auto mt-3 mb-4;
-  }
   /* Carries white label text, so it needs the action tone rather than #3BAEF7
      (which measured 2.45:1 behind white). */
   .resource-download-btn {

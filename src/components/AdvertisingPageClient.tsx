@@ -132,7 +132,6 @@ export function AdvertisingPageClient() {
       <section className="section-gray">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">How It Works</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-3 gap-8 mt-10">
             {STEPS.map((step) => (
               <div key={step.num} className="text-center">
@@ -151,7 +150,6 @@ export function AdvertisingPageClient() {
       <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">Advertising Packages</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-4xl mx-auto">
             {/* Listing Traffic Boost */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
@@ -200,7 +198,6 @@ export function AdvertisingPageClient() {
       <section className="section-gray">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">Why Advertise Your Listings?</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-2 gap-6 mt-10 max-w-4xl mx-auto">
             {WHY_ADVERTISE.map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
