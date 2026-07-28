@@ -1,5 +1,9 @@
+import { CalendarDays, FileText, Hammer, Handshake, Home as HomeIcon, Hourglass, KeyRound, PieChart, Receipt, Scale, Tag, Zap } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+
+/** Emoji were standing in for icons; lucide-react was already a dependency. */
+const CALC_ICONS = { CalendarDays, FileText, Hammer, Handshake, HomeIcon, Hourglass, KeyRound, PieChart, Receipt, Scale, Tag, Zap } as const;
 
 export const metadata: Metadata = {
   title: "Real Estate Calculators | DMV Title Guy",
@@ -14,7 +18,7 @@ const CALCULATORS = [
     title: "Title Quote Calculator",
     description:
       "Get an instant title insurance quote for your DC, Maryland, or Virginia real estate transaction.",
-    icon: "🏷️",
+    icon: "Tag",
     tag: "Title",
   },
   {
@@ -22,7 +26,7 @@ const CALCULATORS = [
     title: "Loan Estimate Calculator",
     description:
       "Generate a detailed loan estimate with projected closing costs for buyers and lenders.",
-    icon: "📋",
+    icon: "FileText",
     tag: "Buyers",
   },
   {
@@ -30,7 +34,7 @@ const CALCULATORS = [
     title: "Seller Net Sheet Calculator",
     description:
       "Calculate exactly how much you'll walk away with after commissions, fees, and closing costs.",
-    icon: "💰",
+    icon: "Receipt",
     tag: "Sellers",
   },
 
@@ -39,7 +43,7 @@ const CALCULATORS = [
     title: "Monthly Affordability Calculator",
     description:
       "Find out how much home you can afford based on your income, debts, and down payment.",
-    icon: "📊",
+    icon: "PieChart",
     tag: "Buyers",
   },
   {
@@ -47,7 +51,7 @@ const CALCULATORS = [
     title: "House Flip Calculator",
     description:
       "Calculate profit, ROI, and Maximum Allowable Offer (MAO) for your next fix-and-flip deal.",
-    icon: "🔨",
+    icon: "Hammer",
     tag: "Investors",
   },
   {
@@ -55,7 +59,7 @@ const CALCULATORS = [
     title: "Agent Compensation Calculator",
     description:
       "Calculate your real take-home after commission splits, broker fees, and referral deductions.",
-    icon: "🤝",
+    icon: "Handshake",
     tag: "Agents",
   },
   {
@@ -63,7 +67,7 @@ const CALCULATORS = [
     title: "Extra Loan Payment Calculator",
     description:
       "See how much interest you save and how many years you cut by making extra monthly payments.",
-    icon: "⚡",
+    icon: "Zap",
     tag: "Buyers",
   },
   {
@@ -71,7 +75,7 @@ const CALCULATORS = [
     title: "Smart Compare Calculator",
     description:
       "Compare two properties or loan scenarios side by side with a full monthly cost breakdown.",
-    icon: "⚖️",
+    icon: "Scale",
     tag: "Buyers",
   },
   {
@@ -79,7 +83,7 @@ const CALCULATORS = [
     title: "Amortization Calculator",
     description:
       "View your full mortgage amortization schedule — year by year principal, interest, and balance.",
-    icon: "📅",
+    icon: "CalendarDays",
     tag: "Buyers",
   },
   {
@@ -87,7 +91,7 @@ const CALCULATORS = [
     title: "Home Equity Calculator",
     description:
       "Know your equity, current LTV, and how much you can tap through a cash-out refi or HELOC.",
-    icon: "🏡",
+    icon: "HomeIcon",
     tag: "Homeowners",
   },
   {
@@ -95,7 +99,7 @@ const CALCULATORS = [
     title: "Rent vs Buy Calculator",
     description:
       "Should you rent or buy? Compare the long-term financial impact of both options in the DMV market.",
-    icon: "🔑",
+    icon: "KeyRound",
     tag: "Buyers",
   },
   {
@@ -103,7 +107,7 @@ const CALCULATORS = [
     title: "Buy Now or Later Calculator",
     description:
       "Thinking about waiting? Compare the total cost of buying today versus waiting — with appreciation, rent, and rate changes.",
-    icon: "⏳",
+    icon: "Hourglass",
     tag: "Buyers",
   },
 ];
@@ -140,7 +144,14 @@ export default function CalculatorsPage() {
                 className="group block border border-brand-gray-bg rounded-lg p-6 bg-white hover:border-brand-blue hover:shadow-md transition-all"
               >
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-3xl">{calc.icon}</span>
+                  {(() => {
+                    const Icon = CALC_ICONS[calc.icon as keyof typeof CALC_ICONS];
+                    return (
+                      <span className="flex h-10 w-10 items-center justify-center rounded-md bg-brand-blue-50">
+                        <Icon size={19} strokeWidth={1.75} className="text-brand-blue-deep" aria-hidden="true" />
+                      </span>
+                    );
+                  })()}
                   <span className="text-xs font-semibold text-brand-blue-deep bg-blue-50 px-2 py-0.5 rounded-full">{calc.tag}</span>
                 </div>
                 <h2 className="t-h6 text-brand-navy group-hover:text-brand-blue mb-2 transition-colors">

@@ -40,7 +40,7 @@ export function CompensationCalculator() {
 
         <div>
           <label className={labelClass}>Sale Price</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="500,000" value={salePrice} onChange={e => setSalePrice(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
@@ -49,7 +49,7 @@ export function CompensationCalculator() {
           <label className={labelClass}>Total Commission</label>
           <div className="relative">
             <input type="number" step="0.1" placeholder="5.0" value={totalCommission} onChange={e => setTotalCommission(e.target.value)} className={inputClass + " pr-7"} />
-            <span className="absolute right-3 top-2.5 text-gray-400 text-sm">%</span>
+            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
 
@@ -70,14 +70,14 @@ export function CompensationCalculator() {
             <label className={labelClass}>Agent Split</label>
             <div className="relative">
               <input type="number" placeholder="70" value={agentSplit} onChange={e => { setAgentSplit(e.target.value); setBrokerSplit(String(100 - (parseFloat(e.target.value) || 0))); }} className={inputClass + " pr-7"} />
-              <span className="absolute right-3 top-2.5 text-gray-400 text-sm">%</span>
+              <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
             </div>
           </div>
           <div>
             <label className={labelClass}>Broker Split</label>
             <div className="relative">
               <input type="number" placeholder="30" value={brokerSplit} onChange={e => { setBrokerSplit(e.target.value); setAgentSplit(String(100 - (parseFloat(e.target.value) || 0))); }} className={inputClass + " pr-7"} />
-              <span className="absolute right-3 top-2.5 text-gray-400 text-sm">%</span>
+              <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ export function CompensationCalculator() {
           <label className={labelClass}>Referral Fee (if any)</label>
           <div className="relative">
             <input type="number" step="0.1" placeholder="0" value={referralFee} onChange={e => setReferralFee(e.target.value)} className={inputClass + " pr-7"} />
-            <span className="absolute right-3 top-2.5 text-gray-400 text-sm">%</span>
+            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
       </div>

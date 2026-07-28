@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SectionHead } from "@/components/SectionHead";
 import Link from "next/link";
 import {
   Building2,
@@ -60,22 +61,22 @@ const closingInvolves = [
 const process = [
   {
     icon: ClipboardCheck,
-    title: "1. Open the File",
+    step: "01", title: "Open the File",
     desc: "Send the contract, property information, lender contact, entity details, and any survey or prior title policy.",
   },
   {
     icon: Search,
-    title: "2. Review Title and Requirements",
+    step: "02", title: "Review Title and Requirements",
     desc: "We run commercial title, identify exceptions, review lender requirements, and flag curative items early.",
   },
   {
     icon: FileCheck,
-    title: "3. Prepare for Settlement",
+    step: "03", title: "Prepare for Settlement",
     desc: "Closing documents, escrow figures, payoffs, releases, and recording requirements are coordinated for settlement.",
   },
   {
     icon: CheckCircle2,
-    title: "4. Close and Record",
+    step: "04", title: "Close and Record",
     desc: "Funds are disbursed, documents are recorded, and title policy work moves forward after closing.",
   },
 ];
@@ -235,26 +236,42 @@ export default function CommercialRealEstateClosingsPage() {
 
       <section className="section-light py-16">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Commercial Closing Process</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <SectionHead
+            label="How a closing runs"
+            title="Commercial closing process"
+            lede="Four stages, in order. Each one has a hand-off, so knowing where a file sits tells you what happens next."
+          />
+          {/* Four 252px cards wrapped this copy at 32 characters per line and, worse,
+              broke a sequence into four disconnected boxes. A vertical stepped list
+              keeps the order legible and gives the copy the full container width.
+              The numeral is real information here, not decoration. */}
+          <ol className="mt-12 max-w-4xl border-t border-gray-200">
             {process.map((step) => (
-              <div key={step.title} className="bg-white rounded-lg p-6 shadow-sm">
-                <step.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
-              </div>
+              <li key={step.title} className="border-b border-gray-200">
+                <div className="grid gap-x-8 gap-y-2 py-6 sm:grid-cols-12 sm:items-baseline">
+                  <p className="flex items-center gap-3 sm:col-span-4">
+                    <span className="font-display text-sm font-semibold tabular-nums text-brand-blue-deep">
+                      {step.step}
+                    </span>
+                    <step.icon className="h-[18px] w-[18px] shrink-0 text-brand-blue-deep" aria-hidden="true" />
+                    <span className="t-h6 text-brand-navy">{step.title}</span>
+                  </p>
+                  <p className="max-w-[62ch] text-sm leading-relaxed text-brand-muted sm:col-span-8">{step.desc}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
       <section className="py-16 bg-white">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">Commercial vs. Residential Closings</h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            Commercial transactions have more variables, more documents, and
-            more parties. The closing process needs to match that complexity.
-          </p>
+          <SectionHead
+            label="What differs"
+            title="Commercial vs. residential closings"
+            lede="Commercial transactions have more variables, more documents, and more parties. The closing process needs to match that complexity."
+            className="mb-12"
+          />
           <div className="grid md:grid-cols-3 gap-8">
             {comparison.map((item) => (
               <div key={item.title} className="bg-gray-50 rounded-lg p-6">

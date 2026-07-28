@@ -1,10 +1,17 @@
 "use client";
 
-const TONE_STYLES: Record<string, { wrapper: string; icon: string }> = {
-  info:    { wrapper: "bg-blue-50 border-blue-400 text-blue-900",   icon: "ℹ️" },
-  warning: { wrapper: "bg-yellow-50 border-yellow-400 text-yellow-900", icon: "⚠️" },
-  success: { wrapper: "bg-green-50 border-green-400 text-green-900", icon: "✅" },
-  tip:     { wrapper: "bg-purple-50 border-purple-400 text-purple-900", icon: "💡" },
+import { Info, AlertTriangle, CheckCircle2, Lightbulb } from "lucide-react";
+
+/**
+ * Tone icons were emoji, which render differently on every platform and sit at
+ * an inconsistent baseline next to the title. Real icons also let the tone read
+ * by shape as well as by hue, which colour alone does not convey.
+ */
+const TONE_STYLES: Record<string, { wrapper: string; Icon: typeof Info }> = {
+  info:    { wrapper: "bg-blue-50 border-blue-400 text-blue-900",       Icon: Info },
+  warning: { wrapper: "bg-yellow-50 border-yellow-400 text-yellow-900", Icon: AlertTriangle },
+  success: { wrapper: "bg-green-50 border-green-400 text-green-900",    Icon: CheckCircle2 },
+  tip:     { wrapper: "bg-purple-50 border-purple-400 text-purple-900", Icon: Lightbulb },
 };
 
 export function Callout({ value }: { value: { tone?: string; title?: string; body?: string | any[] } }) {
@@ -29,7 +36,8 @@ export function Callout({ value }: { value: { tone?: string; title?: string; bod
     <div className={`border-l-4 rounded-r-xl px-5 py-4 my-6 ${style.wrapper}`}>
       {value.title && (
         <p className="font-semibold text-sm mb-2 max-w-[68ch] leading-relaxed">
-          {style.icon} {value.title}
+          <style.Icon size={17} strokeWidth={2} className="mr-2 inline-block align-[-3px]" aria-hidden="true" />
+          {value.title}
         </p>
       )}
       {isList ? (

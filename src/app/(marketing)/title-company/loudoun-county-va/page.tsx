@@ -1,3 +1,4 @@
+import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
@@ -70,10 +71,17 @@ export default function LoudounCountyTitlePage() {
       <ClosingCostCalculator state="VA" />
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-action text-white">
+      <section className="bg-brand-action py-10 text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium max-w-[68ch]">
-            <span className="text-brand-light-blue">💡 Local Insight:</span> Loudoun County's median home price is ~$775K with homes moving in about 10 days. In a market this fast and this expensive, a delayed title search can cost buyers their dream home. We turn Loudoun title reports around in 48 hours.
+          {/* The label previously used an undefined brand colour utility, so it
+              inherited the band's white and carried no emphasis at all. Now an
+              eyebrow with a real icon, matching the homepage pattern. */}
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-100">
+            <Lightbulb size={14} strokeWidth={2} aria-hidden="true" />
+            Local insight
+          </p>
+          <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
+            Loudoun County's median home price is ~$775K with homes moving in about 10 days. In a market this fast and this expensive, a delayed title search can cost buyers their dream home. We turn Loudoun title reports around in 48 hours.
           </p>
         </div>
       </section>

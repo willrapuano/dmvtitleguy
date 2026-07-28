@@ -978,7 +978,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   <BlogArticle content={bodyContent} />
                 ) : (
                   <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 text-center">
-                    <p className="font-semibold text-brand-navy mb-2 max-w-[68ch] leading-relaxed">📝 Full Article Coming Soon</p>
+                    <p className="font-semibold text-brand-navy mb-2 max-w-[68ch] leading-relaxed">Full Article Coming Soon</p>
                     <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">
                       This article is being finalized. The URL is live and indexed for SEO.
                     </p>

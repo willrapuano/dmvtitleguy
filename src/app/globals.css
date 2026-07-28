@@ -31,8 +31,9 @@
 }
 
 .blog-content h2 {
+  font-family: var(--font-display), Georgia, serif;
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #0B1D3A;
   margin-top: 2.25rem;
   margin-bottom: 0.875rem;
@@ -43,8 +44,9 @@
 }
 
 .blog-content h3 {
+  font-family: var(--font-display), Georgia, serif;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #0B1D3A;
   margin-top: 1.75rem;
   margin-bottom: 0.625rem;
@@ -226,6 +228,8 @@
   .card {
     @apply bg-white rounded-lg shadow-md overflow-hidden;
   }
+  /* Headings are set in the display serif to match the wordmark; t-h6 stays on
+     the body sans because at card-label size a serif reads as decoration. */
   /* ── Type scale ──
      Of 596 headings, only 77 carried a responsive step: the rest rendered one
      fixed size at every breakpoint, and <h2> alone appeared at four different
@@ -236,22 +240,22 @@
   /* Starts at text-3xl: these headings run long (the homepage H1 is 16 words),
      and at text-4xl a phone showed nothing but the heading. Unchanged from sm up. */
   .t-display {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight;
+    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.08] tracking-[-0.02em];
   }
   .t-h1 {
-    @apply text-4xl md:text-5xl font-bold leading-[1.08] tracking-tight;
+    @apply font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-[-0.02em];
   }
   .t-h2 {
-    @apply text-3xl md:text-4xl font-bold leading-[1.14] tracking-tight;
+    @apply font-display text-3xl md:text-4xl font-semibold leading-[1.16] tracking-[-0.015em];
   }
   .t-h3 {
-    @apply text-2xl md:text-3xl font-bold leading-tight;
+    @apply font-display text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.01em];
   }
   .t-h4 {
-    @apply text-xl md:text-2xl font-bold leading-snug;
+    @apply font-display text-xl md:text-2xl font-semibold leading-snug;
   }
   .t-h5 {
-    @apply text-lg md:text-xl font-bold leading-snug;
+    @apply font-display text-lg md:text-xl font-semibold leading-snug;
   }
   .t-h6 {
     @apply text-base md:text-lg font-bold leading-snug;
@@ -285,9 +289,6 @@
   }
   .prose-subtitle {
     @apply t-body-lg text-brand-ink mt-4;
-  }
-  .accent-divider {
-    @apply w-6 h-0.5 bg-brand-blue mx-auto mt-3 mb-4;
   }
   /* Carries white label text, so it needs the action tone rather than #3BAEF7
      (which measured 2.45:1 behind white). */

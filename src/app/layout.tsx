@@ -4,11 +4,24 @@
  */
 
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Open_Sans, Fraunces } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
+
+/**
+ * Display face for headings. The wordmark in logo.png is a high-contrast serif,
+ * but every heading on the site was set in the body sans — so the logo and the
+ * page it sat on read as two unrelated brands. Fraunces is the closest available
+ * match in voice. Body copy stays on Open Sans.
+ */
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 const siteUrl = "https://dmvtitleguy.io";
 const siteName = "DMV Title Guy";
@@ -46,7 +59,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={openSans.variable}>
+    <html lang="en" className={`${openSans.variable} ${fraunces.variable}`}>
       <body className="min-h-screen antialiased bg-white text-brand-dark-text font-sans">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7JQ2YPBX58"

@@ -1,3 +1,4 @@
+import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
@@ -112,10 +113,17 @@ export default function MarylandClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-action text-white">
+      <section className="bg-brand-action py-10 text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium max-w-[68ch]">
-            <span className="text-brand-light-blue">💡 Local Insight:</span> Maryland has the most variable closing costs in the DMV—Montgomery County's 1.5% transfer tax vs. Frederick's 1.0% can mean a $2,500 difference on a $500K home. We help buyers understand county-specific costs before signing.
+          {/* The label previously used an undefined brand colour utility, so it
+              inherited the band's white and carried no emphasis at all. Now an
+              eyebrow with a real icon, matching the homepage pattern. */}
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-100">
+            <Lightbulb size={14} strokeWidth={2} aria-hidden="true" />
+            Local insight
+          </p>
+          <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
+            Maryland has the most variable closing costs in the DMV—Montgomery County's 1.5% transfer tax vs. Frederick's 1.0% can mean a $2,500 difference on a $500K home. We help buyers understand county-specific costs before signing.
           </p>
         </div>
       </section>

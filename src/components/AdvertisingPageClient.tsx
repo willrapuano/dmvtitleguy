@@ -1,12 +1,13 @@
 "use client";
 
+import { Target, Repeat, BarChart3, Rocket, Check } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
 const FEATURE_CARDS = [
-  { title: "Traffic-Generating Ads", desc: "Strategic Facebook and Instagram ad campaigns that drive real buyer traffic to your listings.", icon: "🎯" },
-  { title: "Sphere-Based Advertising", desc: "Custom audience targeting to reach your sphere of influence with compelling listing promotions.", icon: "🔄" },
-  { title: "Data-Driven Results", desc: "Detailed performance reports and analytics so you can prove ROI to your sellers.", icon: "📊" },
+  { title: "Traffic-Generating Ads", desc: "Strategic Facebook and Instagram ad campaigns that drive real buyer traffic to your listings.", icon: "Target" },
+  { title: "Sphere-Based Advertising", desc: "Custom audience targeting to reach your sphere of influence with compelling listing promotions.", icon: "Repeat" },
+  { title: "Data-Driven Results", desc: "Detailed performance reports and analytics so you can prove ROI to your sellers.", icon: "BarChart3" },
 ];
 
 const STEPS = [
@@ -81,7 +82,7 @@ export function AdvertisingPageClient() {
               <h2 className="t-h5 text-brand-navy mb-4">Get Started</h2>
               {status === "success" ? (
                 <div className="text-center py-8">
-                  <div className="text-4xl mb-3">🚀</div>
+                  <div className="mb-3"><Rocket size={30} strokeWidth={1.5} className="text-brand-blue-deep" aria-hidden="true" /></div>
                   <h3 className="t-h6 text-brand-navy mb-2">We&apos;re on it!</h3>
                   <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">Your listing has been submitted. We&apos;ll launch your campaign within 48 hours.</p>
                 </div>
@@ -131,11 +132,10 @@ export function AdvertisingPageClient() {
       <section className="section-gray">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">How It Works</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-3 gap-8 mt-10">
             {STEPS.map((step) => (
               <div key={step.num} className="text-center">
-                <div className="w-14 h-14 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-brand-action rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-xl font-bold">{step.num}</span>
                 </div>
                 <h3 className="font-bold text-brand-navy mb-2">{step.title}</h3>
@@ -150,7 +150,6 @@ export function AdvertisingPageClient() {
       <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">Advertising Packages</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-4xl mx-auto">
             {/* Listing Traffic Boost */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
@@ -161,7 +160,7 @@ export function AdvertisingPageClient() {
                 <ul className="space-y-3 mb-6">
                   {LISTING_BOOST_FEATURES.map((f) => (
                     <li key={f} className="flex items-start gap-3">
-                      <span className="text-brand-blue font-bold mt-0.5">✓</span>
+                      <Check size={16} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-brand-blue-deep" aria-hidden="true" />
                       <span className="text-brand-muted text-sm">{f}</span>
                     </li>
                   ))}
@@ -181,7 +180,7 @@ export function AdvertisingPageClient() {
                 <ul className="space-y-3 mb-6">
                   {SPHERE_FEATURES.map((f) => (
                     <li key={f} className="flex items-start gap-3">
-                      <span className="text-brand-blue font-bold mt-0.5">✓</span>
+                      <Check size={16} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-brand-blue-deep" aria-hidden="true" />
                       <span className="text-brand-muted text-sm">{f}</span>
                     </li>
                   ))}
@@ -199,7 +198,6 @@ export function AdvertisingPageClient() {
       <section className="section-gray">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">Why Advertise Your Listings?</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-2 gap-6 mt-10 max-w-4xl mx-auto">
             {WHY_ADVERTISE.map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">

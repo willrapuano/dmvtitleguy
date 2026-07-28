@@ -45,7 +45,7 @@ function PropForm({ prop, onChange }: { prop: Property; onChange: (p: Property) 
     <div className="space-y-3">
       <div>
         <label className={labelClass}>Price</label>
-        <div className="relative"><span className="absolute left-3 top-2 text-gray-400 text-sm">$</span>
+        <div className="relative"><span className="absolute left-3 top-2 text-gray-600 text-sm">$</span>
           <input type="number" placeholder="500,000" value={prop.price} onChange={set("price")} className={inputClass + " pl-7"} />
         </div>
       </div>
@@ -54,14 +54,14 @@ function PropForm({ prop, onChange }: { prop: Property; onChange: (p: Property) 
           <label className={labelClass}>Down %</label>
           <div className="relative">
             <input type="number" placeholder="20" value={prop.downPct} onChange={set("downPct")} className={inputClass + " pr-7"} />
-            <span className="absolute right-2 top-2 text-gray-400 text-sm">%</span>
+            <span className="absolute right-2 top-2 text-gray-600 text-sm">%</span>
           </div>
         </div>
         <div>
           <label className={labelClass}>Rate</label>
           <div className="relative">
             <input type="number" step="0.01" placeholder="6.75" value={prop.rate} onChange={set("rate")} className={inputClass + " pr-7"} />
-            <span className="absolute right-2 top-2 text-gray-400 text-sm">%</span>
+            <span className="absolute right-2 top-2 text-gray-600 text-sm">%</span>
           </div>
         </div>
       </div>
@@ -70,12 +70,12 @@ function PropForm({ prop, onChange }: { prop: Property; onChange: (p: Property) 
           <label className={labelClass}>Tax Rate %</label>
           <div className="relative">
             <input type="number" step="0.01" placeholder="1.2" value={prop.taxes} onChange={set("taxes")} className={inputClass + " pr-7"} />
-            <span className="absolute right-2 top-2 text-gray-400 text-sm">%</span>
+            <span className="absolute right-2 top-2 text-gray-600 text-sm">%</span>
           </div>
         </div>
         <div>
           <label className={labelClass}>HOA /mo</label>
-          <div className="relative"><span className="absolute left-3 top-2 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="0" value={prop.hoa} onChange={set("hoa")} className={inputClass + " pl-7"} />
           </div>
         </div>

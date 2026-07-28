@@ -91,7 +91,6 @@ export function WhyChooseUsClient() {
           <h2 className="prose-title text-center mb-2">
             9 Reasons Why Real Estate Professionals Choose Pruitt Title
           </h2>
-          <div className="accent-divider" />
           <div className="mt-10 space-y-3">
             {ACCORDION_ITEMS.map((item, i) => (
               <div
@@ -127,7 +126,6 @@ export function WhyChooseUsClient() {
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
           <h2 className="prose-title text-center mb-2">Protect Your Real Estate Investment</h2>
-          <div className="accent-divider" />
           <div className="text-brand-muted leading-relaxed space-y-4 mt-8">
             <p className="max-w-[68ch]">
               Real estate has traditionally been a family&apos;s most valuable asset. It is a form of wealth that is protected
@@ -155,7 +153,6 @@ export function WhyChooseUsClient() {
       <section className="section-light">
         <div className="container-xl max-w-4xl">
           <h2 className="prose-title text-center mb-2">21 Reasons For Title Insurance</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-3 mt-10">
             {REASONS_FOR_TITLE_INSURANCE.map((reason, i) => (
               <div key={i} className="flex items-start gap-3 py-2">

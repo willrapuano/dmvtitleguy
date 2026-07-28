@@ -1,3 +1,4 @@
+import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
@@ -66,10 +67,17 @@ export default function DCWhoPaysClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-action text-white">
+      <section className="bg-brand-action py-10 text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium max-w-[68ch]">
-            <span className="text-brand-light-blue">💡 Local Insight:</span> DC has some of the highest closing costs in the nation. The combined recordation and transfer taxes reach 2.9% for properties over $400,000—typically split 50/50 between buyer and seller by custom.
+          {/* The label previously used an undefined brand colour utility, so it
+              inherited the band's white and carried no emphasis at all. Now an
+              eyebrow with a real icon, matching the homepage pattern. */}
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-100">
+            <Lightbulb size={14} strokeWidth={2} aria-hidden="true" />
+            Local insight
+          </p>
+          <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
+            DC has some of the highest closing costs in the nation. The combined recordation and transfer taxes reach 2.9% for properties over $400,000—typically split 50/50 between buyer and seller by custom.
           </p>
         </div>
       </section>

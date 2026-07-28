@@ -1,3 +1,4 @@
+import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
@@ -70,10 +71,17 @@ export default function PrinceWilliamCountyTitlePage() {
       <ClosingCostCalculator state="VA" />
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-action text-white">
+      <section className="bg-brand-action py-10 text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium max-w-[68ch]">
-            <span className="text-brand-light-blue">💡 Local Insight:</span> Prince William County offers some of the best value in Northern Virginia with a median home price around $525K. But with 15 average days on market, buyers still need a title partner who can move fast. We keep Prince William closings on schedule.
+          {/* The label previously used an undefined brand colour utility, so it
+              inherited the band's white and carried no emphasis at all. Now an
+              eyebrow with a real icon, matching the homepage pattern. */}
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-100">
+            <Lightbulb size={14} strokeWidth={2} aria-hidden="true" />
+            Local insight
+          </p>
+          <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
+            Prince William County offers some of the best value in Northern Virginia with a median home price around $525K. But with 15 average days on market, buyers still need a title partner who can move fast. We keep Prince William closings on schedule.
           </p>
         </div>
       </section>

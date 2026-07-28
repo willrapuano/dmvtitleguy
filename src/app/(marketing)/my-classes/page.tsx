@@ -1,3 +1,4 @@
+import { CalendarDays, Clock, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -78,9 +79,8 @@ export default function MyClassesPage() {
       <section className="section-light">
         <div className="container-xl text-center max-w-2xl">
           <h2 className="prose-title mb-2">Upcoming Classes &amp; Events</h2>
-          <div className="accent-divider" />
           <div className="mt-8 bg-brand-gray-bg border border-gray-200 rounded-xl p-8">
-            <p className="text-2xl mb-3 max-w-[68ch]">📅</p>
+            <p className="mb-3"><CalendarDays size={26} strokeWidth={1.5} className="text-brand-blue-deep" aria-hidden="true" /></p>
             <p className="text-brand-navy font-semibold text-lg mb-2 max-w-[68ch]">New classes for 2026 coming soon.</p>
             <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">
               Follow me on Eventbrite to get notified first when new workshops, CE courses, and events are announced.
@@ -116,16 +116,15 @@ export default function MyClassesPage() {
       <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-2">Past Classes &amp; Workshops</h2>
-          <div className="accent-divider" />
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {PAST_CLASSES.map((c) => (
               <div key={c.title} className="card p-6">
                 <h3 className="text-brand-navy t-h6 mb-2">{c.title}</h3>
                 <p className="text-brand-muted text-sm mb-4 leading-relaxed max-w-[68ch]">{c.desc}</p>
                 <div className="flex flex-wrap gap-3 text-xs">
-                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">📅 {c.date}</span>
-                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">🕐 {c.time}</span>
-                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">📍 {c.location}</span>
+                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium"><CalendarDays size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.date}</span>
+                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium"><Clock size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.time}</span>
+                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium"><MapPin size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.location}</span>
                   <span className="bg-brand-blue/10 px-3 py-1.5 rounded-full text-brand-blue-deep font-semibold">{c.price}</span>
                 </div>
               </div>

@@ -52,19 +52,19 @@ export function FlipCalculator() {
 
         <div>
           <label className={labelClass}>After Repair Value (ARV)</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="350,000" value={arv} onChange={e => setArv(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
         <div>
           <label className={labelClass}>Purchase Price</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="200,000" value={purchase} onChange={e => setPurchase(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
         <div>
           <label className={labelClass}>Rehab / Renovation Cost</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="50,000" value={rehab} onChange={e => setRehab(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
@@ -76,7 +76,7 @@ export function FlipCalculator() {
           <div>
             <label className={labelClass}>Holding Cost (% ARV/yr)</label>
             <div className="relative"><input type="number" step="0.1" placeholder="1.0" value={holdingCostPct} onChange={e => setHoldingCostPct(e.target.value)} className={inputClass + " pr-7"} />
-              <span className="absolute right-3 top-2.5 text-gray-400 text-sm">%</span>
+              <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
             </div>
           </div>
         </div>
@@ -84,12 +84,12 @@ export function FlipCalculator() {
           <div>
             <label className={labelClass}>Closing Costs (% ARV)</label>
             <div className="relative"><input type="number" step="0.1" placeholder="2.0" value={closingCostPct} onChange={e => setClosingCostPct(e.target.value)} className={inputClass + " pr-7"} />
-              <span className="absolute right-3 top-2.5 text-gray-400 text-sm">%</span>
+              <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
             </div>
           </div>
           <div>
             <label className={labelClass}>Desired Profit (MAO calc)</label>
-            <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+            <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
               <input type="number" placeholder="20,000" value={desiredProfit} onChange={e => setDesiredProfit(e.target.value)} className={inputClass + " pl-7"} />
             </div>
           </div>
