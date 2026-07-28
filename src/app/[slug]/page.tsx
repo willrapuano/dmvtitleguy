@@ -1030,7 +1030,7 @@ function CountyPage({ county }: { county: County }) {
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {citiesInCounty.map((loc) => (
-              <Link key={loc.slug} href={`/${loc.slug}`} className="bg-brand-gray-bg hover:bg-brand-blue hover:text-white border border-gray-200 rounded-lg p-4 text-center transition-colors group">
+              <Link key={loc.slug} href={`/${loc.slug}`} className="bg-brand-gray-bg hover:bg-brand-action hover:text-white border border-gray-200 rounded-lg p-4 text-center transition-colors group">
                 <p className="font-semibold text-brand-navy group-hover:text-white max-w-[68ch] leading-relaxed">{loc.city}</p>
                 <p className="text-xs text-brand-muted group-hover:text-blue-100 mt-1 max-w-[68ch]">{loc.tier === 1 ? "Primary Market" : "Service Area"}</p>
               </Link>

@@ -211,7 +211,7 @@ export function HomePageClient() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-10 h-10 rounded-full bg-white/15 hover:bg-brand-blue flex items-center justify-center text-white transition-all duration-200"
+                  className="w-10 h-10 rounded-full bg-white/15 hover:bg-brand-action flex items-center justify-center text-white transition-all duration-200"
                 >
                   <s.Icon className="w-5 h-5" />
                 </a>
