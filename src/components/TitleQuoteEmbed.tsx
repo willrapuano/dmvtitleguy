@@ -13,8 +13,8 @@ export default function TitleQuoteEmbed({
     <section className="section-light">
       <div className="container-xl">
         <div className="mb-6 text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-3">{title}</h2>
-          <p className="text-brand-muted text-sm md:text-base">{subtitle}</p>
+          <h2 className="t-h3 text-brand-navy mb-3">{title}</h2>
+          <p className="text-brand-muted text-sm md:text-base max-w-[68ch] mx-auto leading-relaxed">{subtitle}</p>
         </div>
 
         <iframe

@@ -15,24 +15,59 @@ export default async function BlogIndexPage() {
   const posts = await fetchAllBlogPosts();
   return (
     <>
-      <section className="section-blue py-10 md:py-16">
-        <div className="container-xl text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">My Blog</h1>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
-            Insights on real estate marketing, title insurance, and building a sustainable business in the DMV area.
+      <section className="relative overflow-hidden bg-brand-navy py-12 md:py-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/office-bg.jpg')" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-brand-navy/95 via-brand-navy/88 to-brand-navy-dark/95"
+          aria-hidden="true"
+        />
+        <div className="container-xl relative text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue max-w-[68ch] mx-auto">
+            The DMV Title Guy Blog
           </p>
+          <h1 className="mt-3 text-3xl md:text-5xl font-bold text-white leading-tight">
+            Title Insurance &amp; DMV Closing Insights
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-slate-200">
+            Straight answers on title insurance, closing costs, and settlement for buyers,
+            agents, and lenders across DC, Maryland, and Virginia.
+          </p>
+          {posts.length > 0 && (
+            <p className="mt-5 text-sm text-slate-300 max-w-[68ch] mx-auto leading-relaxed">
+              {posts.length} {posts.length === 1 ? "article" : "articles"} · written by Will Rapuano,
+              Pruitt Title LLC
+            </p>
+          )}
         </div>
       </section>
 
       <BlogIndexClient posts={posts} />
 
-      <section className="section-blue">
-        <div className="container-xl text-center max-w-xl">
-          <h2 className="text-3xl font-bold text-white mb-4">Subscribe to My Newsletter</h2>
-          <p className="text-white/80 mb-6">Get real estate marketing insights and title industry updates delivered to your inbox.</p>
-          <Link href="/subscribe" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
-            Subscribe Now →
-          </Link>
+      <section className="bg-brand-navy py-14 md:py-20">
+        <div className="container-xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue max-w-[68ch] mx-auto">
+              Stay in the loop
+            </p>
+            <h2 className="mt-3 t-h3 text-white">
+              Subscribe to My Newsletter
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl leading-relaxed text-slate-200">
+              Real estate marketing insights and title industry updates, delivered to your inbox.
+              No spam — unsubscribe any time.
+            </p>
+            <Link
+              href="/subscribe"
+              className="mt-7 inline-flex items-center gap-2 rounded-lg bg-brand-action px-8 py-3.5 font-semibold text-white transition-colors hover:bg-brand-action-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+            >
+              Subscribe Now
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
     </>

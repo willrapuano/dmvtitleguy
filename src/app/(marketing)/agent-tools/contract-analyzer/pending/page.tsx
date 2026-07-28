@@ -30,28 +30,28 @@ export default async function PendingPage() {
             <Clock className="h-8 w-8 text-amber-500" />
           </div>
 
-          <h1 className="text-xl font-bold text-brand-navy mb-2">
+          <h1 className="t-h5 text-brand-navy mb-2">
             Pending Approval
           </h1>
 
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-4 max-w-[68ch] leading-relaxed">
             Your account <strong>{user.email}</strong> has been registered.
             Access to the Contract Analyzer requires approval.
           </p>
 
           <div className="rounded-lg bg-blue-50 border border-blue-200 p-4 text-sm text-blue-800">
-            <p className="font-medium mb-1">What happens next?</p>
-            <p>
+            <p className="font-medium mb-1 max-w-[68ch] leading-relaxed">What happens next?</p>
+            <p className="max-w-[68ch]">
               We&apos;ll review your request and grant access shortly. You&apos;ll be
               able to use the tool as soon as your account is approved.
             </p>
           </div>
 
-          <p className="mt-6 text-xs text-gray-400">
+          <p className="mt-6 text-xs text-gray-400 max-w-[68ch]">
             Questions? Email{" "}
             <a
               href="mailto:will@pruitt-title.com"
-              className="text-brand-blue hover:underline"
+              className="text-brand-blue-deep hover:underline"
             >
               will@pruitt-title.com
             </a>

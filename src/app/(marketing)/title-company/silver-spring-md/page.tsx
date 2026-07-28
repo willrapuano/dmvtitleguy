@@ -58,7 +58,7 @@ export default function SilverSpringTitlePage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Silver Spring</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Title Company Silver Spring MD | Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -70,9 +70,9 @@ export default function SilverSpringTitlePage() {
       <ClosingCostCalculator state="MD" />
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Silver Spring's median home price is ~$525K with homes selling in about 12 days. With Metro access driving demand and a mix of condos, townhomes, and single-families, every transaction type needs a title partner who knows Montgomery County's recording requirements inside and out.
           </p>
         </div>
@@ -81,19 +81,19 @@ export default function SilverSpringTitlePage() {
       {/* LOCAL CONTEXT */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Why Silver Spring Real Estate Matters</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Why Silver Spring Real Estate Matters</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Silver Spring is one of the most vibrant and diverse communities in the Washington DC metro area. With a median home price around $525,000 and homes selling in approximately 12 days, Silver Spring offers urban convenience at a relative value compared to DC and Bethesda.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               The Silver Spring market is uniquely varied. Downtown Silver Spring features high-rise condos and apartments steps from the Metro. Neighborhoods like Woodmoor, Northwood, and Four Corners offer established single-family homes with mature trees and community character. The ongoing revitalization of the Wheaton and Silver Spring corridors is bringing new development, creating opportunities for buyers and investors alike. This diversity means title work can range from straightforward condo unit transfers to complex transactions involving historic properties, estate sales, and investment portfolios. Pruitt Title's Montgomery County expertise handles it all.
             </p>
             <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
               <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Silver Spring Closing Costs</h3>
-              <p>
+              <p className="max-w-[68ch]">
                 Use the{" "}
-                <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+                <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                   Maryland closing cost calculator
                 </Link>{" "}
                 to estimate Silver Spring closing costs before you request a final title quote. The calculator helps frame Montgomery County tax, title insurance, and settlement fee questions for buyers and sellers.
@@ -106,31 +106,31 @@ export default function SilverSpringTitlePage() {
       {/* SERVICES */}
       <section className="py-16 bg-white">
         <div className="container-xl">
-          <h2 className="text-3xl font-bold text-brand-navy mb-8">Title Services in Silver Spring</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">Title Services in Silver Spring</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Title Searches</h3>
-              <p className="text-gray-600">Comprehensive title searches through Montgomery County land records and court filings.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive title searches through Montgomery County land records and court filings.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
-              <p className="text-gray-600">Full coverage owner's title insurance to protect your Silver Spring home investment.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Full coverage owner's title insurance to protect your Silver Spring home investment.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600">ALTA lender's policies for all major lenders operating in Montgomery County.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">ALTA lender's policies for all major lenders operating in Montgomery County.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Settlement Services</h3>
-              <p className="text-gray-600">Complete closing services from contract to recorded deed delivery, compliant with Maryland attorney requirements.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Complete closing services from contract to recorded deed delivery, compliant with Maryland attorney requirements.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Condominium Closings</h3>
-              <p className="text-gray-600">Specialized expertise for condo transactions common in downtown Silver Spring and surrounding developments.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Condominium Closings</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized expertise for condo transactions common in downtown Silver Spring and surrounding developments.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
-              <p className="text-gray-600">RON available for flexible signing options on Montgomery County transactions.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for flexible signing options on Montgomery County transactions.</p>
             </div>
           </div>
         </div>
@@ -140,23 +140,23 @@ export default function SilverSpringTitlePage() {
       {/* INVESTOR SERVICES */}
       <section className="py-12 bg-white">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Investor Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
-              <p className="text-sm text-brand-muted">Title searches, auction support & wholesale closings.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
             <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
-              <p className="text-sm text-brand-muted">Pre-auction title search & risk assessment.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
             <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
-              <p className="text-sm text-brand-muted">Surviving liens & chain-of-title review.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
             <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
           </div>
         </div>
@@ -164,39 +164,39 @@ export default function SilverSpringTitlePage() {
       {/* INTERNAL LINKS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/maryland" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs Guide →
             </Link>
-            <Link href="/maryland-closing-cost-calculator" className="text-brand-blue hover:underline">
+            <Link href="/maryland-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Maryland Closing Cost Calculator →
             </Link>
-            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
               Bethesda Title Services →
             </Link>
-            <Link href="/title-company/rockville-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company/rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
-            <Link href="/title-company/alexandria-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
           </div>
@@ -213,12 +213,12 @@ export default function SilverSpringTitlePage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Silver Spring Title Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Silver Spring Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a competitive title insurance quote for your Silver Spring property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Get a Quote →
             </Link>
             <a href="tel:+15714744000" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

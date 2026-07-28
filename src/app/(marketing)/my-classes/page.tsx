@@ -65,7 +65,7 @@ export default function MyClassesPage() {
       {/* Hero */}
       <section className="section-blue py-20 md:py-28">
         <div className="container-xl text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+          <h1 className="t-h1 text-white mb-4">
             My Classes
           </h1>
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
@@ -80,9 +80,9 @@ export default function MyClassesPage() {
           <h2 className="prose-title mb-2">Upcoming Classes &amp; Events</h2>
           <div className="accent-divider" />
           <div className="mt-8 bg-brand-gray-bg border border-gray-200 rounded-xl p-8">
-            <p className="text-2xl mb-3">📅</p>
-            <p className="text-brand-navy font-semibold text-lg mb-2">New classes for 2026 coming soon.</p>
-            <p className="text-brand-muted text-sm mb-6">
+            <p className="text-2xl mb-3 max-w-[68ch]">📅</p>
+            <p className="text-brand-navy font-semibold text-lg mb-2 max-w-[68ch]">New classes for 2026 coming soon.</p>
+            <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">
               Follow me on Eventbrite to get notified first when new workshops, CE courses, and events are announced.
             </p>
             <a
@@ -100,13 +100,13 @@ export default function MyClassesPage() {
       {/* Custom Training for Your Team */}
       <section className="section-blue">
         <div className="container-xl text-center max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Custom Training for Your Team</h2>
-          <p className="text-white/80 leading-relaxed mb-8">
+          <h2 className="t-h2 text-white mb-4">Custom Training for Your Team</h2>
+          <p className="text-white/80 leading-relaxed mb-8 max-w-[68ch]">
             I offer customized training sessions for real estate teams, brokerages, and mortgage companies. Whether it&apos;s a
             title insurance deep-dive, a marketing workshop, or a technology training session — I&apos;ll build a program
             tailored to your team&apos;s specific needs and goals.
           </p>
-          <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
             Contact Me →
           </Link>
         </div>
@@ -120,13 +120,13 @@ export default function MyClassesPage() {
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {PAST_CLASSES.map((c) => (
               <div key={c.title} className="card p-6">
-                <h3 className="font-bold text-brand-navy text-lg mb-2">{c.title}</h3>
-                <p className="text-brand-muted text-sm mb-4 leading-relaxed">{c.desc}</p>
+                <h3 className="text-brand-navy t-h6 mb-2">{c.title}</h3>
+                <p className="text-brand-muted text-sm mb-4 leading-relaxed max-w-[68ch]">{c.desc}</p>
                 <div className="flex flex-wrap gap-3 text-xs">
                   <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">📅 {c.date}</span>
                   <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">🕐 {c.time}</span>
                   <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium">📍 {c.location}</span>
-                  <span className="bg-brand-blue/10 px-3 py-1.5 rounded-full text-brand-blue font-semibold">{c.price}</span>
+                  <span className="bg-brand-blue/10 px-3 py-1.5 rounded-full text-brand-blue-deep font-semibold">{c.price}</span>
                 </div>
               </div>
             ))}

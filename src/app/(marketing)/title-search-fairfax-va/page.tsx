@@ -234,7 +234,7 @@ export default function TitleSearchFairfaxPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Title Search Fairfax VA</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Title Search Fairfax VA
           </h1>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl">
@@ -265,8 +265,8 @@ export default function TitleSearchFairfaxPage() {
                   <item.icon className="h-6 w-6 text-brand-navy" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-1">{item.title}</h3>
-                  <p className="text-brand-muted text-sm">{item.desc}</p>
+                  <h3 className="t-h6 text-brand-navy mb-1">{item.title}</h3>
+                  <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -285,8 +285,8 @@ export default function TitleSearchFairfaxPage() {
             {whyFairfax.map((item) => (
               <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
                 <item.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="text-lg font-bold text-brand-navy mb-2">{item.title}</h3>
-                <p className="text-brand-muted text-sm">{item.desc}</p>
+                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -295,7 +295,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="container-xl max-w-5xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue font-semibold mb-2">Fairfax County Details</p>
+          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Fairfax County Details</p>
           <h2 className="prose-title mb-4">Local Title Search Details for Fairfax County</h2>
           <p className="text-brand-muted text-lg mb-8 max-w-3xl">
             A Fairfax VA title search should account for the way local records, recording fees, HOAs, condominiums, and new construction documents affect settlement and title insurance.
@@ -303,14 +303,14 @@ export default function TitleSearchFairfaxPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {fairfaxCountyDetails.map((item) => (
               <div key={item.title} className="rounded-lg border border-gray-200 bg-brand-gray-bg p-5">
-                <h3 className="text-lg font-bold text-brand-navy mb-2">{item.title}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
+                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
               </div>
             ))}
           </div>
           <div className="mt-8 rounded-lg border border-gray-200 p-5">
-            <h3 className="text-lg font-bold text-brand-navy mb-2">Fairfax title issues we watch closely</h3>
-            <p className="text-brand-muted leading-relaxed">
+            <h3 className="t-h6 text-brand-navy mb-2">Fairfax title issues we watch closely</h3>
+            <p className="text-brand-muted leading-relaxed max-w-[68ch]">
               Fairfax transactions often involve mature subdivisions, active HOA and condo communities, townhome clusters, estate-owned properties, investor resales, and new construction or redevelopment files. Our review looks for recorded covenants, association liens, easements, access restrictions, unreleased trusts, judgment liens, tax matters, subdivision documents, and builder or entity authority issues before they disrupt closing.
             </p>
           </div>
@@ -326,8 +326,8 @@ export default function TitleSearchFairfaxPage() {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
                   <step.icon className="h-7 w-7 text-brand-navy" />
                 </div>
-                <h3 className="text-lg font-bold text-brand-navy mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm">{step.desc}</p>
+                <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -336,7 +336,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="bg-brand-navy text-white py-16 md:py-20">
         <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="t-h2 mb-4">
             Need a Title Search on a Fairfax Property?
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
@@ -349,7 +349,7 @@ export default function TitleSearchFairfaxPage() {
               Upload Contract
             </Link>
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">
             Prefer to talk? Call{" "}
             <a href="tel:+17038591467" className="text-white font-semibold hover:underline">
               <Phone className="inline h-4 w-4" /> (703) 859-1467
@@ -377,7 +377,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="py-12 bg-brand-gray-bg">
         <div className="container-xl">
-          <h3 className="text-lg font-bold text-brand-navy mb-6">Related Pages</h3>
+          <h3 className="t-h6 text-brand-navy mb-6">Related Pages</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {relatedPages.map((page) => (
               <Link key={page.href} href={page.href} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-brand-navy">

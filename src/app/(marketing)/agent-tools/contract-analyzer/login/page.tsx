@@ -69,8 +69,8 @@ export default function LoginPage() {
               <Shield className="h-6 w-6 text-brand-navy" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-brand-navy">Sign In</h1>
-              <p className="text-sm text-gray-500">
+              <h1 className="t-h5 text-brand-navy">Sign In</h1>
+              <p className="text-sm text-gray-500 max-w-[68ch] leading-relaxed">
                 Access the Contract Analyzer
               </p>
             </div>
@@ -109,7 +109,7 @@ export default function LoginPage() {
                 verifyCode();
               }}
             >
-              <p className="mb-3 text-sm text-gray-600">
+              <p className="mb-3 text-sm text-gray-600 max-w-[68ch] leading-relaxed">
                 Code sent to <strong>{email}</strong>
               </p>
               <input
@@ -139,7 +139,7 @@ export default function LoginPage() {
           )}
 
           {error && (
-            <p className="mt-3 text-sm text-red-600">{error}</p>
+            <p className="mt-3 text-sm text-red-600 max-w-[68ch] leading-relaxed">{error}</p>
           )}
         </div>
       </div>

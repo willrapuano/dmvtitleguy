@@ -58,8 +58,8 @@ export function InvestorPageTemplate({
               <span className="mx-2">/</span>
               <span className="text-gray-200">Investor Services</span>
             </nav>
-            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">{heroTag}</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">{h1}</h1>
+            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">{heroTag}</p>
+            <h1 className="t-h1 text-white mb-4">{h1}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">{heroBody}</p>
             <div className="flex flex-wrap gap-3">
               <Link href={`/${slug}#quote`} className="btn-primary">Start Your Order →</Link>
@@ -86,7 +86,7 @@ export function InvestorPageTemplate({
                     <span className="text-brand-blue flex-shrink-0 mt-1">✓</span>
                     <div>
                       <h3 className="font-bold text-brand-navy text-sm">{s.title}</h3>
-                      <p className="text-brand-muted text-sm leading-relaxed">{s.desc}</p>
+                      <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{s.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -106,10 +106,10 @@ export function InvestorPageTemplate({
           <ol className="max-w-2xl mx-auto space-y-4">
             {howItWorksSteps.map((step, i) => (
               <li key={i} className="flex gap-4 items-start">
-                <div className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
                   {i + 1}
                 </div>
-                <p className="text-brand-dark-text text-sm leading-relaxed pt-1">{step}</p>
+                <p className="text-brand-dark-text text-sm leading-relaxed pt-1 max-w-[68ch]">{step}</p>
               </li>
             ))}
           </ol>
@@ -124,7 +124,7 @@ export function InvestorPageTemplate({
             {faqItems.map((faq) => (
               <div key={faq.q} className="border-b border-gray-100 pb-6">
                 <h3 className="font-bold text-brand-navy mb-2 text-base">{faq.q}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -134,13 +134,13 @@ export function InvestorPageTemplate({
       {/* RELATED PAGES */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Related Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Related Services</h2>
           <div className="flex flex-wrap gap-3">
             {relatedPages.map((p) => (
               <Link
                 key={p.href}
                 href={p.href}
-                className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+                className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
               >
                 {p.label}
               </Link>

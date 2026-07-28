@@ -26,8 +26,8 @@ export default function VirginiaCalculatorPage() {
             <span className="mx-2">/</span>
             <span>Virginia Closing Cost Calculator</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
+          <h1 className="t-h1 text-white mb-4">
             Virginia Closing Cost Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -41,9 +41,9 @@ export default function VirginiaCalculatorPage() {
       {/* ── EXPLAINER ── */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Understanding Virginia Closing Costs</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Understanding Virginia Closing Costs</h2>
           <div className="space-y-5 text-brand-muted text-sm leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Virginia closing costs typically range from <strong className="text-brand-dark-text">2% to 5%</strong> of the purchase price for buyers, and <strong className="text-brand-dark-text">1% to 3%</strong> for sellers (excluding agent commissions).
             </p>
             <h3 className="text-brand-navy font-bold text-base mt-4">Virginia-Specific Fees</h3>
@@ -54,7 +54,7 @@ export default function VirginiaCalculatorPage() {
               <li><strong>Deed of Trust Recording:</strong> Based on loan amount, varies by county.</li>
             </ul>
             <h3 className="text-brand-navy font-bold text-base mt-4">Title Insurance in Virginia</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Virginia is a "simultaneous issue" state, meaning lender&apos;s and owner&apos;s title insurance can be issued together at a discounted rate. Pruitt Title LLC has been providing trusted title services across the DMV since 2007.
             </p>
           </div>
@@ -64,13 +64,13 @@ export default function VirginiaCalculatorPage() {
       {/* ── LOCATION LINKS ── */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Virginia Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Virginia Markets We Serve</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {VA_LOCATIONS.map((l) => (
               <Link
                 key={l.slug}
                 href={`/${l.slug}`}
-                className="text-sm text-brand-blue hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
+                className="text-sm text-brand-blue-deep hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
               >
                 {l.city}, VA →
               </Link>

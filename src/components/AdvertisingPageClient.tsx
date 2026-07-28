@@ -67,7 +67,7 @@ export function AdvertisingPageClient() {
       <section className="section-light">
         <div className="container-xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-navy leading-tight mb-4">
+            <h1 className="t-h1 text-brand-navy mb-4">
               Amplify Your Listings With Strategic Ad Campaigns
             </h1>
             <p className="text-brand-muted text-lg max-w-2xl mx-auto">
@@ -78,12 +78,12 @@ export function AdvertisingPageClient() {
           <div className="grid md:grid-cols-2 gap-10 items-start">
             {/* Listing Submission Form */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
-              <h2 className="text-xl font-bold text-brand-navy mb-4">Get Started</h2>
+              <h2 className="t-h5 text-brand-navy mb-4">Get Started</h2>
               {status === "success" ? (
                 <div className="text-center py-8">
                   <div className="text-4xl mb-3">🚀</div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-2">We&apos;re on it!</h3>
-                  <p className="text-brand-muted text-sm">Your listing has been submitted. We&apos;ll launch your campaign within 48 hours.</p>
+                  <h3 className="t-h6 text-brand-navy mb-2">We&apos;re on it!</h3>
+                  <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">Your listing has been submitted. We&apos;ll launch your campaign within 48 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -106,7 +106,7 @@ export function AdvertisingPageClient() {
                   <button type="submit" disabled={status === "submitting"} className="w-full btn-primary py-3.5 text-base font-semibold disabled:opacity-60">
                     {status === "submitting" ? "Submitting…" : "Start Running Ads Today!"}
                   </button>
-                  {status === "error" && <p className="text-red-600 text-sm text-center">Something went wrong. Please try again.</p>}
+                  {status === "error" && <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please try again.</p>}
                 </form>
               )}
             </div>
@@ -118,7 +118,7 @@ export function AdvertisingPageClient() {
                   <span className="text-3xl flex-shrink-0">{card.icon}</span>
                   <div>
                     <h3 className="font-bold text-brand-navy mb-1">{card.title}</h3>
-                    <p className="text-brand-muted text-sm leading-relaxed">{card.desc}</p>
+                    <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{card.desc}</p>
                   </div>
                 </div>
               ))}
@@ -139,7 +139,7 @@ export function AdvertisingPageClient() {
                   <span className="text-white text-xl font-bold">{step.num}</span>
                 </div>
                 <h3 className="font-bold text-brand-navy mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{step.desc}</p>
+                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -154,8 +154,8 @@ export function AdvertisingPageClient() {
           <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-4xl mx-auto">
             {/* Listing Traffic Boost */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
-              <div className="bg-brand-blue text-white p-5 text-center">
-                <h3 className="text-xl font-bold">Listing Traffic Boost</h3>
+              <div className="bg-brand-action text-white p-5 text-center">
+                <h3 className="t-h5">Listing Traffic Boost</h3>
               </div>
               <div className="p-6">
                 <ul className="space-y-3 mb-6">
@@ -166,7 +166,7 @@ export function AdvertisingPageClient() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-brand-blue font-semibold text-center italic">
+                <p className="text-xs text-brand-blue-deep font-semibold text-center italic max-w-[68ch]">
                   Complimentary service for our referral partners
                 </p>
               </div>
@@ -174,8 +174,8 @@ export function AdvertisingPageClient() {
 
             {/* Sphere Marketing */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
-              <div className="bg-brand-blue text-white p-5 text-center">
-                <h3 className="text-xl font-bold">Sphere Marketing</h3>
+              <div className="bg-brand-action text-white p-5 text-center">
+                <h3 className="t-h5">Sphere Marketing</h3>
               </div>
               <div className="p-6">
                 <ul className="space-y-3 mb-6">
@@ -186,7 +186,7 @@ export function AdvertisingPageClient() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-brand-blue font-semibold text-center italic">
+                <p className="text-xs text-brand-blue-deep font-semibold text-center italic max-w-[68ch]">
                   Complimentary service for our referral partners
                 </p>
               </div>
@@ -204,7 +204,7 @@ export function AdvertisingPageClient() {
             {WHY_ADVERTISE.map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <h3 className="font-bold text-brand-navy mb-2">{item.title}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -214,11 +214,11 @@ export function AdvertisingPageClient() {
       {/* Final CTA */}
       <section className="section-blue">
         <div className="container-xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Amplify Your Listings?</h2>
+          <h2 className="t-h2 text-white mb-4">Ready to Amplify Your Listings?</h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
             Submit your listing above or contact us to get started. Complimentary for our referral partners.
           </p>
-          <Link href="/advertising-services" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/advertising-services" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
             Start Running Ads Today! →
           </Link>
         </div>

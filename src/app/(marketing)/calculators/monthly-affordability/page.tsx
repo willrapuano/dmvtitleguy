@@ -50,8 +50,8 @@ export default function MonthlyAffordabilityPage() {
             <span className="mx-2">/</span>
             <span>Monthly Affordability</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
+          <h1 className="t-h1 text-white mb-4">
             Monthly Affordability Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -63,8 +63,8 @@ export default function MonthlyAffordabilityPage() {
       <section className="section-light">
         <div className="container-xl max-w-4xl">
           <div className="card p-8 mb-8 text-center">
-            <h2 className="text-2xl font-bold text-brand-navy mb-3">Launch the Monthly Affordability Tool</h2>
-            <p className="text-brand-muted mb-6">
+            <h2 className="t-h4 text-brand-navy mb-3">Launch the Monthly Affordability Tool</h2>
+            <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
               Use the live PalmAgent calculator to estimate your home buying budget based on income, debts, down payment, taxes, and insurance.
             </p>
             <a
@@ -79,17 +79,17 @@ export default function MonthlyAffordabilityPage() {
 
           <div className="prose max-w-none text-brand-muted">
             <h2 className="text-brand-navy">How to Use This Affordability Calculator</h2>
-            <p>
+            <p className="max-w-[68ch]">
               This calculator helps buyers in Washington DC, Maryland, and Virginia estimate a comfortable monthly payment and price range before shopping for homes. Start with your gross monthly income, add your expected down payment, and include recurring debt payments to see a practical affordability range.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               For the most accurate results, use realistic assumptions for HOA dues, property taxes, homeowners insurance, and current mortgage rates. If you are comparing multiple loan options, run the numbers more than once so you can see how small changes in interest rate and down payment affect your purchasing power.
             </p>
 
             <h3 className="text-brand-navy">Frequently Asked Questions</h3>
-            <p><strong>Does this include taxes and insurance?</strong><br />Yes — you can input taxes and insurance to get a more realistic monthly payment estimate.</p>
-            <p><strong>Is this a mortgage pre-approval?</strong><br />No. This is a planning tool. Final approval depends on lender underwriting and documentation.</p>
-            <p><strong>Should I use gross or net income?</strong><br />Use gross monthly income first, then stress-test your budget to ensure the payment still feels comfortable.</p>
+            <p className="max-w-[68ch]"><strong>Does this include taxes and insurance?</strong><br />Yes — you can input taxes and insurance to get a more realistic monthly payment estimate.</p>
+            <p className="max-w-[68ch]"><strong>Is this a mortgage pre-approval?</strong><br />No. This is a planning tool. Final approval depends on lender underwriting and documentation.</p>
+            <p className="max-w-[68ch]"><strong>Should I use gross or net income?</strong><br />Use gross monthly income first, then stress-test your budget to ensure the payment still feels comfortable.</p>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">

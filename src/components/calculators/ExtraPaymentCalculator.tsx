@@ -55,7 +55,7 @@ export function ExtraPaymentCalculator() {
   return (
     <div className="grid lg:grid-cols-2 gap-8">
       <div className="space-y-4">
-        <h2 className="text-lg font-bold text-brand-navy">Loan Details</h2>
+        <h2 className="t-h6 text-brand-navy">Loan Details</h2>
 
         <div>
           <label className={labelClass}>Loan Amount</label>
@@ -86,12 +86,12 @@ export function ExtraPaymentCalculator() {
           <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
             <input type="number" placeholder="200" value={extraMonthly} onChange={e => setExtraMonthly(e.target.value)} className={inputClass + " pl-7"} />
           </div>
-          <p className="text-xs text-brand-muted mt-1">Applied directly to principal each month</p>
+          <p className="text-xs text-brand-muted mt-1 max-w-[68ch]">Applied directly to principal each month</p>
         </div>
       </div>
 
       <div>
-        <h2 className="text-lg font-bold text-brand-navy mb-4">Payoff Impact</h2>
+        <h2 className="t-h6 text-brand-navy mb-4">Payoff Impact</h2>
         {!results ? (
           <div className="bg-brand-gray-bg rounded-xl p-6 text-center text-brand-muted text-sm">Enter loan details to calculate savings</div>
         ) : (

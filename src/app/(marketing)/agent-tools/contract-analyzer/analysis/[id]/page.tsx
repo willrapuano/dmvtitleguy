@@ -55,8 +55,8 @@ export default async function AnalysisPage({
         <div className="mb-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="flex items-start justify-between">
             <div>
-              <h1 className="text-xl font-bold text-brand-navy">{analysis.fileName}</h1>
-              <p className="mt-1 text-sm text-gray-500">
+              <h1 className="t-h5 text-brand-navy">{analysis.fileName}</h1>
+              <p className="mt-1 text-sm text-gray-500 max-w-[68ch] leading-relaxed">
                 {analysis.formType} · Analyzed{" "}
                 {new Date(analysis.createdAt).toLocaleString()}
               </p>
@@ -73,7 +73,7 @@ export default async function AnalysisPage({
               {analysis.overallStatus}
             </div>
           </div>
-          <p className="mt-3 text-sm text-gray-700">{analysis.summary}</p>
+          <p className="mt-3 text-sm text-gray-700 max-w-[68ch] leading-relaxed">{analysis.summary}</p>
 
           <div className="mt-4 flex gap-4 text-sm">
             {criticalCount > 0 && (
@@ -113,7 +113,7 @@ export default async function AnalysisPage({
         </div>
 
         {/* Section Overview */}
-        <h2 className="mb-3 text-lg font-semibold text-brand-navy">Section Overview</h2>
+        <h2 className="mb-3 t-h6 font-semibold text-brand-navy">Section Overview</h2>
         <div className="mb-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {sections.map((s) => (
             <div
@@ -128,8 +128,8 @@ export default async function AnalysisPage({
                 <XCircle className="h-5 w-5 text-red-600" />
               )}
               <div>
-                <p className="text-sm font-medium">{s.section}</p>
-                <p className="text-xs text-gray-500">
+                <p className="text-sm font-medium max-w-[68ch] leading-relaxed">{s.section}</p>
+                <p className="text-xs text-gray-500 max-w-[68ch]">
                   {s.issueCount === 0
                     ? "No issues"
                     : `${s.issueCount} issue${s.issueCount > 1 ? "s" : ""}`}
@@ -140,7 +140,7 @@ export default async function AnalysisPage({
         </div>
 
         {/* Findings */}
-        <h2 className="mb-3 text-lg font-semibold text-brand-navy">
+        <h2 className="mb-3 t-h6 font-semibold text-brand-navy">
           Findings ({analysis.findings.length})
         </h2>
         <div className="space-y-3">
@@ -161,7 +161,7 @@ export default async function AnalysisPage({
                         {f.severity}
                       </span>
                     </div>
-                    <p className="mt-1 text-sm text-gray-700">{f.description}</p>
+                    <p className="mt-1 text-sm text-gray-700 max-w-[68ch] leading-relaxed">{f.description}</p>
                     <div className="mt-2 flex gap-3 text-xs text-gray-500">
                       <span>Section: {f.section}</span>
                       {f.pageRef && <span>{f.pageRef}</span>}

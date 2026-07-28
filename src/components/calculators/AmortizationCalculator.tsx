@@ -90,7 +90,7 @@ export function AmortizationCalculator() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-brand-navy mb-4">Amortization Schedule (Yearly)</h2>
+            <h2 className="t-h6 text-brand-navy mb-4">Amortization Schedule (Yearly)</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -114,7 +114,7 @@ export function AmortizationCalculator() {
               </table>
             </div>
             {(results.yearlyRows.length > 5) && (
-              <button onClick={() => setShowFull(!showFull)} className="mt-3 text-sm text-brand-blue hover:underline font-medium">
+              <button onClick={() => setShowFull(!showFull)} className="mt-3 text-sm text-brand-blue-deep hover:underline font-medium">
                 {showFull ? "Show less ↑" : `Show all ${results.yearlyRows.length} years ↓`}
               </button>
             )}

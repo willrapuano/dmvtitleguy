@@ -85,7 +85,7 @@ export default function MarylandClosingCostsPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Maryland Closing Costs</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Maryland Closing Costs Guide
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -99,10 +99,10 @@ export default function MarylandClosingCostsPage() {
       <section className="py-8 bg-white border-b border-gray-100">
         <div className="container-xl max-w-3xl">
           <div className="rounded-lg border border-brand-blue/20 bg-brand-gray-bg p-5 text-brand-muted leading-relaxed">
-            <h2 className="text-lg font-bold text-brand-navy mb-2">Need a Maryland Closing Cost Estimate?</h2>
-            <p>
+            <h2 className="t-h6 text-brand-navy mb-2">Need a Maryland Closing Cost Estimate?</h2>
+            <p className="max-w-[68ch]">
               Use the{" "}
-              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue hover:underline">
+              <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                 Maryland closing cost calculator
               </Link>{" "}
               to estimate buyer and seller costs, including title insurance, transfer tax, recordation fees, and Montgomery County settlement costs before requesting a final quote.
@@ -112,9 +112,9 @@ export default function MarylandClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Maryland has the most variable closing costs in the DMV—Montgomery County's 1.5% transfer tax vs. Frederick's 1.0% can mean a $2,500 difference on a $500K home. We help buyers understand county-specific costs before signing.
           </p>
         </div>
@@ -123,9 +123,9 @@ export default function MarylandClosingCostsPage() {
       {/* BUYER COSTS */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">What Buyers Pay in Maryland</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">What Buyers Pay in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Maryland buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. These costs include:
             </p>
             <ul className="list-disc list-inside space-y-2">
@@ -139,7 +139,7 @@ export default function MarylandClosingCostsPage() {
               <li><strong>Prorated Property Taxes:</strong> Property taxes from closing date through end of year</li>
               <li><strong>Recording Fees:</strong> Small fees to record the deed and mortgage</li>
             </ul>
-            <p>
+            <p className="max-w-[68ch]">
               <strong>Example:</strong> For a $500,000 home in Montgomery County with 20% down, buyer closing costs would be approximately $12,000-18,000.
             </p>
           </div>
@@ -149,9 +149,9 @@ export default function MarylandClosingCostsPage() {
       {/* SELLER COSTS */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">What Sellers Pay in Maryland</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">What Sellers Pay in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Maryland sellers typically pay <strong>1% to 3%</strong> of the sale price in closing costs (excluding real estate commissions). These costs include:
             </p>
             <ul className="list-disc list-inside space-y-2">
@@ -163,7 +163,7 @@ export default function MarylandClosingCostsPage() {
               <li><strong>Attorney Fees:</strong> If seller uses an attorney for the transaction</li>
               <li><strong>HOA Fees:</strong> Any outstanding homeowners association dues</li>
             </ul>
-            <p>
+            <p className="max-w-[68ch]">
               <strong>Example:</strong> For a $500,000 home in Montgomery County with a 6% commission, seller closing costs would be approximately $30,000-35,000.
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function MarylandClosingCostsPage() {
       {/* COUNTY SPECIFIC */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Transfer & Recordation Taxes by County</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Maryland Transfer & Recordation Taxes by County</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-brand-muted border-collapse">
               <thead>
@@ -218,7 +218,7 @@ export default function MarylandClosingCostsPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-sm text-brand-muted mt-4">
+          <p className="text-sm text-brand-muted mt-4 max-w-[68ch] leading-relaxed">
             <em>Note: These rates are subject to change. First-time homebuyers may qualify for exemptions in certain counties. Consult with your title company for current rates.</em>
           </p>
         </div>
@@ -227,21 +227,21 @@ export default function MarylandClosingCostsPage() {
       {/* TITLE INSURANCE */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Title Insurance in Maryland</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in Maryland</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Maryland requires attorney or licensed title agent involvement at closing. Title insurance protects against hidden title defects that could affect your ownership rights.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Owner's Title Insurance</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Owner's title insurance protects your investment against claims against your ownership of the property. It's a one-time premium paid at closing and provides coverage for as long as you own the property. For a $500,000 home, owner's title insurance costs approximately $1,500-2,000.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Lender's Title Insurance</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Most lenders require lender's title insurance (also called a loan policy) to protect their interest in the property. This is typically a separate policy from the owner's coverage.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Simultaneous Issue Discount</h3>
-            <p>
+            <p className="max-w-[68ch]">
               Maryland offers a simultaneous issue discount when both owner's and lender's title insurance are purchased together. This can save buyers 10-20% on their title insurance costs.
             </p>
           </div>
@@ -251,13 +251,13 @@ export default function MarylandClosingCostsPage() {
       {/* LOCATION LINKS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Maryland Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Maryland Markets We Serve</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {MD_LOCATIONS.map((l) => (
               <Link
                 key={l.slug}
                 href={`/${l.slug}`}
-                className="text-sm text-brand-blue hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
+                className="text-sm text-brand-blue-deep hover:underline border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors"
               >
                 {l.city}, MD →
               </Link>
@@ -269,30 +269,30 @@ export default function MarylandClosingCostsPage() {
       {/* INTERNAL LINKS */}
       <section className="py-10 bg-white border-b border-gray-100">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
               Bethesda Title Services →
             </Link>
-            <Link href="/title-company/rockville-md" className="text-brand-blue hover:underline">
+            <Link href="/title-company/rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
           </div>
@@ -309,12 +309,12 @@ export default function MarylandClosingCostsPage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Maryland Title Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Maryland Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate closing cost estimate for your Maryland transaction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Calculate Your Costs →
             </Link>
             <Link href="/maryland-closing-cost-calculator" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

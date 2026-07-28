@@ -56,7 +56,7 @@ export default function TitleInsuranceCostByStatePage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Cost by State</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Title Insurance Cost by State: A 2026 Comparison
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -66,9 +66,9 @@ export default function TitleInsuranceCostByStatePage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> In the DMV region, Virginia has regulated rates set by the state, while Maryland and DC allow more competition—meaning shopping around can yield savings.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function TitleInsuranceCostByStatePage() {
       {/* COST BREAKDOWN TABLE */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Title Insurance Cost Breakdown by State</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Title Insurance Cost Breakdown by State</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-brand-muted border-collapse">
               <thead>
@@ -146,23 +146,23 @@ export default function TitleInsuranceCostByStatePage() {
       {/* FACTORS AFFECTING COSTS */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Factors Affecting Title Insurance Costs</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Factors Affecting Title Insurance Costs</h2>
           <div className="space-y-6 text-brand-muted leading-relaxed">
             <div>
-              <h3 className="text-brand-navy font-bold text-lg mb-2">1. Home Value</h3>
-              <p>Higher-value homes typically cost more to insure. Title insurance premiums are calculated based on the purchase price of the property.</p>
+              <h3 className="text-brand-navy t-h6 mb-2">1. Home Value</h3>
+              <p className="max-w-[68ch]">Higher-value homes typically cost more to insure. Title insurance premiums are calculated based on the purchase price of the property.</p>
             </div>
             <div>
-              <h3 className="text-brand-navy font-bold text-lg mb-2">2. State Regulations</h3>
-              <p>Some states regulate rates (like Virginia and DC), while others allow competition (like Maryland). Regulated states have fixed rate schedules, while competitive states allow providers to set their own rates.</p>
+              <h3 className="text-brand-navy t-h6 mb-2">2. State Regulations</h3>
+              <p className="max-w-[68ch]">Some states regulate rates (like Virginia and DC), while others allow competition (like Maryland). Regulated states have fixed rate schedules, while competitive states allow providers to set their own rates.</p>
             </div>
             <div>
-              <h3 className="text-brand-navy font-bold text-lg mb-2">3. Local Practices</h3>
-              <p>Urban areas may have higher costs due to more complex title histories, potential for liens, and higher property values. Rural properties may have different risk profiles.</p>
+              <h3 className="text-brand-navy t-h6 mb-2">3. Local Practices</h3>
+              <p className="max-w-[68ch]">Urban areas may have higher costs due to more complex title histories, potential for liens, and higher property values. Rural properties may have different risk profiles.</p>
             </div>
             <div>
-              <h3 className="text-brand-navy font-bold text-lg mb-2">4. Endorsements</h3>
-              <p>Additional coverage options (endorsements) can increase the premium. Common endorsements include survey coverage, zoning endorsement, and contiguity insurance.</p>
+              <h3 className="text-brand-navy t-h6 mb-2">4. Endorsements</h3>
+              <p className="max-w-[68ch]">Additional coverage options (endorsements) can increase the premium. Common endorsements include survey coverage, zoning endorsement, and contiguity insurance.</p>
             </div>
           </div>
         </div>
@@ -171,23 +171,23 @@ export default function TitleInsuranceCostByStatePage() {
       {/* DMV SPECIFICS */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Title Insurance in the DMV Region</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in the DMV Region</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-brand-navy font-bold text-lg mb-3">Virginia</h3>
-              <p className="text-brand-muted text-sm">
+              <h3 className="text-brand-navy t-h6 mb-3">Virginia</h3>
+              <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                 Virginia has <strong>state-regulated rates</strong> set by the Virginia Bureau of Insurance. Rates are based on a schedule tied to the property's purchase price. Simultaneous issue discounts are available when buying both owner's and lender's policies together.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-brand-navy font-bold text-lg mb-3">Maryland</h3>
-              <p className="text-brand-muted text-sm">
+              <h3 className="text-brand-navy t-h6 mb-3">Maryland</h3>
+              <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                 Maryland has a <strong>competitive market</strong> for title insurance, meaning rates can vary between providers. It's worth getting quotes from multiple title companies to find the best rate. Maryland also offers simultaneous issue discounts.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-brand-navy font-bold text-lg mb-3">Washington DC</h3>
-              <p className="text-brand-muted text-sm">
+              <h3 className="text-brand-navy t-h6 mb-3">Washington DC</h3>
+              <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                 DC has <strong>regulated rates</strong> set by the DC Insurance Commissioner. For a $500,000 home, owner's title insurance typically costs $1,800-2,400. DC requires an attorney or licensed title agent to conduct all real estate settlements.
               </p>
             </div>
@@ -198,14 +198,14 @@ export default function TitleInsuranceCostByStatePage() {
       {/* OWNERS VS LENDERS */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Owner's vs. Lender's Title Insurance</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Owner's vs. Lender's Title Insurance</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               It's important to understand the difference between the two types of title insurance:
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-brand-navy font-bold text-lg mb-3">Owner's Title Insurance</h3>
+                <h3 className="text-brand-navy t-h6 mb-3">Owner's Title Insurance</h3>
                 <ul className="list-disc list-inside space-y-2 text-sm">
                   <li>Protects the buyer/owner</li>
                   <li>One-time premium paid at closing</li>
@@ -215,7 +215,7 @@ export default function TitleInsuranceCostByStatePage() {
                 </ul>
               </div>
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-brand-navy font-bold text-lg mb-3">Lender's Title Insurance</h3>
+                <h3 className="text-brand-navy t-h6 mb-3">Lender's Title Insurance</h3>
                 <ul className="list-disc list-inside space-y-2 text-sm">
                   <li>Protects the mortgage lender</li>
                   <li>One-time premium paid at closing</li>
@@ -232,27 +232,27 @@ export default function TitleInsuranceCostByStatePage() {
       {/* INTERNAL LINKS */}
       <section className="py-10 bg-white border-b border-gray-100">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/closing-costs/maryland" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
           </div>
@@ -269,12 +269,12 @@ export default function TitleInsuranceCostByStatePage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Title Insurance Quote</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Title Insurance Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate title insurance quote for your Virginia, Maryland, or DC property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/title-insurance" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/title-insurance" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Get a Quote →
             </Link>
             <Link href="/contact" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

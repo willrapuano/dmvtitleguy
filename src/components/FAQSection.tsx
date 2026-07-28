@@ -48,7 +48,7 @@ export function FAQSection({
         />
       )}
       <div className="mt-14 pt-10 border-t border-gray-100">
-        <h2 className="text-2xl font-bold text-brand-navy mb-8">
+        <h2 className="t-h4 text-brand-navy mb-8">
           Frequently Asked Questions
         </h2>
         <div className="space-y-0 divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden">
@@ -63,7 +63,7 @@ export function FAQSection({
                 <span className="font-semibold text-brand-navy text-base leading-snug pr-4">
                   {faq.question?.replace(/^##\s+/, '').replace(/^#\s+/, '').trim() || ''}
                 </span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-open:rotate-180 transition-transform">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue-deep group-open:rotate-180 transition-transform">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M2 4l4 4 4-4" />
                   </svg>

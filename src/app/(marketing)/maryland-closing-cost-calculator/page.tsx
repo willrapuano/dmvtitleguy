@@ -308,8 +308,8 @@ export default function MarylandCalculatorPage() {
             <span className="mx-2">/</span>
             <span>Maryland Closing Cost Calculator</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Maryland Closing Cost Calculator for Buyers and Sellers</h1>
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
+          <h1 className="t-h1 text-white mb-4">Maryland Closing Cost Calculator for Buyers and Sellers</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Estimate Maryland closing costs for buyers and sellers before settlement. Covers state and county transfer taxes, title insurance, recordation fees, lender charges, seller costs, and county-specific assumptions for Montgomery County and Prince George&apos;s County.
           </p>
@@ -327,15 +327,15 @@ export default function MarylandCalculatorPage() {
       <section className="section-gray">
         <div className="container-xl max-w-4xl">
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Closing Cost Calculator Maryland</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Closing Cost Calculator Maryland</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 This closing cost calculator Maryland page is built for buyers, sellers, agents, and lenders who need
                 a Maryland-specific estimate instead of a generic national calculator. Enter the purchase price, loan
                 amount, party type, county, and first-time homebuyer details to compare buyer cash-to-close and seller
                 closing cost exposure.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 The calculator is most useful before ordering a title quote, reviewing a lender estimate, or checking
                 whether a contract allocates transfer taxes to the buyer, seller, or both sides.
               </p>
@@ -343,14 +343,14 @@ export default function MarylandCalculatorPage() {
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">How Maryland Closing Costs Are Calculated</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">How Maryland Closing Costs Are Calculated</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland closing costs combine lender fees, title insurance, settlement fees, recordation taxes,
                 transfer taxes, recording fees, prepaid taxes and insurance, escrow deposits, and prorations.
                 The calculator is a starting point for organizing those line items before a final title quote.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Buyer costs commonly vary by loan amount, property type, county, contract terms, and whether the
                 buyer qualifies as a first-time Maryland homebuyer. Seller costs depend heavily on payoff, commission,
                 contract credits, prorations, and how transfer taxes are allocated.
@@ -359,13 +359,13 @@ export default function MarylandCalculatorPage() {
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Recordation Tax Explained</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Maryland Recordation Tax Explained</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Recordation tax is tied to the recording of deeds, deeds of trust, mortgages, and certain other
                 instruments in Maryland land records. It is separate from title insurance and settlement fees.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland law sets the state recordation tax base at $2.50 per $500, and each county sets its own
                 rate. Montgomery County uses a tiered schedule under Bill 17-23, while Prince George&apos;s County uses
                 0.55%, equal to $2.75 per $500.
@@ -388,21 +388,21 @@ export default function MarylandCalculatorPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy">
+              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy max-w-[68ch] leading-relaxed">
                 {taxRateNotice}
               </p>
             </div>
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Transfer Tax Calculator</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Maryland Transfer Tax Calculator</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland transfer tax calculations separate state transfer tax from county transfer tax. The standard
                 Maryland state transfer tax is 0.5% of consideration. For qualifying first-time Maryland homebuyers,
                 the state transfer tax rate is 0.25% and must be paid by the seller.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Use the Maryland transfer tax calculator controls above to compare Montgomery County and Prince
                 George&apos;s County. The final allocation still depends on the contract and any negotiated tax split.
               </p>
@@ -424,52 +424,52 @@ export default function MarylandCalculatorPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy">
+              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 text-sm font-semibold text-brand-navy max-w-[68ch] leading-relaxed">
                 {taxRateNotice}
               </p>
             </div>
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Seller Closing Costs</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Maryland Seller Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed mb-5">
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland seller closing costs commonly include broker commission, mortgage payoff, seller settlement
                 fee, prorated taxes, HOA or condo resale documents, lien releases, and any transfer taxes or buyer
                 credits assigned to the seller by contract.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 A seller net estimate should be reviewed with the payoff, contract, county, expected closing date, and
                 any negotiated repair credits before the seller relies on the final net proceeds number.
               </p>
             </div>
-            <h3 className="text-xl font-bold text-brand-navy mb-4">Who Pays Closing Costs in Maryland: Buyer vs Seller</h3>
+            <h3 className="t-h5 text-brand-navy mb-4">Who Pays Closing Costs in Maryland: Buyer vs Seller</h3>
             <div className="grid md:grid-cols-2 gap-5">
               <div className="rounded-lg bg-white p-5 shadow-sm">
-                <h3 className="text-lg font-bold text-brand-navy mb-3">Buyer Closing Cost Line Items</h3>
+                <h3 className="t-h6 text-brand-navy mb-3">Buyer Closing Cost Line Items</h3>
                 <ul className="list-disc pl-5 space-y-2 text-sm text-brand-muted">
                   {buyerCosts.map((item) => <li key={item}>{item}</li>)}
                 </ul>
               </div>
               <div className="rounded-lg bg-white p-5 shadow-sm">
-                <h3 className="text-lg font-bold text-brand-navy mb-3">Seller Closing Cost Line Items</h3>
+                <h3 className="t-h6 text-brand-navy mb-3">Seller Closing Cost Line Items</h3>
                 <ul className="list-disc pl-5 space-y-2 text-sm text-brand-muted">
                   {sellerCosts.map((item) => <li key={item}>{item}</li>)}
                 </ul>
               </div>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-brand-muted">
+            <p className="mt-4 text-sm leading-relaxed text-brand-muted max-w-[68ch]">
               Transfer tax allocation is often handled by the contract and local custom. A title company should review
               the signed contract before either side relies on an estimate.
             </p>
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Example Maryland Closing Cost Calculations</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Example Maryland Closing Cost Calculations</h2>
             <div className="mt-5 grid md:grid-cols-2 gap-5">
               {calculationExamples.map((example) => (
                 <div key={example.title} className="rounded-lg bg-white p-5 shadow-sm">
-                  <h3 className="text-lg font-bold text-brand-navy mb-3">{example.title}</h3>
+                  <h3 className="t-h6 text-brand-navy mb-3">{example.title}</h3>
                   <ul className="list-disc pl-5 space-y-2 text-sm leading-relaxed text-brand-muted">
                     {example.lines.map((line) => <li key={line}>{line}</li>)}
                   </ul>
@@ -479,56 +479,56 @@ export default function MarylandCalculatorPage() {
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Montgomery County Closing Costs</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Montgomery County Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Montgomery County closing cost estimates need county-specific tax handling because Bethesda, Rockville,
                 Silver Spring, Gaithersburg, Germantown, and Potomac transactions can involve different property types,
                 price points, lender requirements, and contract allocations.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Use a Montgomery County-specific quote when reviewing transfer tax, recordation charges, title insurance,
                 settlement fees, and any HOA or condo documentation costs.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/title-company-montgomery-county-md" className="text-sm font-semibold text-brand-blue hover:underline">Montgomery County title company</Link>
-                <Link href="/title-company-bethesda-md" className="text-sm font-semibold text-brand-blue hover:underline">Bethesda title company</Link>
-                <Link href="/title-company-rockville-md" className="text-sm font-semibold text-brand-blue hover:underline">Rockville title company</Link>
-                <Link href="/title-company-silver-spring-md" className="text-sm font-semibold text-brand-blue hover:underline">Silver Spring title company</Link>
+                <Link href="/title-company-montgomery-county-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Montgomery County title company</Link>
+                <Link href="/title-company-bethesda-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bethesda title company</Link>
+                <Link href="/title-company-rockville-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Rockville title company</Link>
+                <Link href="/title-company-silver-spring-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Silver Spring title company</Link>
               </div>
             </div>
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Prince George&apos;s County Closing Costs</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Prince George&apos;s County Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Prince George&apos;s County closing cost examples should account for the 1.4% county transfer tax,
                 0.55% recordation tax, and the additional county transfer tax that applies to mortgages and deeds of
                 trust. That means the loan amount can matter in addition to the purchase price.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Buyers and sellers in Bowie, Hyattsville, Upper Marlboro, Laurel, and College Park should use county
                 inputs rather than relying on Montgomery County or statewide assumptions.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/title-company-prince-georges-county-md" className="text-sm font-semibold text-brand-blue hover:underline">Prince George&apos;s County title company</Link>
-                <Link href="/title-company-bowie-md" className="text-sm font-semibold text-brand-blue hover:underline">Bowie title company</Link>
-                <Link href="/closing-costs-bowie-md" className="text-sm font-semibold text-brand-blue hover:underline">Bowie closing cost calculator</Link>
+                <Link href="/title-company-prince-georges-county-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Prince George&apos;s County title company</Link>
+                <Link href="/title-company-bowie-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bowie title company</Link>
+                <Link href="/closing-costs-bowie-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bowie closing cost calculator</Link>
               </div>
             </div>
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Bethesda, Rockville, and Silver Spring Examples</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Bethesda, Rockville, and Silver Spring Examples</h2>
             <div className="grid md:grid-cols-3 gap-5">
               {cityExamples.map((item) => (
                 <div key={item.city} className="rounded-lg bg-white p-5 shadow-sm">
-                  <h3 className="text-lg font-bold text-brand-navy mb-3">{item.city}</h3>
-                  <p className="text-sm leading-relaxed text-brand-muted mb-4">{item.copy}</p>
+                  <h3 className="t-h6 text-brand-navy mb-3">{item.city}</h3>
+                  <p className="text-sm leading-relaxed text-brand-muted mb-4 max-w-[68ch]">{item.copy}</p>
                   <div className="space-y-2">
                     {item.links.map((link) => (
-                      <Link key={link.href} href={link.href} className="block text-sm font-semibold text-brand-blue hover:underline">
+                      <Link key={link.href} href={link.href} className="block text-sm font-semibold text-brand-blue-deep hover:underline">
                         {link.label}
                       </Link>
                     ))}
@@ -539,14 +539,14 @@ export default function MarylandCalculatorPage() {
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">First-Time Homebuyer Closing Cost Benefits in Maryland</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">First-Time Homebuyer Closing Cost Benefits in Maryland</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Qualifying first-time Maryland homebuyers receive a reduced 0.25% Maryland state transfer tax rate,
                 paid by the seller. County-specific benefits or exemptions can also affect the calculation when
                 both purchase price and loan amount are part of the closing cost review.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Eligibility can depend on the buyer, occupancy, property type, county, transaction documents, and
                 timing. Pruitt Title can review the documents for the actual transaction before settlement.
               </p>
@@ -554,37 +554,37 @@ export default function MarylandCalculatorPage() {
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Title Insurance and Settlement Fees</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Maryland Title Insurance and Settlement Fees</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-              <p>
+              <p className="max-w-[68ch]">
                 Title insurance protects against covered title defects, liens, and ownership issues. Maryland buyers
                 often see separate lender's title insurance and owner's title insurance line items, depending on the
                 loan and contract.
               </p>
-              <p>
+              <p className="max-w-[68ch]">
                 Maryland title insurance rates are filed or regulated, and the exact premium depends on purchase price,
                 loan amount, policy type, and whether simultaneous issue pricing applies.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/title-insurance" className="text-sm font-semibold text-brand-blue hover:underline">Learn about title insurance</Link>
-                <Link href="/calculators/title-quote" className="text-sm font-semibold text-brand-blue hover:underline">Get a title insurance quote</Link>
+                <Link href="/title-insurance" className="text-sm font-semibold text-brand-blue-deep hover:underline">Learn about title insurance</Link>
+                <Link href="/calculators/title-quote" className="text-sm font-semibold text-brand-blue-deep hover:underline">Get a title insurance quote</Link>
               </div>
             </div>
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Maryland Closing Cost FAQs</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Maryland Closing Cost FAQs</h2>
             <FAQSection faqs={faqs} includeSchema={false} />
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-brand-navy mb-4">Related Maryland Closing Cost Resources</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Related Maryland Closing Cost Resources</h2>
             <div className="grid sm:grid-cols-2 gap-3">
               {relatedResources.map((resource) => (
                 <Link
                   key={resource.href}
                   href={resource.href}
-                  className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-brand-blue hover:border-brand-blue transition-colors"
+                  className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-brand-blue-deep hover:border-brand-blue-deep transition-colors"
                 >
                   {resource.label}
                 </Link>
@@ -596,10 +596,10 @@ export default function MarylandCalculatorPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Maryland Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Maryland Markets We Serve</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {MD_LOCATIONS.map((l) => (
-              <Link key={l.slug} href={`/${l.slug}`} className="text-sm text-brand-blue border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors">
+              <Link key={l.slug} href={`/${l.slug}`} className="text-sm text-brand-blue-deep border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors">
                 {l.city}, MD
               </Link>
             ))}

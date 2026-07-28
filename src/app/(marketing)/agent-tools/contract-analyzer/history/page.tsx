@@ -29,12 +29,12 @@ export default async function HistoryPage() {
           <ArrowLeft className="h-4 w-4" /> Back to Upload
         </Link>
 
-        <h1 className="mb-6 text-2xl font-bold text-brand-navy">Analysis History</h1>
+        <h1 className="mb-6 t-h4 text-brand-navy">Analysis History</h1>
 
         {analyses.length === 0 ? (
           <div className="flex flex-col items-center gap-4 rounded-2xl border border-gray-200 bg-white py-16">
             <FileText className="h-12 w-12 text-gray-300" />
-            <p className="text-gray-500">No analyses yet</p>
+            <p className="text-gray-500 max-w-[68ch] leading-relaxed">No analyses yet</p>
             <Link
               href="/agent-tools/contract-analyzer"
               className="rounded-lg bg-brand-navy px-4 py-2 text-sm font-medium text-white hover:bg-brand-navy/90"
@@ -68,8 +68,8 @@ export default async function HistoryPage() {
                   )}
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-brand-navy">{a.fileName}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-medium text-brand-navy max-w-[68ch] leading-relaxed">{a.fileName}</p>
+                  <p className="text-sm text-gray-500 max-w-[68ch] leading-relaxed">
                     {a.formType} · {a._count.findings} finding
                     {a._count.findings !== 1 ? "s" : ""} ·{" "}
                     {new Date(a.createdAt).toLocaleDateString()}

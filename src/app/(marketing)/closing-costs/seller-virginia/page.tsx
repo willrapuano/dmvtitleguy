@@ -56,7 +56,7 @@ export default function SellerVirginiaClosingCostsPage() {
             <span className="mx-2">/</span>
             <span className="text-gray-200">Seller Costs</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="t-h1 text-white mb-4">
             Seller Closing Costs in Virginia: What to Expect in 2026
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -66,9 +66,9 @@ export default function SellerVirginiaClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-blue text-white">
+      <section className="py-8 bg-brand-action text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium">
+          <p className="text-lg font-medium max-w-[68ch]">
             <span className="text-brand-light-blue">💡 Local Insight:</span> Virginia's transfer tax is $1 per $1,000 of sale price—one of the lowest in the DMV region. However, real estate commissions typically run 5-6% of the sale price, making this your largest closing cost.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* MAIN CONTENT */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Common Seller Closing Costs in Virginia</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Common Seller Closing Costs in Virginia</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commission:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
@@ -94,15 +94,15 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* TRANSFER TAX INFO */}
       <section className="py-16 bg-white">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">Virginia Transfer Tax</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">Virginia Transfer Tax</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p>
+            <p className="max-w-[68ch]">
               Virginia's state transfer tax is <strong>$1 per $1,000</strong> of the sale price (0.1%). Some localities may add additional transfer taxes or fees on top of the state rate.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               <strong>Example:</strong> On a $500,000 home, the Virginia state transfer tax would be $500. Localities like Fairfax County may add additional fees.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               Unlike Maryland and DC, Virginia does not have a recordation tax based on loan amount—this makes Virginia one of the more affordable jurisdictions for closing costs in the DMV region.
             </p>
           </div>
@@ -112,14 +112,14 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* ESTIMATING COSTS */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="text-2xl font-bold text-brand-navy mb-4">How to Estimate Your Closing Costs</h2>
+          <h2 className="t-h4 text-brand-navy mb-4">How to Estimate Your Closing Costs</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
               Use our Virginia Closing Cost Calculator to get a personalized estimate based on your home's sale price and location.
             </p>
             <div className="bg-brand-navy text-white p-6 rounded-lg">
-              <h3 className="text-lg font-bold mb-2">Estimated Seller Costs Example</h3>
-              <p className="text-gray-300">For a $500,000 home in Virginia:</p>
+              <h3 className="t-h6 mb-2">Estimated Seller Costs Example</h3>
+              <p className="text-gray-300 max-w-[68ch] leading-relaxed">For a $500,000 home in Virginia:</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>• Real Estate Commission (6%): $30,000</li>
                 <li>• Transfer Tax (0.1%): $500</li>
@@ -136,27 +136,27 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* INTERNAL LINKS */}
       <section className="py-10 bg-white border-b border-gray-100">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">Explore More Resources</h2>
+          <h2 className="t-h5 text-brand-navy mb-4">Explore More Resources</h2>
           <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue hover:underline">
+            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
-            <Link href="/calculators" className="text-brand-blue hover:underline">
+            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
-            <Link href="/closing-costs/maryland" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue hover:underline">
+            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
           </div>
@@ -173,12 +173,12 @@ export default function SellerVirginiaClosingCostsPage() {
       {/* CTA */}
       <section className="py-16 bg-brand-navy">
         <div className="container-xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Get Your Virginia Seller Closing Cost Estimate</h2>
+          <h2 className="t-h3 text-white mb-4">Get Your Virginia Seller Closing Cost Estimate</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate closing cost estimate for your Virginia home sale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/virginia-closing-cost-calculator" className="inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/virginia-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
               Calculate Your Costs →
             </Link>
             <Link href="/contact" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

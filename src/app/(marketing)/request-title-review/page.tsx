@@ -58,7 +58,7 @@ export default function RequestTitleReviewPage() {
               <span className="mx-2">/</span>
               <span className="text-gray-200">Request Title Review</span>
             </nav>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            <h1 className="t-h1 text-white mb-4">
               Request a Title Review
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
@@ -93,8 +93,8 @@ export default function RequestTitleReviewPage() {
                   <s.icon className="h-6 w-6 text-brand-navy" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-brand-navy mb-1">{s.title}</h3>
-                  <p className="text-brand-muted text-sm">{s.desc}</p>
+                  <h3 className="t-h6 text-brand-navy mb-1">{s.title}</h3>
+                  <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -110,7 +110,7 @@ export default function RequestTitleReviewPage() {
             {faqs.map((faq) => (
               <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
                 <h3 className="text-base font-bold text-brand-navy mb-2">{faq.q}</h3>
-                <p className="text-brand-muted text-sm">{faq.a}</p>
+                <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -120,19 +120,19 @@ export default function RequestTitleReviewPage() {
       {/* RELATED PAGES */}
       <section className="py-12 bg-white">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Pages</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Pages</h2>
           <div className="grid md:grid-cols-3 gap-4">
             <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted">Comprehensive title searches for real estate investors.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Comprehensive title searches for real estate investors.</p>
             </Link>
             <Link href="/upload-contract" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Upload Contract</h3>
-              <p className="text-sm text-brand-muted">Submit your ratified contract for fast title processing.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit your ratified contract for fast title processing.</p>
             </Link>
             <Link href="/title-insurance" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Title Insurance</h3>
-              <p className="text-sm text-brand-muted">Protect your investment with owner&apos;s title insurance.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Protect your investment with owner&apos;s title insurance.</p>
             </Link>
           </div>
         </div>

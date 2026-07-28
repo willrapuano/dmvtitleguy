@@ -20,8 +20,8 @@ export default function LoanEstimatePage() {
             <span className="mx-2">/</span>
             <span>Loan Estimate</span>
           </nav>
-          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">Free Tool</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
+          <h1 className="t-h1 text-white mb-4">
             Loan Estimate Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">

@@ -194,9 +194,9 @@ export function PayPalCheckoutButton({
 
   return (
     <div className="space-y-3">
-      {isLoading && <p className="text-sm text-brand-muted">Loading PayPal checkout...</p>}
+      {isLoading && <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Loading PayPal checkout...</p>}
       <div ref={containerRef} />
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-red-600 max-w-[68ch] leading-relaxed">{error}</p>}
     </div>
   );
 }

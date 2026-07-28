@@ -90,10 +90,10 @@ export default function AllTransactionsPage() {
               <span className="mx-2">/</span>
               <span className="text-gray-200">All Transaction Types</span>
             </nav>
-            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2">
+            <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">
               Professional Title Services
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            <h1 className="t-h1 text-white mb-4">
               We Handle Every Type of Real Estate Transaction
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
@@ -128,7 +128,7 @@ export default function AllTransactionsPage() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="prose-title mb-4">What We Handle</h2>
-              <p className="text-brand-muted text-sm mb-6">
+              <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">
                 We don&apos;t specialize in one type of deal — we specialize in
                 getting every deal closed professionally and on time.
               </p>
@@ -140,7 +140,7 @@ export default function AllTransactionsPage() {
                       <h3 className="font-bold text-brand-navy text-sm">
                         {s.title}
                       </h3>
-                      <p className="text-brand-muted text-sm leading-relaxed">
+                      <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
                         {s.desc}
                       </p>
                     </div>
@@ -170,10 +170,10 @@ export default function AllTransactionsPage() {
               "You close on your timeline. We handle deed prep, recording, escrow, and fund disbursement.",
             ].map((step, i) => (
               <li key={i} className="flex gap-4 items-start">
-                <div className="w-8 h-8 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
                   {i + 1}
                 </div>
-                <p className="text-brand-dark-text text-sm leading-relaxed pt-1">
+                <p className="text-brand-dark-text text-sm leading-relaxed pt-1 max-w-[68ch]">
                   {step}
                 </p>
               </li>
@@ -195,7 +195,7 @@ export default function AllTransactionsPage() {
                 <h3 className="font-bold text-brand-navy mb-2 text-base">
                   {faq.q}
                 </h3>
-                <p className="text-brand-muted text-sm leading-relaxed">
+                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
                   {faq.a}
                 </p>
               </div>
@@ -207,31 +207,31 @@ export default function AllTransactionsPage() {
       {/* RELATED SERVICES — Investor */}
       <section className="py-12 bg-white">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-6">Related Services</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Related Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
-              <p className="text-sm text-brand-muted">Title searches, auction support & wholesale closings.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
             <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
-              <p className="text-sm text-brand-muted">Pre-auction title search & risk assessment.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
             <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
-              <p className="text-sm text-brand-muted">Surviving liens & chain-of-title review.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
             <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
             <Link href="/upload-contract" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Upload Contract</h3>
-              <p className="text-sm text-brand-muted">Upload your ratified contract for fast processing.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Upload your ratified contract for fast processing.</p>
             </Link>
             <Link href="/request-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Request Title Review</h3>
-              <p className="text-sm text-brand-muted">Get clarity on a property's title status.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Get clarity on a property's title status.</p>
             </Link>
           </div>
         </div>
@@ -240,25 +240,25 @@ export default function AllTransactionsPage() {
       {/* RELATED */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="text-xl font-bold text-brand-navy mb-4">
+          <h2 className="t-h5 text-brand-navy mb-4">
             Helpful Tools
           </h2>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/virginia-closing-cost-calculator"
-              className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+              className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
             >
               VA Closing Cost Calculator
             </Link>
             <Link
               href="/maryland-closing-cost-calculator"
-              className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+              className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
             >
               MD Closing Cost Calculator
             </Link>
             <Link
               href="/dc-closing-cost-calculator"
-              className="text-sm border border-brand-blue text-brand-blue rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+              className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
             >
               DC Closing Cost Calculator
             </Link>

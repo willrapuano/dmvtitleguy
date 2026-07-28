@@ -79,7 +79,7 @@ export function WhyChooseUsClient() {
         />
         <div className="absolute inset-0 bg-brand-navy/80" />
         <div className="container-xl relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          <h1 className="t-display text-white">
             Why Pruitt Title?
           </h1>
         </div>
@@ -103,18 +103,18 @@ export function WhyChooseUsClient() {
                   className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="bg-brand-blue text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
+                    <span className="bg-brand-action text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
                       {i + 1}
                     </span>
                     <span className="font-bold text-brand-navy">{item.title}</span>
                   </div>
-                  <span className={`text-brand-blue text-lg transition-transform duration-200 flex-shrink-0 ml-4 ${openItem === i ? "rotate-180" : ""}`}>
+                  <span className={`text-brand-blue-deep text-lg transition-transform duration-200 flex-shrink-0 ml-4 ${openItem === i ? "rotate-180" : ""}`}>
                     ▾
                   </span>
                 </button>
                 {openItem === i && (
                   <div className="px-6 pb-5 pt-1 border-t border-gray-100">
-                    <p className="text-brand-muted leading-relaxed text-sm">{item.body}</p>
+                    <p className="text-brand-muted leading-relaxed text-sm max-w-[68ch]">{item.body}</p>
                   </div>
                 )}
               </div>
@@ -129,19 +129,19 @@ export function WhyChooseUsClient() {
           <h2 className="prose-title text-center mb-2">Protect Your Real Estate Investment</h2>
           <div className="accent-divider" />
           <div className="text-brand-muted leading-relaxed space-y-4 mt-8">
-            <p>
+            <p className="max-w-[68ch]">
               Real estate has traditionally been a family&apos;s most valuable asset. It is a form of wealth that is protected
               by many laws that have been enacted to protect one&apos;s ownership and the improvements located on the land.
               The owner, the owner&apos;s family, and the owner&apos;s heirs have extremely strong rights in and to the property
               you are purchasing.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               First American Title Insurance Company provides title insurance that gives you the assurance that possible
               clouds on title to the property you are purchasing have been investigated and resolved. Additionally, it is
               insurance that if any undiscovered claims arise out of the past to threaten your ownership, they will be
               disposed of, or you will be reimbursed as your title insurance policy provides.
             </p>
-            <p>
+            <p className="max-w-[68ch]">
               Pruitt Title LLC works with First American Title Insurance Company, a respected Fortune 500 leader in the
               industry, combining local DMV expertise with national financial strength to protect your investment. Whether
               you&apos;re a first-time buyer, seasoned investor, or industry professional — title insurance is the foundation
@@ -159,7 +159,7 @@ export function WhyChooseUsClient() {
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-3 mt-10">
             {REASONS_FOR_TITLE_INSURANCE.map((reason, i) => (
               <div key={i} className="flex items-start gap-3 py-2">
-                <span className="bg-brand-blue text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                <span className="bg-brand-action text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 <span className="text-brand-muted text-sm leading-relaxed">{reason}</span>
@@ -172,12 +172,12 @@ export function WhyChooseUsClient() {
       {/* Contact CTA */}
       <section className="section-blue">
         <div className="container-xl text-center max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
-          <p className="text-white/80 mb-8">
+          <h2 className="t-h2 text-white mb-4">Ready to Get Started?</h2>
+          <p className="text-white/80 mb-8 max-w-[68ch] leading-relaxed">
             Contact Will Rapuano at Pruitt Title LLC for a title insurance quote or to open your order today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-blue font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
               Get a Quote
             </Link>
             <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-blue px-8 py-3.5">

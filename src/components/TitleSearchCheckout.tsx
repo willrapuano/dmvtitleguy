@@ -26,12 +26,12 @@ function CheckoutForm({
   return (
     <div className="space-y-4">
       <div className="rounded-lg bg-brand-green/20 p-4">
-        <p className="text-sm font-semibold uppercase tracking-wider text-brand-blue">
+        <p className="text-sm font-semibold uppercase tracking-wider text-brand-blue max-w-[68ch] leading-relaxed">
           Standard title search
         </p>
         <div className="mt-1 flex items-end justify-between gap-4">
-          <p className="text-brand-muted text-sm">Pay securely online with PayPal.</p>
-          <p className="text-3xl font-bold text-brand-navy">$125</p>
+          <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">Pay securely online with PayPal.</p>
+          <p className="text-3xl font-bold text-brand-navy max-w-[68ch]">$125</p>
         </div>
       </div>
 
@@ -78,8 +78,8 @@ function CheckoutForm({
 export function PayPalTitleSearchCheckout(props: CheckoutFormProps) {
   return (
     <div className="rounded-xl bg-white p-6 shadow-lg">
-      <h3 className="text-xl font-bold text-brand-navy mb-2">Order a Title Search</h3>
-      <p className="text-sm text-brand-muted mb-5">
+      <h3 className="t-h5 text-brand-navy mb-2">Order a Title Search</h3>
+      <p className="text-sm text-brand-muted mb-5 max-w-[68ch] leading-relaxed">
         Start a standard title search for $125 and share the property details before payment.
       </p>
       <CheckoutForm {...props} />
@@ -111,8 +111,8 @@ export function TitleSearchOrderButton({
             >
               <X className="h-5 w-5" />
             </button>
-            <h2 className="pr-10 text-2xl font-bold text-brand-navy">Order Title Search</h2>
-            <p className="mt-2 mb-5 text-sm text-brand-muted">
+            <h2 className="pr-10 t-h4 text-brand-navy">Order Title Search</h2>
+            <p className="mt-2 mb-5 text-sm text-brand-muted max-w-[68ch] leading-relaxed">
               Complete payment for a standard DMVTitleGuy title search.
             </p>
             <CheckoutForm {...checkoutProps} />

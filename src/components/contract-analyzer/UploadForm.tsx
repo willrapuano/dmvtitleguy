@@ -86,26 +86,26 @@ export default function UploadForm() {
         {uploading ? (
           <div className="flex flex-col items-center gap-3">
             <Loader2 className="h-10 w-10 animate-spin text-brand-blue" />
-            <p className="text-sm font-medium text-gray-700">
+            <p className="text-sm font-medium text-gray-700 max-w-[68ch] leading-relaxed">
               {status || `Analyzing ${fileName}...`}
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 max-w-[68ch]">
               This may take 15-30 seconds
             </p>
           </div>
         ) : isDragActive ? (
           <div className="flex flex-col items-center gap-3">
             <FileText className="h-10 w-10 text-brand-blue" />
-            <p className="text-sm font-medium text-brand-blue">Drop PDF here</p>
+            <p className="text-sm font-medium text-brand-blue max-w-[68ch] leading-relaxed">Drop PDF here</p>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-3">
             <Upload className="h-10 w-10 text-gray-400" />
             <div className="text-center">
-              <p className="text-sm font-medium text-gray-700">
+              <p className="text-sm font-medium text-gray-700 max-w-[68ch] leading-relaxed">
                 Drag & drop a contract PDF
               </p>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 max-w-[68ch]">
                 or click to browse — up to 50MB
               </p>
             </div>

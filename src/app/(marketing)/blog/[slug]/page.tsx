@@ -455,16 +455,16 @@ const dmvTitleServiceLinks = [
 function RelatedLocalTitleServices() {
   return (
     <section className="mt-10 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
-      <h2 className="text-2xl font-bold text-brand-navy mb-3">
+      <h2 className="t-h4 text-brand-navy mb-3">
         Serving Buyers Across the DMV
       </h2>
-      <p className="text-gray-700 leading-relaxed mb-5">
+      <p className="text-gray-700 leading-relaxed mb-5 max-w-[68ch]">
         Need title insurance or settlement services near you? Pruitt Title serves buyers, realtors, and lenders across Virginia, Maryland, and Washington DC.
       </p>
       <ul className="space-y-3 mb-6">
         {dmvTitleServiceLinks.map((link) => (
           <li key={link.href} className="text-gray-700 leading-relaxed">
-            <Link href={link.href} className="font-semibold text-brand-blue hover:underline">
+            <Link href={link.href} className="font-semibold text-brand-blue-deep hover:underline">
               {link.label}
             </Link>
             <span className="text-gray-500"> - {link.description}</span>
@@ -473,7 +473,7 @@ function RelatedLocalTitleServices() {
       </ul>
       <Link
         href="/calculators/title-quote"
-        className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+        className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
       >
         Get a Title Quote →
       </Link>
@@ -483,21 +483,21 @@ function RelatedLocalTitleServices() {
 
 function DmvTitleServicesFooterLinks() {
   return (
-    <p className="mb-4 leading-relaxed">
+    <p className="mb-4 leading-relaxed max-w-[68ch]">
       <strong className="font-semibold text-gray-900">DMV title services:</strong>{" "}
-      <Link href="/title-search-vienna-va" className="text-brand-blue hover:underline">
+      <Link href="/title-search-vienna-va" className="text-brand-blue-deep hover:underline">
         Vienna, VA
       </Link>
       {" | "}
-      <Link href="/title-company-springfield-va" className="text-brand-blue hover:underline">
+      <Link href="/title-company-springfield-va" className="text-brand-blue-deep hover:underline">
         Springfield, VA
       </Link>
       {" | "}
-      <Link href="/title-company-bethesda-md" className="text-brand-blue hover:underline">
+      <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
         Bethesda, MD
       </Link>
       {" | "}
-      <Link href="/title-company-washington-dc" className="text-brand-blue hover:underline">
+      <Link href="/title-company-washington-dc" className="text-brand-blue-deep hover:underline">
         Washington, DC
       </Link>
     </p>
@@ -702,12 +702,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </nav>
 
           {/* Category tag */}
-          <span className="inline-block text-xs font-semibold text-brand-blue bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+          <span className="inline-block text-xs font-semibold text-brand-blue-deep bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
             {post.category}
           </span>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-navy leading-tight mb-5">
+          <h1 className="t-h2 lg:text-5xl text-brand-navy mb-5">
             {post.title}
           </h1>
 
@@ -774,24 +774,24 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             {/* Article */}
             <article className="lg:col-span-2 min-w-0">
               {/* Excerpt lead */}
-              <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue pl-5">
+              <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue pl-5 max-w-[68ch]">
                 {post.excerpt}
               </p>
 
               {isViennaTitleCompanyPost && (
                 <div className="mb-8 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue mb-2 max-w-[68ch]">
                     Vienna title search services
                   </p>
-                  <h2 className="text-2xl font-bold text-brand-navy mb-3">
+                  <h2 className="t-h4 text-brand-navy mb-3">
                     Looking for title search services in Vienna?
                   </h2>
-                  <p className="text-gray-700 leading-relaxed mb-5">
+                  <p className="text-gray-700 leading-relaxed mb-5 max-w-[68ch]">
                     This article explains how title companies work in Vienna, but if you need a property-specific title review, start with our dedicated Vienna title search service page.
                   </p>
                   <Link
                     href="/title-search-vienna-va"
-                    className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                    className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
                   >
                     Order your Vienna VA title search
                   </Link>
@@ -926,12 +926,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                           // Equal Housing disclaimer
                           if (/equal housing opportunit/i.test(text)) {
                             const clean = text.replace(/^\*+|\*+$/g, "").trim();
-                            return <p className="text-center text-sm italic font-semibold text-gray-500 mt-10">{clean}</p>;
+                            return <p className="text-center text-sm italic font-semibold text-gray-500 mt-10 max-w-[68ch] mx-auto leading-relaxed">{clean}</p>;
                           }
                           // Pruitt Title boilerplate footer (starts with * and contains Pruitt Title)
                           if (/^\*Pruitt Title/i.test(text)) {
                             const clean = text.replace(/^\*+|\*+$/g, "").trim();
-                            return <p className="text-sm italic text-gray-500 mt-6 mb-2">{clean}</p>;
+                            return <p className="text-sm italic text-gray-500 mt-6 mb-2 max-w-[68ch] leading-relaxed">{clean}</p>;
                           }
                           // FAQ question detection: ends with ?, short, starts uppercase
                           if (
@@ -939,7 +939,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             text.length < 150 &&
                             /^[A-Z]/.test(text)
                           ) {
-                            return <p className="font-bold text-brand-blue mt-10 mb-1 text-base border-l-4 border-brand-blue pl-3">{children}</p>;
+                            return <p className="font-bold text-brand-blue mt-10 mb-1 text-base border-l-4 border-brand-blue pl-3 max-w-[68ch] leading-relaxed">{children}</p>;
                           }
                           // Parse markdown links [text](/path) into React elements
                           const mdLinkRegex = /\[([^\]]+)\]\((\/[^)]+)\)/g;
@@ -954,7 +954,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                                 parts.push(<span key={key++}>{text.slice(lastIdx, m.index)}</span>);
                               }
                               parts.push(
-                                <Link key={key++} href={m[2]} className="text-brand-blue hover:underline">
+                                <Link key={key++} href={m[2]} className="text-brand-blue-deep hover:underline">
                                   {m[1]}
                                 </Link>
                               );
@@ -963,14 +963,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             if (lastIdx < text.length) {
                               parts.push(<span key={key++}>{text.slice(lastIdx)}</span>);
                             }
-                            return <p className="mb-4 leading-relaxed">{parts}</p>;
+                            return <p className="mb-4 leading-relaxed max-w-[68ch]">{parts}</p>;
                           }
-                          return <p className="mb-4 leading-relaxed">{children}</p>;
+                          return <p className="mb-4 leading-relaxed max-w-[68ch]">{children}</p>;
                         },
-                        h1: ({ children }: any) => <h1 className="text-3xl font-bold text-brand-navy mt-10 mb-4">{children}</h1>,
-                        h2: ({ children }: any) => <h2 className="text-2xl font-bold text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h3: ({ children }: any) => <h3 className="text-xl font-bold text-brand-navy mt-8 mb-3">{children}</h3>,
-                        h4: ({ children }: any) => <h4 className="text-lg font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
+                        h1: ({ children }: any) => <h1 className="t-h3 text-brand-navy mt-10 mb-4">{children}</h1>,
+                        h2: ({ children }: any) => <h2 className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
+                        h3: ({ children }: any) => <h3 className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
+                        h4: ({ children }: any) => <h4 className="t-h6 font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
                       },
                     }}
                   />
@@ -978,8 +978,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   <BlogArticle content={bodyContent} />
                 ) : (
                   <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 text-center">
-                    <p className="font-semibold text-brand-navy mb-2">📝 Full Article Coming Soon</p>
-                    <p className="text-sm text-brand-muted">
+                    <p className="font-semibold text-brand-navy mb-2 max-w-[68ch] leading-relaxed">📝 Full Article Coming Soon</p>
+                    <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">
                       This article is being finalized. The URL is live and indexed for SEO.
                     </p>
                   </div>
@@ -995,7 +995,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
               {/* ─── CTA Section ─── */}
               <div className="mt-14 bg-brand-navy rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-3">
+                <h3 className="t-h4 text-white mb-3">
                   Ready to Get a Title Quote?
                 </h3>
                 <p className="text-white/70 mb-6 max-w-md mx-auto">
@@ -1004,7 +1004,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
                     href="/calculators/title-quote"
-                    className="inline-block bg-brand-blue hover:bg-brand-blue-dark text-white font-bold px-7 py-3.5 rounded-lg transition-colors"
+                    className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-7 py-3.5 rounded-lg transition-colors"
                   >
                     Get a Free Quote →
                   </Link>
@@ -1096,11 +1096,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                     WR
                   </div>
                   <div>
-                    <p className="font-bold text-brand-navy text-sm">Will Rapuano</p>
-                    <p className="text-xs text-gray-500">Business Development, Pruitt Title LLC</p>
+                    <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">Will Rapuano</p>
+                    <p className="text-xs text-gray-500 max-w-[68ch]">Business Development, Pruitt Title LLC</p>
                   </div>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs text-gray-600 leading-relaxed max-w-[68ch]">
                   Will is a title professional serving buyers, sellers, and lenders across the DMV area. He writes about real estate closings, title insurance, and navigating the DC/Maryland/Virginia markets.
                 </p>
               </div>
@@ -1113,7 +1113,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       {related.length > 0 && (
         <section className="bg-gray-50 py-16 border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-2xl font-bold text-brand-navy mb-8 text-center">
+            <h2 className="t-h4 text-brand-navy mb-8 text-center">
               You Might Also Like
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -1140,7 +1140,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                     <h3 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue transition-colors mb-2 line-clamp-2">
                       {r.title}
                     </h3>
-                    <p className="text-xs text-gray-500">{r.date} · {r.readTime}</p>
+                    <p className="text-xs text-gray-500 max-w-[68ch]">{r.date} · {r.readTime}</p>
                   </div>
                 </Link>
               ))}

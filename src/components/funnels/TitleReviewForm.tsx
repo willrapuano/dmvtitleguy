@@ -76,11 +76,11 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
     return (
       <div className="bg-white rounded-xl shadow-lg p-8 text-center">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
-        <h3 className="text-xl font-bold text-brand-navy mb-2">Request Submitted!</h3>
-        <p className="text-brand-muted text-sm mb-4">
+        <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
+        <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
           Our title team will review your request and respond within one business day.
         </p>
-        <p className="text-brand-muted text-sm">
+        <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Need it faster? Call{" "}
           <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
         </p>
@@ -90,8 +90,8 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-8">
-      <h3 className="text-xl font-bold text-brand-navy mb-2">Request a Title Review</h3>
-      <p className="text-brand-muted text-sm mb-6">Tell us about the property and what you need. We&apos;ll take it from here.</p>
+      <h3 className="t-h5 text-brand-navy mb-2">Request a Title Review</h3>
+      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Tell us about the property and what you need. We&apos;ll take it from here.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Full Name */}
@@ -144,8 +144,8 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
           <div {...getRootProps()} className={`flex min-h-[100px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors ${isDragActive ? "border-brand-blue bg-blue-50" : "border-gray-300 bg-white hover:border-brand-blue hover:bg-blue-50/50"}`}>
             <input {...getInputProps()} />
             <Upload className="h-6 w-6 text-gray-400 mb-1" />
-            <p className="text-sm text-gray-600">Drag & drop supporting documents</p>
-            <p className="text-xs text-gray-400 mt-1">PDF or images — up to 3 files</p>
+            <p className="text-sm text-gray-600 max-w-[68ch] leading-relaxed">Drag & drop supporting documents</p>
+            <p className="text-xs text-gray-400 mt-1 max-w-[68ch]">PDF or images — up to 3 files</p>
           </div>
           {uploadedFiles.length > 0 && (
             <div className="mt-2 space-y-1">
@@ -158,7 +158,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
               ))}
             </div>
           )}
-          {uploadError && <p className="mt-2 text-sm text-red-600">{uploadError}</p>}
+          {uploadError && <p className="mt-2 text-sm text-red-600 max-w-[68ch] leading-relaxed">{uploadError}</p>}
         </div>
 
         {/* Message */}
@@ -173,7 +173,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
         </button>
 
         {status === "error" && (
-          <p className="text-red-600 text-sm text-center">Something went wrong. Please call us at (703) 859-1467.</p>
+          <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
         )}
       </form>
     </div>
