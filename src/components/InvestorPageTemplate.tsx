@@ -141,7 +141,7 @@ export function InvestorPageTemplate({
               <Link
                 key={p.href}
                 href={p.href}
-                className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+                className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-action hover:text-white transition-colors"
               >
                 {p.label}
               </Link>

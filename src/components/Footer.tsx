@@ -91,7 +91,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-blue flex items-center justify-center text-xs font-bold transition-colors duration-200"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-action flex items-center justify-center text-xs font-bold transition-colors duration-200"
               >
                 {s.icon}
               </a>
