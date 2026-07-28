@@ -19,11 +19,20 @@ const nextConfig = {
     },
   },
   images: {
-    formats: ["image/webp"],
+    // Tried in order, so AVIF first and webp for anything that cannot take it.
+    // AVIF runs ~20-30% smaller on these photographic post images; encoding is
+    // slower but the optimizer caches each variant after the first request.
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
+      },
+      // The /why-choose-us hero texture. Only needed while that image is
+      // hotlinked rather than served from /public.
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
     ],
   },

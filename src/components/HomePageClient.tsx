@@ -192,12 +192,21 @@ export function HomePageClient() {
     <>
       {/* ── SECTION 1: HERO ──────────────────────────────────────── */}
       <section className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
-        {/* Background — cherry blossom DC */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/hero-bg.jpg')",
-          }}
+        {/**
+         * Background — cherry blossom DC. This was a CSS background-image, which
+         * bypasses the image optimizer entirely: every visitor, phone included, got
+         * the full 544 KB JPEG at one fixed size. As an <Image fill> it is served
+         * as sized AVIF/webp, and since it is the hero it also gets `priority`,
+         * which a background-image can never receive.
+         */}
+        <Image
+          src="/hero-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-brand-navy/75" />
 
@@ -494,8 +503,13 @@ export function HomePageClient() {
                       <ul className="mt-2 flex flex-wrap text-sm leading-relaxed">
                         {group.links.map((link, i) => (
                           <li key={`${group.heading}-${link.label}`}>
+                            {/* Same reason as the footer's area list: 78 links here,
+                                each pulling ~25 KB of RSC payload on viewport entry,
+                                was 1.44 MB of speculative download on the homepage.
+                                Hover still prefetches. */}
                             <Link
                               href={link.href}
+                              prefetch={false}
                               className="text-brand-blue-deep decoration-brand-blue-deep/30 underline-offset-4 transition hover:underline"
                             >
                               {link.label}
