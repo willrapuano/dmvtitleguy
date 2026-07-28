@@ -769,10 +769,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       {/* ─── Main Content ─── */}
       <div className="bg-white">
         <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
             {/* Article */}
-            <article className="lg:col-span-2">
+            <article className="lg:col-span-2 min-w-0">
               {/* Excerpt lead */}
               <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue pl-5 max-w-[68ch]">
                 {post.excerpt}
@@ -1038,7 +1038,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             </article>
 
             {/* ─── Sidebar ─── */}
-            <aside className="space-y-6 lg:sticky lg:top-24 h-fit">
+            <aside className="space-y-6 lg:sticky lg:top-24 h-fit min-w-0">
               {/* Table of Contents */}
               {toc.length > 0 && (
                 <div className="bg-gray-50 border border-gray-100 rounded-xl p-5">
