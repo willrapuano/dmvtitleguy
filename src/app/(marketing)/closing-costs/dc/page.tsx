@@ -1,3 +1,4 @@
+import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
@@ -95,10 +96,17 @@ export default function DCClosingCostsPage() {
       <ClosingCostCalculator state="DC" />
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-action text-white">
+      <section className="bg-brand-action py-10 text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium max-w-[68ch]">
-            <span className="text-brand-light-blue">💡 Local Insight:</span> DC has the highest closing costs in the DMV—properties over $400K pay 2.9% in combined taxes. But first-time buyers can save $10K+ through DC's recordation tax exemptions. We help buyers navigate these programs.
+          {/* The label previously used an undefined brand colour utility, so it
+              inherited the band's white and carried no emphasis at all. Now an
+              eyebrow with a real icon, matching the homepage pattern. */}
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-100">
+            <Lightbulb size={14} strokeWidth={2} aria-hidden="true" />
+            Local insight
+          </p>
+          <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
+            DC has the highest closing costs in the DMV—properties over $400K pay 2.9% in combined taxes. But first-time buyers can save $10K+ through DC's recordation tax exemptions. We help buyers navigate these programs.
           </p>
         </div>
       </section>

@@ -6,6 +6,7 @@
  * Matches: /title-company-{city}-{state} and /title-company-{county}-county-{state}
  */
 
+import { Phone, Mail, MapPin, Check, AlertTriangle } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -412,7 +413,7 @@ function BethesdaExpansionSections() {
         <div className="container-xl max-w-4xl">
           <h2 className={sectionHeadingClass}>Montgomery County Closing Cost Context</h2>
           <div className="rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900 mb-5">
-            ⚠️ Rates shown are approximate and for illustration only. Verify with current Maryland/county official sources before relying on these estimates.
+            <AlertTriangle size={14} strokeWidth={2.25} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />Rates shown are approximate and for illustration only. Verify with current Maryland/county official sources before relying on these estimates.
           </div>
           <p className={`${bodyClass} mb-4`}>
             Bethesda buyers and sellers should plan around Maryland state charges and Montgomery County charges in addition to lender fees, title insurance, escrow, recording, prorations, and settlement fees. For personalized numbers, start with the{" "}
@@ -786,7 +787,7 @@ function LocationPage({ location }: { location: Location }) {
                 <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
               )}
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
-                📞 (703) 859-1467
+                <Phone size={15} strokeWidth={2.25} className="mr-2 inline-block align-[-2px]" aria-hidden="true" />(703) 859-1467
               </a>
             </div>
           </div>
@@ -809,7 +810,7 @@ function LocationPage({ location }: { location: Location }) {
               <ul className="grid grid-cols-2 gap-2">
                 {SERVICES_LIST.map((s) => (
                   <li key={s} className="flex items-start gap-2 text-sm text-brand-dark-text">
-                    <span className="text-brand-blue mt-0.5 flex-shrink-0">✓</span>
+                    <Check size={16} strokeWidth={2.5} className="mt-1 flex-shrink-0 text-brand-blue-deep" aria-hidden="true" />
                     {s}
                   </li>
                 ))}
@@ -1010,7 +1011,7 @@ function CountyPage({ county }: { county: County }) {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
-              <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">📞 (703) 859-1467</a>
+              <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy"><Phone size={15} strokeWidth={2.25} className="mr-2 inline-block align-[-2px]" aria-hidden="true" />(703) 859-1467</a>
             </div>
           </div>
           <div>
@@ -1060,9 +1061,9 @@ function CountyPage({ county }: { county: County }) {
             <h2 className="t-h3 text-white mb-4">Start Your Order in {name}</h2>
             <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Contact Will Rapuano at Pruitt Title LLC to open your title order or get a quote for your next transaction in {fullName}.</p>
             <div className="space-y-2 text-sm text-gray-300">
-              <p>📞 <a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>
-              <p>✉️ <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">wrapuano@pruitt-title.com</a></p>
-              <p>📍 1900 Gallows Rd Suite 230, Vienna, VA 22182</p>
+              <p className="flex items-center gap-2"><Phone size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>
+              <p className="flex items-center gap-2"><Mail size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">wrapuano@pruitt-title.com</a></p>
+              <p className="flex items-center gap-2"><MapPin size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" />1900 Gallows Rd Suite 230, Vienna, VA 22182</p>
             </div>
           </div>
           <LeadCaptureForm location={`county-${slug}-form`} />

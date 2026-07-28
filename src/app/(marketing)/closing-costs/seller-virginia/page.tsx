@@ -1,3 +1,4 @@
+import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
@@ -66,10 +67,17 @@ export default function SellerVirginiaClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="py-8 bg-brand-action text-white">
+      <section className="bg-brand-action py-10 text-white">
         <div className="container-xl max-w-3xl">
-          <p className="text-lg font-medium max-w-[68ch]">
-            <span className="text-brand-light-blue">💡 Local Insight:</span> Virginia's transfer tax is $1 per $1,000 of sale price—one of the lowest in the DMV region. However, real estate commissions typically run 5-6% of the sale price, making this your largest closing cost.
+          {/* The label previously used an undefined brand colour utility, so it
+              inherited the band's white and carried no emphasis at all. Now an
+              eyebrow with a real icon, matching the homepage pattern. */}
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-100">
+            <Lightbulb size={14} strokeWidth={2} aria-hidden="true" />
+            Local insight
+          </p>
+          <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
+            Virginia's transfer tax is $1 per $1,000 of sale price—one of the lowest in the DMV region. However, real estate commissions typically run 5-6% of the sale price, making this your largest closing cost.
           </p>
         </div>
       </section>

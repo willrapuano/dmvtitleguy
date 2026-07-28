@@ -1,5 +1,6 @@
 "use client";
 
+import { CheckCircle2, Check } from "lucide-react";
 import { useState } from "react";
 
 interface LeadCaptureFormProps {
@@ -48,7 +49,7 @@ export function LeadCaptureForm({
   if (status === "success") {
     return (
       <div className={`bg-white rounded-xl shadow-lg p-8 text-center ${compact ? "p-6" : ""}`}>
-        <div className="text-4xl mb-3">✅</div>
+        <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
         <h3 className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</h3>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Will typically responds within one business day. You can also call directly at{" "}

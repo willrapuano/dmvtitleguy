@@ -1,5 +1,6 @@
 "use client";
 
+import { CheckCircle2, Check } from "lucide-react";
 import { useState } from "react";
 
 const BENEFITS = [
@@ -59,7 +60,7 @@ export function SubscribePageClient() {
             <ul className="space-y-3 mb-8">
               {BENEFITS.map((b) => (
                 <li key={b} className="flex items-start gap-3">
-                  <span className="text-brand-blue font-bold text-lg mt-0.5">✓</span>
+                  <Check size={17} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-brand-blue-deep" aria-hidden="true" />
                   <span className="text-brand-dark-text">{b}</span>
                 </li>
               ))}
@@ -68,7 +69,7 @@ export function SubscribePageClient() {
             {/* Form */}
             {status === "success" ? (
               <div className="text-center py-8">
-                <div className="text-4xl mb-3">✅</div>
+                <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
                 <h3 className="t-h5 text-brand-navy mb-2">You&apos;re subscribed!</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
                   Welcome to the community. Watch your inbox for exclusive resources and updates.

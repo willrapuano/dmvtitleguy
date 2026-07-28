@@ -45,19 +45,19 @@ export function HomeEquityCalculator() {
 
         <div>
           <label className={labelClass}>Current Home Value</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="600,000" value={homeValue} onChange={e => setHomeValue(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
         <div>
           <label className={labelClass}>Remaining Mortgage Balance</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="350,000" value={mortgageBalance} onChange={e => setMortgageBalance(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
         <div>
           <label className={labelClass}>Other Liens (HELOC, 2nd mortgage)</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
             <input type="number" placeholder="0" value={otherLiens} onChange={e => setOtherLiens(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
@@ -65,7 +65,7 @@ export function HomeEquityCalculator() {
           <label className={labelClass}>Max LTV Target (for borrowing)</label>
           <div className="relative">
             <input type="number" placeholder="80" value={ltvTarget} onChange={e => setLtvTarget(e.target.value)} className={inputClass + " pr-7"} />
-            <span className="absolute right-3 top-2.5 text-gray-400 text-sm">%</span>
+            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
       </div>

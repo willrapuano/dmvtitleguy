@@ -1,3 +1,4 @@
+import { Phone, Mail, MapPin, Check, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 
@@ -64,7 +65,7 @@ export function InvestorPageTemplate({
             <div className="flex flex-wrap gap-3">
               <Link href={`/${slug}#quote`} className="btn-primary">Start Your Order →</Link>
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
-                📞 (703) 859-1467
+                <Phone size={15} strokeWidth={2.25} className="mr-2 inline-block align-[-2px]" aria-hidden="true" />(703) 859-1467
               </a>
             </div>
           </div>
@@ -83,7 +84,7 @@ export function InvestorPageTemplate({
               <ul className="space-y-4">
                 {services.map((s) => (
                   <li key={s.title} className="flex gap-3">
-                    <span className="text-brand-blue flex-shrink-0 mt-1">✓</span>
+                    <Check size={16} strokeWidth={2.5} className="mt-1 flex-shrink-0 text-brand-blue-deep" aria-hidden="true" />
                     <div>
                       <h3 className="font-bold text-brand-navy text-sm">{s.title}</h3>
                       <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{s.desc}</p>
