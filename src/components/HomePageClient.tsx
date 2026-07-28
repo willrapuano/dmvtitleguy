@@ -304,39 +304,57 @@ export function HomePageClient() {
             <h2 className="t-h3 text-brand-navy mb-2">Routing by Transaction Partner</h2>
             <p className="text-brand-muted max-w-2xl mx-auto text-sm">Choose the closing path that matches your role. These pages route buyers, realtors, lenders, builders, and institutions into the right title, escrow, and settlement support.</p>
           </div>
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
+          {/**
+           * Was five 205px cards of centred text. At that width the descriptions
+           * wrapped at 23 characters per line into 5-7 ragged lines each — no
+           * icon or typeface choice survives a column that narrow.
+           *
+           * A ruled list gives the copy the full container width (~60-70 chars)
+           * and lets the eye scan role names down a single edge. Rows stack on
+           * mobile, where a 5-up grid was collapsing anyway.
+           */}
+          <ul className="mx-auto max-w-4xl border-t border-gray-200">
             {AUDIENCE_CARDS.map((item) => {
+              const Icon = ROLE_ICONS[item.icon as keyof typeof ROLE_ICONS];
               const inner = (
                 <>
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-brand-blue-50">
-                    {(() => {
-                      const Icon = ROLE_ICONS[item.icon as keyof typeof ROLE_ICONS];
-                      return <Icon size={20} strokeWidth={1.75} className="text-brand-blue-deep" />;
-                    })()}
-                  </div>
-                  <h3 className="font-bold text-brand-navy text-base mb-2">{item.role}</h3>
-                  <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
-                  {item.href && <p className="mt-3 text-brand-blue-deep text-xs font-semibold max-w-[68ch]">Learn more →</p>}
+                  <span className="flex items-start gap-3 sm:col-span-4">
+                    <Icon
+                      size={18}
+                      strokeWidth={1.75}
+                      className="mt-0.5 shrink-0 text-brand-blue-deep"
+                      aria-hidden="true"
+                    />
+                    <span className="t-h6 text-brand-navy">{item.role}</span>
+                  </span>
+                  <span className="text-sm leading-relaxed text-brand-muted sm:col-span-7">
+                    {item.desc}
+                  </span>
+                  {item.href && (
+                    <span
+                      aria-hidden="true"
+                      className="hidden text-brand-blue-deep transition-transform group-hover:translate-x-1 sm:col-span-1 sm:block sm:justify-self-end"
+                    >
+                      →
+                    </span>
+                  )}
                 </>
               );
-              return item.href ? (
-                <Link
-                  key={item.role}
-                  href={item.href}
-                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 block"
-                >
-                  {inner}
-                </Link>
-              ) : (
-                <div
-                  key={item.role}
-                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-                >
-                  {inner}
-                </div>
+              const rowClass =
+                "group grid gap-x-8 gap-y-2 border-b border-gray-200 py-5 sm:grid-cols-12 sm:items-baseline";
+              return (
+                <li key={item.role}>
+                  {item.href ? (
+                    <Link href={item.href} className={`${rowClass} transition-colors hover:bg-white`}>
+                      {inner}
+                    </Link>
+                  ) : (
+                    <div className={rowClass}>{inner}</div>
+                  )}
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </section>
 
