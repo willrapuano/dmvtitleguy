@@ -217,12 +217,23 @@ export function HomePageClient() {
                 </a>
               ))}
             </div>
-            <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3 max-w-[68ch] leading-relaxed">Pruitt Title LLC • DMV Title Guy</p>
-            <h1 className="t-display text-white mb-5">
-              Title &amp; Settlement Services for Buyers, Realtors, Lenders, and Builders Across Virginia, Maryland, and Washington DC
+            <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Pruitt Title LLC • DMV Title Guy</p>
+            {/**
+             * The heading ran 20 words and needed six lines at the display size,
+             * because it was carrying the audience list as well as the service and
+             * the geography. The audiences moved down into the lede, where they are
+             * still on the page and still indexed but no longer set in 60px serif.
+             */}
+            {/* Steps down from the t-display rung at lg, because that is exactly
+                where the hero splits into 1.25fr/0.75fr and the heading loses a
+                third of its measure — 60px in a 725px column wraps to four lines. */}
+            <h1 className="t-display lg:text-5xl text-white mb-5 text-balance">
+              Title &amp; settlement services across Virginia, Maryland, and DC
             </h1>
             <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mb-4">
-              Fast closings. Local expertise. No surprises. Independent title and escrow support for residential, refinance, and builder transactions across the DMV.
+              Fast closings. Local expertise. No surprises. Independent title and escrow
+              support for buyers, realtors, lenders, and builders — residential, refinance,
+              and builder transactions across the DMV.
             </p>
             <p className="text-base text-gray-300 max-w-2xl mb-8">
               Whether you are buying, selling, refinancing, or coordinating a builder or lender-side closing, DMV Title Guy helps keep transactions moving with responsive communication, clear title work, and settlement support across Virginia, Maryland, and DC.
@@ -234,14 +245,13 @@ export function HomePageClient() {
               >
                 Get a Title Quote →
               </Link>
-              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-8 py-3.5">
-                Open Title
-              </Link>
+              {/* "Open Title" and "Start Your Closing" were two buttons, worded
+                  differently, pointing at the same page. */}
               <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-8 py-3.5">
                 Start Your Closing
               </Link>
             </div>
-            <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">
+            <p className="text-sm text-gray-300">
               Trusted local operator: <strong className="text-white">Will Rapuano / DMV Title Guy</strong> with Pruitt Title LLC.
             </p>
           </div>
