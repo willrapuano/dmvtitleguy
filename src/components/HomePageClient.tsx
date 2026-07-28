@@ -1,8 +1,16 @@
 "use client";
 
+import { Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+
+/**
+ * Emoji were doing the work of icons here — they render differently on every OS,
+ * ignore the palette, and sat oddly beside the serif headings. lucide-react was
+ * already a dependency.
+ */
+const ROLE_ICONS = { Home, Handshake, Landmark, Hammer, Building2 } as const;
 
 const SOCIAL_LINKS = [
   { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", Icon: Facebook },
@@ -12,11 +20,11 @@ const SOCIAL_LINKS = [
 ];
 
 const AUDIENCE_CARDS = [
-  { role: "For Buyers & Sellers", desc: "Clear title work, responsive communication, and smoother purchase, sale, and refinance closings across the DMV.", icon: "🏠", href: "/title-quote" },
-  { role: "For Realtors", desc: "Faster communication, fewer closing surprises, and a better client experience from contract to settlement.", icon: "🤝", href: "/title-company-for-realtors" },
-  { role: "For Lenders", desc: "Reliable coordination, cleaner files, and dependable settlement support for your active pipeline.", icon: "🏦", href: "/title-company-for-lenders" },
-  { role: "For Builders", desc: "Repeatable closing support for new construction, buyer coordination, and pipeline-ready settlement execution.", icon: "🔨", href: "/title-company-for-builders" },
-  { role: "For Banks & Credit Unions", desc: "Institutional-grade title and escrow support with the reliability and responsiveness your teams expect.", icon: "🏛️", href: "/title-company-for-credit-unions" },
+  { role: "For Buyers & Sellers", desc: "Clear title work, responsive communication, and smoother purchase, sale, and refinance closings across the DMV.", icon: "Home", href: "/title-quote" },
+  { role: "For Realtors", desc: "Faster communication, fewer closing surprises, and a better client experience from contract to settlement.", icon: "Handshake", href: "/title-company-for-realtors" },
+  { role: "For Lenders", desc: "Reliable coordination, cleaner files, and dependable settlement support for your active pipeline.", icon: "Landmark", href: "/title-company-for-lenders" },
+  { role: "For Builders", desc: "Repeatable closing support for new construction, buyer coordination, and pipeline-ready settlement execution.", icon: "Hammer", href: "/title-company-for-builders" },
+  { role: "For Banks & Credit Unions", desc: "Institutional-grade title and escrow support with the reliability and responsiveness your teams expect.", icon: "Building2", href: "/title-company-for-credit-unions" },
 ];
 
 const MONEY_PAGES = [
@@ -300,7 +308,12 @@ export function HomePageClient() {
             {AUDIENCE_CARDS.map((item) => {
               const inner = (
                 <>
-                  <div className="text-3xl mb-3">{item.icon}</div>
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-brand-blue-50">
+                    {(() => {
+                      const Icon = ROLE_ICONS[item.icon as keyof typeof ROLE_ICONS];
+                      return <Icon size={20} strokeWidth={1.75} className="text-brand-blue-deep" />;
+                    })()}
+                  </div>
                   <h3 className="font-bold text-brand-navy text-base mb-2">{item.role}</h3>
                   <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
                   {item.href && <p className="mt-3 text-brand-blue-deep text-xs font-semibold max-w-[68ch]">Learn more →</p>}
@@ -361,7 +374,7 @@ export function HomePageClient() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue-deep text-2xl">🏠</span>
+                <Clock size={24} strokeWidth={1.75} className="text-brand-blue-deep" />
               </div>
               <h3 className="text-brand-navy t-h6 mb-3">Title &amp; Escrow That Doesn&apos;t Slow You Down</h3>
               <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
@@ -370,7 +383,7 @@ export function HomePageClient() {
             </div>
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue-deep text-2xl">⏱️</span>
+                <MessageSquare size={24} strokeWidth={1.75} className="text-brand-blue-deep" />
               </div>
               <h3 className="text-brand-navy t-h6 mb-3">Responsive Communication From Contract to Closing</h3>
               <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
@@ -379,7 +392,7 @@ export function HomePageClient() {
             </div>
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <span className="text-brand-blue-deep text-2xl">🧭</span>
+                <MapPin size={24} strokeWidth={1.75} className="text-brand-blue-deep" />
               </div>
               <h3 className="text-brand-navy t-h6 mb-3">Local DMV Expertise for Complex Closings</h3>
               <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">

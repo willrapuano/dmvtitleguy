@@ -50,6 +50,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-open-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
       },
       container: {
         center: true,

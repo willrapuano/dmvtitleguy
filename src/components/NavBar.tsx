@@ -70,10 +70,23 @@ export function NavBar() {
     <header className="bg-brand-navy text-white sticky top-0 z-50 shadow-lg">
       <div className="container-xl flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <span className="text-xl font-bold tracking-tight text-white">
-            DMV <span className="text-brand-blue">Title Guy</span>
-          </span>
+        {/**
+         * The header showed a text wordmark while the real wordmark sat unused in
+         * logo.png. Same knockout as the footer: logo.png has no alpha, so invert
+         * flips the black artwork white and screen drops the now-black ground.
+         * `unoptimized` keeps the exact 255/0 values the blend depends on.
+         */}
+        <Link href="/" className="flex items-center" aria-label="DMV Title Guy — home">
+          <Image
+            src="/logo.png"
+            alt="DMV Title Guy"
+            width={2046}
+            height={690}
+            sizes="150px"
+            priority
+            unoptimized
+            className="h-auto w-[132px] sm:w-[150px] [filter:invert(1)] [mix-blend-mode:screen]"
+          />
         </Link>
 
         {/* Desktop nav */}
