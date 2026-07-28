@@ -34,6 +34,54 @@ import {
   getStateFullName,
 } from "@/data/closingCostData";
 
+/**
+ * Verified local cost data for a location page, and how we came by it.
+ *
+ * The location pages measured 301 words at 30% unique on average — the same
+ * template with a city name swapped in — while closingCostData.ts already held
+ * written, jurisdiction-specific figures that only the /closing-costs-* pages
+ * ever rendered. This resolves the nearest data a page may honestly claim:
+ *
+ *   "city"   the city's own entry
+ *   "parent" the parent market, for neighborhood pages that declare a parentSlug
+ *   "county" another city in the same county, valid only because the levies these
+ *            entries describe are themselves county-level
+ *
+ * The county fallback deliberately refuses anything ambiguous. Virginia's
+ * independent cities set their own rates, and a county string naming two counties
+ * cannot resolve to one — publishing a neighboring jurisdiction's transfer tax as
+ * if it were local would be worse than saying nothing.
+ */
+type CostBasis = "city" | "parent" | "county";
+
+/** 0.01 -> "1%", 0.001 -> "0.1%" — no trailing zeros on a tax rate. */
+function formatRate(rate: number): string {
+  return `${Number((rate * 100).toFixed(3))}%`;
+}
+
+function resolveLocalCostData(
+  location: Location,
+  parentLocation?: Location
+): { data: (typeof CITY_CALCULATOR_DATA)[number]; basis: CostBasis } | undefined {
+  const byCity = (name?: string) =>
+    name
+      ? CITY_CALCULATOR_DATA.find((c) => c.city.toLowerCase() === name.toLowerCase())
+      : undefined;
+
+  const own = byCity(location.city);
+  if (own) return { data: own, basis: "city" };
+
+  const parent = byCity(parentLocation?.city);
+  if (parent) return { data: parent, basis: "parent" };
+
+  const ambiguous = /independent city|\//.test(location.county);
+  if (!ambiguous) {
+    const sameCounty = CITY_CALCULATOR_DATA.find((c) => c.county === location.county);
+    if (sameCounty) return { data: sameCounty, basis: "county" };
+  }
+  return undefined;
+}
+
 const BETHESDA_FAQS: FaqItem[] = [
   {
     question: "What does a title company do in Bethesda MD?",
@@ -717,6 +765,9 @@ function LocationPage({ location }: { location: Location }) {
       ? `Estimate your Maryland closing costs for ${locationName}, including county-sensitive title, transfer, and settlement cost inputs.`
       : `Estimate your closing costs in ${stateFullName} with our free interactive calculator.`;
   const isBethesda = slug === "title-company-bethesda-md";
+  // Bethesda already has a hand-written cost section, so it does not need the
+  // generated one on top.
+  const localCost = isBethesda ? undefined : resolveLocalCostData(location, parentLocation);
 
   const SERVICES_LIST = [
     "Title Search & Examination",
@@ -849,6 +900,105 @@ function LocationPage({ location }: { location: Location }) {
 
       {isBethesda && <BethesdaExpansionSections />}
       {isTysons && <TysonsExpansionSections />}
+
+      {/* LOCAL COST CONTEXT — real figures, attributed to the jurisdiction that levies them */}
+      {localCost && (
+        <section className="section-light border-t border-gray-100">
+          <div className="container-xl max-w-3xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-blue-deep">
+              {localCost.data.county} · Recording &amp; transfer taxes
+            </p>
+            <h2 className="t-h4 mt-3 text-brand-navy">
+              What closing actually costs in {locationName}
+            </h2>
+
+            {/**
+             * Only tax rates and localTaxNote cross city lines. Both describe a
+             * county-level levy and read the same anywhere in that county. Everything
+             * else in the record is written about one city — medianHomePrice,
+             * costRangeText and localTaxExplainer all name it or quote a dollar
+             * example against its median — so borrowing them would put a wrong
+             * number in front of someone pricing a real transaction.
+             */}
+            <dl className="mt-6 grid gap-x-8 gap-y-4 border-t border-gray-200 pt-5 sm:grid-cols-3">
+              {localCost.basis === "city" && (
+                <>
+                  <div>
+                    <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                      Median home price
+                    </dt>
+                    <dd className="font-display text-2xl tabular-nums text-brand-navy">
+                      ${localCost.data.medianHomePrice.toLocaleString("en-US")}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                      Typical total
+                    </dt>
+                    <dd className="text-sm leading-relaxed text-brand-muted">
+                      {localCost.data.costRangeText}
+                    </dd>
+                  </div>
+                </>
+              )}
+              {localCost.data.countyTransferTaxRate > 0 && (
+                <div>
+                  <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                    County transfer tax
+                  </dt>
+                  <dd className="font-display text-2xl tabular-nums text-brand-navy">
+                    {formatRate(localCost.data.countyTransferTaxRate)}
+                  </dd>
+                </div>
+              )}
+              {localCost.data.localRecordationTaxRate > 0 && (
+                <div>
+                  <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                    Local recordation tax
+                  </dt>
+                  <dd className="font-display text-2xl tabular-nums text-brand-navy">
+                    {formatRate(localCost.data.localRecordationTaxRate)}
+                  </dd>
+                </div>
+              )}
+              <div>
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                  Recording office
+                </dt>
+                <dd className="text-sm leading-relaxed text-brand-muted">{localCost.data.county}</dd>
+              </div>
+            </dl>
+
+            {localCost.basis === "city" && (
+              <p className="mt-6 max-w-[68ch] leading-relaxed text-brand-muted">
+                {localCost.data.localTaxExplainer}
+              </p>
+            )}
+            <p className="mt-4 max-w-[68ch] leading-relaxed text-brand-muted">
+              {localCost.data.localTaxNote}
+            </p>
+
+            {localCost.basis !== "city" && (
+              <p className="mt-4 max-w-[68ch] text-xs leading-relaxed text-brand-ink-light">
+                {city} sits in {localCost.data.county}, so these county rates apply here. For a
+                worked example against a specific sale price, use the calculator.
+              </p>
+            )}
+
+            <p className="mt-6">
+              <Link
+                href={`/${localCost.data.slug}`}
+                className="text-sm font-semibold text-brand-blue-deep hover:underline"
+              >
+                {localCost.basis === "city"
+                  ? `Full ${localCost.data.city} closing cost breakdown and calculator`
+                  : `${localCost.data.county} closing cost calculator`}{" "}
+                →
+              </Link>
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* ALSO SERVING */}
       {alsoServing && alsoServing.length > 0 && (
