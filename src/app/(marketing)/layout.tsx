@@ -32,7 +32,7 @@ const ORGANIZATION_SCHEMA = {
   sameAs: [
     "https://www.facebook.com/profile.php?id=61556322698901",
     "https://www.instagram.com/dmvtitleguy",
-    "https://www.linkedin.com/in/willrapuano-86914b130",
+    "https://www.linkedin.com/in/will-rapuano-86914b130",
     "https://www.youtube.com/@dmvtitleguy",
   ],
 };
@@ -73,7 +73,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   sameAs: [
     "https://www.facebook.com/profile.php?id=61556322698901",
     "https://www.instagram.com/dmvtitleguy",
-    "https://www.linkedin.com/in/willrapuano-86914b130",
+    "https://www.linkedin.com/in/will-rapuano-86914b130",
     "https://www.youtube.com/@dmvtitleguy",
   ],
 };
