@@ -186,6 +186,52 @@ const SERVICE_AREAS: ServiceAreaColumn[] = [
   },
 ];
 
+/**
+ * One section header for the whole page.
+ *
+ * Six of seven sections previously opened with an identical centred stack —
+ * heading, decorative dash, centred paragraph — which is what made the page read
+ * as templated regardless of typeface. This pairs a numbered small-caps label
+ * with a display heading and left-aligns by default, so the sections share a
+ * left edge and the numbers give the page a spine. Centring is reserved for the
+ * one deliberately loud CTA band.
+ */
+function SectionHead({
+  index,
+  label,
+  title,
+  lede,
+  center = false,
+}: {
+  index: string;
+  label: string;
+  title: React.ReactNode;
+  lede?: string;
+  center?: boolean;
+}) {
+  return (
+    <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+      <p
+        className={`flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-blue-deep ${
+          center ? "justify-center" : ""
+        }`}
+      >
+        <span className="font-display text-sm tabular-nums">{index}</span>
+        <span aria-hidden="true" className="h-px w-8 bg-brand-blue-deep/40" />
+        {label}
+      </p>
+      <h2 className="t-h2 mt-4 text-brand-navy">{title}</h2>
+      {lede && (
+        <p
+          className={`mt-4 max-w-[62ch] leading-relaxed text-brand-muted ${center ? "mx-auto" : ""}`}
+        >
+          {lede}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export function HomePageClient() {
   return (
     <>
@@ -272,38 +318,50 @@ export function HomePageClient() {
       {/* ── SECTION 2: MONEY PAGE ROUTING ──────────────────────── */}
       <section className="section-light">
         <div className="container-xl">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-[42px] font-bold text-brand-navy leading-tight mb-3">
-              Start Here: Title Quotes, Closings, and Service Pages
-            </h2>
-            <div className="accent-divider" />
-            <p className="text-brand-muted max-w-3xl mx-auto mt-6">
-              Use the homepage to route directly into the pages that matter most for quotes, closing support, and local title service coverage across Virginia, Maryland, and Washington DC.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          <SectionHead
+            index="01"
+            label="Start here"
+            title="Title quotes, closings, and service pages"
+            lede="Route directly into the pages that matter most for quotes, closing support, and local title service coverage across Virginia, Maryland, and Washington DC."
+          />
+          {/* An index, not a card wall: hairline rules and a hanging arrow read as
+              a directory, and drop the shadowed-box repetition entirely. */}
+          <ul className="mt-12 grid gap-x-12 border-t border-gray-200 sm:grid-cols-2">
             {MONEY_PAGES.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 block"
-              >
-                <h3 className="text-brand-navy t-h6 mb-2">{item.label}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.detail}</p>
-                <p className="mt-3 text-brand-blue-deep text-xs font-semibold max-w-[68ch]">Go to page →</p>
-              </Link>
+              <li key={item.href} className="border-b border-gray-200">
+                <Link href={item.href} className="group flex items-baseline gap-4 py-5">
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-display text-lg font-semibold leading-snug text-brand-navy">
+                      {item.label}
+                    </span>
+                    <span className="mt-1.5 block max-w-[58ch] text-sm leading-relaxed text-brand-muted">
+                      {item.detail}
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 text-brand-blue-deep transition-transform group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* ── WHO WE WORK WITH ─────────────────────────────────────── */}
       <section className="section-gray">
         <div className="container-xl">
-          <div className="text-center mb-8">
-            <h2 className="t-h3 text-brand-navy mb-2">Routing by Transaction Partner</h2>
-            <p className="text-brand-muted max-w-2xl mx-auto text-sm">Choose the closing path that matches your role. These pages route buyers, realtors, lenders, builders, and institutions into the right title, escrow, and settlement support.</p>
-          </div>
+          {/* Left-aligned to share an edge with the list below it; a centred
+              heading over a left-aligned list was the leftover inconsistency. */}
+          <SectionHead
+            index="02"
+            label="By role"
+            title="Routing by transaction partner"
+            lede="Choose the closing path that matches your role. These pages route buyers, realtors, lenders, builders, and institutions into the right title, escrow, and settlement support."
+          />
           {/**
            * Was five 205px cards of centred text. At that width the descriptions
            * wrapped at 23 characters per line into 5-7 ragged lines each — no
@@ -313,7 +371,7 @@ export function HomePageClient() {
            * and lets the eye scan role names down a single edge. Rows stack on
            * mobile, where a 5-up grid was collapsing anyway.
            */}
-          <ul className="mx-auto max-w-4xl border-t border-gray-200">
+          <ul className="mt-12 border-t border-gray-200">
             {AUDIENCE_CARDS.map((item) => {
               const Icon = ROLE_ICONS[item.icon as keyof typeof ROLE_ICONS];
               const inner = (
@@ -381,82 +439,110 @@ export function HomePageClient() {
       {/* ── SECTION 4: WHAT YOU GET ─────────────────────────────── */}
       <section className="section-light">
         <div className="container-xl">
-          <div className="text-center mb-12">
-            <h2 className="prose-title">Why Transactions Move Faster With DMV Title Guy</h2>
-            <div className="accent-divider" />
-            <p className="prose-subtitle max-w-2xl mx-auto">
-              Title, escrow, and settlement support first — with communication and problem-solving built for real transactions.
+          <SectionHead
+            index="03"
+            label="Why it moves faster"
+            title="Title, escrow, and settlement — built for real transactions"
+            lede="Communication and problem-solving first, not paperwork thrown over a wall."
+          />
+
+          {/* Numbered columns under a heavy rule instead of icons in pastel
+              circles — that pattern is the single most generic thing on a
+              marketing page, and a rule plus a numeral carries the same
+              hierarchy with none of the decoration. */}
+          <div className="mt-14 grid gap-x-12 gap-y-12 md:grid-cols-3">
+            {[
+              {
+                Icon: Clock,
+                title: "Title & escrow that doesn't slow you down",
+                body: "Fast, reliable title work and settlement coordination for purchase, refinance, resale, and builder transactions across DC, Maryland, and Virginia.",
+              },
+              {
+                Icon: MessageSquare,
+                title: "Responsive communication from contract to closing",
+                body: "Buyers, agents, lenders, and builders get proactive updates, cleaner coordination, and fewer last-minute surprises at settlement.",
+              },
+              {
+                Icon: MapPin,
+                title: "Local DMV expertise for complex closings",
+                body: "From Montgomery County and Bethesda to Washington DC and Northern Virginia, the team understands local taxes, title issues, and settlement workflows that affect real transactions.",
+              },
+            ].map((d, i) => (
+              <div key={d.title} className="border-t-2 border-brand-navy pt-5">
+                <div className="flex items-center gap-3">
+                  <span className="font-display text-sm font-semibold text-brand-blue-deep tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <d.Icon size={17} strokeWidth={1.75} className="text-brand-blue-deep" aria-hidden="true" />
+                </div>
+                <h3 className="t-h5 mt-4 text-brand-navy">{d.title}</h3>
+                <p className="mt-3 max-w-[46ch] text-[15px] leading-relaxed text-brand-muted">{d.body}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Pull-quote as a real editorial moment: display serif at scale, no
+              box, hanging off the same left edge as everything above it. */}
+          <blockquote className="mt-20 max-w-4xl border-t border-gray-200 pt-10">
+            <p className="font-display text-2xl leading-[1.4] text-brand-navy md:text-[1.75rem]">
+              &ldquo;My goal is simple: help real estate professionals in the DMV grow their
+              businesses through better marketing, better education, and better title services.
+              When my partners succeed, everybody wins.&rdquo;
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <Clock size={24} strokeWidth={1.75} className="text-brand-blue-deep" />
-              </div>
-              <h3 className="text-brand-navy t-h6 mb-3">Title &amp; Escrow That Doesn&apos;t Slow You Down</h3>
-              <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
-                Fast, reliable title work and settlement coordination for purchase, refinance, resale, and builder transactions across DC, Maryland, and Virginia.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <MessageSquare size={24} strokeWidth={1.75} className="text-brand-blue-deep" />
-              </div>
-              <h3 className="text-brand-navy t-h6 mb-3">Responsive Communication From Contract to Closing</h3>
-              <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
-                Buyers, agents, lenders, and builders get proactive updates, cleaner coordination, and fewer last-minute surprises at settlement.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-brand-blue/10 rounded-full flex items-center justify-center mb-5">
-                <MapPin size={24} strokeWidth={1.75} className="text-brand-blue-deep" />
-              </div>
-              <h3 className="text-brand-navy t-h6 mb-3">Local DMV Expertise for Complex Closings</h3>
-              <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">
-                From Montgomery County and Bethesda to Washington DC and Northern Virginia, the team understands local taxes, title issues, and settlement workflows that affect real transactions.
-              </p>
-            </div>
-          </div>
-
-          {/* Quote */}
-          <blockquote className="mt-12 max-w-2xl mx-auto text-center border-l-4 border-brand-blue pl-6 py-2 italic text-brand-muted">
-            &ldquo;My goal is simple: help real estate professionals in the DMV grow their businesses through better marketing, better education, and better title services. When my partners succeed, everybody wins.&rdquo;
-            <footer className="mt-2 text-brand-navy font-semibold not-italic text-sm">— Will Rapuano, DMV Title Guy</footer>
+            <footer className="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-brand-blue-deep">
+              Will Rapuano
+              <span className="ml-2 font-medium normal-case tracking-normal text-brand-muted">
+                DMV Title Guy, Pruitt Title LLC
+              </span>
+            </footer>
           </blockquote>
         </div>
       </section>
 
       {/* ── SERVICE AREA SECTION ────────────────────────────────── */}
-      <section className="section-light">
-        <div className="container-xl text-center">
-          <h2 className="prose-title">Title Insurance &amp; Closing Services Across the DMV</h2>
-          <div className="accent-divider" />
-          <p className="prose-subtitle max-w-2xl mx-auto mb-10">
-            Pruitt Title LLC provides professional title and settlement services throughout Washington DC, Northern Virginia, and Maryland.
-          </p>
-          <div className="grid gap-6 lg:grid-cols-3 max-w-6xl mx-auto items-start">
+      <section className="section-gray">
+        <div className="container-xl">
+          <SectionHead
+            index="04"
+            label="Coverage"
+            title="Title insurance and closing services across the DMV"
+            lede="Pruitt Title LLC provides professional title and settlement services throughout Washington DC, Northern Virginia, and Maryland."
+          />
+          {/* Location links were 73 fixed-width pills centred inside three cards,
+              which produced a ragged grid of half-empty rows. As a left-aligned
+              inline set they read as an index and set their own rhythm. */}
+          <div className="mt-14 grid gap-x-12 gap-y-12 lg:grid-cols-3">
             {SERVICE_AREAS.map((area) => (
-              <div key={area.title} className="h-full rounded-xl border border-gray-100 bg-white p-6 shadow-sm text-center">
-                <h3 className="text-brand-navy t-h6 mb-3">{area.title}</h3>
-                <p className="text-sm text-brand-muted leading-relaxed mb-6 max-w-[68ch]">{area.description}</p>
-                <div className="space-y-6">
+              <div key={area.title} className="border-t border-gray-300 pt-6">
+                <h3 className="t-h5 text-brand-navy">{area.title}</h3>
+                <p className="mt-3 max-w-[46ch] text-sm leading-relaxed text-brand-muted">
+                  {area.description}
+                </p>
+                <div className="mt-6 space-y-5">
                   {area.groups.map((group) => (
                     <div key={group.heading}>
-                      <h4 className="font-semibold text-brand-navy text-sm uppercase tracking-[0.08em] mb-3">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-navy/70">
                         {group.heading}
                       </h4>
-                      <div className="flex flex-wrap justify-center gap-2">
-                        {group.links.map((link) => (
-                          <Link
-                            key={`${group.heading}-${link.label}`}
-                            href={link.href}
-                            className="inline-flex min-w-[9.5rem] items-center justify-center rounded-md border border-brand-blue/10 bg-brand-blue/5 px-3 py-2 text-center text-sm font-medium text-brand-blue-deep transition hover:border-brand-blue/30 hover:bg-brand-blue/10 hover:no-underline"
-                          >
-                            {link.label}
-                          </Link>
+                      {/* Separator trails its own link rather than leading the next
+                          one, so a wrap can never start a line with a stray dot. */}
+                      <ul className="mt-2 flex flex-wrap text-sm leading-relaxed">
+                        {group.links.map((link, i) => (
+                          <li key={`${group.heading}-${link.label}`}>
+                            <Link
+                              href={link.href}
+                              className="text-brand-blue-deep decoration-brand-blue-deep/30 underline-offset-4 transition hover:underline"
+                            >
+                              {link.label}
+                            </Link>
+                            {i < group.links.length - 1 && (
+                              <span aria-hidden="true" className="mx-1.5 text-gray-400">
+                                ·
+                              </span>
+                            )}
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
                   ))}
                 </div>
@@ -468,32 +554,66 @@ export function HomePageClient() {
 
 
       {/* ── SECTION 9: WILL / TRUST BUILDER ─────────────────────── */}
+      {/* Was a centred wall of text in a 3xl column with the headshot nowhere on
+          the page. An asymmetric 7/5 split gives the person a face and turns the
+          contact details into a proper colophon instead of a stack of centred
+          lines. */}
       <section className="section-light">
-        <div className="container-xl max-w-3xl text-center">
-          <h2 className="prose-title mb-2">Meet Will Rapuano — Your Local Title Partner in VA, MD & DC</h2>
-          <p className="text-brand-blue-deep font-semibold mb-6 max-w-[68ch] mx-auto leading-relaxed">Pruitt Title LLC</p>
-          <div className="accent-divider" />
-          <div className="text-brand-muted leading-relaxed space-y-4 mb-8 text-left">
-            <p className="max-w-[68ch]">
-              Will Rapuano is the driving force behind DMV Title Guy, bringing a personal touch to every transaction. As your go-to title partner in Virginia, Maryland, and Washington DC, Will focuses on building relationships—not just processing paperwork. Whether you're a real estate agent or a lender, you’ll appreciate his straightforward approach and commitment to making closings seamless.
-            </p>
-            <p>
-              Need a title partner you can count on? Reach out directly for a quote or to open a title.
-            </p>
-          </div>
-          <div className="text-brand-muted text-sm space-y-2 mb-8">
-            <p className="font-semibold text-brand-navy max-w-[68ch] mx-auto leading-relaxed">Get in touch:</p>
-            <p><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">wrapuano@pruitt-title.com</a></p>
-            <p><a href="tel:+17038591467" className="text-brand-blue-deep hover:underline">(703) 859-1467</a></p>
-            <p>1900 Gallows Rd Suite 230, Vienna, VA 22182</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/calculators/title-quote" className="btn-primary px-8">
-              Get a Title Quote
-            </Link>
-            <Link href="/contact" className="btn-outline px-8">
-              Contact the Team
-            </Link>
+        <div className="container-xl">
+          <SectionHead index="05" label="Who you'll deal with" title="Meet Will Rapuano" />
+          <div className="mt-12 grid gap-12 md:grid-cols-12">
+            <div className="md:col-span-7">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-deep">
+                Your local title partner in VA, MD &amp; DC · Pruitt Title LLC
+              </p>
+              <div className="mt-6 space-y-5 leading-relaxed text-brand-muted">
+                <p className="max-w-[68ch] text-[17px]">
+                  Will Rapuano is the driving force behind DMV Title Guy, bringing a personal touch to every transaction. As your go-to title partner in Virginia, Maryland, and Washington DC, Will focuses on building relationships—not just processing paperwork. Whether you&apos;re a real estate agent or a lender, you&apos;ll appreciate his straightforward approach and commitment to making closings seamless.
+                </p>
+                <p className="max-w-[68ch]">
+                  Need a title partner you can count on? Reach out directly for a quote or to open a title.
+                </p>
+              </div>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <Link href="/calculators/title-quote" className="btn-primary px-8">
+                  Get a Title Quote
+                </Link>
+                <Link href="/contact" className="btn-outline px-8">
+                  Contact the Team
+                </Link>
+              </div>
+            </div>
+
+            <aside className="md:col-span-5">
+              {/* The file is a 1638x2048 cutout with a pure-white ground, so on a
+                  white section it floated with no edge. A tinted panel plus
+                  multiply drops the white and gives the portrait a frame; the
+                  source is already 4:5, so nothing is cropped. */}
+              <div className="overflow-hidden rounded-sm bg-brand-blue-50">
+                <Image
+                  src="/will-rapuano-headshot.jpg"
+                  alt="Will Rapuano, Pruitt Title LLC"
+                  width={1638}
+                  height={2048}
+                  sizes="(min-width: 768px) 420px, 100vw"
+                  className="h-auto w-full [mix-blend-mode:multiply]"
+                />
+              </div>
+              <dl className="mt-6 border-t border-gray-200 pt-5 text-sm">
+                {[
+                  { k: "Email", v: <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">wrapuano@pruitt-title.com</a> },
+                  { k: "Phone", v: <a href="tel:+17038591467" className="text-brand-blue-deep hover:underline">(703) 859-1467</a> },
+                  { k: "Office", v: <span className="text-brand-muted">1900 Gallows Rd Suite 230, Vienna, VA 22182</span> },
+                ].map((row) => (
+                  <div key={row.k} className="flex gap-4 border-b border-gray-100 py-2.5 last:border-0">
+                    <dt className="w-16 shrink-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                      {row.k}
+                    </dt>
+                    <dd className="min-w-0 flex-1">{row.v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </aside>
           </div>
         </div>
       </section>
