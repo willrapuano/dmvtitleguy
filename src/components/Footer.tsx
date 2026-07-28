@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { ALL_LOCATIONS } from "@/data/locations";
 
+/* Same four links as the hero, which already uses these icons — the footer was
+   still spelling them out as "FB" / "IG" / "IN" / "YT". */
 const SOCIAL_LINKS = [
-  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", icon: "FB" },
-  { label: "Instagram", href: "https://www.instagram.com/dmvtitleguy",                  icon: "IG" },
-  { label: "LinkedIn",  href: "https://www.linkedin.com/in/will-rapuano-86914b130",      icon: "IN" },
-  { label: "YouTube",   href: "https://www.youtube.com/@dmvtitleguy",                   icon: "YT" },
+  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", Icon: Facebook },
+  { label: "Instagram", href: "https://www.instagram.com/dmvtitleguy",                  Icon: Instagram },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/in/will-rapuano-86914b130",      Icon: Linkedin },
+  { label: "YouTube",   href: "https://www.youtube.com/@dmvtitleguy",                   Icon: Youtube },
 ];
 
 const SERVICE_AREAS = ALL_LOCATIONS;
@@ -34,28 +37,24 @@ export function Footer() {
         {/* Column 1: Brand tagline */}
         <div>
           {/**
-           * logo.png is a 2046x690 horizontal wordmark (2.97:1), but it was
-           * declared 44x44, so it rendered as a ~44x15px sliver — and because the
-           * file is RGB with no alpha, its baked-in white background showed as a
-           * pale box against the navy footer.
-           *
-           * Correct proportions here, and knock the white out with invert+screen:
-           * invert turns the black artwork white and the white ground black, then
-           * screen drops black to transparent. A proper transparent light-on-dark
-           * export would make this unnecessary.
+           * The wordmark ships without its tagline, because at 220px wide the
+           * tagline in the full lockup sets about 7px tall — so it goes below as
+           * real text instead, where it is legible and selectable.
            */}
-          <Link href="/" className="mb-5 inline-block" aria-label="DMV Title Guy — home">
+          <Link href="/" className="inline-block" aria-label="DMV Title Guy — home">
             <Image
-              src="/logo.png"
-              alt="DMV Title Guy — got your back on every contract"
-              width={2046}
-              height={690}
-              sizes="200px"
-              unoptimized
-              className="h-auto w-[200px] [filter:invert(1)] [mix-blend-mode:screen]"
+              src="/logo-wordmark-white.png"
+              alt="DMV Title Guy"
+              width={1235}
+              height={164}
+              sizes="220px"
+              className="h-auto w-[220px]"
               priority={false}
             />
           </Link>
+          <p className="mb-5 mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-300">
+            Got your back on every contract
+          </p>
           <p className="text-sm text-gray-300 leading-relaxed max-w-xs">
             Trusted title &amp; escrow services for real estate professionals, builders, and financial institutions — serving the DMV and clients nationwide.
           </p>
@@ -91,9 +90,9 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-action flex items-center justify-center text-xs font-bold transition-colors duration-200"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-action flex items-center justify-center text-white transition-colors duration-200"
               >
-                {s.icon}
+                <s.Icon className="w-5 h-5" />
               </a>
             ))}
           </div>

@@ -71,21 +71,20 @@ export function NavBar() {
       <div className="container-xl flex items-center justify-between h-16">
         {/* Logo */}
         {/**
-         * The header showed a text wordmark while the real wordmark sat unused in
-         * logo.png. Same knockout as the footer: logo.png has no alpha, so invert
-         * flips the black artwork white and screen drops the now-black ground.
-         * `unoptimized` keeps the exact 255/0 values the blend depends on.
+         * logo-wordmark-white.png is the wordmark alone — no tagline, trimmed to
+         * the ink, white on transparent. At this size the tagline in the full
+         * lockup would render about 2px tall, and the old invert+screen knockout
+         * (needed because logo.png has no alpha) is gone with it.
          */}
         <Link href="/" className="flex items-center" aria-label="DMV Title Guy — home">
           <Image
-            src="/logo.png"
+            src="/logo-wordmark-white.png"
             alt="DMV Title Guy"
-            width={2046}
-            height={690}
-            sizes="150px"
+            width={1235}
+            height={164}
+            sizes="184px"
             priority
-            unoptimized
-            className="h-auto w-[132px] sm:w-[150px] [filter:invert(1)] [mix-blend-mode:screen]"
+            className="h-auto w-[160px] sm:w-[184px]"
           />
         </Link>
 
