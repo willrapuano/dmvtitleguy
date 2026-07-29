@@ -21,7 +21,7 @@ const SOCIAL_LINKS = [
 ];
 
 const AUDIENCE_CARDS = [
-  { role: "For Buyers & Sellers", desc: "Clear title work, responsive communication, and smoother purchase, sale, and refinance closings across the DMV.", icon: "Home", href: "/title-quote" },
+  { role: "For Buyers & Sellers", desc: "Clear title work, responsive communication, and smoother purchase, sale, and refinance closings across the DMV.", icon: "Home", href: "/calculators/title-quote" },
   { role: "For Realtors", desc: "Faster communication, fewer closing surprises, and a better client experience from contract to settlement.", icon: "Handshake", href: "/title-company-for-realtors" },
   { role: "For Lenders", desc: "Reliable coordination, cleaner files, and dependable settlement support for your active pipeline.", icon: "Landmark", href: "/title-company-for-lenders" },
   { role: "For Builders", desc: "Repeatable closing support for new construction, buyer coordination, and pipeline-ready settlement execution.", icon: "Hammer", href: "/title-company-for-builders" },
@@ -29,7 +29,7 @@ const AUDIENCE_CARDS = [
 ];
 
 const MONEY_PAGES = [
-  { label: "Title Quote", href: "/title-quote", detail: "Start with a fast closing cost estimate." },
+  { label: "Title Quote", href: "/calculators/title-quote", detail: "Start with a fast closing cost estimate." },
   { label: "Title Company in Bethesda, MD", href: "/title-company-bethesda-md", detail: "Montgomery County title and settlement support." },
   { label: "Closing Costs in Maryland", href: "/maryland-closing-cost-calculator", detail: "Estimate what buyers and sellers should expect." },
   { label: "Title Company for Realtors", href: "/title-company-for-realtors", detail: "Routing for agent-focused closing support." },

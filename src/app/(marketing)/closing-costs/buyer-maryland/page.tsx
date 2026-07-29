@@ -168,7 +168,7 @@ export default function BuyerMarylandClosingCostsPage() {
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
             <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">

@@ -167,4 +167,4 @@ Don't treat the title company as an afterthought. Ask questions. Compare fees. C
 - [Get a title quote in Arlington](/title-company/arlington-va)
 - [Get a title quote in Alexandria](/title-company/alexandria-va)
 - [Get a title quote in Falls Church](/title-company/falls-church-va)
-- [See Virginia closing costs](/closing-costs/virginia)
+- [See Virginia closing costs](/virginia-closing-cost-calculator)

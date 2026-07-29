@@ -288,13 +288,13 @@ export default function MarylandClosingCostsPage() {
             <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
             <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
               Bethesda Title Services →
             </Link>
-            <Link href="/title-company/rockville-md" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
             <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">

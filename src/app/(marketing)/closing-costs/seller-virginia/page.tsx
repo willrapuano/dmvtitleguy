@@ -53,7 +53,7 @@ export default function SellerVirginiaClosingCostsPage() {
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/closing-costs/virginia" className="hover:text-brand-blue">Virginia Closing Costs</Link>
+            <Link href="/virginia-closing-cost-calculator" className="hover:text-brand-blue">Virginia Closing Costs</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-200">Seller Costs</span>
           </nav>
@@ -152,7 +152,7 @@ export default function SellerVirginiaClosingCostsPage() {
             <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">

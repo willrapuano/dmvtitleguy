@@ -248,7 +248,7 @@ export default function TitleInsuranceCostByStatePage() {
             <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
