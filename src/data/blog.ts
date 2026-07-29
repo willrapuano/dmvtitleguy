@@ -18,7 +18,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "How much does title insurance cost in Virginia, Maryland, and DC? Here's what buyers actually pay at closing, including owner's policies, lender's policies, rate formulas, and local title company considerations.",
     category: "Title Insurance",
     readTime: "7 min read",
-    image: "/blog/how-much-does-title-insurance-cost.png",
+    image: "/blog/how-much-does-title-insurance-cost.jpg",
   },
   {
     slug: "lenders-title-insurance-vs-owners-title-insurance",
@@ -28,7 +28,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Lender's and owner's title insurance protect different parties in a real estate transaction. This guide explains how each policy works, what they cover, and why both matter when buying a home in DC, Maryland, or Virginia.",
     category: "Title Insurance",
     readTime: "6 min read",
-    image: "/blog/lenders-title-insurance-vs-owners-title-insurance.png",
+    image: "/blog/lenders-title-insurance-vs-owners-title-insurance.jpg",
   },
   {
     slug: "what-is-a-title-settlement-fee",
@@ -38,7 +38,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Title settlement fees are one of the most common line items at closing — and one of the least understood. Here's what the fee covers, how it's calculated, and what DMV buyers and sellers should expect.",
     category: "Closing Costs",
     readTime: "5 min read",
-    image: "/blog/what-is-a-title-settlement-fee.png",
+    image: "/blog/what-is-a-title-settlement-fee.jpg",
   },
   {
     slug: "what-does-a-title-company-do",
@@ -48,7 +48,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Title companies play a critical role in every real estate transaction — from conducting title searches to issuing insurance and coordinating closings. Here's exactly what a title company does and why it matters.",
     category: "Education",
     readTime: "7 min read",
-    image: "/blog/what-does-a-title-company-do.png",
+    image: "/blog/what-does-a-title-company-do.jpg",
   },
   {
     slug: "standard-vs-enhanced-title-insurance",
@@ -58,7 +58,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Standard and enhanced title insurance policies offer different levels of coverage. This guide compares the two, explains when enhanced coverage is worth it, and what DMV buyers should know before choosing a policy.",
     category: "Title Insurance",
     readTime: "6 min read",
-    image: "/blog/standard-vs-enhanced-title-insurance.png",
+    image: "/blog/standard-vs-enhanced-title-insurance.jpg",
   },
   {
     slug: "understanding-subject-to-transactions",
@@ -68,7 +68,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Subject-to transactions are one of the most misunderstood deal structures in real estate. This guide explains how they work, the risks involved, and what both buyers and sellers should consider before entering a subject-to agreement.",
     category: "Education",
     readTime: "7 min read",
-    image: "/blog/understanding-subject-to-transactions.png",
+    image: "/blog/understanding-subject-to-transactions.jpg",
   },
   {
     slug: "using-zillow-traffic-data-to-close-more-deals",
@@ -78,7 +78,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Zillow doesn't just list homes — it generates massive data about buyer behavior in your market. Learn how smart DMV agents are using Zillow traffic data to identify hot neighborhoods and close more deals.",
     category: "Marketing",
     readTime: "6 min read",
-    image: "/blog/using-zillow-traffic-data-to-close-more-deals.png",
+    image: "/blog/using-zillow-traffic-data-to-close-more-deals.jpg",
   },
   {
     slug: "how-to-choose-right-title-company-dmv",
@@ -88,7 +88,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Not all title companies are the same. Here's what DC, Maryland, and Virginia real estate agents and buyers should look for when selecting a title and settlement company.",
     category: "Title Insurance",
     readTime: "5 min read",
-    image: "/blog/how-to-choose-right-title-company-dmv.png",
+    image: "/blog/how-to-choose-right-title-company-dmv.jpg",
   },
   {
     slug: "closing-costs-dmv-buyers-sellers",
@@ -98,7 +98,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Closing costs in DC, Maryland, and Virginia can vary significantly. This guide breaks down what buyers and sellers should expect to pay at the settlement table in the DMV.",
     category: "Closing Costs",
     readTime: "7 min read",
-    image: "/blog/closing-costs-dmv-buyers-sellers.png",
+    image: "/blog/closing-costs-dmv-buyers-sellers.jpg",
   },
   {
     slug: "title-insurance-requirements-dc-md-va",
@@ -108,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Title insurance requirements differ across DC, Maryland, and Virginia. Here's a jurisdiction-by-jurisdiction comparison to help agents, lenders, and buyers understand their obligations.",
     category: "Title Insurance",
     readTime: "6 min read",
-    image: "/blog/title-insurance-requirements-dc-md-va.png",
+    image: "/blog/title-insurance-requirements-dc-md-va.jpg",
   },
   {
     slug: "title-companies-new-construction",
@@ -118,7 +118,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "New construction closings are more complex than resales. Learn how title companies protect buyers, builders, and lenders in new construction transactions across the DMV.",
     category: "New Construction",
     readTime: "5 min read",
-    image: "/blog/title-companies-new-construction.png",
+    image: "/blog/title-companies-new-construction.jpg",
   },
   {
     slug: "title-insurance-real-estate-lenders-dmv",
@@ -128,7 +128,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "For mortgage lenders, title insurance isn't optional — it's essential protection. Here's why lender's title insurance matters and what DMV lenders should know about title requirements.",
     category: "Lenders",
     readTime: "5 min read",
-    image: "/blog/title-insurance-real-estate-lenders-dmv.png",
+    image: "/blog/title-insurance-real-estate-lenders-dmv.jpg",
   },
   {
     slug: "real-estate-marketing-strategies-dmv-agents",
@@ -138,7 +138,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "The DMV real estate market is competitive. Here are ten proven marketing strategies that top-performing agents in DC, Maryland, and Virginia are using to generate leads and close more deals.",
     category: "Marketing",
     readTime: "8 min read",
-    image: "/blog/real-estate-marketing-strategies-dmv-agents.png",
+    image: "/blog/real-estate-marketing-strategies-dmv-agents.jpg",
   },
   {
     slug: "first-time-homebuyer-guide-dmv",
@@ -148,7 +148,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Buying your first home in the DMV? From down payment assistance programs to understanding closing costs, this guide covers everything first-time buyers need to know.",
     category: "Education",
     readTime: "9 min read",
-    image: "/blog/first-time-homebuyer-guide-dmv.png",
+    image: "/blog/first-time-homebuyer-guide-dmv.jpg",
   },
   {
     slug: "video-marketing-real-estate-agents",
@@ -158,7 +158,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Video is the most powerful marketing tool for real estate agents. Learn how to create property walkthroughs, market updates, and personal brand content that actually generates leads.",
     category: "Marketing",
     readTime: "7 min read",
-    image: "/blog/video-marketing-real-estate-agents.png",
+    image: "/blog/video-marketing-real-estate-agents.jpg",
   },
   {
     slug: "understanding-wire-fraud-real-estate",
@@ -168,7 +168,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Wire fraud is one of the biggest threats in real estate transactions. Learn the warning signs, prevention strategies, and what to do if you suspect fraudulent activity during a closing.",
     category: "Education",
     readTime: "6 min read",
-    image: "/blog/understanding-wire-fraud-real-estate.png",
+    image: "/blog/understanding-wire-fraud-real-estate.jpg",
   },
   {
     slug: "nova-housing-market-update-2025",
@@ -178,7 +178,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "A data-driven look at the Northern Virginia housing market — median prices, inventory levels, days on market, and what agents and buyers should expect for the rest of 2025.",
     category: "Market Update",
     readTime: "6 min read",
-    image: "/blog/nova-housing-market-update-2025.png",
+    image: "/blog/nova-housing-market-update-2025.jpg",
   },
   {
     slug: "1031-exchange-guide-investors",
@@ -188,7 +188,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Tax-deferred exchanges are a powerful tool for real estate investors. This guide covers the rules, timelines, qualified intermediaries, and common pitfalls of 1031 exchanges in the DMV.",
     category: "Investors",
     readTime: "8 min read",
-    image: "/blog/1031-exchange-guide-investors.png",
+    image: "/blog/1031-exchange-guide-investors.jpg",
   },
   {
     slug: "building-personal-brand-real-estate-agent",
@@ -198,7 +198,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Your personal brand is your most valuable asset as an agent. Learn how top DMV agents are building recognizable, trusted brands that generate referrals and repeat business.",
     category: "Marketing",
     readTime: "6 min read",
-    image: "/blog/building-personal-brand-real-estate-agent.png",
+    image: "/blog/building-personal-brand-real-estate-agent.jpg",
   },
   {
     slug: "social-media-strategies-realtors-2025",
@@ -208,7 +208,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "From Instagram Reels to LinkedIn thought leadership, discover the social media strategies that are working for real estate professionals in 2025. Includes content ideas and posting schedules.",
     category: "Marketing",
     readTime: "7 min read",
-    image: "/blog/social-media-strategies-realtors-2025.png",
+    image: "/blog/social-media-strategies-realtors-2025.jpg",
   },
   {
     slug: "commercial-real-estate-title-insurance",
@@ -218,7 +218,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Commercial transactions have unique title insurance requirements. Learn about enhanced coverage options, due diligence considerations, and why commercial title insurance is non-negotiable.",
     category: "Title Insurance",
     readTime: "6 min read",
-    image: "/blog/commercial-real-estate-title-insurance.png",
+    image: "/blog/commercial-real-estate-title-insurance.jpg",
   },
   {
     slug: "ce-continuing-education-real-estate-agents",
@@ -228,7 +228,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "CE classes are more than just a license requirement — they're an opportunity to level up your skills and network with top professionals. Here's how to make the most of your continuing education.",
     category: "Education",
     readTime: "5 min read",
-    image: "/blog/ce-continuing-education-real-estate-agents.png",
+    image: "/blog/ce-continuing-education-real-estate-agents.jpg",
   },
   {
     slug: "real-estate-investing-strategies-dmv",
@@ -238,7 +238,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "The DMV real estate market offers unique opportunities for investors. From fix-and-flip to BRRRR to long-term rentals, explore the strategies that work best in the DC, Maryland, and Virginia market.",
     category: "Investors",
     readTime: "8 min read",
-    image: "/blog/real-estate-investing-strategies-dmv.png",
+    image: "/blog/real-estate-investing-strategies-dmv.jpg",
   },
   {
     slug: "digital-closings-future-title-industry",
@@ -248,7 +248,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "E-signatures, remote online notarization, and fully digital closings are transforming the title industry. Learn how Pruitt Title is embracing technology to make closings faster and more convenient.",
     category: "Technology",
     readTime: "5 min read",
-    image: "/blog/digital-closings-future-title-industry.png",
+    image: "/blog/digital-closings-future-title-industry.jpg",
   },
   {
     slug: "ai-tools-real-estate-professionals",
@@ -258,7 +258,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Artificial intelligence is changing how real estate professionals work. From lead generation to content creation to market analysis, these AI tools can help you work smarter and close more deals.",
     category: "Technology",
     readTime: "7 min read",
-    image: "/blog/ai-tools-real-estate-professionals.png",
+    image: "/blog/ai-tools-real-estate-professionals.jpg",
   },
   {
     slug: "property-deeds-types-explained",
@@ -268,7 +268,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Not all deeds are created equal. Understanding the differences between general warranty, special warranty, quitclaim, and bargain and sale deeds is essential for any real estate professional.",
     category: "Education",
     readTime: "6 min read",
-    image: "/blog/property-deeds-types-explained.png",
+    image: "/blog/property-deeds-types-explained.jpg",
   },
   {
     slug: "working-with-builders-title-perspective",
@@ -278,7 +278,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "New construction transactions have unique title requirements from lot acquisition through final sale. Here's what builders and their teams need to know about working with a title company.",
     category: "New Construction",
     readTime: "5 min read",
-    image: "/blog/working-with-builders-title-perspective.png",
+    image: "/blog/working-with-builders-title-perspective.jpg",
   },
   {
     slug: "direct-mail-marketing-real-estate",
@@ -288,7 +288,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "In a digital world, direct mail still delivers. Learn how DMV agents are using targeted mail campaigns — including AI-powered tools like thanks.io — to generate quality leads.",
     category: "Marketing",
     readTime: "5 min read",
-    image: "/blog/direct-mail-marketing-real-estate.png",
+    image: "/blog/direct-mail-marketing-real-estate.jpg",
   },
   {
     slug: "networking-tips-real-estate-professionals",
@@ -298,7 +298,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Relationships drive the real estate business. Here are practical networking tips for agents and lenders in the DMV — from industry events to golf outings to building genuine connections.",
     category: "Education",
     readTime: "5 min read",
-    image: "/blog/networking-tips-real-estate-professionals.png",
+    image: "/blog/networking-tips-real-estate-professionals.jpg",
   },
 ];
 

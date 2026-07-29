@@ -52,7 +52,12 @@ function mapSanityPost(p: SanityBlogPost): BlogPost {
     excerpt: p.excerpt ?? "",
     category: normalizeCategory(p.category, p.slug),
     readTime: p.readTime ?? "5 min read",
-    image: p.mainImage?.asset?.url ?? `/blog/${p.slug}.png`,
+    image:
+      p.mainImage?.asset?.url ??
+      // Posts with no mainImage fall back to a file named for the slug. The
+      // post images are JPEG now: they are photographs, were 24-bit PNG at up
+      // to 3.3 MB each, and none had an alpha channel.
+      `/blog/${p.slug}.jpg`,
   };
 }
 

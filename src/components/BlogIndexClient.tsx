@@ -235,6 +235,12 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                     <Link
                       key={post.slug}
                       href={`/blog/${post.slug}`}
+                      /* The grid is ~127 cards. Left on, every one entering the
+                         viewport starts an RSC prefetch and the browser then
+                         cancels most of them — ~100 aborted requests per visit.
+                         The featured card above keeps its prefetch; hover still
+                         prefetches these. */
+                      prefetch={false}
                       className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                     >
                       <div className="relative aspect-[16/9] overflow-hidden bg-brand-navy">
