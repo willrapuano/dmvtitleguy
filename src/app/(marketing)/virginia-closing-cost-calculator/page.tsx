@@ -50,7 +50,19 @@ export default function VirginiaCalculatorPage() {
             <ul className="list-disc list-inside space-y-2">
               <li><strong>Grantor Tax (Seller):</strong> $0.50 per $500 of the sales price, paid by the seller.</li>
               <li><strong>State Recordation Tax:</strong> $0.25 per $100 of the sales price (buyers typically pay).</li>
-              <li><strong>Locality Taxes:</strong> Some Virginia localities add additional recordation or transfer taxes.</li>
+              <li>
+                <strong>Northern Virginia Regional Fees (Seller):</strong> $0.20 per $100 in total —
+                the regional WMATA capital fee (Va. Code § 58.1-802.3) and the regional congestion
+                relief fee (§ 58.1-802.4), $0.10 per $100 each. Both fall on the grantor by default
+                and apply in Arlington, Fairfax, Loudoun and Prince William counties and the cities
+                of Alexandria, Fairfax, Falls Church, Manassas and Manassas Park. Neither is owed on
+                a refinance — they attach to a conveyance, not to a deed of trust.
+              </li>
+              <li>
+                <strong>Local Recordation Add-On (Buyer):</strong> under § 58.1-814 a locality that
+                adopts an ordinance may add one-third of the state rate, $0.0833 per $100. Confirm
+                with the Circuit Court Clerk whether one is in force where you are buying.
+              </li>
               <li><strong>Deed of Trust Recording:</strong> Based on loan amount, varies by county.</li>
             </ul>
             <h3 className="text-brand-navy font-bold text-base mt-4">Title Insurance in Virginia</h3>

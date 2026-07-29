@@ -22,7 +22,7 @@ const CONFIGS: Record<State, CalculatorConfig> = {
   VA: {
     state: "VA",
     stateFullName: "Virginia",
-    transferTaxNote: "VA grantor tax: $0.50/$500 on seller side. Some localities add recordation tax.",
+    transferTaxNote: "VA grantor tax: $0.50/$500 on the seller. In Northern Virginia the seller also owes two regional fees at $0.10/$100 each — $0.20/$100 combined — on a purchase; neither applies to a refinance. A locality that adopted an ordinance may add up to $0.0833/$100 of recordation tax, charged to the buyer.",
   },
   MD: {
     state: "MD",
@@ -217,7 +217,7 @@ function sumObj(obj: Record<string, number>) {
 
 /**
  * Cost keys are camelCase, so a line item's label is derived rather than written out.
- * Title-casing each word alone gets `regionalWmataFee` wrong — "Regional Wmata Fee" —
+ * Title-casing each word alone would get a key like `wmataFee` wrong — "Wmata Fee" —
  * so acronyms are restored after the split.
  */
 const COST_KEY_ACRONYMS: Record<string, string> = { Wmata: "WMATA", Hoa: "HOA" };
@@ -262,8 +262,8 @@ function CostBreakdown({ label, costs, total }: { label: string; costs: Record<s
 export interface CityOverrides {
   /** Additional local recordation/transfer tax rate (decimal, e.g. 0.001 for 0.1%) */
   localRecordationTaxRate?: number;
-  /** § 58.1-802.3 regional WMATA capital fee, seller-paid. */
-  wmataCapitalFeeRate?: number;
+  /** §§ 58.1-802.3 and 58.1-802.4 regional fees combined, both seller-paid. */
+  regionalTransportationFeeRate?: number;
   /** County transfer tax rate (MD, decimal) */
   countyTransferTaxRate?: number;
   /** Additional local transfer tax rate (decimal) */
@@ -313,14 +313,15 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
         base.buyerCosts = { ...base.buyerCosts, localRecordationTax: localRecTax };
       }
 
-      // Va. Code § 58.1-802.3 puts the $0.10 per $100 regional WMATA capital fee on
-      // the grantor in every NVTA jurisdiction. It used to be recorded per city as a
-      // "local recordation tax", which would have charged it to the buyer had any
-      // call site passed cityOverrides — none does — and it was missing from
-      // Arlington, Alexandria and Prince William, which are members too.
-      const wmataFee = (cityOverrides.wmataCapitalFeeRate ?? 0) * price;
-      if (wmataFee > 0) {
-        base.sellerCosts = { ...base.sellerCosts, regionalWmataFee: wmataFee };
+      // Northern Virginia carries two grantor-paid regional fees, $0.10 per $100 each:
+      // the WMATA capital fee (§ 58.1-802.3) and the congestion relief fee
+      // (§ 58.1-802.4). These were once recorded per city as a "local recordation
+      // tax", which would have charged them to the buyer had any call site passed
+      // cityOverrides — none does — and they were missing from Arlington, Alexandria
+      // and Prince William, which owe them too.
+      const regionalFee = (cityOverrides.regionalTransportationFeeRate ?? 0) * price;
+      if (regionalFee > 0) {
+        base.sellerCosts = { ...base.sellerCosts, regionalTransportationFees: regionalFee };
       }
       if (localTransferTax > 0) {
         base.buyerCosts = { ...base.buyerCosts, localTransferTax: localTransferTax / 2 };
