@@ -240,6 +240,8 @@ function CostBreakdown({ label, costs, total }: { label: string; costs: Record<s
 export interface CityOverrides {
   /** Additional local recordation/transfer tax rate (decimal, e.g. 0.001 for 0.1%) */
   localRecordationTaxRate?: number;
+  /** § 58.1-802.3 regional WMATA capital fee, seller-paid. */
+  wmataCapitalFeeRate?: number;
   /** County transfer tax rate (MD, decimal) */
   countyTransferTaxRate?: number;
   /** Additional local transfer tax rate (decimal) */
@@ -287,6 +289,16 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
 
       if (localRecTax > 0) {
         base.buyerCosts = { ...base.buyerCosts, localRecordationTax: localRecTax };
+      }
+
+      // Va. Code § 58.1-802.3 puts the $0.10 per $100 regional WMATA capital fee on
+      // the grantor in every NVTA jurisdiction. It used to be recorded per city as a
+      // "local recordation tax" and charged wholly to the buyer, which billed a
+      // McLean buyer $1,200 that the seller owes by default — and omitted it from
+      // Arlington, Alexandria and Prince William, which are members too.
+      const wmataFee = (cityOverrides.wmataCapitalFeeRate ?? 0) * price;
+      if (wmataFee > 0) {
+        base.sellerCosts = { ...base.sellerCosts, regionalWmataFee: wmataFee };
       }
       if (localTransferTax > 0) {
         base.buyerCosts = { ...base.buyerCosts, localTransferTax: localTransferTax / 2 };

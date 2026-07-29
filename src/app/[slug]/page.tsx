@@ -32,6 +32,7 @@ import {
   CITY_CALCULATOR_DATA,
   getCityCalcData,
   getStateFullName,
+  wmataCapitalFeeRate,
 } from "@/data/closingCostData";
 
 /**
@@ -978,6 +979,18 @@ function LocationPage({ location }: { location: Location }) {
                   </dt>
                   <dd className="font-display text-2xl tabular-nums text-brand-navy">
                     {formatRate(localCost.data.localTransferTaxRate)}
+                  </dd>
+                </div>
+              )}
+              {/* Seller-side and regional, so it is labelled as such rather than
+                  folded in with the buyer's recordation figures. */}
+              {wmataCapitalFeeRate(localCost.data.county) > 0 && (
+                <div>
+                  <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                    Regional WMATA fee <span className="font-normal normal-case tracking-normal">(seller)</span>
+                  </dt>
+                  <dd className="font-display text-2xl tabular-nums text-brand-navy">
+                    {formatRate(wmataCapitalFeeRate(localCost.data.county))}
                   </dd>
                 </div>
               )}
