@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { BLOG_POSTS } from "@/data/blog";
+import { BLOG_SEO_OVERRIDES, postDisplayTitle } from "@/lib/post-titles";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { BlogArticle } from "@/components/BlogArticle";
 import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
@@ -398,108 +399,7 @@ function stripPortableText(blocks: any[] | null = []): string {
     .trim();
 }
 
-/**
- * Per-post metadata overrides, which win over the Sanity title.
- *
- * `description` is optional because generateMetadata already falls back to the
- * post's own seo.description, then its excerpt, then its body — so an override
- * that only needs to fix a title should not have to invent a description.
- *
- * `h1` exists so a retitled post does not end up with a heading that disagrees
- * with its own tab and search result.
- */
-const BLOG_SEO_OVERRIDES: Record<
-  string,
-  { title: string; description?: string; canonical?: string; h1?: string }
-> = {
-  /**
-   * These thirteen slugs also exist as location landing pages, and every one of
-   * them opened with "Title Company in <place>" — the exact phrase the landing
-   * page targets, so the two competed for one intent. The landing page keeps the
-   * commercial phrase; each article leads with its own angle instead, taken from
-   * its own H2s. Place names are retained so the articles still rank for their
-   * informational long-tail.
-   */
-  "title-company-washington-dc": {
-    title: "Why DC Closings Differ From VA and MD | DMV Title Guy",
-    h1: "Why DC Closings Differ From Virginia and Maryland",
-  },
-  "title-company-arlington-va": {
-    // Body already has a "Why Arlington Closings Are Different" section head.
-    title: "An Arlington Closing Guide | DMV Title Guy",
-    h1: "An Arlington Closing Guide for Buyers and Sellers",
-  },
-  "title-company-alexandria-va": {
-    title: "An Alexandria Closing Guide | DMV Title Guy",
-    h1: "An Alexandria Closing Guide for Buyers and Sellers",
-  },
-  "title-company-mclean-va": {
-    title: "Why McLean Closings Need Extra Expertise | DMV Title Guy",
-    h1: "Why McLean Closings Need Extra Expertise",
-  },
-  "title-company-reston-va": {
-    title: "Closing on a Home in Reston, VA | DMV Title Guy",
-    h1: "Closing on a Home in Reston, VA",
-  },
-  "title-company-woodbridge-va": {
-    title: "Closing in Prince William County: A Woodbridge Guide",
-    h1: "Closing in Prince William County: A Woodbridge Guide",
-  },
-  "title-company-bethesda-md": {
-    title: "A Bethesda Closing Guide | DMV Title Guy",
-    h1: "A Bethesda Closing Guide for Buyers and Sellers",
-  },
-  "title-company-springfield-va": {
-    title: "Closing in Fairfax County's Southern Corridor",
-    h1: "Closing in Fairfax County's Southern Corridor",
-  },
-  "title-company-falls-church-va": {
-    title: "A Closing Guide for Falls Church, VA | DMV Title Guy",
-    h1: "A Closing Guide for Falls Church, VA",
-  },
-  "title-company-sterling-va": {
-    title: "A Closing Guide for the Dulles Corridor | DMV Title Guy",
-    h1: "A Closing Guide for the Dulles Corridor",
-  },
-  "title-company-fairfax-county-va": {
-    title: "Closing in Fairfax County: What to Expect",
-    h1: "Closing in Fairfax County: What to Expect",
-  },
-  "title-company-loudoun-county-va": {
-    title: "Closing in Virginia's Fastest-Growing County",
-    h1: "Closing in Virginia's Fastest-Growing County",
-  },
-  "title-company-montgomery-county-md": {
-    title: "Settlement Services That Know Montgomery County",
-    h1: "Settlement Services That Know Montgomery County",
-  },
-  "what-is-a-title-quote": {
-    title: "What Is a Title Quote? A DMV Closing Guide | Pruitt Title",
-    description:
-      "Title quote guide for DMV buyers, sellers, and agents. Learn what a title quote includes and when to request one from Pruitt Title online today.",
-  },
-  "what-is-a-title-settlement-fee": {
-    title: "What Is a Title Settlement Fee? A DMV Guide | Pruitt Title",
-    description:
-      "Title settlement fee guide for DMV buyers and sellers. Learn what the fee covers, what is fair locally, and when to request a Pruitt quote today.",
-  },
-  "title-company-vienna-va": {
-    title: "Vienna VA Title Closings: How Closings Work | Pruitt Title",
-    description:
-      "Vienna title company guide explaining how closings work locally, with Pruitt Title insights from 17+ years serving Fairfax County. Call today.",
-    canonical: "/title-search-vienna-va",
-  },
-  "construction-loans-maryland": {
-    title: "Construction Loans in Maryland: Title Review | Pruitt Title",
-    description:
-      "Construction loans Maryland guide for title, draw, and closing issues. Pruitt Title helps builders and buyers review title early. Call today.",
-  },
-  "settlement-services-arlington-va": {
-    title: "Settlement Services in Arlington, VA: A Guide | Pruitt Title",
-    description:
-      "Arlington settlement services guide for residential closings, title work, and escrow. Pruitt Title helps DMV deals close cleanly. Call today.",
-  },
-};
+
 
 const DMV_TITLE_SERVICES_POST_SLUG = "title-insurance-cost-virginia-maryland";
 
@@ -657,7 +557,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
    * leading heading that repeats the post's own Sanity title — comparing those
    * against the override would stop matching and render the heading twice.
    */
-  const displayTitle = BLOG_SEO_OVERRIDES[post.slug]?.h1 ?? post.title;
+  const displayTitle = postDisplayTitle(post.slug, post.title);
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);
@@ -1173,7 +1073,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                           href={`/blog/${r.slug}`}
                           className="text-sm font-medium text-brand-navy hover:text-brand-blue-deep leading-snug block transition-colors"
                         >
-                          {r.title}
+                          {postDisplayTitle(r.slug, r.title)}
                         </Link>
                         <span className="text-xs text-gray-600 mt-0.5 block">{r.date} · {r.readTime}</span>
                       </li>
@@ -1219,7 +1119,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   <div className="relative h-44 overflow-hidden bg-brand-navy">
                       <Image
                       src={r.image}
-                      alt={r.title}
+                      alt={postDisplayTitle(r.slug, r.title)}
                       fill
                       className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, 33vw"
@@ -1231,7 +1131,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   </div>
                   <div className="p-5">
                     <h3 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue-deep transition-colors mb-2 line-clamp-2">
-                      {r.title}
+                      {postDisplayTitle(r.slug, r.title)}
                     </h3>
                     <p className="text-xs text-gray-500 max-w-[68ch]">{r.date} · {r.readTime}</p>
                   </div>

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { postImageSrcSet, postImageUrl } from "@/lib/post-image";
+import { postDisplayTitle } from "@/lib/post-titles";
 
 interface Post {
   slug: string;
@@ -198,7 +199,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                 <div className="flex flex-col justify-center p-6 md:p-9">
                   <PostMeta post={featured} />
                   <h2 className="mt-4 t-h4 text-brand-navy transition-colors group-hover:text-brand-blue-deep">
-                    {featured.title}
+                    {postDisplayTitle(featured.slug, featured.title)}
                   </h2>
                   <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-brand-muted max-w-[68ch]">
                     {featured.excerpt}
@@ -255,7 +256,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                       <div className="flex flex-1 flex-col p-5">
                         <PostMeta post={post} />
                         <h3 className="mt-3 line-clamp-2 text-base font-bold leading-snug text-brand-navy transition-colors group-hover:text-brand-blue-deep">
-                          {post.title}
+                          {postDisplayTitle(post.slug, post.title)}
                         </h3>
                         <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-muted max-w-[68ch]">
                           {post.excerpt}
