@@ -32,7 +32,17 @@ import {
   CITY_CALCULATOR_DATA,
   getCityCalcData,
   getStateFullName,
+  wmataCapitalFeeRate,
+  regionalFeeParagraph,
+  recordationCaveat,
+  countyTransferTaxParagraph,
 } from "@/data/closingCostData";
+
+/** A statutory note, or nothing at all where the helper has none for this state. */
+function TaxStatutePara({ text }: { text?: string }) {
+  if (!text) return null;
+  return <p className="mt-4 max-w-[68ch] leading-relaxed text-brand-muted">{text}</p>;
+}
 
 /**
  * Verified local cost data for a location page, and how we came by it.
@@ -981,6 +991,18 @@ function LocationPage({ location }: { location: Location }) {
                   </dd>
                 </div>
               )}
+              {/* Seller-side and regional, so it is labelled as such rather than
+                  folded in with the buyer's recordation figures. */}
+              {wmataCapitalFeeRate(localCost.data.county) > 0 && (
+                <div>
+                  <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                    Regional WMATA fee <span className="font-normal normal-case tracking-normal">(seller)</span>
+                  </dt>
+                  <dd className="font-display text-2xl tabular-nums text-brand-navy">
+                    {formatRate(wmataCapitalFeeRate(localCost.data.county))}
+                  </dd>
+                </div>
+              )}
               {localCost.data.localRecordationTaxRate > 0 && (
                 <div>
                   <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
@@ -1004,9 +1026,31 @@ function LocationPage({ location }: { location: Location }) {
                 {localCost.data.localTaxExplainer}
               </p>
             )}
-            <p className="mt-4 max-w-[68ch] leading-relaxed text-brand-muted">
-              {localCost.data.localTaxNote}
-            </p>
+            {localCost.data.localTaxNote && (
+              <p className="mt-4 max-w-[68ch] leading-relaxed text-brand-muted">
+                {localCost.data.localTaxNote}
+              </p>
+            )}
+
+            {/* The statutory paragraphs come from one helper each rather than being
+                pasted into every city's record — which is how the same regional fee
+                came to be stated twice in consecutive paragraphs here. A worked
+                dollar figure only makes sense when the page is about that city. */}
+            <TaxStatutePara
+              text={regionalFeeParagraph(
+                localCost.data.county,
+                localCost.basis === "city" ? localCost.data.medianHomePrice : undefined
+              )}
+            />
+            <TaxStatutePara text={recordationCaveat(localCost.data.state, localCost.data.county)} />
+            <TaxStatutePara
+              text={countyTransferTaxParagraph(
+                localCost.data.state,
+                localCost.data.county,
+                localCost.data.countyTransferTaxRate,
+                localCost.basis === "city" ? localCost.data.medianHomePrice : undefined
+              )}
+            />
 
             {localCost.basis !== "city" && (
               <p className="mt-4 max-w-[68ch] text-xs leading-relaxed text-brand-ink-light">
