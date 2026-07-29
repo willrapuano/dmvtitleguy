@@ -381,8 +381,13 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-function stripPortableText(blocks: any[] = []): string {
-  return blocks
+/**
+ * `blocks` is typed any[] | null at both call sites. A default parameter only
+ * applies to undefined, so a null body would have reached .map and thrown —
+ * 500ing generateMetadata for any post with no excerpt and no body.
+ */
+function stripPortableText(blocks: any[] | null = []): string {
+  return (blocks ?? [])
     .map((block) =>
       Array.isArray(block?.children)
         ? block.children.map((child: any) => child.text || "").join("")
@@ -393,30 +398,104 @@ function stripPortableText(blocks: any[] = []): string {
     .trim();
 }
 
-const BLOG_SEO_OVERRIDES: Record<string, { title: string; description: string; canonical?: string }> = {
+/**
+ * Per-post metadata overrides, which win over the Sanity title.
+ *
+ * `description` is optional because generateMetadata already falls back to the
+ * post's own seo.description, then its excerpt, then its body — so an override
+ * that only needs to fix a title should not have to invent a description.
+ *
+ * `h1` exists so a retitled post does not end up with a heading that disagrees
+ * with its own tab and search result.
+ */
+const BLOG_SEO_OVERRIDES: Record<
+  string,
+  { title: string; description?: string; canonical?: string; h1?: string }
+> = {
+  /**
+   * These thirteen slugs also exist as location landing pages, and every one of
+   * them opened with "Title Company in <place>" — the exact phrase the landing
+   * page targets, so the two competed for one intent. The landing page keeps the
+   * commercial phrase; each article leads with its own angle instead, taken from
+   * its own H2s. Place names are retained so the articles still rank for their
+   * informational long-tail.
+   */
+  "title-company-washington-dc": {
+    title: "Why DC Closings Differ From VA and MD | DMV Title Guy",
+    h1: "Why DC Closings Differ From Virginia and Maryland",
+  },
+  "title-company-arlington-va": {
+    // Body already has a "Why Arlington Closings Are Different" section head.
+    title: "An Arlington Closing Guide | DMV Title Guy",
+    h1: "An Arlington Closing Guide for Buyers and Sellers",
+  },
+  "title-company-alexandria-va": {
+    title: "An Alexandria Closing Guide | DMV Title Guy",
+    h1: "An Alexandria Closing Guide for Buyers and Sellers",
+  },
+  "title-company-mclean-va": {
+    title: "Why McLean Closings Need Extra Expertise | DMV Title Guy",
+    h1: "Why McLean Closings Need Extra Expertise",
+  },
+  "title-company-reston-va": {
+    title: "Closing on a Home in Reston, VA | DMV Title Guy",
+    h1: "Closing on a Home in Reston, VA",
+  },
+  "title-company-woodbridge-va": {
+    title: "Closing in Prince William County: A Woodbridge Guide",
+    h1: "Closing in Prince William County: A Woodbridge Guide",
+  },
+  "title-company-bethesda-md": {
+    title: "A Bethesda Closing Guide | DMV Title Guy",
+    h1: "A Bethesda Closing Guide for Buyers and Sellers",
+  },
+  "title-company-springfield-va": {
+    title: "Closing in Fairfax County's Southern Corridor",
+    h1: "Closing in Fairfax County's Southern Corridor",
+  },
+  "title-company-falls-church-va": {
+    title: "A Closing Guide for Falls Church, VA | DMV Title Guy",
+    h1: "A Closing Guide for Falls Church, VA",
+  },
+  "title-company-sterling-va": {
+    title: "A Closing Guide for the Dulles Corridor | DMV Title Guy",
+    h1: "A Closing Guide for the Dulles Corridor",
+  },
+  "title-company-fairfax-county-va": {
+    title: "Closing in Fairfax County: What to Expect",
+    h1: "Closing in Fairfax County: What to Expect",
+  },
+  "title-company-loudoun-county-va": {
+    title: "Closing in Virginia's Fastest-Growing County",
+    h1: "Closing in Virginia's Fastest-Growing County",
+  },
+  "title-company-montgomery-county-md": {
+    title: "Settlement Services That Know Montgomery County",
+    h1: "Settlement Services That Know Montgomery County",
+  },
   "what-is-a-title-quote": {
-    title: "what is a title quote? DMV Closing Guide | Pruitt Title",
+    title: "What Is a Title Quote? A DMV Closing Guide | Pruitt Title",
     description:
       "Title quote guide for DMV buyers, sellers, and agents. Learn what a title quote includes and when to request one from Pruitt Title online today.",
   },
   "what-is-a-title-settlement-fee": {
-    title: "what is a title settlement fee? DMV Guide | Pruitt Title",
+    title: "What Is a Title Settlement Fee? A DMV Guide | Pruitt Title",
     description:
       "Title settlement fee guide for DMV buyers and sellers. Learn what the fee covers, what is fair locally, and when to request a Pruitt quote today.",
   },
   "title-company-vienna-va": {
-    title: "vienna va title closings: How Closings Work | Pruitt Title",
+    title: "Vienna VA Title Closings: How Closings Work | Pruitt Title",
     description:
       "Vienna title company guide explaining how closings work locally, with Pruitt Title insights from 17+ years serving Fairfax County. Call today.",
     canonical: "/title-search-vienna-va",
   },
   "construction-loans-maryland": {
-    title: "construction loans maryland Title Review | Pruitt Title",
+    title: "Construction Loans in Maryland: Title Review | Pruitt Title",
     description:
       "Construction loans Maryland guide for title, draw, and closing issues. Pruitt Title helps builders and buyers review title early. Call today.",
   },
   "settlement-services-arlington-va": {
-    title: "settlement services arlington va Guide | Pruitt Title",
+    title: "Settlement Services in Arlington, VA: A Guide | Pruitt Title",
     description:
       "Arlington settlement services guide for residential closings, title work, and escrow. Pruitt Title helps DMV deals close cleanly. Call today.",
   },
@@ -568,8 +647,20 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     ? "/title-search-vienna-va"
     : `/blog/${post.slug}`;
   const canonicalUrl = `https://dmvtitleguy.io${canonicalPath}`;
+
+  /**
+   * What this post is called on the page. Retitled posts override the Sanity
+   * title, and everything a reader or a crawler sees has to agree with the <h1>:
+   * the breadcrumb, the share links, the BlogPosting headline.
+   *
+   * Deliberately NOT used by the two body-dedup checks below, which strip a
+   * leading heading that repeats the post's own Sanity title — comparing those
+   * against the override would stop matching and render the heading twice.
+   */
+  const displayTitle = BLOG_SEO_OVERRIDES[post.slug]?.h1 ?? post.title;
+
   // Build share URLs
-  const shareTitle = encodeURIComponent(post.title);
+  const shareTitle = encodeURIComponent(displayTitle);
   const shareUrl = encodeURIComponent(canonicalUrl);
 
   const articleSchemaDesc =
@@ -581,7 +672,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.title,
+    headline: displayTitle,
     description: articleSchemaDesc,
     image: post.image.startsWith("http") ? post.image : `https://dmvtitleguy.io${post.image}`,
     datePublished: post.dateISO,
@@ -644,7 +735,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       {
         "@type": "ListItem",
         position: 3,
-        name: post.title,
+        name: displayTitle,
         item: canonicalUrl,
       },
     ],
@@ -678,7 +769,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <div className="relative w-full" style={{ paddingBottom: "42%" }}>
           <Image
             src={post.image}
-            alt={post.title}
+            alt={displayTitle}
             fill
             className="object-cover"
             style={{ opacity: 0.85 }}
@@ -693,12 +784,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-6 py-8">
           {/* Breadcrumb */}
-          <nav className="text-xs text-gray-400 mb-5 flex items-center gap-1.5">
-            <Link href="/" className="hover:text-brand-blue transition-colors">Home</Link>
+          <nav className="text-xs text-gray-600 mb-5 flex items-center gap-1.5">
+            <Link href="/" className="hover:text-brand-blue-deep transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/my-blog" className="hover:text-brand-blue transition-colors">Blog</Link>
+            <Link href="/my-blog" className="hover:text-brand-blue-deep transition-colors">Blog</Link>
             <span>/</span>
-            <span className="text-gray-500 truncate max-w-[200px]">{post.title}</span>
+            <span className="text-gray-500 truncate max-w-[200px]">{displayTitle}</span>
           </nav>
 
           {/* Category tag */}
@@ -708,26 +799,26 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
           {/* Title */}
           <h1 className="t-h2 lg:text-5xl text-brand-navy mb-5">
-            {post.title}
+            {displayTitle}
           </h1>
 
           {/* Author + Date + Read time */}
           <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-8 h-8 rounded-full bg-brand-action flex items-center justify-center text-white text-xs font-bold">
                 WR
               </div>
               <span className="font-medium text-brand-navy">Will Rapuano</span>
             </div>
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-500">|</span>
             <span>{post.date}</span>
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-500">|</span>
             <span>{post.readTime}</span>
           </div>
 
           {/* Social Share */}
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs text-gray-400 uppercase tracking-wide mr-1">Share:</span>
+            <span className="text-xs text-gray-600 uppercase tracking-wide mr-1">Share:</span>
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
               target="_blank"
@@ -774,13 +865,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             {/* Article */}
             <article className="lg:col-span-2 min-w-0">
               {/* Excerpt lead */}
-              <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue pl-5 max-w-[68ch]">
+              <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue-deep pl-5 max-w-[68ch]">
                 {post.excerpt}
               </p>
 
               {isViennaTitleCompanyPost && (
                 <div className="mb-8 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue mb-2 max-w-[68ch]">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue-deep mb-2 max-w-[68ch]">
                     Vienna title search services
                   </p>
                   <h2 className="t-h4 text-brand-navy mb-3">
@@ -896,7 +987,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                           return (
                             <a
                               href={href}
-                              className="text-brand-blue underline hover:text-brand-blue-dark transition-colors"
+                              className="text-brand-blue-deep underline hover:text-brand-blue-700 transition-colors"
                               {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                             >
                               {children}
@@ -939,7 +1030,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             text.length < 150 &&
                             /^[A-Z]/.test(text)
                           ) {
-                            return <p className="font-bold text-brand-blue mt-10 mb-1 text-base border-l-4 border-brand-blue pl-3 max-w-[68ch] leading-relaxed">{children}</p>;
+                            return <p className="font-bold text-brand-blue-deep mt-10 mb-1 text-base border-l-4 border-brand-blue-deep pl-3 max-w-[68ch] leading-relaxed">{children}</p>;
                           }
                           // Parse markdown links [text](/path) into React elements
                           const mdLinkRegex = /\[([^\]]+)\]\((\/[^)]+)\)/g;
@@ -967,7 +1058,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                           }
                           return <p className="mb-4 leading-relaxed max-w-[68ch]">{children}</p>;
                         },
-                        h1: ({ children }: any) => <h1 className="t-h3 text-brand-navy mt-10 mb-4">{children}</h1>,
+                        // Rendered as h2, not h1: the page heading above is the document's only h1.
+                        // Styling is unchanged, so nothing looks different.
+                        h1: ({ children }: any) => <h2 className="t-h3 text-brand-navy mt-10 mb-4">{children}</h2>,
                         h2: ({ children }: any) => <h2 className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
                         h3: ({ children }: any) => <h3 className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
                         h4: ({ children }: any) => <h4 className="t-h6 font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
@@ -1026,7 +1119,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="text-sm text-brand-blue hover:text-brand-blue-dark border border-gray-100 hover:border-brand-blue/30 rounded-lg p-3.5 block transition-all no-underline group"
+                        className="text-sm text-brand-blue-deep hover:text-brand-blue-700 border border-gray-100 hover:border-brand-blue-deep/30 rounded-lg p-3.5 block transition-all no-underline group"
                       >
                         <span className="group-hover:underline">{link.label}</span>
                         <span className="ml-1 opacity-60">→</span>
@@ -1050,7 +1143,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       <li key={item.id}>
                         <a
                           href={`#${item.id}`}
-                          className="text-xs text-gray-600 hover:text-brand-blue leading-snug block transition-colors"
+                          className="text-xs text-gray-600 hover:text-brand-blue-deep leading-snug block transition-colors"
                         >
                           {item.label}
                         </a>
@@ -1078,11 +1171,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       <li key={r.slug}>
                         <Link
                           href={`/blog/${r.slug}`}
-                          className="text-sm font-medium text-brand-navy hover:text-brand-blue leading-snug block transition-colors"
+                          className="text-sm font-medium text-brand-navy hover:text-brand-blue-deep leading-snug block transition-colors"
                         >
                           {r.title}
                         </Link>
-                        <span className="text-xs text-gray-400 mt-0.5 block">{r.date} · {r.readTime}</span>
+                        <span className="text-xs text-gray-600 mt-0.5 block">{r.date} · {r.readTime}</span>
                       </li>
                     ))}
                   </ul>
@@ -1133,11 +1226,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
                     <div className="absolute bottom-0 left-0 p-4">
-                      <span className="text-xs text-brand-blue font-semibold">{r.category}</span>
+                      <span className="text-xs text-brand-blue-deep font-semibold">{r.category}</span>
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue transition-colors mb-2 line-clamp-2">
+                    <h3 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue-deep transition-colors mb-2 line-clamp-2">
                       {r.title}
                     </h3>
                     <p className="text-xs text-gray-500 max-w-[68ch]">{r.date} · {r.readTime}</p>
