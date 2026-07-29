@@ -381,8 +381,13 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-function stripPortableText(blocks: any[] = []): string {
-  return blocks
+/**
+ * `blocks` is typed any[] | null at both call sites. A default parameter only
+ * applies to undefined, so a null body would have reached .map and thrown —
+ * 500ing generateMetadata for any post with no excerpt and no body.
+ */
+function stripPortableText(blocks: any[] | null = []): string {
+  return (blocks ?? [])
     .map((block) =>
       Array.isArray(block?.children)
         ? block.children.map((child: any) => child.text || "").join("")
@@ -393,30 +398,103 @@ function stripPortableText(blocks: any[] = []): string {
     .trim();
 }
 
-const BLOG_SEO_OVERRIDES: Record<string, { title: string; description: string; canonical?: string }> = {
+/**
+ * Per-post metadata overrides, which win over the Sanity title.
+ *
+ * `description` is optional because generateMetadata already falls back to the
+ * post's own seo.description, then its excerpt, then its body — so an override
+ * that only needs to fix a title should not have to invent a description.
+ *
+ * `h1` exists so a retitled post does not end up with a heading that disagrees
+ * with its own tab and search result.
+ */
+const BLOG_SEO_OVERRIDES: Record<
+  string,
+  { title: string; description?: string; canonical?: string; h1?: string }
+> = {
+  /**
+   * These thirteen slugs also exist as location landing pages, and every one of
+   * them opened with "Title Company in <place>" — the exact phrase the landing
+   * page targets, so the two competed for one intent. The landing page keeps the
+   * commercial phrase; each article leads with its own angle instead, taken from
+   * its own H2s. Place names are retained so the articles still rank for their
+   * informational long-tail.
+   */
+  "title-company-washington-dc": {
+    title: "Why DC Closings Differ From VA and MD | DMV Title Guy",
+    h1: "Why DC Closings Differ From Virginia and Maryland",
+  },
+  "title-company-arlington-va": {
+    title: "Why Arlington Closings Are Different | DMV Title Guy",
+    h1: "Why Arlington Closings Are Different",
+  },
+  "title-company-alexandria-va": {
+    title: "What Makes Alexandria Closings Different | DMV Title Guy",
+    h1: "What Makes Alexandria Closings Different",
+  },
+  "title-company-mclean-va": {
+    title: "Why McLean Closings Need Extra Expertise | DMV Title Guy",
+    h1: "Why McLean Closings Need Extra Expertise",
+  },
+  "title-company-reston-va": {
+    title: "What to Know About Reston Closings | DMV Title Guy",
+    h1: "What to Know About Reston Closings",
+  },
+  "title-company-woodbridge-va": {
+    title: "Closing in Prince William County: A Woodbridge Guide",
+    h1: "Closing in Prince William County: A Woodbridge Guide",
+  },
+  "title-company-bethesda-md": {
+    title: "Why Bethesda Closings Are Different | DMV Title Guy",
+    h1: "Why Bethesda Closings Are Different",
+  },
+  "title-company-springfield-va": {
+    title: "Closing in Fairfax County's Southern Corridor",
+    h1: "Closing in Fairfax County's Southern Corridor",
+  },
+  "title-company-falls-church-va": {
+    title: "A Closing Guide for Falls Church, VA | DMV Title Guy",
+    h1: "A Closing Guide for Falls Church, VA",
+  },
+  "title-company-sterling-va": {
+    title: "A Closing Guide for the Dulles Corridor | DMV Title Guy",
+    h1: "A Closing Guide for the Dulles Corridor",
+  },
+  "title-company-fairfax-county-va": {
+    title: "Closing in Fairfax County: What to Expect",
+    h1: "Closing in Fairfax County: What to Expect",
+  },
+  "title-company-loudoun-county-va": {
+    title: "Closing in Virginia's Fastest-Growing County",
+    h1: "Closing in Virginia's Fastest-Growing County",
+  },
+  "title-company-montgomery-county-md": {
+    title: "Settlement Services That Know Montgomery County",
+    h1: "Settlement Services That Know Montgomery County",
+  },
   "what-is-a-title-quote": {
-    title: "what is a title quote? DMV Closing Guide | Pruitt Title",
+    title: "What Is a Title Quote? A DMV Closing Guide | Pruitt Title",
     description:
       "Title quote guide for DMV buyers, sellers, and agents. Learn what a title quote includes and when to request one from Pruitt Title online today.",
   },
   "what-is-a-title-settlement-fee": {
-    title: "what is a title settlement fee? DMV Guide | Pruitt Title",
+    title: "What Is a Title Settlement Fee? A DMV Guide | Pruitt Title",
     description:
       "Title settlement fee guide for DMV buyers and sellers. Learn what the fee covers, what is fair locally, and when to request a Pruitt quote today.",
   },
   "title-company-vienna-va": {
-    title: "vienna va title closings: How Closings Work | Pruitt Title",
+    title: "Vienna VA Title Closings: How Closings Work | Pruitt Title",
     description:
       "Vienna title company guide explaining how closings work locally, with Pruitt Title insights from 17+ years serving Fairfax County. Call today.",
     canonical: "/title-search-vienna-va",
   },
   "construction-loans-maryland": {
-    title: "construction loans maryland Title Review | Pruitt Title",
+    title: "Construction Loans in Maryland: Title Review | Pruitt Title",
     description:
       "Construction loans Maryland guide for title, draw, and closing issues. Pruitt Title helps builders and buyers review title early. Call today.",
   },
   "settlement-services-arlington-va": {
-    title: "settlement services arlington va Guide | Pruitt Title",
+    title: "Settlement Services in Arlington, VA: A Guide | Pruitt Title",
     description:
       "Arlington settlement services guide for residential closings, title work, and escrow. Pruitt Title helps DMV deals close cleanly. Call today.",
   },
@@ -708,7 +786,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
           {/* Title */}
           <h1 className="t-h2 lg:text-5xl text-brand-navy mb-5">
-            {post.title}
+            {BLOG_SEO_OVERRIDES[post.slug]?.h1 ?? post.title}
           </h1>
 
           {/* Author + Date + Read time */}
