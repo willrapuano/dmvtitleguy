@@ -561,7 +561,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
    * against the override would stop matching and render the heading twice.
    */
   const displayTitle = postDisplayTitle(post.slug, post.title);
-  const heroImage = resolvePostImage(post.slug, post.image) as string;
+  const heroImage = resolvePostImage(post.slug, post.image) ?? post.image;
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);
@@ -1122,7 +1122,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 >
                   <div className="relative h-44 overflow-hidden bg-brand-navy">
                       <Image
-                      src={resolvePostImage(r.slug, r.image) as string}
+                      src={resolvePostImage(r.slug, r.image) ?? r.image}
                       alt={postDisplayTitle(r.slug, r.title)}
                       fill
                       className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"

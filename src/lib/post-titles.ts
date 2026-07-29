@@ -1,14 +1,12 @@
 /**
- * Per-post title overrides, shared by every surface that shows a post's name.
+ * Per-post title and metadata overrides, shared by every surface that shows a
+ * post's name — the index cards, the related-post cards, the article h1 and the
+ * metadata. When only the article page honoured these, a card read "Title Company
+ * in Arlington, VA" and clicked through to a page headed "An Arlington Closing
+ * Guide", and the index kept repeating the exact phrase the retitle exists to stop
+ * competing for, thirteen times on one page.
  *
- * These live outside the article route because the blog index and the related-post
- * cards render titles too. When only the article page honoured the override, a card
- * read "Title Company in Arlington, VA" and clicked through to a page headed "An
- * Arlington Closing Guide" — and the index kept repeating the exact phrase the
- * retitle exists to stop competing for, thirteen times on one page.
- */
-/**
- * Per-post metadata overrides, which win over the Sanity title.
+ * These win over the Sanity title.
  *
  * `description` is optional because generateMetadata already falls back to the
  * post's own seo.description, then its excerpt, then its body — so an override
@@ -82,6 +80,25 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "Settlement Services That Know Montgomery County",
     h1: "Settlement Services That Know Montgomery County",
   },
+  /**
+   * Neither of these collides with a location slug, so neither was in the thirteen
+   * above — but both target a phrase a landing page owns, which is the criterion
+   * that actually matters. /title-search-fairfax-va and /title-company-sterling-va
+   * both exist and both target "Title & Closing Services in <place>".
+   *
+   * sterling-virginia-settlement matters most: it is a ~4,000 word article whose
+   * title was identical to the other Sterling post's, so retitling only that one
+   * achieved nothing while this one still carried the phrase. Two full articles on
+   * one town still wants a decision about whether both should exist.
+   */
+  "title-company-fairfax-va": {
+    title: "A Fairfax County Closing Guide | DMV Title Guy",
+    h1: "A Fairfax County Closing Guide for Buyers and Sellers",
+  },
+  "sterling-virginia-settlement": {
+    title: "How Settlement Works in Sterling, VA | DMV Title Guy",
+    h1: "How Settlement Works in Sterling, VA",
+  },
   "what-is-a-title-quote": {
     title: "What Is a Title Quote? A DMV Closing Guide | Pruitt Title",
     description:
@@ -97,6 +114,11 @@ export const BLOG_SEO_OVERRIDES: Record<
     description:
       "Vienna title company guide explaining how closings work locally, with Pruitt Title insights from 17+ years serving Fairfax County. Call today.",
     canonical: "/title-search-vienna-va",
+    // Without an h1 the heading fell back to the brand-stripped CMS title, "Title
+    // Company in Vienna, VA" — the landing page's phrase, on a post already
+    // canonicalised to it. Avoids the body's "Why Vienna Real Estate Closings Are
+    // Different" section head.
+    h1: "How a Vienna, VA Closing Works",
   },
   "construction-loans-maryland": {
     title: "Construction Loans in Maryland: Title Review | Pruitt Title",
