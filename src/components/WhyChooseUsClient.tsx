@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ACCORDION_ITEMS = [
   {
@@ -73,9 +74,18 @@ export function WhyChooseUsClient() {
     <>
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80')" }}
+        {/* Was a CSS background-image, so it skipped the optimizer and every phone
+            pulled the full 1920px JPEG. Still hotlinked from Unsplash, which is a
+            third-party dependency on every page load for what an 80% navy overlay
+            reduces to a texture — worth replacing with an owned asset. */}
+        <Image
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-brand-navy/80" />
         <div className="container-xl relative z-10 text-center">

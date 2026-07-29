@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 import BlogIndexClient from "@/components/BlogIndexClient";
@@ -16,10 +17,16 @@ export default async function BlogIndexPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-brand-navy py-12 md:py-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/office-bg.jpg')" }}
+        {/* Same reason as the homepage hero: a CSS background-image never reaches
+            the optimizer, so this shipped as a fixed-size unconverted JPEG. */}
+        <Image
+          src="/office-bg.jpg"
+          alt=""
           aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0 bg-gradient-to-br from-brand-navy/95 via-brand-navy/88 to-brand-navy-dark/95"

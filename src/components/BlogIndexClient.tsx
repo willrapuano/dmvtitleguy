@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { sanityImageSrcSet, sanityImageUrl } from "@/lib/sanity-image";
+import { postImageSrcSet, postImageUrl } from "@/lib/post-image";
 
 interface Post {
   slug: string;
@@ -89,8 +89,8 @@ function PostImage({
   return (
     <img
       ref={ref}
-      src={sanityImageUrl(post.image, widest)}
-      srcSet={sanityImageSrcSet(post.image, widths)}
+      src={postImageUrl(post.image, widest)}
+      srcSet={postImageSrcSet(post.image, widths)}
       sizes={sizes}
       alt=""
       className={className}

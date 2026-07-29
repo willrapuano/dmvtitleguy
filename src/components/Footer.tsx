@@ -14,6 +14,18 @@ const SOCIAL_LINKS = [
 
 const SERVICE_AREAS = ALL_LOCATIONS;
 
+const QUICK_LINKS = [
+  { href: "/title-insurance",              label: "Title Insurance" },
+  { href: "/investor-title-services",      label: "Investor Title Services" },
+  { href: "/auction-property-title-search", label: "Auction Property Title Search" },
+  { href: "/foreclosure-title-review",     label: "Foreclosure Title Review" },
+  { href: "/why-choose-us",                label: "Why Pruitt Title?" },
+  { href: "/my-classes",                   label: "My Classes" },
+  { href: "/my-blog",                      label: "My Blog" },
+  { href: "/subscribe",                    label: "Subscribe" },
+  { href: "/calculators",                  label: "Calculators" },
+];
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -23,9 +35,16 @@ export function Footer() {
       <div className="border-b border-white/10 py-8">
         <div className="container-xl">
           <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-blue">Areas We Serve</h3>
+          {/**
+           * prefetch={false} because this list is 62 links long and sits on every
+           * page. App Router prefetches on viewport entry by default, so scrolling
+           * to the footer pulled ~45 KB of RSC payload per link — measured at
+           * 1.69 MB on the blog index alone, more than the images. Hover still
+           * prefetches, so anyone showing intent keeps the instant navigation.
+           */}
           <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-xs text-gray-300 md:grid-cols-3 lg:grid-cols-4">
             {SERVICE_AREAS.map((loc) => (
-              <Link key={loc.slug} href={`/${loc.slug}`} className="block transition-colors hover:text-brand-blue">
+              <Link key={loc.slug} href={`/${loc.slug}`} prefetch={false} className="block transition-colors hover:text-brand-blue">
                 {loc.city}
               </Link>
             ))}
@@ -99,16 +118,13 @@ export function Footer() {
           <div className="mt-8">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-3">Quick Links</h3>
             <ul className="space-y-1 text-sm text-gray-300">
-              <li><Link href="/title-insurance" className="hover:text-brand-blue transition-colors">Title Insurance</Link></li>
-              <li><Link href="/investor-title-services" className="hover:text-brand-blue transition-colors">Investor Title Services</Link></li>
-              <li><Link href="/auction-property-title-search" className="hover:text-brand-blue transition-colors">Auction Property Title Search</Link></li>
-              <li><Link href="/foreclosure-title-review" className="hover:text-brand-blue transition-colors">Foreclosure Title Review</Link></li>
-              <li><Link href="/why-choose-us" className="hover:text-brand-blue transition-colors">Why Pruitt Title?</Link></li>
-              <li><Link href="/my-classes" className="hover:text-brand-blue transition-colors">My Classes</Link></li>
-              <li><Link href="/my-blog" className="hover:text-brand-blue transition-colors">My Blog</Link></li>
-
-              <li><Link href="/subscribe" className="hover:text-brand-blue transition-colors">Subscribe</Link></li>
-              <li><Link href="/calculators" className="hover:text-brand-blue transition-colors">Calculators</Link></li>
+              {QUICK_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} prefetch={false} className="hover:text-brand-blue transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
