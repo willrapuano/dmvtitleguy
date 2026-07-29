@@ -192,10 +192,12 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 650000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10/$100 — that is the § 58.1-802.3 WMATA fee, not recordation
+    localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
+    // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
+    // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "Fairfax County is a Northern Virginia Transportation Authority member, so transfers here carry the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. The statute places that fee on the grantor (seller), though the parties may agree the buyer pays part or all of it. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Estimate closing costs for homes in Fairfax, VA. Fairfax County is the largest jurisdiction in Northern Virginia and adds a local recordation tax on top of Virginia's state rates. Median home prices are around $650,000.",
-    localTaxExplainer: "Recordation tax in Fairfax County is Virginia's state rate of $0.25 per $100 (Va. Code § 58.1-801); a Virginia locality may add at most one-third of that under § 58.1-814, so there is no $0.10 county add-on. What does apply is the regional WMATA capital fee of $0.10 per $100 under § 58.1-802.3, which the statute assigns to the grantor — on a $650,000 sale that is $650, a seller cost by default rather than a buyer one. Sellers also pay the standard Virginia grantor tax of $0.50 per $500.",
+    localTaxExplainer: "Recordation tax in Fairfax County is Virginia's state rate of $0.25 per $100 (Va. Code § 58.1-801); a Virginia locality may add at most one-third of that under § 58.1-814, so there is no $0.10 county add-on. What does apply is the regional WMATA capital fee of $0.10 per $100 under § 58.1-802.3, which the statute assigns to the grantor — on a $650,000 sale that is $650, a seller cost by default rather than a buyer one. Sellers also pay the standard Virginia grantor tax of $0.50 per $500. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
     costRangeText: "2.5% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Fairfax", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -206,10 +208,12 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 1200000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10/$100 — that is the § 58.1-802.3 WMATA fee, not recordation
+    localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
+    // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
+    // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "McLean is in Fairfax County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Calculate closing costs for McLean, VA real estate. McLean is one of the most affluent communities in the DMV with a median home price exceeding $1.2 million. Higher purchase prices mean closing costs require careful planning.",
-    localTaxExplainer: "McLean is in Fairfax County, a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3 — the grantor's cost by statute, which on a $1,200,000 McLean sale is $1,200. Recordation tax is Virginia's state $0.25 per $100; § 58.1-814 caps a local add-on at one-third of that, so there is no $0.10 county recordation tax. With McLean's premium values, confirm who is paying the regional fee in the contract rather than assuming.",
+    localTaxExplainer: "McLean is in Fairfax County, a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3 — the grantor's cost by statute, which on a $1,200,000 McLean sale is $1,200. Recordation tax is Virginia's state $0.25 per $100; § 58.1-814 caps a local add-on at one-third of that, so there is no $0.10 county recordation tax. With McLean's premium values, confirm who is paying the regional fee in the contract rather than assuming. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
     costRangeText: "2% to 4.5% for buyers, 1% to 2.5% for sellers",
     faqs: VA_FAQS("McLean", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -220,10 +224,12 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 850000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10/$100 — that is the § 58.1-802.3 WMATA fee, not recordation
+    localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
+    // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
+    // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "Vienna is in Fairfax County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Estimate closing costs for buying or selling a home in Vienna, VA. Located in Fairfax County, Vienna is a popular community with excellent schools and a walkable downtown. Median home prices are approximately $850,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax.",
+    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Vienna", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -234,10 +240,12 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 560000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10/$100 — that is the § 58.1-802.3 WMATA fee, not recordation
+    localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
+    // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
+    // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "Reston is in Fairfax County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Calculate closing costs for Reston, VA real estate transactions. Reston's mix of condos, townhomes, and single-family homes creates a wide range of closing cost scenarios. Median prices are around $560,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax.",
+    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
     costRangeText: "2.5% to 5.5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Reston", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -248,10 +256,12 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Loudoun County",
     medianHomePrice: 700000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10/$100 — that is the § 58.1-802.3 WMATA fee, not recordation
+    localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
+    // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
+    // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "Ashburn is in Loudoun County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Estimate closing costs in Ashburn, VA. As one of the fastest-growing communities in Loudoun County, Ashburn's real estate market is competitive with median home prices around $700,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax.",
+    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Loudoun County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
     costRangeText: "2.5% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Ashburn", "Loudoun County"),
     ...VA_DEFAULTS,
@@ -262,10 +272,12 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Loudoun County",
     medianHomePrice: 620000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10/$100 — that is the § 58.1-802.3 WMATA fee, not recordation
+    localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
+    // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
+    // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "Leesburg is in Loudoun County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Calculate closing costs for Leesburg, VA properties. The county seat of Loudoun County, Leesburg combines historic charm with suburban growth. Median home prices are approximately $620,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax.",
+    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Loudoun County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Leesburg", "Loudoun County"),
     ...VA_DEFAULTS,
