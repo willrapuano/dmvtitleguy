@@ -79,6 +79,16 @@ function resolveLocalCostData(
     const sameCounty = CITY_CALCULATOR_DATA.find((c) => c.county === location.county);
     if (sameCounty) return { data: sameCounty, basis: "county" };
   }
+
+  // DC has no counties — the district is the jurisdiction, and there is exactly
+  // one DC record. Matching on state is only sound because of that; doing the
+  // same for VA or MD would hand one city another city's figures.
+  if (location.state === "DC") {
+    const dc = CITY_CALCULATOR_DATA.find((c) => c.state === "DC");
+    // Its own jurisdiction's data, so the median belongs on the page.
+    if (dc) return { data: dc, basis: "city" };
+  }
+
   return undefined;
 }
 
@@ -955,6 +965,19 @@ function LocationPage({ location }: { location: Location }) {
                   </dt>
                   <dd className="font-display text-2xl tabular-nums text-brand-navy">
                     {formatRate(localCost.data.countyTransferTaxRate)}
+                  </dd>
+                </div>
+              )}
+              {/* No current record sets this, but the data model allows a city or town
+                  levy separate from the county's — render it rather than drop it
+                  silently when one is filled in. */}
+              {localCost.data.localTransferTaxRate > 0 && (
+                <div>
+                  <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
+                    Local transfer tax
+                  </dt>
+                  <dd className="font-display text-2xl tabular-nums text-brand-navy">
+                    {formatRate(localCost.data.localTransferTaxRate)}
                   </dd>
                 </div>
               )}

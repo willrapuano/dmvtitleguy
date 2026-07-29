@@ -39,7 +39,7 @@
   margin-bottom: 0.875rem;
   line-height: 1.25;
   padding-left: 0.875rem;
-  border-left: 4px solid #3BAEF7;
+  border-left: 4px solid #1B6FA8;
   scroll-margin-top: 6rem;
 }
 
@@ -98,7 +98,10 @@
 }
 
 .blog-content a {
-  color: #3BAEF7;
+  /* #3BAEF7 measured 2.45:1 on white — inline body links failed AA, and because
+     this selector is class+element it silently overrode the utility class on
+     every one of them. #1B6FA8 is 5.5:1. */
+  color: #1B6FA8;
   text-decoration: none;
 }
 
@@ -107,7 +110,7 @@
 }
 
 .blog-content blockquote {
-  border-left: 4px solid #3BAEF7;
+  border-left: 4px solid #1B6FA8;
   background-color: #f0f8ff;
   padding: 1rem 1.25rem;
   margin: 1.75rem 0;
