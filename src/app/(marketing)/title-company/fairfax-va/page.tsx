@@ -55,7 +55,7 @@ export default function FairfaxTitlePage() {
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/closing-costs/virginia" className="hover:text-brand-blue">Virginia Closing Costs</Link>
+            <Link href="/virginia-closing-cost-calculator" className="hover:text-brand-blue">Virginia Closing Costs</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-200">Fairfax</span>
           </nav>
@@ -170,7 +170,7 @@ export default function FairfaxTitlePage() {
             <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs Guide →
             </Link>
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
@@ -179,10 +179,10 @@ export default function FairfaxTitlePage() {
             <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/vienna-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-search-vienna-va" className="text-brand-blue-deep hover:underline">
               Vienna Title Services →
             </Link>
-            <Link href="/title-company/mclean-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-mclean-va" className="text-brand-blue-deep hover:underline">
               McLean Title Services →
             </Link>
             <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">

@@ -630,7 +630,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (cityCalcData) {
     const cityLabel = formatLocationName(cityCalcData.city, cityCalcData.state);
     return {
-      title: `${cityLabel} Closing Cost Calculator | DMV Title Guy`,
+      /* Mirrors this page's own h1 ("Closing Costs in {city}") rather than appending
+         "Closing Cost Calculator" to the city label. That suffix made the Washington
+         DC entry collide exactly with the /dc-closing-cost-calculator state page's
+         title — DC being the one jurisdiction that is both a city and a "state" in
+         this data — so two indexable pages competed for one phrase despite sharing
+         only 1.8% of their body text. */
+      title: `Closing Costs in ${cityLabel} | DMV Title Guy`,
       description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including title insurance, transfer taxes, and local fees.`,
       alternates: { canonical: `/${cityCalcData.slug}` },
       openGraph: {

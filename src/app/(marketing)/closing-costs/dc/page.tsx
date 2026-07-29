@@ -252,7 +252,7 @@ export default function DCClosingCostsPage() {
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
             <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">

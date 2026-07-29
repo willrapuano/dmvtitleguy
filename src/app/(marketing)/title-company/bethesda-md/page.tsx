@@ -186,7 +186,7 @@ export default function BethesdaTitlePage() {
             <Link href="/maryland-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Maryland Closing Cost Calculator →
             </Link>
-            <Link href="/title-company/rockville-md" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
             <Link href="/title-company/silver-spring-md" className="text-brand-blue-deep hover:underline">
@@ -201,7 +201,7 @@ export default function BethesdaTitlePage() {
             <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
               DC Closing Costs →
             </Link>
-            <Link href="/closing-costs/virginia" className="text-brand-blue-deep hover:underline">
+            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
           </div>

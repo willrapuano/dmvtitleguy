@@ -22,7 +22,7 @@ Use our [Virginia Closing Cost Calculator](/calculators) to get a personalized e
 
 ## Internal Links
 - Learn more about [title companies in Virginia cities](/title-company/).
-- Detailed breakdown of [closing costs in Virginia](/closing-costs/virginia).
+- Detailed breakdown of [closing costs in Virginia](/virginia-closing-cost-calculator).
 
 ## CTA: Get Your Seller Closing Cost Estimate
 

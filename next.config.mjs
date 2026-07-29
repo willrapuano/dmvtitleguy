@@ -74,6 +74,24 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Never existed as a page, but 20 internal links pointed at it and it 404'd.
+        // Maryland and DC both have a /closing-costs/{state} page; Virginia's
+        // equivalent content lives on the calculator route instead.
+        source: '/closing-costs/virginia',
+        destination: '/virginia-closing-cost-calculator',
+        statusCode: 301,
+      },
+      {
+        source: '/title-company/vienna-va',
+        destination: '/title-search-vienna-va',
+        statusCode: 301,
+      },
+      {
+        source: '/title-company/mclean-va',
+        destination: '/title-company-mclean-va',
+        statusCode: 301,
+      },
+      {
         source: '/title-company/rockville-md',
         destination: '/title-company-rockville-md',
         statusCode: 301,

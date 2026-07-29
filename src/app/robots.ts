@@ -12,6 +12,10 @@ export default function robots(): MetadataRoute.Robots {
           "/agent-tools/contract-analyzer/pending",
           "/agent-tools/contract-analyzer/analysis/",
           "/agent-tools/contract-analyzer/login",
+          // The Sanity Studio admin UI. It is a client component, so it cannot export
+          // metadata to carry a noindex tag, and it was serving "index, follow" —
+          // the only admin route on the site that was crawlable.
+          "/studio",
           "/api/",
         ],
       },
