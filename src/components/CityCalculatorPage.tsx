@@ -7,6 +7,9 @@ import {
   getStateCalcSlug,
   getStateFullName,
   getLocationSlug,
+  countyTransferTaxParagraph,
+  recordationCaveat,
+  regionalFeeParagraph,
   type CityClosingCostData,
 } from "@/data/closingCostData";
 import { ALL_LOCATIONS, formatLocationName, getLocationDisplayName, getNearbyCities } from "@/data/locations";
@@ -86,6 +89,31 @@ export default function CityCalculatorPage({ data }: Props) {
           </h2>
           <div className="text-brand-muted text-sm leading-relaxed space-y-4">
             <p>{data.localTaxExplainer}</p>
+            {data.localTaxNote && <p>{data.localTaxNote}</p>}
+            {/* The statutory position used to live inside each city's explainer, which
+                is why five of them read almost identically. Rendered from the shared
+                helpers, it is stated once here and once on the location page. */}
+            {regionalFeeParagraph(data.county, data.medianHomePrice) && (
+              <p>{regionalFeeParagraph(data.county, data.medianHomePrice)}</p>
+            )}
+            {recordationCaveat(data.state, data.county) && (
+              <p>{recordationCaveat(data.state, data.county)}</p>
+            )}
+            {countyTransferTaxParagraph(
+              data.state,
+              data.county,
+              data.countyTransferTaxRate,
+              data.medianHomePrice
+            ) && (
+              <p>
+                {countyTransferTaxParagraph(
+                  data.state,
+                  data.county,
+                  data.countyTransferTaxRate,
+                  data.medianHomePrice
+                )}
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -119,7 +147,7 @@ export default function CityCalculatorPage({ data }: Props) {
               href={`/${locationSlug}`}
               className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Title Services</p>
+              <p className="text-xs text-brand-blue-deep font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Title Services</p>
               <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
                 Title Company in {cityLabel}
               </p>
@@ -133,7 +161,7 @@ export default function CityCalculatorPage({ data }: Props) {
               href={`/${stateCalcSlug}`}
               className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Calculator</p>
+              <p className="text-xs text-brand-blue-deep font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Calculator</p>
               <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
                 {stateFullName} Closing Cost Calculator
               </p>
@@ -147,7 +175,7 @@ export default function CityCalculatorPage({ data }: Props) {
               href="/title-insurance"
               className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              <p className="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Guide</p>
+              <p className="text-xs text-brand-blue-deep font-semibold uppercase tracking-wide mb-1 max-w-[68ch]">Guide</p>
               <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
                 Title Insurance Explained
               </p>

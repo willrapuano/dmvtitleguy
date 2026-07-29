@@ -40,8 +40,12 @@ export interface CityClosingCostData {
   countyTransferTaxRate: number;
   /** Additional locality recordation tax (VA, decimal) — some cities add $0.15/$100 */
   localRecordationTaxRate: number;
-  /** Note about local taxes shown under calculator */
-  localTaxNote: string;
+  /**
+   * Note about local taxes shown under the calculator. Optional: the statutory
+   * position is rendered from `recordationCaveat` / `regionalFeeParagraph`, so this
+   * field is only for something true of this locality and not of its neighbours.
+   */
+  localTaxNote?: string;
 
   // ── Page Content ──
   /** Intro paragraph for hero section */
@@ -156,6 +160,104 @@ export function wmataCapitalFeeRate(county: string): number {
   return NVTA_JURISDICTIONS.has(county) ? WMATA_CAPITAL_FEE_RATE : 0;
 }
 
+/**
+ * "Fairfax County" needs no article; "City of Alexandria" and "District of Columbia"
+ * do, or generated sentences open "City of Alexandria is a Northern Virginia…".
+ */
+function withArticle(county: string): string {
+  return /^(City|Town|District) of /.test(county) ? `the ${county}` : county;
+}
+
+/** Sentence-initial form of the above. */
+function capitalized(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/**
+ * The regional fee explained once, rather than pasted into each city's note and
+ * explainer — which is how the same three facts came to render twice in consecutive
+ * paragraphs on every city-basis page, the exact duplicated boilerplate this data
+ * was meant to replace.
+ */
+export function regionalFeeParagraph(county: string, medianHomePrice?: number): string | undefined {
+  if (wmataCapitalFeeRate(county) === 0) return undefined;
+  const usd = (n: number) =>
+    n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  const example = medianHomePrice
+    ? ` On a ${usd(medianHomePrice)} sale that is ${usd(Math.round(medianHomePrice * WMATA_CAPITAL_FEE_RATE))}.`
+    : "";
+  return (
+    `${capitalized(withArticle(county))} is a Northern Virginia Transportation Authority member, so a sale here carries the ` +
+    `$0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. The statute places it ` +
+    `on the grantor, though the parties may agree the buyer pays part of it.${example} Purchase ` +
+    `closings only: a refinance records a deed of trust rather than a conveyance, so neither this ` +
+    `fee nor the grantor tax applies to one.`
+  );
+}
+
+/**
+ * The Virginia recordation position, also said once.
+ *
+ * Every Virginia entry carries `localRecordationTaxRate: 0`, and that 0 needs the
+ * same caveat attached wherever it is shown: § 58.1-814 permits a local add-on of up
+ * to one-third of the state rate, and the locality fee schedules were not reachable
+ * to confirm whether any of these take it. Pasting that caveat into each city's
+ * `localTaxExplainer` is what made five of them near-identical strings.
+ */
+export function recordationCaveat(state: StateCode, county: string): string | undefined {
+  if (state !== "VA") return undefined;
+  return (
+    `Recordation tax is Virginia's state rate of $0.25 per $100 under Va. Code § 58.1-801, paid ` +
+    `by the buyer. Under § 58.1-814 a locality may add at most one-third of that ($0.0833 per ` +
+    `$100) — so no Virginia locality levies $0.10 as recordation tax. Whether ${withArticle(county)} takes ` +
+    `the add-on it is permitted is not reflected in these figures; confirm with the Circuit ` +
+    `Court Clerk before relying on a recordation number.`
+  );
+}
+
+/**
+ * Md. Tax-Property § 13-203: 0.5% state transfer tax, reduced to 0.25% for a
+ * qualifying first-time Maryland homebuyer, whose share the seller picks up.
+ * Exported so the calculator and this prose cannot drift apart.
+ */
+export const MD_STATE_TRANSFER_TAX_RATE = 0.005;
+export const MD_FIRST_TIME_TRANSFER_TAX_RATE = 0.0025;
+
+/**
+ * The Maryland county transfer tax, derived from `countyTransferTaxRate` rather than
+ * written out per city. Four of the five Maryland entries did the same arithmetic in
+ * prose — two of them in byte-identical notes — and every one of them restated it in
+ * the explainer directly above.
+ */
+export function countyTransferTaxParagraph(
+  state: StateCode,
+  county: string,
+  countyTransferTaxRate: number,
+  medianHomePrice?: number
+): string | undefined {
+  if (state !== "MD" || countyTransferTaxRate <= 0) return undefined;
+  const pct = (rate: number) => `${Number((rate * 100).toFixed(3))}%`;
+  const combined = countyTransferTaxRate + MD_STATE_TRANSFER_TAX_RATE;
+  const example = medianHomePrice
+    ? ` On a ${medianHomePrice.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      })} sale that is ${Math.round(medianHomePrice * combined).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      })} of transfer tax before anything else.`
+    : "";
+  return (
+    `${capitalized(withArticle(county))} levies a county transfer tax of ${pct(countyTransferTaxRate)} on top of Maryland's ` +
+    `${pct(MD_STATE_TRANSFER_TAX_RATE)} state transfer tax — ${pct(combined)} combined.${example} ` +
+    `Absent an agreement otherwise the county transfer tax is shared evenly between buyer and ` +
+    `seller. A qualifying first-time Maryland homebuyer gets a reduced state rate of ` +
+    `${pct(MD_FIRST_TIME_TRANSFER_TAX_RATE)}, which the seller then pays in full.`
+  );
+}
+
 export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
   // ── Virginia Tier 1 ──
   {
@@ -165,9 +267,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     medianHomePrice: 715000,
     localTransferTaxRate: 0,
     localRecordationTaxRate: 0,
-    localTaxNote: "Arlington adds no local transfer or recordation tax beyond Virginia's state rates, but Arlington County is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
+    localTaxNote: "Arlington County adds no local transfer or recordation tax of its own; deeds record with the Arlington Circuit Court Clerk.",
     intro: "Estimate your closing costs for buying or selling a home in Arlington, VA. Arlington County is one of the most active real estate markets in the DMV, with a median home price around $715,000. Use our free calculator to get a detailed breakdown of buyer and seller costs.",
-    localTaxExplainer: "Arlington County follows standard Virginia tax rates with no additional local transfer taxes. The primary costs are the state recordation tax ($0.25 per $100) paid by buyers and the grantor tax ($0.50 per $500) paid by sellers. Arlington's high property values mean these percentages translate to significant dollar amounts — title insurance and recordation fees alone can exceed $5,000 on a typical transaction.",
+    localTaxExplainer: "Arlington's property values are what make its closing costs distinctive — the percentages are the same as anywhere in Virginia, but at a median near $715,000 title insurance and recordation together routinely clear $5,000 on a single transaction. The county's condo and mid-rise inventory adds a second variable: an association resale packet and its transfer fee, set by the association rather than by the county.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Arlington", "Arlington County"),
     ...VA_DEFAULTS,
@@ -179,9 +281,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     medianHomePrice: 625000,
     localTransferTaxRate: 0,
     localRecordationTaxRate: 0,
-    localTaxNote: "Alexandria adds no local transfer or recordation tax beyond Virginia's state rates, but the City of Alexandria is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
+    localTaxNote: "Alexandria is an independent city, so it records through its own circuit court clerk rather than a county's — but it adds no transfer or recordation tax of its own.",
     intro: "Calculate closing costs for real estate transactions in Alexandria, VA. As an independent city, Alexandria has its own recording office but follows Virginia's standard tax schedule. Median home prices hover around $625,000.",
-    localTaxExplainer: "Alexandria is an independent city in Virginia, meaning it operates its own circuit court clerk's office for recording. However, the tax rates mirror the state standard: recordation tax at $0.25 per $100 for buyers and grantor tax at $0.50 per $500 for sellers. Alexandria's mix of condos, townhomes, and single-family homes means closing costs can vary widely based on property type and HOA transfer fees.",
+    localTaxExplainer: "What varies most in Alexandria is property type, not the tax schedule. The city's stock runs from Old Town rowhouses to Eisenhower Valley high-rises, and the paperwork differs sharply between them: a condo purchase brings a resale packet and an association transfer fee, an older Old Town parcel brings a longer chain of title and sometimes a historic-district covenant recorded against it. Both add cost and days that no percentage table shows.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Alexandria", "City of Alexandria"),
     ...VA_DEFAULTS,
@@ -195,9 +297,10 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
-    localTaxNote: "Fairfax County is a Northern Virginia Transportation Authority member, so transfers here carry the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. The statute places that fee on the grantor (seller), though the parties may agree the buyer pays part or all of it. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
-    intro: "Estimate closing costs for homes in Fairfax, VA. Fairfax County is the largest jurisdiction in Northern Virginia and adds a local recordation tax on top of Virginia's state rates. Median home prices are around $650,000.",
-    localTaxExplainer: "Recordation tax in Fairfax County is Virginia's state rate of $0.25 per $100 (Va. Code § 58.1-801); a Virginia locality may add at most one-third of that under § 58.1-814, so there is no $0.10 county add-on. What does apply is the regional WMATA capital fee of $0.10 per $100 under § 58.1-802.3, which the statute assigns to the grantor — on a $650,000 sale that is $650, a seller cost by default rather than a buyer one. Sellers also pay the standard Virginia grantor tax of $0.50 per $500. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
+    localTaxNote:
+      "Fairfax County adds no transfer tax of its own, and deeds for the towns inside it — Vienna, Herndon, Clifton — record with the Fairfax Circuit Court Clerk rather than with the town.",
+    intro: "Estimate closing costs for homes in Fairfax, VA. Fairfax County is the largest jurisdiction in Northern Virginia and its median home price is around $650,000. The tax schedule is Virginia's standard one — no county transfer tax on top.",
+    localTaxExplainer: "Fairfax County is the largest recording jurisdiction in Northern Virginia, but that volume shows up in turnaround time rather than in the tax schedule: the rates are Virginia's standard ones. On a $650,000 Fairfax sale, the buyer's state recordation tax runs about $1,625 and the seller's grantor tax about $650, before title insurance, settlement fees and the clerk's per-page recording charges.",
     costRangeText: "2.5% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Fairfax", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -211,9 +314,8 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
-    localTaxNote: "McLean is in Fairfax County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Calculate closing costs for McLean, VA real estate. McLean is one of the most affluent communities in the DMV with a median home price exceeding $1.2 million. Higher purchase prices mean closing costs require careful planning.",
-    localTaxExplainer: "McLean is in Fairfax County, a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3 — the grantor's cost by statute, which on a $1,200,000 McLean sale is $1,200. Recordation tax is Virginia's state $0.25 per $100; § 58.1-814 caps a local add-on at one-third of that, so there is no $0.10 county recordation tax. With McLean's premium values, confirm who is paying the regional fee in the contract rather than assuming. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
+    localTaxExplainer: "McLean's median sits above $1.2 million, which is the point where percentage-based line items stop being background noise: state recordation tax alone is roughly $3,000 for the buyer and grantor tax roughly $1,200 for the seller on a median-priced sale. At that size, get the split of every seller-side charge written into the contract rather than settled at the table.",
     costRangeText: "2% to 4.5% for buyers, 1% to 2.5% for sellers",
     faqs: VA_FAQS("McLean", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -227,9 +329,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
-    localTaxNote: "Vienna is in Fairfax County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
+    localTaxNote: "Vienna is an incorporated town, so the town government appears on your tax bill — but not in your closing costs. It levies no transfer or recordation tax, and deeds record with Fairfax County.",
     intro: "Estimate closing costs for buying or selling a home in Vienna, VA. Located in Fairfax County, Vienna is a popular community with excellent schools and a walkable downtown. Median home prices are approximately $850,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
+    localTaxExplainer: "What shapes a Vienna closing is the housing stock rather than the tax schedule. The market here is largely detached homes on established lots, which means fewer association documents to chase than in a Reston condo or a new Ashburn community — and usually a shorter path from contract to a clear title commitment. Where an older Vienna parcel does slow things down, it is normally an easement or an unreleased lien in the chain, not a fee.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Vienna", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -243,9 +345,8 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
-    localTaxNote: "Reston is in Fairfax County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Calculate closing costs for Reston, VA real estate transactions. Reston's mix of condos, townhomes, and single-family homes creates a wide range of closing cost scenarios. Median prices are around $560,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Fairfax County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
+    localTaxExplainer: "Reston is unincorporated Fairfax County, and its condo and townhome inventory shapes closing costs here more than the tax rates do. A condo or association sale adds a resale packet from the association and, in most cases, a transfer or document fee the association sets — not a government charge, not capped by statute, and easy to miss when you budget from a tax table. Ask for the association's fee schedule early rather than at the settlement table.",
     costRangeText: "2.5% to 5.5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Reston", "Fairfax County"),
     ...VA_DEFAULTS,
@@ -259,9 +360,8 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
-    localTaxNote: "Ashburn is in Loudoun County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
     intro: "Estimate closing costs in Ashburn, VA. As one of the fastest-growing communities in Loudoun County, Ashburn's real estate market is competitive with median home prices around $700,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Loudoun County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
+    localTaxExplainer: "Ashburn is unincorporated Loudoun County, and a large share of its inventory is newer construction. Two things follow. A builder may steer the first sale toward an affiliated title company — you are free to use your own, and federal law (RESPA, 12 U.S.C. § 2608) bars a seller from making the buyer's choice of title insurer a condition of the sale. And in newer communities the HOA transfer and capital-contribution fees can exceed the state recordation tax on the same purchase, so they belong in your estimate from the start.",
     costRangeText: "2.5% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Ashburn", "Loudoun County"),
     ...VA_DEFAULTS,
@@ -275,9 +375,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0, // was $0.10 — that is the § 58.1-802.3 WMATA fee, not recordation.
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
-    localTaxNote: "Leesburg is in Loudoun County, which is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
+    localTaxNote: "Leesburg is an incorporated town and the Loudoun County seat, so the Circuit Court Clerk that records your deed is in town. The town itself levies no transfer or recordation tax.",
     intro: "Calculate closing costs for Leesburg, VA properties. The county seat of Loudoun County, Leesburg combines historic charm with suburban growth. Median home prices are approximately $620,000.",
-    localTaxExplainer: "Is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3. That fee is the grantor's (seller's) by statute, though the parties may agree the buyer pays part of it. Recordation tax itself is Virginia's state $0.25 per $100; § 58.1-814 caps any local add-on at one-third of that, so no locality levies $0.10 as recordation tax. Whether Loudoun County imposes the local add-on that § 58.1-814 permits (one-third of the state rate, $0.0833 per $100) is not reflected in these figures — confirm with the Circuit Court Clerk before relying on a recordation number.",
+    localTaxExplainer: "Leesburg's tax schedule is Virginia's standard one; where a Leesburg closing differs is the title work behind it. The historic district and the older parcels around it carry a longer chain of title than a new Loudoun subdivision does, and a longer chain is where an unreleased deed of trust, an old easement, or a boundary described by metes and bounds rather than a recorded plat tends to surface. That is a search-and-clear question, not a tax one — but it is the part of a Leesburg closing most likely to need extra days.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Leesburg", "Loudoun County"),
     ...VA_DEFAULTS,
@@ -289,9 +389,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     medianHomePrice: 450000,
     localTransferTaxRate: 0,
     localRecordationTaxRate: 0,
-    localTaxNote: "Prince William County levies no local recordation or transfer tax beyond Virginia's state rates, but it is a Northern Virginia Transportation Authority member, so a transfer here carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3 — the grantor's cost by statute, though the parties may agree the buyer pays part of it. Purchase closings only: a refinance records a deed of trust rather than a conveyance, so neither the grantor tax nor the regional fee applies to it.",
+    localTaxNote: "Prince William County adds no transfer or recordation tax of its own; deeds record with the Circuit Court Clerk at the county's judicial center in Manassas.",
     intro: "Estimate closing costs for Woodbridge, VA real estate. Prince William County offers more affordable entry points into the Northern Virginia market with median home prices around $450,000.",
-    localTaxExplainer: "Woodbridge is in Prince William County, which follows Virginia's standard tax schedule without additional local transfer or recordation taxes. This makes Prince William County slightly less expensive at closing compared to Fairfax or Loudoun counties. Standard Virginia rates apply: recordation tax at $0.25 per $100 (buyer) and grantor tax at $0.50 per $500 (seller). Prince William County is an NVTA member, so a sale here also carries the $0.10 per $100 regional WMATA capital fee under Va. Code § 58.1-802.3, which the statute places on the grantor — on a $450,000 sale that is $450 of seller cost.",
+    localTaxExplainer: "Woodbridge is where the Northern Virginia market gets reachable, and that changes which closing costs matter. At a median near $450,000 the percentage-based taxes are a smaller number than in Fairfax or Loudoun, so fixed charges — lender fees, the survey, the settlement fee — make up more of the total than they would further north. It also means down-payment assistance and first-time buyer programs are more often in play, and those carry their own recording requirements.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Woodbridge", "Prince William County"),
     ...VA_DEFAULTS,
@@ -303,9 +403,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     medianHomePrice: 380000,
     localTransferTaxRate: 0,
     localRecordationTaxRate: 0,
-    localTaxNote: "Fredericksburg (independent city) follows standard Virginia tax rates with no additional local transfer taxes.",
+    localTaxNote: "Deeds here go to the Fredericksburg Circuit Court Clerk, not to Spotsylvania or Stafford County — the city is independent of both, and adds no tax of its own.",
     intro: "Calculate closing costs for Fredericksburg, VA properties. As an independent city between Northern Virginia and Richmond, Fredericksburg offers competitive pricing with a median around $380,000.",
-    localTaxExplainer: "Fredericksburg is an independent city in Virginia and does not add local transfer or recordation taxes beyond the state rates. With more affordable home prices compared to NoVA, closing costs in dollar terms are typically lower — though the percentages remain the same. Virginia's standard recordation tax (0.25%) and grantor tax (0.1%) apply.",
+    localTaxExplainer: "Fredericksburg is the one market in our coverage area that sits outside the Northern Virginia regional fee, which makes a measurable difference to a seller: on a $380,000 sale, the $0.10 per $100 charge that a Prince William or Fairfax seller pays simply does not apply. Combined with prices well under the NoVA median, the same percentage rates land on a much smaller base — the percentages are identical, the dollars are not.",
     costRangeText: "2% to 5% for buyers, 1% to 3% for sellers",
     faqs: VA_FAQS("Fredericksburg", "City of Fredericksburg"),
     ...VA_DEFAULTS,
@@ -322,9 +422,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localTransferTaxRate: 0,
     countyTransferTaxRate: 0.01, // Montgomery County = 1%
     localRecordationTaxRate: 0,
-    localTaxNote: "Montgomery County charges a 1% county transfer tax on top of Maryland's 0.5% state transfer tax, for a combined transfer tax of 1.5%.",
+    localTaxNote: "Bethesda is unincorporated Montgomery County, so no municipal transfer tax sits on top of the county's, and deeds record with the county in Rockville.",
     intro: "Estimate closing costs for Bethesda, MD real estate. Montgomery County's transfer taxes are among the highest in the DMV region. With median home prices around $950,000, precise closing cost calculations are essential.",
-    localTaxExplainer: "Bethesda is in Montgomery County, which levies a 1% county transfer tax on all real estate transactions. Combined with Maryland's 0.5% state transfer tax, the total transfer tax rate is 1.5% of the sale price. On a $950,000 home, that's $14,250 in transfer taxes alone — typically split between buyer and seller. Maryland also charges a state recordation tax based on the sale price. Title insurance rates in Maryland are filed with the state insurance administration.",
+    localTaxExplainer: "Bethesda's median is near $950,000, which is what makes percentage-based charges bite harder here than anywhere else in the Maryland DMV — the same rate that costs a Gaithersburg buyer a few thousand dollars costs a Bethesda buyer several times that. Maryland also levies a state recordation tax on the sale price, and Maryland title insurance premiums come from rate schedules each underwriter files with the Maryland Insurance Administration, so the premium is set by the filed rate rather than negotiated at the table.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: MD_FAQS("Bethesda", "Montgomery County"),
   },
@@ -338,9 +438,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localTransferTaxRate: 0,
     countyTransferTaxRate: 0.01,
     localRecordationTaxRate: 0,
-    localTaxNote: "Montgomery County charges a 1% county transfer tax on top of Maryland's 0.5% state transfer tax.",
+    localTaxNote: "Rockville is both an incorporated city and the Montgomery County seat, so the Circuit Court that records your deed is in town. The city levies no transfer tax of its own.",
     intro: "Calculate closing costs for Rockville, MD transactions. As the county seat of Montgomery County, Rockville has a diverse housing market with a median price around $600,000.",
-    localTaxExplainer: "Rockville is the county seat of Montgomery County, which charges a 1% county transfer tax. Combined with Maryland's state transfer tax (0.5%), the total transfer tax burden is 1.5%. Rockville has a mix of older homes and new developments — new construction may have different closing cost structures due to builder warranties and transfer tax exemptions on first sales. The City of Rockville does not impose additional municipal transfer taxes.",
+    localTaxExplainer: "Rockville mixes established neighborhoods with new development, and new construction is where a Rockville settlement statement diverges from a resale one: a builder's first sale can carry warranty enrollment and HOA setup charges that a resale has no equivalent for, and they are itemised separately from the taxes. Ask for a builder's estimated settlement sheet early — the charges are the builder's to disclose, not the county's.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: MD_FAQS("Rockville", "Montgomery County"),
   },
@@ -354,9 +454,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localTransferTaxRate: 0,
     countyTransferTaxRate: 0.01,
     localRecordationTaxRate: 0,
-    localTaxNote: "Silver Spring is in Montgomery County, which charges a 1% county transfer tax on top of Maryland's 0.5% state transfer tax.",
+    localTaxNote: "Silver Spring is unincorporated Montgomery County — there is no city government that could add a transfer tax, and deeds record with the county in Rockville.",
     intro: "Estimate closing costs for Silver Spring, MD homes. Located in Montgomery County just north of DC, Silver Spring offers urban living with a median home price around $525,000.",
-    localTaxExplainer: "Silver Spring is within Montgomery County's jurisdiction, subject to the county's 1% transfer tax plus Maryland's 0.5% state transfer tax (1.5% total). Silver Spring's proximity to DC and Metro access makes it a popular alternative — but Maryland's higher transfer taxes mean closing costs are generally more than comparable Virginia jurisdictions. Budget accordingly, especially as a first-time buyer.",
+    localTaxExplainer: "Silver Spring's draw is proximity — Metro access and a short trip into the District — which means most buyers here are also weighing Arlington or Alexandria. The difference between those options shows up at closing rather than in the list price: Virginia has no county transfer tax equivalent to Maryland's, so a Virginia purchase at the same price carries materially less transfer tax. Run both through a calculator before assuming the cheaper sticker price is the cheaper purchase.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: MD_FAQS("Silver Spring", "Montgomery County"),
   },
@@ -370,9 +470,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localTransferTaxRate: 0,
     countyTransferTaxRate: 0.014, // PG County = 1.4%
     localRecordationTaxRate: 0,
-    localTaxNote: "Prince George's County charges a 1.4% county transfer tax — the highest county rate in the Maryland DMV — on top of the 0.5% state transfer tax.",
+    localTaxNote: "Bowie is an incorporated city and adds no transfer tax of its own; deeds record with the Prince George's Circuit Court Clerk in Upper Marlboro.",
     intro: "Calculate closing costs for Bowie, MD properties. Prince George's County has the highest county transfer tax rate in the Maryland DMV at 1.4%. Median home prices in Bowie are around $450,000.",
-    localTaxExplainer: "Bowie is in Prince George's County, which levies a 1.4% county transfer tax — the highest in the Maryland DMV suburbs. Combined with Maryland's 0.5% state transfer tax, the total is 1.9%. On a $450,000 home, that's $8,550 in transfer taxes. Despite the higher tax rate, Bowie's more affordable home prices often result in lower absolute closing costs compared to Montgomery County communities.",
+    localTaxExplainer: "Prince George's County carries the highest county transfer tax rate in the Maryland DMV suburbs, but the rate is only half the arithmetic. Bowie's median is well under Montgomery County's, and the smaller base outweighs the higher rate: a median-priced Bowie purchase usually lands below a median-priced Rockville or Bethesda one in total dollars. Compare the dollar figures for your actual price rather than the headline percentages.",
     costRangeText: "3% to 6.5% for buyers, 2% to 4.5% for sellers",
     faqs: MD_FAQS("Bowie", "Prince George's County"),
   },
@@ -386,9 +486,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localTransferTaxRate: 0,
     countyTransferTaxRate: 0.01,
     localRecordationTaxRate: 0,
-    localTaxNote: "Montgomery County charges a 1% county transfer tax on top of Maryland's 0.5% state transfer tax.",
+    localTaxNote: "Gaithersburg is an incorporated city but levies no transfer tax of its own; deeds record with Montgomery County in Rockville.",
     intro: "Estimate closing costs for Gaithersburg, MD real estate. Part of Montgomery County, Gaithersburg has a growing housing market with median prices around $525,000.",
-    localTaxExplainer: "Gaithersburg falls under Montgomery County's 1% county transfer tax plus Maryland's 0.5% state rate (1.5% combined). The City of Gaithersburg does not add municipal transfer taxes. Gaithersburg's diverse housing stock — from entry-level condos to executive homes — means closing cost percentages stay similar but dollar amounts vary significantly.",
+    localTaxExplainer: "Gaithersburg's housing stock runs from entry-level condos to executive homes, so the percentages stay flat while the dollar totals move a long way across the market. A condo purchase here adds an association resale packet and, in most cases, a transfer or document fee the association sets — a private charge, not a government one, and not capped by any statute. Get the association's fee schedule with the resale packet rather than discovering it on the settlement statement.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: MD_FAQS("Gaithersburg", "Montgomery County"),
   },
@@ -404,9 +504,9 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localTransferTaxRate: 0,
     countyTransferTaxRate: 0,
     localRecordationTaxRate: 0,
-    localTaxNote: "DC charges both a recordation tax and a transfer tax. Properties ≤$400K: 1.1% each (2.2% combined). Properties >$400K: 1.45% each (2.9% combined).",
+    localTaxNote: "The District has no separate county layer — recordation and transfer taxes are both levied at the district level, and deeds record with the DC Recorder of Deeds.",
     intro: "Calculate closing costs for Washington DC real estate. DC has some of the highest transfer taxes in the region — combined recordation and transfer taxes can reach 2.9% on properties over $400,000. Median home prices are approximately $650,000.",
-    localTaxExplainer: "Washington DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties up to $400,000, each tax is 1.1% (2.2% combined). For properties above $400,000, each increases to 1.45% (2.9% combined). These taxes are typically split between buyer and seller. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. DC does not have a separate county government — all taxes are at the district level.",
+    localTaxExplainer: "Washington DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties up to $400,000, each tax is 1.1% (2.2% combined). For properties above $400,000, each increases to 1.45% (2.9% combined). These taxes are typically split between buyer and seller. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. Because the rate steps at $400,000 rather than sliding, a contract written just over that line costs meaningfully more than one written just under it.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: DC_FAQS,
   },

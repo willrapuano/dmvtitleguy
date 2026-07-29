@@ -33,7 +33,16 @@ import {
   getCityCalcData,
   getStateFullName,
   wmataCapitalFeeRate,
+  regionalFeeParagraph,
+  recordationCaveat,
+  countyTransferTaxParagraph,
 } from "@/data/closingCostData";
+
+/** A statutory note, or nothing at all where the helper has none for this state. */
+function TaxStatutePara({ text }: { text?: string }) {
+  if (!text) return null;
+  return <p className="mt-4 max-w-[68ch] leading-relaxed text-brand-muted">{text}</p>;
+}
 
 /**
  * Verified local cost data for a location page, and how we came by it.
@@ -1017,9 +1026,31 @@ function LocationPage({ location }: { location: Location }) {
                 {localCost.data.localTaxExplainer}
               </p>
             )}
-            <p className="mt-4 max-w-[68ch] leading-relaxed text-brand-muted">
-              {localCost.data.localTaxNote}
-            </p>
+            {localCost.data.localTaxNote && (
+              <p className="mt-4 max-w-[68ch] leading-relaxed text-brand-muted">
+                {localCost.data.localTaxNote}
+              </p>
+            )}
+
+            {/* The statutory paragraphs come from one helper each rather than being
+                pasted into every city's record — which is how the same regional fee
+                came to be stated twice in consecutive paragraphs here. A worked
+                dollar figure only makes sense when the page is about that city. */}
+            <TaxStatutePara
+              text={regionalFeeParagraph(
+                localCost.data.county,
+                localCost.basis === "city" ? localCost.data.medianHomePrice : undefined
+              )}
+            />
+            <TaxStatutePara text={recordationCaveat(localCost.data.state, localCost.data.county)} />
+            <TaxStatutePara
+              text={countyTransferTaxParagraph(
+                localCost.data.state,
+                localCost.data.county,
+                localCost.data.countyTransferTaxRate,
+                localCost.basis === "city" ? localCost.data.medianHomePrice : undefined
+              )}
+            />
 
             {localCost.basis !== "city" && (
               <p className="mt-4 max-w-[68ch] text-xs leading-relaxed text-brand-ink-light">

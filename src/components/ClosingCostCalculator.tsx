@@ -3,6 +3,11 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 
+import {
+  MD_FIRST_TIME_TRANSFER_TAX_RATE,
+  MD_STATE_TRANSFER_TAX_RATE,
+} from "@/data/closingCostData";
+
 type State = "VA" | "MD" | "DC";
 type PartyType = "buyer" | "seller" | "both";
 type MarylandCounty = "montgomery" | "princeGeorges";
@@ -124,7 +129,11 @@ function calculateMD(
   }
 ): CalcResult {
   const countyInfo = MARYLAND_COUNTY_OPTIONS[options.county];
-  const stateTransferTaxTotal = price * (options.firstTimeMarylandHomebuyer ? 0.0025 : 0.005);
+  const stateTransferTaxTotal =
+    price *
+    (options.firstTimeMarylandHomebuyer
+      ? MD_FIRST_TIME_TRANSFER_TAX_RATE
+      : MD_STATE_TRANSFER_TAX_RATE);
   const buyerStateTransferTax = options.firstTimeMarylandHomebuyer ? 0 : stateTransferTaxTotal / 2;
   const sellerStateTransferTax = options.firstTimeMarylandHomebuyer ? stateTransferTaxTotal : stateTransferTaxTotal / 2;
   const countyTransferTaxTotal =
@@ -206,17 +215,30 @@ function sumObj(obj: Record<string, number>) {
   return Object.values(obj).reduce((a, b) => a + b, 0);
 }
 
+/**
+ * Cost keys are camelCase, so a line item's label is derived rather than written out.
+ * Title-casing each word alone gets `regionalWmataFee` wrong — "Regional Wmata Fee" —
+ * so acronyms are restored after the split.
+ */
+const COST_KEY_ACRONYMS: Record<string, string> = { Wmata: "WMATA", Hoa: "HOA" };
+
+function humanizeCostKey(key: string): string {
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (s) => s.toUpperCase())
+    .replace(/\bEst\b/, "(Est.)")
+    .split(" ")
+    .map((word) => COST_KEY_ACRONYMS[word] ?? word)
+    .join(" ");
+}
+
 function CostBreakdown({ label, costs, total }: { label: string; costs: Record<string, number>; total: number }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-6">
       <h3 className="text-brand-navy t-h6 mb-4">{label}</h3>
       <div className="space-y-2 mb-4">
         {Object.entries(costs).map(([key, val]) => {
-          const label = key
-            .replace(/([A-Z])/g, " $1")
-            .replace(/^./, (s) => s.toUpperCase())
-            .replace("Est", "(Est.)")
-            .replace("Tax", "Tax");
+          const label = humanizeCostKey(key);
           return (
             <div key={key} className="flex justify-between text-sm">
               <span className="text-brand-muted">{label}</span>
@@ -293,8 +315,8 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
 
       // Va. Code § 58.1-802.3 puts the $0.10 per $100 regional WMATA capital fee on
       // the grantor in every NVTA jurisdiction. It used to be recorded per city as a
-      // "local recordation tax" and charged wholly to the buyer, which billed a
-      // McLean buyer $1,200 that the seller owes by default — and omitted it from
+      // "local recordation tax", which would have charged it to the buyer had any
+      // call site passed cityOverrides — none does — and it was missing from
       // Arlington, Alexandria and Prince William, which are members too.
       const wmataFee = (cityOverrides.wmataCapitalFeeRate ?? 0) * price;
       if (wmataFee > 0) {
