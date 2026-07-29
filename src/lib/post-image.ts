@@ -94,3 +94,40 @@ export function postImageSrcSet(
   }
   return entries.join(", ");
 }
+
+/**
+ * Posts whose CMS image is unusable, pointed at an owned asset that fits instead.
+ *
+ * Five place-specific posts shipped images with visible generation artifacts —
+ * garbled text baked into the pixels, an abstract interchange diagram in place of a
+ * photograph, a four-up collage, and an aerial of Sterling with a ship on the
+ * horizon in landlocked Loudoun County. Those read as broken to any visitor, which
+ * is a worse problem than the image not being local.
+ *
+ * Each is redirected to an existing asset from the same city or county where one
+ * exists. None of these is a real photograph of the place, and all five still want
+ * genuine local photography — this only stops serving a visibly broken picture in
+ * the meantime. Remove an entry once its post has a real image in the CMS.
+ */
+const POST_IMAGE_OVERRIDES: Record<string, string> = {
+  // same city — Old Town streetscape
+  "alexandria-va-housing-market-april-2026":
+    "https://cdn.sanity.io/images/4s0dloxi/production/134066cf62fed7d4e579edd098985e1f08bacb4b-2752x1536.png",
+  // same city — Reston Town Center
+  "title-company-reston-va":
+    "https://cdn.sanity.io/images/4s0dloxi/production/326102c707e2560963da637221d8fa1f5598f77b-1376x768.png",
+  // same county — Springfield is in Fairfax County
+  "title-company-springfield-va":
+    "https://cdn.sanity.io/images/4s0dloxi/production/7a4830d812fef1e37376ca2972946d1bf2ab139b-1376x768.png",
+  // NoVa suburban streetscape; Sterling has no own asset
+  "title-company-sterling-va":
+    "https://cdn.sanity.io/images/4s0dloxi/production/0056bc360ee5061024b437f65da5356a5630950f-2752x1536.png",
+  // estate on lawn, consistent with Loudoun; no own asset
+  "title-company-loudoun-county-va":
+    "https://cdn.sanity.io/images/4s0dloxi/production/679e807fed81ce04fa57b69b0e91a6a347eb21a5-1376x768.png",
+};
+
+/** The image a post should actually use. */
+export function resolvePostImage(slug: string, cmsImage?: string): string | undefined {
+  return POST_IMAGE_OVERRIDES[slug] ?? cmsImage;
+}

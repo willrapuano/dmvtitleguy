@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { postImageSrcSet, postImageUrl } from "@/lib/post-image";
+import { postImageSrcSet, postImageUrl, resolvePostImage } from "@/lib/post-image";
 import { postDisplayTitle } from "@/lib/post-titles";
 
 interface Post {
@@ -71,7 +71,9 @@ function PostImage({
     if (img?.complete && img.naturalWidth === 0) setFailed(true);
   }, []);
 
-  if (!post.image || failed) {
+  const image = resolvePostImage(post.slug, post.image);
+
+  if (!image || failed) {
     return (
       <div
         className="absolute inset-0 flex items-center justify-center"
@@ -90,8 +92,8 @@ function PostImage({
   return (
     <img
       ref={ref}
-      src={postImageUrl(post.image, widest)}
-      srcSet={postImageSrcSet(post.image, widths)}
+      src={postImageUrl(image, widest)}
+      srcSet={postImageSrcSet(image, widths)}
       sizes={sizes}
       alt=""
       className={className}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { BLOG_POSTS } from "@/data/blog";
 import { BLOG_SEO_OVERRIDES, postDisplayTitle } from "@/lib/post-titles";
+import { resolvePostImage } from "@/lib/post-image";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { BlogArticle } from "@/components/BlogArticle";
 import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
@@ -493,6 +494,8 @@ export async function generateMetadata({
 
   const seoOverride = BLOG_SEO_OVERRIDES[post.slug];
   const title = seoOverride?.title || post.title || "DMV Title Guy";
+  // Never undefined: post.image is always set, so the fallback keeps the type honest.
+  const ogImage = resolvePostImage(post.slug, post.image) ?? post.image;
 
   const description =
     seoOverride?.description ||
@@ -517,7 +520,7 @@ export async function generateMetadata({
       title,
       description,
       publishedTime: post.dateISO,
-      images: [{ url: post.image, width: 1200, height: 630 }],
+      images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
@@ -558,6 +561,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
    * against the override would stop matching and render the heading twice.
    */
   const displayTitle = postDisplayTitle(post.slug, post.title);
+  const heroImage = resolvePostImage(post.slug, post.image) as string;
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);
@@ -574,7 +578,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "@type": "BlogPosting",
     headline: displayTitle,
     description: articleSchemaDesc,
-    image: post.image.startsWith("http") ? post.image : `https://dmvtitleguy.io${post.image}`,
+    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.io${heroImage}`,
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     mainEntityOfPage: {
@@ -668,7 +672,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <div className="w-full bg-brand-navy">
         <div className="relative w-full" style={{ paddingBottom: "42%" }}>
           <Image
-            src={post.image}
+            src={heroImage}
             alt={displayTitle}
             fill
             className="object-cover"
@@ -1118,7 +1122,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 >
                   <div className="relative h-44 overflow-hidden bg-brand-navy">
                       <Image
-                      src={r.image}
+                      src={resolvePostImage(r.slug, r.image) as string}
                       alt={postDisplayTitle(r.slug, r.title)}
                       fill
                       className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
