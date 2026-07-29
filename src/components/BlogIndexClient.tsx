@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { postImageSrcSet, postImageUrl } from "@/lib/post-image";
+import { postImageSrcSet, postImageUrl, resolvePostImage } from "@/lib/post-image";
+import { postDisplayTitle } from "@/lib/post-titles";
 
 interface Post {
   slug: string;
@@ -70,7 +71,9 @@ function PostImage({
     if (img?.complete && img.naturalWidth === 0) setFailed(true);
   }, []);
 
-  if (!post.image || failed) {
+  const image = resolvePostImage(post.slug, post.image);
+
+  if (!image || failed) {
     return (
       <div
         className="absolute inset-0 flex items-center justify-center"
@@ -89,8 +92,8 @@ function PostImage({
   return (
     <img
       ref={ref}
-      src={postImageUrl(post.image, widest)}
-      srcSet={postImageSrcSet(post.image, widths)}
+      src={postImageUrl(image, widest)}
+      srcSet={postImageSrcSet(image, widths)}
       sizes={sizes}
       alt=""
       className={className}
@@ -198,7 +201,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                 <div className="flex flex-col justify-center p-6 md:p-9">
                   <PostMeta post={featured} />
                   <h2 className="mt-4 t-h4 text-brand-navy transition-colors group-hover:text-brand-blue-deep">
-                    {featured.title}
+                    {postDisplayTitle(featured.slug, featured.title)}
                   </h2>
                   <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-brand-muted max-w-[68ch]">
                     {featured.excerpt}
@@ -255,7 +258,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                       <div className="flex flex-1 flex-col p-5">
                         <PostMeta post={post} />
                         <h3 className="mt-3 line-clamp-2 text-base font-bold leading-snug text-brand-navy transition-colors group-hover:text-brand-blue-deep">
-                          {post.title}
+                          {postDisplayTitle(post.slug, post.title)}
                         </h3>
                         <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-muted max-w-[68ch]">
                           {post.excerpt}
