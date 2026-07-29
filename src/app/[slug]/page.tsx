@@ -32,7 +32,7 @@ import {
   CITY_CALCULATOR_DATA,
   getCityCalcData,
   getStateFullName,
-  wmataCapitalFeeRate,
+  regionalTransportationFeeRate,
   regionalFeeParagraph,
   recordationCaveat,
   countyTransferTaxParagraph,
@@ -992,14 +992,17 @@ function LocationPage({ location }: { location: Location }) {
                 </div>
               )}
               {/* Seller-side and regional, so it is labelled as such rather than
-                  folded in with the buyer's recordation figures. */}
-              {wmataCapitalFeeRate(localCost.data.county) > 0 && (
+                  folded in with the buyer's recordation figures. Two statutes
+                  (§ 58.1-802.3 and § 58.1-802.4) at $0.10 each, shown combined
+                  because they are identical in rate, payer and scope. */}
+              {regionalTransportationFeeRate(localCost.data.county) > 0 && (
                 <div>
                   <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
-                    Regional WMATA fee <span className="font-normal normal-case tracking-normal">(seller)</span>
+                    Regional transportation fees{" "}
+                    <span className="font-normal normal-case tracking-normal">(seller)</span>
                   </dt>
                   <dd className="font-display text-2xl tabular-nums text-brand-navy">
-                    {formatRate(wmataCapitalFeeRate(localCost.data.county))}
+                    {formatRate(regionalTransportationFeeRate(localCost.data.county))}
                   </dd>
                 </div>
               )}
