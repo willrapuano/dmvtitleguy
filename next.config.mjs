@@ -74,6 +74,23 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // A byte-identical duplicate of /blog/lender-title-insurance — 97.4% of the
+        // body text matched, and the one sentence that did not was a generic opener.
+        // Programmatically generated (deterministic post-* id) alongside the
+        // hand-authored original. Unpublished in Sanity, preserved as a draft.
+        source: '/blog/lender-title-insurance-dmv',
+        destination: '/blog/lender-title-insurance',
+        statusCode: 301,
+      },
+      {
+        // Same story: 95.9% body overlap with /blog/who-does-title-insurance-protect
+        // under an identical title. Its footer internal-link block was carried over
+        // to the surviving post before unpublishing.
+        source: '/blog/who-does-title-insurance-protect-dmv',
+        destination: '/blog/who-does-title-insurance-protect',
+        statusCode: 301,
+      },
+      {
         // Two Sterling articles carried the same title. This one's unique content —
         // a settlement explainer, a cost breakdown and five practical Q&As — was
         // merged into the guide's FAQ and the document unpublished in Sanity.
