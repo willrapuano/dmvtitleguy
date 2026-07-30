@@ -16,10 +16,30 @@ variable cannot serve both:
 `SANITY_API_TOKEN` free: `publish-blog-posts.mjs` reads it, and Candee's site needs it
 at build time or `/sell` fails to prerender.
 
-**Set these once in the environment, not per run.** Sanity tokens do not expire — they
-are valid until revoked — so a token that lives only in the environment is configured
-once and never needs rotating. A token pasted into a chat message is a different story:
-it is durable and now sits in a transcript, so that one does want revoking.
+### Where to put them
+
+**`.env.local` in the repo root, and run the scripts from your own terminal.** That file
+is gitignored (`.env*.local`), it stays on your machine, and it never passes through a
+conversation. `sanity-token.mjs` loads it automatically, the same way
+`publish-blog-posts.mjs` already does:
+
+```
+SANITY_TOKEN_DMVTITLEGUY=sk...
+SANITY_TOKEN_CANDEE=sk...
+```
+
+An exported shell variable overrides the file, so a one-off run can use a different
+token without editing anything.
+
+If you started a session on the web, `claude --teleport` pulls it down to your terminal,
+where that file is readable.
+
+A cloud environment's variables also work and survive container restarts, but that
+config has no secrets store and is readable by anyone using the environment — fine for
+a personal environment, not for an organization-shared one.
+
+Sanity tokens do not expire, so this is set up once. The tokens that want revoking are
+the ones pasted into a chat: those sit in a transcript you cannot edit.
 
 Create at sanity.io/manage → the project → API → Tokens → Add API token:
 
