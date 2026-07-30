@@ -74,6 +74,14 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Two Sterling articles carried the same title. This one's unique content —
+        // a settlement explainer, a cost breakdown and five practical Q&As — was
+        // merged into the guide's FAQ and the document unpublished in Sanity.
+        source: '/blog/sterling-virginia-settlement',
+        destination: '/blog/title-company-sterling-va',
+        statusCode: 301,
+      },
+      {
         // Never existed as a page, but 20 internal links pointed at it and it 404'd.
         // Maryland and DC both have a /closing-costs/{state} page; Virginia's
         // equivalent content lives on the calculator route instead.
