@@ -4,6 +4,11 @@ import path from 'path';
 import { randomBytes } from 'crypto';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+// CJS interop: dedup-check.cjs exports its similarity checks so publishing can gate on
+// the same thresholds the CLI uses instead of on slug equality alone.
+import dedupCheck from './dedup-check.cjs';
+
+const { checkSimilarity } = dedupCheck;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -457,6 +462,33 @@ export async function checkExistingPost(slug) {
   return getClient().fetch(`*[_type == "post" && slug.current == $slug][0]._id`, { slug });
 }
 
+/**
+ * Slug equality is not a duplicate check.
+ *
+ * checkExistingPost only asks "is this exact slug taken". Two posts got published with
+ * identical titles and ~97% identical bodies under slugs that differed only by a
+ * "-dmv" suffix, because each was a new slug and nothing compared the titles. The
+ * repo already had the right logic in dedup-check.cjs — its header even calls itself
+ * "MANDATORY before publishing ANY post" — but nothing invoked it, and importing it
+ * used to exit the process.
+ *
+ * This runs those same thresholds against every published title before a write.
+ * Returns the blocking matches; an empty array means clear to publish.
+ */
+export async function findDuplicateTitles(title, keyword) {
+  const existing = await getClient().fetch(
+    `*[_type == "post" && !(_id in path("drafts.**"))]{"slug":slug.current, title}`
+  );
+  const blocking = [];
+  for (const post of existing) {
+    if (!post?.title) continue;
+    const issues = checkSimilarity(title, keyword || '', post.title);
+    const fatal = issues.filter((i) => i.level === 'DUPLICATE');
+    if (fatal.length) blocking.push({ slug: post.slug, title: post.title, reasons: fatal.map((f) => f.reason) });
+  }
+  return blocking;
+}
+
 export async function publishPost(filePath, options = {}) {
   const resolved = resolveQueueFile(filePath);
   if (!existsSync(resolved)) throw new Error(`file not found: ${resolved}`);
@@ -480,6 +512,25 @@ export async function publishPost(filePath, options = {}) {
       appendPublishLog(result);
     }
     return result;
+  }
+
+  // The slug is free, but the title may still duplicate a live post. Gate before any
+  // write, and before spending an image upload on a post that should not exist.
+  if (!options.allowDuplicateTitle) {
+    const clashes = await findDuplicateTitles(title, meta.keyword || meta.target_keyword);
+    if (clashes.length) {
+      const result = {
+        status: 'skipped-duplicate-title',
+        slug,
+        title,
+        filePath: resolved,
+        reason: clashes
+          .map((c) => `"${c.title}" (/${c.slug}) — ${c.reasons.join(', ')}`)
+          .join(' | '),
+      };
+      if (!options.dryRun) appendPublishLog(result);
+      return result;
+    }
   }
 
   const blocks = markdownToPortableText(body);
