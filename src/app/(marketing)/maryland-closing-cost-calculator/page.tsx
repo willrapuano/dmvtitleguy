@@ -6,9 +6,9 @@ import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost Calculator | Instant Buyer & Seller Estimates",
+  title: "Maryland Closing Cost Calculator (2026) | Free Buyer & Seller Estimates",
   description:
-    "Use Pruitt Title's closing cost calculator Maryland tool to estimate buyer and seller costs, Maryland transfer tax calculator inputs, title fees, and county costs.",
+    "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, and county costs for Montgomery, PG, and statewide.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 

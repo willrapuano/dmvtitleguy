@@ -6,8 +6,8 @@ import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Fairfax VA Title & Settlement Services | DMV Title Guy",
-  description: "Pruitt Title LLC provides expert title and settlement services in Fairfax, VA. Fast closings, competitive rates, and local expertise since 2007.",
+  title: "Title Company in Fairfax, VA | Settlement & Title Insurance",
+  description: "Fairfax VA title company for title search, insurance, escrow, and settlement. 17+ years closing Fairfax County deals. Get a free Pruitt Title quote online today.",
   alternates: { canonical: "/title-company/fairfax-va" },
 };
 

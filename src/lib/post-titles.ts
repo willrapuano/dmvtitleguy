@@ -95,9 +95,9 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "A Fairfax County Closing Guide | DMV Title Guy",
   },
   "what-is-a-title-quote": {
-    title: "What Is a Title Quote? A DMV Closing Guide | Pruitt Title",
+    title: "What Is a Title Quote? DMV Closing Guide | Free Quote | Pruitt Title",
     description:
-      "Title quote guide for DMV buyers, sellers, and agents. Learn what a title quote includes and when to request one from Pruitt Title online today.",
+      "What a title quote includes for DMV buyers, sellers, and agents — fees, insurance, and timing. Request a free Pruitt Title quote online before you schedule closing.",
   },
   "what-is-a-title-settlement-fee": {
     title: "What Is a Title Settlement Fee? A DMV Guide | Pruitt Title",
@@ -123,6 +123,16 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "Settlement Services in Arlington, VA: A Guide | Pruitt Title",
     description:
       "Arlington settlement services guide for residential closings, title work, and escrow. Pruitt Title helps DMV deals close cleanly. Call today.",
+  },
+  "title-insurance-cost-virginia-maryland": {
+    title: "Title Insurance Cost in Virginia & Maryland (2026 Buyer Guide)",
+    description:
+      "What buyers actually pay for title insurance in VA and MD: owner vs lender policies, rate basics, and how to compare closing numbers. Free Pruitt Title quote online.",
+  },
+  "how-much-does-title-insurance-cost": {
+    title: "How Much Does Title Insurance Cost? VA/MD/DC Breakdown",
+    description:
+      "Title insurance cost explained before you sign the Closing Disclosure. What drives the premium in VA, MD, and DC — and how to request a clear Pruitt Title quote today.",
   },
 };
 

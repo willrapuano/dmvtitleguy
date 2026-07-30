@@ -6,8 +6,8 @@ import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Title Company Silver Spring MD | Settlement & Title Services",
-  description: "Pruitt Title LLC provides expert title and settlement services in Silver Spring, MD. Fast closings, competitive rates, and local expertise since 2007.",
+  title: "Title Company in Silver Spring, MD | Settlement & Escrow",
+  description: "Silver Spring MD title company for Montgomery County closings. Title insurance, escrow, transfer-tax guidance, and Fast settlement. Free Pruitt Title quote online.",
   alternates: { canonical: "/title-company/silver-spring-md" },
 };
 

@@ -666,10 +666,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
      */
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Herndon VA Title Company | Fast Closings & Online Quotes | Pruitt Title",
-        description: "Need a title company in Herndon, VA? We offer fast, reliable settlement services and title insurance for buyers, sellers, and realtors. Get your free title quote online in minutes.",
-        ogTitle: "Herndon VA Title Company | Fast Closings & Online Quotes | Pruitt Title",
-        ogDescription: "Fast, reliable settlement services and title insurance for Herndon buyers, sellers, and realtors. Get your free title quote online in minutes.",
+        title: "Title Company in Herndon, VA | Fast Closings & Free Online Quote",
+        description: "Looking for a Herndon VA title company? Pruitt Title handles title search, insurance, escrow, and settlement for buyers, sellers, and agents. Free online title quote in minutes.",
+        ogTitle: "Title Company in Herndon, VA | Fast Closings & Free Online Quote",
+        ogDescription: "Looking for a Herndon VA title company? Pruitt Title handles title search, insurance, escrow, and settlement for buyers, sellers, and agents. Free online title quote in minutes.",
       },
       "title-search-vienna-va": {
         title: "Vienna VA Title Company — Trusted Closings Since 2007 | DMV Title Guy",
@@ -678,28 +678,28 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogDescription: "Professional title search, insurance & settlement services in Vienna, VA. Serving Oakton, McLean & all of Fairfax County since 2007.",
       },
       "title-company-tysons-va": {
-        title: "Tysons VA Title Company & Title Insurance | Pruitt Title",
-        description: "Tysons VA title company and title insurance services for Tysons Corner, McLean, and Fairfax County. Pruitt Title handles title searches, escrow, closings, and settlement services.",
-        ogTitle: "Tysons VA Title Company & Title Insurance | Pruitt Title",
-        ogDescription: "Title search, escrow, title insurance, and settlement services for Tysons Corner, McLean, and Fairfax County transactions.",
+        title: "Title Company in Tysons, VA | Title Insurance & Same-Week Closings",
+        description: "Tysons Corner title company for searches, escrow, insurance, and settlement. Pruitt Title closes Tysons, McLean, and Fairfax County deals fast. Request a free quote online.",
+        ogTitle: "Title Company in Tysons, VA | Title Insurance & Same-Week Closings",
+        ogDescription: "Tysons Corner title company for searches, escrow, insurance, and settlement. Pruitt Title closes Tysons, McLean, and Fairfax County deals fast. Request a free quote online.",
       },
       "title-company-bethesda-md": {
-        title: "Bethesda MD Title Company | Settlement & Escrow Services | Pruitt Title",
-        description: "Need a title company in Bethesda, MD? We offer fast, reliable settlement, escrow, and title insurance services for buyers, sellers, and realtors. Get your free title quote online in minutes.",
-        ogTitle: "Bethesda MD Title Company | Settlement & Escrow Services | Pruitt Title",
-        ogDescription: "Fast, reliable settlement, escrow, and title insurance services across Bethesda-Chevy Chase and Montgomery County. Free title quote in minutes.",
+        title: "Title Company in Bethesda, MD | Settlement, Escrow & Title Insurance",
+        description: "Bethesda MD title company for buyers, sellers, and agents. Fast settlement, escrow, and title insurance across Chevy Chase and Montgomery County. Free online title quote.",
+        ogTitle: "Title Company in Bethesda, MD | Settlement, Escrow & Title Insurance",
+        ogDescription: "Bethesda MD title company for buyers, sellers, and agents. Fast settlement, escrow, and title insurance across Chevy Chase and Montgomery County. Free online title quote.",
       },
       "title-company-reston-va": {
-        title: "Reston VA Title Company & Closing Services | Pruitt Title",
-        description: "Reston title company for title insurance, escrow, and closings, with 17+ years serving Fairfax County. Request a fast Pruitt Title quote today.",
-        ogTitle: "Reston VA Title Company & Closing Services | Pruitt Title",
-        ogDescription: "Title insurance, escrow, and closing services in Reston and Fairfax County.",
+        title: "Title Company in Reston, VA | Title Insurance & Settlement",
+        description: "Reston VA title company for title insurance, escrow, and closings. 17+ years serving Fairfax County buyers, sellers, and agents. Free Pruitt Title quote online.",
+        ogTitle: "Title Company in Reston, VA | Title Insurance & Settlement",
+        ogDescription: "Reston VA title company for title insurance, escrow, and closings. 17+ years serving Fairfax County buyers, sellers, and agents. Free Pruitt Title quote online.",
       },
       "title-company-mclean-va": {
-        title: "McLean VA Title Company & Closing Services | Pruitt Title",
-        description: "McLean title company for title insurance, escrow, and closings, with 17+ years serving Fairfax County. Request a fast Pruitt Title quote today.",
-        ogTitle: "McLean VA Title Company & Closing Services | Pruitt Title",
-        ogDescription: "Title insurance, escrow, and closing services in McLean and Fairfax County.",
+        title: "Title Company in McLean, VA | Escrow, Insurance & Local Closings",
+        description: "McLean VA title company with 17+ years in Fairfax County. Title insurance, escrow, and settlement for residential and complex closings. Get a free Pruitt Title quote today.",
+        ogTitle: "Title Company in McLean, VA | Escrow, Insurance & Local Closings",
+        ogDescription: "McLean VA title company with 17+ years in Fairfax County. Title insurance, escrow, and settlement for residential and complex closings. Get a free Pruitt Title quote today.",
       },
       "title-company-springfield-va": {
         title: "Springfield VA Title Company | DMV Title Guy",
@@ -708,10 +708,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogDescription: "Professional title insurance and closing services in Springfield, VA. Residential, commercial & investor closings. Since 2007.",
       },
       "title-company-falls-church-va": {
-        title: "Falls Church VA Title Company & Closings | Pruitt Title",
-        description: "Falls Church title company for title insurance, escrow, and closings, backed by 17+ years serving Fairfax County. Request a fast quote today.",
-        ogTitle: "Falls Church VA Title Company & Closings | Pruitt Title",
-        ogDescription: "Title insurance, escrow, and closing services in Falls Church and nearby Fairfax County.",
+        title: "Title Company in Falls Church, VA | Fast Local Settlement Services",
+        description: "Falls Church title company for insurance, escrow, and closings. Pruitt Title serves City of Falls Church and nearby Fairfax County. Request a fast title quote today.",
+        ogTitle: "Title Company in Falls Church, VA | Fast Local Settlement Services",
+        ogDescription: "Falls Church title company for insurance, escrow, and closings. Pruitt Title serves City of Falls Church and nearby Fairfax County. Request a fast title quote today.",
       },
       "title-company-stafford-va": {
         title: "Stafford VA Title and Escrow Closings | Pruitt Title",
@@ -724,6 +724,24 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         description: "Woodbridge title company for title insurance, escrow, and closings across Prince William County. Pruitt Title makes settlement simple. Call today.",
         ogTitle: "Woodbridge VA Title Company & Closings | Pruitt Title",
         ogDescription: "Title insurance, escrow, and closing services in Woodbridge and Prince William County.",
+      },
+      "title-company-fairfax-va": {
+        title: "Title Company in Fairfax, VA | Settlement & Title Insurance",
+        description: "Fairfax VA title company for title search, insurance, escrow, and settlement. 17+ years closing Fairfax County deals. Get a free Pruitt Title quote online today.",
+        ogTitle: "Title Company in Fairfax, VA | Settlement & Title Insurance",
+        ogDescription: "Fairfax VA title company for title search, insurance, escrow, and settlement. 17+ years closing Fairfax County deals. Get a free Pruitt Title quote online today.",
+      },
+      "title-company-silver-spring-md": {
+        title: "Title Company in Silver Spring, MD | MD Settlement & Escrow",
+        description: "Silver Spring MD title company for Montgomery County closings. Title insurance, escrow, transfer-tax guidance, and fast settlement. Request a free Pruitt Title quote.",
+        ogTitle: "Title Company in Silver Spring, MD | MD Settlement & Escrow",
+        ogDescription: "Silver Spring MD title company for Montgomery County closings. Title insurance, escrow, transfer-tax guidance, and fast settlement. Request a free Pruitt Title quote.",
+      },
+      "title-company-vienna-va": {
+        title: "Title Company in Vienna, VA | Trusted Closings Since 2007",
+        description: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
+        ogTitle: "Title Company in Vienna, VA | Trusted Closings Since 2007",
+        ogDescription: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
       },
     };
 
