@@ -1,9 +1,12 @@
 import { createClient } from '@sanity/client';
+import { requireSanityToken } from './sanity-token.mjs';
 
+// See push-posts.mjs — same reason: accept the project-specific token names, not just
+// the bare SANITY_API_TOKEN the README tells you to leave free.
 const client = createClient({
   projectId: '4s0dloxi',
   dataset: 'production',
-  token: process.env.SANITY_API_TOKEN,
+  token: requireSanityToken('4s0dloxi'),
   useCdn: false,
   apiVersion: '2024-01-01',
 });

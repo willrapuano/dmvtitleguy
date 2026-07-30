@@ -1,9 +1,14 @@
 import { createClient } from '@sanity/client';
+import { requireSanityToken } from './sanity-token.mjs';
 
+// Reads SANITY_TOKEN_DMVTITLEGUY / SANITY_TOKEN_4S0DLOXI / SANITY_API_TOKEN, and loads
+// .env.local. Bare SANITY_API_TOKEN alone used to be the only name accepted here, so a
+// setup following the README — project-specific names, SANITY_API_TOKEN left free —
+// failed with an unexplained 401.
 const client = createClient({
   projectId: '4s0dloxi',
   dataset: 'production',
-  token: process.env.SANITY_API_TOKEN,
+  token: requireSanityToken('4s0dloxi'),
   useCdn: false,
   apiVersion: '2024-01-01',
 });

@@ -14,11 +14,13 @@
  * Idempotent: it patches only documents whose title actually differs, so a clean run
  * printing "nothing to do" is the expected steady state.
  *
- *   node sanity-title-sync.mjs                          # dry run, no token needed
- *   SANITY_TOKEN_DMVTITLEGUY=... node sanity-title-sync.mjs --apply
+ *   node sanity-title-sync.mjs            # dry run, no token needed
+ *   node sanity-title-sync.mjs --apply   # needs a token
  *
- * See sanity-token.mjs for the variables accepted per project. Set one in this
- * environment once — Sanity tokens do not expire — rather than passing it per run.
+ * Put the token in .env.local in this directory and run from your own terminal:
+ * sanity-token.mjs loads that file, it is gitignored, and it never passes through a
+ * conversation. Sanity tokens do not expire, so this is set up once. See README.md
+ * ("Sanity access for scripts") for the variable names each project accepts.
  *
  * Needs an Editor token (Deploy Studio cannot write documents). The token is read
  * only from the environment, never argv, so it stays out of shell history.
