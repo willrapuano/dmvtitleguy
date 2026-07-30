@@ -74,6 +74,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Not a duplicate by body text (1.5% overlap) but only 827 characters against
+        // the keeper's 3,061 on the same topic, competing for the same term. Its one
+        // genuinely new FAQ, "Should You Get It?", moved into the keeper's accordion;
+        // its other item answered a question the keeper already answers at length, so
+        // carrying it would have put two answers to one question on the page.
+        source: '/blog/alta-homeowner-policy-dmv',
+        destination: '/blog/alta-homeowner-policy',
+        statusCode: 301,
+      },
+      {
         // A byte-identical duplicate of /blog/lender-title-insurance — 97.4% of the
         // body text matched, and the one sentence that did not was a generic opener.
         // Programmatically generated (deterministic post-* id) alongside the
