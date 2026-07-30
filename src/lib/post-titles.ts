@@ -83,17 +83,16 @@ export const BLOG_SEO_OVERRIDES: Record<
    * that actually matters. /title-search-fairfax-va and /title-company-sterling-va
    * both exist and both target "Title & Closing Services in <place>".
    *
-   * sterling-virginia-settlement matters most: it is a ~4,000 word article whose
-   * title was identical to the other Sterling post's, so retitling only that one
-   * achieved nothing while this one still carried the phrase. Two full articles on
-   * one town still wants a decision about whether both should exist.
+   * The second Sterling post, sterling-virginia-settlement, is gone: its title was
+   * identical to this one's, so retitling only one of them achieved nothing. Its
+   * unique content — a settlement explainer, a cost breakdown and five practical
+   * Q&As — was merged into title-company-sterling-va's FAQ, the document was
+   * unpublished, and /blog/sterling-virginia-settlement now 301s to the guide.
+   * (It was 422 words of body text, not the ~4,000 an earlier note here claimed;
+   * that figure counted page chrome.)
    */
   "title-company-fairfax-va": {
     title: "A Fairfax County Closing Guide | DMV Title Guy",
-  },
-  "sterling-virginia-settlement": {
-    title: "How Settlement Works in Sterling, VA | DMV Title Guy",
-    h1: "How Settlement Works in Sterling, VA",
   },
   "what-is-a-title-quote": {
     title: "What Is a Title Quote? A DMV Closing Guide | Pruitt Title",
