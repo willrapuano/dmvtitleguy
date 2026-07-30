@@ -25,9 +25,18 @@
 
 const { createClient } = require('@sanity/client');
 
+/**
+ * This file is both a CLI and a library. The argv parsing and the process.exit on
+ * missing arguments used to run at require() time, so any attempt to import
+ * checkSimilarity() from the publisher killed the process instead — which is part of
+ * why these checks were never actually wired into publishing. Everything that touches
+ * argv now lives behind the require.main guard at the bottom.
+ */
+const RUN_AS_CLI = require.main === module;
+
 const [,, projectId, token, docType, title, keyword] = process.argv;
 
-if (!projectId || !token || !docType || !title) {
+if (RUN_AS_CLI && (!projectId || !token || !docType || !title)) {
   console.log('Usage: node dedup-check.js <projectId> <token> <docType> "<title>" "[keyword]"');
   console.log('\nSites:');
   console.log('  DMVtitleguy: projectId=4s0dloxi, docType=post');
@@ -35,13 +44,15 @@ if (!projectId || !token || !docType || !title) {
   process.exit(1);
 }
 
-const client = createClient({
-  projectId,
-  dataset: 'production',
-  apiVersion: '2024-01-01',
-  useCdn: false,
-  token,
-});
+const client = RUN_AS_CLI
+  ? createClient({
+      projectId,
+      dataset: 'production',
+      apiVersion: '2024-01-01',
+      useCdn: false,
+      token,
+    })
+  : null;
 
 // --- Utility functions ---
 
@@ -370,4 +381,21 @@ async function main() {
   process.exit(0);
 }
 
-main().catch(e => { console.log('ERROR: ' + e.message); process.exit(2); });
+/**
+ * Exported so publish-blog-posts.mjs can gate on the same thresholds this CLI uses,
+ * rather than the publisher's own slug-equality check — which is what let two posts
+ * with identical titles and ~97% identical bodies through under different slugs.
+ */
+module.exports = {
+  checkSimilarity,
+  normalize,
+  getWords,
+  getCoreWords,
+  getBigrams,
+  jaccard,
+  containment,
+};
+
+if (RUN_AS_CLI) {
+  main().catch(e => { console.log('ERROR: ' + e.message); process.exit(2); });
+}
