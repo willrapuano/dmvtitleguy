@@ -13,7 +13,17 @@
  * that only needs to fix a title should not have to invent a description.
  *
  * `h1` exists so a retitled post does not end up with a heading that disagrees
- * with its own tab and search result.
+ * with its own tab and search result. It is now needed only where the CMS title is
+ * still the wrong heading: the fifteen retitled posts had their Sanity `title` set to
+ * the value this file used to override, so `postDisplayTitle` reaches the same string
+ * through its CMS fallback and the override would be a duplicate. Studio and the site
+ * now show the same heading, which they did not before.
+ *
+ * `title` overrides are NOT redundant and all remain — a search-result title carries
+ * the brand suffix and often a different phrasing than the on-page heading.
+ *
+ * If you retitle a post in Studio, that is now the heading the site uses. Add an `h1`
+ * entry here only to deliberately override it.
  */
 export const BLOG_SEO_OVERRIDES: Record<
   string,
@@ -29,56 +39,43 @@ export const BLOG_SEO_OVERRIDES: Record<
    */
   "title-company-washington-dc": {
     title: "Why DC Closings Differ From VA and MD | DMV Title Guy",
-    h1: "Why DC Closings Differ From Virginia and Maryland",
   },
   "title-company-arlington-va": {
     // Body already has a "Why Arlington Closings Are Different" section head.
     title: "An Arlington Closing Guide | DMV Title Guy",
-    h1: "An Arlington Closing Guide for Buyers and Sellers",
   },
   "title-company-alexandria-va": {
     title: "An Alexandria Closing Guide | DMV Title Guy",
-    h1: "An Alexandria Closing Guide for Buyers and Sellers",
   },
   "title-company-mclean-va": {
     title: "Why McLean Closings Need Extra Expertise | DMV Title Guy",
-    h1: "Why McLean Closings Need Extra Expertise",
   },
   "title-company-reston-va": {
     title: "Closing on a Home in Reston, VA | DMV Title Guy",
-    h1: "Closing on a Home in Reston, VA",
   },
   "title-company-woodbridge-va": {
     title: "Closing in Prince William County: A Woodbridge Guide",
-    h1: "Closing in Prince William County: A Woodbridge Guide",
   },
   "title-company-bethesda-md": {
     title: "A Bethesda Closing Guide | DMV Title Guy",
-    h1: "A Bethesda Closing Guide for Buyers and Sellers",
   },
   "title-company-springfield-va": {
     title: "Closing in Fairfax County's Southern Corridor",
-    h1: "Closing in Fairfax County's Southern Corridor",
   },
   "title-company-falls-church-va": {
     title: "A Closing Guide for Falls Church, VA | DMV Title Guy",
-    h1: "A Closing Guide for Falls Church, VA",
   },
   "title-company-sterling-va": {
     title: "A Closing Guide for the Dulles Corridor | DMV Title Guy",
-    h1: "A Closing Guide for the Dulles Corridor",
   },
   "title-company-fairfax-county-va": {
     title: "Closing in Fairfax County: What to Expect",
-    h1: "Closing in Fairfax County: What to Expect",
   },
   "title-company-loudoun-county-va": {
     title: "Closing in Virginia's Fastest-Growing County",
-    h1: "Closing in Virginia's Fastest-Growing County",
   },
   "title-company-montgomery-county-md": {
     title: "Settlement Services That Know Montgomery County",
-    h1: "Settlement Services That Know Montgomery County",
   },
   /**
    * Neither of these collides with a location slug, so neither was in the thirteen
@@ -93,7 +90,6 @@ export const BLOG_SEO_OVERRIDES: Record<
    */
   "title-company-fairfax-va": {
     title: "A Fairfax County Closing Guide | DMV Title Guy",
-    h1: "A Fairfax County Closing Guide for Buyers and Sellers",
   },
   "sterling-virginia-settlement": {
     title: "How Settlement Works in Sterling, VA | DMV Title Guy",
@@ -118,7 +114,6 @@ export const BLOG_SEO_OVERRIDES: Record<
     // Company in Vienna, VA" — the landing page's phrase, on a post already
     // canonicalised to it. Avoids the body's "Why Vienna Real Estate Closings Are
     // Different" section head.
-    h1: "How a Vienna, VA Closing Works",
   },
   "construction-loans-maryland": {
     title: "Construction Loans in Maryland: Title Review | Pruitt Title",
