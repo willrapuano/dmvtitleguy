@@ -556,9 +556,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
    * title, and everything a reader or a crawler sees has to agree with the <h1>:
    * the breadcrumb, the share links, the BlogPosting headline.
    *
-   * Deliberately NOT used by the two body-dedup checks below, which strip a
-   * leading heading that repeats the post's own Sanity title — comparing those
-   * against the override would stop matching and render the heading twice.
+   * Deliberately NOT used by the body-dedup checks below, which compare against
+   * the post's own Sanity title — a body heading was authored alongside that, not
+   * alongside any override.
+   *
+   * That comparison is also why those checks no longer rely on an exact match for
+   * an h1. Retitling fifteen posts in Sanity changed post.title out from under the
+   * body headings, which stopped matching and started rendering. A leading h1 is
+   * now stripped on structure rather than on text.
    */
   const displayTitle = postDisplayTitle(post.slug, post.title);
   const heroImage = resolvePostImage(post.slug, post.image) ?? post.image;
@@ -798,55 +803,63 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 {portableTextBody ? (
                   <PortableText
                     value={(() => {
-                      // Strip leading h1/h2 block if it duplicates the post title
                       const blocks = portableTextBody as any[];
-                      if (blocks.length === 0) return blocks;
-                      const first = blocks[0];
-                      const firstText = first?.children?.map((c: any) => c.text).join("").trim() ?? "";
-                      const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
-                      if (
-                        (first?.style === "h1" || first?.style === "h2") &&
-                        normalize(firstText) === normalize(post.title)
-                      ) {
-                        return blocks.slice(1);
-                      }
-                      // Transform Sanity's nested { _type: "list" } format to PortableText Toolkit format
-                      // Sanity: { _type: "list", listItem: "bullet", children: [{ _type: "listItem", children: [{ _type: "block", ... }] }] }
-                      // PortableText Toolkit: [{ _type: "block", listItem: "bullet", ... }, ...]
-                      const transformBody = (body: any[]): any[] => {
-                        console.log("[DEBUG] transformBody called, body length:", body.length);
-                        // Find list blocks
-                        const listIndices = body.map((b, i) => b._type === 'list' ? i : -1).filter(i => i >= 0);
-                        console.log("[DEBUG] list block indices:", listIndices);
-                        if (listIndices.length > 0) {
-                          console.log("[DEBUG] first list block:", JSON.stringify(body[listIndices[0]], null, 2));
+
+                      /**
+                       * Drop a leading heading that just restates the article title.
+                       *
+                       * An h1 is stripped whatever it says: the page already renders the
+                       * title as its own <h1>, so a body h1 is a second title by
+                       * construction. Eleven posts opened with one — "Arlington VA Title
+                       * & Settlement Services" under the h1 "An Arlington Closing Guide
+                       * for Buyers and Sellers" — and they rendered, because the old
+                       * check only stripped a heading matching post.title exactly.
+                       *
+                       * An h2 is usually a genuine first section heading ("Wire Fraud Is
+                       * the Biggest Financial Threat in Real Estate Today"), so it is
+                       * only dropped when it repeats the title verbatim. Of 46 posts
+                       * opening with a heading, 31 differ from the title and most of
+                       * those are real section headings — stripping h2 unconditionally
+                       * would delete content.
+                       *
+                       * Comparing against post.title rather than the display title is
+                       * deliberate: the body heading was authored alongside the CMS
+                       * title, not alongside any override.
+                       */
+                      const withoutRestatedTitle = (body: any[]): any[] => {
+                        if (body.length === 0) return body;
+                        const first = body[0];
+                        if (first?.style === "h1") return body.slice(1);
+                        const text = first?.children?.map((c: any) => c.text).join("").trim() ?? "";
+                        const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+                        if (first?.style === "h2" && normalize(text) === normalize(post.title)) {
+                          return body.slice(1);
                         }
-                        const hasList = body.some(b => b._type === 'list');
-                        console.log("[DEBUG] body has list blocks:", hasList);
-                        // If no list blocks found, force-check with a filter
-                        const listBlocks = body.filter(b => b._type === 'list');
-                        console.log("[DEBUG] filter found listBlocks:", listBlocks.length);
-                        
-                        // DEBUG: Check block types
-                        const types = new Set(body.map(b => b._type));
-                        console.log("[DEBUG] All types in body:", Array.from(types));
-                        
-                        return body.flatMap((block) => {
-                          if (block._type === "list") {
-                            console.log("[DEBUG] Found list block, listItem:", block.listItem);
-                            // Flatten: extract listItem blocks as flat blocks
-                            return block.children.flatMap((li: any) =>
-                              (li.children || []).map((childBlock: any) => ({
-                                ...childBlock,
-                                _type: "block",
-                                listItem: block.listItem,
-                              }))
-                            );
-                          }
-                          return [block];
-                        });
+                        return body;
                       };
-                      return transformBody(blocks);
+
+                      /**
+                       * Sanity nests list items as { _type: "list", children: [listItem] };
+                       * PortableText Toolkit wants flat blocks carrying `listItem`.
+                       *
+                       * This used to be unreachable for any post whose first block was
+                       * stripped above — that branch returned early, so those posts' lists
+                       * were handed to PortableText in Sanity's nested shape. Both steps
+                       * now always run.
+                       */
+                      const flattenLists = (body: any[]): any[] =>
+                        body.flatMap((block) => {
+                          if (block._type !== "list") return [block];
+                          return (block.children || []).flatMap((li: any) =>
+                            (li.children || []).map((childBlock: any) => ({
+                              ...childBlock,
+                              _type: "block",
+                              listItem: block.listItem,
+                            }))
+                          );
+                        });
+
+                      return flattenLists(withoutRestatedTitle(blocks));
                     })()}
                     components={{
                       types: {
@@ -868,8 +881,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       // Top-level list/listItem: @portabletext/react renderList uses components.list
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       list: ({ children, value }: any) => {
-                        // DEBUG: log list rendering
-                        console.log("[LIST] Rendering list, listItem:", value?.listItem, "children:", children?.length);
                         if (value?.listItem === "bullet" || value?.listItem === "ul") {
                           return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
                         }
