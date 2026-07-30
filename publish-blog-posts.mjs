@@ -551,7 +551,12 @@ export async function publishPost(filePath, options = {}) {
   };
 
   const image = await uploadImage(slug, title);
-  if (image) doc.mainImage = image;
+  if (!image) {
+    throw new Error(
+      `gate failed: missing required featured image for slug "${slug}" (expected blog-queue/images/${slug}.{png|jpg|jpeg|webp})`,
+    );
+  }
+  doc.mainImage = image;
 
   if (options.dryRun) {
     return { status: 'dry-run', slug, title, filePath: resolved, blocks: blocks.length, category: doc.category };
