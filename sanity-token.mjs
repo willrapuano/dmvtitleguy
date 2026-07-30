@@ -2,11 +2,19 @@
  * Resolve a Sanity write token from the environment, for whichever project a script
  * targets.
  *
- * Sanity tokens are scoped to a single project and do not expire — they are valid
- * until revoked. So the intended setup is create-once-per-project, stored in this
- * environment's variables, and never pasted into a chat or a commit again. A token
- * that only ever lives in the environment does not need rotating; one that has been
- * pasted into a transcript does.
+ * Sanity tokens are scoped to a single project and do not expire — they are valid until
+ * revoked. So this is create-once-per-project: set it somewhere durable and never paste
+ * it into a chat or a commit again. A token that has been pasted into a transcript is
+ * the one that wants revoking; a token in a gitignored local file does not.
+ *
+ * Where to put them, best first:
+ *
+ *   1. .env.local in this directory, running from your own terminal. Gitignored, on
+ *      your machine, never in a transcript. `claude --teleport` pulls a cloud session
+ *      down to your shell if you started it on the web.
+ *   2. Exported in your shell or shell profile.
+ *   3. A cloud environment's variables — works, but that config has no secrets store
+ *      and is readable by anyone using the environment, so prefer 1 or 2.
  *
  * Two projects are in play, so a single SANITY_API_TOKEN cannot serve both. Rather
  * than demand one exact name, each project accepts several — set whichever you like:
@@ -26,6 +34,29 @@
  * Needs the Editor role. Viewer cannot write documents, and "Deploy Studio" grants no
  * data access at all despite the name — it only permits `sanity deploy`.
  */
+
+import { existsSync } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+
+/**
+ * Load .env.local first, the way publish-blog-posts.mjs already does.
+ *
+ * Running from a terminal is the better place to hold these: .env.local is gitignored
+ * (`.env*.local` in .gitignore), it lives on your own machine, and it never passes
+ * through a conversation. Cloud sessions have no secrets store, so a token set there
+ * sits in the environment config in plaintext — a local file avoids that entirely, and
+ * `claude --teleport` pulls a cloud session down to where the file is.
+ *
+ * override is deliberately false: a variable already exported in the shell, or set in a
+ * cloud environment, wins over the file.
+ */
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+for (const name of [".env.local", ".env"]) {
+  const p = path.join(HERE, name);
+  if (existsSync(p)) dotenv.config({ path: p, override: false, quiet: true });
+}
 
 /** projectId → the environment variables that may hold its token, in priority order. */
 const TOKEN_VARS = {
@@ -70,8 +101,9 @@ export function requireSanityToken(projectId) {
       `API → Tokens → Add API token, with the Editor role.\n` +
       `Check the project switcher first: the tokens page looks identical across projects, ` +
       `and a token issued on the wrong one fails with "Session does not match project host".\n\n` +
-      `Store it in this environment's variables rather than pasting it into a message — ` +
-      `Sanity tokens do not expire, so an environment-only token is set up once and never ` +
-      `needs rotating.`
+      `Put it in .env.local in this directory and run from your own terminal — that file ` +
+      `is gitignored and never enters a conversation. Sanity tokens do not expire, so ` +
+      `this is set up once. A cloud environment's variables work too, but that config ` +
+      `has no secrets store and anyone using the environment can read it.`
   );
 }
