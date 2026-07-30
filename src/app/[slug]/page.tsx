@@ -672,10 +672,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogDescription: "Looking for a Herndon VA title company? Pruitt Title handles title search, insurance, escrow, and settlement for buyers, sellers, and agents. Free online title quote in minutes.",
       },
       "title-search-vienna-va": {
-        title: "Vienna VA Title Company — Trusted Closings Since 2007 | DMV Title Guy",
-        description: "Vienna, VA's trusted title settlement company for residential & commercial closings. 17+ years serving Fairfax County. Free title quote: (703) 859-1467.",
-        ogTitle: "Vienna VA Title Settlement Company | DMV Title Guy",
-        ogDescription: "Professional title search, insurance & settlement services in Vienna, VA. Serving Oakton, McLean & all of Fairfax County since 2007.",
+        title: "Title Company in Vienna, VA | Trusted Closings Since 2007",
+        description: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
+        ogTitle: "Title Company in Vienna, VA | Trusted Closings Since 2007",
+        ogDescription: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
       },
       "title-company-tysons-va": {
         title: "Title Company in Tysons, VA | Title Insurance & Same-Week Closings",
@@ -742,6 +742,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         description: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
         ogTitle: "Title Company in Vienna, VA | Trusted Closings Since 2007",
         ogDescription: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
+      },
+      "title-search-fairfax-va": {
+        title: "Fairfax VA Title Search & Title Company | Free Online Quote",
+        description: "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
+        ogTitle: "Fairfax VA Title Search & Title Company | Free Online Quote",
+        ogDescription: "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
       },
     };
 

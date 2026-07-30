@@ -17,9 +17,9 @@ import {
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 
 export const metadata: Metadata = {
-  title: "Fairfax VA Title Search | Order Online | Pruitt Title",
+  title: "Fairfax VA Title Search & Title Company | Free Online Quote",
   description:
-    "Order a Fairfax County title search online for liens, ownership, HOA, and closing risk review. Fast turnaround from Pruitt Title — start your Fairfax title search today.",
+    "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-fairfax-va",
   },
