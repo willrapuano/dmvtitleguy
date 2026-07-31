@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Check, AlertTriangle } from "lucide-react";
+import { Phone, Check } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";

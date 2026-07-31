@@ -90,9 +90,7 @@ function calculateMontgomeryRecordationTax(price: number, ownerOccupiedResidenti
   return tax;
 }
 
-function calculateVA(price: number, loanAmount: number, party: PartyType): CalcResult {
-  const isResale = true;
-
+function calculateVA(price: number, loanAmount: number): CalcResult {
   const buyerCosts: Record<string, number> = {
     titleSearch: 250,
     titleInsuranceLender: price * 0.0035,
@@ -121,7 +119,6 @@ function calculateVA(price: number, loanAmount: number, party: PartyType): CalcR
 function calculateMD(
   price: number,
   loanAmount: number,
-  party: PartyType,
   options: MarylandOptions = {
     county: "montgomery",
     firstTimeMarylandHomebuyer: false,
@@ -175,7 +172,7 @@ function calculateMD(
   return { buyerCosts, sellerCosts };
 }
 
-function calculateDC(price: number, loanAmount: number, party: PartyType): CalcResult {
+function calculateDC(price: number, loanAmount: number): CalcResult {
   // DC: combined recordation + transfer = ~2.9% over $400K, split buyer/seller
   const combinedRate = price >= 400000 ? 0.029 : 0.022;
   const halfTax = (price * combinedRate) / 2;
@@ -301,12 +298,12 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
   const results = useMemo(() => {
     const base =
       state === "MD"
-        ? calculateMD(price, loanAmount, party, {
+        ? calculateMD(price, loanAmount, {
             county: marylandCounty,
             firstTimeMarylandHomebuyer,
             ownerOccupiedResidential,
           })
-        : CALCULATORS[state](price, loanAmount, party);
+        : CALCULATORS[state](price, loanAmount);
 
     // Apply city-level tax overrides if provided
     if (cityOverrides) {
@@ -336,7 +333,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
     }
 
     return base;
-  }, [state, price, loanAmount, party, cityOverrides, marylandCounty, firstTimeMarylandHomebuyer, ownerOccupiedResidential]);
+  }, [state, price, loanAmount, cityOverrides, marylandCounty, firstTimeMarylandHomebuyer, ownerOccupiedResidential]);
 
   const buyerTotal = sumObj(results.buyerCosts);
   const sellerTotal = sumObj(results.sellerCosts);

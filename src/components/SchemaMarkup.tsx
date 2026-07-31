@@ -17,7 +17,7 @@ interface LocationSchemaProps {
   description: string;
 }
 
-export function LocationSchema({ city, state, county, slug, description }: LocationSchemaProps) {
+export function LocationSchema({ city, state, slug, description }: LocationSchemaProps) {
   const locationName = formatLocationName(city, state as StateCode);
   const isBethesda = slug === "title-company-bethesda-md";
   const localAreaServed = isBethesda

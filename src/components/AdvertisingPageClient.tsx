@@ -1,6 +1,6 @@
 "use client";
 
-import { Target, Repeat, BarChart3, Rocket, Check } from "lucide-react";
+import { Rocket, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { trackLeadConversion } from "@/lib/client-analytics";

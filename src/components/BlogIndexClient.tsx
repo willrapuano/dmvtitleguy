@@ -92,6 +92,9 @@ function PostImage({
   const widest = widths[widths.length - 1];
 
   return (
+    // This component owns its responsive srcset and fallback behavior, which
+    // next/image cannot preserve without duplicating the image request logic.
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       ref={ref}
       src={postImageUrl(image, widest)}

@@ -65,7 +65,6 @@ export const tableBlock = defineType({
           ],
           preview: {
             select: { cells: "cells" },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             prepare({ cells }: any) {
               return { title: (cells || []).join(" | ").slice(0, 60) };
             },
@@ -102,7 +101,6 @@ export const accordionBlock = defineType({
           ],
           preview: {
             select: { question: "question" },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             prepare({ question }: any) {
               return { title: question };
             },

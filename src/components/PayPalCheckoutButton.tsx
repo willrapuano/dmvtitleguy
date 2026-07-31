@@ -8,12 +8,6 @@ interface PayPalCheckoutButtonProps {
   propertyAddress?: string;
 }
 
-interface PayPalActions {
-  order: {
-    create: (order: unknown) => Promise<string>;
-  };
-}
-
 interface PayPalApproveData {
   orderID: string;
 }

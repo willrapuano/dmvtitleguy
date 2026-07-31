@@ -34,7 +34,6 @@ import {
 import {
   CITY_CALCULATOR_DATA,
   getCityCalcData,
-  getStateFullName,
   regionalTransportationFeeRate,
   regionalFeeParagraph,
   recordationCaveat,
@@ -656,7 +655,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!result) return { title: "Not Found" };
 
   if (result.type === "location") {
-    const { city, state, county } = result.data;
+    const { county } = result.data;
     const countyLabel = county.endsWith(" County") ? county : county;
     const locationName = getLocationDisplayName(result.data);
 

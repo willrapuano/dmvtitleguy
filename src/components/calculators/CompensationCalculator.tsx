@@ -27,7 +27,7 @@ export function CompensationCalculator() {
     const brokerNet = afterReferral * (1 - agentPct);
 
     return { totalGross, sideGross, afterReferral, agentNet, brokerNet };
-  }, [salePrice, totalCommission, agentSplit, brokerSplit, referralFee, side]);
+  }, [salePrice, totalCommission, agentSplit, referralFee, side]);
 
   const inputClass = "form-control";
   const labelClass = "form-label";

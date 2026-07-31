@@ -8,8 +8,6 @@ import {
   ClipboardCheck,
   FileCheck,
   FileSearch,
-  Gavel,
-  Landmark,
   Phone,
   Scale,
   Search,

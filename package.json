@@ -21,7 +21,7 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.80.0",
+    "@anthropic-ai/sdk": "^0.115.0",
     "@libsql/client": "^0.17.1",
     "@portabletext/react": "^6.0.3",
     "@prisma/adapter-libsql": "^7.5.0",
@@ -71,6 +71,9 @@
       "sharp": "0.35.3"
     },
     "postcss": "8.5.25",
-    "typeid-js": "1.2.0"
+    "typeid-js": {
+      ".": "1.2.0",
+      "uuid": "11.1.1"
+    }
   }
 }

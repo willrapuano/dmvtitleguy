@@ -1,5 +1,5 @@
 import { createClient } from "@sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
 // Force production dataset - environment variable was set incorrectly to 'development'
 const DATASET = "production";
@@ -22,9 +22,8 @@ export const sanityClient = createClient({
   stega: { enabled: false },
 });
 
-const builder = imageUrlBuilder(sanityClient);
+const builder = createImageUrlBuilder(sanityClient);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function urlFor(source: any) {
   return builder.image(source);
 }
