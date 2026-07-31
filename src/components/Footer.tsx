@@ -93,7 +93,7 @@ export function Footer() {
                 (703) 859-1467
               </a>
             </p>
-            <p>1900 Gallows Rd Suite 230</p>
+            <p>1900 Gallows Rd Ste 230</p>
             <p>Vienna, VA 22182</p>
           </address>
         </div>
