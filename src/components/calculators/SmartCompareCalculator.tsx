@@ -35,48 +35,48 @@ function calcMonthly(p: Property) {
   return { down, loan, pi, taxMo, insMo, hoaMo, total };
 }
 
-function PropForm({ prop, onChange }: { prop: Property; onChange: (p: Property) => void }) {
-  const inputClass = "w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-blue bg-white";
-  const labelClass = "block text-xs font-semibold text-brand-navy uppercase tracking-wide mb-1";
+function PropForm({ idPrefix, prop, onChange }: { idPrefix: string; prop: Property; onChange: (p: Property) => void }) {
+  const inputClass = "form-control";
+  const labelClass = "form-label";
   const set = (key: keyof Property) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     onChange({ ...prop, [key]: e.target.value });
 
   return (
     <div className="space-y-3">
       <div>
-        <label className={labelClass}>Price</label>
-        <div className="relative"><span className="absolute left-3 top-2 text-gray-600 text-sm">$</span>
-          <input type="number" placeholder="500,000" value={prop.price} onChange={set("price")} className={inputClass + " pl-7"} />
+        <label htmlFor={`${idPrefix}-price`} className={labelClass}>Price</label>
+        <div className="relative"><span aria-hidden="true" className="absolute left-3 top-3.5 text-gray-600 text-sm">$</span>
+          <input id={`${idPrefix}-price`} type="number" placeholder="500,000" value={prop.price} onChange={set("price")} className={inputClass + " pl-7"} />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div>
-          <label className={labelClass}>Down %</label>
+          <label htmlFor={`${idPrefix}-down`} className={labelClass}>Down %</label>
           <div className="relative">
-            <input type="number" placeholder="20" value={prop.downPct} onChange={set("downPct")} className={inputClass + " pr-7"} />
-            <span className="absolute right-2 top-2 text-gray-600 text-sm">%</span>
+            <input id={`${idPrefix}-down`} type="number" placeholder="20" value={prop.downPct} onChange={set("downPct")} className={inputClass + " pr-7"} />
+            <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
         <div>
-          <label className={labelClass}>Rate</label>
+          <label htmlFor={`${idPrefix}-rate`} className={labelClass}>Rate</label>
           <div className="relative">
-            <input type="number" step="0.01" placeholder="6.75" value={prop.rate} onChange={set("rate")} className={inputClass + " pr-7"} />
-            <span className="absolute right-2 top-2 text-gray-600 text-sm">%</span>
+            <input id={`${idPrefix}-rate`} type="number" step="0.01" placeholder="6.75" value={prop.rate} onChange={set("rate")} className={inputClass + " pr-7"} />
+            <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div>
-          <label className={labelClass}>Tax Rate %</label>
+          <label htmlFor={`${idPrefix}-tax-rate`} className={labelClass}>Tax Rate %</label>
           <div className="relative">
-            <input type="number" step="0.01" placeholder="1.2" value={prop.taxes} onChange={set("taxes")} className={inputClass + " pr-7"} />
-            <span className="absolute right-2 top-2 text-gray-600 text-sm">%</span>
+            <input id={`${idPrefix}-tax-rate`} type="number" step="0.01" placeholder="1.2" value={prop.taxes} onChange={set("taxes")} className={inputClass + " pr-7"} />
+            <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
         <div>
-          <label className={labelClass}>HOA /mo</label>
-          <div className="relative"><span className="absolute left-3 top-2 text-gray-600 text-sm">$</span>
-            <input type="number" placeholder="0" value={prop.hoa} onChange={set("hoa")} className={inputClass + " pl-7"} />
+          <label htmlFor={`${idPrefix}-hoa`} className={labelClass}>HOA /mo</label>
+          <div className="relative"><span aria-hidden="true" className="absolute left-3 top-3.5 text-gray-600 text-sm">$</span>
+            <input id={`${idPrefix}-hoa`} type="number" placeholder="0" value={prop.hoa} onChange={set("hoa")} className={inputClass + " pl-7"} />
           </div>
         </div>
       </div>
@@ -99,13 +99,13 @@ export function SmartCompareCalculator() {
       <div className="grid md:grid-cols-2 gap-6">
         {/* Option A */}
         <div className="border border-brand-blue rounded-xl p-5">
-          <input className="text-base font-bold text-brand-navy border-none outline-none bg-transparent mb-3 w-full" value={propA.label} onChange={e => setPropA({ ...propA, label: e.target.value })} />
-          <PropForm prop={propA} onChange={setPropA} />
+          <input aria-label="Option A name" className="mb-3 w-full rounded-md border-none bg-transparent px-2 py-1 text-base font-bold text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action" value={propA.label} onChange={e => setPropA({ ...propA, label: e.target.value })} />
+          <PropForm idPrefix="compare-option-a" prop={propA} onChange={setPropA} />
         </div>
         {/* Option B */}
         <div className="border border-gray-200 rounded-xl p-5">
-          <input className="text-base font-bold text-brand-navy border-none outline-none bg-transparent mb-3 w-full" value={propB.label} onChange={e => setPropB({ ...propB, label: e.target.value })} />
-          <PropForm prop={propB} onChange={setPropB} />
+          <input aria-label="Option B name" className="mb-3 w-full rounded-md border-none bg-transparent px-2 py-1 text-base font-bold text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action" value={propB.label} onChange={e => setPropB({ ...propB, label: e.target.value })} />
+          <PropForm idPrefix="compare-option-b" prop={propB} onChange={setPropB} />
         </div>
       </div>
 

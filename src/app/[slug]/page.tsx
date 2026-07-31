@@ -8,10 +8,13 @@
 
 import { Phone, Mail, MapPin, Check, AlertTriangle } from "lucide-react";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Footer } from "@/components/Footer";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { LocationSchema, CountySchema } from "@/components/SchemaMarkup";
+import { NavBar } from "@/components/NavBar";
 import CityCalculatorPage from "@/components/CityCalculatorPage";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 import {
@@ -31,7 +34,6 @@ import {
 import {
   CITY_CALCULATOR_DATA,
   getCityCalcData,
-  getStateFullName,
   regionalTransportationFeeRate,
   regionalFeeParagraph,
   recordationCaveat,
@@ -653,7 +655,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!result) return { title: "Not Found" };
 
   if (result.type === "location") {
-    const { city, state, county } = result.data;
+    const { county } = result.data;
     const countyLabel = county.endsWith(" County") ? county : county;
     const locationName = getLocationDisplayName(result.data);
 
@@ -809,6 +811,7 @@ function LocationPage({ location }: { location: Location }) {
   const calcSlug = CALCULATOR_SLUGS[state];
   const isSecondary = tier === 2;
   const isNeighborhood = Boolean(parentLocation);
+  const countySuffix = county && !/^[\s—-]+$/.test(county) ? ` across ${county}` : "";
   const stateFullName = state === "VA" ? "Virginia" : state === "MD" ? "Maryland" : "Washington DC";
   const locationName = getLocationDisplayName(location);
   const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
@@ -858,7 +861,7 @@ function LocationPage({ location }: { location: Location }) {
       {slug === "title-company-herndon-va" && <HerndonStructuredData />}
 
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
+      <section className="page-hero">
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
@@ -887,7 +890,7 @@ function LocationPage({ location }: { location: Location }) {
                 ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
                 : isSecondary
                 ? `Pruitt Title LLC — professional title insurance and closing services in ${locationName}. Residential, commercial, and all transaction types.`
-                : `DMV Title Guy is your trusted title and settlement partner in ${locationName}. Fast, reliable closings for agents, lenders, and investors across ${county}.`}
+                : `DMV Title Guy is your trusted title and settlement partner in ${locationName}. Fast, reliable closings for agents, lenders, and investors${countySuffix}.`}
             </p>
             <div className="flex flex-wrap gap-3">
               {hasCheckoutCta ? (
@@ -1254,7 +1257,7 @@ function CountyPage({ county }: { county: County }) {
       <CountySchema countyName={name} state={state} slug={slug} />
 
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
+      <section className="page-hero">
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
@@ -1332,15 +1335,31 @@ function CountyPage({ county }: { county: County }) {
 }
 
 // ─── Main Route Handler ────────────────────────────────────────────────────────
+function DynamicMarketingShell({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <NavBar />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
+  );
+}
+
 export default async function SlugPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
   // City calculator pages: /closing-costs-arlington-va, etc.
   const cityCalcData = getCityCalcData(params.slug);
-  if (cityCalcData) return <CityCalculatorPage data={cityCalcData} />;
+  let content: ReactNode;
+  if (cityCalcData) {
+    content = <CityCalculatorPage data={cityCalcData} />;
+  } else {
+    // Location & county pages
+    const result = findBySlug(params.slug);
+    if (!result) notFound();
+    content = result.type === "location"
+      ? <LocationPage location={result.data} />
+      : <CountyPage county={result.data} />;
+  }
 
-  // Location & county pages
-  const result = findBySlug(params.slug);
-  if (!result) notFound();
-  if (result.type === "location") return <LocationPage location={result.data} />;
-  return <CountyPage county={result.data} />;
+  return <DynamicMarketingShell>{content}</DynamicMarketingShell>;
 }

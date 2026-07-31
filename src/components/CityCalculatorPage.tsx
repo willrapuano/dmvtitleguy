@@ -47,7 +47,7 @@ export default function CityCalculatorPage({ data }: Props) {
       />
 
       {/* ── HERO ── */}
-      <section className="bg-brand-navy text-white py-12">
+      <section className="page-hero md:py-16">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
@@ -231,7 +231,7 @@ export default function CityCalculatorPage({ data }: Props) {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-brand-navy text-white py-10">
+      <section className="section-navy">
         <div className="container-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="t-h4 mb-2">Need a Precise Closing Cost Estimate?</h2>

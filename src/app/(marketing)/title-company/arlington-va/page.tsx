@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Title Company Arlington VA | Settlement & Title Services",
@@ -49,24 +50,18 @@ export default function ArlingtonTitlePage() {
         description="Pruitt Title LLC provides expert title and settlement services in Arlington, VA. Fast closings, competitive rates, and local expertise since 2007."
       />
 
-      {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24">
-        <div className="container-xl">
-          <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/virginia-closing-cost-calculator" className="hover:text-brand-blue">Virginia Closing Costs</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-200">Arlington</span>
-          </nav>
-          <h1 className="t-h1 text-white mb-4">
-            Title Company Arlington VA | Settlement & Title Services
-          </h1>
-          <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC has been serving Arlington homeowners and real estate professionals since 2007. We combine local expertise with competitive rates to deliver smooth, hassle-free settlements.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Virginia Closing Costs", href: "/virginia-closing-cost-calculator" }, { label: "Arlington" }]}
+        eyebrow="Arlington County, Virginia"
+        title="Title Company Arlington VA &mdash; Settlement & Title Services"
+        lede="Pruitt Title LLC has served Arlington homeowners and real estate professionals since 2007, combining local expertise, responsive communication, and dependable settlement coordination."
+        actions={
+          <>
+            <Link href="/calculators/title-quote" className="btn-primary px-7">Get an Arlington Title Quote</Link>
+            <Link href="/contact" className="btn-on-dark px-7">Start a Closing</Link>
+          </>
+        }
+      />
 
       <ClosingCostCalculator state="VA" />
 
@@ -102,31 +97,31 @@ export default function ArlingtonTitlePage() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="t-h3 text-brand-navy mb-8">Title Services in Arlington</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive title searches to identify any liens, encumbrances, or ownership issues before closing.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Protect your investment with owner's title insurance coverage against hidden title defects.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Required by most lenders, we issue ALTA owner's and lender's policies with competitive rates.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">We handle the entire closing process, from contract to recorded deed and title policy delivery.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Refinance Closings</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Streamlined refinance settlements with fast turn times and flexible scheduling.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for clients who cannot attend closing in person.</p>
             </div>
@@ -140,19 +135,19 @@ export default function ArlingtonTitlePage() {
         <div className="container-xl">
           <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-title-services" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
-            <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/auction-property-title-search" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
-            <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/foreclosure-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
-            <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
@@ -196,21 +191,21 @@ export default function ArlingtonTitlePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <FAQSection faqs={faqs} />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-navy">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Arlington Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a competitive title insurance quote for your Arlington property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/virginia-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">
               Get a Quote →
             </Link>
             <a href="tel:+15714744000" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

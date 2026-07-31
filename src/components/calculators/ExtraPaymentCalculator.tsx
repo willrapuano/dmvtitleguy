@@ -49,8 +49,8 @@ export function ExtraPaymentCalculator() {
     return { basePayment, totalBaseInterest, totalInterestPaid, interestSaved, monthsPaid, monthsSaved, yearsSaved, remMonths };
   }, [loanAmount, rate, termYears, extraMonthly]);
 
-  const inputClass = "w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-brand-blue bg-white";
-  const labelClass = "block text-xs font-semibold text-brand-navy uppercase tracking-wide mb-1";
+  const inputClass = "form-control";
+  const labelClass = "form-label";
 
   return (
     <div className="grid lg:grid-cols-2 gap-8">
@@ -58,22 +58,22 @@ export function ExtraPaymentCalculator() {
         <h2 className="t-h6 text-brand-navy">Loan Details</h2>
 
         <div>
-          <label className={labelClass}>Loan Amount</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
-            <input type="number" placeholder="400,000" value={loanAmount} onChange={e => setLoanAmount(e.target.value)} className={inputClass + " pl-7"} />
+          <label htmlFor="extra-loan-amount" className={labelClass}>Loan Amount</label>
+          <div className="relative"><span aria-hidden="true" className="absolute left-3 top-3.5 text-gray-600 text-sm">$</span>
+            <input id="extra-loan-amount" type="number" placeholder="400,000" value={loanAmount} onChange={e => setLoanAmount(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelClass}>Interest Rate</label>
+            <label htmlFor="extra-interest-rate" className={labelClass}>Interest Rate</label>
             <div className="relative">
-              <input type="number" step="0.01" placeholder="6.75" value={rate} onChange={e => setRate(e.target.value)} className={inputClass + " pr-7"} />
-              <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
+              <input id="extra-interest-rate" type="number" step="0.01" placeholder="6.75" value={rate} onChange={e => setRate(e.target.value)} className={inputClass + " pr-7"} />
+              <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
             </div>
           </div>
           <div>
-            <label className={labelClass}>Loan Term</label>
-            <select value={termYears} onChange={e => setTermYears(e.target.value)} className={inputClass}>
+            <label htmlFor="extra-loan-term" className={labelClass}>Loan Term</label>
+            <select id="extra-loan-term" value={termYears} onChange={e => setTermYears(e.target.value)} className={inputClass}>
               <option value="30">30 Years</option>
               <option value="20">20 Years</option>
               <option value="15">15 Years</option>
@@ -82,9 +82,9 @@ export function ExtraPaymentCalculator() {
           </div>
         </div>
         <div>
-          <label className={labelClass}>Extra Monthly Payment</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
-            <input type="number" placeholder="200" value={extraMonthly} onChange={e => setExtraMonthly(e.target.value)} className={inputClass + " pl-7"} />
+          <label htmlFor="extra-monthly-payment" className={labelClass}>Extra Monthly Payment</label>
+          <div className="relative"><span aria-hidden="true" className="absolute left-3 top-3.5 text-gray-600 text-sm">$</span>
+            <input id="extra-monthly-payment" type="number" placeholder="200" value={extraMonthly} onChange={e => setExtraMonthly(e.target.value)} className={inputClass + " pl-7"} />
           </div>
           <p className="text-xs text-brand-muted mt-1 max-w-[68ch]">Applied directly to principal each month</p>
         </div>
@@ -93,7 +93,7 @@ export function ExtraPaymentCalculator() {
       <div>
         <h2 className="t-h6 text-brand-navy mb-4">Payoff Impact</h2>
         {!results ? (
-          <div className="bg-brand-gray-bg rounded-xl p-6 text-center text-brand-muted text-sm">Enter loan details to calculate savings</div>
+          <div className="surface-subtle p-6 text-center text-brand-muted text-sm">Enter loan details to calculate savings</div>
         ) : (
           <div className="space-y-3">
             <div className="bg-brand-gray-bg rounded-xl p-5 space-y-3">

@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import { calloutBlock, tableBlock, accordionBlock } from "./blockTypes";
 
 export const post = defineType({
   name: "post",

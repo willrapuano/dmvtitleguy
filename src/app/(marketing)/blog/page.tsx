@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 import BlogIndexClient from "@/components/BlogIndexClient";
+import { PageHero } from "@/components/PageHero";
+import { CTASection } from "@/components/CTASection";
 
 export const revalidate = 0;
 
@@ -16,67 +16,33 @@ export default async function BlogIndexPage() {
   const posts = await fetchAllBlogPosts();
   return (
     <>
-      <section className="relative overflow-hidden bg-brand-navy py-12 md:py-20">
-        {/* Same reason as the homepage hero: a CSS background-image never reaches
-            the optimizer, so this shipped as a fixed-size unconverted JPEG. */}
-        <Image
-          src="/office-bg.jpg"
-          alt=""
-          aria-hidden="true"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-navy/95 via-brand-navy/88 to-brand-navy-dark/95"
-          aria-hidden="true"
-        />
-        <div className="container-xl relative text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue max-w-[68ch] mx-auto">
-            The DMV Title Guy Blog
-          </p>
-          <h1 className="mt-3 font-display text-3xl font-semibold leading-tight text-white md:text-5xl">
-            Title Insurance &amp; DMV Closing Insights
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-slate-200">
-            Straight answers on title insurance, closing costs, and settlement for buyers,
-            agents, and lenders across DC, Maryland, and Virginia.
-          </p>
-          {posts.length > 0 && (
-            <p className="mt-5 text-sm text-slate-300 max-w-[68ch] mx-auto leading-relaxed">
-              {posts.length} {posts.length === 1 ? "article" : "articles"} · written by Will Rapuano,
-              Pruitt Title LLC
-            </p>
-          )}
-        </div>
-      </section>
+      <PageHero
+        compact
+        eyebrow="The DMV Title Guy Blog"
+        title="Title Insurance & DMV Closing Insights"
+        lede={
+          <>
+            <p>Straight answers on title insurance, closing costs, and settlement for buyers, agents, and lenders across DC, Maryland, and Virginia.</p>
+            {posts.length > 0 && (
+              <p className="mt-3 text-sm text-slate-300">
+                {posts.length} {posts.length === 1 ? "article" : "articles"} · written by Will Rapuano, Pruitt Title LLC
+              </p>
+            )}
+          </>
+        }
+      />
 
       <BlogIndexClient posts={posts} />
 
-      <section className="bg-brand-navy py-14 md:py-20">
-        <div className="container-xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue max-w-[68ch] mx-auto">
-              Stay in the loop
-            </p>
-            <h2 className="mt-3 t-h3 text-white">
-              Subscribe to My Newsletter
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl leading-relaxed text-slate-200">
-              Real estate marketing insights and title industry updates, delivered to your inbox.
-              No spam — unsubscribe any time.
-            </p>
-            <Link
-              href="/subscribe"
-              className="mt-7 inline-flex items-center gap-2 rounded-lg bg-brand-action px-8 py-3.5 font-semibold text-white transition-colors hover:bg-brand-action-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
-            >
-              Subscribe Now
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        eyebrow="Stay in the loop"
+        title="Get practical title and closing guidance in your inbox."
+        lede="Real estate marketing insights and title industry updates, delivered without the noise. Unsubscribe any time."
+        primaryLabel="Subscribe Now"
+        primaryHref="/subscribe"
+        secondaryLabel="Browse Calculators"
+        secondaryHref="/calculators"
+      />
     </>
   );
 }

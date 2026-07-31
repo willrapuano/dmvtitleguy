@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useId, useMemo, useState } from "react";
 import Link from "next/link";
 
 import {
@@ -90,9 +90,7 @@ function calculateMontgomeryRecordationTax(price: number, ownerOccupiedResidenti
   return tax;
 }
 
-function calculateVA(price: number, loanAmount: number, party: PartyType): CalcResult {
-  const isResale = true;
-
+function calculateVA(price: number, loanAmount: number): CalcResult {
   const buyerCosts: Record<string, number> = {
     titleSearch: 250,
     titleInsuranceLender: price * 0.0035,
@@ -121,7 +119,6 @@ function calculateVA(price: number, loanAmount: number, party: PartyType): CalcR
 function calculateMD(
   price: number,
   loanAmount: number,
-  party: PartyType,
   options: MarylandOptions = {
     county: "montgomery",
     firstTimeMarylandHomebuyer: false,
@@ -175,7 +172,7 @@ function calculateMD(
   return { buyerCosts, sellerCosts };
 }
 
-function calculateDC(price: number, loanAmount: number, party: PartyType): CalcResult {
+function calculateDC(price: number, loanAmount: number): CalcResult {
   // DC: combined recordation + transfer = ~2.9% over $400K, split buyer/seller
   const combinedRate = price >= 400000 ? 0.029 : 0.022;
   const halfTax = (price * combinedRate) / 2;
@@ -282,6 +279,10 @@ interface ClosingCostCalculatorProps {
 }
 
 export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalculatorProps) {
+  const purchasePriceId = useId();
+  const loanAmountId = useId();
+  const partyId = useId();
+  const marylandCountyId = useId();
   const config = CONFIGS[state];
   const defaultPrice = cityOverrides?.defaultPrice ?? 500000;
   const defaultLoan = cityOverrides?.defaultLoanAmount ?? Math.round(defaultPrice * 0.8);
@@ -297,12 +298,12 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
   const results = useMemo(() => {
     const base =
       state === "MD"
-        ? calculateMD(price, loanAmount, party, {
+        ? calculateMD(price, loanAmount, {
             county: marylandCounty,
             firstTimeMarylandHomebuyer,
             ownerOccupiedResidential,
           })
-        : CALCULATORS[state](price, loanAmount, party);
+        : CALCULATORS[state](price, loanAmount);
 
     // Apply city-level tax overrides if provided
     if (cityOverrides) {
@@ -332,7 +333,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
     }
 
     return base;
-  }, [state, price, loanAmount, party, cityOverrides, marylandCounty, firstTimeMarylandHomebuyer, ownerOccupiedResidential]);
+  }, [state, price, loanAmount, cityOverrides, marylandCounty, firstTimeMarylandHomebuyer, ownerOccupiedResidential]);
 
   const buyerTotal = sumObj(results.buyerCosts);
   const sellerTotal = sumObj(results.sellerCosts);
@@ -340,49 +341,52 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
   return (
     <div className="space-y-8">
       {/* Inputs */}
-      <div className="bg-brand-gray-bg rounded-xl p-6">
+      <div className="surface-subtle p-6">
         <h2 className="t-h5 text-brand-navy mb-6">{config.stateFullName} Closing Cost Calculator</h2>
         <div className="grid md:grid-cols-3 gap-6">
           <div>
-            <label className="block text-sm font-medium text-brand-dark-text mb-1">
+            <label htmlFor={purchasePriceId} className="block text-sm font-medium text-brand-dark-text mb-1">
               Purchase Price
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-2.5 text-brand-muted text-sm">$</span>
+              <span aria-hidden="true" className="absolute left-3 top-2.5 text-brand-muted text-sm">$</span>
               <input
+                id={purchasePriceId}
                 type="number"
                 value={price}
                 min={50000}
                 max={5000000}
                 step={10000}
                 onChange={(e) => setPrice(Number(e.target.value))}
-                className="w-full border border-gray-300 rounded pl-6 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                className="form-control pl-6"
               />
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-brand-dark-text mb-1">
+            <label htmlFor={loanAmountId} className="block text-sm font-medium text-brand-dark-text mb-1">
               Loan Amount
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-2.5 text-brand-muted text-sm">$</span>
+              <span aria-hidden="true" className="absolute left-3 top-2.5 text-brand-muted text-sm">$</span>
               <input
+                id={loanAmountId}
                 type="number"
                 value={loanAmount}
                 min={0}
                 max={price}
                 step={10000}
                 onChange={(e) => setLoanAmount(Number(e.target.value))}
-                className="w-full border border-gray-300 rounded pl-6 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                className="form-control pl-6"
               />
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-brand-dark-text mb-1">Show Costs For</label>
+            <label htmlFor={partyId} className="block text-sm font-medium text-brand-dark-text mb-1">Show Costs For</label>
             <select
+              id={partyId}
               value={party}
               onChange={(e) => setParty(e.target.value as PartyType)}
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white"
+              className="form-control"
             >
               <option value="both">Buyer &amp; Seller</option>
               <option value="buyer">Buyer Only</option>
@@ -394,11 +398,12 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
         {state === "MD" && (
           <div className="mt-6 grid md:grid-cols-3 gap-6">
             <div>
-              <label className="block text-sm font-medium text-brand-dark-text mb-1">Maryland County</label>
+              <label htmlFor={marylandCountyId} className="block text-sm font-medium text-brand-dark-text mb-1">Maryland County</label>
               <select
+                id={marylandCountyId}
                 value={marylandCounty}
                 onChange={(e) => setMarylandCounty(e.target.value as MarylandCounty)}
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white"
+                className="form-control"
               >
                 {Object.entries(MARYLAND_COUNTY_OPTIONS).map(([value, county]) => (
                   <option key={value} value={value}>

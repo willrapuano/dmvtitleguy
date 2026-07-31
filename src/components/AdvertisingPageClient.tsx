@@ -1,6 +1,6 @@
 "use client";
 
-import { Target, Repeat, BarChart3, Rocket, Check } from "lucide-react";
+import { Rocket, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { trackLeadConversion } from "@/lib/client-analytics";
@@ -102,19 +102,19 @@ export function AdvertisingPageClient() {
                   </div>
                   <div>
                     <label htmlFor="ad-name" className="block text-sm font-medium text-brand-dark-text mb-1">Your Name *</label>
-                    <input id="ad-name" name="name" type="text" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Your full name" />
+                    <input id="ad-name" name="name" type="text" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="form-control" placeholder="Your full name" />
                   </div>
                   <div>
                     <label htmlFor="ad-listing" className="block text-sm font-medium text-brand-dark-text mb-1">Listing Address or MLS # *</label>
-                    <input id="ad-listing" name="listing" type="text" required value={form.listing} onChange={(e) => setForm({ ...form, listing: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="123 Main St or MLS# 12345678" />
+                    <input id="ad-listing" name="listing" type="text" required value={form.listing} onChange={(e) => setForm({ ...form, listing: e.target.value })} className="form-control" placeholder="123 Main St or MLS# 12345678" />
                   </div>
                   <div>
                     <label htmlFor="ad-email" className="block text-sm font-medium text-brand-dark-text mb-1">Email *</label>
-                    <input id="ad-email" name="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="you@example.com" />
+                    <input id="ad-email" name="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="form-control" placeholder="you@example.com" />
                   </div>
                   <div>
                     <label htmlFor="ad-phone" className="block text-sm font-medium text-brand-dark-text mb-1">Phone</label>
-                    <input id="ad-phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
+                    <input id="ad-phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="form-control" placeholder="(703) 555-0100" />
                   </div>
                   <button type="submit" disabled={status === "submitting"} className="w-full btn-primary py-3.5 text-base font-semibold disabled:opacity-60">
                     {status === "submitting" ? "Submitting…" : "Start Running Ads Today!"}
@@ -127,7 +127,7 @@ export function AdvertisingPageClient() {
             {/* Feature Cards */}
             <div className="space-y-5">
               {FEATURE_CARDS.map((card) => (
-                <div key={card.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex gap-4">
+                <div key={card.title} className="surface-card p-6 flex gap-4">
                   <span className="text-3xl flex-shrink-0">{card.icon}</span>
                   <div>
                     <h3 className="font-bold text-brand-navy mb-1">{card.title}</h3>
@@ -212,7 +212,7 @@ export function AdvertisingPageClient() {
           <h2 className="prose-title text-center mb-2">Why Advertise Your Listings?</h2>
           <div className="grid md:grid-cols-2 gap-6 mt-10 max-w-4xl mx-auto">
             {WHY_ADVERTISE.map((item) => (
-              <div key={item.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <div key={item.title} className="surface-card p-6">
                 <h3 className="font-bold text-brand-navy mb-2">{item.title}</h3>
                 <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
               </div>
@@ -228,7 +228,7 @@ export function AdvertisingPageClient() {
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
             Submit your listing above or contact us to get started. Complimentary for our referral partners.
           </p>
-          <Link href="/advertising-services" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/advertising-services" className="btn-light px-8 py-3.5">
             Start Running Ads Today! →
           </Link>
         </div>

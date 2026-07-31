@@ -1,5 +1,4 @@
-import { getCurrentUser, requireApprovedUser } from "@/lib/contract-analyzer/auth";
-import { redirect } from "next/navigation";
+import { requireApprovedUser } from "@/lib/contract-analyzer/auth";
 import UploadForm from "@/components/contract-analyzer/UploadForm";
 import Link from "next/link";
 import { History, ArrowLeft } from "lucide-react";

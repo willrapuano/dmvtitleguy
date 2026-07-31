@@ -27,10 +27,10 @@ export function CompensationCalculator() {
     const brokerNet = afterReferral * (1 - agentPct);
 
     return { totalGross, sideGross, afterReferral, agentNet, brokerNet };
-  }, [salePrice, totalCommission, agentSplit, brokerSplit, referralFee, side]);
+  }, [salePrice, totalCommission, agentSplit, referralFee, side]);
 
-  const inputClass = "w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-brand-blue bg-white";
-  const labelClass = "block text-xs font-semibold text-brand-navy uppercase tracking-wide mb-1";
+  const inputClass = "form-control";
+  const labelClass = "form-label";
 
   return (
     <div className="grid lg:grid-cols-2 gap-8">
@@ -39,54 +39,54 @@ export function CompensationCalculator() {
         <h2 className="t-h6 text-brand-navy">Transaction Details</h2>
 
         <div>
-          <label className={labelClass}>Sale Price</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
-            <input type="number" placeholder="500,000" value={salePrice} onChange={e => setSalePrice(e.target.value)} className={inputClass + " pl-7"} />
+          <label htmlFor="compensation-sale-price" className={labelClass}>Sale Price</label>
+          <div className="relative"><span aria-hidden="true" className="absolute left-3 top-3.5 text-gray-600 text-sm">$</span>
+            <input id="compensation-sale-price" type="number" placeholder="500,000" value={salePrice} onChange={e => setSalePrice(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
 
         <div>
-          <label className={labelClass}>Total Commission</label>
+          <label htmlFor="compensation-total-commission" className={labelClass}>Total Commission</label>
           <div className="relative">
-            <input type="number" step="0.1" placeholder="5.0" value={totalCommission} onChange={e => setTotalCommission(e.target.value)} className={inputClass + " pr-7"} />
-            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
+            <input id="compensation-total-commission" type="number" step="0.1" placeholder="5.0" value={totalCommission} onChange={e => setTotalCommission(e.target.value)} className={inputClass + " pr-7"} />
+            <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
 
-        <div>
-          <label className={labelClass}>Commission Side</label>
+        <fieldset>
+          <legend className={labelClass}>Commission Side</legend>
           <div className="grid grid-cols-3 gap-2">
             {(["listing", "buyer", "both"] as const).map(s => (
-              <button key={s} onClick={() => setSide(s)}
+              <button key={s} type="button" aria-pressed={side === s} onClick={() => setSide(s)}
                 className={`py-2 rounded-lg text-sm font-medium border transition-colors capitalize ${side === s ? "bg-brand-navy text-white border-brand-navy" : "bg-white text-brand-navy border-gray-200 hover:border-brand-blue"}`}>
                 {s === "listing" ? "Listing Side" : s === "buyer" ? "Buyer Side" : "Both Sides"}
               </button>
             ))}
           </div>
-        </div>
+        </fieldset>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelClass}>Agent Split</label>
+            <label htmlFor="compensation-agent-split" className={labelClass}>Agent Split</label>
             <div className="relative">
-              <input type="number" placeholder="70" value={agentSplit} onChange={e => { setAgentSplit(e.target.value); setBrokerSplit(String(100 - (parseFloat(e.target.value) || 0))); }} className={inputClass + " pr-7"} />
-              <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
+              <input id="compensation-agent-split" type="number" placeholder="70" value={agentSplit} onChange={e => { setAgentSplit(e.target.value); setBrokerSplit(String(100 - (parseFloat(e.target.value) || 0))); }} className={inputClass + " pr-7"} />
+              <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
             </div>
           </div>
           <div>
-            <label className={labelClass}>Broker Split</label>
+            <label htmlFor="compensation-broker-split" className={labelClass}>Broker Split</label>
             <div className="relative">
-              <input type="number" placeholder="30" value={brokerSplit} onChange={e => { setBrokerSplit(e.target.value); setAgentSplit(String(100 - (parseFloat(e.target.value) || 0))); }} className={inputClass + " pr-7"} />
-              <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
+              <input id="compensation-broker-split" type="number" placeholder="30" value={brokerSplit} onChange={e => { setBrokerSplit(e.target.value); setAgentSplit(String(100 - (parseFloat(e.target.value) || 0))); }} className={inputClass + " pr-7"} />
+              <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
             </div>
           </div>
         </div>
 
         <div>
-          <label className={labelClass}>Referral Fee (if any)</label>
+          <label htmlFor="compensation-referral-fee" className={labelClass}>Referral Fee (if any)</label>
           <div className="relative">
-            <input type="number" step="0.1" placeholder="0" value={referralFee} onChange={e => setReferralFee(e.target.value)} className={inputClass + " pr-7"} />
-            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
+            <input id="compensation-referral-fee" type="number" step="0.1" placeholder="0" value={referralFee} onChange={e => setReferralFee(e.target.value)} className={inputClass + " pr-7"} />
+            <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ export function CompensationCalculator() {
       <div>
         <h2 className="t-h6 text-brand-navy mb-4">Compensation Breakdown</h2>
         {!parseFloat(salePrice) ? (
-          <div className="bg-brand-gray-bg rounded-xl p-6 text-center text-brand-muted text-sm">Enter a sale price to see the breakdown</div>
+          <div className="surface-subtle p-6 text-center text-brand-muted text-sm">Enter a sale price to see the breakdown</div>
         ) : (
           <div className="space-y-3">
             <div className="bg-brand-gray-bg rounded-xl p-5 space-y-3">

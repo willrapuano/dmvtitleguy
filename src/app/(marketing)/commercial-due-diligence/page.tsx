@@ -184,11 +184,7 @@ export default function CommercialDueDiligencePage() {
       />
 
       <section
-        className="bg-brand-navy text-white py-16 md:py-24"
-        style={{
-          background:
-            "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)",
-        }}
+        className="page-hero"
       >
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
@@ -216,7 +212,7 @@ export default function CommercialDueDiligencePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-4">What Commercial Due Diligence Covers</h2>
           <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
@@ -239,7 +235,7 @@ export default function CommercialDueDiligencePage() {
         </div>
       </section>
 
-      <section className="section-light py-16">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-4">When to Order Commercial Due Diligence</h2>
           <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
@@ -258,7 +254,7 @@ export default function CommercialDueDiligencePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-4xl">
           <h2 className="prose-title text-center mb-4">Commercial Title Due Diligence Deliverables</h2>
           <p className="text-brand-muted text-center text-lg mb-10 max-w-2xl mx-auto">
@@ -276,7 +272,7 @@ export default function CommercialDueDiligencePage() {
         </div>
       </section>
 
-      <section className="section-light py-16">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-12">Our Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -293,7 +289,7 @@ export default function CommercialDueDiligencePage() {
         </div>
       </section>
 
-      <section className="bg-brand-navy text-white py-16 md:py-20">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h2 mb-4">
             Start Commercial Title Due Diligence
@@ -320,7 +316,7 @@ export default function CommercialDueDiligencePage() {
         </div>
       </section>
 
-      <section className="section-light py-16">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
           <div className="space-y-4">

@@ -106,7 +106,7 @@ export default function MyClassesPage() {
             title insurance deep-dive, a marketing workshop, or a technology training session — I&apos;ll build a program
             tailored to your team&apos;s specific needs and goals.
           </p>
-          <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+          <Link href="/calculators/title-quote" className="btn-light px-8 py-3.5">
             Contact Me →
           </Link>
         </div>

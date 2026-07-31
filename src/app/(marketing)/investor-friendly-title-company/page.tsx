@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Check, AlertTriangle } from "lucide-react";
+import { Phone, Check } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
@@ -76,11 +76,7 @@ export default function AllTransactionsPage() {
       />
       {/* HERO */}
       <section
-        className="bg-brand-navy text-white py-16 md:py-24"
-        style={{
-          background:
-            "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)",
-        }}
+        className="page-hero"
       >
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -210,27 +206,27 @@ export default function AllTransactionsPage() {
         <div className="container-xl">
           <h2 className="t-h5 text-brand-navy mb-6">Related Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-title-services" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
-            <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/auction-property-title-search" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
-            <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/foreclosure-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
-            <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
-            <Link href="/upload-contract" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/upload-contract" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Start Contract Intake</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Begin intake and receive secure transfer instructions.</p>
             </Link>
-            <Link href="/request-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/request-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Request Title Review</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Get clarity on a property's title status.</p>
             </Link>

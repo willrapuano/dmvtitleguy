@@ -41,29 +41,29 @@ export function AmortizationCalculator() {
     return { payment, totalPaid, totalInterest, yearlyRows };
   }, [loanAmount, rate, termYears]);
 
-  const inputClass = "w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-brand-blue bg-white";
-  const labelClass = "block text-xs font-semibold text-brand-navy uppercase tracking-wide mb-1";
+  const inputClass = "form-control";
+  const labelClass = "form-label";
   const displayRows = showFull ? results?.yearlyRows : results?.yearlyRows.slice(0, 5);
 
   return (
     <div className="space-y-8">
       <div className="grid sm:grid-cols-3 gap-4 max-w-2xl">
         <div>
-          <label className={labelClass}>Loan Amount</label>
-          <div className="relative"><span className="absolute left-3 top-2.5 text-gray-600 text-sm">$</span>
-            <input type="number" placeholder="400,000" value={loanAmount} onChange={e => setLoanAmount(e.target.value)} className={inputClass + " pl-7"} />
+          <label htmlFor="amortization-loan-amount" className={labelClass}>Loan Amount</label>
+          <div className="relative"><span aria-hidden="true" className="absolute left-3 top-3.5 text-gray-600 text-sm">$</span>
+            <input id="amortization-loan-amount" type="number" placeholder="400,000" value={loanAmount} onChange={e => setLoanAmount(e.target.value)} className={inputClass + " pl-7"} />
           </div>
         </div>
         <div>
-          <label className={labelClass}>Interest Rate</label>
+          <label htmlFor="amortization-interest-rate" className={labelClass}>Interest Rate</label>
           <div className="relative">
-            <input type="number" step="0.01" placeholder="6.75" value={rate} onChange={e => setRate(e.target.value)} className={inputClass + " pr-7"} />
-            <span className="absolute right-3 top-2.5 text-gray-600 text-sm">%</span>
+            <input id="amortization-interest-rate" type="number" step="0.01" placeholder="6.75" value={rate} onChange={e => setRate(e.target.value)} className={inputClass + " pr-7"} />
+            <span aria-hidden="true" className="absolute right-3 top-3.5 text-gray-600 text-sm">%</span>
           </div>
         </div>
         <div>
-          <label className={labelClass}>Loan Term</label>
-          <select value={termYears} onChange={e => setTermYears(e.target.value)} className={inputClass}>
+          <label htmlFor="amortization-loan-term" className={labelClass}>Loan Term</label>
+          <select id="amortization-loan-term" value={termYears} onChange={e => setTermYears(e.target.value)} className={inputClass}>
             <option value="30">30 Years</option>
             <option value="20">20 Years</option>
             <option value="15">15 Years</option>

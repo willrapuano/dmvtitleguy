@@ -43,7 +43,7 @@ function CheckoutForm({
           id="paypal-transaction-type"
           value={transactionType}
           onChange={(event) => setTransactionType(event.target.value as TransactionType)}
-          className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+          className="form-control"
         >
           {TRANSACTION_TYPES.map((type) => (
             <option key={type} value={type}>
@@ -62,7 +62,7 @@ function CheckoutForm({
           type="text"
           value={propertyAddress}
           onChange={(event) => setPropertyAddress(event.target.value)}
-          className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+          className="form-control"
           placeholder="123 Main St, Vienna, VA 22180"
         />
       </div>

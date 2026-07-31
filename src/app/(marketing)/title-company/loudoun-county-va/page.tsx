@@ -50,7 +50,7 @@ export default function LoudounCountyTitlePage() {
       />
 
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24">
+      <section className="page-hero">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
@@ -60,7 +60,7 @@ export default function LoudounCountyTitlePage() {
             <span className="text-gray-200">Loudoun County</span>
           </nav>
           <h1 className="t-h1 text-white mb-4">
-            Title Company Loudoun County VA | Settlement & Title Services
+            Title Company Loudoun County VA &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Pruitt Title LLC serves Loudoun County's fast-growing real estate market with precision and speed. From Ashburn townhouses to Leesburg estates, we understand the unique demands of closing in America's wealthiest county.
@@ -102,31 +102,31 @@ export default function LoudounCountyTitlePage() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="t-h3 text-brand-navy mb-8">Title Services in Loudoun County</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive title searches through Loudoun County land records, covering everything from historic Leesburg properties to new Ashburn subdivisions.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Protect your Loudoun County investment with comprehensive owner's title insurance coverage against hidden defects.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">ALTA policies for all major lenders serving the Loudoun County market, including jumbo loan coverage for high-value properties.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Full-service closings from contract ratification to recorded deed and title policy delivery.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">New Construction Closings</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized expertise for new construction and builder transactions common in Loudoun's rapidly developing communities.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for busy professionals and out-of-state buyers relocating to Loudoun County.</p>
             </div>
@@ -140,19 +140,19 @@ export default function LoudounCountyTitlePage() {
         <div className="container-xl">
           <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-title-services" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
-            <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/auction-property-title-search" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
-            <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/foreclosure-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
-            <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
@@ -199,21 +199,21 @@ export default function LoudounCountyTitlePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <FAQSection faqs={faqs} />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-navy">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Loudoun County Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a competitive title insurance quote for your Loudoun County property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/virginia-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">
               Get a Quote →
             </Link>
             <a href="tel:+15714744000" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">
