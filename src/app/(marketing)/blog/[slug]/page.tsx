@@ -549,7 +549,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const canonicalPath = isViennaTitleCompanyPost
     ? "/title-search-vienna-va"
     : `/blog/${post.slug}`;
-  const canonicalUrl = `https://dmvtitleguy.io${canonicalPath}`;
+  const canonicalUrl = `https://dmvtitleguy.com${canonicalPath}`;
 
   /**
    * What this post is called on the page. Retitled posts override the Sanity
@@ -583,7 +583,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "@type": "BlogPosting",
     headline: displayTitle,
     description: articleSchemaDesc,
-    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.io${heroImage}`,
+    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.com${heroImage}`,
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     mainEntityOfPage: {
@@ -594,8 +594,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       "@type": "Person",
       name: "Will Rapuano",
       jobTitle: "Business Development, Pruitt Title LLC",
-      url: "https://dmvtitleguy.io",
-      image: "https://dmvtitleguy.io/will-rapuano-headshot.jpg",
+      url: "https://dmvtitleguy.com",
+      image: "https://dmvtitleguy.com/will-rapuano-headshot.jpg",
       sameAs: [
         "https://www.linkedin.com/in/will-rapuano-86914b130",
         "https://www.instagram.com/dmvtitleguy",
@@ -605,10 +605,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     publisher: {
       "@type": "Organization",
       name: "DMV Title Guy — Pruitt Title LLC",
-      url: "https://dmvtitleguy.io",
+      url: "https://dmvtitleguy.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://dmvtitleguy.io/logo.png",
+        url: "https://dmvtitleguy.com/logo.png",
       },
     },
   };
@@ -633,13 +633,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://dmvtitleguy.io/",
+        item: "https://dmvtitleguy.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://dmvtitleguy.io/blog",
+        item: "https://dmvtitleguy.com/blog",
       },
       {
         "@type": "ListItem",

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "pruitt title Reviews, Strengths & DMV Closing Services",
   description:
     "Pruitt Title helps DMV agents, lenders, and buyers close smoothly, with local title expertise since 2007. See why partners choose us today online.",
-  alternates: { canonical: "https://dmvtitleguy.io/why-choose-us" },
+  alternates: { canonical: "https://dmvtitleguy.com/why-choose-us" },
 };
 
 const WHY_CHOOSE_FAQ_SCHEMA = {

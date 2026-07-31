@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Pruitt Title | DMV Title Company & Closing Services",
   description:
     "DMV title company for DC, Maryland, and Virginia closings. Pruitt Title brings 17+ years serving Fairfax County. Call today for a fast quote.",
-  alternates: { canonical: "https://dmvtitleguy.io/" },
+  alternates: { canonical: "https://dmvtitleguy.com/" },
 };
 
 export default function HomePage() {

@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 loadEnv({ path: path.resolve(__dirname, "../.env") });
 
-const canonicalUrl = "https://dmvtitleguy.io";
+const canonicalUrl = "https://dmvtitleguy.com";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -46,11 +46,24 @@ const nextConfig = {
       },
       {
         source: '/:path*',
-        has: [
-          { type: 'host', value: 'dmvtitleguy.io' },
-          { type: 'header', key: 'x-forwarded-proto', value: 'http' },
-        ],
+        has: [{ type: 'host', value: 'dmvtitleguy.io' }],
         destination: `${canonicalUrl}/:path*`,
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.dmvtitleguy.com' }],
+        destination: `${canonicalUrl}/:path*`,
+        permanent: true,
+      },
+      {
+        source: '/looking-to-grow-your-business',
+        destination: '/title-company-for-realtors',
+        permanent: true,
+      },
+      {
+        source: '/home',
+        destination: '/',
         permanent: true,
       },
       {

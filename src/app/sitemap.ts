@@ -3,7 +3,7 @@ import { ALL_LOCATIONS, COUNTIES } from "@/data/locations";
 import { PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
 
-const BASE_URL = "https://dmvtitleguy.io";
+const BASE_URL = "https://dmvtitleguy.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

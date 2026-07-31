@@ -6,30 +6,31 @@
   "regions": ["iad1"],
   "redirects": [
     {
+      "source": "/looking-to-grow-your-business/",
+      "destination": "/title-company-for-realtors",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.dmvtitleguy.io" }],
-      "destination": "https://dmvtitleguy.io/:path*",
+      "destination": "https://dmvtitleguy.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [
-        { "type": "host", "value": "dmvtitleguy.io" },
-        { "type": "header", "key": "x-forwarded-proto", "value": "http" }
-      ],
-      "destination": "https://dmvtitleguy.io/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "dmvtitleguy.com" }],
-      "destination": "https://dmvtitleguy.io/:path*",
+      "has": [{ "type": "host", "value": "dmvtitleguy.io" }],
+      "destination": "https://dmvtitleguy.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.dmvtitleguy.com" }],
-      "destination": "https://dmvtitleguy.io/:path*",
+      "destination": "https://dmvtitleguy.com/:path*",
       "permanent": true
     }
   ],

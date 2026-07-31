@@ -5,7 +5,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 export const metadata: Metadata = {
   title: "Title Company Services for Builders | DMV Title Guy",
   description: "DMVTitleGuy provides fast, reliable title services for builders and developers in Northern Virginia, DC, and Maryland.",
-  alternates: { canonical: "https://dmvtitleguy.io/title-company-for-builders" },
+  alternates: { canonical: "https://dmvtitleguy.com/title-company-for-builders" },
 };
 
 export default function BuildersPage() {

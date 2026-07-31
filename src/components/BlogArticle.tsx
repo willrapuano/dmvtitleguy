@@ -57,6 +57,8 @@ function resolveLinks(markdown: string): string {
   // Normalize old/internal absolute URLs to current relative paths
   output = output
     .replace(/https?:\/\/dmvtitleguy\.vercel\.app(\/[^\s)\]]*)/g, "$1")
+    .replace(/https?:\/\/www\.dmvtitleguy\.com(\/[^\s)\]]*)/g, "$1")
+    .replace(/https?:\/\/dmvtitleguy\.com(\/[^\s)\]]*)/g, "$1")
     .replace(/https?:\/\/www\.dmvtitleguy\.io(\/[^\s)\]]*)/g, "$1")
     .replace(/https?:\/\/dmvtitleguy\.io(\/[^\s)\]]*)/g, "$1");
 

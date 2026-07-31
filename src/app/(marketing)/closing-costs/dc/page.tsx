@@ -52,7 +52,7 @@ export default function DCClosingCostsPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Washington DC Closing Cost Guide",
-            url: "https://dmvtitleguy.io/closing-costs/dc",
+            url: "https://dmvtitleguy.com/closing-costs/dc",
             description: "Complete guide to DC closing costs for buyers and sellers. Learn about recordation tax, transfer tax, title insurance, and what to expect at settlement.",
             provider: {
               "@type": "LocalBusiness",

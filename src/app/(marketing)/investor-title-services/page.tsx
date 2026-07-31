@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "Investor title services for real estate investors, wholesalers, and flippers who need fast title searches and closing support across DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.io/investor-title-services",
+    canonical: "https://dmvtitleguy.com/investor-title-services",
   },
 };
 
@@ -143,7 +143,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.io/investor-title-services#service",
+      "@id": "https://dmvtitleguy.com/investor-title-services#service",
       name: "Investor Title Services",
       serviceType: "Investor Title Services",
       provider: {
