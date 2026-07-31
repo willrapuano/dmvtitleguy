@@ -105,8 +105,8 @@ export default function ContactPage() {
               <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
             <Link href="/upload-contract" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
-              <h3 className="font-semibold text-white mb-2">Upload Contract</h3>
-              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Upload your ratified contract for fast processing.</p>
+              <h3 className="font-semibold text-white mb-2">Start Contract Intake</h3>
+              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Begin intake and receive secure transfer instructions.</p>
             </Link>
             <Link href="/request-title-review" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
               <h3 className="font-semibold text-white mb-2">Request Title Review</h3>

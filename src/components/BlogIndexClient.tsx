@@ -156,6 +156,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
   const gridPosts = featured ? filtered.slice(1) : filtered;
   const visiblePosts = gridPosts.slice(0, visibleCount);
   const hasMore = visibleCount < gridPosts.length;
+  const renderedCount = visiblePosts.length + (featured ? 1 : 0);
 
   return (
     <section className="bg-brand-gray-bg py-12 md:py-16">
@@ -207,7 +208,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                   }`}
                 >
                   {category}
-                  <span className={`ml-1.5 text-xs ${isActive ? "text-white/65" : "text-slate-400"}`}>
+                  <span className={`ml-1.5 text-xs ${isActive ? "text-white/80" : "text-slate-600"}`}>
                     {count}
                   </span>
                 </button>
@@ -216,7 +217,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
             </div>
           </div>
           <p className="mt-3 text-xs text-slate-500" aria-live="polite">
-            Showing {filtered.length} {filtered.length === 1 ? "article" : "articles"}
+            Showing {renderedCount} of {filtered.length} {filtered.length === 1 ? "article" : "articles"}
             {query.trim() ? ` matching “${query.trim()}”` : ""}
           </p>
         </div>
@@ -240,7 +241,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
             {featured && (
               <Link
                 href={`/blog/${featured.slug}`}
-                className="group mb-12 grid overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl md:grid-cols-2"
+                className="group mb-12 grid overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm md:grid-cols-2"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-brand-navy md:aspect-auto md:min-h-[300px]">
                   <PostImage
@@ -265,12 +266,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                   </p>
                   <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue-deep">
                     Read article
-                    <span
-                      aria-hidden="true"
-                      className="transition-transform duration-200 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
+                    <span aria-hidden="true">→</span>
                   </span>
                 </div>
               </Link>
@@ -286,7 +282,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                     </h2>
                   </div>
                   <span className="text-sm text-gray-500">
-                    {filtered.length} {filtered.length === 1 ? "post" : "posts"}
+                    {visiblePosts.length} of {gridPosts.length} {gridPosts.length === 1 ? "post" : "posts"}
                   </span>
                 </div>
 
@@ -322,12 +318,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                         </p>
                         <span className="mt-4 inline-flex items-center gap-1.5 pt-1 text-sm font-semibold text-brand-blue-deep">
                           Read post
-                          <span
-                            aria-hidden="true"
-                            className="transition-transform duration-200 group-hover:translate-x-1"
-                          >
-                            →
-                          </span>
+                          <span aria-hidden="true">→</span>
                         </span>
                       </div>
                     </Link>

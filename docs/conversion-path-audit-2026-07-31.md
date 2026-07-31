@@ -22,15 +22,18 @@ The selected-page crawl checked 94 internal destinations. The only failure was t
 
 ## Delivery safeguards added
 
-- Webhook credentials remain server-side through `GHL_WEBHOOK_URL`; the legacy public variable is accepted only as a compatibility fallback.
+- Webhook delivery now accepts only the server-side `GHL_WEBHOOK_URL`; the legacy public fallback was removed and must be rotated if it ever contained a real URL.
+- Public lead endpoints require same-origin JSON, enforce bounded request bodies, derive landing-page attribution server-side, apply durable IP and IP-plus-email rate limits, and use leased durable submission IDs to prevent duplicate delivery.
+- Successful submissions emit a GA `generate_lead` event without including personal information.
 - Missing webhook configuration now produces an honest error instead of a simulated success.
 - API payloads are allow-listed, trimmed, length-limited, and validated for form type, name, email, and listing requirements.
 - Quote, newsletter, and advertising forms include a honeypot field and accessible error messaging.
 - Shared quote forms use location-derived field IDs, preventing duplicate IDs when a page renders more than one form.
+- Public funnel document uploads are disabled for this release. Intake forms no longer accept document URLs and instead arrange secure staff follow-up; re-enabling uploads requires private storage and authenticated retrieval.
 
 ## Pre-production requirement
 
-Confirm `GHL_WEBHOOK_URL` is configured for Preview and Production, then make one owner-approved test submission in each environment and confirm the lead appears in GoHighLevel with the correct source tag. Do not promote if the UI reports success but the lead cannot be found downstream.
+Rotate the prior webhook if necessary, configure `GHL_WEBHOOK_URL` and `LEAD_PROTECTION_SECRET` for Preview and Production, and apply the lead-protection Prisma migration. Then make one owner-approved test submission in each environment and confirm the lead appears in GoHighLevel with the correct server-derived source and landing page. Do not promote if the UI reports success but the lead cannot be found downstream.
 
 ## Owner decision still required
 

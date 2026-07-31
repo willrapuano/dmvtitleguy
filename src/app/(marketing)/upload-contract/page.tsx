@@ -1,35 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Upload, Clock, FileCheck, Phone } from "lucide-react";
+import { Send, Clock, FileCheck, Phone } from "lucide-react";
 import { UploadContractForm } from "@/components/funnels/UploadContractForm";
 import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
-  title: "Upload Your Contract — We'll Handle the Rest | DMV Title Guy",
-  description: "Realtors and investors: upload your ratified contract and we'll initiate the title process within 1 business hour. Fast, reliable title services across the DMV.",
+  title: "Start Contract Intake | DMV Title Guy",
+  description: "Realtors and investors: start secure contract intake and our team will follow up within 1 business hour.",
   alternates: { canonical: "https://dmvtitleguy.com/upload-contract" },
   robots: { index: false, follow: true },
 };
 
 const nextSteps = [
-  { icon: FileCheck, title: "1. We Review Your Contract", desc: "Our team reviews the ratified contract and initiates the title search on the property." },
-  { icon: Clock, title: "2. Title Search Begins", desc: "Within 1 business hour, we order the title search and begin examining the chain of title, liens, and encumbrances." },
-  { icon: Upload, title: "3. You Get Title Commitment", desc: "We deliver a clear title commitment so you can move forward with confidence toward closing." },
+  { icon: Send, title: "1. Start Intake", desc: "Tell us how to reach you and share the basic transaction details." },
+  { icon: FileCheck, title: "2. Send the Contract Securely", desc: "Our team follows up with secure transfer instructions for the ratified contract." },
+  { icon: Clock, title: "3. Title Work Begins", desc: "After the contract is received and reviewed, we open the title order and keep you updated." },
 ];
 
 const faqs = [
-  { q: "What file formats do you accept?", a: "We accept PDF files only for contract uploads. If your contract is in another format, please convert it to PDF before uploading. Maximum file size is 50MB." },
-  { q: "How quickly will you start on my contract?", a: "We initiate the title process within 1 business hour of receiving your uploaded contract. You'll receive a confirmation email with your file number." },
-  { q: "What happens after I upload my contract?", a: "Our team reviews the contract, opens a title order, and begins the search process. You'll receive updates at each milestone — search ordered, commitment issued, and clear to close." },
+  { q: "How do I send my contract?", a: "Submit the intake form and our team will provide secure transfer instructions. Contracts are not accepted through a public upload link." },
+  { q: "How quickly will you follow up?", a: "Our team aims to contact you within one business hour during normal business hours." },
+  { q: "What happens after you receive my contract?", a: "Our team reviews the contract, opens the title order, and begins the search process. You'll receive updates at each milestone." },
 ];
 
 export default function UploadContractPage() {
   return (
     <>
       <ServiceSchema
-        name="Upload Your Contract"
-        description="Upload your ratified contract and we'll initiate the title process within 1 business hour. Fast, reliable title services across the DMV."
-        serviceType="Contract Upload & Title Processing"
+        name="Start Contract Intake"
+        description="Start secure contract intake and our team will follow up with transfer instructions."
+        serviceType="Contract Intake & Title Processing"
       />
       <script
         type="application/ld+json"
@@ -46,28 +46,28 @@ export default function UploadContractPage() {
           }),
         }}
       />
-      {/* HERO — Upload is the star */}
+      {/* HERO */}
       <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-200">Upload Contract</span>
+            <span className="text-gray-200">Contract Intake</span>
           </nav>
           <div className="max-w-2xl mb-8">
             <h1 className="t-h1 text-white mb-4">
-              Upload Your Contract — We&apos;ll Handle the Rest
+              Start Contract Intake — We&apos;ll Handle the Rest
             </h1>
             <p className="text-lg text-gray-300 mb-4 max-w-[68ch]">
-              Realtors and investors: upload your ratified contract and we&apos;ll initiate the title process within 1 business hour.
+              Realtors and investors: share your contact and transaction details. We&apos;ll follow up within one business hour with secure contract-transfer instructions.
             </p>
             <a href="tel:+17038591467" className="inline-flex items-center gap-2 text-brand-blue font-medium hover:text-white transition-colors">
               <Phone className="h-4 w-4" /> (703) 859-1467
             </a>
           </div>
 
-          {/* Upload Form — prominent in hero */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-4xl">
+          {/* Intake form */}
+          <div className="max-w-4xl rounded-2xl border border-gray-200 bg-white p-5 shadow-lg sm:p-8">
             <UploadContractForm />
           </div>
         </div>

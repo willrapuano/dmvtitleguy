@@ -12,39 +12,32 @@ import {
   validateSubmissionId,
 } from "@/lib/lead-protection";
 
-const FORM_TYPES = new Set(["quote", "subscribe", "advertising"]);
-
-function clean(value: unknown, maxLength = 500): string {
+export function leadText(value: unknown, maxLength = 500) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 }
 
-export async function POST(request: NextRequest) {
+export function leadRequiredText(value: unknown, label: string, maxLength = 500) {
+  const text = leadText(value, maxLength);
+  if (!text) throw new LeadRequestError(`${label} is required`, 400);
+  return text;
+}
+
+export async function handleProtectedFunnelLead(
+  request: NextRequest,
+  source: string,
+  buildPayload: (body: Record<string, unknown>) => Record<string, unknown>
+) {
   const requestId = crypto.randomUUID();
   let submissionId: string | undefined;
   let ownsReservation = false;
   try {
     const body = await readLeadBody(request);
-    const formType = clean(body.formType, 40);
-    const name = clean(body.name, 120);
-    const email = clean(body.email, 200).toLowerCase();
+    if (leadText(body.website, 200)) return NextResponse.json({ ok: true });
 
-    if (!FORM_TYPES.has(formType)) {
-      return NextResponse.json({ ok: false, error: "Unknown form type" }, { status: 400 });
-    }
-
-    // Honeypot fields are visually hidden from people. A bot gets a neutral
-    // response so it has no signal to retry with a different payload.
-    if (clean(body.website, 200)) {
-      return NextResponse.json({ ok: true });
-    }
-
+    const name = leadText(body.name, 120);
+    const email = leadText(body.email, 200).toLowerCase();
     if (!name || !/^\S+@\S+\.\S+$/.test(email)) {
-      return NextResponse.json({ ok: false, error: "Name and a valid email are required" }, { status: 400 });
-    }
-
-    const listing = clean(body.listing, 240);
-    if (formType === "advertising" && !listing) {
-      return NextResponse.json({ ok: false, error: "A listing address or MLS number is required" }, { status: 400 });
+      throw new LeadRequestError("Name and a valid email are required", 400);
     }
 
     submissionId = validateSubmissionId(body.submissionId);
@@ -53,32 +46,32 @@ export async function POST(request: NextRequest) {
     ownsReservation = true;
 
     await enforceLeadRateLimit(request, email);
+    const payload = buildPayload(body);
+    // Move out of the reclaimable pre-delivery lease before contacting the
+    // webhook. If the process dies during delivery, retries stay blocked rather
+    // than risking a duplicate CRM record.
     await markLeadSubmissionSending(submissionId);
     const result = await postToGHLWebhook(
       {
         submissionId,
-        formType,
         name,
         email,
-        phone: clean(body.phone, 60),
-        transactionType: clean(body.transactionType, 80),
-        message: clean(body.message, 2000),
-        listing,
+        ...payload,
         landingPage: leadLandingPage(request),
       },
-      formType
+      source
     );
 
     if (!result.ok) {
       await releaseLeadSubmission(submissionId);
-      console.error(`[Lead API:${requestId}] Delivery failed:`, result.error);
+      console.error(`[${source}:${requestId}] Delivery failed:`, result.error);
       return NextResponse.json({ ok: false, error: "We couldn't deliver your request", requestId }, { status: 502 });
     }
 
     await completeLeadSubmission(submissionId).catch((error) => {
-      // The webhook already acknowledged delivery. Never tell the visitor to
-      // retry (and risk a duplicate) solely because bookkeeping failed.
-      console.error(`[Lead API:${requestId}] Delivery recorded upstream but idempotency completion failed:`, error);
+      // The webhook already acknowledged delivery. Never invite a retry that
+      // could duplicate the CRM record because local bookkeeping failed.
+      console.error(`[${source}:${requestId}] Delivery recorded upstream but idempotency completion failed:`, error);
     });
     return NextResponse.json({ ok: true, requestId });
   } catch (error) {
@@ -90,7 +83,7 @@ export async function POST(request: NextRequest) {
       if (error.retryAfter) response.headers.set("Retry-After", String(error.retryAfter));
       return response;
     }
-    console.error(`[Lead API:${requestId}] Unexpected error:`, error);
+    console.error(`[${source}:${requestId}] Unexpected error:`, error);
     return NextResponse.json({ ok: false, error: "Lead intake is temporarily unavailable", requestId }, { status: 503 });
   }
 }

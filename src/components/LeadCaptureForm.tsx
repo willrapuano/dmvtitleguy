@@ -1,7 +1,8 @@
 "use client";
 
 import { CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { trackLeadConversion } from "@/lib/client-analytics";
 
 interface LeadCaptureFormProps {
   title?: string;
@@ -24,20 +25,28 @@ export function LeadCaptureForm({
     transactionType: "purchase",
     message: "",
   });
+  const submissionIdRef = useRef<string | null>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const idPrefix = `lead-${location.replace(/[^a-z0-9-]/gi, "-").toLowerCase()}`;
+
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
     try {
+      submissionIdRef.current ||= crypto.randomUUID();
       const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, formType: "quote", location, website }),
+        body: JSON.stringify({ ...formData, formType: "quote", submissionId: submissionIdRef.current, website }),
       });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.error || "Lead delivery failed");
+      trackLeadConversion("quote");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -46,7 +55,13 @@ export function LeadCaptureForm({
 
   if (status === "success") {
     return (
-      <div className={`bg-white rounded-xl shadow-lg p-8 text-center ${compact ? "p-6" : ""}`}>
+      <div
+        ref={successRef}
+        role="status"
+        aria-live="polite"
+        tabIndex={-1}
+        className={`bg-white rounded-xl shadow-lg p-8 text-center focus:outline-none ${compact ? "p-6" : ""}`}
+      >
         <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
         <h3 className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</h3>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">

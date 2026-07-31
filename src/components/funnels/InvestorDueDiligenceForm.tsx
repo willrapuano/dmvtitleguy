@@ -1,18 +1,17 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { upload } from "@vercel/blob/client";
-import { Upload, FileText, Loader2, CheckCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { CheckCircle, ShieldCheck } from "lucide-react";
+import { trackLeadConversion } from "@/lib/client-analytics";
 
 interface InvestorDueDiligenceFormProps {
   location?: string;
 }
 
 export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }: InvestorDueDiligenceFormProps) {
-  const [status, setStatus] = useState<"idle" | "uploading" | "submitting" | "success" | "error">("idle");
-  const [uploadedFiles, setUploadedFiles] = useState<{ name: string; url: string }[]>([]);
-  const [uploadError, setUploadError] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const submissionIdRef = useRef<string | null>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,48 +23,28 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
     notes: "",
   });
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    setUploadError("");
-    for (const file of acceptedFiles) {
-      try {
-        const blob = await upload(`funnels/investor-due-diligence/${Date.now()}-${file.name}`, file, {
-          access: "public",
-          handleUploadUrl: "/api/funnels/upload-url",
-        });
-        setUploadedFiles((prev) => [...prev, { name: file.name, url: blob.url }]);
-      } catch (e) {
-        setUploadError(`Upload failed for ${file.name}: ${(e as Error).message}`);
-      }
-    }
-  }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: {
-      "application/pdf": [".pdf"],
-      "image/*": [".png", ".jpg", ".jpeg"],
-      "application/msword": [".doc"],
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"],
-    },
-    maxFiles: 5,
-    disabled: status === "submitting" || status === "uploading",
-  });
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
     try {
+      submissionIdRef.current ||= crypto.randomUUID();
+      const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
       const res = await fetch("/api/funnels/investor-due-diligence", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          documents: uploadedFiles.map((f) => f.url),
-          location,
+          submissionId: submissionIdRef.current,
+          website,
         }),
       });
       const data = await res.json();
       if (data.ok) {
+        trackLeadConversion("investor-due-diligence", location);
         setStatus("success");
       } else {
         setStatus("error");
@@ -77,7 +56,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
 
   if (status === "success") {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+      <div ref={successRef} role="status" aria-live="polite" tabIndex={-1} className="bg-white rounded-xl shadow-lg p-8 text-center focus:outline-none">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
         <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
         <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
@@ -92,41 +71,45 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8">
+    <div className="rounded-xl bg-white p-5 shadow-lg sm:p-8">
       <h3 className="t-h5 text-brand-navy mb-2">Start Your Due Diligence</h3>
       <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Fill out the form below and we&apos;ll begin your title search immediately.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="idd-website">Website</label>
+          <input id="idd-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
         {/* Full Name */}
         <div>
           <label htmlFor="idd-name" className="block text-sm font-medium text-brand-dark-text mb-1">Full Name *</label>
-          <input id="idd-name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Jane Smith" />
+          <input id="idd-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Jane Smith" />
         </div>
 
         {/* Email & Phone */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="idd-email" className="block text-sm font-medium text-brand-dark-text mb-1">Email *</label>
-            <input id="idd-email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="jane@example.com" />
+            <input id="idd-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="jane@example.com" />
           </div>
           <div>
             <label htmlFor="idd-phone" className="block text-sm font-medium text-brand-dark-text mb-1">Phone *</label>
-            <input id="idd-phone" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
+            <input id="idd-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
           </div>
         </div>
 
         {/* Property Address */}
         <div>
           <label htmlFor="idd-address" className="block text-sm font-medium text-brand-dark-text mb-1">Property Address *</label>
-          <input id="idd-address" type="text" required value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="123 Main St, Arlington, VA 22201" />
+          <input id="idd-address" name="propertyAddress" autoComplete="street-address" type="text" required value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="123 Main St, Arlington, VA 22201" />
         </div>
 
         {/* Buyer Type */}
         <div>
           <label className="block text-sm font-medium text-brand-dark-text mb-2">Buyer Type *</label>
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {["LLC", "Individual", "Trust", "Other"].map((type) => (
-              <label key={type} className={`flex items-center justify-center rounded border px-3 py-2 text-sm cursor-pointer transition-colors ${formData.buyerType === type ? "border-brand-blue bg-blue-50 text-brand-blue font-medium" : "border-gray-300 text-gray-600 hover:border-brand-blue"}`}>
+              <label key={type} className={`flex cursor-pointer items-center justify-center rounded border px-3 py-2 text-sm transition-colors focus-within:ring-2 focus-within:ring-brand-blue focus-within:ring-offset-2 ${formData.buyerType === type ? "border-brand-blue bg-blue-50 text-brand-blue font-medium" : "border-gray-300 text-gray-600 hover:border-brand-blue"}`}>
                 <input type="radio" name="buyerType" value={type} checked={formData.buyerType === type} onChange={(e) => setFormData({ ...formData, buyerType: e.target.value })} className="sr-only" />
                 {type}
               </label>
@@ -135,7 +118,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         </div>
 
         {/* Source & Timeframe */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="idd-source" className="block text-sm font-medium text-brand-dark-text mb-1">Source</label>
             <select id="idd-source" value={formData.source} onChange={(e) => setFormData({ ...formData, source: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white">
@@ -155,27 +138,11 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
           </div>
         </div>
 
-        {/* Document Upload */}
-        <div>
-          <label className="block text-sm font-medium text-brand-dark-text mb-2">Upload Documents (optional)</label>
-          <div {...getRootProps()} className={`flex min-h-[120px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors ${isDragActive ? "border-brand-blue bg-blue-50" : "border-gray-300 bg-white hover:border-brand-blue hover:bg-blue-50/50"}`}>
-            <input {...getInputProps()} />
-            <Upload className="h-8 w-8 text-gray-400 mb-2" />
-            <p className="text-sm text-gray-600 max-w-[68ch] leading-relaxed">Drag & drop contracts, deeds, or prior title policies</p>
-            <p className="text-xs text-gray-400 mt-1 max-w-[68ch]">PDF, Word, or images — up to 5 files</p>
-          </div>
-          {uploadedFiles.length > 0 && (
-            <div className="mt-2 space-y-1">
-              {uploadedFiles.map((f) => (
-                <div key={f.url} className="flex items-center gap-2 text-sm text-gray-600">
-                  <FileText className="h-4 w-4 text-brand-blue" />
-                  <span>{f.name}</span>
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                </div>
-              ))}
-            </div>
-          )}
-          {uploadError && <p className="mt-2 text-sm text-red-600 max-w-[68ch] leading-relaxed">{uploadError}</p>}
+        <div className="flex gap-3 rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-brand-navy">
+          <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-brand-blue-deep" aria-hidden="true" />
+          <p className="leading-relaxed">
+            Have contracts, deeds, or prior policies? We&apos;ll provide secure transfer instructions after we receive your request.
+          </p>
         </div>
 
         {/* Notes */}
@@ -190,7 +157,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         </button>
 
         {status === "error" && (
-          <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
+          <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
         )}
       </form>
     </div>

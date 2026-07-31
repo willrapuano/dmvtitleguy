@@ -6,7 +6,7 @@
  */
 
 export async function postToGHLWebhook(data: Record<string, unknown>, source: string): Promise<{ ok: boolean; error?: string }> {
-  const webhookUrl = process.env.GHL_WEBHOOK_URL || process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL;
+  const webhookUrl = process.env.GHL_WEBHOOK_URL;
 
   const payload = {
     ...data,
@@ -23,17 +23,22 @@ export async function postToGHLWebhook(data: Record<string, unknown>, source: st
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(8_000),
     });
 
     if (!res.ok) {
-      const text = await res.text();
-      console.error("[GHL Webhook] HTTP error:", res.status, text.slice(0, 300));
+      // Upstream bodies may echo submitted lead data; never copy them to logs.
+      console.error("[GHL Webhook] HTTP error for source:", source, res.status);
       return { ok: false, error: `Webhook returned HTTP ${res.status}` };
     }
 
     return { ok: true };
   } catch (err) {
-    console.error("[GHL Webhook] Fetch error:", err);
+    console.error(
+      "[GHL Webhook] Fetch error for source:",
+      source,
+      err instanceof Error ? err.name : "UnknownError"
+    );
     return { ok: false, error: (err as Error).message };
   }
 }

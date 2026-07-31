@@ -10,19 +10,23 @@ It prepares the move without making Search Console, analytics, DNS, or productio
 - [x] Map the substantive WordPress page `/looking-to-grow-your-business/` to `/title-company-for-realtors`.
 - [x] Leave placeholder WordPress pages as honest 404s rather than redirecting them to unrelated content.
 - [x] Consolidate site navigation and article breadcrumbs on `/blog` rather than `/my-blog`.
-- [x] Verify the migration build on a Vercel preview.
+- [ ] Verify the remediated migration build and protected lead routes on a fresh Vercel preview.
+- [ ] Rotate any webhook URL that was ever present in `NEXT_PUBLIC_GHL_WEBHOOK_URL`; configure only `GHL_WEBHOOK_URL` afterward.
+- [ ] Configure `LEAD_PROTECTION_SECRET` in Preview and Production and apply the lead-protection Prisma migration.
+- [ ] Inspect `dmvtitleguy.com` in the Vercel dashboard and record the project-assigned apex and `www` DNS values.
 - [ ] Confirm access to both the `.io` and `.com` Google Search Console properties.
 - [ ] Export the `.io` Performance report for the last 3 and 12 months: queries, pages, countries, and devices.
 - [ ] Record the current indexed-page count, top 20 landing pages, clicks, impressions, CTR, and average position.
+- [ ] Reconcile every indexed or traffic-bearing `.io`/WordPress URL to a direct final replacement or an explicitly approved 404.
 - [ ] Record the production deployment ID immediately before promotion for one-click rollback.
 
 ## Cutover sequence
 
-1. Replace only the `.com` web records at GoDaddy with the Vercel values in the migration runbook.
+1. Replace only the `.com` web records at GoDaddy with the exact values shown by the Vercel domain inspector.
 2. Confirm public DNS for apex and `www` reaches Vercel from at least two resolvers.
 3. Confirm the existing production release still sends `.com` visitors safely to `.io` during propagation.
 4. Promote the verified migration deployment.
-5. Run `CHECK_LEGACY_REDIRECTS=1 npm run verify:migration`.
+5. Run `CHECK_LEGACY_REDIRECTS=1 npm run verify:migration`; do not proceed if any host uses a temporary redirect, adds a second hop, drops a query string, or reaches the wrong page.
 6. Manually test the homepage, blog, one article, quote calculator, contact page, realtor page, phone link, and a real form submission.
 7. Verify analytics records page views on `.com` and does not create a new duplicate property unless intentionally configured.
 

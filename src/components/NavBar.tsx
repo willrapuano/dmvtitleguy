@@ -24,7 +24,7 @@ const NAV_LINKS: (NavGroup | { label: string; href: string })[] = [
   {
     label: "Get Started",
     children: [
-      { label: "Upload Contract", href: "/upload-contract", desc: "Upload your ratified contract for fast processing" },
+      { label: "Start Contract Intake", href: "/upload-contract", desc: "Begin intake and receive secure transfer instructions" },
       { label: "Investor Due Diligence", href: "/investor-due-diligence", desc: "Submit property info & get a title search started" },
       { label: "Request Title Review", href: "/request-title-review", desc: "Get clarity on a property's title status" },
     ],

@@ -697,7 +697,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
           </span>
 
           {/* Title */}
-          <h1 className="t-h1 max-w-4xl text-brand-navy">
+          <h1 className="max-w-4xl font-display text-[2rem] font-semibold leading-[1.08] tracking-[-0.02em] text-brand-navy md:text-5xl md:leading-[1.1]">
             {displayTitle}
           </h1>
 
@@ -767,7 +767,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
         <div className="relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-2xl bg-brand-navy shadow-[0_24px_70px_-38px_rgba(11,29,58,0.65)] md:aspect-[21/9]">
           <Image
             src={heroImage}
-            alt={displayTitle}
+            alt=""
             fill
             className="object-cover"
             priority
@@ -1046,7 +1046,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="text-sm text-brand-blue-deep hover:text-brand-blue-700 border border-gray-100 hover:border-brand-blue-deep/30 rounded-lg p-3.5 block transition-all no-underline group"
+                        className="text-sm text-brand-blue-deep hover:text-brand-blue-700 border border-gray-100 hover:border-brand-blue-deep/30 rounded-lg p-3.5 block transition-[color,border-color] no-underline group"
                       >
                         <span className="group-hover:underline">{link.label}</span>
                         <span className="ml-1 opacity-60">→</span>
@@ -1141,14 +1141,14 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                 <Link
                   key={r.slug}
                   href={`/blog/${r.slug}`}
-                  className="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group block"
+                  className="bg-white rounded-xl overflow-hidden border border-gray-100 group block"
                 >
                   <div className="relative h-44 overflow-hidden bg-brand-navy">
                       <Image
                       src={resolvePostImage(r.slug, r.image) ?? r.image}
                       alt={postDisplayTitle(r.slug, r.title)}
                       fill
-                      className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover opacity-80"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />

@@ -89,13 +89,13 @@ export default function RealtorsPage() {
         </div>
       </section>
 
-      {/* UPLOAD CONTRACT CTA */}
+      {/* CONTRACT INTAKE CTA */}
       <section className="py-12 bg-brand-action text-white">
         <div className="container-xl text-center">
-          <h2 className="t-h4 mb-3">Upload Your Contract</h2>
-          <p className="text-lg mb-6 max-w-2xl mx-auto">Got a ratified contract? Upload it and we&apos;ll initiate the title process within 1 business hour.</p>
+          <h2 className="t-h4 mb-3">Start Contract Intake</h2>
+          <p className="text-lg mb-6 max-w-2xl mx-auto">Got a ratified contract? Start intake and we&apos;ll follow up with secure transfer instructions.</p>
           <Link href="/upload-contract" className="inline-block bg-white text-brand-action font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
-            Upload Contract Now →
+            Start Contract Intake →
           </Link>
         </div>
       </section>

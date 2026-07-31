@@ -160,7 +160,7 @@ const TYSONS_FAQS: FaqItem[] = [
   },
   {
     question: "How do I order a Tysons title search?",
-    answer: "Use the Order Title Search button to submit the property details or upload your contract. The team will review the file, confirm what is needed, and begin the title search and settlement process.",
+    answer: "Use the Order Title Search button to submit the property details or start contract intake. The team will confirm what is needed, provide secure document-transfer instructions, and begin the title search and settlement process.",
   },
 ];
 

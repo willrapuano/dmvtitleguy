@@ -4,36 +4,6 @@
   "outputDirectory": ".next",
   "installCommand": "npm install",
   "regions": ["iad1"],
-  "redirects": [
-    {
-      "source": "/looking-to-grow-your-business/",
-      "destination": "/title-company-for-realtors",
-      "permanent": true
-    },
-    {
-      "source": "/home/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.dmvtitleguy.io" }],
-      "destination": "https://dmvtitleguy.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "dmvtitleguy.io" }],
-      "destination": "https://dmvtitleguy.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.dmvtitleguy.com" }],
-      "destination": "https://dmvtitleguy.com/:path*",
-      "permanent": true
-    }
-  ],
   "functions": {
     "src/app/api/agent-tools/contract-analyzer/upload/route.ts": {
       "maxDuration": 60

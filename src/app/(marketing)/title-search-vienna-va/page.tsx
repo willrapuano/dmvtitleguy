@@ -79,7 +79,7 @@ const process = [
   {
     icon: FileCheck,
     title: "1. Send the Property",
-    desc: "Request a title review or upload your contract with the Vienna property address and any deal documents you already have.",
+    desc: "Request a title review or start contract intake with the Vienna property address. We'll provide secure instructions for any deal documents.",
   },
   {
     icon: Search,
@@ -120,7 +120,7 @@ const relatedPages = [
   { href: "/investor-title-services", label: "Investor Title Services" },
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
-  { href: "/upload-contract", label: "Upload Contract" },
+  { href: "/upload-contract", label: "Start Contract Intake" },
   { href: "/request-title-review", label: "Order Title Search" },
 ];
 
@@ -198,7 +198,7 @@ export default function TitleSearchViennaPage() {
           <div className="flex flex-wrap gap-4">
             <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
         </div>
@@ -270,13 +270,13 @@ export default function TitleSearchViennaPage() {
             Need a Title Search on a Vienna Property?
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Send the property details or upload your contract. We&apos;ll review
+            Send the property details or start contract intake. We&apos;ll review
             the title risks and explain the next steps clearly.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
           <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">

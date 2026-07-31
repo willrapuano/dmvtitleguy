@@ -22,26 +22,46 @@ The domain remains registered with GoDaddy (`ns35.domaincontrol.com` and
 `ns36.domaincontrol.com`). Vercel has already assigned both the apex and `www`
 hosts to the `dmvtitleguy` project.
 
-Required GoDaddy records:
+Before editing DNS, inspect the domain in the Vercel project dashboard or run
+`vercel domains inspect dmvtitleguy.com`. Copy the exact apex and `www` values
+assigned to this project; do not assume a generic record remains current.
+
+Expected record shapes (the dashboard is authoritative):
 
 | Type | Name | Value |
 | --- | --- | --- |
-| `A` | `@` | `76.76.21.21` |
-| `A` | `www` | `76.76.21.21` |
+| `A` | `@` | Project-assigned Vercel apex value |
+| `CNAME` | `www` | Project-assigned Vercel CNAME value |
 
 Do not change nameservers. Preserve any unrelated TXT, CAA, MX, or verification
 records. At preflight, the domain had no MX, TXT, or CAA records.
 
 ## Safe release order
 
-1. Validate the migration deployment on its Vercel preview URL.
-2. Change `.com` DNS to Vercel while the existing production deployment still
+1. Rotate any GHL webhook previously stored as `NEXT_PUBLIC_GHL_WEBHOOK_URL`.
+   Store the replacement only as `GHL_WEBHOOK_URL`; add a random 32-byte
+   `LEAD_PROTECTION_SECRET` in Preview and Production.
+2. Apply `prisma/migrations/20260731153000_add_lead_protection/migration.sql`
+   to the configured Turso database and validate the protected lead routes.
+3. Inspect the `.com` domain in Vercel and record the exact assigned DNS values.
+4. Validate the migration deployment on its Vercel preview URL.
+5. Change `.com` DNS to Vercel while the existing production deployment still
    redirects `.com` to `.io`.
-3. Wait until public DNS resolves both `.com` hosts to Vercel.
-4. Promote the validated migration deployment to production.
-5. Verify `.com` pages, canonicals, sitemap, robots, analytics, conversion
+6. Wait until public DNS resolves both `.com` hosts to Vercel.
+7. Promote the validated migration deployment to production.
+8. Verify `.com` pages, canonicals, sitemap, robots, analytics, conversion
    routes, and the path-preserving `.io` redirects.
-6. Submit the `.com` sitemap and Change of Address in Search Console.
+9. Submit the `.com` sitemap and Change of Address in Search Console.
+
+## Document intake
+
+Public contract and title-document uploads are intentionally disabled in this
+release. The three intake forms collect validated contact/property details and
+tell the customer that staff will provide secure transfer instructions. Do not
+re-enable `/api/funnels/upload-url` until there is a private Blob store plus an
+authenticated staff retrieval workflow, strict file type/size limits, retention
+rules, and an audited deletion path. A public bearer URL is not an acceptable
+substitute for that workflow.
 
 ## Rollback
 

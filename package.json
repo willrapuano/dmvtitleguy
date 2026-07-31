@@ -12,6 +12,7 @@
     "security:audit": "npm audit --omit=dev --audit-level=high --workspaces=false",
     "verify": "eslint . && tsc --noEmit && prisma generate && next build && npm audit --omit=dev --audit-level=high --workspaces=false",
     "verify:migration": "node scripts/verify-domain-migration.mjs",
+    "verify:lead-security": "node scripts/verify-lead-security.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },
   "engines": {
