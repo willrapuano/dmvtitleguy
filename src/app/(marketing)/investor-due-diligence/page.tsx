@@ -6,12 +6,12 @@ import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Investor Due Diligence Title Services | DMV Title Guy",
-  description: "Fast, accurate title searches and due diligence for real estate investors across DC, Maryland & Virginia. Upload your docs and get started immediately.",
-  alternates: { canonical: "https://dmvtitleguy.io/investor-due-diligence" },
+  description: "Fast, accurate title searches and due diligence for real estate investors across DC, Maryland & Virginia. Submit property details to get started.",
+  alternates: { canonical: "https://dmvtitleguy.com/investor-due-diligence" },
 };
 
 const howItWorks = [
-  { icon: FileCheck, title: "1. Submit Property Info", desc: "Fill out the form with property details and upload any documents you have — contracts, deeds, prior title policies." },
+  { icon: FileCheck, title: "1. Submit Property Info", desc: "Fill out the form with property details. We'll follow up with secure instructions for any supporting documents." },
   { icon: Shield, title: "2. We Run Title Search", desc: "Our team conducts a thorough title search, examining liens, judgments, easements, and ownership history." },
   { icon: Clock, title: "3. You Get Results & Clear to Close", desc: "Receive a detailed title report with clear next steps. Rush available for time-sensitive deals." },
 ];
@@ -60,7 +60,7 @@ export default function InvestorDueDiligencePage() {
               Investor Due Diligence Title Services
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Fast, accurate title searches and due diligence for real estate investors across the DMV. Upload your docs and we&apos;ll get started immediately.
+              Fast, accurate title searches and due diligence for real estate investors across the DMV. Submit the property details and we&apos;ll get started.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#due-diligence-form" className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2">
@@ -116,8 +116,8 @@ export default function InvestorDueDiligencePage() {
           <h2 className="t-h5 text-brand-navy mb-6">Related Pages</h2>
           <div className="grid md:grid-cols-3 gap-4">
             <Link href="/upload-contract" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
-              <h3 className="font-semibold text-brand-navy mb-1">Upload Contract</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit your ratified contract for fast title processing.</p>
+              <h3 className="font-semibold text-brand-navy mb-1">Start Contract Intake</h3>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Begin intake and receive secure contract-transfer instructions.</p>
             </Link>
             <Link href="/request-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Request Title Review</h3>

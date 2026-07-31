@@ -576,7 +576,7 @@ export async function publishPost(filePath, options = {}) {
     filePath: resolved,
     blocks: verify.bodyLen,
     category: doc.category,
-    url: `https://www.dmvtitleguy.com/blog/${slug}`,
+    url: `https://dmvtitleguy.com/blog/${slug}`,
   };
   if (options.archive) result.archivedTo = archivePublishedFile(resolved);
   appendPublishLog(result);

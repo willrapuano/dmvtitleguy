@@ -5,7 +5,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 export const metadata: Metadata = {
   title: "Contact DMV Title Guy | Pruitt Title LLC",
   description: "Contact DMV Title Guy for title insurance and closing services in Northern Virginia, DC, and Maryland. Call (703) 859-1467.",
-  alternates: { canonical: "https://dmvtitleguy.io/contact" },
+  alternates: { canonical: "https://dmvtitleguy.com/contact" },
 };
 
 export default function ContactPage() {
@@ -41,7 +41,7 @@ export default function ContactPage() {
               </p>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <div className="rounded-2xl border-0 bg-transparent p-0 sm:border sm:border-white/20 sm:bg-white/10 sm:p-8 sm:backdrop-blur-sm">
             <h2 className="t-h5 font-semibold text-white mb-4">Get a Title Quote</h2>
             <LeadCaptureForm location="contact" />
           </div>
@@ -55,15 +55,15 @@ export default function ContactPage() {
             <div>
               <h2 className="t-h3 text-brand-navy mb-6">Office Hours</h2>
               <div className="space-y-3">
-                <div className="flex justify-between border-b pb-2">
+                <div className="flex justify-between gap-4 border-b pb-2">
                   <span className="text-gray-600">Monday – Friday</span>
                   <span className="font-semibold text-brand-navy">8:30 AM – 6:00 PM</span>
                 </div>
-                <div className="flex justify-between border-b pb-2">
+                <div className="flex justify-between gap-4 border-b pb-2">
                   <span className="text-gray-600">Saturday</span>
                   <span className="font-semibold text-brand-navy">By Appointment</span>
                 </div>
-                <div className="flex justify-between border-b pb-2">
+                <div className="flex justify-between gap-4 border-b pb-2">
                   <span className="text-gray-600">Sunday</span>
                   <span className="font-semibold text-brand-navy">Closed</span>
                 </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h2 className="t-h3 text-brand-navy mb-6">Service Areas</h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <h3 className="font-semibold text-brand-navy mb-2">Virginia</h3>
                   <p className="text-gray-600 text-sm max-w-[68ch] leading-relaxed">Arlington, Fairfax, Alexandria, Loudoun, Prince William Counties</p>
@@ -105,8 +105,8 @@ export default function ContactPage() {
               <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
             <Link href="/upload-contract" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
-              <h3 className="font-semibold text-white mb-2">Upload Contract</h3>
-              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Upload your ratified contract for fast processing.</p>
+              <h3 className="font-semibold text-white mb-2">Start Contract Intake</h3>
+              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Begin intake and receive secure transfer instructions.</p>
             </Link>
             <Link href="/request-title-review" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
               <h3 className="font-semibold text-white mb-2">Request Title Review</h3>

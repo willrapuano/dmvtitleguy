@@ -1,8 +1,9 @@
 "use client";
 
 import { Target, Repeat, BarChart3, Rocket, Check } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { trackLeadConversion } from "@/lib/client-analytics";
 
 const FEATURE_CARDS = [
   { title: "Traffic-Generating Ads", desc: "Strategic Facebook and Instagram ad campaigns that drive real buyer traffic to your listings.", icon: "Target" },
@@ -42,20 +43,27 @@ const WHY_ADVERTISE = [
 export function AdvertisingPageClient() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [form, setForm] = useState({ name: "", listing: "", email: "", phone: "" });
+  const submissionIdRef = useRef<string | null>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
     try {
-      const webhookUrl = process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL;
-      if (webhookUrl) {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...form, source: "dmvtitleguy-advertising" }),
-        });
-      }
-      await new Promise((r) => setTimeout(r, 800));
+      submissionIdRef.current ||= crypto.randomUUID();
+      const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, formType: "advertising", submissionId: submissionIdRef.current, website }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || "Listing submission failed");
+      trackLeadConversion("advertising");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -81,33 +89,37 @@ export function AdvertisingPageClient() {
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
               <h2 className="t-h5 text-brand-navy mb-4">Get Started</h2>
               {status === "success" ? (
-                <div className="text-center py-8">
+                <div ref={successRef} role="status" aria-live="polite" tabIndex={-1} className="text-center py-8 focus:outline-none">
                   <div className="mb-3"><Rocket size={30} strokeWidth={1.5} className="text-brand-blue-deep" aria-hidden="true" /></div>
                   <h3 className="t-h6 text-brand-navy mb-2">We&apos;re on it!</h3>
                   <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">Your listing has been submitted. We&apos;ll launch your campaign within 48 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="ad-website">Website</label>
+                    <input id="ad-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                  </div>
                   <div>
                     <label htmlFor="ad-name" className="block text-sm font-medium text-brand-dark-text mb-1">Your Name *</label>
-                    <input id="ad-name" type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Your full name" />
+                    <input id="ad-name" name="name" type="text" autoComplete="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Your full name" />
                   </div>
                   <div>
                     <label htmlFor="ad-listing" className="block text-sm font-medium text-brand-dark-text mb-1">Listing Address or MLS # *</label>
-                    <input id="ad-listing" type="text" required value={form.listing} onChange={(e) => setForm({ ...form, listing: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="123 Main St or MLS# 12345678" />
+                    <input id="ad-listing" name="listing" type="text" required value={form.listing} onChange={(e) => setForm({ ...form, listing: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="123 Main St or MLS# 12345678" />
                   </div>
                   <div>
                     <label htmlFor="ad-email" className="block text-sm font-medium text-brand-dark-text mb-1">Email *</label>
-                    <input id="ad-email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="you@example.com" />
+                    <input id="ad-email" name="email" type="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="you@example.com" />
                   </div>
                   <div>
                     <label htmlFor="ad-phone" className="block text-sm font-medium text-brand-dark-text mb-1">Phone</label>
-                    <input id="ad-phone" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
+                    <input id="ad-phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
                   </div>
                   <button type="submit" disabled={status === "submitting"} className="w-full btn-primary py-3.5 text-base font-semibold disabled:opacity-60">
                     {status === "submitting" ? "Submitting…" : "Start Running Ads Today!"}
                   </button>
-                  {status === "error" && <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please try again.</p>}
+                  {status === "error" && <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">We couldn&apos;t deliver your listing. Please try again or email wrapuano@pruitt-title.com.</p>}
                 </form>
               )}
             </div>

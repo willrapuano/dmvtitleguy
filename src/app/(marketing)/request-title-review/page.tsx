@@ -8,7 +8,7 @@ import { ServiceSchema } from "@/components/SchemaMarkup";
 export const metadata: Metadata = {
   title: "Request a Title Review | DMV Title Guy",
   description: "Need clarity on a property's title status? Submit your request and our team will respond within one business day. Full title searches, lien searches, and foreclosure reviews.",
-  alternates: { canonical: "https://dmvtitleguy.io/request-title-review" },
+  alternates: { canonical: "https://dmvtitleguy.com/request-title-review" },
   robots: { index: false, follow: true },
 };
 
@@ -127,8 +127,8 @@ export default function RequestTitleReviewPage() {
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Comprehensive title searches for real estate investors.</p>
             </Link>
             <Link href="/upload-contract" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
-              <h3 className="font-semibold text-brand-navy mb-1">Upload Contract</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit your ratified contract for fast title processing.</p>
+              <h3 className="font-semibold text-brand-navy mb-1">Start Contract Intake</h3>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Begin intake and receive secure contract-transfer instructions.</p>
             </Link>
             <Link href="/title-insurance" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Title Insurance</h3>

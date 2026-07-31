@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
   alternates: {
-    canonical: "https://dmvtitleguy.io/title-search-fairfax-va",
+    canonical: "https://dmvtitleguy.com/title-search-fairfax-va",
   },
 };
 
@@ -148,7 +148,7 @@ const relatedPages = [
   { href: "/title-search-vienna-va", label: "Title Search Vienna VA" },
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
-  { href: "/upload-contract", label: "Upload Contract" },
+  { href: "/upload-contract", label: "Start Contract Intake" },
   { href: "/request-title-review", label: "Order Title Search" },
 ];
 
@@ -157,11 +157,11 @@ const schema = {
   "@graph": [
     {
       "@type": ["LocalBusiness", "LegalService"],
-      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#business",
+      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#business",
       name: "DMV Title Guy | Pruitt Title LLC",
-      url: "https://dmvtitleguy.io/title-search-fairfax-va",
+      url: "https://dmvtitleguy.com/title-search-fairfax-va",
       telephone: "+1-703-859-1467",
-      image: "https://dmvtitleguy.io/logo.png",
+      image: "https://dmvtitleguy.com/logo.png",
       address: {
         "@type": "PostalAddress",
         streetAddress: "1900 Gallows Rd Ste 230",
@@ -174,17 +174,17 @@ const schema = {
     },
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#service",
+      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#service",
       name: "Title Search Fairfax VA",
       serviceType: "Title Search",
-      provider: { "@id": "https://dmvtitleguy.io/title-search-fairfax-va#business" },
+      provider: { "@id": "https://dmvtitleguy.com/title-search-fairfax-va#business" },
       areaServed: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
       description:
         "Title search services for Fairfax, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#faq",
+      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#faq",
       mainEntity: faqs.map((faq) => ({
         "@type": "Question",
         name: faq.q,
@@ -193,19 +193,19 @@ const schema = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#breadcrumb",
+      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://dmvtitleguy.io/",
+          item: "https://dmvtitleguy.com/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Title Search Fairfax VA",
-          item: "https://dmvtitleguy.io/title-search-fairfax-va",
+          item: "https://dmvtitleguy.com/title-search-fairfax-va",
         },
       ],
     },
@@ -245,7 +245,7 @@ export default function TitleSearchFairfaxPage() {
           <div className="flex flex-wrap gap-4">
             <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
         </div>
@@ -340,13 +340,13 @@ export default function TitleSearchFairfaxPage() {
             Need a Title Search on a Fairfax Property?
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Request a title review or upload your contract. We&apos;ll identify
+            Request a title review or start contract intake. We&apos;ll identify
             title risks and help you understand the path to closing.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
           <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">

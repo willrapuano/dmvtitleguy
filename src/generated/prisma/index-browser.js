@@ -169,6 +169,20 @@ exports.Prisma.FindingScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.LeadRateLimitBucketScalarFieldEnum = {
+  key: 'key',
+  count: 'count',
+  windowEndsAt: 'windowEndsAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LeadSubmissionScalarFieldEnum = {
+  id: 'id',
+  status: 'status',
+  createdAt: 'createdAt',
+  deliveredAt: 'deliveredAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -185,7 +199,9 @@ exports.Prisma.ModelName = {
   ToolSession: 'ToolSession',
   LoginCode: 'LoginCode',
   Analysis: 'Analysis',
-  Finding: 'Finding'
+  Finding: 'Finding',
+  LeadRateLimitBucket: 'LeadRateLimitBucket',
+  LeadSubmission: 'LeadSubmission'
 };
 
 /**

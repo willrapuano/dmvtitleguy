@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Maryland Closing Cost Calculator (2026) | Free Buyer & Seller Estimates",
   description:
     "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, and county costs for Montgomery, PG, and statewide.",
-  alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
+  alternates: { canonical: "https://dmvtitleguy.com/maryland-closing-cost-calculator" },
 };
 
 const MD_LOCATIONS = [...TIER1_LOCATIONS, ...TIER2_LOCATIONS].filter((l) => l.state === "MD");
-const SITE_URL = "https://dmvtitleguy.io";
+const SITE_URL = "https://dmvtitleguy.com";
 const PAGE_SLUG = "maryland-closing-cost-calculator";
 const PAGE_URL = `${SITE_URL}/${PAGE_SLUG}`;
 

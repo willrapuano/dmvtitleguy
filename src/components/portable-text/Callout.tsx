@@ -1,5 +1,3 @@
-"use client";
-
 import { Info, AlertTriangle, CheckCircle2, Lightbulb } from "lucide-react";
 
 /**
@@ -33,7 +31,7 @@ export function Callout({ value }: { value: { tone?: string; title?: string; bod
   const isList = items.length > 1;
 
   return (
-    <div className={`border-l-4 rounded-r-xl px-5 py-4 my-6 ${style.wrapper}`}>
+    <aside className={`article-callout my-6 rounded-r-xl border-l-4 px-5 py-4 ${style.wrapper}`}>
       {value.title && (
         <p className="font-semibold text-sm mb-2 max-w-[68ch] leading-relaxed">
           <style.Icon size={17} strokeWidth={2} className="mr-2 inline-block align-[-3px]" aria-hidden="true" />
@@ -52,6 +50,6 @@ export function Callout({ value }: { value: { tone?: string; title?: string; bod
       ) : (
         <p className="text-[15px] leading-relaxed max-w-[68ch]">{body}</p>
       )}
-    </div>
+    </aside>
   );
 }

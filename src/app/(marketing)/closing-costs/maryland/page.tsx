@@ -55,7 +55,7 @@ export default function MarylandClosingCostsPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Maryland Closing Cost Guide",
-            url: "https://dmvtitleguy.io/closing-costs/maryland",
+            url: "https://dmvtitleguy.com/closing-costs/maryland",
             description: "Complete guide to Maryland closing costs for buyers and sellers. Learn about transfer taxes, recordation fees, title insurance, and what to expect at settlement.",
             provider: {
               "@type": "LocalBusiness",

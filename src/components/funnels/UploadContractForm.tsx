@@ -1,9 +1,8 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { upload } from "@vercel/blob/client";
-import { Upload, FileText, CheckCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { CheckCircle, ShieldCheck } from "lucide-react";
+import { trackLeadConversion } from "@/lib/client-analytics";
 
 interface UploadContractFormProps {
   location?: string;
@@ -11,8 +10,8 @@ interface UploadContractFormProps {
 
 export function UploadContractForm({ location = "upload-contract" }: UploadContractFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [uploadedFile, setUploadedFile] = useState<{ name: string; url: string } | null>(null);
-  const [uploadError, setUploadError] = useState("");
+  const submissionIdRef = useRef<string | null>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,48 +21,28 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
     notes: "",
   });
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    const file = acceptedFiles[0];
-    if (!file) return;
-    setUploadError("");
-    try {
-      const blob = await upload(`funnels/upload-contract/${Date.now()}-${file.name}`, file, {
-        access: "public",
-        handleUploadUrl: "/api/funnels/upload-url",
-      });
-      setUploadedFile({ name: file.name, url: blob.url });
-    } catch (e) {
-      setUploadError(`Upload failed: ${(e as Error).message}`);
-    }
-  }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: { "application/pdf": [".pdf"] },
-    maxFiles: 1,
-    disabled: status === "submitting",
-  });
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!uploadedFile) {
-      setUploadError("Please upload a ratified contract PDF.");
-      return;
-    }
     setStatus("submitting");
     try {
+      submissionIdRef.current ||= crypto.randomUUID();
+      const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
       const res = await fetch("/api/funnels/upload-contract", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          contractUrl: uploadedFile.url,
-          contractName: uploadedFile.name,
-          location,
+          submissionId: submissionIdRef.current,
+          website,
         }),
       });
       const data = await res.json();
       if (data.ok) {
+        trackLeadConversion("upload-contract", location);
         setStatus("success");
       } else {
         setStatus("error");
@@ -75,11 +54,11 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
 
   if (status === "success") {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+      <div ref={successRef} role="status" aria-live="polite" tabIndex={-1} className="bg-white rounded-xl shadow-lg p-8 text-center focus:outline-none">
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
-        <h3 className="t-h5 text-brand-navy mb-2">Contract Received!</h3>
+        <h3 className="t-h5 text-brand-navy mb-2">Intake Request Received!</h3>
         <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
-          We&apos;ll initiate the title process within 1 business hour.
+          We&apos;ll contact you within one business hour with a secure way to send your contract.
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Questions? Call{" "}
@@ -91,53 +70,35 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Contract Upload - PROMINENT */}
-      <div>
-        <label className="block text-sm font-medium text-brand-dark-text mb-2">Upload Ratified Contract (PDF) *</label>
-        <div {...getRootProps()} className={`flex min-h-[220px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors ${isDragActive ? "border-brand-blue bg-blue-50" : uploadedFile ? "border-green-400 bg-green-50/50" : "border-gray-300 bg-white hover:border-brand-blue hover:bg-blue-50/50"}`}>
-          <input {...getInputProps()} />
-          {uploadedFile ? (
-            <div className="flex flex-col items-center gap-3">
-              <CheckCircle className="h-10 w-10 text-green-500" />
-              <p className="text-sm font-medium text-gray-700 max-w-[68ch] leading-relaxed">{uploadedFile.name}</p>
-              <p className="text-xs text-gray-500 max-w-[68ch]">Click or drop to replace</p>
-            </div>
-          ) : isDragActive ? (
-            <div className="flex flex-col items-center gap-3">
-              <FileText className="h-10 w-10 text-brand-blue" />
-              <p className="text-sm font-medium text-brand-blue max-w-[68ch] leading-relaxed">Drop your PDF here</p>
-            </div>
-          ) : (
-            <div className="flex flex-col items-center gap-3">
-              <Upload className="h-10 w-10 text-gray-400" />
-              <div className="text-center">
-                <p className="text-sm font-medium text-gray-700 max-w-[68ch] leading-relaxed">Drag & drop your ratified contract</p>
-                <p className="text-xs text-gray-500 max-w-[68ch]">or click to browse — PDF only, up to 50MB</p>
-              </div>
-            </div>
-          )}
-        </div>
-        {uploadError && <p className="mt-2 text-sm text-red-600 max-w-[68ch] leading-relaxed">{uploadError}</p>}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="uc-website">Website</label>
+        <input id="uc-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      <div className="flex gap-3 rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-brand-navy">
+        <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-brand-blue-deep" aria-hidden="true" />
+        <p className="leading-relaxed">
+          For your privacy, contracts are not uploaded through this public form. Submit your contact details and we&apos;ll send secure transfer instructions.
+        </p>
       </div>
 
       {/* Contact Info */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label htmlFor="uc-name" className="block text-sm font-medium text-brand-dark-text mb-1">Full Name *</label>
-          <input id="uc-name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Jane Smith" />
+          <input id="uc-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Jane Smith" />
         </div>
         <div>
           <label htmlFor="uc-email" className="block text-sm font-medium text-brand-dark-text mb-1">Email *</label>
-          <input id="uc-email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="jane@example.com" />
+          <input id="uc-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="jane@example.com" />
         </div>
         <div>
           <label htmlFor="uc-phone" className="block text-sm font-medium text-brand-dark-text mb-1">Phone *</label>
-          <input id="uc-phone" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
+          <input id="uc-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
         </div>
       </div>
 
       {/* Transaction Type & Timeline */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="uc-type" className="block text-sm font-medium text-brand-dark-text mb-1">Transaction Type</label>
           <select id="uc-type" value={formData.transactionType} onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white">
@@ -160,12 +121,12 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
       </div>
 
       {/* Submit */}
-      <button type="submit" disabled={status === "submitting" || !uploadedFile} className="w-full btn-primary py-3 text-base font-semibold disabled:opacity-60">
-        {status === "submitting" ? "Submitting…" : "Submit Contract →"}
+      <button type="submit" disabled={status === "submitting"} className="w-full btn-primary py-3 text-base font-semibold disabled:opacity-60">
+        {status === "submitting" ? "Submitting…" : "Start Secure Intake →"}
       </button>
 
       {status === "error" && (
-        <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
+        <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
       )}
     </form>
   );

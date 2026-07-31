@@ -4,16 +4,30 @@ import Link from "next/link";
 import Image from "next/image";
 import { BLOG_POSTS } from "@/data/blog";
 import { BLOG_SEO_OVERRIDES, postDisplayTitle } from "@/lib/post-titles";
-import { resolvePostImage } from "@/lib/post-image";
+import {
+  resolvePostImage,
+  resolvePostImageAlt,
+  resolvePostImageDimensions,
+} from "@/lib/post-image";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { BlogArticle } from "@/components/BlogArticle";
 import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
-import { splitBodyAndFAQ } from "@/lib/blog-content";
+import { normalizeMarkdownBlogBody, splitBodyAndFAQ } from "@/lib/blog-content";
 import { PortableText } from "@portabletext/react";
 import { Callout } from "@/components/portable-text/Callout";
 import { Table } from "@/components/portable-text/Table";
 import { Accordion } from "@/components/portable-text/Accordion";
 import { FAQSection } from "@/components/FAQSection";
+import { BLOG_FAQ_OVERRIDES } from "@/data/blog-faq-overrides";
+import {
+  blogFAQSchemaText,
+  blogFAQQuestionKey,
+  mergeBlogFAQs,
+  normalizePortableBlogContent,
+  portableBlockText,
+  slugifyBlogHeading,
+} from "@/lib/blog-portable-content";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 export const revalidate = 0;
 
@@ -45,6 +59,10 @@ const VALID_INTERNAL_PATHS = new Set([
   ...Array.from(STATIC_VALID_PATHS),
   ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
 ]);
+
+const INTERNAL_PATH_ALIASES: Record<string, string> = {
+  "/construction-loan-title-insurance": "/title-company-for-builders",
+};
 
 const INTERNAL_LINKS: Record<string, { label: string; href: string }[]> = {
   "lenders-title-insurance-vs-owners-title-insurance": [
@@ -497,6 +515,7 @@ export async function generateMetadata(
   const title = seoOverride?.title || post.title || "DMV Title Guy";
   // Never undefined: post.image is always set, so the fallback keeps the type honest.
   const ogImage = resolvePostImage(post.slug, post.image) ?? post.image;
+  const ogImageDimensions = resolvePostImageDimensions(post.slug);
 
   const description =
     seoOverride?.description ||
@@ -521,7 +540,7 @@ export async function generateMetadata(
       title,
       description,
       publishedTime: post.dateISO,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      images: [{ url: ogImage, ...ogImageDimensions }],
     },
     twitter: {
       card: "summary_large_image",
@@ -533,25 +552,43 @@ export async function generateMetadata(
 
 export default async function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
-  const { post, portableTextBody, markdownContent } = await fetchBlogPostBySlug(params.slug);
+  const [postResult, allPosts] = await Promise.all([
+    fetchBlogPostBySlug(params.slug),
+    fetchAllBlogPosts(),
+  ]);
+  const { post, portableTextBody, markdownContent } = postResult;
   if (!post) notFound();
 
-  const allPosts = await fetchAllBlogPosts();
   const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   // Split body and FAQs from markdown
-  const { body: bodyContent, faqs } = markdownContent
+  const { body: rawMarkdownBody, faqs } = markdownContent
     ? splitBodyAndFAQ(markdownContent)
     : { body: null, faqs: [] };
-
-  const toc = extractTOC(bodyContent);
+  const bodyContent = rawMarkdownBody
+    ? normalizeMarkdownBlogBody(rawMarkdownBody, post.title)
+    : null;
+  const normalizedPortable = normalizePortableBlogContent(portableTextBody, post.title, faqs);
+  const hasPortableBody = normalizedPortable.body.length > 0;
+  const inlineAccordionQuestionKeys = new Set(
+    normalizedPortable.inlineAccordionQuestions.map(blogFAQQuestionKey),
+  );
+  const markdownFooterFAQs = faqs.filter(
+    (faq) => !inlineAccordionQuestionKeys.has(blogFAQQuestionKey(faq.question)),
+  );
+  const articleFAQs = mergeBlogFAQs(
+    normalizedPortable.faqs,
+    markdownFooterFAQs,
+    BLOG_FAQ_OVERRIDES[post.slug] ?? [],
+  );
+  const toc = hasPortableBody ? normalizedPortable.toc : extractTOC(bodyContent);
 
   const isViennaTitleCompanyPost = post.slug === "title-search-vienna-va";
   const showDmvTitleServices = post.slug === DMV_TITLE_SERVICES_POST_SLUG;
   const canonicalPath = isViennaTitleCompanyPost
     ? "/title-search-vienna-va"
     : `/blog/${post.slug}`;
-  const canonicalUrl = `https://dmvtitleguy.io${canonicalPath}`;
+  const canonicalUrl = `https://dmvtitleguy.com${canonicalPath}`;
 
   /**
    * What this post is called on the page. Retitled posts override the Sanity
@@ -569,6 +606,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
    */
   const displayTitle = postDisplayTitle(post.slug, post.title);
   const heroImage = resolvePostImage(post.slug, post.image) ?? post.image;
+  const heroImageAlt = resolvePostImageAlt(post.slug);
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);
@@ -585,7 +623,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     "@type": "BlogPosting",
     headline: displayTitle,
     description: articleSchemaDesc,
-    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.io${heroImage}`,
+    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.com${heroImage}`,
     datePublished: post.dateISO,
     dateModified: post.dateISO,
     mainEntityOfPage: {
@@ -596,8 +634,8 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
       "@type": "Person",
       name: "Will Rapuano",
       jobTitle: "Business Development, Pruitt Title LLC",
-      url: "https://dmvtitleguy.io",
-      image: "https://dmvtitleguy.io/will-rapuano-headshot.jpg",
+      url: "https://dmvtitleguy.com",
+      image: "https://dmvtitleguy.com/will-rapuano-headshot.jpg",
       sameAs: [
         "https://www.linkedin.com/in/will-rapuano-86914b130",
         "https://www.instagram.com/dmvtitleguy",
@@ -607,22 +645,22 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     publisher: {
       "@type": "Organization",
       name: "DMV Title Guy — Pruitt Title LLC",
-      url: "https://dmvtitleguy.io",
+      url: "https://dmvtitleguy.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://dmvtitleguy.io/logo.png",
+        url: "https://dmvtitleguy.com/logo.png",
       },
     },
   };
 
-  const faqSchema = faqs.length > 0
+  const faqSchema = articleFAQs.length > 0
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
+        mainEntity: articleFAQs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          acceptedAnswer: { "@type": "Answer", text: blogFAQSchemaText(faq.answer) },
         })),
       }
     : null;
@@ -635,13 +673,13 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://dmvtitleguy.io/",
+        item: "https://dmvtitleguy.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://dmvtitleguy.io/blog",
+        item: "https://dmvtitleguy.com/blog",
       },
       {
         "@type": "ListItem",
@@ -660,113 +698,122 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       {faqSchema && (
         <script
           type="application/ld+json"
           suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
         />
       )}
 
-      {/* ─── Hero Image ─── */}
-      <div className="w-full bg-brand-navy">
-        <div className="relative w-full" style={{ paddingBottom: "42%" }}>
-          <Image
-            src={heroImage}
-            alt={displayTitle}
-            fill
-            className="object-cover"
-            style={{ opacity: 0.85 }}
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-navy/20 to-brand-navy/60" />
-        </div>
-      </div>
-
       {/* ─── Title + Meta ─── */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-6 py-8">
+      <header className="border-b border-slate-100 bg-white">
+        <div className="mx-auto max-w-6xl px-6 pb-10 pt-10 md:pb-12 md:pt-14">
           {/* Breadcrumb */}
-          <nav className="text-xs text-gray-600 mb-5 flex items-center gap-1.5">
+          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-slate-500">
             <Link href="/" className="hover:text-brand-blue-deep transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/my-blog" className="hover:text-brand-blue-deep transition-colors">Blog</Link>
-            <span>/</span>
-            <span className="text-gray-500 truncate max-w-[200px]">{displayTitle}</span>
+            <span aria-hidden="true">/</span>
+            <Link href="/blog" className="hover:text-brand-blue-deep transition-colors">Blog</Link>
+            <span aria-hidden="true">/</span>
+            <span className="max-w-[220px] truncate text-slate-400">{displayTitle}</span>
           </nav>
 
-          {/* Category tag */}
-          <span className="inline-block text-xs font-semibold text-brand-blue-deep bg-blue-50 px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
-            {post.category}
-          </span>
-
-          {/* Title */}
-          <h1 className="t-h2 lg:text-5xl text-brand-navy mb-5">
-            {displayTitle}
-          </h1>
-
-          {/* Author + Date + Read time */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-brand-action flex items-center justify-center text-white text-xs font-bold">
-                WR
-              </div>
-              <span className="font-medium text-brand-navy">Will Rapuano</span>
-            </div>
-            <span className="text-gray-500">|</span>
-            <span>{post.date}</span>
-            <span className="text-gray-500">|</span>
-            <span>{post.readTime}</span>
+          {/* Hero comes before the headline so the article opens visually. */}
+          <div
+            className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-brand-navy shadow-[0_24px_70px_-38px_rgba(11,29,58,0.65)] md:aspect-[21/9]"
+            data-blog-hero
+          >
+            <Image
+              src={heroImage}
+              alt={heroImageAlt}
+              fill
+              className="object-cover"
+              priority
+              sizes="(min-width: 1200px) 1152px, 100vw"
+              data-blog-hero-image
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/25 via-transparent to-transparent" aria-hidden="true" />
           </div>
 
-          {/* Social Share */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs text-gray-600 uppercase tracking-wide mr-1">Share:</span>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-black hover:text-white hover:border-black transition-all"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              Twitter/X
-            </a>
-            <a
-              href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-all"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a
-              href={`mailto:?subject=${shareTitle}&body=Check out this article: ${canonicalUrl}`}
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-              Email
-            </a>
+          <div className="mt-8 max-w-4xl md:mt-10">
+            {/* Category tag */}
+            <span className="mb-4 inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-blue-deep">
+              {post.category}
+            </span>
+
+            {/* Title */}
+            <h1 className="max-w-4xl font-display text-[2rem] font-semibold leading-[1.08] tracking-[-0.02em] text-brand-navy md:text-5xl md:leading-[1.1]">
+              {displayTitle}
+            </h1>
+
+            {/* Author + Date + Read time */}
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slate-500">
+              <div className="flex items-center gap-2">
+                <div className="relative h-9 w-9 overflow-hidden rounded-full bg-brand-navy">
+                  <Image
+                    src="/will-rapuano-headshot.jpg"
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="36px"
+                  />
+                </div>
+                <span className="font-medium text-brand-navy">Will Rapuano</span>
+              </div>
+              <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
+              <span>{post.date}</span>
+              <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
+              <span>{post.readTime}</span>
+            </div>
+
+            {/* Social Share */}
+            <div className="mt-6 flex flex-wrap items-center gap-2">
+              <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Share</span>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-600 hover:bg-blue-600 hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-black hover:bg-black hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                X
+              </a>
+              <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-700 hover:bg-blue-700 hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+              <a
+                href={`mailto:?subject=${shareTitle}&body=Check out this article: ${canonicalUrl}`}
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-slate-700 hover:bg-slate-700 hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+                Email
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* ─── Main Content ─── */}
       <div className="bg-white">
@@ -779,6 +826,21 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue-deep pl-5 max-w-[68ch]">
                 {post.excerpt}
               </p>
+
+              {!isViennaTitleCompanyPost && (
+                <div className="mb-8 rounded-xl border border-brand-blue/20 bg-sky-50 p-5 lg:hidden">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue-deep">Planning a closing?</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                    Get a local title quote for Virginia, Maryland, or Washington DC.
+                  </p>
+                  <Link
+                    href="/calculators/title-quote"
+                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-brand-action px-5 py-2.5 text-sm font-bold text-white"
+                  >
+                    Get a Title Quote →
+                  </Link>
+                </div>
+              )}
 
               {isViennaTitleCompanyPost && (
                 <div className="mb-8 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
@@ -801,78 +863,16 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               )}
 
               {/* Article body */}
-              <div className="blog-content">
-                {portableTextBody ? (
+              <div className="blog-content" data-blog-article-body>
+                {hasPortableBody ? (
                   <PortableText
-                    value={(() => {
-                      const blocks = portableTextBody as any[];
-
-                      /**
-                       * Drop a leading heading that just restates the article title.
-                       *
-                       * An h1 is stripped whatever it says: the page already renders the
-                       * title as its own <h1>, so a body h1 is a second title by
-                       * construction. Eleven posts opened with one — "Arlington VA Title
-                       * & Settlement Services" under the h1 "An Arlington Closing Guide
-                       * for Buyers and Sellers" — and they rendered, because the old
-                       * check only stripped a heading matching post.title exactly.
-                       *
-                       * An h2 is usually a genuine first section heading ("Wire Fraud Is
-                       * the Biggest Financial Threat in Real Estate Today"), so it is
-                       * only dropped when it repeats the title verbatim. Of 46 posts
-                       * opening with a heading, 31 differ from the title and most of
-                       * those are real section headings — stripping h2 unconditionally
-                       * would delete content.
-                       *
-                       * Comparing against post.title rather than the display title is
-                       * deliberate: the body heading was authored alongside the CMS
-                       * title, not alongside any override.
-                       */
-                      const withoutRestatedTitle = (body: any[]): any[] => {
-                        if (body.length === 0) return body;
-                        const first = body[0];
-                        if (first?.style === "h1") return body.slice(1);
-                        const text = first?.children?.map((c: any) => c.text).join("").trim() ?? "";
-                        const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
-                        if (first?.style === "h2" && normalize(text) === normalize(post.title)) {
-                          return body.slice(1);
-                        }
-                        return body;
-                      };
-
-                      /**
-                       * Sanity nests list items as { _type: "list", children: [listItem] };
-                       * PortableText Toolkit wants flat blocks carrying `listItem`.
-                       *
-                       * This used to be unreachable for any post whose first block was
-                       * stripped above — that branch returned early, so those posts' lists
-                       * were handed to PortableText in Sanity's nested shape. Both steps
-                       * now always run.
-                       */
-                      const flattenLists = (body: any[]): any[] =>
-                        body.flatMap((block) => {
-                          if (block._type !== "list") return [block];
-                          return (block.children || []).flatMap((li: any) =>
-                            (li.children || []).map((childBlock: any) => ({
-                              ...childBlock,
-                              _type: "block",
-                              listItem: block.listItem,
-                            }))
-                          );
-                        });
-
-                      return flattenLists(withoutRestatedTitle(blocks));
-                    })()}
+                    value={normalizedPortable.body}
                     components={{
                       types: {
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         callout: ({ value }: any) => <Callout value={value} />,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         table: ({ value }: any) => <Table value={value} />,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         accordion: ({ value }: any) => <Accordion value={value} />,
                         // Custom type: 'list' (standard PortableText list)
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         list: ({ children, value }: any) => {
                           if (value?.listItem === "bullet" || value?.listItem === "ul") {
                             return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
@@ -881,25 +881,20 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                         },
                       },
                       // Top-level list/listItem: @portabletext/react renderList uses components.list
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       list: ({ children, value }: any) => {
                         if (value?.listItem === "bullet" || value?.listItem === "ul") {
                           return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
                         }
                         return <ol className="list-decimal list-outside ml-5 my-4 space-y-2">{children}</ol>;
                       },
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       listItem: ({ children }: any) => <li className="leading-relaxed text-gray-700 mb-2">{children}</li>,
                       marks: {
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         strong: ({ children }: any) => <strong className="font-semibold text-gray-900">{children}</strong>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         em: ({ children }: any) => <em className="italic">{children}</em>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         underline: ({ children }: any) => <span className="underline">{children}</span>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         link: ({ value, children }: any) => {
-                          const href = value?.href || '';
+                          const rawHref = value?.href || '';
+                          const href = INTERNAL_PATH_ALIASES[rawHref] || rawHref;
                           const isExternal = href.startsWith('http');
                           return (
                             <a
@@ -913,7 +908,6 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                         },
                       },
                       block: {
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         normal: ({ children, value }: any) => {
                           const text = value?.children?.map((c: any) => c.text ?? "").join("").trim() ?? "";
                           if (showDmvTitleServices && /^DMV title services:/i.test(text)) {
@@ -940,14 +934,6 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                           if (/^\*Pruitt Title/i.test(text)) {
                             const clean = text.replace(/^\*+|\*+$/g, "").trim();
                             return <p className="text-sm italic text-gray-500 mt-6 mb-2 max-w-[68ch] leading-relaxed">{clean}</p>;
-                          }
-                          // FAQ question detection: ends with ?, short, starts uppercase
-                          if (
-                            text.endsWith("?") &&
-                            text.length < 150 &&
-                            /^[A-Z]/.test(text)
-                          ) {
-                            return <p className="font-bold text-brand-blue-deep mt-10 mb-1 text-base border-l-4 border-brand-blue-deep pl-3 max-w-[68ch] leading-relaxed">{children}</p>;
                           }
                           // Parse markdown links [text](/path) into React elements
                           const mdLinkRegex = /\[([^\]]+)\]\((\/[^)]+)\)/g;
@@ -977,9 +963,9 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                         },
                         // Rendered as h2, not h1: the page heading above is the document's only h1.
                         // Styling is unchanged, so nothing looks different.
-                        h1: ({ children }: any) => <h2 className="t-h3 text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h2: ({ children }: any) => <h2 className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h3: ({ children }: any) => <h3 className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
+                        h1: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="t-h3 text-brand-navy mt-10 mb-4">{children}</h2>,
+                        h2: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
+                        h3: ({ children, value }: any) => <h3 id={slugifyBlogHeading(portableBlockText(value))} className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
                         h4: ({ children }: any) => <h4 className="t-h6 font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
                       },
                     }}
@@ -997,8 +983,8 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               </div>
 
               {/* ─── FAQ Section ─── */}
-              {faqs.length > 0 && (
-                <FAQSection faqs={faqs} includeSchema={false} />
+              {articleFAQs.length > 0 && (
+                <FAQSection faqs={articleFAQs} includeSchema={false} />
               )}
 
               {showDmvTitleServices && <RelatedLocalTitleServices />}
@@ -1036,7 +1022,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="text-sm text-brand-blue-deep hover:text-brand-blue-700 border border-gray-100 hover:border-brand-blue-deep/30 rounded-lg p-3.5 block transition-all no-underline group"
+                        className="text-sm text-brand-blue-deep hover:text-brand-blue-700 border border-gray-100 hover:border-brand-blue-deep/30 rounded-lg p-3.5 block transition-[color,border-color] no-underline group"
                       >
                         <span className="group-hover:underline">{link.label}</span>
                         <span className="ml-1 opacity-60">→</span>
@@ -1131,14 +1117,14 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                 <Link
                   key={r.slug}
                   href={`/blog/${r.slug}`}
-                  className="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group block"
+                  className="bg-white rounded-xl overflow-hidden border border-gray-100 group block"
                 >
                   <div className="relative h-44 overflow-hidden bg-brand-navy">
                       <Image
                       src={resolvePostImage(r.slug, r.image) ?? r.image}
                       alt={postDisplayTitle(r.slug, r.title)}
                       fill
-                      className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover opacity-80"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />

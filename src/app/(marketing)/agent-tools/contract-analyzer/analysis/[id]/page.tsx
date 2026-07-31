@@ -10,7 +10,7 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
   return {
     title: "Contract Analysis | DMV Title Guy",
     robots: { index: false, follow: false },
-    alternates: { canonical: `https://dmvtitleguy.io/agent-tools/contract-analyzer/analysis/${params.id}` },
+    alternates: { canonical: `https://dmvtitleguy.com/agent-tools/contract-analyzer/analysis/${params.id}` },
   };
 }
 import Link from "next/link";

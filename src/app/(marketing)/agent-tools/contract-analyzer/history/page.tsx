@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Analysis History | Contract Analyzer | DMV Title Guy",
   robots: { index: false, follow: false },
-  alternates: { canonical: "https://dmvtitleguy.io/agent-tools/contract-analyzer/history" },
+  alternates: { canonical: "https://dmvtitleguy.com/agent-tools/contract-analyzer/history" },
 };
 
 export default async function HistoryPage() {

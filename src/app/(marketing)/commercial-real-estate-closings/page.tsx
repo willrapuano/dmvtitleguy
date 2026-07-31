@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Commercial closing support for DMV buyers, sellers, lenders, and investors. Pruitt Title coordinates title, escrow, and settlement. Call today.",
   alternates: {
-    canonical: "https://dmvtitleguy.io/commercial-real-estate-closings",
+    canonical: "https://dmvtitleguy.com/commercial-real-estate-closings",
   },
 };
 
@@ -126,7 +126,7 @@ const relatedPages = [
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
   { href: "/commercial-due-diligence", label: "Commercial Due Diligence" },
   { href: "/investor-title-services", label: "Investor Title Services" },
-  { href: "/upload-contract", label: "Upload Contract" },
+  { href: "/upload-contract", label: "Start Contract Intake" },
 ];
 
 const schema = {
@@ -134,7 +134,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.io/commercial-real-estate-closings#service",
+      "@id": "https://dmvtitleguy.com/commercial-real-estate-closings#service",
       name: "Commercial Real Estate Closings",
       serviceType: "Commercial Real Estate Closing Services",
       provider: {
@@ -204,7 +204,7 @@ export default function CommercialRealEstateClosingsPage() {
               Order Commercial Title Search
             </Link>
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
         </div>
@@ -290,15 +290,15 @@ export default function CommercialRealEstateClosingsPage() {
             Need Commercial Closing Support?
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Upload the contract or request a commercial title review. We&apos;ll
-            identify title, escrow, and closing requirements early.
+            Start secure contract intake or request a commercial title review.
+            We&apos;ll identify title, escrow, and closing requirements early.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
               Order Commercial Title Search
             </Link>
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
           <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">

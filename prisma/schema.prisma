@@ -66,3 +66,17 @@ model Finding {
   lineRef     String?
   createdAt   DateTime @default(now())
 }
+
+model LeadRateLimitBucket {
+  key          String   @id
+  count        Int      @default(1)
+  windowEndsAt DateTime
+  updatedAt    DateTime @updatedAt
+}
+
+model LeadSubmission {
+  id          String    @id
+  status      String    @default("pending")
+  createdAt   DateTime  @default(now())
+  deliveredAt DateTime?
+}

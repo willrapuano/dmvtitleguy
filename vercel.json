@@ -4,35 +4,6 @@
   "outputDirectory": ".next",
   "installCommand": "npm install",
   "regions": ["iad1"],
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.dmvtitleguy.io" }],
-      "destination": "https://dmvtitleguy.io/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        { "type": "host", "value": "dmvtitleguy.io" },
-        { "type": "header", "key": "x-forwarded-proto", "value": "http" }
-      ],
-      "destination": "https://dmvtitleguy.io/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "dmvtitleguy.com" }],
-      "destination": "https://dmvtitleguy.io/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.dmvtitleguy.com" }],
-      "destination": "https://dmvtitleguy.io/:path*",
-      "permanent": true
-    }
-  ],
   "functions": {
     "src/app/api/agent-tools/contract-analyzer/upload/route.ts": {
       "maxDuration": 60

@@ -227,8 +227,8 @@ export default function AllTransactionsPage() {
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
             <Link href="/upload-contract" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
-              <h3 className="font-semibold text-brand-navy mb-1">Upload Contract</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Upload your ratified contract for fast processing.</p>
+              <h3 className="font-semibold text-brand-navy mb-1">Start Contract Intake</h3>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Begin intake and receive secure transfer instructions.</p>
             </Link>
             <Link href="/request-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
               <h3 className="font-semibold text-brand-navy mb-1">Request Title Review</h3>

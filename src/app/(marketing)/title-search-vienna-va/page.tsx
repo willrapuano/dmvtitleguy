@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Vienna title search service for liens, ownership, easements, and title risks. 17+ years serving Fairfax County. Order your review online now.",
   alternates: {
-    canonical: "https://dmvtitleguy.io/title-search-vienna-va",
+    canonical: "https://dmvtitleguy.com/title-search-vienna-va",
   },
 };
 
@@ -79,7 +79,7 @@ const process = [
   {
     icon: FileCheck,
     title: "1. Send the Property",
-    desc: "Request a title review or upload your contract with the Vienna property address and any deal documents you already have.",
+    desc: "Request a title review or start contract intake with the Vienna property address. We'll provide secure instructions for any deal documents.",
   },
   {
     icon: Search,
@@ -120,7 +120,7 @@ const relatedPages = [
   { href: "/investor-title-services", label: "Investor Title Services" },
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
-  { href: "/upload-contract", label: "Upload Contract" },
+  { href: "/upload-contract", label: "Start Contract Intake" },
   { href: "/request-title-review", label: "Order Title Search" },
 ];
 
@@ -129,11 +129,11 @@ const schema = {
   "@graph": [
     {
       "@type": ["LocalBusiness", "LegalService"],
-      "@id": "https://dmvtitleguy.io/title-search-vienna-va#business",
+      "@id": "https://dmvtitleguy.com/title-search-vienna-va#business",
       name: "DMV Title Guy | Pruitt Title LLC",
-      url: "https://dmvtitleguy.io/title-search-vienna-va",
+      url: "https://dmvtitleguy.com/title-search-vienna-va",
       telephone: "+1-703-859-1467",
-      image: "https://dmvtitleguy.io/logo.png",
+      image: "https://dmvtitleguy.com/logo.png",
       address: {
         "@type": "PostalAddress",
         streetAddress: "1900 Gallows Rd Ste 230",
@@ -146,10 +146,10 @@ const schema = {
     },
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.io/title-search-vienna-va#service",
+      "@id": "https://dmvtitleguy.com/title-search-vienna-va#service",
       name: "Title Search Vienna VA",
       serviceType: "Title Search",
-      provider: { "@id": "https://dmvtitleguy.io/title-search-vienna-va#business" },
+      provider: { "@id": "https://dmvtitleguy.com/title-search-vienna-va#business" },
       areaServed: { "@type": "City", name: "Vienna", addressRegion: "VA" },
       description:
         "Title search services for Vienna, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",
@@ -198,7 +198,7 @@ export default function TitleSearchViennaPage() {
           <div className="flex flex-wrap gap-4">
             <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
         </div>
@@ -270,13 +270,13 @@ export default function TitleSearchViennaPage() {
             Need a Title Search on a Vienna Property?
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Send the property details or upload your contract. We&apos;ll review
+            Send the property details or start contract intake. We&apos;ll review
             the title risks and explain the next steps clearly.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <TitleSearchOrderButton />
             <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Upload Contract
+              Start Contract Intake
             </Link>
           </div>
           <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">

@@ -23,7 +23,7 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const siteUrl = "https://dmvtitleguy.io";
+const siteUrl = "https://dmvtitleguy.com";
 const siteName = "DMV Title Guy";
 const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
 const defaultDescription =

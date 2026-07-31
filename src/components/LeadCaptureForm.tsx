@@ -1,7 +1,9 @@
 "use client";
 
-import { CheckCircle2, Check } from "lucide-react";
-import { useState } from "react";
+import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { trackLeadConversion } from "@/lib/client-analytics";
 
 interface LeadCaptureFormProps {
   title?: string;
@@ -24,22 +26,28 @@ export function LeadCaptureForm({
     transactionType: "purchase",
     message: "",
   });
+  const submissionIdRef = useRef<string | null>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+  const idPrefix = `lead-${location.replace(/[^a-z0-9-]/gi, "-").toLowerCase()}`;
+
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
     try {
-      // TODO: wire to GHL webhook
-      const webhookUrl = process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL;
-      if (webhookUrl) {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...formData, source: `dmvtitleguy-${location}` }),
-        });
-      }
-      // Simulate success for now
-      await new Promise((r) => setTimeout(r, 800));
+      submissionIdRef.current ||= crypto.randomUUID();
+      const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, formType: "quote", submissionId: submissionIdRef.current, website }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || "Lead delivery failed");
+      trackLeadConversion("quote");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -48,7 +56,13 @@ export function LeadCaptureForm({
 
   if (status === "success") {
     return (
-      <div className={`bg-white rounded-xl shadow-lg p-8 text-center ${compact ? "p-6" : ""}`}>
+      <div
+        ref={successRef}
+        role="status"
+        aria-live="polite"
+        tabIndex={-1}
+        className={`bg-white rounded-xl shadow-lg text-center focus:outline-none ${compact ? "p-6" : "p-5 sm:p-8"}`}
+      >
         <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
         <h3 className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</h3>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
@@ -60,69 +74,78 @@ export function LeadCaptureForm({
   }
 
   return (
-    <div className={`bg-white rounded-xl shadow-lg ${compact ? "p-6" : "p-8"}`}>
-      {!compact && (
-        <div className="mb-6">
-          <h3 className="t-h5 text-brand-navy">{title}</h3>
-          <p className="text-brand-muted text-sm mt-1 max-w-[68ch] leading-relaxed">{subtitle}</p>
-        </div>
-      )}
+    <div className={`bg-white rounded-xl shadow-lg ${compact ? "p-6" : "p-5 sm:p-8"}`}>
+      <div className={compact ? "mb-5" : "mb-6"}>
+        <h3 className={`${compact ? "text-lg font-bold" : "t-h5"} text-brand-navy`}>{title}</h3>
+        <p className="text-brand-muted text-sm mt-1 max-w-[68ch] leading-relaxed">{subtitle}</p>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor={`${idPrefix}-website`}>Website</label>
+          <input id={`${idPrefix}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-brand-dark-text mb-1">
+          <label htmlFor={`${idPrefix}-name`} className="block text-sm font-medium text-brand-dark-text mb-1">
             Full Name *
           </label>
           <input
-            id="name"
+            id={`${idPrefix}-name`}
+            name="name"
             type="text"
             required
+            autoComplete="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+            className="min-h-11 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
             placeholder="Jane Smith"
           />
         </div>
 
-        <div className={compact ? "" : "grid grid-cols-2 gap-4"}>
+        <div className={compact ? "space-y-4" : "grid grid-cols-1 gap-4 sm:grid-cols-2"}>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-brand-dark-text mb-1">
+            <label htmlFor={`${idPrefix}-email`} className="block text-sm font-medium text-brand-dark-text mb-1">
               Email *
             </label>
             <input
-              id="email"
+              id={`${idPrefix}-email`}
+              name="email"
               type="email"
               required
+              autoComplete="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="min-h-11 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
               placeholder="jane@example.com"
             />
           </div>
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-brand-dark-text mb-1">
+            <label htmlFor={`${idPrefix}-phone`} className="block text-sm font-medium text-brand-dark-text mb-1">
               Phone
             </label>
             <input
-              id="phone"
+              id={`${idPrefix}-phone`}
+              name="phone"
               type="tel"
+              autoComplete="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="min-h-11 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
               placeholder="(703) 555-0100"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="type" className="block text-sm font-medium text-brand-dark-text mb-1">
+          <label htmlFor={`${idPrefix}-type`} className="block text-sm font-medium text-brand-dark-text mb-1">
             Transaction Type
           </label>
           <select
-            id="type"
+            id={`${idPrefix}-type`}
+            name="transactionType"
             value={formData.transactionType}
             onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })}
-            className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white"
+            className="min-h-11 w-full border border-gray-300 rounded bg-white px-3 py-2 text-sm text-brand-dark-text focus:outline-none focus:ring-2 focus:ring-brand-blue"
           >
             <option value="purchase">Purchase</option>
             <option value="refinance">Refinance</option>
@@ -135,11 +158,12 @@ export function LeadCaptureForm({
 
         {!compact && (
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-brand-dark-text mb-1">
+            <label htmlFor={`${idPrefix}-message`} className="block text-sm font-medium text-brand-dark-text mb-1">
               Message (optional)
             </label>
             <textarea
-              id="message"
+              id={`${idPrefix}-message`}
+              name="message"
               rows={3}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -157,8 +181,16 @@ export function LeadCaptureForm({
           {status === "submitting" ? "Sending…" : "Get Your Free Quote →"}
         </button>
 
+        <p className="text-center text-xs leading-relaxed text-slate-500">
+          We use your information to respond to this request. Read our{" "}
+          <Link href="/privacy-policy" className="font-medium text-brand-blue-deep underline underline-offset-2">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+
         {status === "error" && (
-          <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>
+          <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">We couldn&apos;t deliver your request. Please call (703) 859-1467 or email wrapuano@pruitt-title.com.</p>
         )}
       </form>
     </div>

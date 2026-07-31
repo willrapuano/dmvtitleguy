@@ -38,6 +38,16 @@ export type Analysis = $Result.DefaultSelection<Prisma.$AnalysisPayload>
  *
  */
 export type Finding = $Result.DefaultSelection<Prisma.$FindingPayload>
+/**
+ * Model LeadRateLimitBucket
+ *
+ */
+export type LeadRateLimitBucket = $Result.DefaultSelection<Prisma.$LeadRateLimitBucketPayload>
+/**
+ * Model LeadSubmission
+ *
+ */
+export type LeadSubmission = $Result.DefaultSelection<Prisma.$LeadSubmissionPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -209,6 +219,26 @@ export class PrismaClient<
     * ```
     */
   get finding(): Prisma.FindingDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.leadRateLimitBucket`: Exposes CRUD operations for the **LeadRateLimitBucket** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LeadRateLimitBuckets
+    * const leadRateLimitBuckets = await prisma.leadRateLimitBucket.findMany()
+    * ```
+    */
+  get leadRateLimitBucket(): Prisma.LeadRateLimitBucketDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.leadSubmission`: Exposes CRUD operations for the **LeadSubmission** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LeadSubmissions
+    * const leadSubmissions = await prisma.leadSubmission.findMany()
+    * ```
+    */
+  get leadSubmission(): Prisma.LeadSubmissionDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -660,7 +690,9 @@ export namespace Prisma {
     ToolSession: 'ToolSession',
     LoginCode: 'LoginCode',
     Analysis: 'Analysis',
-    Finding: 'Finding'
+    Finding: 'Finding',
+    LeadRateLimitBucket: 'LeadRateLimitBucket',
+    LeadSubmission: 'LeadSubmission'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -676,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "toolUser" | "toolSession" | "loginCode" | "analysis" | "finding"
+      modelProps: "toolUser" | "toolSession" | "loginCode" | "analysis" | "finding" | "leadRateLimitBucket" | "leadSubmission"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1050,6 +1082,154 @@ export namespace Prisma {
           }
         }
       }
+      LeadRateLimitBucket: {
+        payload: Prisma.$LeadRateLimitBucketPayload<ExtArgs>
+        fields: Prisma.LeadRateLimitBucketFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LeadRateLimitBucketFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LeadRateLimitBucketFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>
+          }
+          findFirst: {
+            args: Prisma.LeadRateLimitBucketFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LeadRateLimitBucketFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>
+          }
+          findMany: {
+            args: Prisma.LeadRateLimitBucketFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>[]
+          }
+          create: {
+            args: Prisma.LeadRateLimitBucketCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>
+          }
+          createMany: {
+            args: Prisma.LeadRateLimitBucketCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LeadRateLimitBucketCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>[]
+          }
+          delete: {
+            args: Prisma.LeadRateLimitBucketDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>
+          }
+          update: {
+            args: Prisma.LeadRateLimitBucketUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>
+          }
+          deleteMany: {
+            args: Prisma.LeadRateLimitBucketDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LeadRateLimitBucketUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LeadRateLimitBucketUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>[]
+          }
+          upsert: {
+            args: Prisma.LeadRateLimitBucketUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadRateLimitBucketPayload>
+          }
+          aggregate: {
+            args: Prisma.LeadRateLimitBucketAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLeadRateLimitBucket>
+          }
+          groupBy: {
+            args: Prisma.LeadRateLimitBucketGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LeadRateLimitBucketGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LeadRateLimitBucketCountArgs<ExtArgs>
+            result: $Utils.Optional<LeadRateLimitBucketCountAggregateOutputType> | number
+          }
+        }
+      }
+      LeadSubmission: {
+        payload: Prisma.$LeadSubmissionPayload<ExtArgs>
+        fields: Prisma.LeadSubmissionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LeadSubmissionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LeadSubmissionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>
+          }
+          findFirst: {
+            args: Prisma.LeadSubmissionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LeadSubmissionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>
+          }
+          findMany: {
+            args: Prisma.LeadSubmissionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>[]
+          }
+          create: {
+            args: Prisma.LeadSubmissionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>
+          }
+          createMany: {
+            args: Prisma.LeadSubmissionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LeadSubmissionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>[]
+          }
+          delete: {
+            args: Prisma.LeadSubmissionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>
+          }
+          update: {
+            args: Prisma.LeadSubmissionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>
+          }
+          deleteMany: {
+            args: Prisma.LeadSubmissionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LeadSubmissionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LeadSubmissionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>[]
+          }
+          upsert: {
+            args: Prisma.LeadSubmissionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionPayload>
+          }
+          aggregate: {
+            args: Prisma.LeadSubmissionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLeadSubmission>
+          }
+          groupBy: {
+            args: Prisma.LeadSubmissionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LeadSubmissionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LeadSubmissionCountArgs<ExtArgs>
+            result: $Utils.Optional<LeadSubmissionCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1178,6 +1358,8 @@ export namespace Prisma {
     loginCode?: LoginCodeOmit
     analysis?: AnalysisOmit
     finding?: FindingOmit
+    leadRateLimitBucket?: LeadRateLimitBucketOmit
+    leadSubmission?: LeadSubmissionOmit
   }
 
   /* Types for Logging */
@@ -6916,6 +7098,2010 @@ export namespace Prisma {
 
 
   /**
+   * Model LeadRateLimitBucket
+   */
+
+  export type AggregateLeadRateLimitBucket = {
+    _count: LeadRateLimitBucketCountAggregateOutputType | null
+    _avg: LeadRateLimitBucketAvgAggregateOutputType | null
+    _sum: LeadRateLimitBucketSumAggregateOutputType | null
+    _min: LeadRateLimitBucketMinAggregateOutputType | null
+    _max: LeadRateLimitBucketMaxAggregateOutputType | null
+  }
+
+  export type LeadRateLimitBucketAvgAggregateOutputType = {
+    count: number | null
+  }
+
+  export type LeadRateLimitBucketSumAggregateOutputType = {
+    count: number | null
+  }
+
+  export type LeadRateLimitBucketMinAggregateOutputType = {
+    key: string | null
+    count: number | null
+    windowEndsAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LeadRateLimitBucketMaxAggregateOutputType = {
+    key: string | null
+    count: number | null
+    windowEndsAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LeadRateLimitBucketCountAggregateOutputType = {
+    key: number
+    count: number
+    windowEndsAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LeadRateLimitBucketAvgAggregateInputType = {
+    count?: true
+  }
+
+  export type LeadRateLimitBucketSumAggregateInputType = {
+    count?: true
+  }
+
+  export type LeadRateLimitBucketMinAggregateInputType = {
+    key?: true
+    count?: true
+    windowEndsAt?: true
+    updatedAt?: true
+  }
+
+  export type LeadRateLimitBucketMaxAggregateInputType = {
+    key?: true
+    count?: true
+    windowEndsAt?: true
+    updatedAt?: true
+  }
+
+  export type LeadRateLimitBucketCountAggregateInputType = {
+    key?: true
+    count?: true
+    windowEndsAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LeadRateLimitBucketAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadRateLimitBucket to aggregate.
+     */
+    where?: LeadRateLimitBucketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadRateLimitBuckets to fetch.
+     */
+    orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: LeadRateLimitBucketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadRateLimitBuckets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadRateLimitBuckets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned LeadRateLimitBuckets
+    **/
+    _count?: true | LeadRateLimitBucketCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: LeadRateLimitBucketAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: LeadRateLimitBucketSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: LeadRateLimitBucketMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: LeadRateLimitBucketMaxAggregateInputType
+  }
+
+  export type GetLeadRateLimitBucketAggregateType<T extends LeadRateLimitBucketAggregateArgs> = {
+        [P in keyof T & keyof AggregateLeadRateLimitBucket]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLeadRateLimitBucket[P]>
+      : GetScalarType<T[P], AggregateLeadRateLimitBucket[P]>
+  }
+
+
+
+
+  export type LeadRateLimitBucketGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeadRateLimitBucketWhereInput
+    orderBy?: LeadRateLimitBucketOrderByWithAggregationInput | LeadRateLimitBucketOrderByWithAggregationInput[]
+    by: LeadRateLimitBucketScalarFieldEnum[] | LeadRateLimitBucketScalarFieldEnum
+    having?: LeadRateLimitBucketScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LeadRateLimitBucketCountAggregateInputType | true
+    _avg?: LeadRateLimitBucketAvgAggregateInputType
+    _sum?: LeadRateLimitBucketSumAggregateInputType
+    _min?: LeadRateLimitBucketMinAggregateInputType
+    _max?: LeadRateLimitBucketMaxAggregateInputType
+  }
+
+  export type LeadRateLimitBucketGroupByOutputType = {
+    key: string
+    count: number
+    windowEndsAt: Date
+    updatedAt: Date
+    _count: LeadRateLimitBucketCountAggregateOutputType | null
+    _avg: LeadRateLimitBucketAvgAggregateOutputType | null
+    _sum: LeadRateLimitBucketSumAggregateOutputType | null
+    _min: LeadRateLimitBucketMinAggregateOutputType | null
+    _max: LeadRateLimitBucketMaxAggregateOutputType | null
+  }
+
+  type GetLeadRateLimitBucketGroupByPayload<T extends LeadRateLimitBucketGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LeadRateLimitBucketGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LeadRateLimitBucketGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LeadRateLimitBucketGroupByOutputType[P]>
+            : GetScalarType<T[P], LeadRateLimitBucketGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LeadRateLimitBucketSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    key?: boolean
+    count?: boolean
+    windowEndsAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["leadRateLimitBucket"]>
+
+  export type LeadRateLimitBucketSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    key?: boolean
+    count?: boolean
+    windowEndsAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["leadRateLimitBucket"]>
+
+  export type LeadRateLimitBucketSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    key?: boolean
+    count?: boolean
+    windowEndsAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["leadRateLimitBucket"]>
+
+  export type LeadRateLimitBucketSelectScalar = {
+    key?: boolean
+    count?: boolean
+    windowEndsAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type LeadRateLimitBucketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"key" | "count" | "windowEndsAt" | "updatedAt", ExtArgs["result"]["leadRateLimitBucket"]>
+
+  export type $LeadRateLimitBucketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LeadRateLimitBucket"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      key: string
+      count: number
+      windowEndsAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["leadRateLimitBucket"]>
+    composites: {}
+  }
+
+  type LeadRateLimitBucketGetPayload<S extends boolean | null | undefined | LeadRateLimitBucketDefaultArgs> = $Result.GetResult<Prisma.$LeadRateLimitBucketPayload, S>
+
+  type LeadRateLimitBucketCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LeadRateLimitBucketFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LeadRateLimitBucketCountAggregateInputType | true
+    }
+
+  export interface LeadRateLimitBucketDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LeadRateLimitBucket'], meta: { name: 'LeadRateLimitBucket' } }
+    /**
+     * Find zero or one LeadRateLimitBucket that matches the filter.
+     * @param {LeadRateLimitBucketFindUniqueArgs} args - Arguments to find a LeadRateLimitBucket
+     * @example
+     * // Get one LeadRateLimitBucket
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LeadRateLimitBucketFindUniqueArgs>(args: SelectSubset<T, LeadRateLimitBucketFindUniqueArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LeadRateLimitBucket that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LeadRateLimitBucketFindUniqueOrThrowArgs} args - Arguments to find a LeadRateLimitBucket
+     * @example
+     * // Get one LeadRateLimitBucket
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LeadRateLimitBucketFindUniqueOrThrowArgs>(args: SelectSubset<T, LeadRateLimitBucketFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadRateLimitBucket that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadRateLimitBucketFindFirstArgs} args - Arguments to find a LeadRateLimitBucket
+     * @example
+     * // Get one LeadRateLimitBucket
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LeadRateLimitBucketFindFirstArgs>(args?: SelectSubset<T, LeadRateLimitBucketFindFirstArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadRateLimitBucket that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadRateLimitBucketFindFirstOrThrowArgs} args - Arguments to find a LeadRateLimitBucket
+     * @example
+     * // Get one LeadRateLimitBucket
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LeadRateLimitBucketFindFirstOrThrowArgs>(args?: SelectSubset<T, LeadRateLimitBucketFindFirstOrThrowArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LeadRateLimitBuckets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadRateLimitBucketFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LeadRateLimitBuckets
+     * const leadRateLimitBuckets = await prisma.leadRateLimitBucket.findMany()
+     *
+     * // Get first 10 LeadRateLimitBuckets
+     * const leadRateLimitBuckets = await prisma.leadRateLimitBucket.findMany({ take: 10 })
+     *
+     * // Only select the `key`
+     * const leadRateLimitBucketWithKeyOnly = await prisma.leadRateLimitBucket.findMany({ select: { key: true } })
+     *
+     */
+    findMany<T extends LeadRateLimitBucketFindManyArgs>(args?: SelectSubset<T, LeadRateLimitBucketFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LeadRateLimitBucket.
+     * @param {LeadRateLimitBucketCreateArgs} args - Arguments to create a LeadRateLimitBucket.
+     * @example
+     * // Create one LeadRateLimitBucket
+     * const LeadRateLimitBucket = await prisma.leadRateLimitBucket.create({
+     *   data: {
+     *     // ... data to create a LeadRateLimitBucket
+     *   }
+     * })
+     *
+     */
+    create<T extends LeadRateLimitBucketCreateArgs>(args: SelectSubset<T, LeadRateLimitBucketCreateArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LeadRateLimitBuckets.
+     * @param {LeadRateLimitBucketCreateManyArgs} args - Arguments to create many LeadRateLimitBuckets.
+     * @example
+     * // Create many LeadRateLimitBuckets
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends LeadRateLimitBucketCreateManyArgs>(args?: SelectSubset<T, LeadRateLimitBucketCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LeadRateLimitBuckets and returns the data saved in the database.
+     * @param {LeadRateLimitBucketCreateManyAndReturnArgs} args - Arguments to create many LeadRateLimitBuckets.
+     * @example
+     * // Create many LeadRateLimitBuckets
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many LeadRateLimitBuckets and only return the `key`
+     * const leadRateLimitBucketWithKeyOnly = await prisma.leadRateLimitBucket.createManyAndReturn({
+     *   select: { key: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends LeadRateLimitBucketCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadRateLimitBucketCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LeadRateLimitBucket.
+     * @param {LeadRateLimitBucketDeleteArgs} args - Arguments to delete one LeadRateLimitBucket.
+     * @example
+     * // Delete one LeadRateLimitBucket
+     * const LeadRateLimitBucket = await prisma.leadRateLimitBucket.delete({
+     *   where: {
+     *     // ... filter to delete one LeadRateLimitBucket
+     *   }
+     * })
+     *
+     */
+    delete<T extends LeadRateLimitBucketDeleteArgs>(args: SelectSubset<T, LeadRateLimitBucketDeleteArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LeadRateLimitBucket.
+     * @param {LeadRateLimitBucketUpdateArgs} args - Arguments to update one LeadRateLimitBucket.
+     * @example
+     * // Update one LeadRateLimitBucket
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends LeadRateLimitBucketUpdateArgs>(args: SelectSubset<T, LeadRateLimitBucketUpdateArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LeadRateLimitBuckets.
+     * @param {LeadRateLimitBucketDeleteManyArgs} args - Arguments to filter LeadRateLimitBuckets to delete.
+     * @example
+     * // Delete a few LeadRateLimitBuckets
+     * const { count } = await prisma.leadRateLimitBucket.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends LeadRateLimitBucketDeleteManyArgs>(args?: SelectSubset<T, LeadRateLimitBucketDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadRateLimitBuckets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadRateLimitBucketUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LeadRateLimitBuckets
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends LeadRateLimitBucketUpdateManyArgs>(args: SelectSubset<T, LeadRateLimitBucketUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadRateLimitBuckets and returns the data updated in the database.
+     * @param {LeadRateLimitBucketUpdateManyAndReturnArgs} args - Arguments to update many LeadRateLimitBuckets.
+     * @example
+     * // Update many LeadRateLimitBuckets
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more LeadRateLimitBuckets and only return the `key`
+     * const leadRateLimitBucketWithKeyOnly = await prisma.leadRateLimitBucket.updateManyAndReturn({
+     *   select: { key: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends LeadRateLimitBucketUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadRateLimitBucketUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LeadRateLimitBucket.
+     * @param {LeadRateLimitBucketUpsertArgs} args - Arguments to update or create a LeadRateLimitBucket.
+     * @example
+     * // Update or create a LeadRateLimitBucket
+     * const leadRateLimitBucket = await prisma.leadRateLimitBucket.upsert({
+     *   create: {
+     *     // ... data to create a LeadRateLimitBucket
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LeadRateLimitBucket we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LeadRateLimitBucketUpsertArgs>(args: SelectSubset<T, LeadRateLimitBucketUpsertArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LeadRateLimitBuckets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadRateLimitBucketCountArgs} args - Arguments to filter LeadRateLimitBuckets to count.
+     * @example
+     * // Count the number of LeadRateLimitBuckets
+     * const count = await prisma.leadRateLimitBucket.count({
+     *   where: {
+     *     // ... the filter for the LeadRateLimitBuckets we want to count
+     *   }
+     * })
+    **/
+    count<T extends LeadRateLimitBucketCountArgs>(
+      args?: Subset<T, LeadRateLimitBucketCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LeadRateLimitBucketCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LeadRateLimitBucket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadRateLimitBucketAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LeadRateLimitBucketAggregateArgs>(args: Subset<T, LeadRateLimitBucketAggregateArgs>): Prisma.PrismaPromise<GetLeadRateLimitBucketAggregateType<T>>
+
+    /**
+     * Group by LeadRateLimitBucket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadRateLimitBucketGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<
+      T extends LeadRateLimitBucketGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LeadRateLimitBucketGroupByArgs['orderBy'] }
+        : { orderBy?: LeadRateLimitBucketGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LeadRateLimitBucketGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeadRateLimitBucketGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LeadRateLimitBucket model
+   */
+  readonly fields: LeadRateLimitBucketFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LeadRateLimitBucket.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LeadRateLimitBucketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LeadRateLimitBucket model
+   */
+  interface LeadRateLimitBucketFieldRefs {
+    readonly key: FieldRef<"LeadRateLimitBucket", 'String'>
+    readonly count: FieldRef<"LeadRateLimitBucket", 'Int'>
+    readonly windowEndsAt: FieldRef<"LeadRateLimitBucket", 'DateTime'>
+    readonly updatedAt: FieldRef<"LeadRateLimitBucket", 'DateTime'>
+  }
+
+
+  // Custom InputTypes
+  /**
+   * LeadRateLimitBucket findUnique
+   */
+  export type LeadRateLimitBucketFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadRateLimitBucket to fetch.
+     */
+    where: LeadRateLimitBucketWhereUniqueInput
+  }
+
+  /**
+   * LeadRateLimitBucket findUniqueOrThrow
+   */
+  export type LeadRateLimitBucketFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadRateLimitBucket to fetch.
+     */
+    where: LeadRateLimitBucketWhereUniqueInput
+  }
+
+  /**
+   * LeadRateLimitBucket findFirst
+   */
+  export type LeadRateLimitBucketFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadRateLimitBucket to fetch.
+     */
+    where?: LeadRateLimitBucketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadRateLimitBuckets to fetch.
+     */
+    orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for LeadRateLimitBuckets.
+     */
+    cursor?: LeadRateLimitBucketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadRateLimitBuckets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadRateLimitBuckets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of LeadRateLimitBuckets.
+     */
+    distinct?: LeadRateLimitBucketScalarFieldEnum | LeadRateLimitBucketScalarFieldEnum[]
+  }
+
+  /**
+   * LeadRateLimitBucket findFirstOrThrow
+   */
+  export type LeadRateLimitBucketFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadRateLimitBucket to fetch.
+     */
+    where?: LeadRateLimitBucketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadRateLimitBuckets to fetch.
+     */
+    orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for LeadRateLimitBuckets.
+     */
+    cursor?: LeadRateLimitBucketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadRateLimitBuckets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadRateLimitBuckets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of LeadRateLimitBuckets.
+     */
+    distinct?: LeadRateLimitBucketScalarFieldEnum | LeadRateLimitBucketScalarFieldEnum[]
+  }
+
+  /**
+   * LeadRateLimitBucket findMany
+   */
+  export type LeadRateLimitBucketFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadRateLimitBuckets to fetch.
+     */
+    where?: LeadRateLimitBucketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadRateLimitBuckets to fetch.
+     */
+    orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing LeadRateLimitBuckets.
+     */
+    cursor?: LeadRateLimitBucketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadRateLimitBuckets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadRateLimitBuckets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of LeadRateLimitBuckets.
+     */
+    distinct?: LeadRateLimitBucketScalarFieldEnum | LeadRateLimitBucketScalarFieldEnum[]
+  }
+
+  /**
+   * LeadRateLimitBucket create
+   */
+  export type LeadRateLimitBucketCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * The data needed to create a LeadRateLimitBucket.
+     */
+    data: XOR<LeadRateLimitBucketCreateInput, LeadRateLimitBucketUncheckedCreateInput>
+  }
+
+  /**
+   * LeadRateLimitBucket createMany
+   */
+  export type LeadRateLimitBucketCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LeadRateLimitBuckets.
+     */
+    data: LeadRateLimitBucketCreateManyInput | LeadRateLimitBucketCreateManyInput[]
+  }
+
+  /**
+   * LeadRateLimitBucket createManyAndReturn
+   */
+  export type LeadRateLimitBucketCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * The data used to create many LeadRateLimitBuckets.
+     */
+    data: LeadRateLimitBucketCreateManyInput | LeadRateLimitBucketCreateManyInput[]
+  }
+
+  /**
+   * LeadRateLimitBucket update
+   */
+  export type LeadRateLimitBucketUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * The data needed to update a LeadRateLimitBucket.
+     */
+    data: XOR<LeadRateLimitBucketUpdateInput, LeadRateLimitBucketUncheckedUpdateInput>
+    /**
+     * Choose, which LeadRateLimitBucket to update.
+     */
+    where: LeadRateLimitBucketWhereUniqueInput
+  }
+
+  /**
+   * LeadRateLimitBucket updateMany
+   */
+  export type LeadRateLimitBucketUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LeadRateLimitBuckets.
+     */
+    data: XOR<LeadRateLimitBucketUpdateManyMutationInput, LeadRateLimitBucketUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadRateLimitBuckets to update
+     */
+    where?: LeadRateLimitBucketWhereInput
+    /**
+     * Limit how many LeadRateLimitBuckets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadRateLimitBucket updateManyAndReturn
+   */
+  export type LeadRateLimitBucketUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * The data used to update LeadRateLimitBuckets.
+     */
+    data: XOR<LeadRateLimitBucketUpdateManyMutationInput, LeadRateLimitBucketUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadRateLimitBuckets to update
+     */
+    where?: LeadRateLimitBucketWhereInput
+    /**
+     * Limit how many LeadRateLimitBuckets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadRateLimitBucket upsert
+   */
+  export type LeadRateLimitBucketUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * The filter to search for the LeadRateLimitBucket to update in case it exists.
+     */
+    where: LeadRateLimitBucketWhereUniqueInput
+    /**
+     * In case the LeadRateLimitBucket found by the `where` argument doesn't exist, create a new LeadRateLimitBucket with this data.
+     */
+    create: XOR<LeadRateLimitBucketCreateInput, LeadRateLimitBucketUncheckedCreateInput>
+    /**
+     * In case the LeadRateLimitBucket was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LeadRateLimitBucketUpdateInput, LeadRateLimitBucketUncheckedUpdateInput>
+  }
+
+  /**
+   * LeadRateLimitBucket delete
+   */
+  export type LeadRateLimitBucketDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+    /**
+     * Filter which LeadRateLimitBucket to delete.
+     */
+    where: LeadRateLimitBucketWhereUniqueInput
+  }
+
+  /**
+   * LeadRateLimitBucket deleteMany
+   */
+  export type LeadRateLimitBucketDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadRateLimitBuckets to delete
+     */
+    where?: LeadRateLimitBucketWhereInput
+    /**
+     * Limit how many LeadRateLimitBuckets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadRateLimitBucket without action
+   */
+  export type LeadRateLimitBucketDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadRateLimitBucket
+     */
+    select?: LeadRateLimitBucketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadRateLimitBucket
+     */
+    omit?: LeadRateLimitBucketOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LeadSubmission
+   */
+
+  export type AggregateLeadSubmission = {
+    _count: LeadSubmissionCountAggregateOutputType | null
+    _min: LeadSubmissionMinAggregateOutputType | null
+    _max: LeadSubmissionMaxAggregateOutputType | null
+  }
+
+  export type LeadSubmissionMinAggregateOutputType = {
+    id: string | null
+    status: string | null
+    createdAt: Date | null
+    deliveredAt: Date | null
+  }
+
+  export type LeadSubmissionMaxAggregateOutputType = {
+    id: string | null
+    status: string | null
+    createdAt: Date | null
+    deliveredAt: Date | null
+  }
+
+  export type LeadSubmissionCountAggregateOutputType = {
+    id: number
+    status: number
+    createdAt: number
+    deliveredAt: number
+    _all: number
+  }
+
+
+  export type LeadSubmissionMinAggregateInputType = {
+    id?: true
+    status?: true
+    createdAt?: true
+    deliveredAt?: true
+  }
+
+  export type LeadSubmissionMaxAggregateInputType = {
+    id?: true
+    status?: true
+    createdAt?: true
+    deliveredAt?: true
+  }
+
+  export type LeadSubmissionCountAggregateInputType = {
+    id?: true
+    status?: true
+    createdAt?: true
+    deliveredAt?: true
+    _all?: true
+  }
+
+  export type LeadSubmissionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadSubmission to aggregate.
+     */
+    where?: LeadSubmissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadSubmissions to fetch.
+     */
+    orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: LeadSubmissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadSubmissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadSubmissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned LeadSubmissions
+    **/
+    _count?: true | LeadSubmissionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: LeadSubmissionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: LeadSubmissionMaxAggregateInputType
+  }
+
+  export type GetLeadSubmissionAggregateType<T extends LeadSubmissionAggregateArgs> = {
+        [P in keyof T & keyof AggregateLeadSubmission]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLeadSubmission[P]>
+      : GetScalarType<T[P], AggregateLeadSubmission[P]>
+  }
+
+
+
+
+  export type LeadSubmissionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeadSubmissionWhereInput
+    orderBy?: LeadSubmissionOrderByWithAggregationInput | LeadSubmissionOrderByWithAggregationInput[]
+    by: LeadSubmissionScalarFieldEnum[] | LeadSubmissionScalarFieldEnum
+    having?: LeadSubmissionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LeadSubmissionCountAggregateInputType | true
+    _min?: LeadSubmissionMinAggregateInputType
+    _max?: LeadSubmissionMaxAggregateInputType
+  }
+
+  export type LeadSubmissionGroupByOutputType = {
+    id: string
+    status: string
+    createdAt: Date
+    deliveredAt: Date | null
+    _count: LeadSubmissionCountAggregateOutputType | null
+    _min: LeadSubmissionMinAggregateOutputType | null
+    _max: LeadSubmissionMaxAggregateOutputType | null
+  }
+
+  type GetLeadSubmissionGroupByPayload<T extends LeadSubmissionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LeadSubmissionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LeadSubmissionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LeadSubmissionGroupByOutputType[P]>
+            : GetScalarType<T[P], LeadSubmissionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LeadSubmissionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    status?: boolean
+    createdAt?: boolean
+    deliveredAt?: boolean
+  }, ExtArgs["result"]["leadSubmission"]>
+
+  export type LeadSubmissionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    status?: boolean
+    createdAt?: boolean
+    deliveredAt?: boolean
+  }, ExtArgs["result"]["leadSubmission"]>
+
+  export type LeadSubmissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    status?: boolean
+    createdAt?: boolean
+    deliveredAt?: boolean
+  }, ExtArgs["result"]["leadSubmission"]>
+
+  export type LeadSubmissionSelectScalar = {
+    id?: boolean
+    status?: boolean
+    createdAt?: boolean
+    deliveredAt?: boolean
+  }
+
+  export type LeadSubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "createdAt" | "deliveredAt", ExtArgs["result"]["leadSubmission"]>
+
+  export type $LeadSubmissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LeadSubmission"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      status: string
+      createdAt: Date
+      deliveredAt: Date | null
+    }, ExtArgs["result"]["leadSubmission"]>
+    composites: {}
+  }
+
+  type LeadSubmissionGetPayload<S extends boolean | null | undefined | LeadSubmissionDefaultArgs> = $Result.GetResult<Prisma.$LeadSubmissionPayload, S>
+
+  type LeadSubmissionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LeadSubmissionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LeadSubmissionCountAggregateInputType | true
+    }
+
+  export interface LeadSubmissionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LeadSubmission'], meta: { name: 'LeadSubmission' } }
+    /**
+     * Find zero or one LeadSubmission that matches the filter.
+     * @param {LeadSubmissionFindUniqueArgs} args - Arguments to find a LeadSubmission
+     * @example
+     * // Get one LeadSubmission
+     * const leadSubmission = await prisma.leadSubmission.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LeadSubmissionFindUniqueArgs>(args: SelectSubset<T, LeadSubmissionFindUniqueArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LeadSubmission that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LeadSubmissionFindUniqueOrThrowArgs} args - Arguments to find a LeadSubmission
+     * @example
+     * // Get one LeadSubmission
+     * const leadSubmission = await prisma.leadSubmission.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LeadSubmissionFindUniqueOrThrowArgs>(args: SelectSubset<T, LeadSubmissionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadSubmission that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionFindFirstArgs} args - Arguments to find a LeadSubmission
+     * @example
+     * // Get one LeadSubmission
+     * const leadSubmission = await prisma.leadSubmission.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LeadSubmissionFindFirstArgs>(args?: SelectSubset<T, LeadSubmissionFindFirstArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadSubmission that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionFindFirstOrThrowArgs} args - Arguments to find a LeadSubmission
+     * @example
+     * // Get one LeadSubmission
+     * const leadSubmission = await prisma.leadSubmission.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LeadSubmissionFindFirstOrThrowArgs>(args?: SelectSubset<T, LeadSubmissionFindFirstOrThrowArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LeadSubmissions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LeadSubmissions
+     * const leadSubmissions = await prisma.leadSubmission.findMany()
+     *
+     * // Get first 10 LeadSubmissions
+     * const leadSubmissions = await prisma.leadSubmission.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const leadSubmissionWithIdOnly = await prisma.leadSubmission.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends LeadSubmissionFindManyArgs>(args?: SelectSubset<T, LeadSubmissionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LeadSubmission.
+     * @param {LeadSubmissionCreateArgs} args - Arguments to create a LeadSubmission.
+     * @example
+     * // Create one LeadSubmission
+     * const LeadSubmission = await prisma.leadSubmission.create({
+     *   data: {
+     *     // ... data to create a LeadSubmission
+     *   }
+     * })
+     *
+     */
+    create<T extends LeadSubmissionCreateArgs>(args: SelectSubset<T, LeadSubmissionCreateArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LeadSubmissions.
+     * @param {LeadSubmissionCreateManyArgs} args - Arguments to create many LeadSubmissions.
+     * @example
+     * // Create many LeadSubmissions
+     * const leadSubmission = await prisma.leadSubmission.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends LeadSubmissionCreateManyArgs>(args?: SelectSubset<T, LeadSubmissionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LeadSubmissions and returns the data saved in the database.
+     * @param {LeadSubmissionCreateManyAndReturnArgs} args - Arguments to create many LeadSubmissions.
+     * @example
+     * // Create many LeadSubmissions
+     * const leadSubmission = await prisma.leadSubmission.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many LeadSubmissions and only return the `id`
+     * const leadSubmissionWithIdOnly = await prisma.leadSubmission.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends LeadSubmissionCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadSubmissionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LeadSubmission.
+     * @param {LeadSubmissionDeleteArgs} args - Arguments to delete one LeadSubmission.
+     * @example
+     * // Delete one LeadSubmission
+     * const LeadSubmission = await prisma.leadSubmission.delete({
+     *   where: {
+     *     // ... filter to delete one LeadSubmission
+     *   }
+     * })
+     *
+     */
+    delete<T extends LeadSubmissionDeleteArgs>(args: SelectSubset<T, LeadSubmissionDeleteArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LeadSubmission.
+     * @param {LeadSubmissionUpdateArgs} args - Arguments to update one LeadSubmission.
+     * @example
+     * // Update one LeadSubmission
+     * const leadSubmission = await prisma.leadSubmission.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends LeadSubmissionUpdateArgs>(args: SelectSubset<T, LeadSubmissionUpdateArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LeadSubmissions.
+     * @param {LeadSubmissionDeleteManyArgs} args - Arguments to filter LeadSubmissions to delete.
+     * @example
+     * // Delete a few LeadSubmissions
+     * const { count } = await prisma.leadSubmission.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends LeadSubmissionDeleteManyArgs>(args?: SelectSubset<T, LeadSubmissionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadSubmissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LeadSubmissions
+     * const leadSubmission = await prisma.leadSubmission.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends LeadSubmissionUpdateManyArgs>(args: SelectSubset<T, LeadSubmissionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadSubmissions and returns the data updated in the database.
+     * @param {LeadSubmissionUpdateManyAndReturnArgs} args - Arguments to update many LeadSubmissions.
+     * @example
+     * // Update many LeadSubmissions
+     * const leadSubmission = await prisma.leadSubmission.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more LeadSubmissions and only return the `id`
+     * const leadSubmissionWithIdOnly = await prisma.leadSubmission.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends LeadSubmissionUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadSubmissionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LeadSubmission.
+     * @param {LeadSubmissionUpsertArgs} args - Arguments to update or create a LeadSubmission.
+     * @example
+     * // Update or create a LeadSubmission
+     * const leadSubmission = await prisma.leadSubmission.upsert({
+     *   create: {
+     *     // ... data to create a LeadSubmission
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LeadSubmission we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LeadSubmissionUpsertArgs>(args: SelectSubset<T, LeadSubmissionUpsertArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LeadSubmissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionCountArgs} args - Arguments to filter LeadSubmissions to count.
+     * @example
+     * // Count the number of LeadSubmissions
+     * const count = await prisma.leadSubmission.count({
+     *   where: {
+     *     // ... the filter for the LeadSubmissions we want to count
+     *   }
+     * })
+    **/
+    count<T extends LeadSubmissionCountArgs>(
+      args?: Subset<T, LeadSubmissionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LeadSubmissionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LeadSubmission.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LeadSubmissionAggregateArgs>(args: Subset<T, LeadSubmissionAggregateArgs>): Prisma.PrismaPromise<GetLeadSubmissionAggregateType<T>>
+
+    /**
+     * Group by LeadSubmission.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<
+      T extends LeadSubmissionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LeadSubmissionGroupByArgs['orderBy'] }
+        : { orderBy?: LeadSubmissionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LeadSubmissionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeadSubmissionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LeadSubmission model
+   */
+  readonly fields: LeadSubmissionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LeadSubmission.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LeadSubmissionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LeadSubmission model
+   */
+  interface LeadSubmissionFieldRefs {
+    readonly id: FieldRef<"LeadSubmission", 'String'>
+    readonly status: FieldRef<"LeadSubmission", 'String'>
+    readonly createdAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly deliveredAt: FieldRef<"LeadSubmission", 'DateTime'>
+  }
+
+
+  // Custom InputTypes
+  /**
+   * LeadSubmission findUnique
+   */
+  export type LeadSubmissionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmission to fetch.
+     */
+    where: LeadSubmissionWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmission findUniqueOrThrow
+   */
+  export type LeadSubmissionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmission to fetch.
+     */
+    where: LeadSubmissionWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmission findFirst
+   */
+  export type LeadSubmissionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmission to fetch.
+     */
+    where?: LeadSubmissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadSubmissions to fetch.
+     */
+    orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for LeadSubmissions.
+     */
+    cursor?: LeadSubmissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadSubmissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadSubmissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of LeadSubmissions.
+     */
+    distinct?: LeadSubmissionScalarFieldEnum | LeadSubmissionScalarFieldEnum[]
+  }
+
+  /**
+   * LeadSubmission findFirstOrThrow
+   */
+  export type LeadSubmissionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmission to fetch.
+     */
+    where?: LeadSubmissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadSubmissions to fetch.
+     */
+    orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for LeadSubmissions.
+     */
+    cursor?: LeadSubmissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadSubmissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadSubmissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of LeadSubmissions.
+     */
+    distinct?: LeadSubmissionScalarFieldEnum | LeadSubmissionScalarFieldEnum[]
+  }
+
+  /**
+   * LeadSubmission findMany
+   */
+  export type LeadSubmissionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmissions to fetch.
+     */
+    where?: LeadSubmissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of LeadSubmissions to fetch.
+     */
+    orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing LeadSubmissions.
+     */
+    cursor?: LeadSubmissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` LeadSubmissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` LeadSubmissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of LeadSubmissions.
+     */
+    distinct?: LeadSubmissionScalarFieldEnum | LeadSubmissionScalarFieldEnum[]
+  }
+
+  /**
+   * LeadSubmission create
+   */
+  export type LeadSubmissionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * The data needed to create a LeadSubmission.
+     */
+    data: XOR<LeadSubmissionCreateInput, LeadSubmissionUncheckedCreateInput>
+  }
+
+  /**
+   * LeadSubmission createMany
+   */
+  export type LeadSubmissionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LeadSubmissions.
+     */
+    data: LeadSubmissionCreateManyInput | LeadSubmissionCreateManyInput[]
+  }
+
+  /**
+   * LeadSubmission createManyAndReturn
+   */
+  export type LeadSubmissionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * The data used to create many LeadSubmissions.
+     */
+    data: LeadSubmissionCreateManyInput | LeadSubmissionCreateManyInput[]
+  }
+
+  /**
+   * LeadSubmission update
+   */
+  export type LeadSubmissionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * The data needed to update a LeadSubmission.
+     */
+    data: XOR<LeadSubmissionUpdateInput, LeadSubmissionUncheckedUpdateInput>
+    /**
+     * Choose, which LeadSubmission to update.
+     */
+    where: LeadSubmissionWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmission updateMany
+   */
+  export type LeadSubmissionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LeadSubmissions.
+     */
+    data: XOR<LeadSubmissionUpdateManyMutationInput, LeadSubmissionUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadSubmissions to update
+     */
+    where?: LeadSubmissionWhereInput
+    /**
+     * Limit how many LeadSubmissions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadSubmission updateManyAndReturn
+   */
+  export type LeadSubmissionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * The data used to update LeadSubmissions.
+     */
+    data: XOR<LeadSubmissionUpdateManyMutationInput, LeadSubmissionUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadSubmissions to update
+     */
+    where?: LeadSubmissionWhereInput
+    /**
+     * Limit how many LeadSubmissions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadSubmission upsert
+   */
+  export type LeadSubmissionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * The filter to search for the LeadSubmission to update in case it exists.
+     */
+    where: LeadSubmissionWhereUniqueInput
+    /**
+     * In case the LeadSubmission found by the `where` argument doesn't exist, create a new LeadSubmission with this data.
+     */
+    create: XOR<LeadSubmissionCreateInput, LeadSubmissionUncheckedCreateInput>
+    /**
+     * In case the LeadSubmission was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LeadSubmissionUpdateInput, LeadSubmissionUncheckedUpdateInput>
+  }
+
+  /**
+   * LeadSubmission delete
+   */
+  export type LeadSubmissionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+    /**
+     * Filter which LeadSubmission to delete.
+     */
+    where: LeadSubmissionWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmission deleteMany
+   */
+  export type LeadSubmissionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadSubmissions to delete
+     */
+    where?: LeadSubmissionWhereInput
+    /**
+     * Limit how many LeadSubmissions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadSubmission without action
+   */
+  export type LeadSubmissionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmission
+     */
+    select?: LeadSubmissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmission
+     */
+    omit?: LeadSubmissionOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6993,6 +9179,26 @@ export namespace Prisma {
   export type FindingScalarFieldEnum = (typeof FindingScalarFieldEnum)[keyof typeof FindingScalarFieldEnum]
 
 
+  export const LeadRateLimitBucketScalarFieldEnum: {
+    key: 'key',
+    count: 'count',
+    windowEndsAt: 'windowEndsAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LeadRateLimitBucketScalarFieldEnum = (typeof LeadRateLimitBucketScalarFieldEnum)[keyof typeof LeadRateLimitBucketScalarFieldEnum]
+
+
+  export const LeadSubmissionScalarFieldEnum: {
+    id: 'id',
+    status: 'status',
+    createdAt: 'createdAt',
+    deliveredAt: 'deliveredAt'
+  };
+
+  export type LeadSubmissionScalarFieldEnum = (typeof LeadSubmissionScalarFieldEnum)[keyof typeof LeadSubmissionScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -7039,6 +9245,13 @@ export namespace Prisma {
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
 
   /**
    * Deep Input Types
@@ -7387,6 +9600,102 @@ export namespace Prisma {
     pageRef?: StringNullableWithAggregatesFilter<"Finding"> | string | null
     lineRef?: StringNullableWithAggregatesFilter<"Finding"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Finding"> | Date | string
+  }
+
+  export type LeadRateLimitBucketWhereInput = {
+    AND?: LeadRateLimitBucketWhereInput | LeadRateLimitBucketWhereInput[]
+    OR?: LeadRateLimitBucketWhereInput[]
+    NOT?: LeadRateLimitBucketWhereInput | LeadRateLimitBucketWhereInput[]
+    key?: StringFilter<"LeadRateLimitBucket"> | string
+    count?: IntFilter<"LeadRateLimitBucket"> | number
+    windowEndsAt?: DateTimeFilter<"LeadRateLimitBucket"> | Date | string
+    updatedAt?: DateTimeFilter<"LeadRateLimitBucket"> | Date | string
+  }
+
+  export type LeadRateLimitBucketOrderByWithRelationInput = {
+    key?: SortOrder
+    count?: SortOrder
+    windowEndsAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadRateLimitBucketWhereUniqueInput = Prisma.AtLeast<{
+    key?: string
+    AND?: LeadRateLimitBucketWhereInput | LeadRateLimitBucketWhereInput[]
+    OR?: LeadRateLimitBucketWhereInput[]
+    NOT?: LeadRateLimitBucketWhereInput | LeadRateLimitBucketWhereInput[]
+    count?: IntFilter<"LeadRateLimitBucket"> | number
+    windowEndsAt?: DateTimeFilter<"LeadRateLimitBucket"> | Date | string
+    updatedAt?: DateTimeFilter<"LeadRateLimitBucket"> | Date | string
+  }, "key">
+
+  export type LeadRateLimitBucketOrderByWithAggregationInput = {
+    key?: SortOrder
+    count?: SortOrder
+    windowEndsAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: LeadRateLimitBucketCountOrderByAggregateInput
+    _avg?: LeadRateLimitBucketAvgOrderByAggregateInput
+    _max?: LeadRateLimitBucketMaxOrderByAggregateInput
+    _min?: LeadRateLimitBucketMinOrderByAggregateInput
+    _sum?: LeadRateLimitBucketSumOrderByAggregateInput
+  }
+
+  export type LeadRateLimitBucketScalarWhereWithAggregatesInput = {
+    AND?: LeadRateLimitBucketScalarWhereWithAggregatesInput | LeadRateLimitBucketScalarWhereWithAggregatesInput[]
+    OR?: LeadRateLimitBucketScalarWhereWithAggregatesInput[]
+    NOT?: LeadRateLimitBucketScalarWhereWithAggregatesInput | LeadRateLimitBucketScalarWhereWithAggregatesInput[]
+    key?: StringWithAggregatesFilter<"LeadRateLimitBucket"> | string
+    count?: IntWithAggregatesFilter<"LeadRateLimitBucket"> | number
+    windowEndsAt?: DateTimeWithAggregatesFilter<"LeadRateLimitBucket"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"LeadRateLimitBucket"> | Date | string
+  }
+
+  export type LeadSubmissionWhereInput = {
+    AND?: LeadSubmissionWhereInput | LeadSubmissionWhereInput[]
+    OR?: LeadSubmissionWhereInput[]
+    NOT?: LeadSubmissionWhereInput | LeadSubmissionWhereInput[]
+    id?: StringFilter<"LeadSubmission"> | string
+    status?: StringFilter<"LeadSubmission"> | string
+    createdAt?: DateTimeFilter<"LeadSubmission"> | Date | string
+    deliveredAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+  }
+
+  export type LeadSubmissionOrderByWithRelationInput = {
+    id?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    deliveredAt?: SortOrderInput | SortOrder
+  }
+
+  export type LeadSubmissionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LeadSubmissionWhereInput | LeadSubmissionWhereInput[]
+    OR?: LeadSubmissionWhereInput[]
+    NOT?: LeadSubmissionWhereInput | LeadSubmissionWhereInput[]
+    status?: StringFilter<"LeadSubmission"> | string
+    createdAt?: DateTimeFilter<"LeadSubmission"> | Date | string
+    deliveredAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+  }, "id">
+
+  export type LeadSubmissionOrderByWithAggregationInput = {
+    id?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    deliveredAt?: SortOrderInput | SortOrder
+    _count?: LeadSubmissionCountOrderByAggregateInput
+    _max?: LeadSubmissionMaxOrderByAggregateInput
+    _min?: LeadSubmissionMinOrderByAggregateInput
+  }
+
+  export type LeadSubmissionScalarWhereWithAggregatesInput = {
+    AND?: LeadSubmissionScalarWhereWithAggregatesInput | LeadSubmissionScalarWhereWithAggregatesInput[]
+    OR?: LeadSubmissionScalarWhereWithAggregatesInput[]
+    NOT?: LeadSubmissionScalarWhereWithAggregatesInput | LeadSubmissionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LeadSubmission"> | string
+    status?: StringWithAggregatesFilter<"LeadSubmission"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"LeadSubmission"> | Date | string
+    deliveredAt?: DateTimeNullableWithAggregatesFilter<"LeadSubmission"> | Date | string | null
   }
 
   export type ToolUserCreateInput = {
@@ -7765,6 +10074,104 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type LeadRateLimitBucketCreateInput = {
+    key: string
+    count?: number
+    windowEndsAt: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadRateLimitBucketUncheckedCreateInput = {
+    key: string
+    count?: number
+    windowEndsAt: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadRateLimitBucketUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    windowEndsAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadRateLimitBucketUncheckedUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    windowEndsAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadRateLimitBucketCreateManyInput = {
+    key: string
+    count?: number
+    windowEndsAt: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadRateLimitBucketUpdateManyMutationInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    windowEndsAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadRateLimitBucketUncheckedUpdateManyInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    count?: IntFieldUpdateOperationsInput | number
+    windowEndsAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadSubmissionCreateInput = {
+    id: string
+    status?: string
+    createdAt?: Date | string
+    deliveredAt?: Date | string | null
+  }
+
+  export type LeadSubmissionUncheckedCreateInput = {
+    id: string
+    status?: string
+    createdAt?: Date | string
+    deliveredAt?: Date | string | null
+  }
+
+  export type LeadSubmissionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type LeadSubmissionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type LeadSubmissionCreateManyInput = {
+    id: string
+    status?: string
+    createdAt?: Date | string
+    deliveredAt?: Date | string | null
+  }
+
+  export type LeadSubmissionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type LeadSubmissionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -8106,6 +10513,83 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type LeadRateLimitBucketCountOrderByAggregateInput = {
+    key?: SortOrder
+    count?: SortOrder
+    windowEndsAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadRateLimitBucketAvgOrderByAggregateInput = {
+    count?: SortOrder
+  }
+
+  export type LeadRateLimitBucketMaxOrderByAggregateInput = {
+    key?: SortOrder
+    count?: SortOrder
+    windowEndsAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadRateLimitBucketMinOrderByAggregateInput = {
+    key?: SortOrder
+    count?: SortOrder
+    windowEndsAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadRateLimitBucketSumOrderByAggregateInput = {
+    count?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type LeadSubmissionCountOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    deliveredAt?: SortOrder
+  }
+
+  export type LeadSubmissionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    deliveredAt?: SortOrder
+  }
+
+  export type LeadSubmissionMinOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    deliveredAt?: SortOrder
+  }
+
   export type ToolSessionCreateNestedManyWithoutUserInput = {
     create?: XOR<ToolSessionCreateWithoutUserInput, ToolSessionUncheckedCreateWithoutUserInput> | ToolSessionCreateWithoutUserInput[] | ToolSessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ToolSessionCreateOrConnectWithoutUserInput | ToolSessionCreateOrConnectWithoutUserInput[]
@@ -8352,6 +10836,14 @@ export namespace Prisma {
     update?: XOR<XOR<AnalysisUpdateToOneWithWhereWithoutFindingsInput, AnalysisUpdateWithoutFindingsInput>, AnalysisUncheckedUpdateWithoutFindingsInput>
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -8497,6 +10989,33 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type ToolSessionCreateWithoutUserInput = {

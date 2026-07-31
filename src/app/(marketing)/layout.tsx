@@ -6,7 +6,7 @@
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 
-const siteUrl = "https://dmvtitleguy.io";
+const siteUrl = "https://dmvtitleguy.com";
 
 const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",

@@ -160,7 +160,7 @@ const TYSONS_FAQS: FaqItem[] = [
   },
   {
     question: "How do I order a Tysons title search?",
-    answer: "Use the Order Title Search button to submit the property details or upload your contract. The team will review the file, confirm what is needed, and begin the title search and settlement process.",
+    answer: "Use the Order Title Search button to submit the property details or start contract intake. The team will confirm what is needed, provide secure document-transfer instructions, and begin the title search and settlement process.",
   },
 ];
 
@@ -177,19 +177,19 @@ function HerndonStructuredData() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": "https://dmvtitleguy.io/title-company-herndon-va#breadcrumb",
+        "@id": "https://dmvtitleguy.com/title-company-herndon-va#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://dmvtitleguy.io/",
+            item: "https://dmvtitleguy.com/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Herndon VA Title Company",
-            item: "https://dmvtitleguy.io/title-company-herndon-va",
+            item: "https://dmvtitleguy.com/title-company-herndon-va",
           },
         ],
       },
@@ -211,12 +211,12 @@ function TysonsStructuredData() {
     "@graph": [
       {
         "@type": ["LocalBusiness", "LegalService"],
-        "@id": "https://dmvtitleguy.io/title-company-tysons-va#business",
+        "@id": "https://dmvtitleguy.com/title-company-tysons-va#business",
         name: "DMV Title Guy — Pruitt Title LLC — Tysons VA Title Company",
-        url: "https://dmvtitleguy.io/title-company-tysons-va",
+        url: "https://dmvtitleguy.com/title-company-tysons-va",
         telephone: "(703) 859-1467",
         email: "wrapuano@pruitt-title.com",
-        image: "https://dmvtitleguy.io/logo.png",
+        image: "https://dmvtitleguy.com/logo.png",
         address: {
           "@type": "PostalAddress",
           streetAddress: "1900 Gallows Rd Ste 230",
@@ -234,25 +234,25 @@ function TysonsStructuredData() {
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://dmvtitleguy.io/title-company-tysons-va#breadcrumb",
+        "@id": "https://dmvtitleguy.com/title-company-tysons-va#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://dmvtitleguy.io/",
+            item: "https://dmvtitleguy.com/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Tysons VA Title Company",
-            item: "https://dmvtitleguy.io/title-company-tysons-va",
+            item: "https://dmvtitleguy.com/title-company-tysons-va",
           },
         ],
       },
       {
         "@type": "FAQPage",
-        "@id": "https://dmvtitleguy.io/title-company-tysons-va#faq",
+        "@id": "https://dmvtitleguy.com/title-company-tysons-va#faq",
         mainEntity: TYSONS_FAQS.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -390,7 +390,7 @@ function BethesdaStructuredData() {
     "@graph": [
       {
         "@type": "FAQPage",
-        "@id": "https://dmvtitleguy.io/title-company-bethesda-md#faq",
+        "@id": "https://dmvtitleguy.com/title-company-bethesda-md#faq",
         mainEntity: BETHESDA_FAQS.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -402,19 +402,19 @@ function BethesdaStructuredData() {
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://dmvtitleguy.io/title-company-bethesda-md#breadcrumb",
+        "@id": "https://dmvtitleguy.com/title-company-bethesda-md#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://dmvtitleguy.io/",
+            item: "https://dmvtitleguy.com/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Bethesda MD Title Company",
-            item: "https://dmvtitleguy.io/title-company-bethesda-md",
+            item: "https://dmvtitleguy.com/title-company-bethesda-md",
           },
         ],
       },
@@ -643,7 +643,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       openGraph: {
         title: `Closing Costs in ${cityLabel} — Free Calculator`,
         description: `Estimate buyer and seller closing costs for ${cityLabel} real estate. Includes local ${cityCalcData.county} tax rates.`,
-        url: `https://dmvtitleguy.io/${cityCalcData.slug}`,
+        url: `https://dmvtitleguy.com/${cityCalcData.slug}`,
         type: "website",
       },
     };

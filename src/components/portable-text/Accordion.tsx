@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { PortableText } from "@portabletext/react";
+import { blogFAQQuestionKey } from "@/lib/blog-portable-content";
 
 interface AccordionItem {
   question: string;
@@ -29,17 +29,22 @@ function cleanQuestion(question: string): string {
 }
 
 /**
- * Convert portable text blocks to plain text string
+ * Convert portable text blocks to lightweight Markdown while preserving the
+ * bold and italic emphasis used by current Sanity accordion answers.
  */
-function blocksToText(blocks: any[]): string {
+function blocksToMarkdown(blocks: any[]): string {
   if (!Array.isArray(blocks)) return "";
   
   return blocks
     .map(block => {
       if (block._type === 'block' && Array.isArray(block.children)) {
-        return block.children
-          .map((child: any) => child.text || "")
-          .join("");
+        return block.children.map((child: any) => {
+          let text = child.text || "";
+          const marks = Array.isArray(child.marks) ? child.marks : [];
+          if (marks.includes("strong")) text = `**${text}**`;
+          if (marks.includes("em")) text = `*${text}*`;
+          return text;
+        }).join("");
       }
       return "";
     })
@@ -94,7 +99,7 @@ function SafeAnswer({ content }: { content: string }) {
 function AnswerContent({ answer }: { answer: string | any[] }) {
   // If answer is an array (portable text blocks), convert to text
   if (Array.isArray(answer)) {
-    const textContent = blocksToText(answer);
+    const textContent = blocksToMarkdown(answer);
     return <SafeAnswer content={textContent} />;
   }
   
@@ -115,7 +120,7 @@ export function Accordion({ value }: AccordionProps) {
   }
 
   return (
-    <div className="my-8 divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
+    <div className="my-8 divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden" data-blog-inline-accordion>
       {items.map((item, i) => {
         if (!item?.question) return null;
         
@@ -124,7 +129,7 @@ export function Accordion({ value }: AccordionProps) {
         const isOpen = openIndex === itemKey;
         
         return (
-          <div key={itemKey} className="bg-white">
+          <div key={itemKey} className="bg-white" data-blog-question-key={blogFAQQuestionKey(item.question)}>
             <button
               type="button"
               className="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
@@ -133,7 +138,9 @@ export function Accordion({ value }: AccordionProps) {
             >
               <span className="pr-4">{cleanQuestion(item.question)}</span>
               <svg
-                className={`w-5 h-5 text-gray-500 flex-shrink-0 ml-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                aria-hidden="true"
+                focusable="false"
+                className={`w-5 h-5 text-gray-500 flex-shrink-0 ml-4 transition-transform duration-200 motion-reduce:transition-none ${isOpen ? "rotate-180" : ""}`}
                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
