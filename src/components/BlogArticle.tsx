@@ -43,7 +43,9 @@ function textFromChildren(children: React.ReactNode): string {
   if (typeof children === "string") return children;
   if (typeof children === "number") return String(children);
   if (Array.isArray(children)) return children.map(textFromChildren).join("");
-  if (React.isValidElement(children)) return textFromChildren(children.props.children);
+  if (React.isValidElement<{ children?: React.ReactNode }>(children)) {
+    return textFromChildren(children.props.children);
+  }
   return "";
 }
 

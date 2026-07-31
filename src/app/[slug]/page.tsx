@@ -624,7 +624,8 @@ export async function generateStaticParams() {
 }
 
 // ─── Metadata ──────────────────────────────────────────────────────────────────
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   // Check city calculator pages first
   const cityCalcData = getCityCalcData(params.slug);
   if (cityCalcData) {
@@ -1331,7 +1332,8 @@ function CountyPage({ county }: { county: County }) {
 }
 
 // ─── Main Route Handler ────────────────────────────────────────────────────────
-export default function SlugPage({ params }: { params: { slug: string } }) {
+export default async function SlugPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   // City calculator pages: /closing-costs-arlington-va, etc.
   const cityCalcData = getCityCalcData(params.slug);
   if (cityCalcData) return <CityCalculatorPage data={cityCalcData} />;

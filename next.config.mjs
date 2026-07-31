@@ -9,6 +9,9 @@ const canonicalUrl = "https://dmvtitleguy.io";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   env: {
     NEXT_PUBLIC_PAYPAL_CLIENT_ID:
       process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || process.env.PAYPAL_CLIENT_ID,
@@ -217,12 +220,6 @@ const nextConfig = {
         permanent: true,
       },
     ];
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 };
 export default nextConfig;
