@@ -36,7 +36,7 @@ export default async function BlogIndexPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue max-w-[68ch] mx-auto">
             The DMV Title Guy Blog
           </p>
-          <h1 className="mt-3 text-3xl md:text-5xl font-bold text-white leading-tight">
+          <h1 className="mt-3 font-display text-3xl font-semibold leading-tight text-white md:text-5xl">
             Title Insurance &amp; DMV Closing Insights
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-slate-200">

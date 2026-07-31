@@ -715,9 +715,9 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               </div>
               <span className="font-medium text-brand-navy">Will Rapuano</span>
             </div>
-            <span aria-hidden="true" className="text-slate-300">·</span>
+            <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
             <span>{post.date}</span>
-            <span aria-hidden="true" className="text-slate-300">·</span>
+            <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
             <span>{post.readTime}</span>
           </div>
 
@@ -788,6 +788,21 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue-deep pl-5 max-w-[68ch]">
                 {post.excerpt}
               </p>
+
+              {!isViennaTitleCompanyPost && (
+                <div className="mb-8 rounded-xl border border-brand-blue/20 bg-sky-50 p-5 lg:hidden">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue-deep">Planning a closing?</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                    Get a local title quote for Virginia, Maryland, or Washington DC.
+                  </p>
+                  <Link
+                    href="/calculators/title-quote"
+                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-brand-action px-5 py-2.5 text-sm font-bold text-white"
+                  >
+                    Get a Title Quote →
+                  </Link>
+                </div>
+              )}
 
               {isViennaTitleCompanyPost && (
                 <div className="mb-8 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">

@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { trackLeadConversion } from "@/lib/client-analytics";
 
@@ -60,7 +61,7 @@ export function LeadCaptureForm({
         role="status"
         aria-live="polite"
         tabIndex={-1}
-        className={`bg-white rounded-xl shadow-lg p-8 text-center focus:outline-none ${compact ? "p-6" : ""}`}
+        className={`bg-white rounded-xl shadow-lg text-center focus:outline-none ${compact ? "p-6" : "p-5 sm:p-8"}`}
       >
         <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
         <h3 className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</h3>
@@ -73,7 +74,7 @@ export function LeadCaptureForm({
   }
 
   return (
-    <div className={`bg-white rounded-xl shadow-lg ${compact ? "p-6" : "p-8"}`}>
+    <div className={`bg-white rounded-xl shadow-lg ${compact ? "p-6" : "p-5 sm:p-8"}`}>
       <div className={compact ? "mb-5" : "mb-6"}>
         <h3 className={`${compact ? "text-lg font-bold" : "t-h5"} text-brand-navy`}>{title}</h3>
         <p className="text-brand-muted text-sm mt-1 max-w-[68ch] leading-relaxed">{subtitle}</p>
@@ -96,12 +97,12 @@ export function LeadCaptureForm({
             autoComplete="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+            className="min-h-11 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
             placeholder="Jane Smith"
           />
         </div>
 
-        <div className={compact ? "" : "grid grid-cols-2 gap-4"}>
+        <div className={compact ? "space-y-4" : "grid grid-cols-1 gap-4 sm:grid-cols-2"}>
           <div>
             <label htmlFor={`${idPrefix}-email`} className="block text-sm font-medium text-brand-dark-text mb-1">
               Email *
@@ -114,7 +115,7 @@ export function LeadCaptureForm({
               autoComplete="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="min-h-11 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
               placeholder="jane@example.com"
             />
           </div>
@@ -129,7 +130,7 @@ export function LeadCaptureForm({
               autoComplete="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="min-h-11 w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
               placeholder="(703) 555-0100"
             />
           </div>
@@ -144,7 +145,7 @@ export function LeadCaptureForm({
             name="transactionType"
             value={formData.transactionType}
             onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })}
-            className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white"
+            className="min-h-11 w-full border border-gray-300 rounded bg-white px-3 py-2 text-sm text-brand-dark-text focus:outline-none focus:ring-2 focus:ring-brand-blue"
           >
             <option value="purchase">Purchase</option>
             <option value="refinance">Refinance</option>
@@ -179,6 +180,14 @@ export function LeadCaptureForm({
         >
           {status === "submitting" ? "Sending…" : "Get Your Free Quote →"}
         </button>
+
+        <p className="text-center text-xs leading-relaxed text-slate-500">
+          We use your information to respond to this request. Read our{" "}
+          <Link href="/privacy-policy" className="font-medium text-brand-blue-deep underline underline-offset-2">
+            Privacy Policy
+          </Link>
+          .
+        </p>
 
         {status === "error" && (
           <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">We couldn&apos;t deliver your request. Please call (703) 859-1467 or email wrapuano@pruitt-title.com.</p>

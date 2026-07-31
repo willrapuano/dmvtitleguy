@@ -210,22 +210,8 @@ export function HomePageClient() {
         />
         <div className="absolute inset-0 bg-brand-navy/75" />
 
-        <div className="container-xl relative z-10 grid lg:grid-cols-[1.25fr_0.75fr] gap-10 items-center py-20">
+        <div className="container-xl relative z-10 grid lg:grid-cols-[1.25fr_0.75fr] gap-10 items-center py-12 sm:py-16 lg:py-20">
           <div>
-            <div className="mb-6 flex gap-3">
-              {SOCIAL_LINKS.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-10 h-10 rounded-full bg-white/15 hover:bg-brand-action flex items-center justify-center text-white transition-all duration-200"
-                >
-                  <s.Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
             <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Pruitt Title LLC • DMV Title Guy</p>
             {/**
              * The heading ran 20 words and needed six lines at the display size,
@@ -239,30 +225,44 @@ export function HomePageClient() {
             <h1 className="t-display lg:text-5xl text-white mb-5 text-balance">
               Title &amp; settlement services across Virginia, Maryland, and DC
             </h1>
-            <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mb-4">
+            <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mb-6">
               Fast closings. Local expertise. No surprises. Independent title and escrow
               support for buyers, realtors, lenders, and builders — residential, refinance,
               and builder transactions across the DMV.
             </p>
-            <p className="text-base text-gray-300 max-w-2xl mb-8">
-              Whether you are buying, selling, refinancing, or coordinating a builder or lender-side closing, DMV Title Guy helps keep transactions moving with responsive communication, clear title work, and settlement support across Virginia, Maryland, and DC.
-            </p>
-            <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 mb-6">
               <Link
                 href="/calculators/title-quote"
-                className="btn-primary text-base px-8 py-3.5"
+                className="btn-primary text-center text-base px-8 py-3.5"
               >
                 Get a Title Quote →
               </Link>
               {/* "Open Title" and "Start Your Closing" were two buttons, worded
                   differently, pointing at the same page. */}
-              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-base px-8 py-3.5">
+              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-center text-base px-8 py-3.5">
                 Start Your Closing
               </Link>
             </div>
-            <p className="text-sm text-gray-300">
+            <p className="text-base text-gray-300 max-w-2xl mb-4">
+              Whether you are buying, selling, refinancing, or coordinating a builder or lender-side closing, DMV Title Guy helps keep transactions moving with responsive communication, clear title work, and settlement support across Virginia, Maryland, and DC.
+            </p>
+            <p className="text-sm text-gray-300 mb-5">
               Trusted local operator: <strong className="text-white">Will Rapuano / DMV Title Guy</strong> with Pruitt Title LLC.
             </p>
+            <div className="flex gap-3" role="group" aria-label="DMV Title Guy social profiles">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-11 h-11 rounded-full bg-white/15 hover:bg-brand-action flex items-center justify-center text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  <s.Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
           <div className="bg-white/10 border border-white/15 rounded-2xl p-6 backdrop-blur-sm shadow-2xl">
             <p className="text-sm uppercase tracking-[0.2em] text-gray-200 mb-3 max-w-[68ch] leading-relaxed">Service Area &amp; Core Services</p>

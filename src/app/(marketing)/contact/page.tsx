@@ -41,7 +41,7 @@ export default function ContactPage() {
               </p>
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <div className="rounded-2xl border-0 bg-transparent p-0 sm:border sm:border-white/20 sm:bg-white/10 sm:p-8 sm:backdrop-blur-sm">
             <h2 className="t-h5 font-semibold text-white mb-4">Get a Title Quote</h2>
             <LeadCaptureForm location="contact" />
           </div>
@@ -55,15 +55,15 @@ export default function ContactPage() {
             <div>
               <h2 className="t-h3 text-brand-navy mb-6">Office Hours</h2>
               <div className="space-y-3">
-                <div className="flex justify-between border-b pb-2">
+                <div className="flex justify-between gap-4 border-b pb-2">
                   <span className="text-gray-600">Monday – Friday</span>
                   <span className="font-semibold text-brand-navy">8:30 AM – 6:00 PM</span>
                 </div>
-                <div className="flex justify-between border-b pb-2">
+                <div className="flex justify-between gap-4 border-b pb-2">
                   <span className="text-gray-600">Saturday</span>
                   <span className="font-semibold text-brand-navy">By Appointment</span>
                 </div>
-                <div className="flex justify-between border-b pb-2">
+                <div className="flex justify-between gap-4 border-b pb-2">
                   <span className="text-gray-600">Sunday</span>
                   <span className="font-semibold text-brand-navy">Closed</span>
                 </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h2 className="t-h3 text-brand-navy mb-6">Service Areas</h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <h3 className="font-semibold text-brand-navy mb-2">Virginia</h3>
                   <p className="text-gray-600 text-sm max-w-[68ch] leading-relaxed">Arlington, Fairfax, Alexandria, Loudoun, Prince William Counties</p>
