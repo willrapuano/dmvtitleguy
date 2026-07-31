@@ -219,7 +219,7 @@ function TysonsStructuredData() {
         image: "https://dmvtitleguy.io/logo.png",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Suite 230",
+          streetAddress: "1900 Gallows Rd Ste 230",
           addressLocality: "Vienna",
           addressRegion: "VA",
           postalCode: "22182",
@@ -1320,7 +1320,7 @@ function CountyPage({ county }: { county: County }) {
             <div className="space-y-2 text-sm text-gray-300">
               <p className="flex items-center gap-2"><Phone size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>
               <p className="flex items-center gap-2"><Mail size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">wrapuano@pruitt-title.com</a></p>
-              <p className="flex items-center gap-2"><MapPin size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" />1900 Gallows Rd Suite 230, Vienna, VA 22182</p>
+              <p className="flex items-center gap-2"><MapPin size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" />1900 Gallows Rd Ste 230, Vienna, VA 22182</p>
             </div>
           </div>
           <LeadCaptureForm location={`county-${slug}-form`} />

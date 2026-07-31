@@ -66,7 +66,7 @@ export function LocationSchema({ city, state, county, slug, description }: Locat
         image: `${SITE_URL}/logo.png`,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Suite 230",
+          streetAddress: "1900 Gallows Rd Ste 230",
           addressLocality: "Vienna",
           addressRegion: "VA",
           postalCode: "22182",
@@ -134,7 +134,7 @@ export function CountySchema({ countyName, state, slug }: CountySchemaProps) {
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: "1900 Gallows Rd Suite 230",
+      streetAddress: "1900 Gallows Rd Ste 230",
       addressLocality: "Vienna",
       addressRegion: "VA",
       postalCode: "22182",
@@ -198,7 +198,7 @@ export function ServiceSchema({ name, description, serviceType }: ServiceSchemaP
       telephone: "+1-703-859-1467",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "1900 Gallows Rd Suite 230",
+        streetAddress: "1900 Gallows Rd Ste 230",
         addressLocality: "Vienna",
         addressRegion: "VA",
         postalCode: "22182",
@@ -247,7 +247,7 @@ export function CityCalculatorSchema({ city, state, county, slug, faqs }: CityCa
         telephone: "(703) 859-1467",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Suite 230",
+          streetAddress: "1900 Gallows Rd Ste 230",
           addressLocality: "Vienna",
           addressRegion: "VA",
           postalCode: "22182",
