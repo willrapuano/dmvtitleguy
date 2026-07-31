@@ -4,7 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { BLOG_POSTS } from "@/data/blog";
 import { BLOG_SEO_OVERRIDES, postDisplayTitle } from "@/lib/post-titles";
-import { resolvePostImage } from "@/lib/post-image";
+import {
+  resolvePostImage,
+  resolvePostImageAlt,
+  resolvePostImageDimensions,
+} from "@/lib/post-image";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { BlogArticle } from "@/components/BlogArticle";
 import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
@@ -511,6 +515,7 @@ export async function generateMetadata(
   const title = seoOverride?.title || post.title || "DMV Title Guy";
   // Never undefined: post.image is always set, so the fallback keeps the type honest.
   const ogImage = resolvePostImage(post.slug, post.image) ?? post.image;
+  const ogImageDimensions = resolvePostImageDimensions(post.slug);
 
   const description =
     seoOverride?.description ||
@@ -535,7 +540,7 @@ export async function generateMetadata(
       title,
       description,
       publishedTime: post.dateISO,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      images: [{ url: ogImage, ...ogImageDimensions }],
     },
     twitter: {
       card: "summary_large_image",
@@ -601,6 +606,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
    */
   const displayTitle = postDisplayTitle(post.slug, post.title);
   const heroImage = resolvePostImage(post.slug, post.image) ?? post.image;
+  const heroImageAlt = resolvePostImageAlt(post.slug);
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);
@@ -709,7 +715,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
 
       {/* ─── Title + Meta ─── */}
       <header className="border-b border-slate-100 bg-white">
-        <div className="mx-auto max-w-4xl px-6 pb-8 pt-10 md:pb-10 md:pt-14">
+        <div className="mx-auto max-w-6xl px-6 pb-10 pt-10 md:pb-12 md:pt-14">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-slate-500">
             <Link href="/" className="hover:text-brand-blue-deep transition-colors">Home</Link>
@@ -719,91 +725,95 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
             <span className="max-w-[220px] truncate text-slate-400">{displayTitle}</span>
           </nav>
 
-          {/* Category tag */}
-          <span className="mb-4 inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-blue-deep">
-            {post.category}
-          </span>
-
-          {/* Title */}
-          <h1 className="max-w-4xl font-display text-[2rem] font-semibold leading-[1.08] tracking-[-0.02em] text-brand-navy md:text-5xl md:leading-[1.1]">
-            {displayTitle}
-          </h1>
-
-          {/* Author + Date + Read time */}
-          <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slate-500">
-            <div className="flex items-center gap-2">
-              <div className="relative h-9 w-9 overflow-hidden rounded-full bg-brand-navy">
-                <Image
-                  src="/will-rapuano-headshot.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="36px"
-                />
-              </div>
-              <span className="font-medium text-brand-navy">Will Rapuano</span>
-            </div>
-            <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
-            <span>{post.date}</span>
-            <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
-            <span>{post.readTime}</span>
+          {/* Hero comes before the headline so the article opens visually. */}
+          <div
+            className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-brand-navy shadow-[0_24px_70px_-38px_rgba(11,29,58,0.65)] md:aspect-[21/9]"
+            data-blog-hero
+          >
+            <Image
+              src={heroImage}
+              alt={heroImageAlt}
+              fill
+              className="object-cover"
+              priority
+              sizes="(min-width: 1200px) 1152px, 100vw"
+              data-blog-hero-image
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/25 via-transparent to-transparent" aria-hidden="true" />
           </div>
 
-          {/* Social Share */}
-          <div className="mt-6 flex flex-wrap items-center gap-2">
-            <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Share</span>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-600 hover:bg-blue-600 hover:text-white"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-black hover:bg-black hover:text-white"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              X
-            </a>
-            <a
-              href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-700 hover:bg-blue-700 hover:text-white"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn
-            </a>
-            <a
-              href={`mailto:?subject=${shareTitle}&body=Check out this article: ${canonicalUrl}`}
-              className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-slate-700 hover:bg-slate-700 hover:text-white"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-              Email
-            </a>
+          <div className="mt-8 max-w-4xl md:mt-10">
+            {/* Category tag */}
+            <span className="mb-4 inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-blue-deep">
+              {post.category}
+            </span>
+
+            {/* Title */}
+            <h1 className="max-w-4xl font-display text-[2rem] font-semibold leading-[1.08] tracking-[-0.02em] text-brand-navy md:text-5xl md:leading-[1.1]">
+              {displayTitle}
+            </h1>
+
+            {/* Author + Date + Read time */}
+            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slate-500">
+              <div className="flex items-center gap-2">
+                <div className="relative h-9 w-9 overflow-hidden rounded-full bg-brand-navy">
+                  <Image
+                    src="/will-rapuano-headshot.jpg"
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="36px"
+                  />
+                </div>
+                <span className="font-medium text-brand-navy">Will Rapuano</span>
+              </div>
+              <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
+              <span>{post.date}</span>
+              <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
+              <span>{post.readTime}</span>
+            </div>
+
+            {/* Social Share */}
+            <div className="mt-6 flex flex-wrap items-center gap-2">
+              <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Share</span>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-600 hover:bg-blue-600 hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-black hover:bg-black hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                X
+              </a>
+              <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-700 hover:bg-blue-700 hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+              <a
+                href={`mailto:?subject=${shareTitle}&body=Check out this article: ${canonicalUrl}`}
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-slate-700 hover:bg-slate-700 hover:text-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+                Email
+              </a>
+            </div>
           </div>
         </div>
       </header>
-
-      {/* ─── Hero Image ─── */}
-      <div className="bg-white px-6 pt-8 md:pt-10">
-        <div className="relative mx-auto aspect-[16/9] max-w-6xl overflow-hidden rounded-2xl bg-brand-navy shadow-[0_24px_70px_-38px_rgba(11,29,58,0.65)] md:aspect-[21/9]">
-          <Image
-            src={heroImage}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-            sizes="(min-width: 1200px) 1152px, 100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/35 via-transparent to-transparent" aria-hidden="true" />
-        </div>
-      </div>
 
       {/* ─── Main Content ─── */}
       <div className="bg-white">

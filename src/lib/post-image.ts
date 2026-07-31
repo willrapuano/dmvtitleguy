@@ -98,6 +98,10 @@ export function postImageSrcSet(
 /**
  * Posts whose CMS image is unusable, pointed at an owned asset that fits instead.
  *
+ * Some posts shipped images with visible generation artifacts or imagery that
+ * does not explain the article it accompanies. Point those slugs at a better
+ * owned asset until the CMS source is replaced.
+ *
  * Five place-specific posts shipped images with visible generation artifacts —
  * garbled text baked into the pixels, an abstract interchange diagram in place of a
  * photograph, a four-up collage, and an aerial of Sterling with a ship on the
@@ -110,6 +114,9 @@ export function postImageSrcSet(
  * the meantime. Remove an entry once its post has a real image in the CMS.
  */
 const POST_IMAGE_OVERRIDES: Record<string, string> = {
+  // Purpose-built comparison artwork: baseline protection vs broader coverage.
+  "enhanced-title-insurance-vs-standard":
+    "/blog/enhanced-title-insurance-vs-standard-v2.jpg",
   // same city — Old Town streetscape
   "alexandria-va-housing-market-april-2026":
     "https://cdn.sanity.io/images/4s0dloxi/production/134066cf62fed7d4e579edd098985e1f08bacb4b-2752x1536.png",
@@ -127,7 +134,26 @@ const POST_IMAGE_OVERRIDES: Record<string, string> = {
     "https://cdn.sanity.io/images/4s0dloxi/production/679e807fed81ce04fa57b69b0e91a6a347eb21a5-1376x768.png",
 };
 
+const POST_IMAGE_ALT_OVERRIDES: Record<string, string> = {
+  "enhanced-title-insurance-vs-standard":
+    "A home shown with baseline and expanded layers of title insurance protection",
+};
+
+const POST_IMAGE_DIMENSION_OVERRIDES: Record<string, { width: number; height: number }> = {
+  "enhanced-title-insurance-vs-standard": { width: 1672, height: 941 },
+};
+
 /** The image a post should actually use. */
 export function resolvePostImage(slug: string, cmsImage?: string): string | undefined {
   return POST_IMAGE_OVERRIDES[slug] ?? cmsImage;
+}
+
+/** Meaningful alt text only where the hero communicates article content. */
+export function resolvePostImageAlt(slug: string): string {
+  return POST_IMAGE_ALT_OVERRIDES[slug] ?? "";
+}
+
+/** Accurate intrinsic dimensions for social metadata when a local hero is known. */
+export function resolvePostImageDimensions(slug: string): { width: number; height: number } {
+  return POST_IMAGE_DIMENSION_OVERRIDES[slug] ?? { width: 1200, height: 630 };
 }

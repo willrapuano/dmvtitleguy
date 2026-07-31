@@ -78,6 +78,7 @@ async function worker() {
       // Audit the visible document only, while reading JSON-LD from the source.
       const visibleHtml = html.replace(/<script\b[\s\S]*?<\/script>/gi, "");
       const h1Count = count(visibleHtml, /<h1\b/gi);
+      const heroCount = count(visibleHtml, /data-blog-hero(?=[\s=>])/gi);
       const articleBodyCount = count(visibleHtml, /data-blog-article-body(?:="")?/gi);
       const faqSectionCount = count(visibleHtml, /data-blog-faq-section(?:="")?/gi);
       const faqItemCount = count(visibleHtml, /data-blog-faq-item(?:="")?/gi);
@@ -86,6 +87,10 @@ async function worker() {
       const schemaItemCount = faqSchemas[0]?.mainEntity?.length ?? 0;
 
       if (h1Count !== 1) failures.push(`${route}: expected one h1, found ${h1Count}`);
+      if (heroCount !== 1) failures.push(`${route}: expected one hero image, found ${heroCount}`);
+      if (visibleHtml.indexOf("data-blog-hero") > visibleHtml.indexOf("<h1")) {
+        failures.push(`${route}: hero image must render before the article h1`);
+      }
       if (articleBodyCount !== 1) failures.push(`${route}: expected one article body, found ${articleBodyCount}`);
       if (decodedJsonLd.failures.length) failures.push(`${route}: malformed JSON-LD (${decodedJsonLd.failures.length})`);
       if (articleSchemas.length !== 1) failures.push(`${route}: expected one BlogPosting schema, found ${articleSchemas.length}`);
@@ -109,6 +114,20 @@ async function worker() {
       }
       if (expectation && inlineAccordionCount !== expectation.inlineAccordions) {
         failures.push(`${route}: expected ${expectation.inlineAccordions} inline accordions, found ${inlineAccordionCount}`);
+      }
+      if (route === "/blog/enhanced-title-insurance-vs-standard") {
+        if (!visibleHtml.includes("enhanced-title-insurance-vs-standard-v2.jpg")) {
+          failures.push(`${route}: expected the topic-specific comparison hero`);
+        }
+        if (!visibleHtml.includes("baseline and expanded layers of title insurance protection")) {
+          failures.push(`${route}: expected meaningful comparison-image alt text`);
+        }
+        if (!html.includes('<meta property="og:image:width" content="1672"')) {
+          failures.push(`${route}: expected accurate Open Graph image width`);
+        }
+        if (!html.includes('<meta property="og:image:height" content="941"')) {
+          failures.push(`${route}: expected accurate Open Graph image height`);
+        }
       }
 
       const ids = [...visibleHtml.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
