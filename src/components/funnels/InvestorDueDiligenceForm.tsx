@@ -83,25 +83,25 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         {/* Full Name */}
         <div>
           <label htmlFor="idd-name" className="block text-sm font-medium text-brand-dark-text mb-1">Full Name *</label>
-          <input id="idd-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Jane Smith" />
+          <input id="idd-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="form-control" placeholder="Jane Smith" />
         </div>
 
         {/* Email & Phone */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="idd-email" className="block text-sm font-medium text-brand-dark-text mb-1">Email *</label>
-            <input id="idd-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="jane@example.com" />
+            <input id="idd-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-control" placeholder="jane@example.com" />
           </div>
           <div>
             <label htmlFor="idd-phone" className="block text-sm font-medium text-brand-dark-text mb-1">Phone *</label>
-            <input id="idd-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
+            <input id="idd-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="form-control" placeholder="(703) 555-0100" />
           </div>
         </div>
 
         {/* Property Address */}
         <div>
           <label htmlFor="idd-address" className="block text-sm font-medium text-brand-dark-text mb-1">Property Address *</label>
-          <input id="idd-address" name="propertyAddress" autoComplete="street-address" type="text" required value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="123 Main St, Arlington, VA 22201" />
+          <input id="idd-address" name="propertyAddress" autoComplete="street-address" type="text" required value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} className="form-control" placeholder="123 Main St, Arlington, VA 22201" />
         </div>
 
         {/* Buyer Type */}
@@ -121,7 +121,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="idd-source" className="block text-sm font-medium text-brand-dark-text mb-1">Source</label>
-            <select id="idd-source" value={formData.source} onChange={(e) => setFormData({ ...formData, source: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white">
+            <select id="idd-source" value={formData.source} onChange={(e) => setFormData({ ...formData, source: e.target.value })} className="form-control">
               <option value="Auction">Auction</option>
               <option value="MLS">MLS</option>
               <option value="Off-market">Off-market</option>
@@ -130,7 +130,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
           </div>
           <div>
             <label htmlFor="idd-timeframe" className="block text-sm font-medium text-brand-dark-text mb-1">Timeframe</label>
-            <select id="idd-timeframe" value={formData.timeframe} onChange={(e) => setFormData({ ...formData, timeframe: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white">
+            <select id="idd-timeframe" value={formData.timeframe} onChange={(e) => setFormData({ ...formData, timeframe: e.target.value })} className="form-control">
               <option value="Rush (1-3 days)">Rush (1-3 days)</option>
               <option value="Standard (5-7 days)">Standard (5-7 days)</option>
               <option value="Flexible">Flexible</option>
@@ -148,7 +148,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         {/* Notes */}
         <div>
           <label htmlFor="idd-notes" className="block text-sm font-medium text-brand-dark-text mb-1">Notes / Comments (optional)</label>
-          <textarea id="idd-notes" rows={3} value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Any additional details about the property or transaction..." />
+          <textarea id="idd-notes" rows={3} value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} className="form-control" placeholder="Any additional details about the property or transaction..." />
         </div>
 
         {/* Submit */}

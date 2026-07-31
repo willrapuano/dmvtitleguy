@@ -48,7 +48,7 @@ export default async function HistoryPage() {
               <Link
                 key={a.id}
                 href={`/agent-tools/contract-analyzer/analysis/${a.id}`}
-                className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md hover:border-brand-blue/30"
+                className="surface-card flex items-center gap-4 p-4 transition-colors duration-150 hover:border-brand-blue/30"
               >
                 <div
                   className={`flex h-10 w-10 items-center justify-center rounded-lg ${

@@ -47,7 +47,7 @@ export default function UploadContractPage() {
         }}
       />
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
+      <section className="page-hero">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
@@ -74,7 +74,7 @@ export default function UploadContractPage() {
       </section>
 
       {/* WHAT HAPPENS NEXT */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="prose-title text-center mb-12">What Happens Next</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -92,12 +92,12 @@ export default function UploadContractPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section-light py-16">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
-              <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
+              <div key={faq.q} className="surface-card p-6">
                 <h3 className="text-base font-bold text-brand-navy mb-2">{faq.q}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{faq.a}</p>
               </div>
@@ -111,15 +111,15 @@ export default function UploadContractPage() {
         <div className="container-xl">
           <h2 className="t-h5 text-brand-navy mb-6">Related Pages</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Comprehensive title searches for real estate investors.</p>
             </Link>
-            <Link href="/request-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/request-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Request Title Review</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Get clarity on a property&apos;s title status.</p>
             </Link>
-            <Link href="/calculators" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/calculators" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Closing Cost Calculator</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Estimate your buyer or seller closing costs.</p>
             </Link>

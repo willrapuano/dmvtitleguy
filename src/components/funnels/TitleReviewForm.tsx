@@ -82,32 +82,32 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
         {/* Full Name */}
         <div>
           <label htmlFor="tr-name" className="block text-sm font-medium text-brand-dark-text mb-1">Full Name *</label>
-          <input id="tr-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Jane Smith" />
+          <input id="tr-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="form-control" placeholder="Jane Smith" />
         </div>
 
         {/* Email & Phone */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="tr-email" className="block text-sm font-medium text-brand-dark-text mb-1">Email *</label>
-            <input id="tr-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="jane@example.com" />
+            <input id="tr-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-control" placeholder="jane@example.com" />
           </div>
           <div>
             <label htmlFor="tr-phone" className="block text-sm font-medium text-brand-dark-text mb-1">Phone *</label>
-            <input id="tr-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
+            <input id="tr-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="form-control" placeholder="(703) 555-0100" />
           </div>
         </div>
 
         {/* Property Address */}
         <div>
           <label htmlFor="tr-address" className="block text-sm font-medium text-brand-dark-text mb-1">Property Address *</label>
-          <input id="tr-address" name="propertyAddress" autoComplete="street-address" type="text" required value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="123 Main St, Arlington, VA 22201" />
+          <input id="tr-address" name="propertyAddress" autoComplete="street-address" type="text" required value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} className="form-control" placeholder="123 Main St, Arlington, VA 22201" />
         </div>
 
         {/* Review Type & Urgency */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="tr-type" className="block text-sm font-medium text-brand-dark-text mb-1">Review Type</label>
-            <select id="tr-type" value={formData.reviewType} onChange={(e) => setFormData({ ...formData, reviewType: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white">
+            <select id="tr-type" value={formData.reviewType} onChange={(e) => setFormData({ ...formData, reviewType: e.target.value })} className="form-control">
               <option value="Full Title Search">Full Title Search</option>
               <option value="Title Search Update">Title Search Update</option>
               <option value="Lien Search">Lien Search</option>
@@ -116,7 +116,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
           </div>
           <div>
             <label htmlFor="tr-urgency" className="block text-sm font-medium text-brand-dark-text mb-1">Urgency</label>
-            <select id="tr-urgency" value={formData.urgency} onChange={(e) => setFormData({ ...formData, urgency: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white">
+            <select id="tr-urgency" value={formData.urgency} onChange={(e) => setFormData({ ...formData, urgency: e.target.value })} className="form-control">
               <option value="Standard">Standard</option>
               <option value="Rush">Rush</option>
             </select>
@@ -133,7 +133,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
         {/* Message */}
         <div>
           <label htmlFor="tr-message" className="block text-sm font-medium text-brand-dark-text mb-1">Message (optional)</label>
-          <textarea id="tr-message" rows={3} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Tell us about the property or your concerns..." />
+          <textarea id="tr-message" rows={3} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="form-control" placeholder="Tell us about the property or your concerns..." />
         </div>
 
         {/* Submit */}

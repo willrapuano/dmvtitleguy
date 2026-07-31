@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Download } from "lucide-react";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { FAQSection } from "@/components/FAQSection";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Title Insurance Resources | DMV Title Guy",
@@ -21,71 +22,50 @@ const resources = [
   { title: "Contract to Close Chart", file: "/guides/contract-to-close-chart.pdf" },
 ];
 
-const TITLE_INSURANCE_FAQ_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is title insurance?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Title insurance protects property buyers and mortgage lenders against losses from defects in the title to real property. It covers issues that may have existed before you purchased the property, such as unpaid taxes, liens, fraud, or recording errors.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do I need both lender's and owner's title insurance?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Your mortgage lender will require a lender's title insurance policy. An owner's policy is optional but strongly recommended — it protects your equity and ownership rights for as long as you or your heirs own the property, with only a one-time premium at closing.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How much does title insurance cost in DC, Maryland, and Virginia?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Title insurance premiums vary by state and property value. In Virginia and Maryland, rates are regulated and based on the property's sale price. In DC, rates may vary. Pruitt Title LLC can provide a free quote for your specific transaction.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What does a title search find?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A title search examines public records to identify unpaid taxes, unsatisfied mortgages, judgments, tax liens, easements, restrictions, and court actions that could affect your ownership of the property.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How long does title insurance last?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "An owner's title insurance policy lasts for as long as you or your heirs own the property. There are no annual payments — the original premium paid at closing is your only cost.",
-      },
-    },
-  ],
-};
+const titleInsuranceFaqs = [
+  {
+    question: "What is title insurance?",
+    answer: "Title insurance protects property buyers and mortgage lenders against losses from defects in the title to real property. It covers issues that may have existed before you purchased the property, such as unpaid taxes, liens, fraud, or recording errors.",
+  },
+  {
+    question: "Do I need both lender's and owner's title insurance?",
+    answer: "Your mortgage lender will require a lender's title insurance policy. An owner's policy is optional but strongly recommended — it protects your equity and ownership rights for as long as you or your heirs own the property, with only a one-time premium at closing.",
+  },
+  {
+    question: "How much does title insurance cost in DC, Maryland, and Virginia?",
+    answer: "Title insurance premiums vary by state and property value. In Virginia and Maryland, rates are regulated and based on the property's sale price. In DC, rates may vary. Pruitt Title LLC can provide a free quote for your specific transaction.",
+  },
+  {
+    question: "What does a title search find?",
+    answer: "A title search examines public records to identify unpaid taxes, unsatisfied mortgages, judgments, tax liens, easements, restrictions, and court actions that could affect your ownership of the property.",
+  },
+  {
+    question: "How long does title insurance last?",
+    answer: "An owner's title insurance policy lasts for as long as you or your heirs own the property. There are no annual payments — the original premium paid at closing is your only cost.",
+  },
+];
 
 export default function TitleInsurancePage() {
   return (
     <>
-      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(TITLE_INSURANCE_FAQ_SCHEMA) }} />
-      {/* Hero */}
-      <section className="relative bg-brand-navy text-white py-20 md:py-28">
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="container-xl relative z-10 text-center">
-          <h1 className="t-h1">
-            Title Insurance Resources
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Title Insurance" }]}
+        eyebrow="Understand what protects the property"
+        title="Title Insurance Resources"
+        lede="Plain-English guidance, downloadable checklists, and answers for buyers, agents, and lenders navigating title insurance across DC, Maryland, and Virginia."
+        actions={
+          <>
+            <Link href="/calculators/title-quote" className="btn-primary px-7">Get a Title Quote</Link>
+            <Link href="#resources" className="btn-on-dark px-7">Browse the Guides</Link>
+          </>
+        }
+      />
 
       {/* Downloadable Resources */}
       <section
+        id="resources"
         className="py-16 md:py-20"
-        style={{ backgroundColor: "#F5E6E8" }}
+        style={{ backgroundColor: "var(--site-blush)" }}
       >
         <div className="container-xl">
           <h2 className="t-h2 text-brand-navy text-center mb-10">
@@ -296,6 +276,12 @@ export default function TitleInsurancePage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section-gray">
+        <div className="container-xl max-w-3xl">
+          <FAQSection faqs={titleInsuranceFaqs} />
         </div>
       </section>
 

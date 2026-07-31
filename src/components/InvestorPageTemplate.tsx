@@ -49,8 +49,8 @@ export function InvestorPageTemplate({
       )}
       {/* HERO */}
       <section
-        className="bg-brand-navy text-white py-16 md:py-24"
-        style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}
+        className="page-hero"
+
       >
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>

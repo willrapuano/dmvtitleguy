@@ -100,7 +100,7 @@ export function SubscribePageClient() {
                     autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                    className="form-control"
                     placeholder="Your full name"
                   />
                 </div>
@@ -116,7 +116,7 @@ export function SubscribePageClient() {
                     autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                    className="form-control"
                     placeholder="you@example.com"
                   />
                 </div>

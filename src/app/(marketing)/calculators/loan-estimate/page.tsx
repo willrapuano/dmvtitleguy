@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function LoanEstimatePage() {
   return (
     <>
-      <section className="bg-brand-navy text-white py-12">
+      <section className="page-hero md:py-16">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>

@@ -1,10 +1,9 @@
 "use client";
 
-import { Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin } from "lucide-react";
+import { Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { SectionHead } from "@/components/SectionHead";
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
 /**
  * Emoji were doing the work of icons here — they render differently on every OS,
@@ -12,13 +11,6 @@ import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
  * already a dependency.
  */
 const ROLE_ICONS = { Home, Handshake, Landmark, Hammer, Building2 } as const;
-
-const SOCIAL_LINKS = [
-  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", Icon: Facebook },
-  { label: "Instagram", href: "https://www.instagram.com/dmvtitleguy",                  Icon: Instagram },
-  { label: "LinkedIn",  href: "https://www.linkedin.com/in/will-rapuano-86914b130",      Icon: Linkedin },
-  { label: "YouTube",   href: "https://www.youtube.com/@dmvtitleguy",                   Icon: Youtube },
-];
 
 const AUDIENCE_CARDS = [
   { role: "For Buyers & Sellers", desc: "Clear title work, responsive communication, and smoother purchase, sale, and refinance closings across the DMV.", icon: "Home", href: "/calculators/title-quote" },
@@ -191,101 +183,68 @@ export function HomePageClient() {
   return (
     <>
       {/* ── SECTION 1: HERO ──────────────────────────────────────── */}
-      <section className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
-        {/**
-         * Background — cherry blossom DC. This was a CSS background-image, which
-         * bypasses the image optimizer entirely: every visitor, phone included, got
-         * the full 544 KB JPEG at one fixed size. As an <Image fill> it is served
-         * as sized AVIF/webp, and since it is the hero it also gets `priority`,
-         * which a background-image can never receive.
-         */}
-        <Image
-          src="/hero-bg.jpg"
-          alt=""
-          aria-hidden="true"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-brand-navy/75" />
+      <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(145deg,#fbfcfd_0%,#f3f7fa_62%,#eef5f8_100%)]">
+        <div aria-hidden="true" className="absolute -left-32 top-8 h-80 w-80 rounded-full bg-brand-blush/80 blur-3xl" />
+        <div aria-hidden="true" className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-brand-blue-100/70 blur-3xl" />
 
-        <div className="container-xl relative z-10 grid lg:grid-cols-[1.25fr_0.75fr] gap-10 items-center py-12 sm:py-16 lg:py-20">
-          <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-gray-300 mb-3">Pruitt Title LLC • DMV Title Guy</p>
-            {/**
-             * The heading ran 20 words and needed six lines at the display size,
-             * because it was carrying the audience list as well as the service and
-             * the geography. The audiences moved down into the lede, where they are
-             * still on the page and still indexed but no longer set in 60px serif.
-             */}
-            {/* Steps down from the t-display rung at lg, because that is exactly
-                where the hero splits into 1.25fr/0.75fr and the heading loses a
-                third of its measure — 60px in a 725px column wraps to four lines. */}
-            <h1 className="t-display lg:text-5xl text-white mb-5 text-balance">
-              Title &amp; settlement services across Virginia, Maryland, and DC
-            </h1>
-            <p className="text-lg text-gray-200 leading-relaxed max-w-2xl mb-6">
-              Fast closings. Local expertise. No surprises. Independent title and escrow
-              support for buyers, realtors, lenders, and builders — residential, refinance,
-              and builder transactions across the DMV.
+        <div className="container-xl relative grid items-center gap-10 py-12 sm:py-16 lg:min-h-[660px] lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-20">
+          <div className="max-w-2xl">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-blue-deep">
+              Pruitt Title LLC · DMV Title Guy
             </p>
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 mb-6">
-              <Link
-                href="/calculators/title-quote"
-                className="btn-primary text-center text-base px-8 py-3.5"
-              >
-                Get a Title Quote →
+            <h1 className="t-display max-w-[15ch] text-brand-navy">
+              Title and settlement services across DC, Maryland, and Virginia, without the closing surprises.
+            </h1>
+            <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-brand-ink md:text-xl">
+              Responsive title, escrow, and settlement support for buyers, realtors,
+              lenders, and builders across Virginia, Maryland, and Washington DC.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link href="/calculators/title-quote" className="btn-primary px-8 text-center text-base">
+                Get a Title Quote <span aria-hidden="true">→</span>
               </Link>
-              {/* "Open Title" and "Start Your Closing" were two buttons, worded
-                  differently, pointing at the same page. */}
-              <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy text-center text-base px-8 py-3.5">
+              <Link href="/contact" className="btn-outline px-8 text-center text-base">
                 Start Your Closing
               </Link>
             </div>
-            <p className="text-base text-gray-300 max-w-2xl mb-4">
-              Whether you are buying, selling, refinancing, or coordinating a builder or lender-side closing, DMV Title Guy helps keep transactions moving with responsive communication, clear title work, and settlement support across Virginia, Maryland, and DC.
-            </p>
-            <p className="text-sm text-gray-300 mb-5">
-              Trusted local operator: <strong className="text-white">Will Rapuano / DMV Title Guy</strong> with Pruitt Title LLC.
-            </p>
-            <div className="flex gap-3" role="group" aria-label="DMV Title Guy social profiles">
-              {SOCIAL_LINKS.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-11 h-11 rounded-full bg-white/15 hover:bg-brand-action flex items-center justify-center text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                >
-                  <s.Icon className="w-5 h-5" />
-                </a>
+            <ul className="mt-8 hidden flex-wrap gap-2.5 lg:flex" aria-label="Service assurances">
+              {["17+ years serving the DMV", "Purchase · Refinance · Builder", "Direct access to Will"].map((item) => (
+                <li key={item} className="trust-chip">
+                  <CheckCircle2 size={14} strokeWidth={2} className="text-brand-blue-deep" aria-hidden="true" />
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-          <div className="bg-white/10 border border-white/15 rounded-2xl p-6 backdrop-blur-sm shadow-2xl">
-            <p className="text-sm uppercase tracking-[0.2em] text-gray-200 mb-3 max-w-[68ch] leading-relaxed">Service Area &amp; Core Services</p>
-            <h2 className="t-h4 text-white mb-4">Title company, escrow, and settlement support across the DMV.</h2>
-            <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-100">
-              <div>
-                <p className="font-semibold text-white mb-2 max-w-[68ch] leading-relaxed">Geography</p>
-                <ul className="space-y-1 text-gray-200">
-                  <li>• Virginia</li>
-                  <li>• Maryland</li>
-                  <li>• Washington DC</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-semibold text-white mb-2 max-w-[68ch] leading-relaxed">Transactions</p>
-                <ul className="space-y-1 text-gray-200">
-                  <li>• Purchase closings</li>
-                  <li>• Refinance closings</li>
-                  <li>• Builder transactions</li>
-                </ul>
+
+          <div className="relative lg:justify-self-end">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-white/80 bg-brand-blue-50 shadow-[0_36px_90px_-48px_rgba(11,29,58,0.65)] sm:aspect-[5/4] lg:aspect-[4/5] lg:max-h-[560px] lg:w-[500px]">
+              <Image
+                src="/hero-bg.jpg"
+                alt="Washington Monument framed by cherry blossoms along the Tidal Basin"
+                fill
+                priority
+                sizes="(min-width: 1024px) 1000px, 100vw"
+                className="object-cover object-[58%_center]"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/25 bg-brand-navy/80 p-5 text-white shadow-xl backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[285px]">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-200">Local coverage</p>
+                <p className="mt-2 font-display text-xl font-semibold leading-snug">
+                  Virginia · Maryland · Washington DC
+                </p>
               </div>
             </div>
           </div>
+
+          <ul className="flex flex-wrap gap-2.5 lg:hidden" aria-label="Service assurances">
+            {["17+ years serving the DMV", "Purchase · Refinance · Builder", "Direct access to Will"].map((item) => (
+              <li key={item} className="trust-chip">
+                <CheckCircle2 size={14} strokeWidth={2} className="text-brand-blue-deep" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -314,7 +273,7 @@ export function HomePageClient() {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="shrink-0 text-brand-blue-deep transition-transform group-hover:translate-x-1"
+                    className="shrink-0 text-brand-blue-deep"
                   >
                     →
                   </span>
@@ -365,7 +324,7 @@ export function HomePageClient() {
                   {item.href && (
                     <span
                       aria-hidden="true"
-                      className="hidden text-brand-blue-deep transition-transform group-hover:translate-x-1 sm:col-span-1 sm:block sm:justify-self-end"
+                      className="hidden text-brand-blue-deep sm:col-span-1 sm:block sm:justify-self-end"
                     >
                       →
                     </span>
@@ -400,7 +359,7 @@ export function HomePageClient() {
             Start with a title quote, open title for an active transaction, or contact the team for purchase, refinance, and builder closings across the DMV.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/calculators/title-quote" className="inline-block bg-white text-brand-action font-bold px-8 py-3.5 rounded-md hover:bg-gray-100 transition-colors">
+            <Link href="/calculators/title-quote" className="btn-light px-8 py-3.5">
               Get a Title Quote →
             </Link>
             <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-8 py-3.5">

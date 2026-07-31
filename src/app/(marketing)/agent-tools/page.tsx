@@ -58,7 +58,7 @@ export default function AgentToolsPage() {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:border-brand-blue/30 hover:-translate-y-1"
+                className="group surface-card p-8 transition-colors duration-150 hover:border-brand-blue/30"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="rounded-xl bg-brand-navy/5 p-3 group-hover:bg-brand-blue/10 transition-colors">

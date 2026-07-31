@@ -48,7 +48,7 @@ export default function BuyerMarylandClosingCostsPage() {
       />
 
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24">
+      <section className="page-hero">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
@@ -100,7 +100,7 @@ export default function BuyerMarylandClosingCostsPage() {
       </section>
 
       {/* MARYLAND TAXES */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Maryland Recordation & Transfer Taxes</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
@@ -185,21 +185,21 @@ export default function BuyerMarylandClosingCostsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <FAQSection faqs={faqs} includeSchema={false} />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-navy">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Maryland Buyer Closing Cost Estimate</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate closing cost estimate for your Maryland home purchase.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="btn-primary px-8">
               Calculate Your Costs →
             </Link>
             <Link href="/contact" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

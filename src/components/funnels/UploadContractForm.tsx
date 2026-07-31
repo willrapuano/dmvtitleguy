@@ -85,15 +85,15 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label htmlFor="uc-name" className="block text-sm font-medium text-brand-dark-text mb-1">Full Name *</label>
-          <input id="uc-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Jane Smith" />
+          <input id="uc-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="form-control" placeholder="Jane Smith" />
         </div>
         <div>
           <label htmlFor="uc-email" className="block text-sm font-medium text-brand-dark-text mb-1">Email *</label>
-          <input id="uc-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="jane@example.com" />
+          <input id="uc-email" name="email" autoComplete="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="form-control" placeholder="jane@example.com" />
         </div>
         <div>
           <label htmlFor="uc-phone" className="block text-sm font-medium text-brand-dark-text mb-1">Phone *</label>
-          <input id="uc-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(703) 555-0100" />
+          <input id="uc-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="form-control" placeholder="(703) 555-0100" />
         </div>
       </div>
 
@@ -101,7 +101,7 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="uc-type" className="block text-sm font-medium text-brand-dark-text mb-1">Transaction Type</label>
-          <select id="uc-type" value={formData.transactionType} onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white">
+          <select id="uc-type" value={formData.transactionType} onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })} className="form-control">
             <option value="Purchase">Purchase</option>
             <option value="Refinance">Refinance</option>
             <option value="Investor">Investor</option>
@@ -110,14 +110,14 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
         </div>
         <div>
           <label htmlFor="uc-timeline" className="block text-sm font-medium text-brand-dark-text mb-1">Closing Timeline</label>
-          <input id="uc-timeline" type="text" value={formData.closingTimeline} onChange={(e) => setFormData({ ...formData, closingTimeline: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="e.g., March 15, 2026" />
+          <input id="uc-timeline" type="text" value={formData.closingTimeline} onChange={(e) => setFormData({ ...formData, closingTimeline: e.target.value })} className="form-control" placeholder="e.g., March 15, 2026" />
         </div>
       </div>
 
       {/* Notes */}
       <div>
         <label htmlFor="uc-notes" className="block text-sm font-medium text-brand-dark-text mb-1">Additional Notes (optional)</label>
-        <textarea id="uc-notes" rows={2} value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} className="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Anything we should know about this transaction..." />
+        <textarea id="uc-notes" rows={2} value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} className="form-control" placeholder="Anything we should know about this transaction..." />
       </div>
 
       {/* Submit */}

@@ -50,7 +50,7 @@ export default function BethesdaTitlePage() {
       />
 
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24">
+      <section className="page-hero">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
@@ -60,7 +60,7 @@ export default function BethesdaTitlePage() {
             <span className="text-gray-200">Bethesda</span>
           </nav>
           <h1 className="t-h1 text-white mb-4">
-            Title Company Bethesda MD | Settlement & Title Services
+            Title Company Bethesda MD &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Pruitt Title LLC is Montgomery County's premier title services provider. From Bethesda's luxury estates to starter homes, we deliver the expertise and attention to detail your transaction deserves.
@@ -112,31 +112,31 @@ export default function BethesdaTitlePage() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="t-h3 text-brand-navy mb-8">Title Services in Bethesda</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive title searches through Montgomery County land records.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Full coverage owner's title insurance to protect your Bethesda home investment.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">ALTA lender's policies for all major Maryland lenders.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Complete closing services from contract to recorded deed delivery.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Commercial Title Services</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized title and settlement services for commercial properties.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for flexible signing options.</p>
             </div>
@@ -150,19 +150,19 @@ export default function BethesdaTitlePage() {
         <div className="container-xl">
           <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/investor-title-services" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-title-services" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
             </Link>
-            <Link href="/auction-property-title-search" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/auction-property-title-search" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
             </Link>
-            <Link href="/foreclosure-title-review" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/foreclosure-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
             </Link>
-            <Link href="/investor-due-diligence" className="bg-gray-50 rounded-xl p-5 hover:bg-gray-100 transition-colors">
+            <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
             </Link>
@@ -209,21 +209,21 @@ export default function BethesdaTitlePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <FAQSection faqs={faqs} />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-navy">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Bethesda Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us for a competitive title insurance quote for your Bethesda property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/maryland-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="btn-primary px-8">
               Get a Quote →
             </Link>
             <a href="tel:+15714744000" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

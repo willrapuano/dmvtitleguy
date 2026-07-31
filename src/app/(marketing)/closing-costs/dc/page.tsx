@@ -77,7 +77,7 @@ export default function DCClosingCostsPage() {
       />
 
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24">
+      <section className="page-hero">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
             <Link href="/" className="hover:text-brand-blue">Home</Link>
@@ -136,7 +136,7 @@ export default function DCClosingCostsPage() {
       </section>
 
       {/* SELLER COSTS */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">What Sellers Pay in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
@@ -196,7 +196,7 @@ export default function DCClosingCostsPage() {
       </section>
 
       {/* TITLE INSURANCE */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
@@ -275,21 +275,21 @@ export default function DCClosingCostsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl max-w-3xl">
           <FAQSection faqs={faqs} />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-navy">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your DC Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact Pruitt Title LLC for an accurate closing cost estimate for your DC transaction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/dc-closing-cost-calculator" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+            <Link href="/dc-closing-cost-calculator" className="btn-primary px-8">
               Calculate Your Costs →
             </Link>
             <Link href="/dc-closing-cost-calculator" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">

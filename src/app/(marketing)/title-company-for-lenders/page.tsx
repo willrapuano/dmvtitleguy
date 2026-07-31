@@ -12,7 +12,7 @@ export default function LendersPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
+      <section className="page-hero">
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
@@ -35,23 +35,23 @@ export default function LendersPage() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl">
           <h2 className="t-h3 text-brand-navy mb-8">Why Lenders Trust DMV Title Guy</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive coverage to protect your mortgage investment.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Fast Turnaround</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">We meet your funding deadlines with quick title commitments.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Online Status Tracking</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Real-time updates on title status through your pipeline.</p>
             </div>
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Competitive Rates</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Volume discounts available for frequent lender partners.</p>
             </div>
@@ -60,13 +60,13 @@ export default function LendersPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-navy">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Become a Lending Partner</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us to set up your account.
           </p>
-          <Link href="/contact" className="inline-block bg-brand-action text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors">
+          <Link href="/contact" className="btn-primary px-8">
             Get Started →
           </Link>
         </div>

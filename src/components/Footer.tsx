@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { ALL_LOCATIONS } from "@/data/locations";
 
 /* Same four links as the hero, which already uses these icons — the footer was
@@ -31,30 +31,65 @@ export function Footer() {
 
   return (
     <footer className="bg-brand-navy text-white">
-      {/* Areas We Serve */}
-      <div className="border-b border-white/10 py-8">
+      <div className="border-b border-white/10 py-12 md:py-16">
         <div className="container-xl">
-          <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-brand-blue">Areas We Serve</h3>
-          {/**
-           * prefetch={false} because this list is 62 links long and sits on every
-           * page. App Router prefetches on viewport entry by default, so scrolling
-           * to the footer pulled ~45 KB of RSC payload per link — measured at
-           * 1.69 MB on the blog index alone, more than the images. Hover still
-           * prefetches, so anyone showing intent keeps the instant navigation.
-           */}
-          <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-xs text-gray-300 md:grid-cols-3 lg:grid-cols-4">
-            {SERVICE_AREAS.map((loc) => (
-              <Link key={loc.slug} href={`/${loc.slug}`} prefetch={false} className="block transition-colors hover:text-brand-blue">
-                {loc.city}
+          <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300">Ready when your contract is</p>
+              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
+                Start with clear numbers—or start the closing.
+              </h2>
+              <p className="mt-4 max-w-[62ch] leading-relaxed text-slate-300">
+                Get a title quote, send the transaction details, or speak directly with Will about a purchase, refinance, or builder closing.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+              <Link href="/calculators/title-quote" className="btn-primary px-7">
+                Get a Title Quote <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            ))}
+              <Link href="/contact" className="btn-on-dark px-7">
+                Contact Will
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="container-xl py-14 grid gap-10 md:grid-cols-3">
+      {/* Areas We Serve */}
+      <div className="border-b border-white/10 bg-brand-navy-dark/40 py-8">
+        <div className="container-xl">
+          <details className="group">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue-300 lg:hidden">
+              Areas We Serve
+              <span
+                aria-hidden="true"
+                className="text-xl transition-transform duration-150 ease-[var(--ease-out)] group-open:rotate-45 motion-reduce:transition-none lg:hidden"
+              >
+                +
+              </span>
+            </summary>
+            <div className="mt-5 hidden grid-cols-2 gap-x-6 gap-y-3 text-xs text-slate-300 group-open:grid lg:!grid lg:grid-cols-4 lg:gap-x-10 lg:gap-y-2.5">
+              <h3 className="hidden text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue-300 lg:col-span-4 lg:mb-3 lg:block">
+                Areas We Serve
+              </h3>
+              {SERVICE_AREAS.map((loc) => (
+                <Link key={loc.slug} href={`/${loc.slug}`} prefetch={false} className="block transition-colors duration-150 hover:text-white">
+                  {loc.city}
+                </Link>
+              ))}
+            </div>
+          </details>
+          {/**
+           * prefetch={false} because this 62-link directory sits on every page.
+           * It renders once, collapses natively on mobile, and CSS forces the
+           * content visible on desktop without duplicating the DOM payload.
+           */}
+        </div>
+      </div>
+
+      <div className="container-xl grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         {/* Column 1: Brand tagline */}
-        <div>
+        <div className="lg:col-span-2">
           {/**
            * The wordmark ships without its tagline, because at 220px wide the
            * tagline in the full lockup sets about 7px tall — so it goes below as
@@ -74,7 +109,7 @@ export function Footer() {
           <p className="mb-5 mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-300">
             Got your back on every contract
           </p>
-          <p className="text-sm text-gray-300 leading-relaxed max-w-xs">
+          <p className="max-w-sm text-sm leading-relaxed text-slate-300">
             Trusted title &amp; escrow services for real estate professionals, builders, and financial institutions — serving the DMV and clients nationwide.
           </p>
         </div>
@@ -82,7 +117,7 @@ export function Footer() {
         {/* Column 2: Contact */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Contact Us</h3>
-          <address className="not-italic text-sm text-gray-300 space-y-2">
+          <address className="space-y-2 text-sm not-italic text-slate-300">
             <p>
               <a href="mailto:wrapuano@pruitt-title.com" className="hover:text-brand-blue transition-colors">
                 wrapuano@pruitt-title.com
@@ -109,7 +144,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-action flex items-center justify-center text-white transition-colors duration-200"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-200 hover:bg-brand-action"
               >
                 <s.Icon className="w-5 h-5" />
               </a>
@@ -117,7 +152,7 @@ export function Footer() {
           </div>
           <div className="mt-8">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-3">Quick Links</h3>
-            <ul className="space-y-1 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-slate-300">
               {QUICK_LINKS.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} prefetch={false} className="hover:text-brand-blue transition-colors">
@@ -133,7 +168,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10 py-5">
         {/* slate-400 clears 6.4:1 on navy; gray-500 measured 3.47:1 and failed AA. */}
-        <div className="container-xl flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-slate-400">
+        <div className="container-xl flex flex-col items-center justify-between gap-2 text-xs text-slate-400 md:flex-row">
           <p>© {currentYear} All Rights Reserved by DMV Title Guy</p>
           <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
         </div>

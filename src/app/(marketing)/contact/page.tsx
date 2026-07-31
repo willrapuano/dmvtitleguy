@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Contact DMV Title Guy | Pruitt Title LLC",
@@ -11,45 +12,25 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="bg-brand-navy text-white py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0f1c27 0%, #1a2a3a 60%, #1e3a4a 100%)" }}>
-        <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">Home</Link>
-              <span className="mx-2">/</span>
-              <span className="text-gray-200">Contact</span>
-            </nav>
-            <h1 className="t-h1 text-white mb-4">
-              Contact Us
-            </h1>
-            <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Get in touch with DMV Title Guy for title insurance and closing services across the DMV.
-            </p>
-            <div className="space-y-3">
-              <p className="text-gray-300 max-w-[68ch] leading-relaxed">
-                <span className="text-brand-blue font-semibold">Phone:</span>{" "}
-                <a href="tel:+17038591467" className="hover:text-white">(703) 859-1467</a>
-              </p>
-              <p className="text-gray-300 max-w-[68ch] leading-relaxed">
-                <span className="text-brand-blue font-semibold">Email:</span>{" "}
-                <a href="mailto:wrapuano@pruitt-title.com" className="hover:text-white">wrapuano@pruitt-title.com</a>
-              </p>
-              <p className="text-gray-300 max-w-[68ch] leading-relaxed">
-                <span className="text-brand-blue font-semibold">Address:</span>{" "}
-                1900 Gallows Rd Ste 230, Vienna, VA 22182
-              </p>
+      <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+        eyebrow="Talk directly with Will"
+        title="Bring us the contract. We’ll help move it to closing."
+        lede={
+          <div className="space-y-4">
+            <p>Get responsive title, escrow, and settlement support across Virginia, Maryland, and Washington DC.</p>
+            <div className="grid gap-2 text-sm sm:grid-cols-2">
+              <a href="tel:+17038591467" className="font-semibold text-white hover:text-brand-blue-200">(703) 859-1467</a>
+              <a href="mailto:wrapuano@pruitt-title.com" className="font-semibold text-white hover:text-brand-blue-200">wrapuano@pruitt-title.com</a>
+              <span className="sm:col-span-2">1900 Gallows Rd Ste 230, Vienna, VA 22182</span>
             </div>
           </div>
-          <div className="rounded-2xl border-0 bg-transparent p-0 sm:border sm:border-white/20 sm:bg-white/10 sm:p-8 sm:backdrop-blur-sm">
-            <h2 className="t-h5 font-semibold text-white mb-4">Get a Title Quote</h2>
-            <LeadCaptureForm location="contact" />
-          </div>
-        </div>
-      </section>
+        }
+        aside={<LeadCaptureForm location="contact" compact />}
+      />
 
       {/* OFFICE HOURS */}
-      <section className="py-16 bg-white">
+      <section className="section-light">
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
@@ -95,7 +76,7 @@ export default function ContactPage() {
       </section>
 
       {/* START YOUR TRANSACTION */}
-      <section className="py-16 bg-brand-navy text-white">
+      <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 mb-4">Start Your Transaction</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">Ready to get started? Choose the service that fits your needs.</p>
@@ -117,19 +98,19 @@ export default function ContactPage() {
       </section>
 
       {/* QUICK LINKS */}
-      <section className="py-16 bg-gray-50">
+      <section className="section-gray">
         <div className="container-xl">
           <h2 className="t-h3 text-brand-navy mb-8 text-center">Quick Links</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/calculators/title-quote" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <Link href="/calculators/title-quote" className="surface-card p-6">
               <h3 className="t-h6 font-semibold text-brand-navy mb-2">Get a Title Quote</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Instant title insurance quotes for your transaction.</p>
             </Link>
-            <Link href="/calculators" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <Link href="/calculators" className="surface-card p-6">
               <h3 className="t-h6 font-semibold text-brand-navy mb-2">Closing Cost Calculator</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Estimate buyer and seller closing costs.</p>
             </Link>
-            <Link href="/my-classes" className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <Link href="/my-classes" className="surface-card p-6">
               <h3 className="t-h6 font-semibold text-brand-navy mb-2">Agent Education</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">CE classes and training for real estate professionals.</p>
             </Link>

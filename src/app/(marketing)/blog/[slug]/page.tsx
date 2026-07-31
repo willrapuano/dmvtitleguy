@@ -471,7 +471,7 @@ function RelatedLocalTitleServices() {
       </ul>
       <Link
         href="/calculators/title-quote"
-        className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+        className="btn-primary"
       >
         Get a Title Quote →
       </Link>
@@ -855,7 +855,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                   </p>
                   <Link
                     href="/title-search-vienna-va"
-                    className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                    className="btn-primary"
                   >
                     Order your Vienna VA title search
                   </Link>
@@ -1000,7 +1000,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
                     href="/calculators/title-quote"
-                    className="inline-block bg-brand-action hover:bg-brand-action-dark text-white font-bold px-7 py-3.5 rounded-lg transition-colors"
+                    className="btn-primary px-7 py-3.5"
                   >
                     Get a Free Quote →
                   </Link>

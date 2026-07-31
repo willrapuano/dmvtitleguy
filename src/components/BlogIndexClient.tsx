@@ -182,12 +182,12 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search title insurance, closing costs, markets…"
-              className="min-h-11 w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-sm text-brand-navy outline-none placeholder:text-slate-500 focus:border-brand-blue-deep focus:bg-white focus:ring-2 focus:ring-brand-blue-deep/15"
+              className="min-h-11 w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-sm text-brand-navy outline-none placeholder:text-slate-500 focus:border-brand-blue-deep focus:bg-white focus:ring-2 focus:ring-brand-blue-deep/20"
             />
           </div>
           <div className="mb-2 flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-wide text-slate-500 md:hidden">
             <span>Browse by topic</span>
-            <span className="normal-case tracking-normal text-slate-400">Swipe for more →</span>
+            <span className="normal-case tracking-normal text-slate-600">Swipe for more →</span>
           </div>
           <div
             className="-mx-4 overflow-x-auto px-4 no-scrollbar md:mx-0 md:overflow-x-visible md:px-0"
