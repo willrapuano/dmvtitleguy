@@ -113,7 +113,6 @@ export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
 /** Fetch a single post — Sanity first, static fallback */
 export async function fetchBlogPostBySlug(slug: string): Promise<{
   post: BlogPost | null;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   portableTextBody: any[] | null;
   markdownContent: string | null;
 }> {
@@ -124,7 +123,9 @@ export async function fetchBlogPostBySlug(slug: string): Promise<{
     return {
       post: mapSanityPost(sanityPost),
       portableTextBody: LOCAL_MARKDOWN_BODY_OVERRIDES.has(slug) ? null : sanityPost.body || null,
-      markdownContent: LOCAL_MARKDOWN_BODY_OVERRIDES.has(slug) ? markdownContent : null,
+      // Preserve a local Markdown source even when Sanity supplies the visible
+      // body. Its authored FAQ section can supplement the shared article footer.
+      markdownContent,
     };
   }
 

@@ -138,6 +138,24 @@
   display: block;
 }
 
+.blog-content .article-table table {
+  display: table;
+  margin: 0;
+  overflow: visible;
+}
+
+.blog-content .article-callout p {
+  margin-bottom: 0;
+}
+
+.blog-content .article-callout p + ul {
+  margin-top: 0.5rem;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
 .blog-content th {
   background-color: #0B1D3A;
   color: #fff;
@@ -205,6 +223,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .editorial-card,
   .editorial-card img {
     transition-duration: 0ms;

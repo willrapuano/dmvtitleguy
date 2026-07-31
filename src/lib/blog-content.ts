@@ -80,6 +80,21 @@ export function splitBodyAndFAQ(markdown: string): {
       continue;
     }
 
+    // One legacy article uses bold question paragraphs inside its explicit FAQ
+    // region rather than heading syntax.
+    const boldQuestionMatch = line.match(/^\*\*(.+\?)\*\*\s*$/);
+    if (boldQuestionMatch && faqMode) {
+      if (currentQuestion && currentAnswer.length > 0) {
+        faqs.push({
+          question: currentQuestion,
+          answer: currentAnswer.join("\n").trim(),
+        });
+      }
+      currentQuestion = boldQuestionMatch[1];
+      currentAnswer = [];
+      continue;
+    }
+
     // Also detect question headings outside of explicit FAQ mode (for backwards compat)
     const standaloneQuestionMatch = line.match(/^##\s+(?:##\s+)?(.+\?)\s*$/);
     if (standaloneQuestionMatch && !faqMode) {
@@ -104,6 +119,21 @@ export function splitBodyAndFAQ(markdown: string): {
     }
 
     if (faqMode) {
+      // A thematic break closes a terminal FAQ region. Preserve everything
+      // after it (for example, an author bio) as ordinary article content.
+      if (/^\s*---\s*$/.test(line)) {
+        if (currentQuestion && currentAnswer.length > 0) {
+          faqs.push({
+            question: currentQuestion,
+            answer: currentAnswer.join("\n").trim(),
+          });
+          currentQuestion = "";
+          currentAnswer = [];
+        }
+        faqMode = false;
+        bodyLines.push(line);
+        continue;
+      }
       // Non-question ## heading while in FAQ mode — end FAQ section
       if (/^##\s+/.test(line) && !line.match(/\?$/)) {
         if (currentQuestion && currentAnswer.length > 0) {
@@ -140,6 +170,16 @@ export function splitBodyAndFAQ(markdown: string): {
     body: bodyLines.join("\n").trimEnd(),
     faqs,
   };
+}
+
+/** The page shell owns the document h1; a Markdown body may not add another. */
+export function normalizeMarkdownBlogBody(markdown: string, postTitle: string): string {
+  const match = markdown.match(/^\s*#\s+([^\n]+)\n+/);
+  if (!match) return markdown;
+  const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return normalize(match[1]) === normalize(postTitle)
+    ? markdown.slice(match[0].length).trimStart()
+    : markdown;
 }
 
 /**

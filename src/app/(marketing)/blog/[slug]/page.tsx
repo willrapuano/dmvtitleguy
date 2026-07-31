@@ -8,12 +8,22 @@ import { resolvePostImage } from "@/lib/post-image";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { BlogArticle } from "@/components/BlogArticle";
 import { fetchBlogPostBySlug, fetchAllBlogSlugs, fetchAllBlogPosts } from "@/lib/blog-data";
-import { splitBodyAndFAQ } from "@/lib/blog-content";
+import { normalizeMarkdownBlogBody, splitBodyAndFAQ } from "@/lib/blog-content";
 import { PortableText } from "@portabletext/react";
 import { Callout } from "@/components/portable-text/Callout";
 import { Table } from "@/components/portable-text/Table";
 import { Accordion } from "@/components/portable-text/Accordion";
 import { FAQSection } from "@/components/FAQSection";
+import { BLOG_FAQ_OVERRIDES } from "@/data/blog-faq-overrides";
+import {
+  blogFAQSchemaText,
+  blogFAQQuestionKey,
+  mergeBlogFAQs,
+  normalizePortableBlogContent,
+  portableBlockText,
+  slugifyBlogHeading,
+} from "@/lib/blog-portable-content";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 export const revalidate = 0;
 
@@ -537,18 +547,36 @@ export async function generateMetadata(
 
 export default async function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
-  const { post, portableTextBody, markdownContent } = await fetchBlogPostBySlug(params.slug);
+  const [postResult, allPosts] = await Promise.all([
+    fetchBlogPostBySlug(params.slug),
+    fetchAllBlogPosts(),
+  ]);
+  const { post, portableTextBody, markdownContent } = postResult;
   if (!post) notFound();
 
-  const allPosts = await fetchAllBlogPosts();
   const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   // Split body and FAQs from markdown
-  const { body: bodyContent, faqs } = markdownContent
+  const { body: rawMarkdownBody, faqs } = markdownContent
     ? splitBodyAndFAQ(markdownContent)
     : { body: null, faqs: [] };
-
-  const toc = extractTOC(bodyContent);
+  const bodyContent = rawMarkdownBody
+    ? normalizeMarkdownBlogBody(rawMarkdownBody, post.title)
+    : null;
+  const normalizedPortable = normalizePortableBlogContent(portableTextBody, post.title, faqs);
+  const hasPortableBody = normalizedPortable.body.length > 0;
+  const inlineAccordionQuestionKeys = new Set(
+    normalizedPortable.inlineAccordionQuestions.map(blogFAQQuestionKey),
+  );
+  const markdownFooterFAQs = faqs.filter(
+    (faq) => !inlineAccordionQuestionKeys.has(blogFAQQuestionKey(faq.question)),
+  );
+  const articleFAQs = mergeBlogFAQs(
+    normalizedPortable.faqs,
+    markdownFooterFAQs,
+    BLOG_FAQ_OVERRIDES[post.slug] ?? [],
+  );
+  const toc = hasPortableBody ? normalizedPortable.toc : extractTOC(bodyContent);
 
   const isViennaTitleCompanyPost = post.slug === "title-search-vienna-va";
   const showDmvTitleServices = post.slug === DMV_TITLE_SERVICES_POST_SLUG;
@@ -619,14 +647,14 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     },
   };
 
-  const faqSchema = faqs.length > 0
+  const faqSchema = articleFAQs.length > 0
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
+        mainEntity: articleFAQs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          acceptedAnswer: { "@type": "Answer", text: blogFAQSchemaText(faq.answer) },
         })),
       }
     : null;
@@ -664,18 +692,18 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       {faqSchema && (
         <script
           type="application/ld+json"
           suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
         />
       )}
 
@@ -825,78 +853,16 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               )}
 
               {/* Article body */}
-              <div className="blog-content">
-                {portableTextBody ? (
+              <div className="blog-content" data-blog-article-body>
+                {hasPortableBody ? (
                   <PortableText
-                    value={(() => {
-                      const blocks = portableTextBody as any[];
-
-                      /**
-                       * Drop a leading heading that just restates the article title.
-                       *
-                       * An h1 is stripped whatever it says: the page already renders the
-                       * title as its own <h1>, so a body h1 is a second title by
-                       * construction. Eleven posts opened with one — "Arlington VA Title
-                       * & Settlement Services" under the h1 "An Arlington Closing Guide
-                       * for Buyers and Sellers" — and they rendered, because the old
-                       * check only stripped a heading matching post.title exactly.
-                       *
-                       * An h2 is usually a genuine first section heading ("Wire Fraud Is
-                       * the Biggest Financial Threat in Real Estate Today"), so it is
-                       * only dropped when it repeats the title verbatim. Of 46 posts
-                       * opening with a heading, 31 differ from the title and most of
-                       * those are real section headings — stripping h2 unconditionally
-                       * would delete content.
-                       *
-                       * Comparing against post.title rather than the display title is
-                       * deliberate: the body heading was authored alongside the CMS
-                       * title, not alongside any override.
-                       */
-                      const withoutRestatedTitle = (body: any[]): any[] => {
-                        if (body.length === 0) return body;
-                        const first = body[0];
-                        if (first?.style === "h1") return body.slice(1);
-                        const text = first?.children?.map((c: any) => c.text).join("").trim() ?? "";
-                        const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
-                        if (first?.style === "h2" && normalize(text) === normalize(post.title)) {
-                          return body.slice(1);
-                        }
-                        return body;
-                      };
-
-                      /**
-                       * Sanity nests list items as { _type: "list", children: [listItem] };
-                       * PortableText Toolkit wants flat blocks carrying `listItem`.
-                       *
-                       * This used to be unreachable for any post whose first block was
-                       * stripped above — that branch returned early, so those posts' lists
-                       * were handed to PortableText in Sanity's nested shape. Both steps
-                       * now always run.
-                       */
-                      const flattenLists = (body: any[]): any[] =>
-                        body.flatMap((block) => {
-                          if (block._type !== "list") return [block];
-                          return (block.children || []).flatMap((li: any) =>
-                            (li.children || []).map((childBlock: any) => ({
-                              ...childBlock,
-                              _type: "block",
-                              listItem: block.listItem,
-                            }))
-                          );
-                        });
-
-                      return flattenLists(withoutRestatedTitle(blocks));
-                    })()}
+                    value={normalizedPortable.body}
                     components={{
                       types: {
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         callout: ({ value }: any) => <Callout value={value} />,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         table: ({ value }: any) => <Table value={value} />,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         accordion: ({ value }: any) => <Accordion value={value} />,
                         // Custom type: 'list' (standard PortableText list)
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         list: ({ children, value }: any) => {
                           if (value?.listItem === "bullet" || value?.listItem === "ul") {
                             return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
@@ -905,23 +871,17 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                         },
                       },
                       // Top-level list/listItem: @portabletext/react renderList uses components.list
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       list: ({ children, value }: any) => {
                         if (value?.listItem === "bullet" || value?.listItem === "ul") {
                           return <ul className="list-disc list-outside ml-5 my-4 space-y-2">{children}</ul>;
                         }
                         return <ol className="list-decimal list-outside ml-5 my-4 space-y-2">{children}</ol>;
                       },
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       listItem: ({ children }: any) => <li className="leading-relaxed text-gray-700 mb-2">{children}</li>,
                       marks: {
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         strong: ({ children }: any) => <strong className="font-semibold text-gray-900">{children}</strong>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         em: ({ children }: any) => <em className="italic">{children}</em>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         underline: ({ children }: any) => <span className="underline">{children}</span>,
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         link: ({ value, children }: any) => {
                           const rawHref = value?.href || '';
                           const href = INTERNAL_PATH_ALIASES[rawHref] || rawHref;
@@ -938,7 +898,6 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                         },
                       },
                       block: {
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         normal: ({ children, value }: any) => {
                           const text = value?.children?.map((c: any) => c.text ?? "").join("").trim() ?? "";
                           if (showDmvTitleServices && /^DMV title services:/i.test(text)) {
@@ -965,14 +924,6 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                           if (/^\*Pruitt Title/i.test(text)) {
                             const clean = text.replace(/^\*+|\*+$/g, "").trim();
                             return <p className="text-sm italic text-gray-500 mt-6 mb-2 max-w-[68ch] leading-relaxed">{clean}</p>;
-                          }
-                          // FAQ question detection: ends with ?, short, starts uppercase
-                          if (
-                            text.endsWith("?") &&
-                            text.length < 150 &&
-                            /^[A-Z]/.test(text)
-                          ) {
-                            return <p className="font-bold text-brand-blue-deep mt-10 mb-1 text-base border-l-4 border-brand-blue-deep pl-3 max-w-[68ch] leading-relaxed">{children}</p>;
                           }
                           // Parse markdown links [text](/path) into React elements
                           const mdLinkRegex = /\[([^\]]+)\]\((\/[^)]+)\)/g;
@@ -1002,9 +953,9 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                         },
                         // Rendered as h2, not h1: the page heading above is the document's only h1.
                         // Styling is unchanged, so nothing looks different.
-                        h1: ({ children }: any) => <h2 className="t-h3 text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h2: ({ children }: any) => <h2 className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h3: ({ children }: any) => <h3 className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
+                        h1: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="t-h3 text-brand-navy mt-10 mb-4">{children}</h2>,
+                        h2: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
+                        h3: ({ children, value }: any) => <h3 id={slugifyBlogHeading(portableBlockText(value))} className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
                         h4: ({ children }: any) => <h4 className="t-h6 font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
                       },
                     }}
@@ -1022,8 +973,8 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               </div>
 
               {/* ─── FAQ Section ─── */}
-              {faqs.length > 0 && (
-                <FAQSection faqs={faqs} includeSchema={false} />
+              {articleFAQs.length > 0 && (
+                <FAQSection faqs={articleFAQs} includeSchema={false} />
               )}
 
               {showDmvTitleServices && <RelatedLocalTitleServices />}

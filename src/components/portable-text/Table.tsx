@@ -1,5 +1,3 @@
-"use client";
-
 interface TableRow {
   cells: string[];
   isHeader?: boolean;
@@ -13,8 +11,8 @@ interface TableValue {
 export function Table({ value }: { value: TableValue }) {
   const rows = value.rows || [];
   return (
-    <div className="overflow-x-auto my-8">
-      <table className="w-full border-collapse text-sm text-left">
+    <div className="article-table my-8 overflow-x-auto">
+      <table className="w-full border-collapse text-left text-sm">
         {value.caption && (
           <caption className="text-gray-500 text-sm mb-2 text-left">{value.caption}</caption>
         )}

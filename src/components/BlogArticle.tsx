@@ -85,6 +85,13 @@ const components: Components = {
       </a>
     );
   },
+  // The article shell supplies the document h1. Legacy Markdown bodies that
+  // contain another h1 are demoted to a section heading.
+  h1: ({ children }) => {
+    const text = textFromChildren(children);
+    const id = slugifyHeading(text);
+    return <h2 id={id}>{children}</h2>;
+  },
   h2: ({ children }) => {
     const text = textFromChildren(children);
     const id = slugifyHeading(text);
