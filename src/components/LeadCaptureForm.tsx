@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Check } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 
 interface LeadCaptureFormProps {

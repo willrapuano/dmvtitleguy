@@ -18,7 +18,7 @@ Homepage, blog index, representative article, contact page, title-quote calculat
 | Blog navigation | Points directly to `/blog`, eliminating the `/my-blog` alias hop |
 | Article construction-finance link | Broken `/construction-loan-title-insurance` destination mapped to `/title-company-for-builders` |
 
-The selected-page crawl checked 94 internal destinations. The only failure was the construction-finance link above; it is corrected in this branch.
+The selected-page crawl checked 94 internal destinations. The only failure was the construction-finance link above; it is corrected in this branch. A post-fix crawl checked 93 unique internal destinations with zero failures.
 
 ## Delivery safeguards added
 
