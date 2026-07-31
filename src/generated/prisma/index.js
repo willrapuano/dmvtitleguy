@@ -39,12 +39,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 7.5.0
- * Query Engine version: 280c870be64f457428992c43c1f6d557fab6e29e
+ * Prisma Client JS version: 7.9.1
+ * Query Engine version: e922089b7d7502aff4249d5da3420f6fa55fc6ad
  */
 Prisma.prismaVersion = {
-  client: "7.5.0",
-  engine: "280c870be64f457428992c43c1f6d557fab6e29e"
+  client: "7.9.1",
+  engine: "e922089b7d7502aff4249d5da3420f6fa55fc6ad"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -165,8 +165,8 @@ exports.Prisma.ModelName = {
  */
 const config = {
   "previewFeatures": [],
-  "clientVersion": "7.5.0",
-  "engineVersion": "280c870be64f457428992c43c1f6d557fab6e29e",
+  "clientVersion": "7.9.1",
+  "engineVersion": "e922089b7d7502aff4249d5da3420f6fa55fc6ad",
   "activeProvider": "sqlite",
   "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel ToolUser {\n  id        String        @id @default(cuid())\n  email     String        @unique\n  approved  Boolean       @default(false)\n  isAdmin   Boolean       @default(false)\n  createdAt DateTime      @default(now())\n  sessions  ToolSession[]\n  logins    LoginCode[]\n  analyses  Analysis[]\n}\n\nmodel ToolSession {\n  id        String   @id @default(cuid())\n  token     String   @unique\n  expiresAt DateTime\n  userId    String\n  user      ToolUser @relation(fields: [userId], references: [id], onDelete: Cascade)\n  createdAt DateTime @default(now())\n}\n\nmodel LoginCode {\n  id        String    @id @default(cuid())\n  email     String\n  code      String\n  expiresAt DateTime\n  usedAt    DateTime?\n  userId    String?\n  user      ToolUser? @relation(fields: [userId], references: [id], onDelete: SetNull)\n  createdAt DateTime  @default(now())\n}\n\nmodel Analysis {\n  id            String    @id @default(cuid())\n  userId        String\n  user          ToolUser  @relation(fields: [userId], references: [id], onDelete: Cascade)\n  fileName      String\n  formType      String\n  overallStatus String\n  summary       String\n  rawText       String\n  aiSource      String\n  sectionsJson  String\n  metadataJson  String\n  createdAt     DateTime  @default(now())\n  findings      Finding[]\n}\n\nmodel Finding {\n  id          String   @id @default(cuid())\n  analysisId  String\n  analysis    Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)\n  section     String\n  severity    String\n  title       String\n  description String\n  pageRef     String?\n  lineRef     String?\n  createdAt   DateTime @default(now())\n}\n"
 }

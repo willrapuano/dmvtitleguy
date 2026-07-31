@@ -10,14 +10,15 @@ export const metadata: Metadata = {
 };
 
 interface OrderConfirmationPageProps {
-  searchParams: {
+  searchParams: Promise<{
     orderId?: string;
     transactionType?: string;
     propertyAddress?: string;
-  };
+  }>;
 }
 
-export default function OrderConfirmationPage({ searchParams }: OrderConfirmationPageProps) {
+export default async function OrderConfirmationPage(props: OrderConfirmationPageProps) {
+  const searchParams = await props.searchParams;
   const orderId = searchParams.orderId || "Pending";
   const transactionType = searchParams.transactionType || "Standard Title Search";
   const propertyAddress = searchParams.propertyAddress;

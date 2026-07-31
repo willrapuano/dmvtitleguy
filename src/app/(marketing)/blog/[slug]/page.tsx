@@ -484,11 +484,12 @@ function DmvTitleServicesFooterLinks() {
   );
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const { post, portableTextBody } = await fetchBlogPostBySlug(params.slug);
   if (!post) return { title: "Not Found" };
 
@@ -530,7 +531,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const { post, portableTextBody, markdownContent } = await fetchBlogPostBySlug(params.slug);
   if (!post) notFound();
 
