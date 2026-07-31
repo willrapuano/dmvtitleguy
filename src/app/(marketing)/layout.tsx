@@ -23,7 +23,7 @@ const ORGANIZATION_SCHEMA = {
   email: "wrapuano@pruitt-title.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "1900 Gallows Rd Suite 230",
+    streetAddress: "1900 Gallows Rd Ste 230",
     addressLocality: "Vienna",
     addressRegion: "VA",
     postalCode: "22182",
@@ -56,7 +56,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "1900 Gallows Rd Suite 230",
+    streetAddress: "1900 Gallows Rd Ste 230",
     addressLocality: "Vienna",
     addressRegion: "VA",
     postalCode: "22182",

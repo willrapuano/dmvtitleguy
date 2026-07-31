@@ -61,7 +61,7 @@ export async function verifyLoginCode(email: string, code: string) {
   const expiresAt = addDays(new Date(), 7);
   await prisma.toolSession.create({ data: { token, userId: user.id, expiresAt } });
 
-  const jar = cookies();
+  const jar = await cookies();
   jar.set(SESSION_COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
@@ -74,7 +74,7 @@ export async function verifyLoginCode(email: string, code: string) {
 }
 
 export async function getCurrentUser() {
-  const jar = cookies();
+  const jar = await cookies();
   const token = jar.get(SESSION_COOKIE)?.value;
   if (!token) return null;
 

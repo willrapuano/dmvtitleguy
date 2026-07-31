@@ -37,7 +37,7 @@ export default function ContactPage() {
               </p>
               <p className="text-gray-300 max-w-[68ch] leading-relaxed">
                 <span className="text-brand-blue font-semibold">Address:</span>{" "}
-                1900 Gallows Rd Suite 230, Vienna, VA 22182
+                1900 Gallows Rd Ste 230, Vienna, VA 22182
               </p>
             </div>
           </div>

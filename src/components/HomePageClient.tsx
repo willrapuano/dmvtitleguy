@@ -582,7 +582,7 @@ export function HomePageClient() {
                 {[
                   { k: "Email", v: <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">wrapuano@pruitt-title.com</a> },
                   { k: "Phone", v: <a href="tel:+17038591467" className="text-brand-blue-deep hover:underline">(703) 859-1467</a> },
-                  { k: "Office", v: <span className="text-brand-muted">1900 Gallows Rd Suite 230, Vienna, VA 22182</span> },
+                  { k: "Office", v: <span className="text-brand-muted">1900 Gallows Rd Ste 230, Vienna, VA 22182</span> },
                 ].map((row) => (
                   <div key={row.k} className="flex gap-4 border-b border-gray-100 py-2.5 last:border-0">
                     <dt className="w-16 shrink-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">

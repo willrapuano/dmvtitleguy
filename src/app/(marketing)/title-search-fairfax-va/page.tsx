@@ -164,7 +164,7 @@ const schema = {
       image: "https://dmvtitleguy.com/logo.png",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "1900 Gallows Rd Suite 230",
+        streetAddress: "1900 Gallows Rd Ste 230",
         addressLocality: "Vienna",
         addressRegion: "VA",
         postalCode: "22182",

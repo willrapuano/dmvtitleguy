@@ -5,7 +5,8 @@ import type { Metadata } from "next";
 import type { SectionStatus } from "@/lib/contract-analyzer/types";
 import { CheckCircle, XCircle, AlertTriangle, Info, ArrowLeft } from "lucide-react";
 
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const params = await props.params;
   return {
     title: "Contract Analysis | DMV Title Guy",
     robots: { index: false, follow: false },
@@ -20,11 +21,12 @@ const severityConfig = {
   info: { icon: Info, color: "text-blue-600", bg: "bg-blue-50 border-blue-200", badge: "bg-blue-100 text-blue-700" },
 };
 
-export default async function AnalysisPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function AnalysisPage(
+  props: {
+    params: Promise<{ id: string }>;
+  }
+) {
+  const params = await props.params;
   const user = await requireApprovedUser();
 
   const analysis = await prisma.analysis.findFirst({

@@ -63,7 +63,7 @@ export default function MarylandClosingCostsPage() {
               telephone: "(703) 859-1467",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "1900 Gallows Rd Suite 230",
+                streetAddress: "1900 Gallows Rd Ste 230",
                 addressLocality: "Vienna",
                 addressRegion: "VA",
                 postalCode: "22182",
