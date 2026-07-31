@@ -31,7 +31,7 @@ const NAV_LINKS: (NavGroup | { label: string; href: string })[] = [
   },
   { label: "Calculators", href: "/calculators" },
   { label: "Classes", href: "/my-classes" },
-  { label: "Blog", href: "/my-blog" },
+  { label: "Blog", href: "/blog" },
 ];
 
 function DropdownMenu({ items, onClose }: { items: { label: string; href: string; desc?: string }[]; onClose: () => void }) {

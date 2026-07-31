@@ -8,6 +8,7 @@
     "postinstall": "prisma generate",
     "start": "next start",
     "lint": "next lint",
+    "verify:migration": "node scripts/verify-domain-migration.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },
   "dependencies": {

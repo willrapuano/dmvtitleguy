@@ -189,6 +189,32 @@
   color: inherit;
 }
 
+.editorial-card img {
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .editorial-card:hover {
+    border-color: rgb(27 111 168 / 0.28);
+    box-shadow: 0 18px 40px -24px rgb(11 29 58 / 0.42);
+  }
+
+  .editorial-card:hover img {
+    transform: scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial-card,
+  .editorial-card img {
+    transition-duration: 0ms;
+  }
+
+  .editorial-card:hover img {
+    transform: none;
+  }
+}
+
 @layer components {
   /* ── Buttons ──
      White on the old #3BAEF7 measured 2.45:1. brand-action (#1B6FA8) carries

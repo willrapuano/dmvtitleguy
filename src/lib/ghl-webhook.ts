@@ -1,11 +1,12 @@
 /**
  * Shared GHL webhook utility for all funnel API routes.
  * POSTs lead data to GoHighLevel webhook with a source tag.
- * If webhook URL is not configured, logs the submission and returns success.
+ * A missing webhook is an operational error: callers must never show a success
+ * state for a lead that was only written to a transient function log.
  */
 
 export async function postToGHLWebhook(data: Record<string, unknown>, source: string): Promise<{ ok: boolean; error?: string }> {
-  const webhookUrl = process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL;
+  const webhookUrl = process.env.GHL_WEBHOOK_URL || process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL;
 
   const payload = {
     ...data,
@@ -13,8 +14,8 @@ export async function postToGHLWebhook(data: Record<string, unknown>, source: st
   };
 
   if (!webhookUrl) {
-    console.log("[GHL Webhook] No webhook URL configured. Logged submission:", JSON.stringify(payload, null, 2));
-    return { ok: true };
+    console.error("[GHL Webhook] No webhook URL configured for source:", source);
+    return { ok: false, error: "Lead delivery is not configured" };
   }
 
   try {

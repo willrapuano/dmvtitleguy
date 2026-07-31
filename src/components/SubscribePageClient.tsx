@@ -20,15 +20,14 @@ export function SubscribePageClient() {
     e.preventDefault();
     setStatus("submitting");
     try {
-      const webhookUrl = process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL;
-      if (webhookUrl) {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, source: "dmvtitleguy-subscribe" }),
-        });
-      }
-      await new Promise((r) => setTimeout(r, 800));
+      const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: "subscribe", location: "subscribe", name, email, website }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || "Subscription failed");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -76,14 +75,20 @@ export function SubscribePageClient() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="sub-website">Website</label>
+                  <input id="sub-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
                 <div>
                   <label htmlFor="sub-name" className="block text-sm font-medium text-brand-dark-text mb-1">
                     Full Name
                   </label>
                   <input
                     id="sub-name"
+                    name="name"
                     type="text"
                     required
+                    autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
@@ -96,8 +101,10 @@ export function SubscribePageClient() {
                   </label>
                   <input
                     id="sub-email"
+                    name="email"
                     type="email"
                     required
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
@@ -112,7 +119,7 @@ export function SubscribePageClient() {
                   {status === "submitting" ? "Subscribing…" : "Subscribe Now"}
                 </button>
                 {status === "error" && (
-                  <p className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please try again.</p>
+                  <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">We couldn&apos;t complete your subscription. Please try again or email wrapuano@pruitt-title.com.</p>
                 )}
               </form>
             )}

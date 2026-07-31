@@ -21,7 +21,7 @@ const QUICK_LINKS = [
   { href: "/foreclosure-title-review",     label: "Foreclosure Title Review" },
   { href: "/why-choose-us",                label: "Why Pruitt Title?" },
   { href: "/my-classes",                   label: "My Classes" },
-  { href: "/my-blog",                      label: "My Blog" },
+  { href: "/blog",                         label: "My Blog" },
   { href: "/subscribe",                    label: "Subscribe" },
   { href: "/calculators",                  label: "Calculators" },
 ];
