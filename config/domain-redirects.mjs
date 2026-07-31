@@ -13,6 +13,7 @@ export const legacyPathMappings = [
   ["/home", "/"],
   ["/looking-to-grow-your-business", "/title-company-for-realtors"],
   ["/what-does-a-title-company-do", "/blog/what-does-a-title-company-do"],
+  ["/blog/title-search-process-explained", "/blog/what-does-a-title-company-do"],
   ["/my-blog", "/blog"],
   ["/title-quote", "/calculators/title-quote"],
   ["/blog/alta-homeowner-policy-dmv", "/blog/alta-homeowner-policy"],

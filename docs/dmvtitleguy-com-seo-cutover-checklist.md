@@ -14,10 +14,12 @@ It prepares the move without making Search Console, analytics, DNS, or productio
 - [ ] Rotate any webhook URL that was ever present in `NEXT_PUBLIC_GHL_WEBHOOK_URL`; configure only `GHL_WEBHOOK_URL` afterward.
 - [ ] Configure `LEAD_PROTECTION_SECRET` in Preview and Production and apply the lead-protection Prisma migration.
 - [ ] Inspect `dmvtitleguy.com` in the Vercel dashboard and record the project-assigned apex and `www` DNS values.
-- [ ] Confirm access to both the `.io` and `.com` Google Search Console properties.
-- [ ] Export the `.io` Performance report for the last 3 and 12 months: queries, pages, countries, and devices.
-- [ ] Record the current indexed-page count, top 20 landing pages, clicks, impressions, CTR, and average position.
-- [ ] Reconcile every indexed or traffic-bearing `.io`/WordPress URL to a direct final replacement or an explicitly approved 404.
+- [x] Confirm owner access to the `.io` Google Search Console property.
+- [ ] Create and verify the `.com` Google Search Console Domain property; it is not yet present for the current service account.
+- [x] Export the `.io` Performance report for the last 3 and 12 months: queries, pages, countries, and devices.
+- [x] Record performance totals and the top 20 landing-page rows in `dmvtitleguy-com-gsc-reconciliation-2026-07-31.md`.
+- [ ] Record the current indexed-page count from the Search Console UI; the Search Analytics API does not expose this total.
+- [x] Reconcile every traffic-bearing `.io` URL in the 12-month Search Console export to a direct final replacement.
 - [ ] Record the production deployment ID immediately before promotion for one-click rollback.
 
 ## Cutover sequence
