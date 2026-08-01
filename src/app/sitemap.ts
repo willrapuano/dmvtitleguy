@@ -1,13 +1,13 @@
 import { MetadataRoute } from "next";
 import { ALL_LOCATIONS, COUNTIES } from "@/data/locations";
-import { PUBLISHED_BLOG_POSTS } from "@/data/blog";
+import { blogPostModifiedDateISO } from "@/data/blog";
 import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
+import { fetchAllBlogPosts } from "@/lib/blog-data";
+import { postCanonicalPath } from "@/lib/post-titles";
 
 const BASE_URL = "https://dmvtitleguy.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /**
    * Hand-listed routes, by priority band. Everything else comes from the generated
    * groups below.
@@ -25,7 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
    */
   const entry = (path: string, priority: number, changeFrequency: "weekly" | "monthly" | "yearly" = "monthly") => ({
     url: path === "/" ? BASE_URL : `${BASE_URL}${path}`,
-    lastModified: now,
     changeFrequency,
     priority,
   });
@@ -70,31 +69,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((loc) => !['title-company-vienna-va', 'title-company-fairfax-va'].includes(loc.slug))
     .map((loc) => ({
       url: `${BASE_URL}/${loc.slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: loc.tier === 1 ? 0.9 : 0.7,
     }));
 
   const countyPages: MetadataRoute.Sitemap = COUNTIES.map((county) => ({
     url: `${BASE_URL}/${county.slug}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = PUBLISHED_BLOG_POSTS.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.dateISO),
-    changeFrequency: "yearly" as const,
-    priority: 0.6,
-  }));
+  const publishedPosts = await fetchAllBlogPosts();
+  const blogPages: MetadataRoute.Sitemap = publishedPosts.map((post) => {
+    const modifiedAt = new Date(blogPostModifiedDateISO(post));
+    const hasValidModifiedAt = !Number.isNaN(modifiedAt.getTime());
+
+    return {
+      url: `${BASE_URL}${postCanonicalPath(post.slug)}`,
+      ...(hasValidModifiedAt ? { lastModified: modifiedAt } : {}),
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
+    };
+  });
 
   const cityCalcPages: MetadataRoute.Sitemap = CITY_CALCULATOR_DATA.map((city) => ({
     url: `${BASE_URL}/${city.slug}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  return [...staticPages, ...locationPages, ...countyPages, ...cityCalcPages, ...blogPages];
+  const pages = [...staticPages, ...locationPages, ...countyPages, ...cityCalcPages, ...blogPages];
+  return Array.from(new Map(pages.map((page) => [page.url, page])).values());
 }

@@ -108,6 +108,27 @@ async function worker() {
       }
       if (faqItemCount > 0) faqRoutes += 1;
 
+      const canonicalUrl = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
+      const articleSchema = articleSchemas[0];
+      if (!canonicalUrl) failures.push(`${route}: missing canonical URL`);
+      if (articleSchema?.mainEntityOfPage?.["@id"] !== canonicalUrl) {
+        failures.push(`${route}: BlogPosting mainEntityOfPage does not match canonical URL`);
+      }
+      if (Date.parse(articleSchema?.dateModified) < Date.parse(articleSchema?.datePublished)) {
+        failures.push(`${route}: BlogPosting dateModified precedes datePublished`);
+      }
+      const decodedVisibleHtml = visibleHtml.replaceAll("&amp;", "&");
+      const shareHrefs = [...decodedVisibleHtml.matchAll(/href="([^"]+(?:facebook\.com\/sharer|twitter\.com\/intent|linkedin\.com\/(?:sharing|shareArticle))[^"]*)"/gi)]
+        .map((match) => match[1]);
+      if (shareHrefs.length !== 3) {
+        failures.push(`${route}: expected three social share links, found ${shareHrefs.length}`);
+      }
+      for (const href of shareHrefs) {
+        const share = new URL(href);
+        const sharedUrl = share.searchParams.get("u") || share.searchParams.get("url");
+        if (sharedUrl !== canonicalUrl) failures.push(`${route}: share link does not use canonical URL`);
+      }
+
       const expectation = expectations.get(route);
       if (expectation && (faqItemCount > 0) !== expectation.faq) {
         failures.push(`${route}: representative FAQ expectation failed`);

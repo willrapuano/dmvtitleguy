@@ -74,12 +74,8 @@ export function WhyChooseUsClient() {
     <>
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
-        {/* Was a CSS background-image, so it skipped the optimizer and every phone
-            pulled the full 1920px JPEG. Still hotlinked from Unsplash, which is a
-            third-party dependency on every page load for what an 80% navy overlay
-            reduces to a texture — worth replacing with an owned asset. */}
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
+          src="/office-bg.jpg"
           alt=""
           aria-hidden="true"
           fill
@@ -102,32 +98,46 @@ export function WhyChooseUsClient() {
             9 Reasons Why Real Estate Professionals Choose Pruitt Title
           </h2>
           <div className="mt-10 space-y-3">
-            {ACCORDION_ITEMS.map((item, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm"
-              >
-                <button
-                  onClick={() => setOpenItem(openItem === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors"
+            {ACCORDION_ITEMS.map((item, i) => {
+              const buttonId = `why-pruitt-trigger-${i}`;
+              const panelId = `why-pruitt-panel-${i}`;
+              const isOpen = openItem === i;
+
+              return (
+                <div
+                  key={item.title}
+                  className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="bg-brand-action text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
-                      {i + 1}
+                  <button
+                    id={buttonId}
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpenItem(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-action"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="bg-brand-action text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
+                        {i + 1}
+                      </span>
+                      <span className="font-bold text-brand-navy">{item.title}</span>
+                    </div>
+                    <span aria-hidden="true" className={`text-brand-blue-deep text-lg transition-transform duration-200 motion-reduce:transition-none flex-shrink-0 ml-4 ${isOpen ? "rotate-180" : ""}`}>
+                      ▾
                     </span>
-                    <span className="font-bold text-brand-navy">{item.title}</span>
-                  </div>
-                  <span className={`text-brand-blue-deep text-lg transition-transform duration-200 flex-shrink-0 ml-4 ${openItem === i ? "rotate-180" : ""}`}>
-                    ▾
-                  </span>
-                </button>
-                {openItem === i && (
-                  <div className="px-6 pb-5 pt-1 border-t border-gray-100">
+                  </button>
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={!isOpen}
+                    className="px-6 pb-5 pt-1 border-t border-gray-100"
+                  >
                     <p className="text-brand-muted leading-relaxed text-sm max-w-[68ch]">{item.body}</p>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -29,6 +29,7 @@ export function LeadCaptureForm({
   const submissionIdRef = useRef<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const idPrefix = `lead-${location.replace(/[^a-z0-9-]/gi, "-").toLowerCase()}`;
+  const Heading = compact ? "h2" : "h3";
 
   useEffect(() => {
     if (status === "success") successRef.current?.focus();
@@ -64,7 +65,7 @@ export function LeadCaptureForm({
         className={`surface-card-elevated text-center focus:outline-none ${compact ? "p-6" : "p-5 sm:p-8"}`}
       >
         <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
-        <h3 className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</h3>
+        <Heading className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</Heading>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Will typically responds within one business day. You can also call directly at{" "}
           <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
@@ -76,7 +77,7 @@ export function LeadCaptureForm({
   return (
     <div className={`surface-card-elevated ${compact ? "p-6" : "p-5 sm:p-8"}`}>
       <div className={compact ? "mb-5" : "mb-6"}>
-        <h3 className={`${compact ? "text-lg font-bold" : "t-h5"} text-brand-navy`}>{title}</h3>
+        <Heading className={`${compact ? "text-lg font-bold" : "t-h5"} text-brand-navy`}>{title}</Heading>
         <p className="text-brand-muted text-sm mt-1 max-w-[68ch] leading-relaxed">{subtitle}</p>
       </div>
 

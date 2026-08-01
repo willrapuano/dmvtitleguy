@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { PageHero } from "@/components/PageHero";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Title Company Services for Realtors | DMV Title Guy",
   description: "DMVTitleGuy provides fast, reliable title services tailored specifically for real estate professionals in Northern Virginia, DC, and Maryland.",
-  alternates: { canonical: "https://dmvtitleguy.com/title-company-for-realtors" },
-};
+  path: "/title-company-for-realtors",
+});
 
 export default function RealtorsPage() {
   return (

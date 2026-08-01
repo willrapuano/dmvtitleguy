@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { FAQSection } from "@/components/FAQSection";
 import { PageHero } from "@/components/PageHero";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Title Insurance Resources | DMV Title Guy",
-  description:
-    "Downloadable title insurance resources, FAQs, and educational guides from Pruitt Title LLC. Serving Washington D.C., Maryland, and Virginia.",
-  alternates: { canonical: "/title-insurance" },
-};
+  description: "Downloadable title insurance resources, FAQs, and educational guides from Pruitt Title LLC. Serving Washington D.C., Maryland, and Virginia.",
+  path: "/title-insurance",
+});
 
 const resources = [
   { title: "Title Insurance FAQ", file: "/guides/title-insurance-faq.pdf" },

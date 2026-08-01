@@ -42,17 +42,12 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "DMV Title Guy | Title & Closing Services — DC, MD & VA",
-    description: defaultDescription,
-    url: siteUrl,
     siteName,
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DMV Title Guy | Title & Closing Services — DC, MD & VA",
-    description: defaultDescription,
   },
   robots: { index: true, follow: true },
 };
