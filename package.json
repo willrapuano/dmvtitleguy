@@ -15,6 +15,10 @@
     "verify:lead-security": "node scripts/verify-lead-security.mjs",
     "verify:blog-normalizer": "node --experimental-strip-types scripts/verify-blog-normalizer.mjs",
     "verify:blog-rendering": "node scripts/verify-blog-rendering.mjs",
+    "verify:blog-publication": "node --experimental-strip-types scripts/verify-blog-publication.mjs",
+    "verify:sitemap-completeness": "node --experimental-strip-types scripts/verify-sitemap-completeness.mjs",
+    "verify:social-metadata": "node scripts/verify-social-metadata.mjs",
+    "verify:dependency-overrides": "node scripts/verify-dependency-overrides.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },
   "engines": {

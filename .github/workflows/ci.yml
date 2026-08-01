@@ -26,5 +26,28 @@ jobs:
       - run: npm ci --workspaces=false
       - run: npm run lint
       - run: npm run typecheck
+      - run: npm run verify:blog-normalizer
+      - run: npm run verify:dependency-overrides
       - run: npm run build
+      - name: Verify built application contracts
+        run: |
+          npm run start -- -p 3101 > /tmp/dmvtitleguy-next.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..60}; do
+            if curl -fsS http://127.0.0.1:3101/ > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          if ! curl -fsS http://127.0.0.1:3101/ > /dev/null; then
+            cat /tmp/dmvtitleguy-next.log
+            exit 1
+          fi
+          TARGET_ORIGIN=http://127.0.0.1:3101 npm run verify:blog-rendering
+          TARGET_ORIGIN=http://127.0.0.1:3101 npm run verify:blog-publication
+          TARGET_ORIGIN=http://127.0.0.1:3101 npm run verify:migration
+          TARGET_ORIGIN=http://127.0.0.1:3101 npm run verify:sitemap-completeness
+          TARGET_ORIGIN=http://127.0.0.1:3101 npm run verify:social-metadata
+          TARGET_ORIGIN=http://127.0.0.1:3101 npm run verify:lead-security
       - run: npm run security:audit

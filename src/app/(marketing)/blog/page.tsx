@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
+import { createPageMetadata } from "@/lib/site-metadata";
 import BlogIndexClient from "@/components/BlogIndexClient";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 
 export const revalidate = 0;
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Blog | DMV Title Guy — Title Insurance & Real Estate Tips",
   description: "Expert insights on title insurance, closing costs, and real estate strategy for DC, Maryland, and Virginia agents, lenders, and buyers. Written by Will Rapuano, Pruitt Title LLC.",
-  alternates: { canonical: "/blog" },
-};
+  path: "/blog",
+});
 
 export default async function BlogIndexPage() {
   const posts = await fetchAllBlogPosts();

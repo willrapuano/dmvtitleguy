@@ -150,3 +150,8 @@ export function postDisplayTitle(slug: string, cmsTitle: string): string {
   // Only a recognised brand tail is stripped — a title may legitimately contain a pipe.
   return cmsTitle.replace(BRAND_SUFFIX, "").trim() || cmsTitle;
 }
+
+/** Canonical route shared by article metadata and the sitemap. */
+export function postCanonicalPath(slug: string): string {
+  return BLOG_SEO_OVERRIDES[slug]?.canonical || `/blog/${slug}`;
+}

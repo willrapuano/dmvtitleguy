@@ -2,6 +2,7 @@ import { sanityClient } from "./sanity-client";
 
 export interface SanityBlogPost {
   _id: string;
+  _updatedAt: string;
   title: string;
   slug: string;
   excerpt: string;
@@ -18,6 +19,7 @@ export interface SanityBlogPost {
 
 const POST_LIST_FIELDS = `
   _id,
+  _updatedAt,
   title,
   "slug": slug.current,
   excerpt,
@@ -36,12 +38,13 @@ const POST_FULL_FIELDS = `
 // Sanity project not yet configured for DMVTitleGuy — return empty until
 // the correct project ID is set (forces fallback to static blog data).
 const SANITY_READY = true;
+const PUBLISHED_POST_FILTER = `_type in ["post","blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()`;
 
 export async function getAllPosts(): Promise<SanityBlogPost[]> {
   if (!SANITY_READY) return [];
   try {
     const posts = await sanityClient.fetch(
-      `*[_type in ["post","blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()] | order(publishedAt desc) {
+      `*[${PUBLISHED_POST_FILTER}] | order(publishedAt desc) {
         ${POST_LIST_FIELDS}
       }`,
       {},
@@ -58,7 +61,7 @@ export async function getPostBySlug(slug: string): Promise<SanityBlogPost | null
   if (!SANITY_READY) return null;
   try {
     const result = await sanityClient.fetch(
-      `*[_type in ["post","blogPost"] && slug.current == $slug && !(_id in path("drafts.**"))][0] {
+      `*[${PUBLISHED_POST_FILTER} && slug.current == $slug][0] {
         ${POST_FULL_FIELDS}
       }`,
       { slug }
@@ -73,7 +76,7 @@ export async function getAllPostSlugs(): Promise<string[]> {
   if (!SANITY_READY) return [];
   try {
     const results = await sanityClient.fetch(
-      `*[_type in ["post","blogPost"] && !(_id in path("drafts.**"))] { "slug": slug.current }`
+      `*[${PUBLISHED_POST_FILTER}] { "slug": slug.current }`
     );
     return results.map((r: { slug: string }) => r.slug);
   } catch {

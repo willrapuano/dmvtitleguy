@@ -3,6 +3,8 @@ export interface BlogPost {
   title: string;
   date: string;
   dateISO: string;
+  /** Real source modification timestamp when the CMS provides one. */
+  updatedAtISO?: string;
   excerpt: string;
   category: string;
   readTime: string;
@@ -304,8 +306,26 @@ export const BLOG_POSTS: BlogPost[] = [
 
 const TODAY_ISO = new Date().toISOString().slice(0, 10);
 
+export function isBlogPostPublished(
+  post: Pick<BlogPost, "dateISO">,
+  todayISO = TODAY_ISO,
+): boolean {
+  return post.dateISO <= todayISO;
+}
+
+export function blogPostModifiedDateISO(
+  post: Pick<BlogPost, "dateISO" | "updatedAtISO">,
+): string {
+  const publishedAt = Date.parse(post.dateISO);
+  const updatedAt = post.updatedAtISO ? Date.parse(post.updatedAtISO) : Number.NaN;
+
+  return Number.isFinite(updatedAt) && updatedAt >= publishedAt
+    ? post.updatedAtISO!
+    : post.dateISO;
+}
+
 export const PUBLISHED_BLOG_POSTS: BlogPost[] = BLOG_POSTS
-  .filter((post) => post.dateISO <= TODAY_ISO)
+  .filter((post) => isBlogPostPublished(post))
   .sort((a, b) => b.dateISO.localeCompare(a.dateISO));
 
 export function getBlogPost(slug: string): BlogPost | undefined {

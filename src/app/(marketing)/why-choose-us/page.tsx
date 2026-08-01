@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import { WhyChooseUsClient } from "@/components/WhyChooseUsClient";
+import { createPageMetadata } from "@/lib/site-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "pruitt title Reviews, Strengths & DMV Closing Services",
   description:
     "Pruitt Title helps DMV agents, lenders, and buyers close smoothly, with local title expertise since 2007. See why partners choose us today online.",
-  alternates: { canonical: "https://dmvtitleguy.com/why-choose-us" },
-};
+  path: "/why-choose-us",
+});
 
 const WHY_CHOOSE_FAQ_SCHEMA = {
   "@context": "https://schema.org",

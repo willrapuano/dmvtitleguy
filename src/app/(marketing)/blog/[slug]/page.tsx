@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { BLOG_SEO_OVERRIDES, postDisplayTitle } from "@/lib/post-titles";
+import { BLOG_SEO_OVERRIDES, postCanonicalPath, postDisplayTitle } from "@/lib/post-titles";
 import {
   resolvePostImage,
   resolvePostImageAlt,
@@ -18,6 +18,7 @@ import { Table } from "@/components/portable-text/Table";
 import { Accordion } from "@/components/portable-text/Accordion";
 import { FAQSection } from "@/components/FAQSection";
 import { BLOG_FAQ_OVERRIDES } from "@/data/blog-faq-overrides";
+import { blogPostModifiedDateISO } from "@/data/blog";
 import {
   blogFAQSchemaText,
   blogFAQQuestionKey,
@@ -180,11 +181,7 @@ export async function generateMetadata(
     stripPortableText(portableTextBody).slice(0, 155) ||
     "DMV Title Guy shares practical guidance on title, closing, and real estate transactions across DC, Maryland, and Virginia.";
 
-  const canonical =
-    seoOverride?.canonical ||
-    (post.slug === "title-search-vienna-va"
-      ? "/title-search-vienna-va"
-      : `/blog/${post.slug}`);
+  const canonical = postCanonicalPath(post.slug);
 
   return {
     title,
@@ -239,11 +236,9 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   );
   const toc = hasPortableBody ? normalizedPortable.toc : extractTOC(bodyContent);
 
-  const isViennaTitleCompanyPost = post.slug === "title-search-vienna-va";
   const showDmvTitleServices = post.slug === DMV_TITLE_SERVICES_POST_SLUG;
-  const canonicalPath = isViennaTitleCompanyPost
-    ? "/title-search-vienna-va"
-    : `/blog/${post.slug}`;
+  const canonicalPath = postCanonicalPath(post.slug);
+  const isViennaTitleCompanyPost = canonicalPath === "/title-search-vienna-va";
   const canonicalUrl = `https://dmvtitleguy.com${canonicalPath}`;
 
   /**
@@ -281,7 +276,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     description: articleSchemaDesc,
     image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.com${heroImage}`,
     datePublished: post.dateISO,
-    dateModified: post.dateISO,
+    dateModified: blogPostModifiedDateISO(post),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": canonicalUrl,

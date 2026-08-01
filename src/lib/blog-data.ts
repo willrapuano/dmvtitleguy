@@ -49,6 +49,7 @@ function mapSanityPost(p: SanityBlogPost): BlogPost {
       day: "numeric",
     }),
     dateISO: p.publishedAt?.slice(0, 10) ?? "",
+    updatedAtISO: p._updatedAt || undefined,
     excerpt: p.excerpt ?? "",
     category: normalizeCategory(p.category, p.slug),
     readTime: p.readTime ?? "5 min read",
@@ -100,7 +101,7 @@ export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
     category: normalizeCategory(post.category, post.slug),
   }));
 
-  const markdownPosts = BLOG_POSTS.filter((post) => getMarkdownBlogSlugs().includes(post.slug)).map((post) => ({
+  const markdownPosts = PUBLISHED_BLOG_POSTS.filter((post) => getMarkdownBlogSlugs().includes(post.slug)).map((post) => ({
     ...post,
     category: normalizeCategory(post.category, post.slug),
   }));
@@ -129,7 +130,7 @@ export async function fetchBlogPostBySlug(slug: string): Promise<{
     };
   }
 
-  const post = BLOG_POSTS.find((p) => p.slug === slug) ?? null;
+  const post = PUBLISHED_BLOG_POSTS.find((p) => p.slug === slug) ?? null;
 
   return {
     post: post ? { ...post, category: normalizeCategory(post.category, post.slug) } : null,
@@ -141,7 +142,7 @@ export async function fetchBlogPostBySlug(slug: string): Promise<{
 /** Fetch all slugs — merge Sanity and static/markdown sources */
 export async function fetchAllBlogSlugs(): Promise<string[]> {
   const sanitySlugs = await getAllPostSlugs();
-  const staticSlugs = BLOG_POSTS.map((p) => p.slug);
+  const staticSlugs = PUBLISHED_BLOG_POSTS.map((p) => p.slug);
   return Array.from(new Set([...sanitySlugs, ...staticSlugs]));
 }
 
