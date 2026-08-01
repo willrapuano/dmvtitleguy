@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { BLOG_POSTS, blogPostModifiedDateISO, isBlogPostPublished } from "../src/data/blog.ts";
+import { fetchWithRetry } from "./lib/fetch-with-retry.mjs";
 
 const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
 const projectId = (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "4s0dloxi").trim();
@@ -20,7 +21,7 @@ assert.equal(
   "dateModified must not precede datePublished",
 );
 
-const sanityResponse = await fetch(sanityUrl, { signal: AbortSignal.timeout(30_000) });
+const sanityResponse = await fetchWithRetry(sanityUrl);
 assert.equal(sanityResponse.status, 200, `Sanity future inventory returned HTTP ${sanityResponse.status}`);
 const sanityPayload = await sanityResponse.json();
 const todayISO = new Date().toISOString().slice(0, 10);

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { PUBLISHED_BLOG_POSTS } from "../src/data/blog.ts";
 import { postCanonicalPath } from "../src/lib/post-titles.ts";
+import { fetchWithRetry } from "./lib/fetch-with-retry.mjs";
 
 const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
 const canonicalOrigin = "https://dmvtitleguy.com";
@@ -13,7 +14,7 @@ sanityUrl.searchParams.set("query", query);
 
 const [sitemapResponse, sanityResponse] = await Promise.all([
   fetch(`${targetOrigin}/sitemap.xml`, { signal: AbortSignal.timeout(30_000) }),
-  fetch(sanityUrl, { signal: AbortSignal.timeout(30_000) }),
+  fetchWithRetry(sanityUrl),
 ]);
 
 assert.equal(sitemapResponse.status, 200, `sitemap.xml returned HTTP ${sitemapResponse.status}`);
