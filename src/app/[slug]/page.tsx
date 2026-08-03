@@ -619,8 +619,15 @@ function BethesdaExpansionSections() {
 }
 
 // ─── Static Params ─────────────────────────────────────────────────────────────
+const DEDICATED_LOCATION_SLUGS = new Set([
+  "title-search-fairfax-va",
+  "title-search-vienna-va",
+]);
+
 export async function generateStaticParams() {
-  const locationSlugs = ALL_LOCATIONS.map((l) => ({ slug: l.slug }));
+  const locationSlugs = ALL_LOCATIONS
+    .filter((location) => !DEDICATED_LOCATION_SLUGS.has(location.slug))
+    .map((location) => ({ slug: location.slug }));
   const countySlugs = COUNTIES.map((c) => ({ slug: c.slug }));
   const cityCalcSlugs = CITY_CALCULATOR_DATA.map((c) => ({ slug: c.slug }));
   return [...locationSlugs, ...countySlugs, ...cityCalcSlugs];
@@ -905,11 +912,7 @@ function LocationPage({ location }: { location: Location }) {
             </div>
           </div>
           <div>
-            {slug === "title-company-herndon-va" ? (
-              <CompactTitleQuote />
-            ) : (
-              <LeadCaptureForm compact location={`location-${slug}`} />
-            )}
+            <CompactTitleQuote locationName={locationName} placement={`location-${slug}-hero`} />
           </div>
         </div>
       </section>
@@ -1281,7 +1284,7 @@ function CountyPage({ county }: { county: County }) {
             </div>
           </div>
           <div>
-            <LeadCaptureForm compact location={`county-${slug}`} />
+            <CompactTitleQuote locationName={fullName} placement={`county-${slug}-hero`} />
           </div>
         </div>
       </section>

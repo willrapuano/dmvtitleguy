@@ -14,6 +14,7 @@ import {
   Shield,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
+import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 
 export const metadata: Metadata = {
   title: "title search vienna va for Closings | Pruitt Title",
@@ -177,26 +178,29 @@ export default function TitleSearchViennaPage() {
       <section
         className="page-hero"
       >
-        <div className="container-xl">
-          <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-200">Title Search Vienna VA</span>
-          </nav>
-          <h1 className="t-h1 text-white mb-4">
-            Title Search Vienna VA
-          </h1>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-            Get a practical title search for a Vienna property before you buy,
-            bid, refinance, or close. We identify liens, judgments, easements,
-            ownership issues, and title defects early.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <TitleSearchOrderButton />
-            <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Start Contract Intake
-            </Link>
+        <div className="container-xl grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <nav className="text-xs text-gray-400 mb-4">
+              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <span className="mx-2">/</span>
+              <span className="text-gray-200">Title Search Vienna VA</span>
+            </nav>
+            <h1 className="t-h1 text-white mb-4">
+              Title Search Vienna VA
+            </h1>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl">
+              Get a practical title search for a Vienna property before you buy,
+              bid, refinance, or close. We identify liens, judgments, easements,
+              ownership issues, and title defects early.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <TitleSearchOrderButton />
+              <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
+                Start Contract Intake
+              </Link>
+            </div>
           </div>
+          <CompactTitleQuote locationName="Vienna, VA" placement="title-search-vienna-va-hero" />
         </div>
       </section>
 
