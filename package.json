@@ -54,16 +54,16 @@
     "sanity": "5.29.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^26",
     "@types/pdf-parse": "^1.1.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.0.1",
-    "eslint": "^9.39.5",
+    "eslint": "^10.8.0",
     "eslint-config-next": "16.2.12",
     "postcss": "8.5.25",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7"
   },
   "overrides": {
     "adm-zip": "0.6.0",
