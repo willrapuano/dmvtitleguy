@@ -1,8 +1,9 @@
 export const canonicalOrigin = "https://dmvtitleguy.com";
 
 export const redirectingHosts = [
-  "dmvtitleguy.io",
-  "www.dmvtitleguy.io",
+  // Keep the established .io site directly reachable. Quote interactions and
+  // other visits must not navigate customers away from DMVTitleGuy.io while
+  // the separate .com cutover is incomplete.
   "www.dmvtitleguy.com",
 ];
 
