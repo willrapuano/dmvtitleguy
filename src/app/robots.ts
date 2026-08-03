@@ -20,6 +20,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://dmvtitleguy.com/sitemap.xml",
+    sitemap: "https://dmvtitleguy.io/sitemap.xml",
   };
 }

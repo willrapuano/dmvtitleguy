@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service | DMV Title Guy",
   robots: { index: false },
-  alternates: { canonical: "https://dmvtitleguy.com/terms" },
+  alternates: { canonical: "https://dmvtitleguy.io/terms" },
 };
 export default function TermsPage() {
   return (

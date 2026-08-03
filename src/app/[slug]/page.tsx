@@ -180,19 +180,19 @@ function HerndonStructuredData() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": "https://dmvtitleguy.com/title-company-herndon-va#breadcrumb",
+        "@id": "https://dmvtitleguy.io/title-company-herndon-va#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://dmvtitleguy.com/",
+            item: "https://dmvtitleguy.io/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Herndon VA Title Company",
-            item: "https://dmvtitleguy.com/title-company-herndon-va",
+            item: "https://dmvtitleguy.io/title-company-herndon-va",
           },
         ],
       },
@@ -214,12 +214,12 @@ function TysonsStructuredData() {
     "@graph": [
       {
         "@type": ["LocalBusiness", "LegalService"],
-        "@id": "https://dmvtitleguy.com/title-company-tysons-va#business",
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#business",
         name: "DMV Title Guy — Pruitt Title LLC — Tysons VA Title Company",
-        url: "https://dmvtitleguy.com/title-company-tysons-va",
+        url: "https://dmvtitleguy.io/title-company-tysons-va",
         telephone: "(703) 859-1467",
         email: "wrapuano@pruitt-title.com",
-        image: "https://dmvtitleguy.com/logo.png",
+        image: "https://dmvtitleguy.io/logo.png",
         address: {
           "@type": "PostalAddress",
           streetAddress: "1900 Gallows Rd Ste 230",
@@ -237,25 +237,25 @@ function TysonsStructuredData() {
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://dmvtitleguy.com/title-company-tysons-va#breadcrumb",
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://dmvtitleguy.com/",
+            item: "https://dmvtitleguy.io/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Tysons VA Title Company",
-            item: "https://dmvtitleguy.com/title-company-tysons-va",
+            item: "https://dmvtitleguy.io/title-company-tysons-va",
           },
         ],
       },
       {
         "@type": "FAQPage",
-        "@id": "https://dmvtitleguy.com/title-company-tysons-va#faq",
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#faq",
         mainEntity: TYSONS_FAQS.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -393,7 +393,7 @@ function BethesdaStructuredData() {
     "@graph": [
       {
         "@type": "FAQPage",
-        "@id": "https://dmvtitleguy.com/title-company-bethesda-md#faq",
+        "@id": "https://dmvtitleguy.io/title-company-bethesda-md#faq",
         mainEntity: BETHESDA_FAQS.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -405,19 +405,19 @@ function BethesdaStructuredData() {
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://dmvtitleguy.com/title-company-bethesda-md#breadcrumb",
+        "@id": "https://dmvtitleguy.io/title-company-bethesda-md#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://dmvtitleguy.com/",
+            item: "https://dmvtitleguy.io/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Bethesda MD Title Company",
-            item: "https://dmvtitleguy.com/title-company-bethesda-md",
+            item: "https://dmvtitleguy.io/title-company-bethesda-md",
           },
         ],
       },
@@ -653,7 +653,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       openGraph: {
         title: `Closing Costs in ${cityLabel} — Free Calculator`,
         description: `Estimate buyer and seller closing costs for ${cityLabel} real estate. Includes local ${cityCalcData.county} tax rates.`,
-        url: `https://dmvtitleguy.com/${cityCalcData.slug}`,
+        url: `https://dmvtitleguy.io/${cityCalcData.slug}`,
         type: "website",
       },
     };
@@ -719,10 +719,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Professional title insurance and closing services in Springfield, VA. Residential, commercial & investor closings. Since 2007.",
       },
       "title-company-falls-church-va": {
-        title: "Title Company in Falls Church, VA | Fast Local Settlement Services",
-        description: "Falls Church title company for insurance, escrow, and closings. Pruitt Title serves City of Falls Church and nearby Fairfax County. Request a fast title quote today.",
-        ogTitle: "Title Company in Falls Church, VA | Fast Local Settlement Services",
-        ogDescription: "Falls Church title company for insurance, escrow, and closings. Pruitt Title serves City of Falls Church and nearby Fairfax County. Request a fast title quote today.",
+        title: "Falls Church, VA Title Company | DMV Title Guy",
+        description: "Need a Falls Church title company? Get a free closing cost estimate plus local title, escrow, and settlement support from DMV Title Guy.",
+        ogTitle: "Falls Church, VA Title Company | DMV Title Guy",
+        ogDescription: "Get a free Falls Church closing cost estimate plus local title, escrow, and settlement support from DMV Title Guy.",
       },
       "title-company-stafford-va": {
         title: "Stafford VA Title and Escrow Closings | Pruitt Title",
@@ -824,6 +824,7 @@ function LocationPage({ location }: { location: Location }) {
   const locationName = getLocationDisplayName(location);
   const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
   const isTysons = slug === "title-company-tysons-va";
+  const isFallsChurch = slug === "title-company-falls-church-va";
   const hasCheckoutCta = isTysons || slug === "title-company-herndon-va" || isNeighborhood;
   const calculatorLinkLabel =
     state === "MD"
@@ -887,6 +888,8 @@ function LocationPage({ location }: { location: Location }) {
                 ? "Tysons VA Title Closings & Settlement Services"
                 : slug === "title-company-bethesda-md"
                 ? "Bethesda-Chevy Chase MD Title Company & Escrow Services"
+                : isFallsChurch
+                ? "Falls Church, VA Title & Settlement Services"
                 : isNeighborhood
                 ? `Title Company in ${locationName}`
                 : "Reliable Title & Settlement Services"}
@@ -894,6 +897,8 @@ function LocationPage({ location }: { location: Location }) {
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
               {slug === "title-company-herndon-va"
                 ? "Need title closings in Herndon? Pruitt Title handles Herndon title services, title insurance, escrow, settlement, and online title search orders for buyers, sellers, agents, lenders, and investors across Fairfax County."
+                : isFallsChurch
+                ? "Buying, refinancing, or closing in Falls Church? DMV Title Guy handles the title search, title insurance, escrow, and settlement for properties in the City of Falls Church and nearby Fairfax County."
                 : isNeighborhood && parentLocation
                 ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
                 : isSecondary

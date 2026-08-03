@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Commercial property title search for DMV buyers, lenders, and investors. Pruitt Title reviews liens, easements, entities, and risks. Call today.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/commercial-property-title-search",
+    canonical: "https://dmvtitleguy.io/commercial-property-title-search",
   },
 };
 
@@ -137,7 +137,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/commercial-property-title-search#service",
+      "@id": "https://dmvtitleguy.io/commercial-property-title-search#service",
       name: "Commercial Property Title Search",
       serviceType: "Commercial Property Title Search",
       provider: {

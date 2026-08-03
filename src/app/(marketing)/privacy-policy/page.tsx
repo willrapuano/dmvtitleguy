@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | DMV Title Guy",
   robots: { index: false },
-  alternates: { canonical: "https://dmvtitleguy.com/privacy-policy" },
+  alternates: { canonical: "https://dmvtitleguy.io/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {
@@ -20,8 +20,8 @@ export default function PrivacyPolicyPage() {
             DMV Title Guy (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting
             your privacy. This Privacy Policy explains how we collect, use, disclose,
             and safeguard your information when you visit our website{" "}
-            <a href="https://dmvtitleguy.com" className="text-brand-blue-deep hover:underline">
-              dmvtitleguy.com
+            <a href="https://dmvtitleguy.io" className="text-brand-blue-deep hover:underline">
+              dmvtitleguy.io
             </a>{" "}
             or use our services.
           </p>
@@ -148,8 +148,8 @@ export default function PrivacyPolicyPage() {
             </p>
             <p>
               Website:{" "}
-              <a href="https://dmvtitleguy.com" className="text-brand-blue-deep hover:underline">
-                dmvtitleguy.com
+              <a href="https://dmvtitleguy.io" className="text-brand-blue-deep hover:underline">
+                dmvtitleguy.io
               </a>
             </p>
           </div>

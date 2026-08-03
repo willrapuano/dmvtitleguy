@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "Foreclosure title review for buyers who need liens, HUD issues, judgments, defects, and title risks reviewed before closing in DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/foreclosure-title-review",
+    canonical: "https://dmvtitleguy.io/foreclosure-title-review",
   },
 };
 
@@ -155,7 +155,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/foreclosure-title-review#service",
+      "@id": "https://dmvtitleguy.io/foreclosure-title-review#service",
       name: "Foreclosure Title Review",
       serviceType: "Foreclosure Title Review",
       provider: {

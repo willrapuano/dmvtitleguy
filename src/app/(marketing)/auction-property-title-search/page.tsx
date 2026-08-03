@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description:
     "Auction property title search for buyers who need liens, judgments, taxes, defects, and title risks reviewed fast across DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/auction-property-title-search",
+    canonical: "https://dmvtitleguy.io/auction-property-title-search",
   },
 };
 
@@ -156,7 +156,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/auction-property-title-search#service",
+      "@id": "https://dmvtitleguy.io/auction-property-title-search#service",
       name: "Auction Property Title Search",
       serviceType: "Auction Property Title Search",
       provider: {

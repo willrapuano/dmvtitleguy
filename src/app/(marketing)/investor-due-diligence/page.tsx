@@ -7,7 +7,7 @@ import { ServiceSchema } from "@/components/SchemaMarkup";
 export const metadata: Metadata = {
   title: "Investor Due Diligence Title Services | DMV Title Guy",
   description: "Fast, accurate title searches and due diligence for real estate investors across DC, Maryland & Virginia. Submit property details to get started.",
-  alternates: { canonical: "https://dmvtitleguy.com/investor-due-diligence" },
+  alternates: { canonical: "https://dmvtitleguy.io/investor-due-diligence" },
 };
 
 const howItWorks = [

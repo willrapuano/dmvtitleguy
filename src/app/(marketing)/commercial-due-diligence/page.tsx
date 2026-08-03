@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Commercial real estate due diligence title services for buyers, investors, lenders, and operators across DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/commercial-due-diligence",
+    canonical: "https://dmvtitleguy.io/commercial-due-diligence",
   },
 };
 
@@ -139,7 +139,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/commercial-due-diligence#service",
+      "@id": "https://dmvtitleguy.io/commercial-due-diligence#service",
       name: "Commercial Due Diligence Title Services",
       serviceType: "Commercial Real Estate Due Diligence Title Services",
       provider: {

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Order Confirmation | DMV Title Guy",
   description: "Confirmation for your DMVTitleGuy title search order.",
   robots: { index: false, follow: false },
-  alternates: { canonical: "https://dmvtitleguy.com/order-confirmation" },
+  alternates: { canonical: "https://dmvtitleguy.io/order-confirmation" },
 };
 
 interface OrderConfirmationPageProps {

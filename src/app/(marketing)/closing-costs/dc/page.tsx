@@ -52,7 +52,7 @@ export default function DCClosingCostsPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Washington DC Closing Cost Guide",
-            url: "https://dmvtitleguy.com/closing-costs/dc",
+            url: "https://dmvtitleguy.io/closing-costs/dc",
             description: "Complete guide to DC closing costs for buyers and sellers. Learn about recordation tax, transfer tax, title insurance, and what to expect at settlement.",
             provider: {
               "@type": "LocalBusiness",
@@ -264,7 +264,7 @@ export default function DCClosingCostsPage() {
             <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
-            <Link href="/title-company/falls-church-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-falls-church-va" className="text-brand-blue-deep hover:underline">
               Falls Church Title Services →
             </Link>
             <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">

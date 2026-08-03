@@ -8,7 +8,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 export const metadata: Metadata = {
   title: "Title Company in Falls Church, VA | Local Settlement Services",
   description: "Falls Church title company for insurance, escrow, and closings. Pruitt Title serves City of Falls Church and nearby Fairfax County. Request a fast quote today.",
-  alternates: { canonical: "/title-company/falls-church-va" },
+  alternates: { canonical: "/title-company-falls-church-va" },
 };
 
 const faqs = [

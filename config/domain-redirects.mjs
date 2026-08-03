@@ -1,9 +1,8 @@
-export const canonicalOrigin = "https://dmvtitleguy.com";
+export const canonicalOrigin = "https://dmvtitleguy.io";
 
 export const redirectingHosts = [
-  // Keep the established .io site directly reachable. Quote interactions and
-  // other visits must not navigate customers away from DMVTitleGuy.io while
-  // the separate .com cutover is incomplete.
+  // The .io site is canonical. Send the legacy www.com host to the matching
+  // .io path without ever moving a customer away from DMVTitleGuy.io.
   "www.dmvtitleguy.com",
 ];
 
@@ -39,6 +38,7 @@ export const legacyPathMappings = [
   ["/blog/understanding-title-commitments-agents", "/blog/how-to-read-a-title-commitment"],
   ["/blog/title-insurance-first-time-buyers-dmv", "/blog/first-time-homebuyer-guide-dmv"],
   ["/title-company/herndon", "/title-company-herndon-va"],
+  ["/title-company/falls-church-va", "/title-company-falls-church-va"],
   ["/closing-cost-calculator-maryland", "/maryland-closing-cost-calculator"],
   ["/title-company-vienna-va", "/title-search-vienna-va"],
   ["/title-company-fairfax-va", "/title-search-fairfax-va"],
