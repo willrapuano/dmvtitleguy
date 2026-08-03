@@ -209,18 +209,14 @@ export function regionalFeeParagraph(county: string, medianHomePrice?: number): 
   const usd = (n: number) =>
     n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
   const example = medianHomePrice
-    ? ` On a ${usd(medianHomePrice)} sale the two together come to ` +
+    ? ` On a ${usd(medianHomePrice)} sale, that comes to ` +
       `${usd(Math.round(medianHomePrice * REGIONAL_TRANSPORTATION_FEE_RATE))}.`
     : "";
   return (
-    `A sale in ${withArticle(county)} carries two separate regional fees, each $0.10 per $100: the ` +
-    `regional WMATA capital fee under Va. Code § 58.1-802.3, which applies because this is a ` +
-    `Northern Virginia Transportation Authority member, and the regional congestion relief fee ` +
-    `under § 58.1-802.4, which applies because this is Planning District 8. Both statutes place ` +
-    `the fee on the grantor, though in each case the parties may agree the buyer pays part of it, ` +
-    `so the default is $0.20 per $100 of the sale price on the seller.${example} Purchase closings ` +
-    `only: a refinance records a deed of trust rather than a conveyance, so neither fee nor the ` +
-    `grantor tax applies to one.`
+    `For most sales in ${withArticle(county)}, the seller pays $0.20 per $100 in Northern ` +
+    `Virginia transportation fees.${example} The purchase contract can divide that cost ` +
+    `differently, and refinances do not carry the fee. See Va. Code §§ 58.1-802.3 and ` +
+    `58.1-802.4.`
   );
 }
 
@@ -238,12 +234,10 @@ export function regionalFeeParagraph(county: string, medianHomePrice?: number): 
 export function recordationCaveat(state: StateCode, county: string): string | undefined {
   if (state !== "VA") return undefined;
   return (
-    `Recordation tax is Virginia's state rate of $0.25 per $100 under Va. Code § 58.1-801, paid ` +
-    `by the buyer. Under § 58.1-814 a locality that adopts an ordinance may add one-third of ` +
-    `that ($0.0833 per $100), also charged to the buyer — so no Virginia locality levies $0.10 ` +
-    `as recordation tax. Whether ${withArticle(county)} has adopted that ordinance is not ` +
-    `reflected in these figures; confirm with the Circuit Court Clerk before relying on a ` +
-    `recordation number.`
+    `Buyers have a separate Virginia recordation tax of $0.25 per $100. ${county} can add a ` +
+    `small local charge only if it has adopted an ordinance, so ask your title company or the ` +
+    `Circuit Court Clerk to confirm the final amount for your property. See Va. Code §§ ` +
+    `58.1-801 and 58.1-814.`
   );
 }
 
@@ -330,7 +324,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote:
-      "Fairfax County adds no transfer tax of its own, and deeds for the towns inside it — Vienna, Herndon, Clifton — record with the Fairfax Circuit Court Clerk rather than with the town.",
+      "For properties in Fairfax County, the deed is recorded with the Fairfax Circuit Court Clerk, not with an individual town. Fairfax County does not add a transfer tax of its own.",
     intro: "Estimate closing costs for homes in Fairfax, VA. Fairfax County is the largest jurisdiction in Northern Virginia and its median home price is around $650,000. The tax schedule is Virginia's standard one — no county transfer tax on top.",
     localTaxExplainer: "Fairfax County is the largest recording jurisdiction in Northern Virginia, but that volume shows up in turnaround time rather than in the tax schedule: the rates are Virginia's standard ones. On a $650,000 Fairfax sale, the buyer's state recordation tax runs about $1,625 and the seller's grantor tax about $650, before title insurance, settlement fees and the clerk's per-page recording charges.",
     costRangeText: "2.5% to 5% for buyers, 1% to 3% for sellers",
