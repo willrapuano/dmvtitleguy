@@ -111,12 +111,12 @@ try {
   const response = await fetchManual(`${targetOrigin}/robots.txt`);
   const text = await response.text();
   record(
-    "robots points to .com sitemap",
+    "robots points to canonical sitemap",
     response.status === 200 && text.includes(`Sitemap: ${canonicalOrigin}/sitemap.xml`),
     `HTTP ${response.status}`
   );
 } catch (error) {
-  record("robots points to .com sitemap", false, error.message);
+  record("robots points to canonical sitemap", false, error.message);
 }
 
 try {
@@ -128,7 +128,7 @@ try {
     (url) => !url.startsWith(`${canonicalOrigin}/`) && url !== canonicalOrigin
   );
   record(
-    "sitemap URLs are unique and .com-only",
+    "sitemap URLs are unique and canonical-host-only",
     response.status === 200 && urls.length > 0 && uniqueUrls.size === urls.length && foreignUrls.length === 0,
     `${urls.length} URLs, ${uniqueUrls.size} unique`
   );

@@ -239,7 +239,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   const showDmvTitleServices = post.slug === DMV_TITLE_SERVICES_POST_SLUG;
   const canonicalPath = postCanonicalPath(post.slug);
   const isViennaTitleCompanyPost = canonicalPath === "/title-search-vienna-va";
-  const canonicalUrl = `https://dmvtitleguy.com${canonicalPath}`;
+  const canonicalUrl = `https://dmvtitleguy.io${canonicalPath}`;
 
   /**
    * What this post is called on the page. Retitled posts override the Sanity
@@ -274,7 +274,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     "@type": "BlogPosting",
     headline: displayTitle,
     description: articleSchemaDesc,
-    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.com${heroImage}`,
+    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.io${heroImage}`,
     datePublished: post.dateISO,
     dateModified: blogPostModifiedDateISO(post),
     mainEntityOfPage: {
@@ -285,8 +285,8 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
       "@type": "Person",
       name: "Will Rapuano",
       jobTitle: "Business Development, Pruitt Title LLC",
-      url: "https://dmvtitleguy.com",
-      image: "https://dmvtitleguy.com/will-rapuano-headshot.jpg",
+      url: "https://dmvtitleguy.io",
+      image: "https://dmvtitleguy.io/will-rapuano-headshot.jpg",
       sameAs: [
         "https://www.linkedin.com/in/will-rapuano-86914b130",
         "https://www.instagram.com/dmvtitleguy",
@@ -296,10 +296,10 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     publisher: {
       "@type": "Organization",
       name: "DMV Title Guy — Pruitt Title LLC",
-      url: "https://dmvtitleguy.com",
+      url: "https://dmvtitleguy.io",
       logo: {
         "@type": "ImageObject",
-        url: "https://dmvtitleguy.com/logo.png",
+        url: "https://dmvtitleguy.io/logo.png",
       },
     },
   };
@@ -324,13 +324,13 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://dmvtitleguy.com/",
+        item: "https://dmvtitleguy.io/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://dmvtitleguy.com/blog",
+        item: "https://dmvtitleguy.io/blog",
       },
       {
         "@type": "ListItem",

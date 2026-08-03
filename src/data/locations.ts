@@ -87,7 +87,11 @@ export const TIER2_LOCATIONS: Location[] = [
       { question: "Does title insurance cover boundary disputes in Virginia?", answer: "Standard title insurance in Virginia may cover some boundary and survey issues, but it depends on the policy. An enhanced owner's policy offers broader coverage than a standard policy." },
     ] },
   { city: "Annandale",        slug: "title-company-annandale-va",        state: "VA", county: "Fairfax County",          tier: 2 },
-  { city: "Falls Church",     slug: "title-company-falls-church-va",     state: "VA", county: "Falls Church / Fairfax",  tier: 2 },
+  { city: "Falls Church",     slug: "title-company-falls-church-va",     state: "VA", county: "Falls Church / Fairfax",  tier: 2, faqs: [
+      { question: "Do you serve both the City of Falls Church and nearby Fairfax County?", answer: "Yes. DMV Title Guy supports purchase, refinance, and other real estate closings for properties in the independent City of Falls Church and nearby communities with Falls Church mailing addresses in Fairfax County. The title search and recording details are matched to the property's actual jurisdiction." },
+      { question: "Can I get a Falls Church closing cost estimate online?", answer: "Yes. Use the free quote calculator on this page for an initial estimate. The title team can then confirm the property, transaction type, lender requirements, and jurisdiction before you rely on the final figures." },
+      { question: "What does DMV Title Guy handle for a Falls Church closing?", answer: "The team coordinates the title search, title insurance, escrow, settlement documents, signing, funding, recording, and post-closing policy work for purchases and refinances." },
+    ] },
   { city: "Sterling",         slug: "title-company-sterling-va",         state: "VA", county: "Loudoun County",          tier: 2 },
   { city: "South Riding",     slug: "title-company-south-riding-va",     state: "VA", county: "Loudoun County",          tier: 2 },
   { city: "Brambleton",       slug: "title-company-brambleton-va",       state: "VA", county: "Loudoun County",          tier: 2 },

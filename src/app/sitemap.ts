@@ -5,7 +5,7 @@ import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 import { postCanonicalPath } from "@/lib/post-titles";
 
-const BASE_URL = "https://dmvtitleguy.com";
+const BASE_URL = "https://dmvtitleguy.io";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /**
@@ -49,7 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/closing-costs/maryland", "/closing-costs/dc", "/closing-costs/dc-who-pays",
       "/closing-costs/buyer-maryland", "/closing-costs/seller-virginia",
       "/title-company/alexandria-va", "/title-company/arlington-va", "/title-company/fairfax-va",
-      "/title-company/falls-church-va", "/title-company/loudoun-county-va",
+      "/title-company/loudoun-county-va",
       "/title-company/prince-william-county-va", "/title-company/silver-spring-md"].map((p) => entry(p, 0.8)),
 
     entry("/blog", 0.8, "weekly"),

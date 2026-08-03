@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Agent Tools | DMV Title Guy",
   description:
     "Exclusive tools for real estate agents — AI-powered contract analysis, compliance checks, and more.",
-  alternates: { canonical: "https://dmvtitleguy.com/agent-tools" },
+  alternates: { canonical: "https://dmvtitleguy.io/agent-tools" },
 };
 
 const tools = [

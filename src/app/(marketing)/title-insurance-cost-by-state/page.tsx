@@ -6,7 +6,7 @@ import { FAQSection } from "@/components/FAQSection";
 export const metadata: Metadata = {
   title: "title insurance cost by state Guide | Pruitt Title",
   description: "Title insurance cost by state guide with DMV context. Compare VA, MD, DC, and other states, then request a quote from Pruitt Title online now.",
-  alternates: { canonical: "https://dmvtitleguy.com/title-insurance-cost-by-state" },
+  alternates: { canonical: "https://dmvtitleguy.io/title-insurance-cost-by-state" },
 };
 
 const faqs = [

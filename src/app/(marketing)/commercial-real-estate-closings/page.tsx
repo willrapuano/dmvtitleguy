@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Commercial closing support for DMV buyers, sellers, lenders, and investors. Pruitt Title coordinates title, escrow, and settlement. Call today.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/commercial-real-estate-closings",
+    canonical: "https://dmvtitleguy.io/commercial-real-estate-closings",
   },
 };
 
@@ -134,7 +134,7 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/commercial-real-estate-closings#service",
+      "@id": "https://dmvtitleguy.io/commercial-real-estate-closings#service",
       name: "Commercial Real Estate Closings",
       serviceType: "Commercial Real Estate Closing Services",
       provider: {

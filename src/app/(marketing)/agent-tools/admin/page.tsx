@@ -8,7 +8,7 @@ import AdminActions from "@/components/contract-analyzer/AdminActions";
 export const metadata: Metadata = {
   title: "Admin | Agent Tools | DMV Title Guy",
   robots: { index: false, follow: false },
-  alternates: { canonical: "https://dmvtitleguy.com/agent-tools/admin" },
+  alternates: { canonical: "https://dmvtitleguy.io/agent-tools/admin" },
 };
 
 export default async function AdminPage() {

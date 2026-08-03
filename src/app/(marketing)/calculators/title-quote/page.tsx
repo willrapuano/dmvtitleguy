@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "title quote calculator for DMV Closings | Pruitt Title",
   description:
     "Title quote calculator for DC, Maryland, and Virginia closings. Estimate title insurance and settlement costs with Pruitt Title. Start today.",
-  alternates: { canonical: "https://dmvtitleguy.com/calculators/title-quote" },
+  alternates: { canonical: "https://dmvtitleguy.io/calculators/title-quote" },
 };
 
 export default function TitleQuotePage() {

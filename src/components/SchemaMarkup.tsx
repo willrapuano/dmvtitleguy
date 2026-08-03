@@ -6,7 +6,7 @@
 
 import { formatLocationName, type StateCode } from "@/data/locations";
 
-const SITE_URL = "https://dmvtitleguy.com";
+const SITE_URL = "https://dmvtitleguy.io";
 const BUSINESS_NAME = "DMV Title Guy — Pruitt Title LLC";
 
 interface LocationSchemaProps {
