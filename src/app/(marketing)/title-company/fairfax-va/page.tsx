@@ -2,7 +2,7 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
@@ -68,7 +68,7 @@ export default function FairfaxTitlePage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="VA" />
+      <TitleQuoteEmbed title="Get a Fairfax TitleCapture Quote" />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
