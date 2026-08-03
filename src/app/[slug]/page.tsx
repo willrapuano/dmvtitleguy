@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 import { Footer } from "@/components/Footer";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { LocationSchema, CountySchema } from "@/components/SchemaMarkup";
@@ -904,7 +905,11 @@ function LocationPage({ location }: { location: Location }) {
             </div>
           </div>
           <div>
-            <LeadCaptureForm compact location={`location-${slug}`} />
+            {slug === "title-company-herndon-va" ? (
+              <CompactTitleQuote />
+            ) : (
+              <LeadCaptureForm compact location={`location-${slug}`} />
+            )}
           </div>
         </div>
       </section>
