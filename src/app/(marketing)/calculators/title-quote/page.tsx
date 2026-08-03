@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 
 export const metadata: Metadata = {
   title: "title quote calculator for DMV Closings | Pruitt Title",
@@ -19,20 +20,10 @@ export default function TitleQuotePage() {
         lede="Get an instant title insurance quote for buyers and sellers in DC, Maryland, and Virginia. Enter your transaction details below for a real-time estimate from Pruitt Title LLC."
       />
 
-      <section className="section-light">
-        <div className="container-xl">
-          <div className="surface-card-elevated overflow-hidden p-2 sm:p-4">
-            <iframe
-              src="https://pruitt-title.titlecapture.com/title-quote"
-              width="100%"
-              height="800"
-              frameBorder="0"
-              style={{ border: "none" }}
-              title="Pruitt Title — Title Quote Calculator"
-            />
-          </div>
-        </div>
-      </section>
+      <TitleQuoteEmbed
+        title="Start Your TitleCapture Quote"
+        subtitle="Use Pruitt Title's live quote tool for a transaction-specific estimate across DC, Maryland, and Virginia."
+      />
     </>
   );
 }

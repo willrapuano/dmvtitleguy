@@ -2,8 +2,7 @@
 
 import { Calculator, Check, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-
-const TITLE_QUOTE_URL = "https://pruitt-title.titlecapture.com/title-quote";
+import { TITLECAPTURE_QUOTE_URL } from "@/lib/titleCapture";
 
 declare global {
   interface Window {
@@ -179,12 +178,12 @@ export function CompactTitleQuote({ locationName, placement }: CompactTitleQuote
           {shouldLoad && (
             <iframe
               key={iframeKey}
-              src={TITLE_QUOTE_URL}
+              src={TITLECAPTURE_QUOTE_URL}
               className="h-full w-full border-0"
               title="Title quote calculator"
               allow="clipboard-write"
               referrerPolicy="strict-origin-when-cross-origin"
-              sandbox="allow-downloads allow-forms allow-modals allow-same-origin allow-scripts"
+              sandbox="allow-downloads allow-forms allow-modals allow-same-origin allow-scripts allow-storage-access-by-user-activation"
               onLoad={() => setLoadStatus("ready")}
             />
           )}

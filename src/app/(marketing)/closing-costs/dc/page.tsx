@@ -2,7 +2,7 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 
 export const metadata: Metadata = {
   title: "Washington DC Closing Costs Guide | DMV Title Guy",
@@ -93,7 +93,10 @@ export default function DCClosingCostsPage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="DC" />
+      <TitleQuoteEmbed
+        title="Get a Washington DC TitleCapture Quote"
+        subtitle="Use Pruitt Title's live quote tool for title insurance, settlement charges, and applicable Washington DC closing items."
+      />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">

@@ -2,7 +2,7 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { LocationSchema } from "@/components/SchemaMarkup";
 import { PageHero } from "@/components/PageHero";
 
@@ -63,7 +63,7 @@ export default function ArlingtonTitlePage() {
         }
       />
 
-      <ClosingCostCalculator state="VA" />
+      <TitleQuoteEmbed title="Get an Arlington TitleCapture Quote" />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
