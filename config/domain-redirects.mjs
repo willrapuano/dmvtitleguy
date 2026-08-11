@@ -13,7 +13,8 @@ export const legacyPathMappings = [
   ["/home", "/"],
   ["/looking-to-grow-your-business", "/title-company-for-realtors"],
   ["/what-does-a-title-company-do", "/blog/what-does-a-title-company-do"],
-  ["/blog/title-search-process-explained", "/blog/what-does-a-title-company-do"],
+  // 2026-08-11: removed /blog/title-search-process-explained → what-does-a-title-company-do
+  // That slug is now a live dedicated commercial post in Sanity (no longer a soft-404 map).
   ["/my-blog", "/blog"],
   ["/title-quote", "/calculators/title-quote"],
   ["/blog/alta-homeowner-policy-dmv", "/blog/alta-homeowner-policy"],

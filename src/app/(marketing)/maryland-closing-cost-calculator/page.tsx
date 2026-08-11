@@ -5,9 +5,9 @@ import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost Calculator | TitleCapture Quote",
+  title: "Maryland Closing Cost Calculator for Buyers & Sellers (2026) | Free MD Estimate",
   description:
-    "Get a Maryland title and closing cost estimate through Pruitt Title's embedded TitleCapture quote tool for buyers, sellers, purchases, and refinances.",
+    "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, seller net proceeds, and buyer cash-to-close by county.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 
@@ -308,7 +308,7 @@ export default function MarylandCalculatorPage() {
             <span>Maryland Closing Cost Calculator</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
-          <h1 className="t-h1 text-white mb-4">Maryland Closing Cost Calculator</h1>
+          <h1 className="t-h1 text-white mb-4">Maryland Closing Cost Calculator for Buyers & Sellers</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Use Pruitt Title&apos;s live TitleCapture tool for a Maryland title and settlement estimate based on the transaction details you enter. The calculator remains here on DMV Title Guy.
           </p>

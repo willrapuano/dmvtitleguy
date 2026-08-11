@@ -17,9 +17,9 @@ import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 
 export const metadata: Metadata = {
-  title: "title search vienna va for Closings | Pruitt Title",
+  title: "Vienna VA Title Search & Title Company | Free Online Quote",
   description:
-    "Vienna title search service for liens, ownership, easements, and title risks. 17+ years serving Fairfax County. Order your review online now.",
+    "Vienna VA title search and title company for liens, ownership, easements, and closing readiness. 17+ years serving Fairfax County. Free online quote.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-vienna-va",
   },

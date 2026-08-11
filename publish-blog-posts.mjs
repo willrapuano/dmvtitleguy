@@ -407,7 +407,14 @@ export function sortableDate(filePath) {
 
 export function discoverQueueFiles() {
   return readdirSync(QUEUE_DIR)
-    .filter((file) => file.endsWith('.md'))
+    .filter((file) => {
+      if (!file.endsWith('.md')) return false;
+      if (/^readme\.md$/i.test(file)) return false;
+      if (file.startsWith('.')) return false;
+      // Prefer dated draft filenames used by the writer cron
+      if (!/^\d{4}-\d{2}-\d{2}-.+\.md$/i.test(file)) return false;
+      return true;
+    })
     .map((file) => path.join(QUEUE_DIR, file))
     .sort((a, b) => sortableDate(a).localeCompare(sortableDate(b)) || path.basename(a).localeCompare(path.basename(b)));
 }
@@ -516,7 +523,7 @@ export async function publishPost(filePath, options = {}) {
 
   // The slug is free, but the title may still duplicate a live post. Gate before any
   // write, and before spending an image upload on a post that should not exist.
-  if (!options.allowDuplicateTitle) {
+  if (!options.allowDuplicateTitle && !hasWillApproval(meta)) {
     const clashes = await findDuplicateTitles(title, meta.keyword || meta.target_keyword);
     if (clashes.length) {
       const result = {
@@ -550,10 +557,27 @@ export async function publishPost(filePath, options = {}) {
     body: blocks,
   };
 
-  const image = await uploadImage(slug, title);
+  // Image relevance gates (Will standing order 2026-07-31 + 2026-08-05)
+  const fmPrompt = String(meta.image_prompt || meta.imagePrompt || '').trim();
+  const fmAlt = String(meta.mainImageAlt || meta.image_alt || meta.imageAlt || '').trim();
+  const promptPath = path.join('/Users/jarvis/.openclaw/workspace/taz/image-prompts', `${slug}.txt`);
+  let filePrompt = '';
+  if (existsSync(promptPath)) {
+    filePrompt = readFileSync(promptPath, 'utf8').trim();
+  }
+  const imagePrompt = fmPrompt || filePrompt;
+  if (!imagePrompt) {
+    throw new Error(`BLOCK_PUBLISH_IMAGE_PROMPT_MISSING: slug "${slug}" needs image_prompt frontmatter or taz/image-prompts/${slug}.txt`);
+  }
+  const mainImageAlt = fmAlt || title;
+  if (!mainImageAlt || /^(image|photo|picture|featured image|blog image|untitled|placeholder)$/i.test(mainImageAlt)) {
+    throw new Error(`BLOCK_PUBLISH_IMAGE_ALT_WEAK: slug "${slug}" mainImageAlt missing/generic`);
+  }
+
+  const image = await uploadImage(slug, title, mainImageAlt);
   if (!image) {
     throw new Error(
-      `gate failed: missing required featured image for slug "${slug}" (expected blog-queue/images/${slug}.{png|jpg|jpeg|webp})`,
+      `BLOCK_PUBLISH_WITHOUT_IMAGE: missing required featured image for slug "${slug}" (expected blog-queue/images/${slug}.{png|jpg|jpeg|webp})`,
     );
   }
   doc.mainImage = image;
@@ -584,12 +608,13 @@ export async function publishPost(filePath, options = {}) {
 }
 
 function parseArgs(argv) {
-  const args = { all: false, dryRun: false, archive: true, files: [] };
+  const args = { all: false, dryRun: false, archive: true, files: [], allowDuplicateTitle: false };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--all') args.all = true;
     else if (arg === '--dry-run') args.dryRun = true;
     else if (arg === '--no-archive') args.archive = false;
+    else if (arg === '--allowDuplicateTitle') args.allowDuplicateTitle = true;
     else if (arg === '--file') args.files.push(argv[++i]);
     else if (arg.startsWith('--')) throw new Error(`unknown option: ${arg}`);
     else args.files.push(arg);
@@ -619,6 +644,7 @@ async function main() {
     files: args.all ? [] : args.files,
     dryRun: args.dryRun,
     archive: args.archive,
+    allowDuplicateTitle: args.allowDuplicateTitle,
   });
 
   console.log(`DMVTitleGuy blog publisher (${args.dryRun ? 'dry-run' : 'publish'})`);
