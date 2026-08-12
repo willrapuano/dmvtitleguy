@@ -4,19 +4,18 @@
  */
 
 import type { Metadata } from "next";
-import { Open_Sans, Fraunces } from "next/font/google";
+import { Open_Sans, Source_Serif_4 } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
 
 /**
- * Display face for headings. The wordmark in logo.png is a high-contrast serif,
- * but every heading on the site was set in the body sans — so the logo and the
- * page it sat on read as two unrelated brands. Fraunces is the closest available
- * match in voice. Body copy stays on Open Sans.
+ * Display face for headings. The wordmark in logo.png is a high-contrast serif.
+ * Source Serif 4 is a clean, professional, and readable serif for headings.
+ * Body copy stays on Open Sans.
  */
-const fraunces = Fraunces({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-display",
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${openSans.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${openSans.variable} ${sourceSerif.variable}`}>
       <body className="min-h-screen antialiased bg-white text-brand-dark-text font-sans">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7JQ2YPBX58"
