@@ -8,7 +8,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 export const metadata: Metadata = {
   title: "Title Company in Fairfax, VA | Settlement & Title Insurance",
   description: "Fairfax VA title company for title search, insurance, escrow, and settlement. 17+ years closing Fairfax County deals. Get a free Pruitt Title quote online today.",
-  alternates: { canonical: "/title-company/fairfax-va" },
+  alternates: { canonical: "/title-search-fairfax-va" },
 };
 
 const faqs = [
@@ -176,7 +176,7 @@ export default function FairfaxTitlePage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
             <Link href="/title-search-vienna-va" className="text-brand-blue-deep hover:underline">
@@ -185,7 +185,7 @@ export default function FairfaxTitlePage() {
             <Link href="/title-company-mclean-va" className="text-brand-blue-deep hover:underline">
               McLean Title Services →
             </Link>
-            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
             <Link href="/title-company-falls-church-va" className="text-brand-blue-deep hover:underline">

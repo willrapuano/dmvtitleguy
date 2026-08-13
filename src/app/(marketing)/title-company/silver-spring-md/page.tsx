@@ -8,7 +8,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 export const metadata: Metadata = {
   title: "Title Company in Silver Spring, MD | Settlement & Escrow",
   description: "Silver Spring MD title company for Montgomery County closings. Title insurance, escrow, transfer-tax guidance, and Fast settlement. Free Pruitt Title quote online.",
-  alternates: { canonical: "/title-company/silver-spring-md" },
+  alternates: { canonical: "/title-company-silver-spring-md" },
 };
 
 const faqs = [
@@ -192,13 +192,13 @@ export default function SilverSpringTitlePage() {
             <Link href="/title-company-rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
-            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">

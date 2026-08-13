@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const SITE_NAME = "DMV Title Guy";
+const SITE_NAME = "Pruitt Title | DMV Title Guy";
 
 export function createPageMetadata({
   title,

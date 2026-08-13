@@ -22,6 +22,16 @@ export const legacyPathMappings = [
   ["/blog/who-does-title-insurance-protect-dmv", "/blog/who-does-title-insurance-protect"],
   ["/blog/sterling-virginia-settlement", "/blog/title-company-sterling-va"],
   ["/closing-costs/virginia", "/virginia-closing-cost-calculator"],
+  // Consolidate the older nested location routes into the flat URLs that
+  // already carry the strongest Search Console history and internal-link
+  // equity. Keeping one URL per local intent prevents the two templates from
+  // competing for the same query.
+  ["/title-company/alexandria-va", "/title-company-alexandria-va"],
+  ["/title-company/arlington-va", "/title-company-arlington-va"],
+  ["/title-company/fairfax-va", "/title-search-fairfax-va"],
+  ["/title-company/loudoun-county-va", "/title-company-loudoun-county-va"],
+  ["/title-company/prince-william-county-va", "/title-company-prince-william-county-va"],
+  ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
   ["/title-company/vienna-va", "/title-search-vienna-va"],
   ["/title-company/mclean-va", "/title-company-mclean-va"],
   ["/title-company/rockville-md", "/title-company-rockville-md"],

@@ -159,7 +159,7 @@ Take 15 minutes to compare. It's the best investment you'll make before closing 
 
 ## Next Steps
 
-- [Get a title quote in Alexandria](/title-company/alexandria-va)
-- [Get a title quote in Arlington](/title-company/arlington-va)
-- [Get a title quote in Fairfax](/title-company/fairfax-va)
+- [Get a title quote in Alexandria](/title-company-alexandria-va)
+- [Get a title quote in Arlington](/title-company-arlington-va)
+- [Get a title quote in Fairfax](/title-search-fairfax-va)
 - [Compare Maryland closing costs](/closing-costs/maryland)
