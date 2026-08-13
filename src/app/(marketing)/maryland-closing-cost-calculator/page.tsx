@@ -5,9 +5,9 @@ import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost Calculator for Buyers & Sellers (2026) | Free MD Estimate",
+  title: "Maryland Closing Cost Calculator (2026) | Buyer & Seller",
   description:
-    "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, seller net proceeds, and buyer cash-to-close by county.",
+    "Estimate buyer and seller closing costs in Maryland by county, including transfer tax, recordation fees, title insurance, and cash to close. Free, no signup.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 

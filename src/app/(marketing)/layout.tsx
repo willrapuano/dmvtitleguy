@@ -8,11 +8,22 @@ import { Footer } from "@/components/Footer";
 
 const siteUrl = "https://dmvtitleguy.io";
 
+const WEBSITE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Pruitt Title | DMV Title Guy",
+  alternateName: ["Pruitt Title", "DMV Title Guy"],
+  publisher: { "@id": `${siteUrl}/#organization` },
+};
+
 const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "DMV Title Guy — Pruitt Title LLC",
-  alternateName: "Pruitt Title LLC",
+  "@id": `${siteUrl}/#organization`,
+  name: "Pruitt Title LLC",
+  alternateName: "DMV Title Guy",
   url: siteUrl,
   logo: {
     "@type": "ImageObject",
@@ -40,12 +51,13 @@ const ORGANIZATION_SCHEMA = {
 const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "LegalService"],
-  name: "DMV Title Guy — Pruitt Title LLC",
-  alternateName: "Pruitt Title LLC",
+  "@id": `${siteUrl}/#local-business`,
+  name: "Pruitt Title LLC",
+  alternateName: "DMV Title Guy",
   url: siteUrl,
   telephone: "(703) 859-1467",
   email: "wrapuano@pruitt-title.com",
-  description: "Pruitt Title LLC — trusted title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive.",
+  description: "Real estate title insurance, escrow, and settlement services across Washington DC, Maryland, and Virginia.",
   image: `${siteUrl}/logo.png`,
   priceRange: "$$",
   foundingDate: "2007",
@@ -81,6 +93,11 @@ const LOCAL_BUSINESS_SCHEMA = {
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }}
+      />
       <script
         type="application/ld+json"
         suppressHydrationWarning

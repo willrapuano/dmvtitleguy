@@ -177,7 +177,7 @@ export default function BuyerMarylandClosingCostsPage() {
             <Link href="/title-company-bethesda-md" className="text-brand-blue-deep hover:underline">
               Bethesda Title Services →
             </Link>
-            <Link href="/title-company/silver-spring-md" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-silver-spring-md" className="text-brand-blue-deep hover:underline">
               Silver Spring Title Services →
             </Link>
           </div>

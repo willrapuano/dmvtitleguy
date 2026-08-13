@@ -9,7 +9,7 @@ import { PageHero } from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "Title Company Arlington VA | Settlement & Title Services",
   description: "Pruitt Title LLC provides expert title and settlement services in Arlington, VA. Fast closings, competitive rates, and local expertise since 2007.",
-  alternates: { canonical: "/title-company/arlington-va" },
+  alternates: { canonical: "/title-company-arlington-va" },
 };
 
 const faqs = [
@@ -171,10 +171,10 @@ export default function ArlingtonTitlePage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
-            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
             <Link href="/title-company-falls-church-va" className="text-brand-blue-deep hover:underline">

@@ -23,10 +23,10 @@ const sourceSerif = Source_Serif_4({
 });
 
 const siteUrl = "https://dmvtitleguy.io";
-const siteName = "DMV Title Guy";
-const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
+const siteName = "Pruitt Title | DMV Title Guy";
+const defaultTitle = "Real Estate Title & Escrow in DC, MD & VA | Pruitt Title";
 const defaultDescription =
-  "Pruitt Title LLC — trusted title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive.";
+  "Pruitt Title provides real estate title insurance, escrow, and settlement services across Northern Virginia, Maryland, and Washington, DC. Get a quote.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

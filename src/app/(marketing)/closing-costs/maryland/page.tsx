@@ -300,10 +300,10 @@ export default function MarylandClosingCostsPage() {
             <Link href="/title-company-rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
           </div>

@@ -677,10 +677,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
      */
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Title Company in Herndon, VA | Fast Closings & Free Online Quote",
-        description: "Looking for a Herndon VA title company? Pruitt Title handles title search, insurance, escrow, and settlement for buyers, sellers, and agents. Free online title quote in minutes.",
-        ogTitle: "Title Company in Herndon, VA | Fast Closings & Free Online Quote",
-        ogDescription: "Looking for a Herndon VA title company? Pruitt Title handles title search, insurance, escrow, and settlement for buyers, sellers, and agents. Free online title quote in minutes.",
+        title: "Herndon, VA Title Company | Pruitt Title",
+        description: "Herndon title insurance, escrow, and settlement support for buyers, sellers, agents, and lenders. Serving Fairfax County since 2007. Request a quote.",
+        ogTitle: "Herndon, VA Title Company | Pruitt Title",
+        ogDescription: "Herndon title insurance, escrow, and settlement support for buyers, sellers, agents, and lenders. Serving Fairfax County since 2007.",
       },
       "title-search-vienna-va": {
         title: "Title Company in Vienna, VA | Trusted Closings Since 2007",
@@ -689,10 +689,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
       },
       "title-company-tysons-va": {
-        title: "Title Company in Tysons, VA | Title Insurance & Same-Week Closings",
-        description: "Tysons Corner title company for searches, escrow, insurance, and settlement. Pruitt Title closes Tysons, McLean, and Fairfax County deals fast. Request a free quote online.",
-        ogTitle: "Title Company in Tysons, VA | Title Insurance & Same-Week Closings",
-        ogDescription: "Tysons Corner title company for searches, escrow, insurance, and settlement. Pruitt Title closes Tysons, McLean, and Fairfax County deals fast. Request a free quote online.",
+        title: "Tysons, VA Title Company & Escrow | Pruitt Title",
+        description: "Title insurance, escrow, and settlement support for Tysons and Tysons Corner transactions. Pruitt Title has served Fairfax County since 2007.",
+        ogTitle: "Tysons, VA Title Company & Escrow | Pruitt Title",
+        ogDescription: "Title insurance, escrow, and settlement support for Tysons and Tysons Corner transactions. Serving Fairfax County since 2007.",
       },
       "title-company-bethesda-md": {
         title: "Title Company in Bethesda, MD | Settlement, Escrow & Title Insurance",
@@ -719,10 +719,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Professional title insurance and closing services in Springfield, VA. Residential, commercial & investor closings. Since 2007.",
       },
       "title-company-falls-church-va": {
-        title: "Falls Church, VA Title Company | DMV Title Guy",
-        description: "Need a Falls Church title company? Get a free closing cost estimate plus local title, escrow, and settlement support from DMV Title Guy.",
-        ogTitle: "Falls Church, VA Title Company | DMV Title Guy",
-        ogDescription: "Get a free Falls Church closing cost estimate plus local title, escrow, and settlement support from DMV Title Guy.",
+        title: "Falls Church, VA Title Company | Pruitt Title",
+        description: "Falls Church title insurance, escrow, and settlement support for buyers, sellers, agents, and lenders. Request a closing-cost estimate from Pruitt Title.",
+        ogTitle: "Falls Church, VA Title Company | Pruitt Title",
+        ogDescription: "Falls Church title insurance, escrow, and settlement support from Pruitt Title.",
       },
       "title-company-stafford-va": {
         title: "Stafford VA Title and Escrow Closings | Pruitt Title",
