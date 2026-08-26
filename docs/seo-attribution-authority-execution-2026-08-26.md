@@ -135,3 +135,15 @@ No authority outreach, public-profile edit, directory submission, or Pruitt-cont
 - Candidate deployment `dpl_JByXSt8VXkCzUGA86ZZzq1ekefrR` is READY at `https://dmvtitleguy-f1pc7vhpf-will-rapuanos-projects.vercel.app`.
 - The deployed candidate returned HTTP 200 with `x-robots-tag: noindex`; its homepage rendered the approved canonical relationship disclosure and `/contact` rendered the Pruitt acceptance boundary.
 - No lead form was submitted and no production promotion occurred because the production GHL workflow remains unverified.
+
+## Final access audit
+
+The August 26 continuation audited the available integration surfaces without resolving or printing any credential values:
+
+- OpenClaw’s active environment contains the SpyFu subscription variables used for competitive research.
+- Its only named GHL API key/location pair is for an unrelated `CHAD` account; no DMV Title Guy or Pruitt GHL key, location ID, or webhook is configured.
+- The macOS Keychain exposes no service/account label identifying a GHL, HighLevel, or DMV Title Guy credential.
+- Vercel still exposes `GHL_WEBHOOK_URL` only as an opaque Preview secret. Sensitive values cannot be pulled, inspected, or safely copied to Production through the current access path.
+- No callable Codex/OpenClaw connector is registered for GHL or HighLevel.
+
+Accordingly, the remaining production mapping and test cannot be completed without one external-state change: provide the authoritative inbound-workflow URL for the intended GHL sub-account (or connect that sub-account through an available tool). The unrelated account and the unidentifiable Preview secret must not be used as substitutes.
