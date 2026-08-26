@@ -106,7 +106,7 @@ Not every property needs the upgrade. A newly constructed condo in a modern buil
 
 Same logic applies to recently built single-family homes in well-documented subdivisions with a clean title history. Short chain of title, modern plat, no prior commercial use — the elevated risk scenarios simply aren't as present.
 
-That said: the upgrade is typically a few hundred dollars on a $600,000+ purchase. We're not talking about a meaningful financial decision in isolation. It's a matter of whether the specific risk profile of your property makes that additional coverage sensible. Our [team at Pruitt Title][LINK:/why-choose-us] reviews this with every buyer before closing so you're not guessing.
+That said: the upgrade is often a few hundred dollars on a $600,000+ purchase. The exact difference depends on the current filed rates, underwriter, and transaction. Ask the provider handling your accepted transaction to compare the available policies in writing before closing. You can also [contact Will through DMV Title Guy][LINK:/why-choose-us] with an initial question.
 
 ---
 
@@ -150,7 +150,7 @@ Title insurance premiums in the DMV are state-regulated and based on purchase pr
 
 ---
 
-*Will Rapuano is the founder of Pruitt Title LLC / DMV Title Guy, a settlement company serving Maryland, Virginia, and Washington, DC. Questions about your specific transaction? [Reach out to our team][LINK:/why-choose-us].*
+*Will Rapuano independently manages DMV Title Guy as an education and business-development site. Eligible title and settlement requests may be referred to Pruitt Title LLC for review. Questions about your specific transaction? [Contact Will][LINK:/why-choose-us].*
 
 ---
 

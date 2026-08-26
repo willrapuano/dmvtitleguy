@@ -74,6 +74,12 @@ export default function PrivacyPolicyPage() {
             referrals, and conversion events. Browser controls can restrict cookies, although doing so may affect
             some features. Analytics events are not intended to collect SSNs, TINs, bank data, or document contents.
           </p>
+          <p>
+            The site also stores a limited first-touch attribution record in browser storage: the landing path,
+            referring host, timestamp, and UTM campaign fields. When you submit a form, those fields and the conversion
+            path may be sent with the request to help measure which public content produced the inquiry. This record does
+            not include ad click IDs, document contents, or the sensitive financial identifiers listed above.
+          </p>
 
           <h2 className="t-h6 text-brand-navy">5. Retention</h2>
           <p>

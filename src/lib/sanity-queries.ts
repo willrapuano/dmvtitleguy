@@ -39,6 +39,8 @@ const POST_FULL_FIELDS = `
 // the correct project ID is set (forces fallback to static blog data).
 const SANITY_READY = true;
 const PUBLISHED_POST_FILTER = `_type in ["post","blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()`;
+const SANITY_REVALIDATE_SECONDS = 3600;
+const SANITY_FETCH_OPTIONS = { next: { revalidate: SANITY_REVALIDATE_SECONDS } } as const;
 
 export async function getAllPosts(): Promise<SanityBlogPost[]> {
   if (!SANITY_READY) return [];
@@ -48,7 +50,7 @@ export async function getAllPosts(): Promise<SanityBlogPost[]> {
         ${POST_LIST_FIELDS}
       }`,
       {},
-      { next: { revalidate: 0 } }
+      SANITY_FETCH_OPTIONS
     );
     return posts || [];
   } catch (error) {
@@ -63,7 +65,8 @@ export async function getPostBySlug(slug: string): Promise<SanityBlogPost | null
     `*[${PUBLISHED_POST_FILTER} && slug.current == $slug][0] {
       ${POST_FULL_FIELDS}
     }`,
-    { slug }
+    { slug },
+    SANITY_FETCH_OPTIONS
   );
   return result || null;
 }
@@ -71,7 +74,9 @@ export async function getPostBySlug(slug: string): Promise<SanityBlogPost | null
 export async function getAllPostSlugs(): Promise<string[]> {
   if (!SANITY_READY) return [];
   const results = await sanityClient.fetch(
-    `*[${PUBLISHED_POST_FILTER}] { "slug": slug.current }`
+    `*[${PUBLISHED_POST_FILTER}] { "slug": slug.current }`,
+    {},
+    SANITY_FETCH_OPTIONS
   );
   return results.map((r: { slug: string }) => r.slug);
 }

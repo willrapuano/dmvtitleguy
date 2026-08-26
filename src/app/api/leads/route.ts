@@ -11,6 +11,7 @@ import {
   reserveLeadSubmission,
   validateSubmissionId,
 } from "@/lib/lead-protection";
+import { leadAttributionFields } from "@/lib/lead-attribution";
 
 const FORM_TYPES = new Set(["quote", "subscribe", "advertising"]);
 
@@ -68,6 +69,7 @@ export async function POST(request: NextRequest) {
         message: clean(body.message, 2000),
         listing,
         landingPage: leadLandingPage(request),
+        ...leadAttributionFields(body, request),
       },
       formType
     );

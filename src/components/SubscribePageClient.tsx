@@ -3,6 +3,7 @@
 import { CheckCircle2, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { trackLeadConversion } from "@/lib/client-analytics";
+import { getLeadAttribution } from "@/lib/client-lead-attribution";
 
 const BENEFITS = [
   "Exclusive real estate marketing strategies and tips",
@@ -32,7 +33,7 @@ export function SubscribePageClient() {
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formType: "subscribe", submissionId: submissionIdRef.current, name, email, website }),
+        body: JSON.stringify({ ...getLeadAttribution(), formType: "subscribe", submissionId: submissionIdRef.current, name, email, website }),
       });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.error || "Subscription failed");

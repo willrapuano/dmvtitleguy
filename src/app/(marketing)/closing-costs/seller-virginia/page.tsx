@@ -158,6 +158,9 @@ export default function SellerVirginiaClosingCostsPage() {
             <Link href="/calculators/seller-net-sheet" className="text-brand-blue-deep hover:underline">
               Estimate Seller Proceeds →
             </Link>
+            <Link href="/blog/firpta-explained-dmv" className="text-brand-blue-deep hover:underline">
+              FIRPTA Withholding Guide →
+            </Link>
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>
@@ -186,7 +189,7 @@ export default function SellerVirginiaClosingCostsPage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Virginia Seller Closing Cost Estimate</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact Pruitt Title LLC for an accurate closing cost estimate for your Virginia home sale.
+            Submit your property details through DMV Title Guy for an itemized planning estimate and to request a current quote from the provider handling the transaction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

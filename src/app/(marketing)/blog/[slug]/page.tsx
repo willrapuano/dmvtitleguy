@@ -113,10 +113,10 @@ function RelatedLocalTitleServices() {
   return (
     <section className="mt-10 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
       <h2 className="t-h4 text-brand-navy mb-3">
-        Serving Buyers Across the DMV
+        Local Title and Closing Resources
       </h2>
       <p className="text-gray-700 leading-relaxed mb-5 max-w-[68ch]">
-        Need title insurance or settlement services near you? Pruitt Title serves buyers, realtors, and lenders across Virginia, Maryland, and Washington DC.
+        Use these DMV Title Guy resources to understand local costs and process. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.
       </p>
       <ul className="space-y-3 mb-6">
         {dmvTitleServiceLinks.map((link) => (
@@ -659,7 +659,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                   Ready to Get a Title Quote?
                 </h3>
                 <p className="text-white/70 mb-6 max-w-md mx-auto">
-                  Pruitt Title serves buyers, sellers, and lenders across Virginia, Maryland, and Washington DC. We make closing simple.
+                  Send your transaction details through DMV Title Guy. Will can answer initial questions and, when eligible, refer the request to Pruitt Title LLC for review.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link

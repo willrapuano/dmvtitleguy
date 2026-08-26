@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle, ShieldCheck } from "lucide-react";
 import { trackLeadConversion } from "@/lib/client-analytics";
+import { getLeadAttribution } from "@/lib/client-lead-attribution";
 
 interface InvestorDueDiligenceFormProps {
   location?: string;
@@ -38,6 +39,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
+          ...getLeadAttribution(),
           submissionId: submissionIdRef.current,
           website,
         }),

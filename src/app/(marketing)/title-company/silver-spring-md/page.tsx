@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "Does Maryland require an attorney at closing in Silver Spring?",
-    answer: "Yes, Maryland law requires that a licensed attorney or title agent conduct the settlement. At Pruitt Title, our experienced settlement team ensures full compliance with Maryland regulations while providing a smooth, efficient closing experience for Silver Spring buyers and sellers.",
+    answer: "Maryland settlement and title-insurance work must be handled by an appropriately authorized provider. DMV Title Guy can provide initial education and refer an eligible request to Pruitt Title LLC for transaction-specific review.",
   },
   {
     question: "What is unique about Silver Spring real estate transactions?",
@@ -46,7 +46,7 @@ export default function SilverSpringTitlePage() {
         state="MD"
         county="Montgomery County"
         slug="title-company/silver-spring-md"
-        description="Pruitt Title LLC provides expert title and settlement services in Silver Spring, MD. Fast closings, competitive rates, and local expertise since 2007."
+    description="DMV Title Guy provides local title and closing education for Silver Spring, MD. Eligible requests can be referred to Pruitt Title LLC for review."
       />
 
       {/* HERO */}
@@ -63,7 +63,7 @@ export default function SilverSpringTitlePage() {
             Title Company Silver Spring MD &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC delivers expert title and settlement services in Silver Spring and throughout Montgomery County. From downtown condos to Wheaton single-families, we understand the unique dynamics of closing in one of Maryland's most diverse communities.
+            DMV Title Guy provides local closing education for Silver Spring and Montgomery County. Eligible title and settlement requests can be referred to Pruitt Title LLC for review and transaction-specific acceptance.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function SilverSpringTitlePage() {
               Silver Spring is one of the most vibrant and diverse communities in the Washington DC metro area. With a median home price around $525,000 and homes selling in approximately 12 days, Silver Spring offers urban convenience at a relative value compared to DC and Bethesda.
             </p>
             <p className="max-w-[68ch]">
-              The Silver Spring market is uniquely varied. Downtown Silver Spring features high-rise condos and apartments steps from the Metro. Neighborhoods like Woodmoor, Northwood, and Four Corners offer established single-family homes with mature trees and community character. The ongoing revitalization of the Wheaton and Silver Spring corridors is bringing new development, creating opportunities for buyers and investors alike. This diversity means title work can range from straightforward condo unit transfers to complex transactions involving historic properties, estate sales, and investment portfolios. Pruitt Title's Montgomery County expertise handles it all.
+              The Silver Spring market is uniquely varied. Downtown Silver Spring features high-rise condos and apartments steps from the Metro. Neighborhoods like Woodmoor, Northwood, and Four Corners offer established single-family homes with mature trees and community character. The ongoing revitalization of the Wheaton and Silver Spring corridors is bringing new development, creating opportunities for buyers and investors alike. This diversity means title work can range from straightforward condo unit transfers to matters involving historic properties, estate sales, and investment portfolios.
             </p>
             <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
               <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Silver Spring Closing Costs</h3>

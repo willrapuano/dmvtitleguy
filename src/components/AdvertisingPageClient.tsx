@@ -4,6 +4,7 @@ import { Rocket, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { trackLeadConversion } from "@/lib/client-analytics";
+import { getLeadAttribution } from "@/lib/client-lead-attribution";
 
 const FEATURE_CARDS = [
   { title: "Traffic-Generating Ads", desc: "Strategic Facebook and Instagram ad campaigns that drive real buyer traffic to your listings.", icon: "Target" },
@@ -59,7 +60,7 @@ export function AdvertisingPageClient() {
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, formType: "advertising", submissionId: submissionIdRef.current, website }),
+        body: JSON.stringify({ ...form, ...getLeadAttribution(), formType: "advertising", submissionId: submissionIdRef.current, website }),
       });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.error || "Listing submission failed");

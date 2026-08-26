@@ -40,6 +40,8 @@ const staticChecks = [
   ["npm", ["run", "verify:blog-normalizer"]],
   ["npm", ["run", "verify:blog-publication"]],
   ["npm", ["run", "verify:dependency-overrides"]],
+  ["npm", ["run", "verify:provider-truth"]],
+  ["npm", ["run", "verify:lead-attribution"]],
   ["npm", ["run", "security:audit"]],
   ["npm", ["run", "build"]],
 ];
@@ -59,6 +61,8 @@ try {
     "verify:competitive-content",
     "verify:ctr-consolidation",
     "verify:optimized-plan",
+    "verify:internal-links",
+    "verify:cms-resilience",
   ];
   for (const script of runtimeChecks) {
     await run("npm", ["run", script], { env: { TARGET_ORIGIN: origin } });

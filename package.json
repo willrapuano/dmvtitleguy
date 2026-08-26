@@ -25,6 +25,11 @@
     "verify:ctr-consolidation": "node scripts/verify-ctr-consolidation.mjs",
     "verify:optimized-plan": "node scripts/verify-optimized-plan.mjs",
     "verify:dependency-overrides": "node scripts/verify-dependency-overrides.mjs",
+    "verify:internal-links": "node scripts/verify-internal-links.mjs",
+    "verify:cms-resilience": "node scripts/verify-cms-resilience.mjs",
+    "verify:provider-truth": "node scripts/verify-provider-truth.mjs",
+    "verify:lead-attribution": "node scripts/verify-lead-attribution.mjs",
+    "repair:sanity-links": "node scripts/repair-sanity-internal-links.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },
   "engines": {

@@ -11,6 +11,7 @@ import {
   reserveLeadSubmission,
   validateSubmissionId,
 } from "@/lib/lead-protection";
+import { leadAttributionFields } from "@/lib/lead-attribution";
 
 export function leadText(value: unknown, maxLength = 500) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -58,6 +59,7 @@ export async function handleProtectedFunnelLead(
         email,
         ...payload,
         landingPage: leadLandingPage(request),
+        ...leadAttributionFields(body, request),
       },
       source
     );

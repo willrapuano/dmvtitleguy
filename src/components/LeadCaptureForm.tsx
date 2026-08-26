@@ -4,6 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { trackAnalyticsEvent, trackLeadConversion } from "@/lib/client-analytics";
+import { getLeadAttribution } from "@/lib/client-lead-attribution";
 
 interface LeadCaptureFormProps {
   title?: string;
@@ -51,7 +52,7 @@ export function LeadCaptureForm({
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, formType: "quote", submissionId: submissionIdRef.current, website }),
+        body: JSON.stringify({ ...formData, ...getLeadAttribution(), formType: "quote", submissionId: submissionIdRef.current, website }),
       });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.error || "Lead delivery failed");

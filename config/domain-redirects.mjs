@@ -42,6 +42,20 @@ export const legacyPathMappings = [
   ["/title-company/falls-church-va", "/title-company-falls-church-va"],
   ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
   ["/blog/title-settlement-fee", "/blog/what-is-a-title-settlement-fee"],
+  ["/title-insurance-cost-virginia", "/blog/title-insurance-cost-virginia"],
+  ["/closing-costs-maryland-2026", "/blog/closing-costs-maryland-2026"],
+  ["/title-and-settlement-services", "/why-choose-us"],
+  ["/closing-costs-maryland", "/closing-costs/maryland"],
+  ["/closing-costs-dc", "/closing-costs/dc"],
+  ["/who-pays-closing-costs-in-virginia", "/blog/who-pays-closing-costs-in-virginia"],
+  ["/closing-costs-in-virginia-2026", "/blog/closing-costs-in-virginia-2026"],
+  ["/title-company-maryland", "/closing-costs/maryland"],
+  ["/what-is-lenders-title-insurance", "/blog/what-is-lenders-title-insurance"],
+  ["/lenders-title-insurance-vs-owners-title-insurance", "/blog/lenders-title-insurance-vs-owners-title-insurance"],
+  ["/settlement-company-fairfax-county", "/blog/settlement-company-fairfax-county"],
+  ["/blog/what-is-a-title-search", "/blog/title-search-vs-title-insurance"],
+  ["/blog/what-is-title-insurance", "/title-insurance"],
+  ["/blog/virginia-settlement-closing-process-explained", "/blog/what-happens-at-closing-real-estate"],
 ];
 
 export function slashForms(source) {

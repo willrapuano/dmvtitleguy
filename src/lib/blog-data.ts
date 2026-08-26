@@ -6,6 +6,7 @@
 import { BlogPost, BLOG_POSTS, PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { getAllPosts, getPostBySlug, getAllPostSlugs, SanityBlogPost } from "./sanity-queries";
 import { getBlogContent, getMarkdownBlogSlugs } from "./blog-content";
+import { postCanonicalPath } from "./post-titles";
 
 const LOCAL_MARKDOWN_BODY_OVERRIDES = new Set([
   "firpta-explained-dmv",
@@ -111,8 +112,9 @@ export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
   }));
 
   const merged = mergeUniquePosts(mappedSanityPosts, staticPosts, markdownPosts);
-  console.log(`[BlogData] Total merged posts: ${merged.length}`);
-  return merged;
+  const canonicalPosts = merged.filter((post) => postCanonicalPath(post.slug) === `/blog/${post.slug}`);
+  console.log(`[BlogData] Total merged posts: ${canonicalPosts.length}`);
+  return canonicalPosts;
 }
 
 /** Fetch a single post — Sanity first, static fallback */

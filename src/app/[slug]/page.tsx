@@ -903,7 +903,7 @@ function LocationPage({ location }: { location: Location }) {
                 : isNeighborhood && parentLocation
                 ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
                 : isSecondary
-                ? `Pruitt Title LLC — professional title insurance and closing services in ${locationName}. Residential, commercial, and all transaction types.`
+                ? `DMV Title Guy provides local closing education for ${locationName}. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.`
                 : `Pruitt Title LLC provides title insurance and settlement services for eligible ${locationName} transactions${countySuffix}. Requests submitted through DMV Title Guy connect with the Pruitt Title team.`}
             </p>
             <div className="flex flex-wrap gap-3">
@@ -970,7 +970,7 @@ function LocationPage({ location }: { location: Location }) {
             <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">How It Works</p>
             <h2 className="prose-title">The Closing Process in {city}</h2>
             <p className="prose-subtitle max-w-2xl mx-auto">
-              From contract to keys, here&apos;s what to expect when you work with DMV Title Guy in {locationName}.
+              From contract to keys, here&apos;s the typical process after a title company accepts a transaction in {locationName}.
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-4">
@@ -1237,7 +1237,7 @@ function LocationPage({ location }: { location: Location }) {
               </Link>
             </div>
             <div>
-              <h3 className="font-bold text-brand-navy mb-3">All Transaction Types</h3>
+              <h3 className="font-bold text-brand-navy mb-3">Common Transaction Scenarios</h3>
               <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
                 The team reviews residential, commercial, refinance, and investment-property requests and confirms the services and requirements for each transaction.
               </p>
@@ -1296,7 +1296,7 @@ function CountyPage({ county }: { county: County }) {
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">{stateFullName} Title Insurance</p>
             <h1 className="t-h1 text-white mb-4">Title Company in {fullName}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Pruitt Title LLC serves every city and community in {fullName}. Professional title search, title insurance, and settlement services — residential, commercial, and all transaction types.
+              DMV Title Guy provides local closing education for communities across {fullName}. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
@@ -1315,7 +1315,7 @@ function CountyPage({ county }: { county: County }) {
           <div className="text-center mb-10">
             <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Service Coverage</p>
             <h2 className="prose-title">Cities &amp; Communities in {name}</h2>
-            <p className="prose-subtitle max-w-xl mx-auto">We provide full-service title and closing services to every community in {fullName}.</p>
+            <p className="prose-subtitle max-w-xl mx-auto">Explore local closing guidance for communities across {fullName}.</p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {citiesInCounty.map((loc) => (

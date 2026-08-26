@@ -4,55 +4,55 @@ import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 
 export const metadata: Metadata = {
-  title: "All Transaction Types | Title & Closing Services | DMV Title Guy",
+  title: "Investor Title & Closing Guide | DMV Title Guy",
   description:
-    "Pruitt Title LLC handles every type of real estate transaction — first-time buyers, seasoned investors, refinances, new construction, and everything in between. Professional title services in DC, Maryland & Virginia.",
+    "Investor-focused title and closing education for DC, Maryland, and Virginia, with eligible transaction requests reviewed before provider referral.",
   alternates: { canonical: "/investor-friendly-title-company" },
 };
 
 const TRANSACTION_TYPES = [
   {
     title: "Residential Purchases",
-    desc: "First-time buyers, move-up buyers, downsizers — we guide every client through a smooth closing experience.",
+    desc: "Common title, funding, survey, and settlement questions for residential purchases.",
   },
   {
     title: "Refinances",
-    desc: "Rate-and-term or cash-out refinances with fast turnaround and clear communication with your lender.",
+    desc: "How prior policies, payoff information, lender requirements, and title updates affect a refinance.",
   },
   {
     title: "New Construction",
-    desc: "Builder closings with proper lien waiver coordination, survey review, and phased disbursement handling.",
+    desc: "Questions to raise about lien waivers, surveys, construction draws, and builder documents.",
   },
   {
     title: "Investment Properties",
-    desc: "Cash purchases, rental acquisitions, and portfolio transactions — handled with the same professionalism as any closing.",
+    desc: "Due-diligence considerations for cash purchases, rental acquisitions, and portfolio transactions.",
   },
   {
     title: "Commercial Transactions",
-    desc: "Multi-family, mixed-use, and commercial closings with experienced title examination and escrow management.",
+    desc: "A starting point for title, entity, survey, escrow, and lender questions in commercial matters.",
   },
   {
-    title: "Cash & Quick-Close Transactions",
-    desc: "No lender delays — we can close in as few as 5–7 business days with clean title.",
+    title: "Cash & Time-Sensitive Transactions",
+    desc: "Factors that determine whether a requested timeline is realistic before a provider accepts the matter.",
   },
 ];
 
 const FAQ_ITEMS = [
   {
     q: "Do you work with real estate investors?",
-    a: "Absolutely. We work with all types of buyers and sellers — whether it's your first home or your fiftieth investment property. Every transaction gets the same level of professional attention.",
+    a: "DMV Title Guy provides investor-focused title and closing education. Eligible service requests can be referred to Pruitt Title LLC for review and transaction-specific acceptance.",
   },
   {
     q: "How fast can you close a cash deal?",
-    a: "With clean title, we can typically close in 5–7 business days. Rush closings in 3 days are possible in certain situations — call us to discuss.",
+    a: "Timing depends on title findings, funding, document readiness, jurisdiction, and the provider that accepts the transaction. Submit the details for a transaction-specific timeline rather than relying on a generic rush-closing promise.",
   },
   {
     q: "What areas do you serve?",
-    a: "We serve the entire DMV region — Washington DC, Maryland, and Virginia. Our office is in Vienna, VA, but we handle closings throughout the tri-state area.",
+    a: "DMV Title Guy publishes transaction guidance for Washington, DC, Maryland, and Virginia. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.",
   },
   {
     q: "Who provides your title insurance?",
-    a: "Pruitt Title LLC provides comprehensive title insurance coverage for all transaction types — backed by decades of experience and top 5% national recognition.",
+    a: "DMV Title Guy is Will Rapuano's independently managed education and business-development site. When a request is eligible and accepted, the title and settlement provider is identified before services begin.",
   },
 ];
 
@@ -85,18 +85,16 @@ export default function AllTransactionsPage() {
                 Home
               </Link>
               <span className="mx-2">/</span>
-              <span className="text-gray-200">All Transaction Types</span>
+              <span className="text-gray-200">Investor Closing Guide</span>
             </nav>
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">
-              Professional Title Services
+              Investor and transaction education
             </p>
             <h1 className="t-h1 text-white mb-4">
-              We Handle Every Type of Real Estate Transaction
+              Title and Closing Guidance for Complex DMV Transactions
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Whether you&apos;re a first-time homebuyer, a seasoned investor, or
-              anything in between — Pruitt Title LLC delivers the same fast,
-              professional closing experience on every deal.
+              Use these resources to understand common title and settlement questions. Will can review an initial request and refer an eligible matter to Pruitt Title LLC for transaction-specific acceptance.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -124,10 +122,9 @@ export default function AllTransactionsPage() {
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="prose-title mb-4">What We Handle</h2>
+              <h2 className="prose-title mb-4">Transaction Scenarios Covered</h2>
               <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">
-                We don&apos;t specialize in one type of deal — we specialize in
-                getting every deal closed professionally and on time.
+                These topics explain common issues. They do not promise that a particular provider will accept every transaction or timeline.
               </p>
               <ul className="space-y-4">
                 {TRANSACTION_TYPES.map((s) => (
@@ -161,10 +158,10 @@ export default function AllTransactionsPage() {
           <h2 className="prose-title text-center mb-8">How It Works</h2>
           <ol className="max-w-2xl mx-auto space-y-4">
             {[
-              "Submit your deal details — purchase contract, loan documents, or transaction summary via our contact form or call (703) 859-1467.",
-              "We run a full title search and confirm clear title, typically within 24–48 hours.",
-              "We issue a title commitment and coordinate with all parties — buyer, seller, agents, and lender.",
-              "You close on your timeline. We handle deed prep, recording, escrow, and fund disbursement.",
+              "Submit non-sensitive deal details through DMV Title Guy or call (703) 859-1467.",
+              "Will reviews the initial request and can refer an eligible matter to Pruitt Title LLC.",
+              "The provider confirms acceptance, scope, required documents, pricing, and a transaction-specific timeline.",
+              "After acceptance, the provider coordinates the applicable title, settlement, recording, and post-closing steps.",
             ].map((step, i) => (
               <li key={i} className="flex gap-4 items-start">
                 <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
@@ -217,6 +214,10 @@ export default function AllTransactionsPage() {
             <Link href="/foreclosure-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
               <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
+            </Link>
+            <Link href="/blog/firpta-explained-dmv" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
+              <h3 className="font-semibold text-brand-navy mb-1">FIRPTA Withholding Guide</h3>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Federal withholding basics for transactions involving a foreign seller.</p>
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
