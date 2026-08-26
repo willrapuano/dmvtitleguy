@@ -39,6 +39,9 @@ export const legacyPathMappings = [
   ["/closing-cost-calculator-maryland", "/maryland-closing-cost-calculator"],
   ["/title-company-vienna-va", "/title-search-vienna-va"],
   ["/title-company-fairfax-va", "/title-search-fairfax-va"],
+  ["/title-company/falls-church-va", "/title-company-falls-church-va"],
+  ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
+  ["/blog/title-settlement-fee", "/blog/what-is-a-title-settlement-fee"],
 ];
 
 export function slashForms(source) {

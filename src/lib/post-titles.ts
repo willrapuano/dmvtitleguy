@@ -109,9 +109,14 @@ export const BLOG_SEO_OVERRIDES: Record<
       "What a title quote includes for DMV buyers, sellers, and agents — fees, insurance, and timing. Request a free Pruitt Title quote online before you schedule closing.",
   },
   "what-is-a-title-settlement-fee": {
-    title: "What Is a Title Settlement Fee? A DMV Guide | Pruitt Title",
+    title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",
     description:
-      "Title settlement fee guide for DMV buyers and sellers. Learn what the fee covers, what is fair locally, and when to request a Pruitt quote today.",
+      "Learn what a title settlement fee covers, how it differs from title insurance, and where it appears on mortgage disclosures. Fees vary; request an itemized quote.",
+    h1: "What Is a Title Settlement Fee?",
+  },
+  "title-settlement-fee": {
+    title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",
+    canonical: "/blog/what-is-a-title-settlement-fee",
   },
   "title-company-vienna-va": {
     title: "Vienna VA Title Closings: How Closings Work | Pruitt Title",

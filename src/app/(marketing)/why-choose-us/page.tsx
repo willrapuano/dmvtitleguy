@@ -2,9 +2,9 @@ import { WhyChooseUsClient } from "@/components/WhyChooseUsClient";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  title: "Why Choose Pruitt Title for a DMV Closing?",
+  title: "Why Choose Pruitt Title? Services, Process & Credentials",
   description:
-    "Pruitt Title helps DMV agents, lenders, and buyers close smoothly, with local title expertise since 2007. See why partners choose us today online.",
+    "Review Pruitt Title's DMV service area, title and settlement process, transaction support, and Will Rapuano's business-development role before requesting a quote.",
   path: "/why-choose-us",
 });
 

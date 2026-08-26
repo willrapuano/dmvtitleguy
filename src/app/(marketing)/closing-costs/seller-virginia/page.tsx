@@ -155,6 +155,9 @@ export default function SellerVirginiaClosingCostsPage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Costs →
             </Link>
+            <Link href="/calculators/seller-net-sheet" className="text-brand-blue-deep hover:underline">
+              Estimate Seller Proceeds →
+            </Link>
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>

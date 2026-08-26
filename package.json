@@ -22,6 +22,7 @@
     "verify:brand-identity": "node scripts/verify-brand-identity.mjs",
     "verify:canonical-domain": "node scripts/verify-canonical-domain-source.mjs",
     "verify:competitive-content": "node scripts/verify-competitive-content.mjs",
+    "verify:ctr-consolidation": "node scripts/verify-ctr-consolidation.mjs",
     "verify:optimized-plan": "node scripts/verify-optimized-plan.mjs",
     "verify:dependency-overrides": "node scripts/verify-dependency-overrides.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"

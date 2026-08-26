@@ -10,10 +10,12 @@ import { getBlogContent, getMarkdownBlogSlugs } from "./blog-content";
 const LOCAL_MARKDOWN_BODY_OVERRIDES = new Set([
   "firpta-explained-dmv",
   "title-insurance-cost-virginia-maryland",
+  "what-is-a-title-settlement-fee",
 ]);
 
 const LOCAL_CONTENT_UPDATED_AT: Record<string, string> = {
   "firpta-explained-dmv": "2026-08-26T00:00:00.000Z",
+  "what-is-a-title-settlement-fee": "2026-08-26T00:00:00.000Z",
 };
 
 function normalizeCategory(category?: string | null, slug?: string): string {

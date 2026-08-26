@@ -444,6 +444,9 @@ export default function MarylandCalculatorPage() {
                 A seller net estimate should be reviewed with the payoff, contract, county, expected closing date, and
                 any negotiated repair credits before the seller relies on the final net proceeds number.
               </p>
+              <p className="max-w-[68ch]">
+                Use the <Link href="/calculators/seller-net-sheet" className="font-semibold text-brand-blue-deep hover:underline">seller net sheet calculator</Link> to estimate seller proceeds from your own inputs. It is a planning estimate, not a quote or final settlement statement.
+              </p>
             </div>
             <h3 className="t-h5 text-brand-navy mb-4">Who Pays Closing Costs in Maryland: Buyer vs Seller</h3>
             <div className="grid md:grid-cols-2 gap-5">

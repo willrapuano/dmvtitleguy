@@ -56,6 +56,7 @@ try {
     "verify:social-metadata",
     "verify:brand-identity",
     "verify:competitive-content",
+    "verify:ctr-consolidation",
     "verify:optimized-plan",
   ];
   for (const script of runtimeChecks) {

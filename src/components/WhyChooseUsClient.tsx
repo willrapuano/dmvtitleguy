@@ -10,8 +10,8 @@ const ACCORDION_ITEMS = [
     body: "Pruitt Title LLC is an independently owned title, settlement, and escrow company based in Vienna, Virginia, with service across Virginia, Maryland, and Washington DC. Its public process emphasizes transaction communication, title review, settlement coordination, recording, and post-closing support.",
   },
   {
-    title: "Our Resources",
-    body: "Pruitt Title is an authorized agent of First American Title Insurance Company, one of the nation's leading providers of title insurance and a Fortune 500 company. This partnership gives us access to cutting-edge technology, extensive underwriting expertise, and financial resources that smaller title companies simply cannot match. When you work with us, you get local service backed by national strength.",
+    title: "Title Insurance & Underwriting",
+    body: "Pruitt Title coordinates title insurance and underwriting review for eligible transactions. Policy availability, coverage, endorsements, and underwriting requirements depend on the property and transaction details.",
   },
   {
     title: "Our Marketing",
@@ -22,20 +22,20 @@ const ACCORDION_ITEMS = [
     body: "Pruitt Title operates as an independent title agency with a local DMV team. Its underwriter relationship and local staff support title examination, underwriting coordination, settlement, recording, and post-closing work without presenting this website as Pruitt's corporate site.",
   },
   {
-    title: "Our Technology",
-    body: "We leverage the latest technology to streamline the closing process for all parties. From digital closings and e-signatures to real-time status updates and secure document sharing, our tech stack is designed to make every transaction faster, more transparent, and more convenient for agents, lenders, and their clients.",
+    title: "Process & Communication",
+    body: "The settlement team coordinates transaction updates, document collection, title review, signing logistics, recording, and post-closing steps. Available digital or remote options are confirmed for the specific jurisdiction, lender, and transaction.",
   },
   {
     title: "Our Flexibility",
     body: "Pruitt Title's public service information covers residential purchases, commercial transactions, refinances, resale closings, and new construction. Availability, underwriting, documentation, and closing requirements are confirmed after the team reviews the specific property and transaction.",
   },
   {
-    title: "Our Strength",
-    body: "First American Title Insurance Company provides the financial reserves and stability that protect every policy we issue. With over a century of experience and billions in assets, First American's financial strength means your clients' title insurance policies are backed by one of the strongest companies in the industry.",
+    title: "Policy-Specific Protection",
+    body: "Title insurance protection is governed by the issued policy, including its covered risks, exclusions, exceptions, and conditions. The Pruitt Title team can explain which policy and endorsements are available for an eligible transaction.",
   },
   {
-    title: "Our Diversity",
-    body: "Pruitt Title LLC is a proud woman-owned business with a diverse team that reflects the communities we serve. We believe diversity drives better outcomes — for our clients, our partners, and our industry. Our inclusive approach to business ensures that every client feels welcome and valued.",
+    title: "Our Service Area",
+    body: "Pruitt Title's public locations information identifies a Vienna headquarters, a Gaithersburg office, and remote-closing service across the DMV. The team confirms the available signing and settlement options for each transaction.",
   },
   {
     title: "Our People",
@@ -88,6 +88,9 @@ export function WhyChooseUsClient() {
           <h1 className="t-display text-white">
             Why Pruitt Title?
           </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
+            DMV Title Guy is Will Rapuano&apos;s independently managed education and business-development website. Pruitt Title LLC provides any title insurance, escrow, and settlement services requested through this page.
+          </p>
         </div>
       </section>
 
@@ -154,16 +157,13 @@ export function WhyChooseUsClient() {
               you are purchasing.
             </p>
             <p className="max-w-[68ch]">
-              First American Title Insurance Company provides title insurance that gives you the assurance that possible
-              clouds on title to the property you are purchasing have been investigated and resolved. Additionally, it is
-              insurance that if any undiscovered claims arise out of the past to threaten your ownership, they will be
-              disposed of, or you will be reimbursed as your title insurance policy provides.
+              A title search and underwriting review can identify recorded matters before settlement. An owner&apos;s title
+              insurance policy can provide protection against covered title risks, subject to the policy&apos;s terms,
+              exclusions, exceptions, and conditions.
             </p>
             <p className="max-w-[68ch]">
-              Pruitt Title LLC works with First American Title Insurance Company, a respected Fortune 500 leader in the
-              industry, combining local DMV expertise with national financial strength to protect your investment. Whether
-              you&apos;re a first-time buyer, seasoned investor, or industry professional — title insurance is the foundation
-              that protects your most important transaction.
+              Pruitt Title LLC coordinates title review, settlement, and title insurance for eligible DMV transactions.
+              Ask the settlement team which policy, endorsements, and signing options apply to your property and closing.
             </p>
           </div>
         </div>

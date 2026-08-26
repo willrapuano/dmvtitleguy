@@ -17,11 +17,17 @@ import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 import { PRUITT_TITLE } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
-  title: "title search vienna va for Closings | Pruitt Title",
+  title: "Vienna, VA Title Search Services | Pruitt Title",
   description:
-    "Vienna title search service for liens, ownership, easements, and title risks. 17+ years serving Fairfax County. Order your review online now.",
+    "Pruitt Title provides Vienna title searches for ownership, liens, easements, restrictions, and other recorded title risks. Submit a property for review.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-vienna-va",
+  },
+  openGraph: {
+    title: "Vienna, VA Title Search Services | Pruitt Title",
+    description: "Title search services for Vienna properties, including ownership, liens, easements, restrictions, and other recorded title risks.",
+    url: "https://dmvtitleguy.io/title-search-vienna-va",
+    type: "website",
   },
 };
 
@@ -132,7 +138,7 @@ const schema = {
     {
       "@type": "Service",
       "@id": "https://dmvtitleguy.io/title-search-vienna-va#service",
-      name: "Title Search Vienna VA",
+      name: "Vienna, VA Title Search Services",
       serviceType: "Title Search",
       provider: {
         "@type": "Organization",
@@ -174,12 +180,13 @@ export default function TitleSearchViennaPage() {
             <span className="text-gray-200">Title Search Vienna VA</span>
           </nav>
           <h1 className="t-h1 text-white mb-4">
-            Title Search Vienna VA
+            Vienna, VA Title Search Services
           </h1>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-            Get a practical title search for a Vienna property before you buy,
-            bid, refinance, or close. We identify liens, judgments, easements,
-            ownership issues, and title defects early.
+            Pruitt Title LLC provides title searches for Vienna properties before
+            a purchase, bid, refinance, or closing. Requests submitted through
+            DMV Title Guy connect with the Pruitt Title team for review of recorded
+            liens, judgments, easements, ownership issues, and other title risks.
           </p>
           <div className="flex flex-wrap gap-4">
             <TitleSearchOrderButton />
