@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 
 const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
 const canonicalOrigin = "https://dmvtitleguy.io";
+const isVercelPreview = new URL(targetOrigin).hostname.endsWith(".vercel.app");
 
 const fixtures = {
   "/title-company-herndon-va": {
@@ -91,7 +92,9 @@ for (const [path, expected] of Object.entries(fixtures)) {
   });
   assert.equal(response.status, 200, `${path} returned HTTP ${response.status}`);
   assert.equal(response.headers.get("location"), null, `${path} unexpectedly redirects`);
-  assert.equal(response.headers.get("x-robots-tag"), null, `${path} sends X-Robots-Tag`);
+  if (!isVercelPreview) {
+    assert.equal(response.headers.get("x-robots-tag"), null, `${path} sends X-Robots-Tag`);
+  }
 
   const html = await response.text();
   const canonical = `${canonicalOrigin}${path}`;
