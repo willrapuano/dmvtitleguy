@@ -24,12 +24,12 @@ Three independent reviewers evaluated the plan from technical delivery, SEO meas
 | First touch + last non-direct context | Complete in candidate | All six public forms send sanitized first-touch, conversion-path, and last-non-direct fields. |
 | Ambiguous-delivery idempotency | Complete in candidate | Once a webhook request is attempted, a timeout/non-2xx result does not reopen that submission ID for retry. |
 | Relationship and routing disclosure | Complete in candidate | Public copy no longer implies automatic Pruitt acceptance or “independent” guidance; each form has a purpose-specific near-submit notice. |
-| Production GHL webhook | **Blocking** | `GHL_WEBHOOK_URL` exists only for Preview. Obtain the authoritative URL from the controlled production GHL workflow; do not copy Preview blindly. |
-| GHL custom fields and workflow mapping | **Blocking** | Requires access to the intended GHL sub-account/workflow and confirmation of write-once behavior. |
+| Production GHL webhook | Complete, staged | The rotated Sensitive Preview value was validated in a protected runtime as a LeadConnector webhook whose path contains the DMV Title Guy location ID, then the same Vercel variable was scoped to Preview and Production without exposing its value. |
+| GHL custom fields and workflow mapping | **Blocking** | The valid agency private-integration token can enumerate the intended sub-account but lacks location scopes. Workflow/custom-field APIs correctly return 401 until a DMV Title Guy location token is granted. |
 | Communication-suppressed synthetic test | **Blocking** | Requires a controlled QA contact, do-not-disturb/suppression rules, and CRM-owner confirmation. No test lead has been sent. |
 | External authority changes/outreach | Prepared, unsent | The safe queue and draft below require control confirmation or send approval. |
 
-The Production build now fails closed if the production webhook, protection secret, or durable database configuration is missing. Because the production GHL URL is not yet authoritative, the candidate must not be promoted to Production.
+The Production build now fails closed if the production webhook, protection secret, or durable database configuration is missing. The production GHL URL is authoritative and staged, but the candidate must not be promoted until the location-scoped workflow mapping and communication-suppressed QA test are verified.
 
 ## GHL data contract
 
@@ -82,11 +82,11 @@ Phone calls, direct emails, and third-party funnels remain a known attribution g
 
 ## Safe production test protocol
 
-1. The GHL owner creates or identifies the production inbound-webhook workflow and maps the fields above.
+1. Using a DMV Title Guy location-scoped token or authenticated sub-account session, inspect the identified production inbound-webhook workflow and map the fields above.
 2. Create a controlled QA contact/address. Use no real prospect data and no phone number.
 3. Apply do-not-disturb and suppress email, SMS, dialer, assignment notifications, nurture, opportunity automation, and partner/referral actions for the QA identity.
 4. Confirm the workflow deduplicates on `web_submission_id` and preserves existing contact first-touch values.
-5. Add the authoritative webhook URL to Vercel Production as a sensitive value and create a new deployment.
+5. Confirm the already-staged Sensitive Vercel variable is present for Production, then create a new deployment.
 6. Submit one transaction-form test from a marked test session. Do not click submit twice or mint a new ID after a timeout.
 7. Reconcile exactly one browser submission ID, one server request, one GHL contact/update, one submission/opportunity event, and zero outbound communications.
 8. Repeat the same submission ID once. It must not create a second CRM event. Then test a later conversion with a new submission ID and confirm the original contact first-touch fields remain unchanged.
@@ -134,16 +134,18 @@ No authority outreach, public-profile edit, directory submission, or Pruitt-cont
 - The Production environment gate was exercised without `GHL_WEBHOOK_URL` and failed closed as designed.
 - Candidate deployment `dpl_JByXSt8VXkCzUGA86ZZzq1ekefrR` is READY at `https://dmvtitleguy-f1pc7vhpf-will-rapuanos-projects.vercel.app`.
 - The deployed candidate returned HTTP 200 with `x-robots-tag: noindex`; its homepage rendered the approved canonical relationship disclosure and `/contact` rendered the Pruitt acceptance boundary.
-- No lead form was submitted and no production promotion occurred because the production GHL workflow remains unverified.
+- Protected runtime probes `dpl_AHNC1igFUXMyPe5YmM6CS9VKBs9y` and `dpl_BdZa72iTesSkigXpyJeR2p6Qbpx9` established that the Preview secret is a rotated `services.leadconnectorhq.com` webhook, does not equal the historically exposed value, and embeds the intended DMV Title Guy location ID. The temporary probe route was removed from the worktree immediately afterward.
+- Vercel environment variable `6jNW1vRC6mPYhRrr` now targets both Preview and Production as a Sensitive value; its plaintext was never printed or written to the repository.
+- No lead form was submitted and no production promotion occurred because the production GHL workflow mapping and communication suppression remain unverified.
 
 ## Final access audit
 
-The August 26 continuation audited the available integration surfaces without resolving or printing any credential values:
+The August 26 continuation audited the available integration surfaces without printing any credential values:
 
-- OpenClaw’s active environment contains the SpyFu subscription variables used for competitive research.
-- Its only named GHL API key/location pair is for an unrelated `CHAD` account; no DMV Title Guy or Pruitt GHL key, location ID, or webhook is configured.
-- The macOS Keychain exposes no service/account label identifying a GHL, HighLevel, or DMV Title Guy credential.
-- Vercel still exposes `GHL_WEBHOOK_URL` only as an opaque Preview secret. Sensitive values cannot be pulled, inspected, or safely copied to Production through the current access path.
-- No callable Codex/OpenClaw connector is registered for GHL or HighLevel.
+- OpenClaw’s active global environment contains a named GHL pair for an unrelated Maverick Realty location; it was positively identified and excluded.
+- The secret-backed Velocity integration contains a valid agency private-integration token and Marketplace app credentials. The agency API positively identifies `PgoJYKxqjVNB2vTQxgB1` as **DMV Title Guy, LLC**, with `www.dmvtitleguy.io` as its website.
+- The agency token can enumerate sub-accounts, but ordinary REST location resources and HighLevel's agency-wide MCP executor return `401 token is not authorized for this scope` for workflows, custom fields, tags, pipelines, and contacts. Both documented location-token exchange variants reject the private-integration token because that exchange requires a Company OAuth token with `oauth.write`.
+- The archived production OAuth integration has app client credentials but no Company access/refresh token, and the production `ghl_oauth_credentials` table has not been deployed. HighLevel's advertised client-credentials grant also returned `invalid_request` for this app.
+- The authoritative rotated LeadConnector webhook was independently tied to the target location inside Vercel's protected runtime and safely extended to the Production target without revealing or duplicating the secret.
 
-Accordingly, the remaining production mapping and test cannot be completed without one external-state change: provide the authoritative inbound-workflow URL for the intended GHL sub-account (or connect that sub-account through an available tool). The unrelated account and the unidentifiable Preview secret must not be used as substitutes.
+Accordingly, webhook provenance and Production configuration are resolved. The one remaining GHL access change is narrower: grant a DMV Title Guy sub-account private-integration token with the required workflow/contact/custom-field scopes, or complete the Marketplace app installation to produce a Company OAuth token. That location-scoped grant is required to inspect mappings, suppress communications, run the controlled QA submission, and reconcile the resulting CRM record before production promotion.
