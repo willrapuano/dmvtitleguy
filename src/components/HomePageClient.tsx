@@ -190,7 +190,7 @@ export function HomePageClient() {
         <div className="container-xl relative grid items-center gap-10 py-12 sm:py-16 lg:min-h-[660px] lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-20">
           <div className="max-w-2xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-blue-deep">
-              Independent guidance from Will Rapuano · Services provided by Pruitt Title LLC
+              Practical educational guidance from Will Rapuano · Eligible service requests may be referred to Pruitt Title LLC for review
             </p>
             <h1 className="t-display max-w-[15ch] text-brand-navy">
               Title and settlement services across DC, Maryland, and Virginia, without the closing surprises.
@@ -506,7 +506,7 @@ export function HomePageClient() {
               </p>
               <div className="mt-6 space-y-5 leading-relaxed text-brand-muted">
                 <p className="max-w-[68ch] text-[17px]">
-                  Will Rapuano created and independently manages DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Will serves as Marketing and Business Development Officer at Pruitt Title LLC, which provides the title insurance, escrow, and settlement services requested through this site.
+                  Will Rapuano created and operates DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Will serves as Marketing and Business Development Officer at Pruitt Title LLC. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms whether it accepts the request and the applicable scope, pricing, terms, and disclosures.
                 </p>
                 <p className="max-w-[68ch]">
                   Need a title partner you can count on? Reach out directly for a quote or to open a title.

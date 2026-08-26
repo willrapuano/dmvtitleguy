@@ -1,10 +1,10 @@
 "use client";
 
 import { CheckCircle2 } from "lucide-react";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { trackAnalyticsEvent, trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
+import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
 
 interface LeadCaptureFormProps {
   title?: string;
@@ -254,13 +254,7 @@ export function LeadCaptureForm({
           {status === "submitting" ? "Sending…" : "Get Your Free Quote →"}
         </button>
 
-        <p className="text-center text-xs leading-relaxed text-slate-500">
-          We use your information to respond to this request. Read our{" "}
-          <Link href="/privacy-policy" className="font-medium text-brand-blue-deep underline underline-offset-2">
-            Privacy Policy
-          </Link>
-          .
-        </p>
+        <LeadRoutingNotice />
 
         {status === "error" && (
           <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">We couldn&apos;t deliver your request. Please call (703) 859-1467 or email wrapuano@pruitt-title.com.</p>

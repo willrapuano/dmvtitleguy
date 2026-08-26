@@ -183,9 +183,9 @@ export default function TitleSearchViennaPage() {
             Vienna, VA Title Search Services
           </h1>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-            Pruitt Title LLC provides title searches for Vienna properties before
-            a purchase, bid, refinance, or closing. Requests submitted through
-            DMV Title Guy connect with the Pruitt Title team for review of recorded
+            DMV Title Guy explains title-search issues for Vienna properties before
+            a purchase, bid, refinance, or closing. Eligible requests may be referred
+            to Pruitt Title LLC for independent review of recorded
             liens, judgments, easements, ownership issues, and other title risks.
           </p>
           <div className="flex flex-wrap gap-4">

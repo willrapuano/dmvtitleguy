@@ -27,7 +27,7 @@ const fraunces = Fraunces({
 
 const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
 const defaultDescription =
-  "Practical title and closing guidance from Will Rapuano, plus direct access to title insurance, escrow, and settlement services provided by Pruitt Title LLC.";
+  "Practical title and closing guidance from Will Rapuano, with eligible transaction requests available for referral to Pruitt Title LLC for independent review.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

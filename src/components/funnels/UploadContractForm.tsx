@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { CheckCircle, ShieldCheck } from "lucide-react";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
+import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
 
 interface UploadContractFormProps {
   location?: string;
@@ -126,6 +127,7 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
       <button type="submit" disabled={status === "submitting"} className="w-full btn-primary py-3 text-base font-semibold disabled:opacity-60">
         {status === "submitting" ? "Submitting…" : "Start Secure Intake →"}
       </button>
+      <LeadRoutingNotice />
 
       {status === "error" && (
         <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">Something went wrong. Please call us at (703) 859-1467.</p>

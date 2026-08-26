@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
 const canonicalOrigin = "https://dmvtitleguy.io";
 const disclosure =
-  "DMV Title Guy is Will Rapuano’s independently managed education and business-development website. Will serves as Marketing and Business Development Officer at Pruitt Title LLC. Title insurance, escrow, and settlement services discussed or requested through this site are provided by Pruitt Title LLC; DMV Title Guy is not a separate title insurer or settlement company.";
+  "DMV Title Guy is a personal educational and business-development website operated by Will Rapuano. It is separate from Pruitt Title LLC’s corporate website and is not a title insurer, title agency, escrow company, or settlement provider. Will is Marketing and Business Development Officer at Pruitt Title. If you request transaction services, your information may be referred to Pruitt Title for its independent review. If Pruitt accepts the request, it confirms scope, pricing, terms, and required disclosures directly.";
 
 function jsonLdNodes(html) {
   const documents = Array.from(

@@ -8,7 +8,7 @@ import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Title Company Arlington VA | Settlement & Title Services",
-  description: "Pruitt Title LLC provides expert title and settlement services in Arlington, VA. Fast closings, competitive rates, and local expertise since 2007.",
+  description: "Practical Arlington title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review.",
   alternates: { canonical: "/title-company/arlington-va" },
 };
 
@@ -47,7 +47,7 @@ export default function ArlingtonTitlePage() {
         state="VA" 
         county="Arlington County" 
         slug="title-company/arlington-va"
-        description="Pruitt Title LLC provides expert title and settlement services in Arlington, VA. Fast closings, competitive rates, and local expertise since 2007."
+        description="Practical Arlington title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
       />
 
       <PageHero

@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
     );
 
     if (!result.ok) {
-      await releaseLeadSubmission(submissionId);
+      if (result.retrySafe) await releaseLeadSubmission(submissionId);
       console.error(`[Lead API:${requestId}] Delivery failed:`, result.error);
       return NextResponse.json({ ok: false, error: "We couldn't deliver your request", requestId }, { status: 502 });
     }

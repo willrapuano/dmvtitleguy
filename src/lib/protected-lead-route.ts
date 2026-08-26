@@ -65,7 +65,7 @@ export async function handleProtectedFunnelLead(
     );
 
     if (!result.ok) {
-      await releaseLeadSubmission(submissionId);
+      if (result.retrySafe) await releaseLeadSubmission(submissionId);
       console.error(`[${source}:${requestId}] Delivery failed:`, result.error);
       return NextResponse.json({ ok: false, error: "We couldn't deliver your request", requestId }, { status: 502 });
     }

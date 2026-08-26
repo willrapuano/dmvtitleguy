@@ -89,7 +89,7 @@ export function WhyChooseUsClient() {
             Why Pruitt Title?
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
-            DMV Title Guy is Will Rapuano&apos;s independently managed education and business-development website. Pruitt Title LLC provides any title insurance, escrow, and settlement services requested through this page.
+            DMV Title Guy is Will Rapuano&apos;s personal education and business-development website, separate from Pruitt Title LLC&apos;s corporate website. Will is Pruitt&apos;s Marketing and Business Development Officer. Eligible transaction requests may be referred to Pruitt for independent review; submission does not mean Pruitt has accepted the transaction.
           </p>
         </div>
       </section>

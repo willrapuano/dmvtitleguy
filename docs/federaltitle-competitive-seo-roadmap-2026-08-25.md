@@ -21,7 +21,7 @@ Federal’s position is vulnerable rather than uniformly strong:
 - 28 of its top 50 SpyFu URLs returned 404.
 - SpyFu reported 75 page-one falloffs.
 - The first 500 lost-click records represented roughly 2,718 estimated monthly clicks lost.
-- Its former property-survey guide returned 404 while retaining 556 ranking keywords and an estimated 398 monthly clicks in SpyFu’s page history.
+- Its legacy property-survey URL returned 404 while retaining 556 ranking keywords and an estimated 398 monthly clicks in SpyFu’s page history. Federal has since published substantially similar survey content at a different `/blog/` URL, so the opportunity is legacy-link reclamation plus stronger DMV-local usefulness—not an uncontested topic.
 
 ## Completed foundation
 
@@ -46,7 +46,7 @@ An independent technical SEO, SpyFu/content-economics, and entity/compliance pan
 
 ### 1. Property-survey cluster — published
 
-Federal historical page: `/understanding-4-types-of-property-surveys/` — currently 404.
+Federal historical page: `/understanding-4-types-of-property-surveys/` — still 404. A replacement is live at `/blog/understanding-4-types-of-property-surveys`; outreach should target pages that still cite the broken legacy URL, not claim that Federal lacks current survey content.
 
 | Keyword | Monthly searches | SpyFu difficulty |
 |---|---:|---:|

@@ -1,12 +1,14 @@
 "use client";
 
-const STORAGE_KEY = "dmvtitleguy_attribution_v1";
+const STORAGE_KEY = "dmvtitleguy_attribution_v2";
+const LEGACY_STORAGE_KEY = "dmvtitleguy_attribution_v1";
+const ATTRIBUTION_WINDOW_MS = 90 * 24 * 60 * 60 * 1000;
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 
 type UtmKey = (typeof UTM_KEYS)[number];
 
 interface StoredAttribution {
-  attributionVersion: "1";
+  attributionVersion: "2";
   firstLandingPage: string;
   firstReferrerHost: string;
   firstTouchAt: string;
@@ -15,10 +17,17 @@ interface StoredAttribution {
   utmCampaign: string;
   utmTerm: string;
   utmContent: string;
+  lastNonDirectReferrerHost: string;
+  lastNonDirectTouchAt: string;
+  lastUtmSource: string;
+  lastUtmMedium: string;
+  lastUtmCampaign: string;
+  lastUtmTerm: string;
+  lastUtmContent: string;
 }
 
 function safePath() {
-  return `${window.location.pathname}${window.location.search}`.slice(0, 500);
+  return window.location.pathname.slice(0, 500);
 }
 
 function referrerHost() {
@@ -46,14 +55,55 @@ function currentUtm() {
 export function captureFirstTouch(): StoredAttribution | null {
   if (typeof window === "undefined") return null;
   try {
-    const existing = window.localStorage.getItem(STORAGE_KEY);
-    if (existing) return JSON.parse(existing) as StoredAttribution;
+    // Version 1 stored the full query string indefinitely. Remove it rather
+    // than carrying old or potentially sensitive parameters forward.
+    window.localStorage.removeItem(LEGACY_STORAGE_KEY);
+    const existingRaw = window.localStorage.getItem(STORAGE_KEY);
+    let existing: StoredAttribution | null = null;
+    if (existingRaw) {
+      const parsed = JSON.parse(existingRaw) as Partial<StoredAttribution>;
+      const firstTouch = typeof parsed.firstTouchAt === "string" ? Date.parse(parsed.firstTouchAt) : Number.NaN;
+      if (parsed.attributionVersion === "2" && Number.isFinite(firstTouch) && Date.now() - firstTouch <= ATTRIBUTION_WINDOW_MS) {
+        existing = parsed as StoredAttribution;
+      } else {
+        window.localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+
+    const referrer = referrerHost();
+    const utm = currentUtm();
+    const hasNonDirectTouch = Boolean(referrer || Object.values(utm).some(Boolean));
+    if (existing) {
+      if (hasNonDirectTouch) {
+        existing = {
+          ...existing,
+          lastNonDirectReferrerHost: referrer,
+          lastNonDirectTouchAt: new Date().toISOString(),
+          lastUtmSource: utm.utmSource,
+          lastUtmMedium: utm.utmMedium,
+          lastUtmCampaign: utm.utmCampaign,
+          lastUtmTerm: utm.utmTerm,
+          lastUtmContent: utm.utmContent,
+        };
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+      }
+      return existing;
+    }
+
+    const now = new Date().toISOString();
     const attribution: StoredAttribution = {
-      attributionVersion: "1",
+      attributionVersion: "2",
       firstLandingPage: safePath(),
-      firstReferrerHost: referrerHost(),
-      firstTouchAt: new Date().toISOString(),
-      ...currentUtm(),
+      firstReferrerHost: referrer,
+      firstTouchAt: now,
+      ...utm,
+      lastNonDirectReferrerHost: hasNonDirectTouch ? referrer : "",
+      lastNonDirectTouchAt: hasNonDirectTouch ? now : "",
+      lastUtmSource: hasNonDirectTouch ? utm.utmSource : "",
+      lastUtmMedium: hasNonDirectTouch ? utm.utmMedium : "",
+      lastUtmCampaign: hasNonDirectTouch ? utm.utmCampaign : "",
+      lastUtmTerm: hasNonDirectTouch ? utm.utmTerm : "",
+      lastUtmContent: hasNonDirectTouch ? utm.utmContent : "",
     };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(attribution));
     return attribution;
@@ -69,4 +119,3 @@ export function getLeadAttribution() {
     conversionPage: typeof window === "undefined" ? "" : safePath(),
   };
 }
-

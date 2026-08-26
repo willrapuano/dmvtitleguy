@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && node scripts/verify-production-env.mjs && next build",
     "postinstall": "prisma generate",
     "start": "next start",
     "lint": "eslint .",
@@ -29,6 +29,9 @@
     "verify:cms-resilience": "node scripts/verify-cms-resilience.mjs",
     "verify:provider-truth": "node scripts/verify-provider-truth.mjs",
     "verify:lead-attribution": "node scripts/verify-lead-attribution.mjs",
+    "verify:production-env": "node scripts/verify-production-env.mjs",
+    "verify:production-database": "node scripts/verify-production-database.mjs",
+    "migrate:lead-protection": "node scripts/apply-lead-protection-migration.mjs",
     "repair:sanity-links": "node scripts/repair-sanity-internal-links.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },

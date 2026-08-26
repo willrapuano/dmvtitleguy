@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
+import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
 
 const FEATURE_CARDS = [
   { title: "Traffic-Generating Ads", desc: "Strategic Facebook and Instagram ad campaigns that drive real buyer traffic to your listings.", icon: "Target" },
@@ -120,6 +121,7 @@ export function AdvertisingPageClient() {
                   <button type="submit" disabled={status === "submitting"} className="w-full btn-primary py-3.5 text-base font-semibold disabled:opacity-60">
                     {status === "submitting" ? "Submitting…" : "Start Running Ads Today!"}
                   </button>
+                  <LeadRoutingNotice kind="advertising" />
                   {status === "error" && <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">We couldn&apos;t deliver your listing. Please try again or email wrapuano@pruitt-title.com.</p>}
                 </form>
               )}
@@ -179,7 +181,7 @@ export function AdvertisingPageClient() {
                   ))}
                 </ul>
                 <p className="text-xs text-brand-blue-deep font-semibold text-center italic max-w-[68ch]">
-                  Complimentary service for our referral partners
+                  Availability and terms are confirmed separately; no transaction referral is required.
                 </p>
               </div>
             </div>
@@ -199,7 +201,7 @@ export function AdvertisingPageClient() {
                   ))}
                 </ul>
                 <p className="text-xs text-brand-blue-deep font-semibold text-center italic max-w-[68ch]">
-                  Complimentary service for our referral partners
+                  Availability and terms are confirmed separately; no transaction referral is required.
                 </p>
               </div>
             </div>
@@ -227,7 +229,7 @@ export function AdvertisingPageClient() {
         <div className="container-xl text-center">
           <h2 className="t-h2 text-white mb-4">Ready to Amplify Your Listings?</h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
-            Submit your listing above or contact us to get started. Complimentary for our referral partners.
+            Submit your listing above or contact us to ask about availability and current terms.
           </p>
           <Link href="/advertising-services" className="btn-light px-8 py-3.5">
             Start Running Ads Today! →

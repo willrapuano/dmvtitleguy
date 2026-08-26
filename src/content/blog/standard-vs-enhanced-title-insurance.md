@@ -150,7 +150,7 @@ Title insurance premiums in the DMV are state-regulated and based on purchase pr
 
 ---
 
-*Will Rapuano independently manages DMV Title Guy as an education and business-development site. Eligible title and settlement requests may be referred to Pruitt Title LLC for review. Questions about your specific transaction? [Contact Will][LINK:/why-choose-us].*
+*Will Rapuano operates DMV Title Guy as a personal education and business-development site, separate from Pruitt Title LLC's corporate website. Will is Pruitt's Marketing and Business Development Officer. Eligible title and settlement requests may be referred to Pruitt for independent review. Questions about your specific transaction? [Contact Will][LINK:/why-choose-us].*
 
 ---
 

@@ -4,6 +4,7 @@ import { CheckCircle2, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
+import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
 
 const BENEFITS = [
   "Exclusive real estate marketing strategies and tips",
@@ -128,15 +129,13 @@ export function SubscribePageClient() {
                 >
                   {status === "submitting" ? "Subscribing…" : "Subscribe Now"}
                 </button>
+                <LeadRoutingNotice kind="newsletter" />
                 {status === "error" && (
                   <p role="alert" className="text-red-600 text-sm text-center max-w-[68ch] mx-auto leading-relaxed">We couldn&apos;t complete your subscription. Please try again or email wrapuano@pruitt-title.com.</p>
                 )}
               </form>
             )}
 
-            <p className="text-xs text-brand-muted text-center mt-4 max-w-[68ch] mx-auto">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
           </div>
         </div>
       </section>

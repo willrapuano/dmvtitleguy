@@ -14,7 +14,7 @@ import { createPageMetadata } from "@/lib/site-metadata";
 export const metadata = createPageMetadata({
   title: "About Will Rapuano & DMV Title Guy",
   description:
-    "Meet Will Rapuano, learn why he created DMV Title Guy, and understand how this independent educational website relates to Pruitt Title LLC.",
+    "Meet Will Rapuano, learn why he created DMV Title Guy, and understand how his personal educational website relates to Pruitt Title LLC.",
   path: "/about-will-rapuano",
 });
 
@@ -52,7 +52,7 @@ const ABOUT_SCHEMA = {
 const roles = [
   {
     title: SITE_NAME,
-    text: "Will’s independently managed website for practical title education, calculators, local market resources, and direct relationship-building.",
+    text: "Will’s personal website for practical title education, calculators, local market resources, and direct relationship-building.",
   },
   {
     title: WILL.name,
@@ -85,7 +85,7 @@ export default function AboutWillRapuanoPage() {
               I created DMV Title Guy to publish the resources real estate professionals and consumers actually need—and to make it easy to reach me directly when a transaction is ready to move.
             </p>
             <p className="mt-5 max-w-[62ch] leading-relaxed text-brand-muted">
-              I am Will Rapuano, Marketing and Business Development Officer at Pruitt Title LLC. DMV Title Guy is the educational and lead-generation platform I manage; Pruitt Title LLC is the company that performs the title, escrow, and settlement work.
+              I am Will Rapuano, Marketing and Business Development Officer at Pruitt Title LLC. DMV Title Guy is my personal educational and business-development website, separate from Pruitt&apos;s corporate website. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms acceptance and service terms directly.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact" className="btn-primary px-8 text-center">

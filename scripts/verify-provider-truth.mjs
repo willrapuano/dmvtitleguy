@@ -15,6 +15,10 @@ const forbidden = [
   /competitive referral bonuses/i,
   /earn bonuses for every closed transaction/i,
   /founder of Pruitt Title LLC\s*\/\s*DMV Title Guy/i,
+  /independent guidance from Will Rapuano/i,
+  /independently managed (?:education|website|site)/i,
+  /services discussed or requested through this site are provided by Pruitt Title LLC/i,
+  /Pruitt Title LLC provides any title insurance, escrow, (?:or|and) settlement services requested through/i,
 ];
 
 const violations = [];
@@ -27,4 +31,3 @@ for (const file of files) {
 
 assert.deepEqual(violations, [], `Unsupported provider claims found:\n${violations.join("\n")}`);
 console.log(`Provider-truth gate passed across ${files.length} source files`);
-

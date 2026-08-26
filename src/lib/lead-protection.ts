@@ -168,7 +168,7 @@ export function leadLandingPage(request: NextRequest) {
   if (!referer || !host) return "/unknown";
   try {
     const parsed = new URL(referer);
-    return parsed.host === host ? `${parsed.pathname}${parsed.search}`.slice(0, 500) : "/unknown";
+    return parsed.host === host ? parsed.pathname.slice(0, 500) : "/unknown";
   } catch {
     return "/unknown";
   }

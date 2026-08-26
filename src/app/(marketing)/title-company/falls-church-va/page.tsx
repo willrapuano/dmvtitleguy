@@ -46,7 +46,7 @@ export default function FallsChurchTitlePage() {
         state="VA" 
         county="Falls Church City" 
         slug="title-company/falls-church-va"
-        description="Pruitt Title LLC provides expert title and settlement services in Falls Church, VA. Fast closings, competitive rates, and local expertise since 2007."
+        description="Practical Falls Church title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
       />
 
       {/* HERO */}

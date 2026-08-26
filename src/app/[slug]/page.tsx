@@ -786,7 +786,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const { fullName } = result.data;
   return {
     title: `Title Company in ${fullName} | DMV Title Guy`,
-    description: `Connect with Will Rapuano through DMV Title Guy for title insurance and closing services provided by Pruitt Title LLC throughout ${fullName}. Call (703) 859-1467.`,
+    description: `Get practical title and closing guidance for ${fullName} from Will Rapuano. Eligible service requests may be referred to Pruitt Title LLC for independent review.`,
     alternates: { canonical: `/${params.slug}` },
   };
 }
@@ -810,23 +810,23 @@ function LocationPage({ location }: { location: Location }) {
   const priorityHero: Record<string, { h1: string; lede: string }> = {
     "title-company-herndon-va": {
       h1: "Herndon, VA Title Company & Closing Services",
-      lede: "Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for Herndon transactions. Requests submitted through DMV Title Guy connect with the Pruitt Title team.",
+      lede: "DMV Title Guy provides practical title and closing education for Herndon transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
     },
     "title-company-tysons-va": {
       h1: "Tysons, VA Title Company & Settlement Services",
-      lede: "Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for Tysons and Tysons Corner transactions. Requests submitted through DMV Title Guy connect with the Pruitt Title team.",
+      lede: "DMV Title Guy provides practical title and closing education for Tysons and Tysons Corner transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
     },
     "title-search-vienna-va": {
       h1: "Vienna, VA Title Search Services",
-      lede: "Pruitt Title LLC provides title searches for Vienna properties before a purchase, bid, refinance, or closing. Requests submitted through DMV Title Guy connect with the Pruitt Title team for review of recorded liens, judgments, easements, ownership issues, and other title risks.",
+      lede: "DMV Title Guy explains title-search issues for Vienna properties before a purchase, bid, refinance, or closing. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
     },
     "title-company-falls-church-va": {
       h1: "Title Company Serving Falls Church, VA",
-      lede: "Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for Falls Church City and Falls Church addresses in Fairfax County. Requests submitted through DMV Title Guy connect with the Pruitt Title team.",
+      lede: "DMV Title Guy provides practical title and closing education for Falls Church City and Falls Church addresses in Fairfax County. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
     },
     "title-company-silver-spring-md": {
       h1: "Title Company Serving Silver Spring, MD",
-      lede: "Pruitt Title LLC provides title insurance, escrow, and settlement services for Silver Spring and Montgomery County transactions. Requests submitted through DMV Title Guy connect with the Pruitt Title team.",
+      lede: "DMV Title Guy provides practical title and closing education for Silver Spring and Montgomery County transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
     },
   };
   const priorityHeroCopy = priorityHero[slug];
@@ -901,10 +901,10 @@ function LocationPage({ location }: { location: Location }) {
               {priorityHeroCopy
                 ? priorityHeroCopy.lede
                 : isNeighborhood && parentLocation
-                ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
+                ? `DMV Title Guy provides practical title and closing education for ${city} and nearby ${parentLocation.city} neighborhoods. Eligible requests may be referred to Pruitt Title LLC for independent review.`
                 : isSecondary
                 ? `DMV Title Guy provides local closing education for ${locationName}. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.`
-                : `Pruitt Title LLC provides title insurance and settlement services for eligible ${locationName} transactions${countySuffix}. Requests submitted through DMV Title Guy connect with the Pruitt Title team.`}
+                : `DMV Title Guy provides practical title and closing education for ${locationName}${countySuffix}. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.`}
             </p>
             <div className="flex flex-wrap gap-3">
               {hasCheckoutCta ? (

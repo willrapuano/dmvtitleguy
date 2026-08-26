@@ -46,7 +46,7 @@ export default function FairfaxTitlePage() {
         state="VA" 
         county="Fairfax County" 
         slug="title-company/fairfax-va"
-        description="Pruitt Title LLC provides expert title and settlement services in Fairfax, VA. Fast closings, competitive rates, and local expertise since 2007."
+        description="Practical Fairfax title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
       />
 
       {/* HERO */}
