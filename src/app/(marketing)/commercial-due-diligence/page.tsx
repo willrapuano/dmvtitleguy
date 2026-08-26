@@ -14,7 +14,6 @@ import {
   Search,
   Shield,
 } from "lucide-react";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Commercial Due Diligence Title Services | DMV Title Guy",
@@ -133,19 +132,18 @@ const relatedPages = [
   { href: "/investor-title-services", label: "Investor Title Services" },
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
-  { href: "/request-title-review", label: "Order Title Search" },
+  { href: "/request-title-review", label: "Request Title Review" },
 ];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/commercial-due-diligence#service",
-      name: "Commercial Due Diligence Title Services",
-      serviceType: "Commercial Real Estate Due Diligence Title Services",
-      provider: pruittOrganizationReference(),
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/commercial-due-diligence#guide",
+      headline: "Commercial Due Diligence Title Guide",
+      about: { "@type": "Thing", name: "Commercial Real Estate Due Diligence" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },
@@ -193,7 +191,7 @@ export default function CommercialDueDiligencePage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
+              Request Title Review
             </Link>
             <Link href="/commercial-property-title-search" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Commercial Property Title Search
@@ -291,7 +289,7 @@ export default function CommercialDueDiligencePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <Link href="/request-title-review" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
+              Request Title Review
             </Link>
             <Link href="/commercial-real-estate-closings" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Commercial Real Estate Closings

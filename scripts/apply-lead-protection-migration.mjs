@@ -13,9 +13,7 @@ try {
     "SELECT name FROM sqlite_master WHERE type = 'table' AND name IN ('LeadSubmission', 'LeadRateLimitBucket') ORDER BY name"
   );
   const names = existing.rows.map((row) => String(row.name));
-  if (names.length === 2) {
-    console.log("Lead-protection migration already applied");
-  } else {
+  if (names.length !== 2) {
     assert.deepEqual(names, [], "Refusing to modify a partially applied lead-protection migration");
 
     await db.batch(
@@ -35,8 +33,47 @@ try {
       ],
       "write"
     );
-    console.log("Applied lead-protection migration to the configured durable database");
   }
+
+  const columns = await db.execute('PRAGMA table_info("LeadSubmission")');
+  const existingColumns = new Set(columns.rows.map((row) => String(row.name)));
+  const additions = [
+    ["source", 'TEXT'],
+    ["formType", 'TEXT'],
+    ["submittedAt", 'DATETIME'],
+    ["updatedAt", 'DATETIME'],
+    ["lastAttemptAt", 'DATETIME'],
+    ["deliveryAttempts", 'INTEGER NOT NULL DEFAULT 0'],
+    ["payloadHash", 'TEXT'],
+    ["conversionPath", 'TEXT'],
+    ["firstLandingPath", 'TEXT'],
+    ["firstReferrerHost", 'TEXT'],
+    ["channel", 'TEXT'],
+    ["jurisdiction", 'TEXT'],
+    ["transactionType", 'TEXT'],
+    ["contactRole", 'TEXT'],
+    ["qualificationStatus", 'TEXT NOT NULL DEFAULT \'submitted\''],
+    ["qualificationReason", 'TEXT'],
+    ["qualifiedAt", 'DATETIME'],
+    ["acceptedAt", 'DATETIME'],
+    ["closedAt", 'DATETIME'],
+    ["outcomeValueCents", 'INTEGER'],
+    ["lostReason", 'TEXT'],
+    ["lastDeliveryErrorCode", 'TEXT'],
+    ["ghlContactId", 'TEXT'],
+    ["ghlOpportunityId", 'TEXT'],
+    ["ghlSyncStatus", 'TEXT NOT NULL DEFAULT \'not-required\''],
+    ["ghlSyncErrorCode", 'TEXT'],
+  ];
+  for (const [name, type] of additions) {
+    if (!existingColumns.has(name)) {
+      await db.execute(`ALTER TABLE "LeadSubmission" ADD COLUMN "${name}" ${type}`);
+    }
+  }
+  await db.execute(`UPDATE "LeadSubmission" SET "submittedAt" = COALESCE("submittedAt", "createdAt", CURRENT_TIMESTAMP)`);
+  await db.execute(`UPDATE "LeadSubmission" SET "updatedAt" = COALESCE("updatedAt", "submittedAt", CURRENT_TIMESTAMP)`);
+  await db.execute(`UPDATE "LeadSubmission" SET "ghlSyncStatus" = COALESCE("ghlSyncStatus", 'not-required')`);
+  console.log("Lead conversion-history migration is applied to the configured durable database");
 } finally {
   db.close();
 }

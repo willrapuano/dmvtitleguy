@@ -41,7 +41,24 @@ const webhookSource = await readFile("src/lib/ghl-webhook.ts", "utf8");
 assert.match(webhookSource, /retrySafe: false/, "ambiguous webhook outcomes are not classified as unsafe to retry");
 for (const file of ["src/app/api/leads/route.ts", "src/lib/protected-lead-route.ts"]) {
   const source = await readFile(file, "utf8");
-  assert.match(source, /if \(result\.retrySafe\) await releaseLeadSubmission/, `${file} can reopen an ambiguously delivered submission`);
+  assert.match(source, /if \(result\.retrySafe\)/, `${file} does not distinguish safe from ambiguous delivery failures`);
+  assert.match(source, /markLeadSubmissionUnknown/, `${file} does not preserve ambiguous delivery for reconciliation`);
+  assert.match(source, /status: 202/, `${file} does not return an honest pending-review state`);
+}
+
+const crmSource = await readFile("src/lib/ghl-crm.ts", "utf8");
+for (const source of ["quote", "request-title-review", "upload-contract", "investor-due-diligence"]) {
+  assert.match(crmSource, new RegExp(`\\b${source}\\b`), `${source} is missing from transaction-intent opportunity measurement`);
+}
+assert.doesNotMatch(crmSource, /TRANSACTION_INTENT_SOURCES[^]*subscribe/, "newsletter subscriptions must not enter the transaction-intent KPI");
+assert.match(crmSource, /opportunities\/search/, "GHL opportunity idempotency search is missing");
+assert.match(crmSource, /Version:\s*"v3"/, "GHL opportunity sync must declare its versioned API contract");
+assert.match(crmSource, /locationId,\s*\n\s*pipelineId,/, "GHL v3 opportunity search must use camelCase query keys");
+assert.match(crmSource, /SEO Submission ID/, "GHL opportunities do not preserve submission IDs");
+
+const prismaSchema = await readFile("prisma/schema.prisma", "utf8");
+for (const field of ["submittedAt", "qualificationStatus", "ghlOpportunityId", "ghlSyncStatus"]) {
+  assert.match(prismaSchema, new RegExp(`\\b${field}\\b`), `LeadSubmission.${field} is missing`);
 }
 
 const routingNoticeSource = await readFile("src/components/LeadRoutingNotice.tsx", "utf8");

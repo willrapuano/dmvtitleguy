@@ -63,7 +63,7 @@ export function InvestorPageTemplate({
             <h1 className="t-h1 text-white mb-4">{h1}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">{heroBody}</p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${slug}#quote`} className="btn-primary">Start Your Order →</Link>
+              <Link href={`/${slug}#quote`} className="btn-primary">Request an Introduction →</Link>
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
                 <Phone size={15} strokeWidth={2.25} className="mr-2 inline-block align-[-2px]" aria-hidden="true" />(703) 859-1467
               </a>

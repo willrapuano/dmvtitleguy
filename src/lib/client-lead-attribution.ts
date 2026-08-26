@@ -2,6 +2,7 @@
 
 const STORAGE_KEY = "dmvtitleguy_attribution_v2";
 const LEGACY_STORAGE_KEY = "dmvtitleguy_attribution_v1";
+const SESSION_TOUCH_KEY = "dmvtitleguy_attribution_touch_v2";
 const ATTRIBUTION_WINDOW_MS = 90 * 24 * 60 * 60 * 1000;
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 
@@ -73,8 +74,11 @@ export function captureFirstTouch(): StoredAttribution | null {
     const referrer = referrerHost();
     const utm = currentUtm();
     const hasNonDirectTouch = Boolean(referrer || Object.values(utm).some(Boolean));
+    const touchFingerprint = JSON.stringify([referrer, ...Object.values(utm)]);
+    const isNewTouch = hasNonDirectTouch && window.sessionStorage.getItem(SESSION_TOUCH_KEY) !== touchFingerprint;
+    if (hasNonDirectTouch) window.sessionStorage.setItem(SESSION_TOUCH_KEY, touchFingerprint);
     if (existing) {
-      if (hasNonDirectTouch) {
+      if (isNewTouch) {
         existing = {
           ...existing,
           lastNonDirectReferrerHost: referrer,

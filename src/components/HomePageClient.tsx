@@ -190,25 +190,24 @@ export function HomePageClient() {
         <div className="container-xl relative grid items-center gap-10 py-12 sm:py-16 lg:min-h-[660px] lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-20">
           <div className="max-w-2xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-blue-deep">
-              Practical educational guidance from Will Rapuano · Eligible service requests may be referred to Pruitt Title LLC for review
+              Independent educational guidance from Will Rapuano for DC, Maryland, and Virginia
             </p>
             <h1 className="t-display max-w-[15ch] text-brand-navy">
-              Title and settlement services across DC, Maryland, and Virginia, without the closing surprises.
+              Practical title guidance for DC, Maryland, and Virginia real estate.
             </h1>
             <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-brand-ink md:text-xl">
-              Responsive title, escrow, and settlement support for buyers, realtors,
-              lenders, and builders across Virginia, Maryland, and Washington DC.
+              Use local guides and calculators to understand the next step. When you need a provider, ask Will for an introduction; the provider independently confirms acceptance, scope, and terms.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/calculators/title-quote" className="btn-primary px-8 text-center text-base">
-                Get a Title Quote <span aria-hidden="true">→</span>
+                Estimate Title Costs <span aria-hidden="true">→</span>
               </Link>
               <Link href="/contact" className="btn-outline px-8 text-center text-base">
-                Start Your Closing
+                Request an Introduction
               </Link>
             </div>
             <ul className="mt-8 hidden flex-wrap gap-2.5 lg:flex" aria-label="Service assurances">
-              {["17+ years serving the DMV", "Purchase · Refinance · Builder", "Direct access to Will"].map((item) => (
+              {["DMV-focused education", "Calculators and local guides", "Direct access to Will"].map((item) => (
                 <li key={item} className="trust-chip">
                   <CheckCircle2 size={14} strokeWidth={2} className="text-brand-blue-deep" aria-hidden="true" />
                   {item}
@@ -238,7 +237,7 @@ export function HomePageClient() {
           </div>
 
           <ul className="flex flex-wrap gap-2.5 lg:hidden" aria-label="Service assurances">
-            {["17+ years serving the DMV", "Purchase · Refinance · Builder", "Direct access to Will"].map((item) => (
+            {["DMV-focused education", "Calculators and local guides", "Direct access to Will"].map((item) => (
               <li key={item} className="trust-chip">
                 <CheckCircle2 size={14} strokeWidth={2} className="text-brand-blue-deep" aria-hidden="true" />
                 {item}
@@ -360,7 +359,7 @@ export function HomePageClient() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/calculators/title-quote" className="btn-light px-8 py-3.5">
-              Get a Title Quote →
+              Estimate Title Costs →
             </Link>
             <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-8 py-3.5">
               Open Title
@@ -419,13 +418,13 @@ export function HomePageClient() {
           <blockquote className="mt-20 max-w-4xl border-t border-gray-200 pt-10">
             <p className="font-display text-2xl leading-[1.4] text-brand-navy md:text-[1.75rem]">
               &ldquo;My goal is simple: help real estate professionals in the DMV grow their
-              businesses through better marketing, better education, and better title services.
+              businesses through better marketing, better education, and better title decisions.
               When my partners succeed, everybody wins.&rdquo;
             </p>
             <footer className="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-brand-blue-deep">
               Will Rapuano
               <span className="ml-2 font-medium normal-case tracking-normal text-brand-muted">
-                DMV Title Guy, Pruitt Title LLC
+                DMV Title Guy
               </span>
             </footer>
           </blockquote>
@@ -438,8 +437,8 @@ export function HomePageClient() {
           <SectionHead
             index="04"
             label="Coverage"
-            title="Title insurance and closing services across the DMV"
-            lede="Pruitt Title LLC provides professional title and settlement services throughout Washington DC, Northern Virginia, and Maryland."
+            title="Local title and closing education across the DMV"
+            lede="Explore DMV-focused guides, calculators, and transaction-introduction resources for Washington DC, Northern Virginia, and Maryland."
           />
           {/* Location links were 73 fixed-width pills centred inside three cards,
               which produced a ragged grid of half-empty rows. As a left-aligned
@@ -509,12 +508,12 @@ export function HomePageClient() {
                   Will Rapuano created and operates DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Will serves as Marketing and Business Development Officer at Pruitt Title LLC. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms whether it accepts the request and the applicable scope, pricing, terms, and disclosures.
                 </p>
                 <p className="max-w-[68ch]">
-                  Need a title partner you can count on? Reach out directly for a quote or to open a title.
+                  Need help finding the right next step? Reach out to Will with your transaction question or request an introduction.
                 </p>
               </div>
               <div className="mt-9 flex flex-wrap gap-4">
                 <Link href="/calculators/title-quote" className="btn-primary px-8">
-                  Get a Title Quote
+                  Estimate Closing Costs
                 </Link>
                 <Link href="/contact" className="btn-outline px-8">
                   Contact Will
@@ -542,9 +541,7 @@ export function HomePageClient() {
               </div>
               <dl className="mt-6 border-t border-gray-200 pt-5 text-sm">
                 {[
-                  { k: "Email", v: <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">wrapuano@pruitt-title.com</a> },
                   { k: "Phone", v: <a href="tel:+17038591467" className="text-brand-blue-deep hover:underline">(703) 859-1467</a> },
-                  { k: "Office", v: <span className="text-brand-muted">1900 Gallows Rd Ste 230, Vienna, VA 22182</span> },
                 ].map((row) => (
                   <div key={row.k} className="flex gap-4 border-b border-gray-100 py-2.5 last:border-0">
                     <dt className="w-16 shrink-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">

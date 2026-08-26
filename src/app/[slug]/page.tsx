@@ -6,7 +6,7 @@
  * Matches: /title-company-{city}-{state} and /title-company-{county}-county-{state}
  */
 
-import { Phone, Mail, MapPin, Check, AlertTriangle } from "lucide-react";
+import { Phone, Check, AlertTriangle } from "lucide-react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
@@ -40,7 +40,6 @@ import {
   recordationCaveat,
   countyTransferTaxParagraph,
 } from "@/data/closingCostData";
-import { PRUITT_TITLE } from "@/lib/brand-identity";
 
 /** A statutory note, or nothing at all where the helper has none for this state. */
 function TaxStatutePara({ text }: { text?: string }) {
@@ -164,7 +163,7 @@ const TYSONS_FAQS: FaqItem[] = [
   },
   {
     question: "How do I order a Tysons title search?",
-    answer: "Use the Order Title Search button to submit the property details or start contract intake. The team will confirm what is needed, provide secure document-transfer instructions, and begin the title search and settlement process.",
+    answer: "Use the Request Title Review button to submit the property details or start contract intake. The team will confirm what is needed, provide secure document-transfer instructions, and begin the title search and settlement process.",
   },
 ];
 
@@ -214,18 +213,12 @@ function TysonsStructuredData() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Service",
-        "@id": "https://dmvtitleguy.io/title-company-tysons-va#service",
-        name: "Title Insurance & Closing Services in Tysons, VA",
+        "@type": "Article",
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#guide",
+        headline: "Title and Closing Guide for Tysons, VA",
         url: "https://dmvtitleguy.io/title-company-tysons-va",
-        serviceType: "Title Insurance & Settlement Services",
-        provider: {
-          "@type": "Organization",
-          "@id": PRUITT_TITLE.id,
-          name: PRUITT_TITLE.name,
-          url: PRUITT_TITLE.url,
-        },
-        areaServed: [
+        about: { "@type": "Thing", name: "Title Insurance and Settlement" },
+        spatialCoverage: [
           { "@type": "City", name: "Tysons", addressRegion: "VA" },
           { "@type": "Place", name: "Tysons Corner" },
           { "@type": "City", name: "McLean", addressRegion: "VA" },
@@ -1347,12 +1340,10 @@ function CountyPage({ county }: { county: County }) {
       <section id="quote" className="section-navy">
         <div className="container-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="t-h3 text-white mb-4">Start Your Order in {name}</h2>
-            <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Contact Will Rapuano at Pruitt Title LLC to open your title order or get a quote for your next transaction in {fullName}.</p>
+            <h2 className="t-h3 text-white mb-4">Request an Introduction in {name}</h2>
+            <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Share your transaction question with Will. If you request a provider introduction, that provider independently confirms whether it accepts the matter and supplies its scope, pricing, and terms.</p>
             <div className="space-y-2 text-sm text-gray-300">
               <p className="flex items-center gap-2"><Phone size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>
-              <p className="flex items-center gap-2"><Mail size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">wrapuano@pruitt-title.com</a></p>
-              <p className="flex items-center gap-2"><MapPin size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" />1900 Gallows Rd Ste 230, Vienna, VA 22182</p>
             </div>
           </div>
           <LeadCaptureForm location={`county-${slug}-form`} />

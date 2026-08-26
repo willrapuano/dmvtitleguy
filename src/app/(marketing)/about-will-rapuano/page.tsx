@@ -60,7 +60,7 @@ const roles = [
   },
   {
     title: PRUITT_TITLE.name,
-    text: "Will’s employer and the company that provides the title insurance, escrow, and settlement services requested through this website.",
+    text: "Will’s employer. An eligible request may be introduced to Pruitt for independent review; this website does not bind Pruitt or establish a service relationship.",
   },
 ];
 

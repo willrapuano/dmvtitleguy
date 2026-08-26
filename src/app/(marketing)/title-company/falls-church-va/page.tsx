@@ -154,7 +154,7 @@ export default function FallsChurchTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
             </Link>
           </div>
         </div>

@@ -14,7 +14,6 @@ import {
   Shield,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
-import { PRUITT_TITLE } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Vienna, VA Title Search Services | Pruitt Title",
@@ -129,26 +128,20 @@ const relatedPages = [
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
   { href: "/upload-contract", label: "Start Contract Intake" },
-  { href: "/request-title-review", label: "Order Title Search" },
+  { href: "/request-title-review", label: "Request Title Review" },
 ];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/title-search-vienna-va#service",
-      name: "Vienna, VA Title Search Services",
-      serviceType: "Title Search",
-      provider: {
-        "@type": "Organization",
-        "@id": PRUITT_TITLE.id,
-        name: PRUITT_TITLE.name,
-        url: PRUITT_TITLE.url,
-      },
-      areaServed: { "@type": "City", name: "Vienna", addressRegion: "VA" },
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/title-search-vienna-va#guide",
+      headline: "Title Search Guide for Vienna, VA",
+      about: { "@type": "Thing", name: "Title Search" },
+      spatialCoverage: { "@type": "City", name: "Vienna", addressRegion: "VA" },
       description:
-        "Title search services for Vienna, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",
+        "Educational guide to Vienna, VA title-search topics including ownership chains, liens, judgments, taxes, easements, restrictions, and title defects.",
     },
     {
       "@type": "FAQPage",

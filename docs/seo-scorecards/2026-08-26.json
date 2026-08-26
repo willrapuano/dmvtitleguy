@@ -1,0 +1,413 @@
+{
+  "capturedAt": "2026-08-26T22:41:44.649Z",
+  "database": "SpyFu US SEO API; identical request definitions for both domains",
+  "domains": {
+    "dmvtitleguy.io": {
+      "spyfuMonth": "2026-07",
+      "rankingKeywords": 128,
+      "estimatedMonthlyOrganicClicks": 39,
+      "estimatedMonthlyOrganicValue": 1998,
+      "averageOrganicRank": 47.6,
+      "fixedUniverse": {
+        "version": "v1-2026-08-25",
+        "keywordCount": 23,
+        "totalSearchVolume": 28470,
+        "searchVolumeWeightedTop3SharePct": 0,
+        "searchVolumeWeightedPageOneSharePct": 0,
+        "rankings": [
+          {
+            "cluster": "property-survey",
+            "keyword": "land survey",
+            "searchVolume": 3100,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "types of surveys",
+            "searchVolume": 2400,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "property survey",
+            "searchVolume": 2200,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "boundary survey",
+            "searchVolume": 1200,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "property line survey",
+            "searchVolume": 810,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta",
+            "searchVolume": 6600,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta exemptions",
+            "searchVolume": 1200,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta withholding",
+            "searchVolume": 1000,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta certificate",
+            "searchVolume": 360,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "homestead dc",
+            "searchVolume": 840,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc real estate taxes",
+            "searchVolume": 630,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc property tax rate",
+            "searchVolume": 440,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc homestead deduction",
+            "searchVolume": 400,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc tax abatement program",
+            "searchVolume": 340,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "net sheet calculator",
+            "searchVolume": 570,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "seller closing cost calculator",
+            "searchVolume": 480,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "closing cost estimator for seller",
+            "searchVolume": 400,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "seller net sheet calculator virginia",
+            "searchVolume": 380,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "title insurance cost",
+            "searchVolume": 2500,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "title settlement fee",
+            "searchVolume": 1100,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "typical title company fees",
+            "searchVolume": 660,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "lender's title insurance cost",
+            "searchVolume": 460,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "how much does title insurance cost",
+            "searchVolume": 400,
+            "rank": null,
+            "url": null,
+            "estimatedClicks": 0
+          }
+        ]
+      }
+    },
+    "federaltitle.com": {
+      "spyfuMonth": "2026-07",
+      "rankingKeywords": 5349,
+      "estimatedMonthlyOrganicClicks": 4492,
+      "estimatedMonthlyOrganicValue": 71870,
+      "averageOrganicRank": 51.7,
+      "fixedUniverse": {
+        "version": "v1-2026-08-25",
+        "keywordCount": 23,
+        "totalSearchVolume": 28470,
+        "searchVolumeWeightedTop3SharePct": 1.19,
+        "searchVolumeWeightedPageOneSharePct": 13.98,
+        "rankings": [
+          {
+            "cluster": "property-survey",
+            "keyword": "land survey",
+            "searchVolume": 3100,
+            "rank": 71,
+            "url": "https://www.federaltitle.com/understanding-4-types-of-property-surveys/",
+            "estimatedClicks": 8
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "types of surveys",
+            "searchVolume": 2400,
+            "rank": 6,
+            "url": "https://www.federaltitle.com/understanding-4-types-of-property-surveys/",
+            "estimatedClicks": 70
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "property survey",
+            "searchVolume": 2200,
+            "rank": 31,
+            "url": "https://www.federaltitle.com/understanding-4-types-of-property-surveys/",
+            "estimatedClicks": 12
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "boundary survey",
+            "searchVolume": 1200,
+            "rank": 12,
+            "url": "https://www.federaltitle.com/understanding-4-types-of-property-surveys/",
+            "estimatedClicks": 18
+          },
+          {
+            "cluster": "property-survey",
+            "keyword": "property line survey",
+            "searchVolume": 810,
+            "rank": 46,
+            "url": "https://www.federaltitle.com/understanding-4-types-of-property-surveys/",
+            "estimatedClicks": 3
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta",
+            "searchVolume": 6600,
+            "rank": 45,
+            "url": "https://www.federaltitle.com/what-is-firpta/",
+            "estimatedClicks": 28
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta exemptions",
+            "searchVolume": 1200,
+            "rank": 15,
+            "url": "https://www.federaltitle.com/firpta/",
+            "estimatedClicks": 14
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta withholding",
+            "searchVolume": 1000,
+            "rank": 38,
+            "url": "https://www.federaltitle.com/what-is-firpta/",
+            "estimatedClicks": 5
+          },
+          {
+            "cluster": "firpta",
+            "keyword": "firpta certificate",
+            "searchVolume": 360,
+            "rank": 46,
+            "url": "https://www.federaltitle.com/what-is-firpta/",
+            "estimatedClicks": 1
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "homestead dc",
+            "searchVolume": 840,
+            "rank": 7,
+            "url": "https://www.federaltitle.com/dc-homestead-deduction",
+            "estimatedClicks": 20
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc real estate taxes",
+            "searchVolume": 630,
+            "rank": 26,
+            "url": "https://www.federaltitle.com/dc-real-property-assessment-cap-credit/",
+            "estimatedClicks": 4
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc property tax rate",
+            "searchVolume": 440,
+            "rank": 57,
+            "url": "https://www.federaltitle.com/dc-real-property-assessment-cap-credit/",
+            "estimatedClicks": 1
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc homestead deduction",
+            "searchVolume": 400,
+            "rank": 8,
+            "url": "https://www.federaltitle.com/dc-homestead-deduction/",
+            "estimatedClicks": 9
+          },
+          {
+            "cluster": "dc-tax",
+            "keyword": "dc tax abatement program",
+            "searchVolume": 340,
+            "rank": 2,
+            "url": "https://www.federaltitle.com/dc-tax-abatement/",
+            "estimatedClicks": 28
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "net sheet calculator",
+            "searchVolume": 570,
+            "rank": 57,
+            "url": "https://www.federaltitle.com/calculate-proceeds/",
+            "estimatedClicks": 2
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "seller closing cost calculator",
+            "searchVolume": 480,
+            "rank": 41,
+            "url": "https://www.federaltitle.com/calculate-proceeds/",
+            "estimatedClicks": 2
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "closing cost estimator for seller",
+            "searchVolume": 400,
+            "rank": 63,
+            "url": "https://www.federaltitle.com/calculate-proceeds/",
+            "estimatedClicks": 1
+          },
+          {
+            "cluster": "seller-proceeds",
+            "keyword": "seller net sheet calculator virginia",
+            "searchVolume": 380,
+            "rank": 22,
+            "url": "https://www.federaltitle.com/calculate-proceeds/",
+            "estimatedClicks": 3
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "title insurance cost",
+            "searchVolume": 2500,
+            "rank": 46,
+            "url": "https://www.federaltitle.com/homebuying/title-insurance/",
+            "estimatedClicks": 10
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "title settlement fee",
+            "searchVolume": 1100,
+            "rank": 14,
+            "url": "https://www.federaltitle.com/homebuying/fees/",
+            "estimatedClicks": 14
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "typical title company fees",
+            "searchVolume": 660,
+            "rank": 62,
+            "url": "https://www.federaltitle.com/homebuying/fees",
+            "estimatedClicks": 2
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "lender's title insurance cost",
+            "searchVolume": 460,
+            "rank": 37,
+            "url": "https://www.federaltitle.com/homebuying/title-insurance/",
+            "estimatedClicks": 2
+          },
+          {
+            "cluster": "title-fees",
+            "keyword": "how much does title insurance cost",
+            "searchVolume": 400,
+            "rank": 57,
+            "url": "https://www.federaltitle.com/homebuying/title-insurance/",
+            "estimatedClicks": 1
+          }
+        ]
+      }
+    }
+  },
+  "currentCompetitiveConditions": {
+    "domainClicksLead": false,
+    "fixedUniverseTop3Lead": false,
+    "fixedUniversePageOneLead": false,
+    "consecutivePassingMonths": 0,
+    "requiredConsecutiveMonths": 3
+  }
+}

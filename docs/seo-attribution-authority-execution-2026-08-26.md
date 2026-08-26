@@ -18,18 +18,19 @@ Three independent reviewers evaluated the plan from technical delivery, SEO meas
 
 | Control | Status | Evidence / next action |
 |---|---|---|
-| Durable lead-rate and idempotency tables | Complete | Production Turso contains `LeadRateLimitBucket` and `LeadSubmission`; the migration and verification scripts are in `scripts/`. |
+| Durable lead-rate, conversion, and idempotency ledger | Complete | Production Turso contains `LeadRateLimitBucket` and an immutable `LeadSubmission` acquisition row with delivery, attribution, qualification/outcome, and GHL reconciliation fields. |
 | Unique production protection secret | Complete | A new sensitive Production-only `LEAD_PROTECTION_SECRET` is configured in Vercel. |
-| Path-only, 90-day attribution | Complete in candidate | Client and server discard URL queries and fragments; legacy v1 storage is removed; first touch expires after 90 days. |
-| First touch + last non-direct context | Complete in candidate | All six public forms send sanitized first-touch, conversion-path, and last-non-direct fields. |
-| Ambiguous-delivery idempotency | Complete in candidate | Once a webhook request is attempted, a timeout/non-2xx result does not reopen that submission ID for retry. |
-| Relationship and routing disclosure | Complete in candidate | Public copy no longer implies automatic Pruitt acceptance or “independent” guidance; each form has a purpose-specific near-submit notice. |
-| Production GHL webhook | Complete, staged | The rotated Sensitive Preview value was validated in a protected runtime as a LeadConnector webhook whose path contains the DMV Title Guy location ID, then the same Vercel variable was scoped to Preview and Production without exposing its value. |
-| GHL custom fields and workflow mapping | **Blocking** | The valid agency private-integration token can enumerate the intended sub-account but lacks location scopes. Workflow/custom-field APIs correctly return 401 until a DMV Title Guy location token is granted. |
-| Communication-suppressed synthetic test | **Blocking** | Requires a controlled QA contact, do-not-disturb/suppression rules, and CRM-owner confirmation. No test lead has been sent. |
+| Path-only, 90-day attribution | Complete in production | Client and server discard URL queries and fragments; legacy v1 storage is removed; first touch expires after 90 days. |
+| First touch + last non-direct context | Complete in production | All six public forms send sanitized first-touch, conversion-path, and last-non-direct fields. |
+| Ambiguous-delivery idempotency | Complete in production | Once a webhook request is attempted, a timeout/non-2xx result does not reopen that submission ID for retry. A repeated delivered ID returned `duplicate: true` without another CRM event. |
+| Relationship and routing disclosure | Complete in production | Public copy no longer implies automatic Pruitt acceptance or “independent” guidance; each form has a purpose-specific near-submit notice. |
+| Production GHL webhook | Complete | The verified webhook is a Production-only Vercel Secret. Preview has no production lead destination. |
+| GHL contact attribution + transaction pipeline | Complete | Workflow `DMVTitleGuy Website Lead Intake` preserves 10 write-once first-touch fields and 17 latest/submission fields. Pipeline `DMVTitleGuy Website Transaction Intent` records Submitted, Qualified, Referred, Accepted, Closed/Won, and Lost outcomes; 18 opportunity fields preserve immutable form context. |
+| Communication-suppressed synthetic test | Complete | The reserved-domain QA contact uses a reserved 555 test number, global DND, and the `dmvtitleguy-qa-no-contact` tag. The audited intake workflow contains no outbound communication action. |
+| FederalTitle competitive scorecard | Complete | The competitive roadmap freezes a 23-keyword v1 universe, same-database monthly snapshots, an explicit three-month surpass rule, and a separate business outcome scorecard. The first raw snapshot is preserved under `docs/seo-scorecards/`. |
 | External authority changes/outreach | Prepared, unsent | The safe queue and draft below require control confirmation or send approval. |
 
-The Production build now fails closed if the production webhook, protection secret, or durable database configuration is missing. The production GHL URL is authoritative and staged, but the candidate must not be promoted until the location-scoped workflow mapping and communication-suppressed QA test are verified.
+The Production build fails closed if lead delivery, protection, durable database, or GHL opportunity configuration is missing. Deployment `dpl_AK2ANytjJTfmJryRczyHQnGZg4xk` passed the environment gate and controlled GHL opportunity QA before promotion to `dmvtitleguy.io`.
 
 ## GHL data contract
 
@@ -83,14 +84,32 @@ Phone calls, direct emails, and third-party funnels remain a known attribution g
 ## Safe production test protocol
 
 1. Using a DMV Title Guy location-scoped token or authenticated sub-account session, inspect the identified production inbound-webhook workflow and map the fields above.
-2. Create a controlled QA contact/address. Use no real prospect data and no phone number.
-3. Apply do-not-disturb and suppress email, SMS, dialer, assignment notifications, nurture, opportunity automation, and partner/referral actions for the QA identity.
+2. Create a controlled QA contact/address using a reserved-domain email and, where the transaction form requires it, a reserved 555 test number.
+3. Apply global do-not-disturb and suppress email, SMS, dialer, assignment notifications, nurture, and partner/referral actions for the QA identity.
 4. Confirm the workflow deduplicates on `web_submission_id` and preserves existing contact first-touch values.
 5. Confirm the already-staged Sensitive Vercel variable is present for Production, then create a new deployment.
 6. Submit one transaction-form test from a marked test session. Do not click submit twice or mint a new ID after a timeout.
 7. Reconcile exactly one browser submission ID, one server request, one GHL contact/update, one submission/opportunity event, and zero outbound communications.
 8. Repeat the same submission ID once. It must not create a second CRM event. Then test a later conversion with a new submission ID and confirm the original contact first-touch fields remain unchanged.
 9. Remove or permanently suppress the QA record and record the test timestamp, workflow version, screenshots/log references, and reviewer.
+
+## Completed production release and QA
+
+- Created a location-scoped private integration named `DMVTitleGuy SEO Attribution Ops` with only workflow-read, custom-field, tag, contact, and opportunity scopes required for this work. After QA, its setup token was immediately expired and rotated; the replacement is stored in macOS Keychain, returns HTTP 200 against the scoped Contacts API, and was not written to the repository.
+- Created the 10 `seo_first_*`/version contact fields and 17 `web_*` submission/latest fields listed above.
+- Audited `DMVTitleGuy Website Lead Intake`: the only operational actions are create/update contact, the first-touch-empty condition, and the conditional contact-field update. No communication, assignment, notification, dialer, or opportunity action is present.
+- Saved workflow version 24 with 21 create/update-contact mappings, followed by `Preserve first-touch attribution`; the `First touch missing` branch contains the 10-field `Set first-touch attribution` action and the existing-first-touch branch ends without changing those fields.
+- Added an additive Production Turso migration for immutable acquisition, delivery/reconciliation, attribution, qualification, acceptance, close, outcome value, and lost-reason fields. The live database gate verified every required column.
+- Created the `DMVTitleGuy Website Transaction Intent` pipeline with Submitted, Qualified, Referred, Accepted, Closed/Won, and Lost stages, plus 18 opportunity fields for submission and form context. Newsletter and advertising forms are explicitly excluded.
+- Removed the GHL webhook from Preview and retained it only as a Production Secret. A failed candidate proved the production build gate stops deployment when lead delivery is absent; the verified secret was restored without exposing its value.
+- Paused new paid title-search orders and replaced the checkout path with a request-introduction route pending merchant/provider/fulfillment authorization. Existing order capture remains available for previously created orders.
+- Removed Pruitt NAP/hours from DMV Title Guy global and contact surfaces, removed Pruitt `Service.provider` conflation from location/content schema, separated Will’s identity links from brand-channel links, and normalized commerce CTAs to educational/introduction language.
+- Deployed production candidate `dpl_AK2ANytjJTfmJryRczyHQnGZg4xk` off-domain. The environment gate, 289-route build, homepage, `robots.txt`, `sitemap.xml`, `/contact`, and `/request-title-review` passed before promotion.
+- Controlled pass A and pass B both returned HTTP 200 through the real lead API. GHL contact `5zzh7qdLz0yOboCNAOfO` contains all 27 mapped fields. Pass B preserved all 10 pass-A first-touch values and advanced the latest-touch/submission fields to pass B. GHL execution logs show pass A taking `Create contact` → `First touch missing` → `Set first-touch attribution` → `Finished` at 5:29 PM EDT, and pass B taking `Create contact` → `First touch already set` → `Finished` at 5:30 PM EDT.
+- Applied global DND and the `dmvtitleguy-qa-no-contact` tag to the reserved-domain QA contact before adding a reserved 555 test number required by the transaction-intent form.
+- Controlled transaction submission `152d9b9e-644d-4509-8f2a-f76956118e70` returned HTTP 200 and produced one delivered Turso row (`organic-search`, `/qa/organic-opportunity` → `/request-title-review`) and one Submitted-stage GHL opportunity, `dVe0TIMvC2s2kXozhRou`. Its nine populated fields include the submission ID, submitted time, form type, first landing path, conversion path, attribution channel, property address, review type, and urgency. After verification, the opportunity was renamed `[QA]`, moved to Lost, and both synthetic ledger rows were marked `qualificationStatus=test` with `qa-excluded-from-kpi` so they cannot inflate reporting.
+- Replaying the same submission ID against the candidate and again through `dmvtitleguy.io` returned HTTP 200 with `duplicate: true`; the opportunity count remained exactly one and the contact remained DND.
+- Promoted the exact tested deployment. After promotion, the five public smoke paths returned HTTP 200, legacy order/NAP/provider copy was absent, the new paid-order endpoint returned the intended HTTP 503 introduction response, and live idempotency remained intact.
 
 ## Permission-safe authority queue
 
@@ -131,12 +150,12 @@ No authority outreach, public-profile edit, directory submission, or Pruitt-cont
 
 - `npm run verify:release` passed on August 26, 2026: lint, TypeScript, dependency audit, build, lead-security checks, canonical/redirect checks, sitemap completeness, 137-route blog rendering, social metadata, entity identity, competitive content, internal-link crawl, and CMS resilience.
 - Production Turso was reached directly and both lead-protection tables were verified after migration.
-- The Production environment gate was exercised without `GHL_WEBHOOK_URL` and failed closed as designed.
-- Candidate deployment `dpl_JByXSt8VXkCzUGA86ZZzq1ekefrR` is READY at `https://dmvtitleguy-f1pc7vhpf-will-rapuanos-projects.vercel.app`.
-- The deployed candidate returned HTTP 200 with `x-robots-tag: noindex`; its homepage rendered the approved canonical relationship disclosure and `/contact` rendered the Pruitt acceptance boundary.
-- Protected runtime probes `dpl_AHNC1igFUXMyPe5YmM6CS9VKBs9y` and `dpl_BdZa72iTesSkigXpyJeR2p6Qbpx9` established that the Preview secret is a rotated `services.leadconnectorhq.com` webhook, does not equal the historically exposed value, and embeds the intended DMV Title Guy location ID. The temporary probe route was removed from the worktree immediately afterward.
-- Vercel environment variable `6jNW1vRC6mPYhRrr` now targets both Preview and Production as a Sensitive value; its plaintext was never printed or written to the repository.
-- No lead form was submitted and no production promotion occurred because the production GHL workflow mapping and communication suppression remain unverified.
+- The Production environment gate was exercised without `GHL_WEBHOOK_URL` and failed closed as designed; the failed candidate was never promoted.
+- Earlier candidate deployment `dpl_JByXSt8VXkCzUGA86ZZzq1ekefrR` was superseded by the production-tested release below.
+- The final candidate returned HTTP 200 for the homepage, `robots.txt`, and `sitemap.xml`; its homepage rendered the approved canonical relationship disclosure and `/contact` rendered the Pruitt acceptance boundary.
+- Earlier protected runtime probes established that the webhook is rotated, belongs to the intended DMV Title Guy location, and is not the historically exposed value. The temporary probe route was removed from the worktree immediately afterward.
+- `GHL_WEBHOOK_URL` is now a Production-only Vercel Secret; Preview has no production lead destination. Its plaintext was never written to the repository.
+- Production deployment `dpl_AK2ANytjJTfmJryRczyHQnGZg4xk` passed the controlled attribution, durable-ledger, GHL-opportunity, DND, and duplicate-replay tests and was promoted to `dmvtitleguy.io` on August 26, 2026.
 
 ## Final access audit
 
@@ -148,4 +167,4 @@ The August 26 continuation audited the available integration surfaces without pr
 - The archived production OAuth integration has app client credentials but no Company access/refresh token, and the production `ghl_oauth_credentials` table has not been deployed. HighLevel's advertised client-credentials grant also returned `invalid_request` for this app.
 - The authoritative rotated LeadConnector webhook was independently tied to the target location inside Vercel's protected runtime and safely extended to the Production target without revealing or duplicating the secret.
 
-Accordingly, webhook provenance and Production configuration are resolved. The one remaining GHL access change is narrower: grant a DMV Title Guy sub-account private-integration token with the required workflow/contact/custom-field scopes, or complete the Marketplace app installation to produce a Company OAuth token. That location-scoped grant is required to inspect mappings, suppress communications, run the controlled QA submission, and reconcile the resulting CRM record before production promotion.
+The access blocker was resolved by creating a least-privilege DMV Title Guy sub-account private integration. Webhook provenance, contact fields, workflow mapping, durable conversion history, transaction pipeline, controlled QA, idempotency, and production promotion are verified. The remaining cadence is recurring measurement plus authority work after identity/permission confirmation; it does not block production lead attribution.

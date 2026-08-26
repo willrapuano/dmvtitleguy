@@ -179,8 +179,33 @@ exports.Prisma.LeadRateLimitBucketScalarFieldEnum = {
 exports.Prisma.LeadSubmissionScalarFieldEnum = {
   id: 'id',
   status: 'status',
-  createdAt: 'createdAt',
-  deliveredAt: 'deliveredAt'
+  source: 'source',
+  formType: 'formType',
+  submittedAt: 'submittedAt',
+  updatedAt: 'updatedAt',
+  deliveredAt: 'deliveredAt',
+  lastAttemptAt: 'lastAttemptAt',
+  deliveryAttempts: 'deliveryAttempts',
+  payloadHash: 'payloadHash',
+  conversionPath: 'conversionPath',
+  firstLandingPath: 'firstLandingPath',
+  firstReferrerHost: 'firstReferrerHost',
+  channel: 'channel',
+  jurisdiction: 'jurisdiction',
+  transactionType: 'transactionType',
+  contactRole: 'contactRole',
+  qualificationStatus: 'qualificationStatus',
+  qualificationReason: 'qualificationReason',
+  qualifiedAt: 'qualifiedAt',
+  acceptedAt: 'acceptedAt',
+  closedAt: 'closedAt',
+  outcomeValueCents: 'outcomeValueCents',
+  lostReason: 'lostReason',
+  lastDeliveryErrorCode: 'lastDeliveryErrorCode',
+  ghlContactId: 'ghlContactId',
+  ghlOpportunityId: 'ghlOpportunityId',
+  ghlSyncStatus: 'ghlSyncStatus',
+  ghlSyncErrorCode: 'ghlSyncErrorCode'
 };
 
 exports.Prisma.SortOrder = {

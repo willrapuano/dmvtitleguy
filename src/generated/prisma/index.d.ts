@@ -8122,52 +8122,224 @@ export namespace Prisma {
 
   export type AggregateLeadSubmission = {
     _count: LeadSubmissionCountAggregateOutputType | null
+    _avg: LeadSubmissionAvgAggregateOutputType | null
+    _sum: LeadSubmissionSumAggregateOutputType | null
     _min: LeadSubmissionMinAggregateOutputType | null
     _max: LeadSubmissionMaxAggregateOutputType | null
+  }
+
+  export type LeadSubmissionAvgAggregateOutputType = {
+    deliveryAttempts: number | null
+    outcomeValueCents: number | null
+  }
+
+  export type LeadSubmissionSumAggregateOutputType = {
+    deliveryAttempts: number | null
+    outcomeValueCents: number | null
   }
 
   export type LeadSubmissionMinAggregateOutputType = {
     id: string | null
     status: string | null
-    createdAt: Date | null
+    source: string | null
+    formType: string | null
+    submittedAt: Date | null
+    updatedAt: Date | null
     deliveredAt: Date | null
+    lastAttemptAt: Date | null
+    deliveryAttempts: number | null
+    payloadHash: string | null
+    conversionPath: string | null
+    firstLandingPath: string | null
+    firstReferrerHost: string | null
+    channel: string | null
+    jurisdiction: string | null
+    transactionType: string | null
+    contactRole: string | null
+    qualificationStatus: string | null
+    qualificationReason: string | null
+    qualifiedAt: Date | null
+    acceptedAt: Date | null
+    closedAt: Date | null
+    outcomeValueCents: number | null
+    lostReason: string | null
+    lastDeliveryErrorCode: string | null
+    ghlContactId: string | null
+    ghlOpportunityId: string | null
+    ghlSyncStatus: string | null
+    ghlSyncErrorCode: string | null
   }
 
   export type LeadSubmissionMaxAggregateOutputType = {
     id: string | null
     status: string | null
-    createdAt: Date | null
+    source: string | null
+    formType: string | null
+    submittedAt: Date | null
+    updatedAt: Date | null
     deliveredAt: Date | null
+    lastAttemptAt: Date | null
+    deliveryAttempts: number | null
+    payloadHash: string | null
+    conversionPath: string | null
+    firstLandingPath: string | null
+    firstReferrerHost: string | null
+    channel: string | null
+    jurisdiction: string | null
+    transactionType: string | null
+    contactRole: string | null
+    qualificationStatus: string | null
+    qualificationReason: string | null
+    qualifiedAt: Date | null
+    acceptedAt: Date | null
+    closedAt: Date | null
+    outcomeValueCents: number | null
+    lostReason: string | null
+    lastDeliveryErrorCode: string | null
+    ghlContactId: string | null
+    ghlOpportunityId: string | null
+    ghlSyncStatus: string | null
+    ghlSyncErrorCode: string | null
   }
 
   export type LeadSubmissionCountAggregateOutputType = {
     id: number
     status: number
-    createdAt: number
+    source: number
+    formType: number
+    submittedAt: number
+    updatedAt: number
     deliveredAt: number
+    lastAttemptAt: number
+    deliveryAttempts: number
+    payloadHash: number
+    conversionPath: number
+    firstLandingPath: number
+    firstReferrerHost: number
+    channel: number
+    jurisdiction: number
+    transactionType: number
+    contactRole: number
+    qualificationStatus: number
+    qualificationReason: number
+    qualifiedAt: number
+    acceptedAt: number
+    closedAt: number
+    outcomeValueCents: number
+    lostReason: number
+    lastDeliveryErrorCode: number
+    ghlContactId: number
+    ghlOpportunityId: number
+    ghlSyncStatus: number
+    ghlSyncErrorCode: number
     _all: number
   }
 
 
+  export type LeadSubmissionAvgAggregateInputType = {
+    deliveryAttempts?: true
+    outcomeValueCents?: true
+  }
+
+  export type LeadSubmissionSumAggregateInputType = {
+    deliveryAttempts?: true
+    outcomeValueCents?: true
+  }
+
   export type LeadSubmissionMinAggregateInputType = {
     id?: true
     status?: true
-    createdAt?: true
+    source?: true
+    formType?: true
+    submittedAt?: true
+    updatedAt?: true
     deliveredAt?: true
+    lastAttemptAt?: true
+    deliveryAttempts?: true
+    payloadHash?: true
+    conversionPath?: true
+    firstLandingPath?: true
+    firstReferrerHost?: true
+    channel?: true
+    jurisdiction?: true
+    transactionType?: true
+    contactRole?: true
+    qualificationStatus?: true
+    qualificationReason?: true
+    qualifiedAt?: true
+    acceptedAt?: true
+    closedAt?: true
+    outcomeValueCents?: true
+    lostReason?: true
+    lastDeliveryErrorCode?: true
+    ghlContactId?: true
+    ghlOpportunityId?: true
+    ghlSyncStatus?: true
+    ghlSyncErrorCode?: true
   }
 
   export type LeadSubmissionMaxAggregateInputType = {
     id?: true
     status?: true
-    createdAt?: true
+    source?: true
+    formType?: true
+    submittedAt?: true
+    updatedAt?: true
     deliveredAt?: true
+    lastAttemptAt?: true
+    deliveryAttempts?: true
+    payloadHash?: true
+    conversionPath?: true
+    firstLandingPath?: true
+    firstReferrerHost?: true
+    channel?: true
+    jurisdiction?: true
+    transactionType?: true
+    contactRole?: true
+    qualificationStatus?: true
+    qualificationReason?: true
+    qualifiedAt?: true
+    acceptedAt?: true
+    closedAt?: true
+    outcomeValueCents?: true
+    lostReason?: true
+    lastDeliveryErrorCode?: true
+    ghlContactId?: true
+    ghlOpportunityId?: true
+    ghlSyncStatus?: true
+    ghlSyncErrorCode?: true
   }
 
   export type LeadSubmissionCountAggregateInputType = {
     id?: true
     status?: true
-    createdAt?: true
+    source?: true
+    formType?: true
+    submittedAt?: true
+    updatedAt?: true
     deliveredAt?: true
+    lastAttemptAt?: true
+    deliveryAttempts?: true
+    payloadHash?: true
+    conversionPath?: true
+    firstLandingPath?: true
+    firstReferrerHost?: true
+    channel?: true
+    jurisdiction?: true
+    transactionType?: true
+    contactRole?: true
+    qualificationStatus?: true
+    qualificationReason?: true
+    qualifiedAt?: true
+    acceptedAt?: true
+    closedAt?: true
+    outcomeValueCents?: true
+    lostReason?: true
+    lastDeliveryErrorCode?: true
+    ghlContactId?: true
+    ghlOpportunityId?: true
+    ghlSyncStatus?: true
+    ghlSyncErrorCode?: true
     _all?: true
   }
 
@@ -8209,6 +8381,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      *
+     * Select which fields to average
+    **/
+    _avg?: LeadSubmissionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: LeadSubmissionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
      * Select which fields to find the minimum value
     **/
     _min?: LeadSubmissionMinAggregateInputType
@@ -8239,6 +8423,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: LeadSubmissionCountAggregateInputType | true
+    _avg?: LeadSubmissionAvgAggregateInputType
+    _sum?: LeadSubmissionSumAggregateInputType
     _min?: LeadSubmissionMinAggregateInputType
     _max?: LeadSubmissionMaxAggregateInputType
   }
@@ -8246,9 +8432,36 @@ export namespace Prisma {
   export type LeadSubmissionGroupByOutputType = {
     id: string
     status: string
-    createdAt: Date
+    source: string | null
+    formType: string | null
+    submittedAt: Date
+    updatedAt: Date
     deliveredAt: Date | null
+    lastAttemptAt: Date | null
+    deliveryAttempts: number
+    payloadHash: string | null
+    conversionPath: string | null
+    firstLandingPath: string | null
+    firstReferrerHost: string | null
+    channel: string | null
+    jurisdiction: string | null
+    transactionType: string | null
+    contactRole: string | null
+    qualificationStatus: string
+    qualificationReason: string | null
+    qualifiedAt: Date | null
+    acceptedAt: Date | null
+    closedAt: Date | null
+    outcomeValueCents: number | null
+    lostReason: string | null
+    lastDeliveryErrorCode: string | null
+    ghlContactId: string | null
+    ghlOpportunityId: string | null
+    ghlSyncStatus: string
+    ghlSyncErrorCode: string | null
     _count: LeadSubmissionCountAggregateOutputType | null
+    _avg: LeadSubmissionAvgAggregateOutputType | null
+    _sum: LeadSubmissionSumAggregateOutputType | null
     _min: LeadSubmissionMinAggregateOutputType | null
     _max: LeadSubmissionMaxAggregateOutputType | null
   }
@@ -8270,32 +8483,132 @@ export namespace Prisma {
   export type LeadSubmissionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     status?: boolean
-    createdAt?: boolean
+    source?: boolean
+    formType?: boolean
+    submittedAt?: boolean
+    updatedAt?: boolean
     deliveredAt?: boolean
+    lastAttemptAt?: boolean
+    deliveryAttempts?: boolean
+    payloadHash?: boolean
+    conversionPath?: boolean
+    firstLandingPath?: boolean
+    firstReferrerHost?: boolean
+    channel?: boolean
+    jurisdiction?: boolean
+    transactionType?: boolean
+    contactRole?: boolean
+    qualificationStatus?: boolean
+    qualificationReason?: boolean
+    qualifiedAt?: boolean
+    acceptedAt?: boolean
+    closedAt?: boolean
+    outcomeValueCents?: boolean
+    lostReason?: boolean
+    lastDeliveryErrorCode?: boolean
+    ghlContactId?: boolean
+    ghlOpportunityId?: boolean
+    ghlSyncStatus?: boolean
+    ghlSyncErrorCode?: boolean
   }, ExtArgs["result"]["leadSubmission"]>
 
   export type LeadSubmissionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     status?: boolean
-    createdAt?: boolean
+    source?: boolean
+    formType?: boolean
+    submittedAt?: boolean
+    updatedAt?: boolean
     deliveredAt?: boolean
+    lastAttemptAt?: boolean
+    deliveryAttempts?: boolean
+    payloadHash?: boolean
+    conversionPath?: boolean
+    firstLandingPath?: boolean
+    firstReferrerHost?: boolean
+    channel?: boolean
+    jurisdiction?: boolean
+    transactionType?: boolean
+    contactRole?: boolean
+    qualificationStatus?: boolean
+    qualificationReason?: boolean
+    qualifiedAt?: boolean
+    acceptedAt?: boolean
+    closedAt?: boolean
+    outcomeValueCents?: boolean
+    lostReason?: boolean
+    lastDeliveryErrorCode?: boolean
+    ghlContactId?: boolean
+    ghlOpportunityId?: boolean
+    ghlSyncStatus?: boolean
+    ghlSyncErrorCode?: boolean
   }, ExtArgs["result"]["leadSubmission"]>
 
   export type LeadSubmissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     status?: boolean
-    createdAt?: boolean
+    source?: boolean
+    formType?: boolean
+    submittedAt?: boolean
+    updatedAt?: boolean
     deliveredAt?: boolean
+    lastAttemptAt?: boolean
+    deliveryAttempts?: boolean
+    payloadHash?: boolean
+    conversionPath?: boolean
+    firstLandingPath?: boolean
+    firstReferrerHost?: boolean
+    channel?: boolean
+    jurisdiction?: boolean
+    transactionType?: boolean
+    contactRole?: boolean
+    qualificationStatus?: boolean
+    qualificationReason?: boolean
+    qualifiedAt?: boolean
+    acceptedAt?: boolean
+    closedAt?: boolean
+    outcomeValueCents?: boolean
+    lostReason?: boolean
+    lastDeliveryErrorCode?: boolean
+    ghlContactId?: boolean
+    ghlOpportunityId?: boolean
+    ghlSyncStatus?: boolean
+    ghlSyncErrorCode?: boolean
   }, ExtArgs["result"]["leadSubmission"]>
 
   export type LeadSubmissionSelectScalar = {
     id?: boolean
     status?: boolean
-    createdAt?: boolean
+    source?: boolean
+    formType?: boolean
+    submittedAt?: boolean
+    updatedAt?: boolean
     deliveredAt?: boolean
+    lastAttemptAt?: boolean
+    deliveryAttempts?: boolean
+    payloadHash?: boolean
+    conversionPath?: boolean
+    firstLandingPath?: boolean
+    firstReferrerHost?: boolean
+    channel?: boolean
+    jurisdiction?: boolean
+    transactionType?: boolean
+    contactRole?: boolean
+    qualificationStatus?: boolean
+    qualificationReason?: boolean
+    qualifiedAt?: boolean
+    acceptedAt?: boolean
+    closedAt?: boolean
+    outcomeValueCents?: boolean
+    lostReason?: boolean
+    lastDeliveryErrorCode?: boolean
+    ghlContactId?: boolean
+    ghlOpportunityId?: boolean
+    ghlSyncStatus?: boolean
+    ghlSyncErrorCode?: boolean
   }
 
-  export type LeadSubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "createdAt" | "deliveredAt", ExtArgs["result"]["leadSubmission"]>
+  export type LeadSubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "source" | "formType" | "submittedAt" | "updatedAt" | "deliveredAt" | "lastAttemptAt" | "deliveryAttempts" | "payloadHash" | "conversionPath" | "firstLandingPath" | "firstReferrerHost" | "channel" | "jurisdiction" | "transactionType" | "contactRole" | "qualificationStatus" | "qualificationReason" | "qualifiedAt" | "acceptedAt" | "closedAt" | "outcomeValueCents" | "lostReason" | "lastDeliveryErrorCode" | "ghlContactId" | "ghlOpportunityId" | "ghlSyncStatus" | "ghlSyncErrorCode", ExtArgs["result"]["leadSubmission"]>
 
   export type $LeadSubmissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "LeadSubmission"
@@ -8303,8 +8616,33 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       status: string
-      createdAt: Date
+      source: string | null
+      formType: string | null
+      submittedAt: Date
+      updatedAt: Date
       deliveredAt: Date | null
+      lastAttemptAt: Date | null
+      deliveryAttempts: number
+      payloadHash: string | null
+      conversionPath: string | null
+      firstLandingPath: string | null
+      firstReferrerHost: string | null
+      channel: string | null
+      jurisdiction: string | null
+      transactionType: string | null
+      contactRole: string | null
+      qualificationStatus: string
+      qualificationReason: string | null
+      qualifiedAt: Date | null
+      acceptedAt: Date | null
+      closedAt: Date | null
+      outcomeValueCents: number | null
+      lostReason: string | null
+      lastDeliveryErrorCode: string | null
+      ghlContactId: string | null
+      ghlOpportunityId: string | null
+      ghlSyncStatus: string
+      ghlSyncErrorCode: string | null
     }, ExtArgs["result"]["leadSubmission"]>
     composites: {}
   }
@@ -8730,8 +9068,33 @@ export namespace Prisma {
   interface LeadSubmissionFieldRefs {
     readonly id: FieldRef<"LeadSubmission", 'String'>
     readonly status: FieldRef<"LeadSubmission", 'String'>
-    readonly createdAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly source: FieldRef<"LeadSubmission", 'String'>
+    readonly formType: FieldRef<"LeadSubmission", 'String'>
+    readonly submittedAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly updatedAt: FieldRef<"LeadSubmission", 'DateTime'>
     readonly deliveredAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly lastAttemptAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly deliveryAttempts: FieldRef<"LeadSubmission", 'Int'>
+    readonly payloadHash: FieldRef<"LeadSubmission", 'String'>
+    readonly conversionPath: FieldRef<"LeadSubmission", 'String'>
+    readonly firstLandingPath: FieldRef<"LeadSubmission", 'String'>
+    readonly firstReferrerHost: FieldRef<"LeadSubmission", 'String'>
+    readonly channel: FieldRef<"LeadSubmission", 'String'>
+    readonly jurisdiction: FieldRef<"LeadSubmission", 'String'>
+    readonly transactionType: FieldRef<"LeadSubmission", 'String'>
+    readonly contactRole: FieldRef<"LeadSubmission", 'String'>
+    readonly qualificationStatus: FieldRef<"LeadSubmission", 'String'>
+    readonly qualificationReason: FieldRef<"LeadSubmission", 'String'>
+    readonly qualifiedAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly acceptedAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly closedAt: FieldRef<"LeadSubmission", 'DateTime'>
+    readonly outcomeValueCents: FieldRef<"LeadSubmission", 'Int'>
+    readonly lostReason: FieldRef<"LeadSubmission", 'String'>
+    readonly lastDeliveryErrorCode: FieldRef<"LeadSubmission", 'String'>
+    readonly ghlContactId: FieldRef<"LeadSubmission", 'String'>
+    readonly ghlOpportunityId: FieldRef<"LeadSubmission", 'String'>
+    readonly ghlSyncStatus: FieldRef<"LeadSubmission", 'String'>
+    readonly ghlSyncErrorCode: FieldRef<"LeadSubmission", 'String'>
   }
 
 
@@ -9192,8 +9555,33 @@ export namespace Prisma {
   export const LeadSubmissionScalarFieldEnum: {
     id: 'id',
     status: 'status',
-    createdAt: 'createdAt',
-    deliveredAt: 'deliveredAt'
+    source: 'source',
+    formType: 'formType',
+    submittedAt: 'submittedAt',
+    updatedAt: 'updatedAt',
+    deliveredAt: 'deliveredAt',
+    lastAttemptAt: 'lastAttemptAt',
+    deliveryAttempts: 'deliveryAttempts',
+    payloadHash: 'payloadHash',
+    conversionPath: 'conversionPath',
+    firstLandingPath: 'firstLandingPath',
+    firstReferrerHost: 'firstReferrerHost',
+    channel: 'channel',
+    jurisdiction: 'jurisdiction',
+    transactionType: 'transactionType',
+    contactRole: 'contactRole',
+    qualificationStatus: 'qualificationStatus',
+    qualificationReason: 'qualificationReason',
+    qualifiedAt: 'qualifiedAt',
+    acceptedAt: 'acceptedAt',
+    closedAt: 'closedAt',
+    outcomeValueCents: 'outcomeValueCents',
+    lostReason: 'lostReason',
+    lastDeliveryErrorCode: 'lastDeliveryErrorCode',
+    ghlContactId: 'ghlContactId',
+    ghlOpportunityId: 'ghlOpportunityId',
+    ghlSyncStatus: 'ghlSyncStatus',
+    ghlSyncErrorCode: 'ghlSyncErrorCode'
   };
 
   export type LeadSubmissionScalarFieldEnum = (typeof LeadSubmissionScalarFieldEnum)[keyof typeof LeadSubmissionScalarFieldEnum]
@@ -9657,15 +10045,65 @@ export namespace Prisma {
     NOT?: LeadSubmissionWhereInput | LeadSubmissionWhereInput[]
     id?: StringFilter<"LeadSubmission"> | string
     status?: StringFilter<"LeadSubmission"> | string
-    createdAt?: DateTimeFilter<"LeadSubmission"> | Date | string
+    source?: StringNullableFilter<"LeadSubmission"> | string | null
+    formType?: StringNullableFilter<"LeadSubmission"> | string | null
+    submittedAt?: DateTimeFilter<"LeadSubmission"> | Date | string
+    updatedAt?: DateTimeFilter<"LeadSubmission"> | Date | string
     deliveredAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    lastAttemptAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    deliveryAttempts?: IntFilter<"LeadSubmission"> | number
+    payloadHash?: StringNullableFilter<"LeadSubmission"> | string | null
+    conversionPath?: StringNullableFilter<"LeadSubmission"> | string | null
+    firstLandingPath?: StringNullableFilter<"LeadSubmission"> | string | null
+    firstReferrerHost?: StringNullableFilter<"LeadSubmission"> | string | null
+    channel?: StringNullableFilter<"LeadSubmission"> | string | null
+    jurisdiction?: StringNullableFilter<"LeadSubmission"> | string | null
+    transactionType?: StringNullableFilter<"LeadSubmission"> | string | null
+    contactRole?: StringNullableFilter<"LeadSubmission"> | string | null
+    qualificationStatus?: StringFilter<"LeadSubmission"> | string
+    qualificationReason?: StringNullableFilter<"LeadSubmission"> | string | null
+    qualifiedAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    acceptedAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    closedAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    outcomeValueCents?: IntNullableFilter<"LeadSubmission"> | number | null
+    lostReason?: StringNullableFilter<"LeadSubmission"> | string | null
+    lastDeliveryErrorCode?: StringNullableFilter<"LeadSubmission"> | string | null
+    ghlContactId?: StringNullableFilter<"LeadSubmission"> | string | null
+    ghlOpportunityId?: StringNullableFilter<"LeadSubmission"> | string | null
+    ghlSyncStatus?: StringFilter<"LeadSubmission"> | string
+    ghlSyncErrorCode?: StringNullableFilter<"LeadSubmission"> | string | null
   }
 
   export type LeadSubmissionOrderByWithRelationInput = {
     id?: SortOrder
     status?: SortOrder
-    createdAt?: SortOrder
+    source?: SortOrderInput | SortOrder
+    formType?: SortOrderInput | SortOrder
+    submittedAt?: SortOrder
+    updatedAt?: SortOrder
     deliveredAt?: SortOrderInput | SortOrder
+    lastAttemptAt?: SortOrderInput | SortOrder
+    deliveryAttempts?: SortOrder
+    payloadHash?: SortOrderInput | SortOrder
+    conversionPath?: SortOrderInput | SortOrder
+    firstLandingPath?: SortOrderInput | SortOrder
+    firstReferrerHost?: SortOrderInput | SortOrder
+    channel?: SortOrderInput | SortOrder
+    jurisdiction?: SortOrderInput | SortOrder
+    transactionType?: SortOrderInput | SortOrder
+    contactRole?: SortOrderInput | SortOrder
+    qualificationStatus?: SortOrder
+    qualificationReason?: SortOrderInput | SortOrder
+    qualifiedAt?: SortOrderInput | SortOrder
+    acceptedAt?: SortOrderInput | SortOrder
+    closedAt?: SortOrderInput | SortOrder
+    outcomeValueCents?: SortOrderInput | SortOrder
+    lostReason?: SortOrderInput | SortOrder
+    lastDeliveryErrorCode?: SortOrderInput | SortOrder
+    ghlContactId?: SortOrderInput | SortOrder
+    ghlOpportunityId?: SortOrderInput | SortOrder
+    ghlSyncStatus?: SortOrder
+    ghlSyncErrorCode?: SortOrderInput | SortOrder
   }
 
   export type LeadSubmissionWhereUniqueInput = Prisma.AtLeast<{
@@ -9674,18 +10112,70 @@ export namespace Prisma {
     OR?: LeadSubmissionWhereInput[]
     NOT?: LeadSubmissionWhereInput | LeadSubmissionWhereInput[]
     status?: StringFilter<"LeadSubmission"> | string
-    createdAt?: DateTimeFilter<"LeadSubmission"> | Date | string
+    source?: StringNullableFilter<"LeadSubmission"> | string | null
+    formType?: StringNullableFilter<"LeadSubmission"> | string | null
+    submittedAt?: DateTimeFilter<"LeadSubmission"> | Date | string
+    updatedAt?: DateTimeFilter<"LeadSubmission"> | Date | string
     deliveredAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    lastAttemptAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    deliveryAttempts?: IntFilter<"LeadSubmission"> | number
+    payloadHash?: StringNullableFilter<"LeadSubmission"> | string | null
+    conversionPath?: StringNullableFilter<"LeadSubmission"> | string | null
+    firstLandingPath?: StringNullableFilter<"LeadSubmission"> | string | null
+    firstReferrerHost?: StringNullableFilter<"LeadSubmission"> | string | null
+    channel?: StringNullableFilter<"LeadSubmission"> | string | null
+    jurisdiction?: StringNullableFilter<"LeadSubmission"> | string | null
+    transactionType?: StringNullableFilter<"LeadSubmission"> | string | null
+    contactRole?: StringNullableFilter<"LeadSubmission"> | string | null
+    qualificationStatus?: StringFilter<"LeadSubmission"> | string
+    qualificationReason?: StringNullableFilter<"LeadSubmission"> | string | null
+    qualifiedAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    acceptedAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    closedAt?: DateTimeNullableFilter<"LeadSubmission"> | Date | string | null
+    outcomeValueCents?: IntNullableFilter<"LeadSubmission"> | number | null
+    lostReason?: StringNullableFilter<"LeadSubmission"> | string | null
+    lastDeliveryErrorCode?: StringNullableFilter<"LeadSubmission"> | string | null
+    ghlContactId?: StringNullableFilter<"LeadSubmission"> | string | null
+    ghlOpportunityId?: StringNullableFilter<"LeadSubmission"> | string | null
+    ghlSyncStatus?: StringFilter<"LeadSubmission"> | string
+    ghlSyncErrorCode?: StringNullableFilter<"LeadSubmission"> | string | null
   }, "id">
 
   export type LeadSubmissionOrderByWithAggregationInput = {
     id?: SortOrder
     status?: SortOrder
-    createdAt?: SortOrder
+    source?: SortOrderInput | SortOrder
+    formType?: SortOrderInput | SortOrder
+    submittedAt?: SortOrder
+    updatedAt?: SortOrder
     deliveredAt?: SortOrderInput | SortOrder
+    lastAttemptAt?: SortOrderInput | SortOrder
+    deliveryAttempts?: SortOrder
+    payloadHash?: SortOrderInput | SortOrder
+    conversionPath?: SortOrderInput | SortOrder
+    firstLandingPath?: SortOrderInput | SortOrder
+    firstReferrerHost?: SortOrderInput | SortOrder
+    channel?: SortOrderInput | SortOrder
+    jurisdiction?: SortOrderInput | SortOrder
+    transactionType?: SortOrderInput | SortOrder
+    contactRole?: SortOrderInput | SortOrder
+    qualificationStatus?: SortOrder
+    qualificationReason?: SortOrderInput | SortOrder
+    qualifiedAt?: SortOrderInput | SortOrder
+    acceptedAt?: SortOrderInput | SortOrder
+    closedAt?: SortOrderInput | SortOrder
+    outcomeValueCents?: SortOrderInput | SortOrder
+    lostReason?: SortOrderInput | SortOrder
+    lastDeliveryErrorCode?: SortOrderInput | SortOrder
+    ghlContactId?: SortOrderInput | SortOrder
+    ghlOpportunityId?: SortOrderInput | SortOrder
+    ghlSyncStatus?: SortOrder
+    ghlSyncErrorCode?: SortOrderInput | SortOrder
     _count?: LeadSubmissionCountOrderByAggregateInput
+    _avg?: LeadSubmissionAvgOrderByAggregateInput
     _max?: LeadSubmissionMaxOrderByAggregateInput
     _min?: LeadSubmissionMinOrderByAggregateInput
+    _sum?: LeadSubmissionSumOrderByAggregateInput
   }
 
   export type LeadSubmissionScalarWhereWithAggregatesInput = {
@@ -9694,8 +10184,33 @@ export namespace Prisma {
     NOT?: LeadSubmissionScalarWhereWithAggregatesInput | LeadSubmissionScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"LeadSubmission"> | string
     status?: StringWithAggregatesFilter<"LeadSubmission"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"LeadSubmission"> | Date | string
+    source?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    formType?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    submittedAt?: DateTimeWithAggregatesFilter<"LeadSubmission"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"LeadSubmission"> | Date | string
     deliveredAt?: DateTimeNullableWithAggregatesFilter<"LeadSubmission"> | Date | string | null
+    lastAttemptAt?: DateTimeNullableWithAggregatesFilter<"LeadSubmission"> | Date | string | null
+    deliveryAttempts?: IntWithAggregatesFilter<"LeadSubmission"> | number
+    payloadHash?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    conversionPath?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    firstLandingPath?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    firstReferrerHost?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    channel?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    jurisdiction?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    transactionType?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    contactRole?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    qualificationStatus?: StringWithAggregatesFilter<"LeadSubmission"> | string
+    qualificationReason?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    qualifiedAt?: DateTimeNullableWithAggregatesFilter<"LeadSubmission"> | Date | string | null
+    acceptedAt?: DateTimeNullableWithAggregatesFilter<"LeadSubmission"> | Date | string | null
+    closedAt?: DateTimeNullableWithAggregatesFilter<"LeadSubmission"> | Date | string | null
+    outcomeValueCents?: IntNullableWithAggregatesFilter<"LeadSubmission"> | number | null
+    lostReason?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    lastDeliveryErrorCode?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    ghlContactId?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    ghlOpportunityId?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    ghlSyncStatus?: StringWithAggregatesFilter<"LeadSubmission"> | string
+    ghlSyncErrorCode?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
   }
 
   export type ToolUserCreateInput = {
@@ -10126,50 +10641,225 @@ export namespace Prisma {
   export type LeadSubmissionCreateInput = {
     id: string
     status?: string
-    createdAt?: Date | string
+    source?: string | null
+    formType?: string | null
+    submittedAt?: Date | string
+    updatedAt?: Date | string
     deliveredAt?: Date | string | null
+    lastAttemptAt?: Date | string | null
+    deliveryAttempts?: number
+    payloadHash?: string | null
+    conversionPath?: string | null
+    firstLandingPath?: string | null
+    firstReferrerHost?: string | null
+    channel?: string | null
+    jurisdiction?: string | null
+    transactionType?: string | null
+    contactRole?: string | null
+    qualificationStatus?: string
+    qualificationReason?: string | null
+    qualifiedAt?: Date | string | null
+    acceptedAt?: Date | string | null
+    closedAt?: Date | string | null
+    outcomeValueCents?: number | null
+    lostReason?: string | null
+    lastDeliveryErrorCode?: string | null
+    ghlContactId?: string | null
+    ghlOpportunityId?: string | null
+    ghlSyncStatus?: string
+    ghlSyncErrorCode?: string | null
   }
 
   export type LeadSubmissionUncheckedCreateInput = {
     id: string
     status?: string
-    createdAt?: Date | string
+    source?: string | null
+    formType?: string | null
+    submittedAt?: Date | string
+    updatedAt?: Date | string
     deliveredAt?: Date | string | null
+    lastAttemptAt?: Date | string | null
+    deliveryAttempts?: number
+    payloadHash?: string | null
+    conversionPath?: string | null
+    firstLandingPath?: string | null
+    firstReferrerHost?: string | null
+    channel?: string | null
+    jurisdiction?: string | null
+    transactionType?: string | null
+    contactRole?: string | null
+    qualificationStatus?: string
+    qualificationReason?: string | null
+    qualifiedAt?: Date | string | null
+    acceptedAt?: Date | string | null
+    closedAt?: Date | string | null
+    outcomeValueCents?: number | null
+    lostReason?: string | null
+    lastDeliveryErrorCode?: string | null
+    ghlContactId?: string | null
+    ghlOpportunityId?: string | null
+    ghlSyncStatus?: string
+    ghlSyncErrorCode?: string | null
   }
 
   export type LeadSubmissionUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    formType?: NullableStringFieldUpdateOperationsInput | string | null
+    submittedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryAttempts?: IntFieldUpdateOperationsInput | number
+    payloadHash?: NullableStringFieldUpdateOperationsInput | string | null
+    conversionPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstLandingPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstReferrerHost?: NullableStringFieldUpdateOperationsInput | string | null
+    channel?: NullableStringFieldUpdateOperationsInput | string | null
+    jurisdiction?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionType?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRole?: NullableStringFieldUpdateOperationsInput | string | null
+    qualificationStatus?: StringFieldUpdateOperationsInput | string
+    qualificationReason?: NullableStringFieldUpdateOperationsInput | string | null
+    qualifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acceptedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    closedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    outcomeValueCents?: NullableIntFieldUpdateOperationsInput | number | null
+    lostReason?: NullableStringFieldUpdateOperationsInput | string | null
+    lastDeliveryErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlContactId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlSyncStatus?: StringFieldUpdateOperationsInput | string
+    ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LeadSubmissionUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    formType?: NullableStringFieldUpdateOperationsInput | string | null
+    submittedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryAttempts?: IntFieldUpdateOperationsInput | number
+    payloadHash?: NullableStringFieldUpdateOperationsInput | string | null
+    conversionPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstLandingPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstReferrerHost?: NullableStringFieldUpdateOperationsInput | string | null
+    channel?: NullableStringFieldUpdateOperationsInput | string | null
+    jurisdiction?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionType?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRole?: NullableStringFieldUpdateOperationsInput | string | null
+    qualificationStatus?: StringFieldUpdateOperationsInput | string
+    qualificationReason?: NullableStringFieldUpdateOperationsInput | string | null
+    qualifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acceptedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    closedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    outcomeValueCents?: NullableIntFieldUpdateOperationsInput | number | null
+    lostReason?: NullableStringFieldUpdateOperationsInput | string | null
+    lastDeliveryErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlContactId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlSyncStatus?: StringFieldUpdateOperationsInput | string
+    ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LeadSubmissionCreateManyInput = {
     id: string
     status?: string
-    createdAt?: Date | string
+    source?: string | null
+    formType?: string | null
+    submittedAt?: Date | string
+    updatedAt?: Date | string
     deliveredAt?: Date | string | null
+    lastAttemptAt?: Date | string | null
+    deliveryAttempts?: number
+    payloadHash?: string | null
+    conversionPath?: string | null
+    firstLandingPath?: string | null
+    firstReferrerHost?: string | null
+    channel?: string | null
+    jurisdiction?: string | null
+    transactionType?: string | null
+    contactRole?: string | null
+    qualificationStatus?: string
+    qualificationReason?: string | null
+    qualifiedAt?: Date | string | null
+    acceptedAt?: Date | string | null
+    closedAt?: Date | string | null
+    outcomeValueCents?: number | null
+    lostReason?: string | null
+    lastDeliveryErrorCode?: string | null
+    ghlContactId?: string | null
+    ghlOpportunityId?: string | null
+    ghlSyncStatus?: string
+    ghlSyncErrorCode?: string | null
   }
 
   export type LeadSubmissionUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    formType?: NullableStringFieldUpdateOperationsInput | string | null
+    submittedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryAttempts?: IntFieldUpdateOperationsInput | number
+    payloadHash?: NullableStringFieldUpdateOperationsInput | string | null
+    conversionPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstLandingPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstReferrerHost?: NullableStringFieldUpdateOperationsInput | string | null
+    channel?: NullableStringFieldUpdateOperationsInput | string | null
+    jurisdiction?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionType?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRole?: NullableStringFieldUpdateOperationsInput | string | null
+    qualificationStatus?: StringFieldUpdateOperationsInput | string
+    qualificationReason?: NullableStringFieldUpdateOperationsInput | string | null
+    qualifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acceptedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    closedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    outcomeValueCents?: NullableIntFieldUpdateOperationsInput | number | null
+    lostReason?: NullableStringFieldUpdateOperationsInput | string | null
+    lastDeliveryErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlContactId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlSyncStatus?: StringFieldUpdateOperationsInput | string
+    ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LeadSubmissionUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    formType?: NullableStringFieldUpdateOperationsInput | string | null
+    submittedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deliveredAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deliveryAttempts?: IntFieldUpdateOperationsInput | number
+    payloadHash?: NullableStringFieldUpdateOperationsInput | string | null
+    conversionPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstLandingPath?: NullableStringFieldUpdateOperationsInput | string | null
+    firstReferrerHost?: NullableStringFieldUpdateOperationsInput | string | null
+    channel?: NullableStringFieldUpdateOperationsInput | string | null
+    jurisdiction?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionType?: NullableStringFieldUpdateOperationsInput | string | null
+    contactRole?: NullableStringFieldUpdateOperationsInput | string | null
+    qualificationStatus?: StringFieldUpdateOperationsInput | string
+    qualificationReason?: NullableStringFieldUpdateOperationsInput | string | null
+    qualifiedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    acceptedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    closedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    outcomeValueCents?: NullableIntFieldUpdateOperationsInput | number | null
+    lostReason?: NullableStringFieldUpdateOperationsInput | string | null
+    lastDeliveryErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlContactId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
+    ghlSyncStatus?: StringFieldUpdateOperationsInput | string
+    ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -10569,25 +11259,137 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type LeadSubmissionCountOrderByAggregateInput = {
     id?: SortOrder
     status?: SortOrder
-    createdAt?: SortOrder
+    source?: SortOrder
+    formType?: SortOrder
+    submittedAt?: SortOrder
+    updatedAt?: SortOrder
     deliveredAt?: SortOrder
+    lastAttemptAt?: SortOrder
+    deliveryAttempts?: SortOrder
+    payloadHash?: SortOrder
+    conversionPath?: SortOrder
+    firstLandingPath?: SortOrder
+    firstReferrerHost?: SortOrder
+    channel?: SortOrder
+    jurisdiction?: SortOrder
+    transactionType?: SortOrder
+    contactRole?: SortOrder
+    qualificationStatus?: SortOrder
+    qualificationReason?: SortOrder
+    qualifiedAt?: SortOrder
+    acceptedAt?: SortOrder
+    closedAt?: SortOrder
+    outcomeValueCents?: SortOrder
+    lostReason?: SortOrder
+    lastDeliveryErrorCode?: SortOrder
+    ghlContactId?: SortOrder
+    ghlOpportunityId?: SortOrder
+    ghlSyncStatus?: SortOrder
+    ghlSyncErrorCode?: SortOrder
+  }
+
+  export type LeadSubmissionAvgOrderByAggregateInput = {
+    deliveryAttempts?: SortOrder
+    outcomeValueCents?: SortOrder
   }
 
   export type LeadSubmissionMaxOrderByAggregateInput = {
     id?: SortOrder
     status?: SortOrder
-    createdAt?: SortOrder
+    source?: SortOrder
+    formType?: SortOrder
+    submittedAt?: SortOrder
+    updatedAt?: SortOrder
     deliveredAt?: SortOrder
+    lastAttemptAt?: SortOrder
+    deliveryAttempts?: SortOrder
+    payloadHash?: SortOrder
+    conversionPath?: SortOrder
+    firstLandingPath?: SortOrder
+    firstReferrerHost?: SortOrder
+    channel?: SortOrder
+    jurisdiction?: SortOrder
+    transactionType?: SortOrder
+    contactRole?: SortOrder
+    qualificationStatus?: SortOrder
+    qualificationReason?: SortOrder
+    qualifiedAt?: SortOrder
+    acceptedAt?: SortOrder
+    closedAt?: SortOrder
+    outcomeValueCents?: SortOrder
+    lostReason?: SortOrder
+    lastDeliveryErrorCode?: SortOrder
+    ghlContactId?: SortOrder
+    ghlOpportunityId?: SortOrder
+    ghlSyncStatus?: SortOrder
+    ghlSyncErrorCode?: SortOrder
   }
 
   export type LeadSubmissionMinOrderByAggregateInput = {
     id?: SortOrder
     status?: SortOrder
-    createdAt?: SortOrder
+    source?: SortOrder
+    formType?: SortOrder
+    submittedAt?: SortOrder
+    updatedAt?: SortOrder
     deliveredAt?: SortOrder
+    lastAttemptAt?: SortOrder
+    deliveryAttempts?: SortOrder
+    payloadHash?: SortOrder
+    conversionPath?: SortOrder
+    firstLandingPath?: SortOrder
+    firstReferrerHost?: SortOrder
+    channel?: SortOrder
+    jurisdiction?: SortOrder
+    transactionType?: SortOrder
+    contactRole?: SortOrder
+    qualificationStatus?: SortOrder
+    qualificationReason?: SortOrder
+    qualifiedAt?: SortOrder
+    acceptedAt?: SortOrder
+    closedAt?: SortOrder
+    outcomeValueCents?: SortOrder
+    lostReason?: SortOrder
+    lastDeliveryErrorCode?: SortOrder
+    ghlContactId?: SortOrder
+    ghlOpportunityId?: SortOrder
+    ghlSyncStatus?: SortOrder
+    ghlSyncErrorCode?: SortOrder
+  }
+
+  export type LeadSubmissionSumOrderByAggregateInput = {
+    deliveryAttempts?: SortOrder
+    outcomeValueCents?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type ToolSessionCreateNestedManyWithoutUserInput = {
@@ -10844,6 +11646,14 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -11016,6 +11826,33 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type ToolSessionCreateWithoutUserInput = {

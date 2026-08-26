@@ -101,7 +101,7 @@ export default function AllTransactionsPage() {
                 href="/investor-friendly-title-company#quote"
                 className="btn-primary"
               >
-                Start Your Order →
+                Request an Introduction →
               </Link>
               <a
                 href="tel:+17038591467"
@@ -144,7 +144,7 @@ export default function AllTransactionsPage() {
             </div>
             <div id="quote">
               <LeadCaptureForm
-                title="Start Your Order"
+                title="Request an Introduction"
                 location="all-transactions-form"
               />
             </div>
@@ -221,7 +221,7 @@ export default function AllTransactionsPage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
             </Link>
             <Link href="/upload-contract" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Start Contract Intake</h3>

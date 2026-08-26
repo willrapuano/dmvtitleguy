@@ -39,6 +39,10 @@ for (const [path, html] of [
   assert.ok(!html.includes('"@type":["LocalBusiness","LegalService"]'), `${path} still conflates DMV Title Guy with a local title company`);
   assert.ok(!html.includes('"@type":"LocalBusiness"'), `${path} contains unsupported LocalBusiness markup`);
   assert.ok(!html.includes('"@type":"LegalService"'), `${path} contains unsupported LegalService markup`);
+  assert.ok(
+    !html.includes('"provider":{"@type":"Organization","@id":"https://pruitt-title.com/#organization"'),
+    `${path} incorrectly presents Pruitt as the provider for DMV Title Guy content`
+  );
 }
 
 const homeNodes = jsonLdNodes(homeHtml);
@@ -61,18 +65,16 @@ assert.ok(
   "about page is missing ProfilePage structured data"
 );
 
-const locationService = jsonLdNodes(locationHtml).find(
-  (node) => node["@type"] === "Service" && node["@id"] === `${canonicalOrigin}/title-company-arlington-va#service`
+const locationGuide = jsonLdNodes(locationHtml).find(
+  (node) => node["@type"] === "Article" && node["@id"] === `${canonicalOrigin}/title-company-arlington-va#guide`
 );
-assert.ok(locationService, "Arlington page is missing Service structured data");
-assert.equal(locationService.provider?.name, "Pruitt Title LLC");
-assert.equal(locationService.provider?.url, "https://pruitt-title.com/");
-assert.equal(locationService.areaServed?.name, "Arlington");
+assert.ok(locationGuide, "Arlington page is missing educational Article structured data");
+assert.equal(locationGuide.spatialCoverage?.name, "Arlington");
+assert.equal(locationGuide.author?.["@id"], `${canonicalOrigin}/about-will-rapuano#person`);
 
-const foreclosureService = jsonLdNodes(serviceHtml).find(
-  (node) => node["@type"] === "Service" && node.name === "Foreclosure Title Review"
+const foreclosureGuide = jsonLdNodes(serviceHtml).find(
+  (node) => node["@type"] === "Article" && node.headline === "Foreclosure Title Review Guide"
 );
-assert.ok(foreclosureService, "service page is missing Service structured data");
-assert.equal(foreclosureService.provider?.name, "Pruitt Title LLC");
+assert.ok(foreclosureGuide, "foreclosure page is missing educational Article structured data");
 
-console.log("Brand identity passed: DMV Title Guy, Will Rapuano, and Pruitt Title LLC are distinct and correctly related");
+console.log("Brand identity passed: DMV Title Guy content, Will Rapuano, and Pruitt Title LLC are distinct without provider conflation");

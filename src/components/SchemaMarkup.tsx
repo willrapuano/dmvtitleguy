@@ -6,7 +6,6 @@
 
 import { formatLocationName, type StateCode } from "@/data/locations";
 import {
-  pruittOrganizationReference,
   SITE_NAME,
   SITE_URL,
   willPersonReference,
@@ -48,11 +47,11 @@ export function LocationSchema({ city, state, slug, description }: LocationSchem
         ...(state !== "DC" ? { addressRegion: state } : {}),
       };
   const serviceName = isBethesda
-    ? "Bethesda-Chevy Chase MD Title Company, Escrow & Settlement Services"
-    : `Title Insurance & Closing Services in ${locationName}`;
+    ? "Bethesda-Chevy Chase MD Title and Closing Guide"
+    : `Title and Closing Guide for ${locationName}`;
   const serviceDescription = isBethesda
-    ? "Professional escrow, title search, title insurance, settlement, recording, and closing services for residential, commercial, refinance, investor, trust, and estate transactions in Bethesda-Chevy Chase and Montgomery County."
-    : `Professional title search, title insurance, and real estate closing services for buyers, sellers, agents, and lenders in ${locationName}.`;
+    ? "Educational guide to escrow, title search, title insurance, settlement, recording, and closing topics for Bethesda-Chevy Chase and Montgomery County."
+    : `Educational title-search, title-insurance, and real-estate-closing guide for ${locationName}.`;
   const serviceType = isBethesda
     ? "Escrow, Title Search, Settlement, Title Insurance, and Real Estate Closing Services"
     : "Title Insurance & Settlement Services";
@@ -60,13 +59,13 @@ export function LocationSchema({ city, state, slug, description }: LocationSchem
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Service",
-        "@id": `${SITE_URL}/${slug}#service`,
-        name: serviceName,
+        "@type": "Article",
+        "@id": `${SITE_URL}/${slug}#guide`,
+        headline: serviceName,
         description,
-        serviceType,
-        provider: pruittOrganizationReference(),
-        areaServed: localAreaServed,
+        about: { "@type": "Thing", name: serviceType },
+        spatialCoverage: localAreaServed,
+        author: willPersonReference(),
       },
       {
         "@type": "WebPage",
@@ -75,7 +74,7 @@ export function LocationSchema({ city, state, slug, description }: LocationSchem
         name: `Title & Closing Services in ${locationName} | DMV Title Guy`,
         description: serviceDescription,
         isPartOf: { "@id": `${SITE_URL}/#website` },
-        about: { "@id": `${SITE_URL}/${slug}#service` },
+        mainEntity: { "@id": `${SITE_URL}/${slug}#guide` },
         author: willPersonReference(),
       },
     ],
@@ -99,17 +98,17 @@ interface CountySchemaProps {
 export function CountySchema({ countyName, state, slug }: CountySchemaProps) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/${slug}#service`,
-    name: `Title Insurance & Closing Services in ${countyName}`,
+    "@type": "Article",
+    "@id": `${SITE_URL}/${slug}#guide`,
+    headline: `Title and Closing Guide for ${countyName}`,
     url: `${SITE_URL}/${slug}`,
-    serviceType: "Title Insurance & Settlement Services",
-    provider: pruittOrganizationReference(),
-    areaServed: {
+    about: { "@type": "Thing", name: "Title Insurance and Settlement" },
+    spatialCoverage: {
       "@type": "AdministrativeArea",
       name: countyName,
       addressRegion: state,
     },
+    author: willPersonReference(),
   };
 
   return (
@@ -156,16 +155,16 @@ interface ServiceSchemaProps {
 export function ServiceSchema({ name, description, serviceType }: ServiceSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name,
+    "@type": "Article",
+    headline: name,
     description,
-    provider: pruittOrganizationReference(),
-    areaServed: [
+    about: { "@type": "Thing", name: serviceType },
+    spatialCoverage: [
       { "@type": "State", name: "Virginia" },
       { "@type": "State", name: "Maryland" },
       { "@type": "State", name: "District of Columbia" },
     ],
-    serviceType,
+    author: willPersonReference(),
   };
 
   return (

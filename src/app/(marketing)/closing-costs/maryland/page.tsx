@@ -4,7 +4,6 @@ import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Maryland Closing Costs Guide | DMV Title Guy",
@@ -54,12 +53,11 @@ export default function MarylandClosingCostsPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Maryland Closing Cost Guide",
+            "@type": "Article",
+            headline: "Maryland Closing Cost Guide",
             url: "https://dmvtitleguy.io/closing-costs/maryland",
             description: "Complete guide to Maryland closing costs for buyers and sellers. Learn about transfer taxes, recordation fees, title insurance, and what to expect at settlement.",
-            provider: pruittOrganizationReference(),
-            areaServed: {
+            spatialCoverage: {
               "@type": "State",
               name: "Maryland",
             },

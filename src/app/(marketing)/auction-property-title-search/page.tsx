@@ -17,7 +17,6 @@ import {
   Search,
   Shield,
 } from "lucide-react";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Auction Property Title Search | DMV Title Guy",
@@ -156,12 +155,11 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/auction-property-title-search#service",
-      name: "Auction Property Title Search",
-      serviceType: "Auction Property Title Search",
-      provider: pruittOrganizationReference(),
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/auction-property-title-search#guide",
+      headline: "Auction Property Title Search Guide",
+      about: { "@type": "Thing", name: "Auction Property Title Search" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },
@@ -208,7 +206,7 @@ export default function AuctionPropertyTitleSearchPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
+              Request Title Review
             </Link>
             <Link href="/investor-title-services" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Investor Title Services
@@ -306,7 +304,7 @@ export default function AuctionPropertyTitleSearchPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
+              Request Title Review
             </Link>
             <Link href="/foreclosure-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Foreclosure Title Review

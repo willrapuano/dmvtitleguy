@@ -15,12 +15,11 @@ import {
   Shield,
   Users,
 } from "lucide-react";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
-  title: "commercial closing Services for DMV Deals | Pruitt Title",
+  title: "Commercial Closing Guide for DMV Deals | DMV Title Guy",
   description:
-    "Commercial closing support for DMV buyers, sellers, lenders, and investors. Pruitt Title coordinates title, escrow, and settlement. Call today.",
+    "Educational commercial-closing guidance for DMV buyers, sellers, lenders, and investors, with an option to request a provider introduction.",
   alternates: {
     canonical: "https://dmvtitleguy.io/commercial-real-estate-closings",
   },
@@ -134,12 +133,11 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/commercial-real-estate-closings#service",
-      name: "Commercial Real Estate Closings",
-      serviceType: "Commercial Real Estate Closing Services",
-      provider: pruittOrganizationReference(),
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/commercial-real-estate-closings#guide",
+      headline: "Commercial Real Estate Closing Guide",
+      about: { "@type": "Thing", name: "Commercial Real Estate Closings" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },

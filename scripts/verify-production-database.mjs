@@ -14,7 +14,23 @@ try {
   );
   const names = result.rows.map((row) => String(row.name));
   assert.deepEqual(names, ["LeadRateLimitBucket", "LeadSubmission"], "Lead-protection migration is not applied");
-  console.log("Production database gate passed: durable Turso storage is reachable and both lead-protection tables exist");
+  const columns = await db.execute('PRAGMA table_info("LeadSubmission")');
+  const columnNames = new Set(columns.rows.map((row) => String(row.name)));
+  for (const required of [
+    "submittedAt",
+    "updatedAt",
+    "payloadHash",
+    "conversionPath",
+    "firstLandingPath",
+    "channel",
+    "qualificationStatus",
+    "lastDeliveryErrorCode",
+    "ghlOpportunityId",
+    "ghlSyncStatus",
+  ]) {
+    assert.ok(columnNames.has(required), `LeadSubmission.${required} is missing`);
+  }
+  console.log("Production database gate passed: durable conversion history and delivery reconciliation fields exist");
 } finally {
   db.close();
 }

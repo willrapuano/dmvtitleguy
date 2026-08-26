@@ -17,7 +17,6 @@ import {
   Zap,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Investor Title Services | DMV Title Guy",
@@ -141,12 +140,11 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/investor-title-services#service",
-      name: "Investor Title Services",
-      serviceType: "Investor Title Services",
-      provider: pruittOrganizationReference(),
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/investor-title-services#guide",
+      headline: "Investor Title Guide",
+      about: { "@type": "Thing", name: "Investor Title Topics" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },

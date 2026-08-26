@@ -125,6 +125,40 @@ Every 30 days, record:
 
 Success is not “more articles.” It is growth in non-branded page-one rankings and organic conversion actions while canonical, sitemap, and entity tests remain green.
 
+## Falsifiable FederalTitle scorecard
+
+“Beat FederalTitle” is a competitive visibility claim, not a synonym for publishing more URLs or receiving more raw form submissions. Freeze the comparison method so the goalposts cannot move after results arrive.
+
+### Fixed comparison universe — v1
+
+The v1 non-branded universe is the exact 23 keyword rows already listed above in the property-survey, FIRPTA, DC tax/homestead, seller-proceeds, and title-fee clusters. It is frozen as of August 25, 2026. New opportunities may be tracked separately, but they do not enter v1 until an explicitly versioned annual reset. Exclude queries containing either brand name, Will’s name, or navigational misspellings.
+
+On the first business day of each month, use the same SpyFu United States SEO database, device/database settings, and API definitions for both `dmvtitleguy.io` and `federaltitle.com`. Preserve the raw export and record:
+
+| Layer | Metric | August 25 baseline / rule |
+|---|---|---|
+| Domain scale | Estimated monthly organic clicks | July 2026 monthly domain-stats snapshot: DMV 39; Federal 4,492 |
+| Domain scale | Ranking keywords | July 2026 monthly domain-stats snapshot: DMV 128; Federal 5,349 |
+| Fixed v1 universe | Search-volume-weighted top-3 share | August 26 snapshot: DMV 0%; Federal 1.19% |
+| Fixed v1 universe | Search-volume-weighted page-one share | August 26 snapshot: DMV 0%; Federal 13.98% |
+| Technical quality | HTTP-200 share among each domain’s top 50 SpyFu URLs | Federal baseline: 22/50; DMV must remain at 50/50 or document an intentional redirect |
+
+The preserved [August 26 scorecard](seo-scorecards/2026-08-26.json) and `scripts/snapshot-federal-seo-scorecard.mjs` establish the executable baseline. The earlier 166/5,656 research figures came from a broader current-keyword endpoint and remain useful historical context, but must not be mixed into the monthly domain-stats series.
+
+DMV Title Guy may be reported as having **surpassed FederalTitle’s SEO performance** only after all three conditions hold for three consecutive monthly snapshots:
+
+1. DMV Title Guy has more SpyFu-estimated monthly organic clicks than FederalTitle in the same snapshot.
+2. DMV Title Guy leads FederalTitle on both weighted top-3 share and weighted page-one share in the frozen v1 universe.
+3. DMV Title Guy’s release gates remain green and its trailing-90-day non-branded GSC clicks and organic-qualified GHL opportunities are not lower than the preceding 90 days.
+
+Until then, report the exact metrics and gap—never “won,” “caught,” or “surpassed.” Review Stage A cluster leadership at day 90 and month 6; review the full-domain surpass rule monthly beginning at month 12. These are decision dates, not promised ranking dates.
+
+### Business outcome scorecard
+
+Competitive visibility and internal business results must remain separate. A qualified organic opportunity is a transaction-intent submission whose first-touch channel is `organic-search`, has valid contact information and identifiable DMV property/jurisdiction or transaction context, and is confirmed by a human as neither spam, newsletter-only, advertising-only, nor QA. Track Submitted → Qualified → Referred → Accepted → Closed/Won in the `DMVTitleGuy Website Transaction Intent` GHL pipeline.
+
+Join GSC to the conversion ledger only in aggregate at `America/New_York date × normalized landing path × cluster`. Do not join a person to a search query. Report raw submissions, qualified opportunities, acceptance rate, closed/won count, and outcome value separately so mutable pipeline outcomes never rewrite the immutable acquisition event.
+
 ## Final adversarial execution record — August 26, 2026
 
 The technical SEO, SpyFu opportunity, and entity/authority reviewers independently reran the plan after the first implementation. Their combined order was:

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { ALL_LOCATIONS } from "@/data/locations";
-import { PRUITT_TITLE, RELATIONSHIP_DISCLOSURE, WILL } from "@/lib/brand-identity";
+import { RELATIONSHIP_DISCLOSURE, WILL } from "@/lib/brand-identity";
 
 /* Same four links as the hero, which already uses these icons — the footer was
    still spelling them out as "FB" / "IG" / "IN" / "YT". */
@@ -37,17 +37,17 @@ export function Footer() {
         <div className="container-xl">
           <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300">Ready when your contract is</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300">Practical next steps for DMV transactions</p>
               <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
-                Start with clear numbers—or start the closing.
+                Start with clear numbers—or ask Will for an introduction.
               </h2>
               <p className="mt-4 max-w-[62ch] leading-relaxed text-slate-300">
-                Get a title quote, send the transaction details, or speak directly with Will about a purchase, refinance, or builder closing.
+                Estimate costs, share transaction context, or speak directly with Will. Any provider independently confirms acceptance, scope, and terms.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Link href="/calculators/title-quote" className="btn-primary px-7">
-                Get a Title Quote <ArrowRight size={16} aria-hidden="true" />
+                Estimate Title Costs <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <Link href="/contact" className="btn-on-dark px-7">
                 Contact Will
@@ -120,23 +120,15 @@ export function Footer() {
         {/* Column 2: Contact */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Contact Will</h3>
-          <address className="space-y-2 text-sm not-italic text-slate-300">
-            <p>
-              <span className="block text-xs text-slate-400">Pruitt Title email</span>
-              <a href={`mailto:${WILL.email}`} className="hover:text-brand-blue transition-colors">
-                {WILL.email}
-              </a>
-            </p>
+          <div className="space-y-2 text-sm text-slate-300">
             <p>
               <span className="block text-xs text-slate-400">Will’s direct line</span>
               <a href={WILL.phoneHref} className="hover:text-brand-blue transition-colors">
                 {WILL.phoneDisplay}
               </a>
             </p>
-            <p className="pt-1 text-xs text-slate-400">Pruitt Title office</p>
-            <p>{PRUITT_TITLE.address.streetAddress}</p>
-            <p>{PRUITT_TITLE.address.addressLocality}, {PRUITT_TITLE.address.addressRegion} {PRUITT_TITLE.address.postalCode}</p>
-          </address>
+            <p className="pt-1 text-xs leading-relaxed text-slate-400">Use the contact form for DMV Title Guy inquiries. Employer contact details appear only on Will’s About page.</p>
+          </div>
         </div>
 
         {/* Column 3: Follow Us */}

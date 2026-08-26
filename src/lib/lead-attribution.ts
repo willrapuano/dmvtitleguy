@@ -1,6 +1,9 @@
 import { leadLandingPage } from "@/lib/lead-protection";
 import type { NextRequest } from "next/server";
 
+const ATTRIBUTION_WINDOW_MS = 90 * 24 * 60 * 60 * 1000;
+const FUTURE_SKEW_MS = 5 * 60 * 1000;
+
 function text(value: unknown, maxLength: number) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 }
@@ -16,45 +19,63 @@ function hostname(value: unknown) {
   return /^[a-z0-9.-]+$/.test(candidate) ? candidate : "";
 }
 
-function timestamp(value: unknown) {
+function timestamp(value: unknown, validVersion: boolean) {
+  if (!validVersion) return "";
   const candidate = text(value, 40);
-  return candidate && !Number.isNaN(Date.parse(candidate)) ? candidate : "";
+  const parsed = Date.parse(candidate);
+  const now = Date.now();
+  return candidate && Number.isFinite(parsed) && parsed <= now + FUTURE_SKEW_MS && parsed >= now - ATTRIBUTION_WINDOW_MS
+    ? new Date(parsed).toISOString()
+    : "";
+}
+
+function campaignText(value: unknown) {
+  const candidate = text(value, 120);
+  if (!candidate || /@/.test(candidate)) return "";
+  return candidate.replace(/[^a-z0-9 _.:/+~-]/gi, "").slice(0, 120);
 }
 
 export function leadAttributionFields(body: Record<string, unknown>, request: NextRequest) {
+  const validVersion = body.attributionVersion === "2";
   const firstLandingPage = path(body.firstLandingPage);
   const firstReferrerHost = hostname(body.firstReferrerHost);
-  const firstTouchAt = timestamp(body.firstTouchAt);
-  const utmSource = text(body.utmSource, 200);
-  const utmMedium = text(body.utmMedium, 200);
+  const firstTouchAt = timestamp(body.firstTouchAt, validVersion);
+  const utmSource = campaignText(body.utmSource);
+  const utmMedium = campaignText(body.utmMedium);
   const hasCampaign = Boolean(utmSource || utmMedium);
   const paidMedium = /^(cpc|ppc|paid|paidsearch|display|retargeting)$/i.test(utmMedium);
+  const organicMedium = /^(organic|organic-search|seo)$/i.test(utmMedium);
+  const organicSource = /^(google|bing|yahoo|duckduckgo)$/i.test(utmSource);
   const searchReferrer = /(^|\.)(google|bing|yahoo|duckduckgo)\.[a-z.]+$|(^|\.)bing\.com$|(^|\.)duckduckgo\.com$/i.test(firstReferrerHost);
-  const firstChannel = paidMedium ? "paid" : searchReferrer && !paidMedium ? "organic-search" : hasCampaign ? "campaign" : firstReferrerHost ? "referral" : "direct-or-unknown";
-  const attributionComplete = Boolean(firstLandingPage && firstTouchAt);
+  const firstChannel = paidMedium ? "paid" : searchReferrer || organicMedium || organicSource && organicMedium ? "organic-search" : hasCampaign ? "campaign" : firstReferrerHost ? "referral" : "direct-or-unknown";
+  const attributionComplete = Boolean(validVersion && firstLandingPage && firstTouchAt);
 
+  const serverConversionPage = leadLandingPage(request);
   return {
-    attributionVersion: body.attributionVersion === "2" ? "2" : "",
+    attributionVersion: validVersion ? "2" : "",
     firstLandingPage,
     conversionPage: path(body.conversionPage),
     firstReferrerHost,
     firstTouchAt,
     utmSource,
     utmMedium,
-    utmCampaign: text(body.utmCampaign, 200),
-    utmTerm: text(body.utmTerm, 200),
-    utmContent: text(body.utmContent, 200),
+    utmCampaign: campaignText(body.utmCampaign),
+    utmTerm: campaignText(body.utmTerm),
+    utmContent: campaignText(body.utmContent),
     firstChannel,
     lastNonDirectReferrerHost: hostname(body.lastNonDirectReferrerHost),
-    lastNonDirectTouchAt: timestamp(body.lastNonDirectTouchAt),
-    lastUtmSource: text(body.lastUtmSource, 200),
-    lastUtmMedium: text(body.lastUtmMedium, 200),
-    lastUtmCampaign: text(body.lastUtmCampaign, 200),
-    lastUtmTerm: text(body.lastUtmTerm, 200),
-    lastUtmContent: text(body.lastUtmContent, 200),
+    lastNonDirectTouchAt: timestamp(body.lastNonDirectTouchAt, validVersion),
+    lastUtmSource: campaignText(body.lastUtmSource),
+    lastUtmMedium: campaignText(body.lastUtmMedium),
+    lastUtmCampaign: campaignText(body.lastUtmCampaign),
+    lastUtmTerm: campaignText(body.lastUtmTerm),
+    lastUtmContent: campaignText(body.lastUtmContent),
     attributionComplete,
-    attributionConfidence: attributionComplete && (firstReferrerHost || hasCampaign) ? "high" : attributionComplete ? "medium" : "low",
+    attributionConfidence: attributionComplete && firstReferrerHost ? "high" : attributionComplete && hasCampaign ? "medium" : attributionComplete ? "low" : "invalid-or-missing",
     deploymentEnvironment: process.env.VERCEL_ENV || (process.env.NODE_ENV === "production" ? "production" : "local"),
-    serverLandingPage: leadLandingPage(request),
+    serverConversionPage,
+    // Backward-compatible webhook alias while the legacy GHL contact field is
+    // retired. It contains a conversion path, never a session landing path.
+    serverLandingPage: serverConversionPage,
   };
 }

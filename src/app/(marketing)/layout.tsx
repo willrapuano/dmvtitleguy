@@ -6,6 +6,7 @@
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import {
+  BRAND_SAME_AS,
   PRUITT_TITLE,
   RELATIONSHIP_DISCLOSURE,
   SITE_NAME,
@@ -25,6 +26,7 @@ const IDENTITY_SCHEMA = {
       description: RELATIONSHIP_DISCLOSURE,
       creator: { "@id": `${WILL.url}#person` },
       publisher: { "@id": `${WILL.url}#person` },
+      sameAs: BRAND_SAME_AS,
     },
     {
       "@type": "Person",

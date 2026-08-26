@@ -14,12 +14,11 @@ import {
   Search,
   Shield,
 } from "lucide-react";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
-  title: "commercial property title search Guide | Pruitt Title",
+  title: "Commercial Property Title Search Guide | DMV Title Guy",
   description:
-    "Commercial property title search for DMV buyers, lenders, and investors. Pruitt Title reviews liens, easements, entities, and risks. Call today.",
+    "Educational commercial-property title-search guide for DMV buyers, lenders, and investors covering liens, easements, entities, and common risks.",
   alternates: {
     canonical: "https://dmvtitleguy.io/commercial-property-title-search",
   },
@@ -130,19 +129,18 @@ const relatedPages = [
   { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
   { href: "/commercial-due-diligence", label: "Commercial Due Diligence" },
   { href: "/investor-title-services", label: "Investor Title Services" },
-  { href: "/request-title-review", label: "Order Title Search" },
+  { href: "/request-title-review", label: "Request Title Review" },
 ];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/commercial-property-title-search#service",
-      name: "Commercial Property Title Search",
-      serviceType: "Commercial Property Title Search",
-      provider: pruittOrganizationReference(),
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/commercial-property-title-search#guide",
+      headline: "Commercial Property Title Search Guide",
+      about: { "@type": "Thing", name: "Commercial Property Title Search" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },
@@ -192,7 +190,7 @@ export default function CommercialPropertyTitleSearchPage() {
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Order Title Search
+              Request Title Review
             </Link>
           </div>
         </div>
@@ -285,7 +283,7 @@ export default function CommercialPropertyTitleSearchPage() {
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Order Title Search
+              Request Title Review
             </Link>
           </div>
           <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">

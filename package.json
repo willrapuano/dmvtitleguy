@@ -32,6 +32,7 @@
     "verify:production-env": "node scripts/verify-production-env.mjs",
     "verify:production-database": "node scripts/verify-production-database.mjs",
     "migrate:lead-protection": "node scripts/apply-lead-protection-migration.mjs",
+    "snapshot:seo-scorecard": "node scripts/snapshot-federal-seo-scorecard.mjs",
     "repair:sanity-links": "node scripts/repair-sanity-internal-links.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },

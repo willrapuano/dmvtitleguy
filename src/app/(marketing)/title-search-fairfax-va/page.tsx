@@ -15,7 +15,6 @@ import {
   Shield,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
-import { PRUITT_TITLE } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Fairfax VA Title Search & Title Company | Free Online Quote",
@@ -151,26 +150,20 @@ const relatedPages = [
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
   { href: "/upload-contract", label: "Start Contract Intake" },
-  { href: "/request-title-review", label: "Order Title Search" },
+  { href: "/request-title-review", label: "Request Title Review" },
 ];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#service",
-      name: "Title Search Fairfax VA",
-      serviceType: "Title Search",
-      provider: {
-        "@type": "Organization",
-        "@id": PRUITT_TITLE.id,
-        name: PRUITT_TITLE.name,
-        url: PRUITT_TITLE.url,
-      },
-      areaServed: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#guide",
+      headline: "Title Search Guide for Fairfax VA",
+      about: { "@type": "Thing", name: "Title Search" },
+      spatialCoverage: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
       description:
-        "Title search services for Fairfax, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",
+        "Educational guide to Fairfax, VA title-search topics including ownership chains, liens, judgments, taxes, easements, restrictions, and title defects.",
     },
     {
       "@type": "FAQPage",

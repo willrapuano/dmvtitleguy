@@ -9,13 +9,14 @@ export const WILL = {
   phoneHref: "tel:+17038591467",
   image: `${SITE_URL}/will-rapuano-headshot.jpg`,
   url: `${SITE_URL}/about-will-rapuano`,
-  sameAs: [
-    "https://www.facebook.com/profile.php?id=61556322698901",
-    "https://www.instagram.com/dmvtitleguy",
-    "https://www.linkedin.com/in/will-rapuano-86914b130",
-    "https://www.youtube.com/@dmvtitleguy",
-  ],
+  sameAs: ["https://www.linkedin.com/in/will-rapuano-86914b130"],
 } as const;
+
+export const BRAND_SAME_AS = [
+  "https://www.facebook.com/profile.php?id=61556322698901",
+  "https://www.instagram.com/dmvtitleguy",
+  "https://www.youtube.com/@dmvtitleguy",
+] as const;
 
 export const PRUITT_TITLE = {
   name: "Pruitt Title LLC",

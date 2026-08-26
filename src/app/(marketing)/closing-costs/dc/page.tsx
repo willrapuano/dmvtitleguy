@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Washington DC Closing Costs Guide | DMV Title Guy",
@@ -51,12 +50,11 @@ export default function DCClosingCostsPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Washington DC Closing Cost Guide",
+            "@type": "Article",
+            headline: "Washington DC Closing Cost Guide",
             url: "https://dmvtitleguy.io/closing-costs/dc",
             description: "Complete guide to DC closing costs for buyers and sellers. Learn about recordation tax, transfer tax, title insurance, and what to expect at settlement.",
-            provider: pruittOrganizationReference(),
-            areaServed: {
+            spatialCoverage: {
               "@type": "City",
               name: "Washington",
               addressRegion: "DC",

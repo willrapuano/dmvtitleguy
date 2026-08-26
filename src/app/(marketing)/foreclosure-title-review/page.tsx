@@ -16,7 +16,6 @@ import {
   Search,
   Shield,
 } from "lucide-react";
-import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Foreclosure Title Review | DMV Title Guy",
@@ -155,12 +154,11 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/foreclosure-title-review#service",
-      name: "Foreclosure Title Review",
-      serviceType: "Foreclosure Title Review",
-      provider: pruittOrganizationReference(),
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/foreclosure-title-review#guide",
+      headline: "Foreclosure Title Review Guide",
+      about: { "@type": "Thing", name: "Foreclosure Title Review" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },
@@ -207,7 +205,7 @@ export default function ForeclosureTitleReviewPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
+              Request Title Review
             </Link>
             <Link href="/auction-property-title-search" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Auction Property Title Search
@@ -306,7 +304,7 @@ export default function ForeclosureTitleReviewPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             <Link href="/calculators/title-quote" className="btn-primary px-6 py-3 text-base font-semibold">
-              Order Title Search
+              Request Title Review
             </Link>
             <Link href="/investor-title-services" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
               Investor Title Services
