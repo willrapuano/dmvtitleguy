@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Maryland Closing Costs Guide | DMV Title Guy",
@@ -55,21 +56,9 @@ export default function MarylandClosingCostsPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Maryland Closing Cost Guide",
-            url: "https://dmvtitleguy.com/closing-costs/maryland",
+            url: "https://dmvtitleguy.io/closing-costs/maryland",
             description: "Complete guide to Maryland closing costs for buyers and sellers. Learn about transfer taxes, recordation fees, title insurance, and what to expect at settlement.",
-            provider: {
-              "@type": "LocalBusiness",
-              name: "DMV Title Guy — Pruitt Title LLC",
-              telephone: "(703) 859-1467",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "1900 Gallows Rd Ste 230",
-                addressLocality: "Vienna",
-                addressRegion: "VA",
-                postalCode: "22182",
-                addressCountry: "US",
-              },
-            },
+            provider: pruittOrganizationReference(),
             areaServed: {
               "@type": "State",
               name: "Maryland",

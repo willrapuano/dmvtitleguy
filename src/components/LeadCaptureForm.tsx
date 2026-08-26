@@ -3,13 +3,14 @@
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { trackLeadConversion } from "@/lib/client-analytics";
+import { trackAnalyticsEvent, trackLeadConversion } from "@/lib/client-analytics";
 
 interface LeadCaptureFormProps {
   title?: string;
   subtitle?: string;
   location?: string; // for tracking which page the lead came from
   compact?: boolean;
+  context?: "firpta" | "survey";
 }
 
 export function LeadCaptureForm({
@@ -17,6 +18,7 @@ export function LeadCaptureForm({
   subtitle = "Serving DC, Maryland & Virginia. Response within one business day.",
   location = "site",
   compact = false,
+  context,
 }: LeadCaptureFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
@@ -24,9 +26,13 @@ export function LeadCaptureForm({
     email: "",
     phone: "",
     transactionType: "purchase",
+    role: "",
+    jurisdiction: "",
+    closingDate: "",
     message: "",
   });
   const submissionIdRef = useRef<string | null>(null);
+  const formStartedRef = useRef(false);
   const successRef = useRef<HTMLDivElement>(null);
   const idPrefix = `lead-${location.replace(/[^a-z0-9-]/gi, "-").toLowerCase()}`;
   const Heading = compact ? "h2" : "h3";
@@ -38,6 +44,7 @@ export function LeadCaptureForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
+    trackAnalyticsEvent("lead_form_submit", { form_type: "quote", page_context: location });
     try {
       submissionIdRef.current ||= crypto.randomUUID();
       const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
@@ -48,11 +55,19 @@ export function LeadCaptureForm({
       });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.error || "Lead delivery failed");
-      trackLeadConversion("quote");
+      trackLeadConversion("quote", location);
+      trackAnalyticsEvent("lead_form_submit_success", { form_type: "quote", page_context: location });
       setStatus("success");
     } catch {
+      trackAnalyticsEvent("lead_form_submit_failure", { form_type: "quote", page_context: location });
       setStatus("error");
     }
+  };
+
+  const handleFormInteraction = () => {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    trackAnalyticsEvent("lead_form_start", { form_type: "quote", page_context: location });
   };
 
   if (status === "success") {
@@ -81,7 +96,7 @@ export function LeadCaptureForm({
         <p className="text-brand-muted text-sm mt-1 max-w-[68ch] leading-relaxed">{subtitle}</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} onFocus={handleFormInteraction} className="space-y-4">
         <div className="hidden" aria-hidden="true">
           <label htmlFor={`${idPrefix}-website`}>Website</label>
           <input id={`${idPrefix}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" />
@@ -102,6 +117,55 @@ export function LeadCaptureForm({
             placeholder="Jane Smith"
           />
         </div>
+
+        {context && (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor={`${idPrefix}-role`} className="form-label">Your role</label>
+              <select
+                id={`${idPrefix}-role`}
+                name="role"
+                value={formData.role}
+                onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                className="form-control"
+              >
+                <option value="">Select one</option>
+                <option value="buyer">Buyer</option>
+                <option value="seller">Seller</option>
+                <option value="agent">Real estate agent</option>
+                <option value="lender">Lender</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor={`${idPrefix}-jurisdiction`} className="form-label">Property jurisdiction</label>
+              <select
+                id={`${idPrefix}-jurisdiction`}
+                name="jurisdiction"
+                value={formData.jurisdiction}
+                onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
+                className="form-control"
+              >
+                <option value="">Select one</option>
+                <option value="dc">Washington DC</option>
+                <option value="md">Maryland</option>
+                <option value="va">Virginia</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor={`${idPrefix}-closing-date`} className="form-label">Expected closing date (optional)</label>
+              <input
+                id={`${idPrefix}-closing-date`}
+                name="closingDate"
+                type="date"
+                value={formData.closingDate}
+                onChange={(e) => setFormData({ ...formData, closingDate: e.target.value })}
+                className="form-control"
+              />
+            </div>
+          </div>
+        )}
 
         <div className={compact ? "space-y-4" : "grid grid-cols-1 gap-4 sm:grid-cols-2"}>
           <div>
@@ -157,10 +221,10 @@ export function LeadCaptureForm({
           </select>
         </div>
 
-        {!compact && (
+        {(!compact || context) && (
           <div>
             <label htmlFor={`${idPrefix}-message`} className="form-label">
-              Message (optional)
+              {context ? "Question or concern (optional)" : "Message (optional)"}
             </label>
             <textarea
               id={`${idPrefix}-message`}
@@ -169,9 +233,16 @@ export function LeadCaptureForm({
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               className="form-control min-h-28 resize-y"
-              placeholder="Tell us about your transaction..."
+              placeholder={context === "firpta" ? "Describe the timing and the non-sensitive FIRPTA question..." : "Tell us about your transaction..."}
             />
           </div>
+        )}
+
+        {context === "firpta" && (
+          <p className="rounded-lg bg-amber-50 p-3 text-xs leading-relaxed text-amber-900">
+            Do not submit an SSN, TIN, bank information, wire instructions, or tax documents here. Will can connect an
+            accepted transaction with the appropriate secure intake process.
+          </p>
         )}
 
         <button

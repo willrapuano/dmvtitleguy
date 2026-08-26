@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { Open_Sans, Fraunces } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "@/lib/brand-identity";
 
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
 
@@ -23,14 +24,12 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const siteUrl = "https://dmvtitleguy.com";
-const siteName = "DMV Title Guy";
 const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
 const defaultDescription =
-  "Pruitt Title LLC — trusted title insurance and closing services across Washington DC, Maryland, and Virginia. Top 5% title executive.";
+  "Practical title and closing guidance from Will Rapuano, plus direct access to title insurance, escrow, and settlement services provided by Pruitt Title LLC.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: { default: defaultTitle, template: `%s` },
   description: defaultDescription,
   icons: {
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    siteName,
+    siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
   },

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Washington DC Closing Costs Guide | DMV Title Guy",
@@ -52,21 +53,9 @@ export default function DCClosingCostsPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Washington DC Closing Cost Guide",
-            url: "https://dmvtitleguy.com/closing-costs/dc",
+            url: "https://dmvtitleguy.io/closing-costs/dc",
             description: "Complete guide to DC closing costs for buyers and sellers. Learn about recordation tax, transfer tax, title insurance, and what to expect at settlement.",
-            provider: {
-              "@type": "LocalBusiness",
-              name: "DMV Title Guy — Pruitt Title LLC",
-              telephone: "(703) 859-1467",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "1900 Gallows Rd Ste 230",
-                addressLocality: "Vienna",
-                addressRegion: "VA",
-                postalCode: "22182",
-                addressCountry: "US",
-              },
-            },
+            provider: pruittOrganizationReference(),
             areaServed: {
               "@type": "City",
               name: "Washington",

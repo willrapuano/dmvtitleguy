@@ -14,13 +14,14 @@ import {
   Shield,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
+import { PRUITT_TITLE } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "title search vienna va for Closings | Pruitt Title",
   description:
     "Vienna title search service for liens, ownership, easements, and title risks. 17+ years serving Fairfax County. Order your review online now.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/title-search-vienna-va",
+    canonical: "https://dmvtitleguy.io/title-search-vienna-va",
   },
 };
 
@@ -117,6 +118,7 @@ const faqs = [
 ];
 
 const relatedPages = [
+  { href: "/blog/types-of-property-surveys-dc-md-va", label: "Types of Property Surveys" },
   { href: "/investor-title-services", label: "Investor Title Services" },
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
@@ -128,28 +130,16 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "LegalService"],
-      "@id": "https://dmvtitleguy.com/title-search-vienna-va#business",
-      name: "DMV Title Guy | Pruitt Title LLC",
-      url: "https://dmvtitleguy.com/title-search-vienna-va",
-      telephone: "+1-703-859-1467",
-      image: "https://dmvtitleguy.com/logo.png",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "1900 Gallows Rd Ste 230",
-        addressLocality: "Vienna",
-        addressRegion: "VA",
-        postalCode: "22182",
-        addressCountry: "US",
-      },
-      areaServed: { "@type": "City", name: "Vienna", addressRegion: "VA" },
-    },
-    {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/title-search-vienna-va#service",
+      "@id": "https://dmvtitleguy.io/title-search-vienna-va#service",
       name: "Title Search Vienna VA",
       serviceType: "Title Search",
-      provider: { "@id": "https://dmvtitleguy.com/title-search-vienna-va#business" },
+      provider: {
+        "@type": "Organization",
+        "@id": PRUITT_TITLE.id,
+        name: PRUITT_TITLE.name,
+        url: PRUITT_TITLE.url,
+      },
       areaServed: { "@type": "City", name: "Vienna", addressRegion: "VA" },
       description:
         "Title search services for Vienna, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",

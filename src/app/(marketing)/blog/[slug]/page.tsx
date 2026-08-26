@@ -28,8 +28,10 @@ import {
   slugifyBlogHeading,
 } from "@/lib/blog-portable-content";
 import { serializeJsonLd } from "@/lib/json-ld";
+import { PRUITT_TITLE, WILL } from "@/lib/brand-identity";
 
-export const revalidate = 0;
+// Preserve the last successful render if Sanity is temporarily unavailable.
+export const revalidate = 3600;
 
 const INTERNAL_PATH_ALIASES: Record<string, string> = {
   "/construction-loan-title-insurance": "/title-company-for-builders",
@@ -239,7 +241,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   const showDmvTitleServices = post.slug === DMV_TITLE_SERVICES_POST_SLUG;
   const canonicalPath = postCanonicalPath(post.slug);
   const isViennaTitleCompanyPost = canonicalPath === "/title-search-vienna-va";
-  const canonicalUrl = `https://dmvtitleguy.com${canonicalPath}`;
+  const canonicalUrl = `https://dmvtitleguy.io${canonicalPath}`;
 
   /**
    * What this post is called on the page. Retitled posts override the Sanity
@@ -256,6 +258,20 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
    * now stripped on structure rather than on text.
    */
   const displayTitle = postDisplayTitle(post.slug, post.title);
+  const leadContext =
+    post.slug === "firpta-explained-dmv"
+      ? {
+          context: "firpta" as const,
+          title: "Request an Early FIRPTA Closing Review",
+          subtitle: "Share the timing and non-sensitive transaction context. Do not send taxpayer IDs or tax documents here.",
+        }
+      : post.slug === "types-of-property-surveys-dc-md-va"
+        ? {
+            context: "survey" as const,
+            title: "Talk Through a Survey or Title Concern",
+            subtitle: "Share the jurisdiction, timing, and issue you are trying to resolve before closing.",
+          }
+        : null;
   const heroImage = resolvePostImage(post.slug, post.image) ?? post.image;
   const heroImageAlt = resolvePostImageAlt(post.slug);
 
@@ -274,7 +290,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     "@type": "BlogPosting",
     headline: displayTitle,
     description: articleSchemaDesc,
-    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.com${heroImage}`,
+    image: heroImage.startsWith("http") ? heroImage : `https://dmvtitleguy.io${heroImage}`,
     datePublished: post.dateISO,
     dateModified: blogPostModifiedDateISO(post),
     mainEntityOfPage: {
@@ -283,24 +299,24 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     },
     author: {
       "@type": "Person",
-      name: "Will Rapuano",
-      jobTitle: "Business Development, Pruitt Title LLC",
-      url: "https://dmvtitleguy.com",
-      image: "https://dmvtitleguy.com/will-rapuano-headshot.jpg",
-      sameAs: [
-        "https://www.linkedin.com/in/will-rapuano-86914b130",
-        "https://www.instagram.com/dmvtitleguy",
-        "https://www.youtube.com/@dmvtitleguy",
-      ],
+      "@id": `${WILL.url}#person`,
+      name: WILL.name,
+      jobTitle: WILL.jobTitle,
+      url: WILL.url,
+      image: WILL.image,
+      worksFor: {
+        "@type": "Organization",
+        "@id": PRUITT_TITLE.id,
+        name: PRUITT_TITLE.name,
+        url: PRUITT_TITLE.url,
+      },
+      sameAs: WILL.sameAs,
     },
     publisher: {
-      "@type": "Organization",
-      name: "DMV Title Guy — Pruitt Title LLC",
-      url: "https://dmvtitleguy.com",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://dmvtitleguy.com/logo.png",
-      },
+      "@type": "Person",
+      "@id": `${WILL.url}#person`,
+      name: WILL.name,
+      url: WILL.url,
     },
   };
 
@@ -324,13 +340,13 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://dmvtitleguy.com/",
+        item: "https://dmvtitleguy.io/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://dmvtitleguy.com/blog",
+        item: "https://dmvtitleguy.io/blog",
       },
       {
         "@type": "ListItem",
@@ -688,7 +704,9 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               {/* Lead Capture Form */}
               <LeadCaptureForm
                 compact
-                title="Get a Free Quote"
+                title={leadContext?.title ?? "Get a Free Quote"}
+                subtitle={leadContext?.subtitle}
+                context={leadContext?.context}
                 location={`blog-${post.slug}`}
               />
 
@@ -721,12 +739,21 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                     WR
                   </div>
                   <div>
-                    <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">Will Rapuano</p>
-                    <p className="text-xs text-gray-500 max-w-[68ch]">Business Development, Pruitt Title LLC</p>
+                    <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
+                      <Link href={WILL.url.replace("https://dmvtitleguy.io", "")} className="hover:underline">
+                        {WILL.name}
+                      </Link>
+                    </p>
+                    <p className="text-xs text-gray-500 max-w-[68ch]">{WILL.jobTitle}, Pruitt Title LLC</p>
                   </div>
                 </div>
                 <p className="text-xs text-gray-600 leading-relaxed max-w-[68ch]">
-                  Will is a title professional serving buyers, sellers, and lenders across the DMV area. He writes about real estate closings, title insurance, and navigating the DC/Maryland/Virginia markets.
+                  Will creates educational resources for buyers, sellers, agents, and lenders across the DMV and connects
+                  transaction questions with the appropriate Pruitt Title team member. Read more about{" "}
+                  <Link href="/about-will-rapuano" className="font-medium text-brand-blue-deep hover:underline">
+                    his role and this website
+                  </Link>
+                  .
                 </p>
               </div>
             </aside>

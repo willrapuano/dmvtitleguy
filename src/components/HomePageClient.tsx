@@ -190,7 +190,7 @@ export function HomePageClient() {
         <div className="container-xl relative grid items-center gap-10 py-12 sm:py-16 lg:min-h-[660px] lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-20">
           <div className="max-w-2xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-blue-deep">
-              Pruitt Title LLC · DMV Title Guy
+              Independent guidance from Will Rapuano · Services provided by Pruitt Title LLC
             </p>
             <h1 className="t-display max-w-[15ch] text-brand-navy">
               Title and settlement services across DC, Maryland, and Virginia, without the closing surprises.
@@ -502,11 +502,11 @@ export function HomePageClient() {
           <div className="mt-12 grid gap-12 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-deep">
-                Your local title partner in VA, MD &amp; DC · Pruitt Title LLC
+                Founder of DMV Title Guy · Marketing and Business Development Officer at Pruitt Title LLC
               </p>
               <div className="mt-6 space-y-5 leading-relaxed text-brand-muted">
                 <p className="max-w-[68ch] text-[17px]">
-                  Will Rapuano is the driving force behind DMV Title Guy, bringing a personal touch to every transaction. As your go-to title partner in Virginia, Maryland, and Washington DC, Will focuses on building relationships—not just processing paperwork. Whether you&apos;re a real estate agent or a lender, you&apos;ll appreciate his straightforward approach and commitment to making closings seamless.
+                  Will Rapuano created and independently manages DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Will serves as Marketing and Business Development Officer at Pruitt Title LLC, which provides the title insurance, escrow, and settlement services requested through this site.
                 </p>
                 <p className="max-w-[68ch]">
                   Need a title partner you can count on? Reach out directly for a quote or to open a title.
@@ -517,7 +517,10 @@ export function HomePageClient() {
                   Get a Title Quote
                 </Link>
                 <Link href="/contact" className="btn-outline px-8">
-                  Contact the Team
+                  Contact Will
+                </Link>
+                <Link href="/about-will-rapuano" className="inline-flex min-h-11 items-center px-2 font-semibold text-brand-blue-deep underline decoration-brand-blue-deep/30 underline-offset-4 hover:decoration-brand-blue-deep">
+                  About Will &amp; DMV Title Guy
                 </Link>
               </div>
             </div>

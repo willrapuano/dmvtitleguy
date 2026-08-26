@@ -4,7 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  title: "Contact DMV Title Guy | Pruitt Title LLC",
+  title: "Contact Will Rapuano | DMV Title Guy",
   description: "Contact DMV Title Guy for title insurance and closing services in Northern Virginia, DC, and Maryland. Call (703) 859-1467.",
   path: "/contact",
 });

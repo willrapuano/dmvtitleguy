@@ -15,13 +15,14 @@ import {
   Shield,
   Users,
 } from "lucide-react";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "commercial closing Services for DMV Deals | Pruitt Title",
   description:
     "Commercial closing support for DMV buyers, sellers, lenders, and investors. Pruitt Title coordinates title, escrow, and settlement. Call today.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/commercial-real-estate-closings",
+    canonical: "https://dmvtitleguy.io/commercial-real-estate-closings",
   },
 };
 
@@ -134,22 +135,10 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/commercial-real-estate-closings#service",
+      "@id": "https://dmvtitleguy.io/commercial-real-estate-closings#service",
       name: "Commercial Real Estate Closings",
       serviceType: "Commercial Real Estate Closing Services",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
+      provider: pruittOrganizationReference(),
       areaServed: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },

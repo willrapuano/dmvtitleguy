@@ -17,13 +17,14 @@ import {
   Search,
   Shield,
 } from "lucide-react";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Auction Property Title Search | DMV Title Guy",
   description:
     "Auction property title search for buyers who need liens, judgments, taxes, defects, and title risks reviewed fast across DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/auction-property-title-search",
+    canonical: "https://dmvtitleguy.io/auction-property-title-search",
   },
 };
 
@@ -156,22 +157,10 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/auction-property-title-search#service",
+      "@id": "https://dmvtitleguy.io/auction-property-title-search#service",
       name: "Auction Property Title Search",
       serviceType: "Auction Property Title Search",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
+      provider: pruittOrganizationReference(),
       areaServed: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },

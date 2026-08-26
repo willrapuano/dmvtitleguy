@@ -2,7 +2,7 @@ import { WhyChooseUsClient } from "@/components/WhyChooseUsClient";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  title: "pruitt title Reviews, Strengths & DMV Closing Services",
+  title: "Why Choose Pruitt Title for a DMV Closing?",
   description:
     "Pruitt Title helps DMV agents, lenders, and buyers close smoothly, with local title expertise since 2007. See why partners choose us today online.",
   path: "/why-choose-us",
@@ -17,7 +17,7 @@ const WHY_CHOOSE_FAQ_SCHEMA = {
       name: "Why should I choose Pruitt Title LLC?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pruitt Title LLC is a locally-owned, woman-owned title and settlement company established in 2007 in Vienna, Virginia. As an authorized agent of First American Title Insurance Company, we combine local DMV expertise with the financial strength of a Fortune 500 company. We handle residential, commercial, luxury, new construction, and investor transactions.",
+        text: "Pruitt Title LLC is an independently owned title, settlement, and escrow company serving Virginia, Maryland, and Washington DC. The company handles residential and commercial real estate transactions and coordinates closing support through its DMV offices and remote-closing options.",
       },
     },
     {
@@ -33,7 +33,7 @@ const WHY_CHOOSE_FAQ_SCHEMA = {
       name: "What makes Pruitt Title different from other title companies?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Beyond reliable closings, Pruitt Title actively helps referral partners grow their businesses through innovative marketing strategies, free CE classes, workshops, and one-on-one mentorship. Will Rapuano is recognized among the top 5% of title insurance executives nationwide.",
+        text: "Will Rapuano supports real estate professionals through educational classes, workshops, marketing resources, and transaction-focused communication while serving as Marketing and Business Development Officer at Pruitt Title LLC.",
       },
     },
     {
@@ -41,7 +41,7 @@ const WHY_CHOOSE_FAQ_SCHEMA = {
       name: "Does Pruitt Title handle commercial and new construction closings?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Pruitt Title handles every type of closing including residential purchases, commercial transactions, luxury properties, new construction deals, refinances, and investor transactions such as fix-and-flip and BRRRR strategies.",
+        text: "Pruitt Title's public service information identifies residential, commercial, resale, refinance, and new-construction work. Acceptance and requirements depend on the property, jurisdiction, underwriter, and transaction details.",
       },
     },
   ],

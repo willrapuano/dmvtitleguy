@@ -16,13 +16,14 @@ import {
   Search,
   Shield,
 } from "lucide-react";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Foreclosure Title Review | DMV Title Guy",
   description:
     "Foreclosure title review for buyers who need liens, HUD issues, judgments, defects, and title risks reviewed before closing in DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/foreclosure-title-review",
+    canonical: "https://dmvtitleguy.io/foreclosure-title-review",
   },
 };
 
@@ -155,22 +156,10 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/foreclosure-title-review#service",
+      "@id": "https://dmvtitleguy.io/foreclosure-title-review#service",
       name: "Foreclosure Title Review",
       serviceType: "Foreclosure Title Review",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
+      provider: pruittOrganizationReference(),
       areaServed: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },

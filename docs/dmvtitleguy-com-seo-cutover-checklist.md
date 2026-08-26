@@ -1,5 +1,7 @@
 # DMVTitleGuy.com SEO cutover checklist
 
+> **Do not execute. Cancelled August 25, 2026.** The production and ranking domain is `dmvtitleguy.io`; `dmvtitleguy.com` currently redirects to a separate WordPress property outside this deployment. This file is retained only as historical context.
+
 This checklist is the operational companion to `dmvtitleguy-com-domain-migration.md`.
 It prepares the move without making Search Console, analytics, DNS, or production changes early.
 

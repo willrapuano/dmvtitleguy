@@ -14,13 +14,14 @@ import {
   Search,
   Shield,
 } from "lucide-react";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "commercial property title search Guide | Pruitt Title",
   description:
     "Commercial property title search for DMV buyers, lenders, and investors. Pruitt Title reviews liens, easements, entities, and risks. Call today.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/commercial-property-title-search",
+    canonical: "https://dmvtitleguy.io/commercial-property-title-search",
   },
 };
 
@@ -137,22 +138,10 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/commercial-property-title-search#service",
+      "@id": "https://dmvtitleguy.io/commercial-property-title-search#service",
       name: "Commercial Property Title Search",
       serviceType: "Commercial Property Title Search",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
+      provider: pruittOrganizationReference(),
       areaServed: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },

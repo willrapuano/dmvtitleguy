@@ -4,16 +4,17 @@ import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { FAQSection } from "@/components/FAQSection";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
+import { SITE_NAME, willPersonReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Maryland Closing Cost Calculator (2026) | Free Buyer & Seller Estimates",
   description:
     "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, and county costs for Montgomery, PG, and statewide.",
-  alternates: { canonical: "https://dmvtitleguy.com/maryland-closing-cost-calculator" },
+  alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 
 const MD_LOCATIONS = [...TIER1_LOCATIONS, ...TIER2_LOCATIONS].filter((l) => l.state === "MD");
-const SITE_URL = "https://dmvtitleguy.com";
+const SITE_URL = "https://dmvtitleguy.io";
 const PAGE_SLUG = "maryland-closing-cost-calculator";
 const PAGE_URL = `${SITE_URL}/${PAGE_SLUG}`;
 
@@ -236,10 +237,11 @@ const pageSchema = {
         price: "0",
         priceCurrency: "USD",
       },
-      provider: {
-        "@type": "LocalBusiness",
-        name: "DMV Title Guy - Pruitt Title LLC",
-        url: SITE_URL,
+      creator: willPersonReference(),
+      publisher: {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
       },
     },
     {
@@ -249,7 +251,7 @@ const pageSchema = {
       name: "Maryland Closing Cost Calculator | Buyer & Seller Costs in MD",
       description:
         "Calculate Maryland closing costs for buyers and sellers. Estimate MD transfer tax, recordation fees, title insurance, and Montgomery County costs. Get a free quote.",
-      isPartOf: { "@id": SITE_URL },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
       about: [
         { "@type": "Thing", name: "Maryland closing costs" },
         { "@type": "Thing", name: "Maryland recordation tax" },

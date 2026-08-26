@@ -7,7 +7,7 @@ import Image from "next/image";
 const ACCORDION_ITEMS = [
   {
     title: "Our Reputation",
-    body: "Pruitt Title LLC was established in 2007 as a locally-owned, woman-owned title and settlement company based in Vienna, Virginia. For nearly two decades, we've built a reputation for professionalism, integrity, and exceptional service throughout the DMV region. Our clients trust us because we consistently deliver smooth closings and clear communication.",
+    body: "Pruitt Title LLC is an independently owned title, settlement, and escrow company based in Vienna, Virginia, with service across Virginia, Maryland, and Washington DC. Its public process emphasizes transaction communication, title review, settlement coordination, recording, and post-closing support.",
   },
   {
     title: "Our Resources",
@@ -15,11 +15,11 @@ const ACCORDION_ITEMS = [
   },
   {
     title: "Our Marketing",
-    body: "Will Rapuano brings a unique background in video marketing, digital advertising, and real estate technology. Unlike traditional title companies, we actively help our referral partners grow their businesses through innovative marketing strategies, educational workshops, and creative campaigns. Our marketing support is a value-add that sets us apart from every other title company in the DMV.",
+    body: "Will Rapuano brings experience in video marketing, digital advertising, and real estate technology. Through DMV Title Guy, he shares educational resources, classes, and practical tools designed to help agents and other real estate professionals prepare for smoother transactions.",
   },
   {
     title: "Our Size",
-    body: "We're a nimble, locally-owned company that provides the personalized attention and fast turnarounds that large title companies can't match — while still having the backing of First American's national infrastructure. You get the best of both worlds: the responsiveness of a boutique firm and the resources of a Fortune 500 company.",
+    body: "Pruitt Title operates as an independent title agency with a local DMV team. Its underwriter relationship and local staff support title examination, underwriting coordination, settlement, recording, and post-closing work without presenting this website as Pruitt's corporate site.",
   },
   {
     title: "Our Technology",
@@ -27,7 +27,7 @@ const ACCORDION_ITEMS = [
   },
   {
     title: "Our Flexibility",
-    body: "Whether it's a residential purchase, commercial transaction, luxury property, new construction deal, refinance, or investor flip — we handle every type of closing with the same level of professionalism and care. No transaction type is outside our expertise, and we adapt our process to fit the unique needs of each deal.",
+    body: "Pruitt Title's public service information covers residential purchases, commercial transactions, refinances, resale closings, and new construction. Availability, underwriting, documentation, and closing requirements are confirmed after the team reviews the specific property and transaction.",
   },
   {
     title: "Our Strength",
@@ -39,7 +39,7 @@ const ACCORDION_ITEMS = [
   },
   {
     title: "Our People",
-    body: "Will Rapuano is an educator, a connector, and an advocate for real estate professionals in the DMV. Recognized among the top 5% of title insurance executives nationwide, Will goes beyond just closing transactions — he hosts free CE classes, organizes industry events, and provides one-on-one mentorship to help agents and lenders grow their businesses. When you partner with Pruitt Title, you're partnering with people who genuinely care about your success.",
+    body: "Will Rapuano is listed by Pruitt Title as its Marketing and Business Development Officer. He hosts classes, organizes industry events, and creates practical resources for real estate professionals while connecting transaction questions to the appropriate Pruitt Title team member.",
   },
 ];
 

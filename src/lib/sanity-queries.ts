@@ -59,27 +59,19 @@ export async function getAllPosts(): Promise<SanityBlogPost[]> {
 
 export async function getPostBySlug(slug: string): Promise<SanityBlogPost | null> {
   if (!SANITY_READY) return null;
-  try {
-    const result = await sanityClient.fetch(
-      `*[${PUBLISHED_POST_FILTER} && slug.current == $slug][0] {
-        ${POST_FULL_FIELDS}
-      }`,
-      { slug }
-    );
-    return result || null;
-  } catch {
-    return null;
-  }
+  const result = await sanityClient.fetch(
+    `*[${PUBLISHED_POST_FILTER} && slug.current == $slug][0] {
+      ${POST_FULL_FIELDS}
+    }`,
+    { slug }
+  );
+  return result || null;
 }
 
 export async function getAllPostSlugs(): Promise<string[]> {
   if (!SANITY_READY) return [];
-  try {
-    const results = await sanityClient.fetch(
-      `*[${PUBLISHED_POST_FILTER}] { "slug": slug.current }`
-    );
-    return results.map((r: { slug: string }) => r.slug);
-  } catch {
-    return [];
-  }
+  const results = await sanityClient.fetch(
+    `*[${PUBLISHED_POST_FILTER}] { "slug": slug.current }`
+  );
+  return results.map((r: { slug: string }) => r.slug);
 }

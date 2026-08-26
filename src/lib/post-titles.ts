@@ -29,6 +29,15 @@ export const BLOG_SEO_OVERRIDES: Record<
   string,
   { title: string; description?: string; canonical?: string; h1?: string }
 > = {
+  "firpta-explained-dmv": {
+    title: "FIRPTA Withholding: A DMV Buyer, Seller & Agent Guide",
+    description:
+      "FIRPTA withholding explained for DC, Maryland, and Virginia closings: buyer responsibility, 15% and residence rules, certificates, forms, and early review steps.",
+  },
+  "title-search-process-explained": {
+    title: "What Does a Title Company Do? | DMV Title Guy",
+    canonical: "/blog/what-does-a-title-company-do",
+  },
   /**
    * These thirteen slugs also exist as location landing pages, and every one of
    * them opened with "Title Company in <place>" — the exact phrase the landing

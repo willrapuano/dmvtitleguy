@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { ALL_LOCATIONS } from "@/data/locations";
+import { PRUITT_TITLE, RELATIONSHIP_DISCLOSURE, WILL } from "@/lib/brand-identity";
 
 /* Same four links as the hero, which already uses these icons — the footer was
    still spelling them out as "FB" / "IG" / "IN" / "YT". */
@@ -19,6 +20,7 @@ const QUICK_LINKS = [
   { href: "/investor-title-services",      label: "Investor Title Services" },
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review",     label: "Foreclosure Title Review" },
+  { href: "/about-will-rapuano",           label: "About Will & DMV Title Guy" },
   { href: "/why-choose-us",                label: "Why Pruitt Title?" },
   { href: "/my-classes",                   label: "My Classes" },
   { href: "/blog",                         label: "My Blog" },
@@ -110,26 +112,30 @@ export function Footer() {
             Got your back on every contract
           </p>
           <p className="max-w-sm text-sm leading-relaxed text-slate-300">
-            Trusted title &amp; escrow services for real estate professionals, builders, and financial institutions — serving the DMV and clients nationwide.
+            Practical title education and direct access to Will Rapuano for transactions across Washington DC, Maryland, and Virginia.
           </p>
+          <p className="mt-5 max-w-2xl text-xs leading-relaxed text-slate-400">{RELATIONSHIP_DISCLOSURE}</p>
         </div>
 
         {/* Column 2: Contact */}
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Contact Us</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Contact Will</h3>
           <address className="space-y-2 text-sm not-italic text-slate-300">
             <p>
-              <a href="mailto:wrapuano@pruitt-title.com" className="hover:text-brand-blue transition-colors">
-                wrapuano@pruitt-title.com
+              <span className="block text-xs text-slate-400">Pruitt Title email</span>
+              <a href={`mailto:${WILL.email}`} className="hover:text-brand-blue transition-colors">
+                {WILL.email}
               </a>
             </p>
             <p>
-              <a href="tel:+17038591467" className="hover:text-brand-blue transition-colors">
-                (703) 859-1467
+              <span className="block text-xs text-slate-400">Will’s direct line</span>
+              <a href={WILL.phoneHref} className="hover:text-brand-blue transition-colors">
+                {WILL.phoneDisplay}
               </a>
             </p>
-            <p>1900 Gallows Rd Ste 230</p>
-            <p>Vienna, VA 22182</p>
+            <p className="pt-1 text-xs text-slate-400">Pruitt Title office</p>
+            <p>{PRUITT_TITLE.address.streetAddress}</p>
+            <p>{PRUITT_TITLE.address.addressLocality}, {PRUITT_TITLE.address.addressRegion} {PRUITT_TITLE.address.postalCode}</p>
           </address>
         </div>
 

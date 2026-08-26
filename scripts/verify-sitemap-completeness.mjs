@@ -4,7 +4,7 @@ import { postCanonicalPath } from "../src/lib/post-titles.ts";
 import { fetchWithRetry } from "./lib/fetch-with-retry.mjs";
 
 const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
-const canonicalOrigin = "https://dmvtitleguy.com";
+const canonicalOrigin = "https://dmvtitleguy.io";
 const projectId = (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "4s0dloxi").trim();
 const dataset = "production";
 const query = `*[_type in ["post","blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()] { "slug": slug.current }`;

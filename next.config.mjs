@@ -49,7 +49,7 @@ const nextConfig = {
   async redirects() {
     return [
       // Known legacy paths must precede the host catch-all so every old-host
-      // request reaches its final .com destination in exactly one hop.
+      // request reaches its final .io destination in exactly one hop.
       ...redirectingHosts.flatMap((host) => knownPathRedirects(host)),
       ...redirectingHosts.map((host) =>
         redirectRule(

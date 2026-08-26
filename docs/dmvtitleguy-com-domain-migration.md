@@ -1,5 +1,7 @@
 # DMVTitleGuy.com domain migration
 
+> **Cancelled August 25, 2026.** `dmvtitleguy.io` remains the canonical production domain. Live verification showed `dmvtitleguy.com` redirects to a separate WordPress property and SpyFu had no ranking history for `.com`. Do not execute this migration unless Will first obtains control of `.com` and explicitly reauthorizes a new cutover plan.
+
 ## Canonical host
 
 - New canonical origin: `https://dmvtitleguy.com`

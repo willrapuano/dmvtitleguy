@@ -15,13 +15,14 @@ import {
   Shield,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
+import { PRUITT_TITLE } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Fairfax VA Title Search & Title Company | Free Online Quote",
   description:
     "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/title-search-fairfax-va",
+    canonical: "https://dmvtitleguy.io/title-search-fairfax-va",
   },
 };
 
@@ -145,6 +146,7 @@ const faqs = [
 ];
 
 const relatedPages = [
+  { href: "/blog/types-of-property-surveys-dc-md-va", label: "Types of Property Surveys" },
   { href: "/title-search-vienna-va", label: "Title Search Vienna VA" },
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
@@ -156,35 +158,23 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "LegalService"],
-      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#business",
-      name: "DMV Title Guy | Pruitt Title LLC",
-      url: "https://dmvtitleguy.com/title-search-fairfax-va",
-      telephone: "+1-703-859-1467",
-      image: "https://dmvtitleguy.com/logo.png",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "1900 Gallows Rd Ste 230",
-        addressLocality: "Vienna",
-        addressRegion: "VA",
-        postalCode: "22182",
-        addressCountry: "US",
-      },
-      areaServed: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
-    },
-    {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#service",
+      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#service",
       name: "Title Search Fairfax VA",
       serviceType: "Title Search",
-      provider: { "@id": "https://dmvtitleguy.com/title-search-fairfax-va#business" },
+      provider: {
+        "@type": "Organization",
+        "@id": PRUITT_TITLE.id,
+        name: PRUITT_TITLE.name,
+        url: PRUITT_TITLE.url,
+      },
       areaServed: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
       description:
         "Title search services for Fairfax, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#faq",
+      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#faq",
       mainEntity: faqs.map((faq) => ({
         "@type": "Question",
         name: faq.q,
@@ -193,19 +183,19 @@ const schema = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://dmvtitleguy.com/title-search-fairfax-va#breadcrumb",
+      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://dmvtitleguy.com/",
+          item: "https://dmvtitleguy.io/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Title Search Fairfax VA",
-          item: "https://dmvtitleguy.com/title-search-fairfax-va",
+          item: "https://dmvtitleguy.io/title-search-fairfax-va",
         },
       ],
     },

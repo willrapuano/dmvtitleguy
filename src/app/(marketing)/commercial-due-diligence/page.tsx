@@ -14,13 +14,14 @@ import {
   Search,
   Shield,
 } from "lucide-react";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Commercial Due Diligence Title Services | DMV Title Guy",
   description:
     "Commercial real estate due diligence title services for buyers, investors, lenders, and operators across DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/commercial-due-diligence",
+    canonical: "https://dmvtitleguy.io/commercial-due-diligence",
   },
 };
 
@@ -126,6 +127,7 @@ const faqs = [
 ];
 
 const relatedPages = [
+  { href: "/blog/types-of-property-surveys-dc-md-va", label: "Types of Property Surveys" },
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
   { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
   { href: "/investor-title-services", label: "Investor Title Services" },
@@ -139,22 +141,10 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/commercial-due-diligence#service",
+      "@id": "https://dmvtitleguy.io/commercial-due-diligence#service",
       name: "Commercial Due Diligence Title Services",
       serviceType: "Commercial Real Estate Due Diligence Title Services",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
+      provider: pruittOrganizationReference(),
       areaServed: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },

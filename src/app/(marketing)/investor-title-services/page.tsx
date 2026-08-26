@@ -17,13 +17,14 @@ import {
   Zap,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
+import { pruittOrganizationReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Investor Title Services | DMV Title Guy",
   description:
     "Investor title services for real estate investors, wholesalers, and flippers who need fast title searches and closing support across DC, Maryland, and Virginia.",
   alternates: {
-    canonical: "https://dmvtitleguy.com/investor-title-services",
+    canonical: "https://dmvtitleguy.io/investor-title-services",
   },
 };
 
@@ -141,22 +142,10 @@ const schema = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://dmvtitleguy.com/investor-title-services#service",
+      "@id": "https://dmvtitleguy.io/investor-title-services#service",
       name: "Investor Title Services",
       serviceType: "Investor Title Services",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
+      provider: pruittOrganizationReference(),
       areaServed: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },

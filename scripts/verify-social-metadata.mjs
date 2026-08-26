@@ -1,10 +1,12 @@
 import assert from "node:assert/strict";
 
 const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
-const canonicalOrigin = "https://dmvtitleguy.com";
+const canonicalOrigin = "https://dmvtitleguy.io";
 const routes = [
   "/",
+  "/about-will-rapuano",
   "/blog",
+  "/blog/types-of-property-surveys-dc-md-va",
   "/contact",
   "/title-insurance",
   "/title-company-for-realtors",

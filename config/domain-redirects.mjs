@@ -1,10 +1,7 @@
-export const canonicalOrigin = "https://dmvtitleguy.com";
+export const canonicalOrigin = "https://dmvtitleguy.io";
 
 export const redirectingHosts = [
-  // Keep the established .io site directly reachable. Quote interactions and
-  // other visits must not navigate customers away from DMVTitleGuy.io while
-  // the separate .com cutover is incomplete.
-  "www.dmvtitleguy.com",
+  "www.dmvtitleguy.io",
 ];
 
 // This is the single inventory for known path migrations. The Next config and

@@ -5,7 +5,11 @@ import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 import { postCanonicalPath } from "@/lib/post-titles";
 
-const BASE_URL = "https://dmvtitleguy.com";
+const BASE_URL = "https://dmvtitleguy.io";
+
+// A CMS outage during revalidation keeps the previous complete sitemap rather
+// than publishing a partial inventory that drops Sanity-backed articles.
+export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /**
@@ -39,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/investor-due-diligence"].map((p) => entry(p, 0.9)),
 
     // Hubs, guides and audience pages
-    ...["/title-insurance", "/why-choose-us", "/investor-friendly-title-company", "/calculators",
+    ...["/title-insurance", "/about-will-rapuano", "/why-choose-us", "/investor-friendly-title-company", "/calculators",
       // /request-title-review and /upload-contract are deliberately absent: both
       // serve "noindex, follow" as conversion endpoints, not landing pages.
       "/agent-tools", "/contact",

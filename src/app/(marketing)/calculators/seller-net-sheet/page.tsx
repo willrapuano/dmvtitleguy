@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SellerNetSheetCalculator } from "@/components/SellerNetSheetCalculator";
 
 export const metadata: Metadata = {
   title: "Seller Net Sheet Calculator | DMV Title Guy",
   description:
-    "Calculate exactly how much you'll net from your home sale after commissions, title fees, and closing costs in DC, Maryland, and Virginia. Free seller net sheet from Pruitt Title LLC.",
+    "Estimate seller proceeds after mortgage payoff, broker compensation, concessions, taxes, title fees, and other closing costs in DC, Maryland, or Virginia.",
   alternates: { canonical: "/calculators/seller-net-sheet" },
 };
 
@@ -16,7 +17,7 @@ export default function SellerNetSheetPage() {
     },
     {
       question: "Does this include title and transfer costs?",
-      answer: "Yes, it is designed to help model common seller closing costs including title-related fees and transfer taxes.",
+      answer: "It includes the title, settlement, transfer-tax, and recordation-tax estimates you enter. It does not guess current jurisdiction-specific charges.",
     },
     {
       question: "Can I compare multiple offer scenarios?",
@@ -55,29 +56,16 @@ export default function SellerNetSheetPage() {
             Seller Net Sheet Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Find out exactly what you'll walk away with after commissions, title insurance, transfer taxes, and all closing costs. An essential tool for sellers and listing agents in the DMV.
+            Estimate what you may receive after payoffs, broker compensation, concessions, transfer taxes, settlement fees, and other entered costs.
           </p>
         </div>
       </section>
 
       <section className="section-light">
-        <div className="container-xl max-w-4xl">
-          <div className="card p-8 mb-8 text-center">
-            <h2 className="t-h4 text-brand-navy mb-3">Launch the Seller Net Sheet Tool</h2>
-            <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
-              Use the live PalmAgent calculator to estimate your projected proceeds after commissions, closing costs, title fees, and transfer taxes.
-            </p>
-            <a
-              href="https://palmagent.com/app/calculators/selltonet"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary px-8"
-            >
-              Open Seller Net Sheet Calculator →
-            </a>
-          </div>
+        <div className="container-xl">
+          <SellerNetSheetCalculator />
 
-          <div className="prose max-w-none text-brand-muted">
+          <div className="prose mx-auto mt-12 max-w-4xl text-brand-muted">
             <h2 className="text-brand-navy">Why Sellers Use a Net Sheet Before Listing</h2>
             <p className="max-w-[68ch]">
               A seller net sheet estimates how much cash you may receive at closing after paying commissions, title and settlement fees, transfer/recordation taxes, and other transaction costs. For homeowners in DC, Maryland, and Virginia, this is one of the most important numbers to review before pricing a home.
@@ -88,11 +76,11 @@ export default function SellerNetSheetPage() {
 
             <h3 className="text-brand-navy">Frequently Asked Questions</h3>
             <p className="max-w-[68ch]"><strong>Is this my exact closing amount?</strong><br />No. It is an estimate for planning. Final numbers depend on the executed contract and final closing disclosures.</p>
-            <p className="max-w-[68ch]"><strong>Does this include title and transfer costs?</strong><br />Yes, it is designed to help model common seller closing costs including title-related fees and transfer taxes.</p>
+            <p className="max-w-[68ch]"><strong>Does this include title and transfer costs?</strong><br />It includes the title, settlement, transfer-tax, and recordation-tax estimates you enter. It does not guess current jurisdiction-specific charges.</p>
             <p className="max-w-[68ch]"><strong>Can I compare multiple offer scenarios?</strong><br />Absolutely. Run the calculator with different sale prices and concession amounts to compare outcomes quickly.</p>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mx-auto mt-10 flex max-w-4xl flex-wrap gap-3">
             <Link href="/calculators/title-quote" className="btn-primary">Get a Title Quote</Link>
             <Link href="/virginia-closing-cost-calculator" className="btn-outline">VA Closing Cost Calculator</Link>
             <Link href="/maryland-closing-cost-calculator" className="btn-outline">MD Closing Cost Calculator</Link>

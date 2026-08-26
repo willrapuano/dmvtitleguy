@@ -7,7 +7,7 @@ import { ServiceSchema } from "@/components/SchemaMarkup";
 export const metadata: Metadata = {
   title: "Start Contract Intake | DMV Title Guy",
   description: "Realtors and investors: start secure contract intake and our team will follow up within 1 business hour.",
-  alternates: { canonical: "https://dmvtitleguy.com/upload-contract" },
+  alternates: { canonical: "https://dmvtitleguy.io/upload-contract" },
   robots: { index: false, follow: true },
 };
 
