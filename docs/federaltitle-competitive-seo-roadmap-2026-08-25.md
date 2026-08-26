@@ -30,7 +30,7 @@ Federal’s position is vulnerable rather than uniformly strong:
 - Removed unsupported city-by-city LocalBusiness markup.
 - Added the About Will entity page and sitewide relationship disclosure.
 - Removed a redirecting article URL from the sitemap; every submitted sitemap URL now resolves directly and self-canonicalizes.
-- Implemented `/blog/types-of-property-surveys-dc-md-va` as the first broken-competitor replacement page; deployment verification is required before treating it as published.
+- Implemented and production-verified `/blog/types-of-property-surveys-dc-md-va` as the first broken-competitor replacement page.
 
 ## Adversarial review update — August 26, 2026
 
@@ -58,7 +58,7 @@ Federal historical page: `/understanding-4-types-of-property-surveys/` — curre
 
 DMV Title Guy angle: distinguish title research from field surveying, explain Maryland location drawings, Virginia physical-improvement and boundary standards, DC record/building plats, and the 2026 ALTA/NSPS standard. Conversion path: survey issue → title review or transaction contact.
 
-### 2. Seller net-sheet funnel — implemented, deployment pending
+### 2. Seller net-sheet funnel — published and verified
 
 The on-site calculator now models sale price, mortgage and lien payoffs, broker compensation, seller concessions, entered transfer/recordation taxes, title and settlement fees, and other costs. It routes directly to an itemized title quote and records calculator/quote events without guessing current jurisdiction-specific charges.
 
@@ -124,3 +124,53 @@ Every 30 days, record:
 4. Organic quote starts, contact submissions, intake starts, and completed title orders by landing page.
 
 Success is not “more articles.” It is growth in non-branded page-one rankings and organic conversion actions while canonical, sitemap, and entity tests remain green.
+
+## Final adversarial execution record — August 26, 2026
+
+The technical SEO, SpyFu opportunity, and entity/authority reviewers independently reran the plan after the first implementation. Their combined order was:
+
+1. Correct business/provider truth before amplifying any page.
+2. Repair broken internal journeys and legacy destinations before creating more content.
+3. Make the full rendered-site crawl and CMS-resilience checks release blockers.
+4. Capture first-touch attribution before judging traffic as business value.
+5. Earn authority through Will-controlled or permissioned profiles; do not imply control of Pruitt's website or brand channels.
+6. Wait for recrawl and query-by-page evidence before changing titles, merging articles, or building a DC hub.
+
+That order has been executed in production:
+
+- Corrected unsupported provider, service-area, referral-compensation, and transaction-handling claims in source and Sanity content.
+- Repaired 82 internal-link occurrences across 59 Sanity documents and added one-hop fallbacks for 14 legacy paths.
+- Removed canonicalized legacy posts from public blog listings so index pages no longer link through redirects.
+- Added a 259-sitemap-URL rendered crawl gate covering 177 internal destinations. Production has zero failing internal 4xx/5xx destinations and zero unintended redirecting destinations.
+- Strengthened contextual incoming links to the seller net sheet (5), FIRPTA guide (3), survey guide (138), About Will (258), and Why Choose Us (258).
+- Reduced the effective-orphan backlog from 105 to 95 without adding irrelevant boilerplate links. The remaining URLs are a triage queue, not a reason to mass-link every page.
+- Added an hourly CMS revalidation policy and a release gate that verifies last-known-good resilience.
+- Added privacy-disclosed first-touch landing page, referrer host, timestamp, UTM, conversion path, and submission identifiers to all six public lead forms.
+
+## Measurement freeze and decision dates
+
+The Search Console baseline through August 24, 2026 is 174 clicks, 32,600 impressions, 0.5% CTR, and average position 21.9. The latest 28 days versus the prior 28 days were 58 versus 50 clicks, 12,308 versus 8,961 impressions, 0.471% versus 0.558% CTR, and average position 22.18 versus 21.91.
+
+- **September 2–9:** inspect indexing, canonical selection, sitemap ingestion, and crawl health. Do not infer CTR or ranking impact yet.
+- **September 16–23:** earliest outcome review, and only for pages Google has recrawled with a meaningful impression sample.
+- **Day 30:** require all release gates green, confirm the five priority URLs are indexed, validate attribution fields in GoHighLevel, and record cluster-level impressions, clicks, CTR, position, and qualified leads.
+- **Day 60:** use a Search Console query-by-page export to review the title-insurance-cost, enhanced-versus-standard, settlement-fee, Virginia-contract, and lender-versus-owner clusters. Consolidate only when multiple URLs split the same query intent and a clear winner exists.
+- **Day 90:** expand only clusters that gained qualified impressions or leads. Build the DC tax-benefit hub only if Search Console shows consolidated demand and current DC primary sources can support it.
+
+Except for factual, legal, security, or broken-link corrections, freeze discretionary title, meta-description, H1, canonical, redirect, and URL changes until the September 16–23 review. Changing them sooner would destroy the post-deployment comparison window.
+
+## Authority prospecting package
+
+Prepare opportunities in this order:
+
+1. Will-controlled professional profiles that can truthfully identify Will, DMV Title Guy, and his exact Pruitt role while linking to the most relevant resource.
+2. Association member, continuing-education instructor, brokerage resource, podcast/interview, and local real-estate partner pages where editorial inclusion is earned.
+3. Resource-specific outreach for the on-site seller net sheet, DMV survey guide, and corrected FIRPTA guide—not generic homepage link requests.
+
+For every prospect, record the organization, audience, relevant page, contact owner, proposed resource, factual relationship basis, required approval, status, acquired URL, and first/last contact date. Do not buy links, automate bulk outreach, trade links, offer gifts for links, create a DMV Title Guy Google Business Profile at a Pruitt address, or represent an outreach message as coming from Pruitt.
+
+Written authorization is required before using Pruitt logos, testimonials, awards, licensing/volume claims, Pruitt-controlled profiles, or outreach that represents Pruitt. No external outreach was sent as part of this execution.
+
+## Attribution handoff
+
+Map these captured fields in GoHighLevel before using lead counts for SEO decisions: `firstLandingPage`, `conversionPage`, `firstReferrerHost`, `firstTouchAt`, `utmSource`, `utmMedium`, `utmCampaign`, `utmTerm`, `utmContent`, `attributionVersion`, `serverLandingPage`, and `submissionId`. Opportunity-stage and closed-revenue reporting must then be joined in GoHighLevel; the public site cannot truthfully infer revenue from a form submission alone.
