@@ -52,12 +52,21 @@ for (const source of ["quote", "request-title-review", "upload-contract", "inves
 }
 assert.doesNotMatch(crmSource, /TRANSACTION_INTENT_SOURCES[^]*subscribe/, "newsletter subscriptions must not enter the transaction-intent KPI");
 assert.match(crmSource, /opportunities\/search/, "GHL opportunity idempotency search is missing");
+assert.match(crmSource, /contactId,\s*\n\s*status: "all"/, "GHL sync does not honor the location's one-opportunity-per-contact setting");
+assert.match(crmSource, /method: "PUT"/, "GHL sync cannot reuse an existing contact opportunity");
 assert.match(crmSource, /Version:\s*"v3"/, "GHL opportunity sync must declare its versioned API contract");
 assert.match(crmSource, /locationId,\s*\n\s*pipelineId,/, "GHL v3 opportunity search must use camelCase query keys");
 assert.match(crmSource, /SEO Submission ID/, "GHL opportunities do not preserve submission IDs");
+assert.match(crmSource, /SEO QA Excluded/, "GHL opportunities do not carry an explicit QA exclusion");
+
+const outboxSource = await readFile("src/lib/ghl-opportunity-outbox.ts", "utf8");
+assert.match(outboxSource, /aes-256-gcm/, "GHL recovery payload is not encrypted at rest");
+assert.match(outboxSource, /status !== "delivered"/, "GHL retry could run before confirmed webhook delivery");
+assert.match(outboxSource, /syncGHLTransactionOpportunity/, "GHL retry does not use the idempotent opportunity sync");
+assert.doesNotMatch(outboxSource, /postToGHLWebhook/, "GHL retry must never replay the ambiguous webhook");
 
 const prismaSchema = await readFile("prisma/schema.prisma", "utf8");
-for (const field of ["submittedAt", "qualificationStatus", "ghlOpportunityId", "ghlSyncStatus"]) {
+for (const field of ["submittedAt", "qualificationStatus", "ghlOpportunityId", "ghlSyncStatus", "isQa", "LeadOpportunityOutbox", "LeadSubmissionEvent"]) {
   assert.match(prismaSchema, new RegExp(`\\b${field}\\b`), `LeadSubmission.${field} is missing`);
 }
 

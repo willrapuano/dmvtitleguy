@@ -34,7 +34,7 @@ const closingInvolves = [
   {
     icon: Shield,
     title: "Title Insurance Coordination",
-    desc: "We coordinate title insurance requirements, endorsements, underwriting questions, and lender title conditions.",
+    desc: "An accepted provider may coordinate title-insurance requirements, endorsements, underwriting questions, and lender title conditions within its confirmed scope.",
   },
   {
     icon: Landmark,
@@ -118,7 +118,7 @@ const faqs = [
   },
   {
     q: "Can you help with commercial title issues before closing?",
-    a: "Yes. We identify title exceptions and curative requirements, then help coordinate releases, payoffs, corrective documents, underwriting review, and lender title conditions.",
+    a: "An accepted provider may identify title exceptions and curative requirements, then coordinate releases, payoffs, corrective documents, underwriting review, and lender title conditions within its confirmed scope.",
   },
 ];
 

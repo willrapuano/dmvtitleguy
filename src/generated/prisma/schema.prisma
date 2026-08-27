@@ -104,4 +104,34 @@ model LeadSubmission {
   ghlOpportunityId      String?
   ghlSyncStatus         String    @default("not-required")
   ghlSyncErrorCode      String?
+  isQa                  Boolean   @default(false)
+}
+
+model LeadOpportunityOutbox {
+  submissionId  String    @id
+  ciphertext    String
+  iv            String
+  authTag       String
+  attempts      Int       @default(0)
+  nextAttemptAt DateTime  @default(now())
+  lastAttemptAt DateTime?
+  lastErrorCode String?
+  expiresAt     DateTime
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([nextAttemptAt])
+  @@index([expiresAt])
+}
+
+model LeadSubmissionEvent {
+  id           String   @id @default(cuid())
+  submissionId String
+  eventType    String
+  stateCode    String?
+  detailsHash  String?
+  createdAt    DateTime @default(now())
+
+  @@index([submissionId, createdAt])
+  @@index([eventType, createdAt])
 }

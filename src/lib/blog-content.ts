@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { normalizeIndependentProviderVoice } from "./provider-voice.ts";
 
 const CONTENT_DIR = path.join(process.cwd(), "src/content/blog");
 
@@ -24,7 +25,7 @@ export function getBlogContent(slug: string): string | null {
   const filePath = path.join(CONTENT_DIR, `${slug}.md`);
   try {
     const raw = fs.readFileSync(filePath, "utf-8");
-    return stripFrontmatter(raw);
+    return normalizeIndependentProviderVoice(stripFrontmatter(raw));
   } catch {
     return null;
   }

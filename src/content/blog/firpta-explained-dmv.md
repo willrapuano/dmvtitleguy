@@ -90,7 +90,7 @@ The current [Instructions for Form 8288](https://www.irs.gov/instructions/i8288)
 
 ## How DMV Title Guy and Pruitt Title fit into the process
 
-DMV Title Guy is Will Rapuano's personal education and business-development website, separate from Pruitt Title LLC's corporate website. It is not a tax adviser, title agency, or settlement provider. Will is Pruitt's Marketing and Business Development Officer, and eligible transaction requests may be referred to Pruitt for independent review.
+Will Rapuano operates DMV Title Guy as an education and business-development website separate from Pruitt Title LLC's corporate website. It is not a tax adviser, title agency, or settlement provider. Will is Pruitt's Marketing and Business Development Officer, and eligible transaction requests may be referred to Pruitt for independent review.
 
 For a prospective DC, Maryland, or Virginia closing, Will can help surface the FIRPTA question early and connect the transaction with the appropriate Pruitt Title team member. If Pruitt Title accepts the transaction, its settlement team can explain its closing-document and remittance workflow and coordinate with the parties' tax or legal advisers. Eligibility for an exception, reduced withholding, or a tax position remains transaction-specific.
 

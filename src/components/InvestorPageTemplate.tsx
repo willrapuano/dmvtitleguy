@@ -80,7 +80,7 @@ export function InvestorPageTemplate({
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="prose-title mb-4">What We Handle</h2>
+              <h2 className="prose-title mb-4">What a Provider May Review</h2>
               <ul className="space-y-4">
                 {services.map((s) => (
                   <li key={s.title} className="flex gap-3">

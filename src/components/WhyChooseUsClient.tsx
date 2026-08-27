@@ -6,40 +6,40 @@ import Image from "next/image";
 
 const ACCORDION_ITEMS = [
   {
-    title: "Our Reputation",
-    body: "Pruitt Title LLC is an independently owned title, settlement, and escrow company based in Vienna, Virginia, with service across Virginia, Maryland, and Washington DC. Its public process emphasizes transaction communication, title review, settlement coordination, recording, and post-closing support.",
+    title: "Company & Authorization",
+    body: "Confirm the provider's legal identity, licensing or authorization, underwriter relationships, service area, and the entity that will receive funds and issue documents. Use the provider's official website and transaction disclosures as the authority.",
   },
   {
     title: "Title Insurance & Underwriting",
-    body: "Pruitt Title coordinates title insurance and underwriting review for eligible transactions. Policy availability, coverage, endorsements, and underwriting requirements depend on the property and transaction details.",
+    body: "Ask which policy and endorsements may be available, who the underwriter is, and which exclusions, exceptions, conditions, and transaction-specific underwriting requirements may apply.",
   },
   {
-    title: "Our Marketing",
-    body: "Will Rapuano brings experience in video marketing, digital advertising, and real estate technology. Through DMV Title Guy, he shares educational resources, classes, and practical tools designed to help agents and other real estate professionals prepare for smoother transactions.",
+    title: "Education & Preparation",
+    body: "Useful calculators, plain-language explanations, and early issue spotting can help parties ask better questions. These resources are educational and do not replace a provider's file-specific review.",
   },
   {
-    title: "Our Size",
-    body: "Pruitt Title operates as an independent title agency with a local DMV team. Its underwriter relationship and local staff support title examination, underwriting coordination, settlement, recording, and post-closing work without presenting this website as Pruitt's corporate site.",
+    title: "Team & Capacity",
+    body: "Ask who will examine title, coordinate settlement, handle funds, support signing, record documents, and respond after closing—and whether the team has capacity for the transaction's actual deadline.",
   },
   {
     title: "Process & Communication",
-    body: "The settlement team coordinates transaction updates, document collection, title review, signing logistics, recording, and post-closing steps. Available digital or remote options are confirmed for the specific jurisdiction, lender, and transaction.",
+    body: "Ask how the provider shares milestones, requests documents, reports title issues, confirms signing logistics, and handles recording and post-closing questions.",
   },
   {
-    title: "Our Flexibility",
-    body: "Pruitt Title's public service information covers residential purchases, commercial transactions, refinances, resale closings, and new construction. Availability, underwriting, documentation, and closing requirements are confirmed after the team reviews the specific property and transaction.",
+    title: "Transaction Fit",
+    body: "Residential purchases, commercial matters, refinances, estates, new construction, and investor transactions can require different experience. Confirm the provider accepts the specific property, jurisdiction, lender, and transaction type.",
   },
   {
     title: "Policy-Specific Protection",
-    body: "Title insurance protection is governed by the issued policy, including its covered risks, exclusions, exceptions, and conditions. The Pruitt Title team can explain which policy and endorsements are available for an eligible transaction.",
+    body: "Title insurance protection is governed by the policy actually issued, including covered risks, exclusions, exceptions, and conditions. Ask the accepted provider to explain the available policy and endorsements.",
   },
   {
-    title: "Our Service Area",
-    body: "Pruitt Title's public locations information identifies a Vienna headquarters, a Gaithersburg office, and remote-closing service across the DMV. The team confirms the available signing and settlement options for each transaction.",
+    title: "Service Area & Signing",
+    body: "Confirm that the provider can serve the property jurisdiction and support the needed signing method. Remote, mobile, or in-office options can depend on the state, lender, documents, and transaction.",
   },
   {
-    title: "Our People",
-    body: "Will Rapuano is listed by Pruitt Title as its Marketing and Business Development Officer. He hosts classes, organizes industry events, and creates practical resources for real estate professionals while connecting transaction questions to the appropriate Pruitt Title team member.",
+    title: "Will, DMV Title Guy & Pruitt",
+    body: "Will Rapuano operates DMV Title Guy and works as Pruitt Title's Marketing and Business Development Officer. DMV Title Guy is not Pruitt's corporate site. A requested introduction does not bind Pruitt; Pruitt independently confirms acceptance and terms.",
   },
 ];
 
@@ -86,10 +86,10 @@ export function WhyChooseUsClient() {
         <div className="absolute inset-0 bg-brand-navy/80" />
         <div className="container-xl relative z-10 text-center">
           <h1 className="t-display text-white">
-            Why Pruitt Title?
+            How to Choose a Title Provider
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
-            DMV Title Guy is Will Rapuano&apos;s personal education and business-development website, separate from Pruitt Title LLC&apos;s corporate website. Will is Pruitt&apos;s Marketing and Business Development Officer. Eligible transaction requests may be referred to Pruitt for independent review; submission does not mean Pruitt has accepted the transaction.
+            Will Rapuano operates DMV Title Guy as an education and business-development website separate from Pruitt Title LLC&apos;s corporate website. Will is Pruitt&apos;s Marketing and Business Development Officer. Eligible transaction requests may be referred to Pruitt for independent review; submission does not mean Pruitt has accepted the transaction.
           </p>
         </div>
       </section>
@@ -98,7 +98,7 @@ export function WhyChooseUsClient() {
       <section className="section-light">
         <div className="container-xl max-w-3xl">
           <h2 className="prose-title text-center mb-2">
-            9 Reasons Why Real Estate Professionals Choose Pruitt Title
+            9 Questions to Ask Before You Choose
           </h2>
           <div className="mt-10 space-y-3">
             {ACCORDION_ITEMS.map((item, i) => {
@@ -162,8 +162,9 @@ export function WhyChooseUsClient() {
               exclusions, exceptions, and conditions.
             </p>
             <p className="max-w-[68ch]">
-              Pruitt Title LLC coordinates title review, settlement, and title insurance for eligible DMV transactions.
-              Ask the settlement team which policy, endorsements, and signing options apply to your property and closing.
+              If you request an introduction through DMV Title Guy, an eligible matter may be referred to Pruitt Title
+              for independent review. Pruitt decides whether to accept the matter and confirms any available policy,
+              endorsements, signing options, pricing, timing, terms, and required disclosures directly.
             </p>
           </div>
         </div>
@@ -189,13 +190,13 @@ export function WhyChooseUsClient() {
       {/* Contact CTA */}
       <section className="section-blue">
         <div className="container-xl text-center max-w-2xl">
-          <h2 className="t-h2 text-white mb-4">Ready to Get Started?</h2>
+          <h2 className="t-h2 text-white mb-4">Have a Transaction Question?</h2>
           <p className="text-white/80 mb-8 max-w-[68ch] leading-relaxed">
-            Contact Will Rapuano at Pruitt Title LLC for a title insurance quote or to open your order today.
+            Contact Will through DMV Title Guy for an educational answer or to request a provider introduction. Submission does not create a Pruitt Title service relationship.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/calculators/title-quote" className="btn-light px-8 py-3.5">
-              Get a Quote
+              Estimate Closing Costs
             </Link>
             <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-blue px-8 py-3.5">
               Call (703) 859-1467

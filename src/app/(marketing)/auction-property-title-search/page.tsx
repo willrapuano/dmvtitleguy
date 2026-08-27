@@ -64,7 +64,7 @@ const searchIncludes = [
   {
     icon: Search,
     title: "Ownership and Chain Review",
-    desc: "We review current vesting, prior transfers, legal description issues, and recorded ownership concerns.",
+    desc: "An accepted provider may review current vesting, prior transfers, legal-description issues, and recorded ownership concerns.",
   },
   {
     icon: FileSearch,
@@ -111,7 +111,7 @@ const process = [
   {
     icon: Search,
     title: "2. Search Title Risk",
-    desc: "We review ownership, liens, judgments, taxes, recorded defects, easements, restrictions, and jurisdiction-specific issues.",
+    desc: "An accepted provider may review ownership, liens, judgments, taxes, recorded defects, easements, restrictions, and jurisdiction-specific issues.",
   },
   {
     icon: CheckCircle2,
@@ -135,11 +135,11 @@ const faqs = [
   },
   {
     q: "Can auction liens survive the sale?",
-    a: "Some liens and claims can survive depending on the sale type, lien priority, jurisdiction, and recorded facts. We flag recorded issues that need review before you rely on the auction result.",
+    a: "Some liens and claims can survive depending on the sale type, lien priority, jurisdiction, and recorded facts. The accepted provider should identify recorded issues within its scope before you rely on the auction result.",
   },
   {
     q: "Do you support auction buyers across the DMV?",
-    a: "Yes. We support auction property title searches for buyers across DC, Maryland, and Virginia, including investor, foreclosure, tax sale, REO, and distressed property transactions.",
+    a: "You can ask Will about an auction property in DC, Maryland, or Virginia. Any provider must independently confirm whether it accepts the matter and what title-search scope, pricing, timing, terms, and reliance apply.",
   },
 ];
 
@@ -278,7 +278,7 @@ export default function AuctionPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

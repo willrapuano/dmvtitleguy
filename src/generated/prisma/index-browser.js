@@ -205,7 +205,31 @@ exports.Prisma.LeadSubmissionScalarFieldEnum = {
   ghlContactId: 'ghlContactId',
   ghlOpportunityId: 'ghlOpportunityId',
   ghlSyncStatus: 'ghlSyncStatus',
-  ghlSyncErrorCode: 'ghlSyncErrorCode'
+  ghlSyncErrorCode: 'ghlSyncErrorCode',
+  isQa: 'isQa'
+};
+
+exports.Prisma.LeadOpportunityOutboxScalarFieldEnum = {
+  submissionId: 'submissionId',
+  ciphertext: 'ciphertext',
+  iv: 'iv',
+  authTag: 'authTag',
+  attempts: 'attempts',
+  nextAttemptAt: 'nextAttemptAt',
+  lastAttemptAt: 'lastAttemptAt',
+  lastErrorCode: 'lastErrorCode',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LeadSubmissionEventScalarFieldEnum = {
+  id: 'id',
+  submissionId: 'submissionId',
+  eventType: 'eventType',
+  stateCode: 'stateCode',
+  detailsHash: 'detailsHash',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -226,7 +250,9 @@ exports.Prisma.ModelName = {
   Analysis: 'Analysis',
   Finding: 'Finding',
   LeadRateLimitBucket: 'LeadRateLimitBucket',
-  LeadSubmission: 'LeadSubmission'
+  LeadSubmission: 'LeadSubmission',
+  LeadOpportunityOutbox: 'LeadOpportunityOutbox',
+  LeadSubmissionEvent: 'LeadSubmissionEvent'
 };
 
 /**

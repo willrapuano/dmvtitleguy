@@ -31,11 +31,11 @@ const faqs = [
   },
   {
     question: "How long does title search take in Arlington?",
-    answer: "Arlington title searches typically take 3-5 business days. For refinances or transactions with urgency, we can often expedite preliminary title reports within 24-48 hours.",
+    answer: "Timing depends on Arlington record availability, property history, the provider's accepted scope, and any curative work. Ask the provider to confirm timing after it reviews the file.",
   },
   {
     question: "Are RON closings available in Arlington?",
-    answer: "Yes! Pruitt Title offers Remote Online Notarization (RON) for Arlington transactions. This allows buyers and sellers to sign documents electronically from anywhere, streamlining the closing process for remote clients.",
+    answer: "Remote Online Notarization may be available depending on the jurisdiction, lender, documents, transaction, and provider. If Pruitt accepts the file, confirm the available signing method directly with Pruitt.",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function ArlingtonTitlePage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Virginia Closing Costs", href: "/virginia-closing-cost-calculator" }, { label: "Arlington" }]}
         eyebrow="Arlington County, Virginia"
         title="Title Company Arlington VA &mdash; Settlement & Title Services"
-        lede="Pruitt Title LLC has served Arlington homeowners and real estate professionals since 2007, combining local expertise, responsive communication, and dependable settlement coordination."
+        lede="DMV Title Guy publishes practical Arlington title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance."
         actions={
           <>
             <Link href="/calculators/title-quote" className="btn-primary px-7">Get an Arlington Title Quote</Link>
@@ -90,7 +90,7 @@ export default function ArlingtonTitlePage() {
               Arlington County is one of the most competitive real estate markets in the Washington DC metro area. With a median home price exceeding $700,000 and a high concentration of federal contractors and government employees, Arlington attracts buyers seeking proximity to DC without the DC price tag.
             </p>
             <p className="max-w-[68ch]">
-              The Arlington market is known for its quick sales—properties often receive multiple offers within days of listing. This fast-paced environment demands a title company that can keep up: fast preliminary reports, responsive coordinators, and flexible closing schedules. Pruitt Title understands Arlington's unique rhythm and ensures your settlement stays on track.
+              The Arlington market is known for quick sales and short contingencies. Ask a prospective provider to confirm capacity, title-review timing, communication practices, signing options, and responsibility for each milestone before relying on a closing schedule.
             </p>
           </div>
         </div>
@@ -111,11 +111,11 @@ export default function ArlingtonTitlePage() {
             </div>
             <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Required by most lenders, we issue ALTA owner's and lender's policies with competitive rates.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Most lenders require a lender&apos;s policy. The accepted provider confirms the available owner&apos;s and lender&apos;s policies, rates, exceptions, and endorsements.</p>
             </div>
             <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We handle the entire closing process, from contract to recorded deed and title policy delivery.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">An accepted settlement provider should define its responsibilities from contract intake through signing, recording, and policy delivery.</p>
             </div>
             <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Refinance Closings</h3>
@@ -202,7 +202,7 @@ export default function ArlingtonTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Arlington Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Arlington property.
+            Send Will the Arlington property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

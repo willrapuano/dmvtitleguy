@@ -52,7 +52,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Who provides your title insurance?",
-    a: "DMV Title Guy is Will Rapuano's personal education and business-development site, separate from Pruitt Title LLC's corporate website. When a request is eligible and accepted, the title and settlement provider is identified before services begin.",
+    a: "Will Rapuano operates DMV Title Guy as an education and business-development site separate from Pruitt Title LLC's corporate website. When a request is eligible and accepted, the title and settlement provider is identified before services begin.",
   },
 ];
 

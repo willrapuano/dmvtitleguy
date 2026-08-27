@@ -22,11 +22,11 @@ const faqs = [
   },
   {
     question: "How long does a Loudoun County title search take?",
-    answer: "Standard Loudoun County title searches take 3-5 business days. For new construction in Ashburn or Brambleton, or for properties in master-planned communities with HOA covenants, we allow additional time to review all community-specific documents.",
+    answer: "Timing depends on Loudoun County record availability, property history, HOA or new-construction documents, the provider's accepted scope, and any curative work. The provider should confirm timing after reviewing the file.",
   },
   {
     question: "What makes Loudoun County title work unique?",
-    answer: "Loudoun's rapid growth means many transactions involve new construction, master-planned communities with complex HOA structures, and properties with Loudoun Water or Dulles Airport authority easements. Our team is experienced with these specific issues that are common in one of America's fastest-growing counties.",
+    answer: "Loudoun's growth means many transactions involve new construction, master-planned communities, HOA structures, or utility and airport-related easements. Ask the accepted provider how it will review the specific recorded matters and community documents.",
   },
   {
     question: "Are RON closings available in Loudoun County?",
@@ -63,7 +63,7 @@ export default function LoudounCountyTitlePage() {
             Title Company Loudoun County VA &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC serves Loudoun County's fast-growing real estate market with precision and speed. From Ashburn townhouses to Leesburg estates, we understand the unique demands of closing in America's wealthiest county.
+            DMV Title Guy publishes practical Loudoun County title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
           </p>
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function LoudounCountyTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Loudoun County's median home price is ~$775K with homes moving in about 10 days. In a market this fast and this expensive, a delayed title search can cost buyers their dream home. We turn Loudoun title reports around in 48 hours.
+            Loudoun transactions may have short contingencies and high values. Confirm title-search capacity and timing directly with the provider after it reviews the property, scope, and record availability.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function LoudounCountyTitlePage() {
               Loudoun County is the wealthiest county in America by median household income and one of the fastest-growing regions in the country. With a median home price around $775,000 and homes selling in approximately 10 days, Loudoun is a competitive market where every hour counts.
             </p>
             <p className="max-w-[68ch]">
-              The county's real estate landscape spans from the historic downtown of Leesburg to the tech corridors of Ashburn and Dulles. New construction dominates in master-planned communities like Brambleton and Aldie, while established neighborhoods in Sterling and Purcellville offer more traditional suburban living. This diversity means title issues can range from complex HOA covenants in new developments to century-old easements on rural properties. Pruitt Title's local expertise ensures nothing falls through the cracks.
+              The county's real estate landscape spans historic Leesburg, the Ashburn and Dulles tech corridors, master-planned communities, and rural properties. Title questions can range from HOA covenants in new developments to older easements. Ask the accepted provider how it will review those transaction-specific matters.
             </p>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function LoudounCountyTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Loudoun County Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Loudoun County property.
+            Send Will the Loudoun County property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

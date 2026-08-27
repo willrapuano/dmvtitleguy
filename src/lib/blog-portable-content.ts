@@ -1,3 +1,5 @@
+import { normalizeIndependentProviderValue } from "./provider-voice.ts";
+
 export interface BlogFAQItem {
   question: string;
   answer: string;
@@ -249,8 +251,9 @@ export function normalizePortableBlogContent(
   toc: BlogTOCItem[];
   inlineAccordionQuestions: string[];
 } {
+  const normalizedInput = normalizeIndependentProviderValue(Array.isArray(input) ? input : []);
   const source = flattenLegacyLists(
-    (Array.isArray(input) ? input : []).filter(
+    normalizedInput.filter(
       (block): block is PortableBlock =>
         Boolean(
           block &&

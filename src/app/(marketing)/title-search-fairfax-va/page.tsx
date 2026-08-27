@@ -19,7 +19,7 @@ import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 export const metadata: Metadata = {
   title: "Fairfax VA Title Search & Title Company | Free Online Quote",
   description:
-    "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
+    "Learn how Fairfax title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-fairfax-va",
   },
@@ -54,7 +54,7 @@ const covers = [
   {
     icon: Shield,
     title: "Curative Guidance",
-    desc: "When a defect appears, we explain the likely cure path and what needs to happen before the title can be insured.",
+    desc: "When a defect appears, the accepted provider should explain the likely cure path and what may be required before title can be insured.",
   },
 ];
 
@@ -100,7 +100,7 @@ const process = [
   {
     icon: Search,
     title: "2. Search the Records",
-    desc: "We review land records, liens, judgments, taxes, restrictions, and title exceptions tied to the property and owners.",
+    desc: "An accepted provider may review land records, liens, judgments, taxes, restrictions, and title exceptions tied to the property and owners.",
   },
   {
     icon: CheckCircle2,
@@ -128,7 +128,7 @@ const faqs = [
   },
   {
     q: "Can a title search help with foreclosure or investor properties?",
-    a: "Yes. Fairfax investor and foreclosure properties often require deeper review for surviving liens, judgment risks, missing releases, and chain-of-title defects. We flag those issues and explain the practical next steps.",
+    a: "Fairfax investor and foreclosure properties may require deeper review for surviving liens, judgment risks, missing releases, and record-chain defects. The accepted provider should identify issues and explain the transaction-specific next steps.",
   },
   {
     q: "Where are Fairfax County land records recorded?",
@@ -218,7 +218,7 @@ export default function TitleSearchFairfaxPage() {
           </h1>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl">
             Get a Fairfax title search before closing, bidding, or committing
-            to a deal. We review ownership, liens, judgments, taxes, easements,
+            to a deal. A provider may review ownership, liens, judgments, taxes, easements,
             and title defects so you know what you are taking on.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -288,7 +288,7 @@ export default function TitleSearchFairfaxPage() {
             ))}
           </div>
           <div className="mt-8 rounded-lg border border-gray-200 p-5">
-            <h3 className="t-h6 text-brand-navy mb-2">Fairfax title issues we watch closely</h3>
+            <h3 className="t-h6 text-brand-navy mb-2">Fairfax title issues to review closely</h3>
             <p className="text-brand-muted leading-relaxed max-w-[68ch]">
               Fairfax transactions often involve mature subdivisions, active HOA and condo communities, townhome clusters, estate-owned properties, investor resales, and new construction or redevelopment files. Our review looks for recorded covenants, association liens, easements, access restrictions, unreleased trusts, judgment liens, tax matters, subdivision documents, and builder or entity authority issues before they disrupt closing.
             </p>
@@ -298,7 +298,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

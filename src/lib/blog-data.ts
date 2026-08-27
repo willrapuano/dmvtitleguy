@@ -7,6 +7,7 @@ import { BlogPost, BLOG_POSTS, PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { getAllPosts, getPostBySlug, getAllPostSlugs, SanityBlogPost } from "./sanity-queries";
 import { getBlogContent, getMarkdownBlogSlugs } from "./blog-content";
 import { postCanonicalPath } from "./post-titles";
+import { normalizeIndependentProviderVoice } from "./provider-voice.ts";
 
 const LOCAL_MARKDOWN_BODY_OVERRIDES = new Set([
   "firpta-explained-dmv",
@@ -58,7 +59,7 @@ function mapSanityPost(p: SanityBlogPost): BlogPost {
     }),
     dateISO: p.publishedAt?.slice(0, 10) ?? "",
     updatedAtISO: LOCAL_CONTENT_UPDATED_AT[p.slug] || p._updatedAt || undefined,
-    excerpt: p.excerpt ?? "",
+    excerpt: normalizeIndependentProviderVoice(p.excerpt ?? ""),
     category: normalizeCategory(p.category, p.slug),
     readTime: p.readTime ?? "5 min read",
     image:

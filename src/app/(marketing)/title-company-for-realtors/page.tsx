@@ -48,7 +48,7 @@ export default function RealtorsPage() {
       {/* HOW WE HELP */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">How We Support Your Business</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">How These Resources Support Your Business</h2>
           <div className="space-y-6">
             <div className="flex gap-4">
               <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
@@ -90,7 +90,7 @@ export default function RealtorsPage() {
       <section className="py-12 bg-brand-action text-white">
         <div className="container-xl text-center">
           <h2 className="t-h4 mb-3">Start Contract Intake</h2>
-          <p className="text-lg mb-6 max-w-2xl mx-auto">Got a ratified contract? Start intake and we&apos;ll follow up with secure transfer instructions.</p>
+          <p className="text-lg mb-6 max-w-2xl mx-auto">Got a ratified contract? Send Will the basic transaction details and wait for an approved secure-transfer path.</p>
           <Link href="/upload-contract" className="btn-light px-8">
             Start Contract Intake →
           </Link>
@@ -102,7 +102,7 @@ export default function RealtorsPage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Ready to Streamline Your Closings?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Schedule a broker briefing to learn how we can support your business.
+            Schedule a broker briefing to discuss DMV Title Guy&apos;s educational resources and the boundaries of any provider introduction.
           </p>
           <Link href="/contact" className="btn-primary px-8">
             Schedule a Broker Briefing →

@@ -19,6 +19,12 @@ const forbidden = [
   /independently managed (?:education|website|site)/i,
   /services discussed or requested through this site are provided by Pruitt Title LLC/i,
   /Pruitt Title LLC provides any title insurance, escrow, (?:or|and) settlement services requested through/i,
+  /\bwe (?:issue|handle|provide|serve|coordinate|conduct|review|open|begin|deliver|turn|ensure|support)\b/i,
+  /Pruitt Title(?: LLC)? (?:provides|handles|supports|offers|serves|coordinates|performs|issues|can provide|will provide)\b/i,
+  /Pruitt Title(?: LLC)? is (?:the|your)\b/i,
+  /\bopen your (?:title )?order\b/i,
+  /\brespond within (?:one|1) business (?:day|hour)\b/i,
+  /\bturn(?:around|ed around)? in (?:24|48)[- ]?hours\b/i,
 ];
 
 const violations = [];

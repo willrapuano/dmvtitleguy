@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { normalizePortableBlogContent } from "../src/lib/blog-portable-content.ts";
 import { normalizeMarkdownBlogBody, splitBodyAndFAQ } from "../src/lib/blog-content.ts";
 import { serializeJsonLd } from "../src/lib/json-ld.ts";
+import { normalizeIndependentProviderVoice } from "../src/lib/provider-voice.ts";
 
 const block = (key, text, style = "normal") => ({
   _key: key,
@@ -9,6 +10,19 @@ const block = (key, text, style = "normal") => ({
   style,
   children: [{ _key: `${key}-span`, _type: "span", text, marks: [] }],
 });
+
+assert.equal(
+  normalizeIndependentProviderVoice("At DMV Title Guy, we handle subject-to closings."),
+  "A selected title provider may handle subject-to closings.",
+);
+assert.equal(
+  normalizeIndependentProviderVoice("We ensure the math balances. Our team records the deed."),
+  "A selected title provider may help ensure the math balances. A selected title provider may record the deed.",
+);
+assert.equal(
+  normalizeIndependentProviderVoice("Pruitt Title LLC provides settlement services."),
+  "Pruitt Title LLC provides settlement services.",
+);
 
 const fixtures = [
   {

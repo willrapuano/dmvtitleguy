@@ -115,4 +115,4 @@ There is no single reliable DMV-wide amount. Request an itemized, transaction-sp
 - [Review Pruitt Title's services, process, and credentials][LINK:/why-choose-us]
 - [Contact DMV Title Guy](/contact)
 
-DMV Title Guy is Will Rapuano's personal education and business-development website, separate from Pruitt Title LLC's corporate website. Will is Pruitt's Marketing and Business Development Officer. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms acceptance, scope, pricing, terms, and required disclosures directly.
+Will Rapuano operates DMV Title Guy as an education and business-development website separate from Pruitt Title LLC's corporate website. Will is Pruitt's Marketing and Business Development Officer. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms acceptance, scope, pricing, terms, and required disclosures directly.

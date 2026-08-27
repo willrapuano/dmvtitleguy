@@ -22,7 +22,7 @@ export default function TermsPage() {
 
           <h2 className="t-h6 text-brand-navy">1. Agreement and website operator</h2>
           <p>
-            By using dmvtitleguy.io, you agree to these Terms. This personal educational and business-development website is operated by {WILL.name}
+            By using dmvtitleguy.io, you agree to these Terms. This educational and business-development website is operated by {WILL.name}
             as an education and business-development resource. It is not {PRUITT_TITLE.name}&apos;s corporate website
             and does not create a separate title, escrow, insurance, legal, or settlement company.
           </p>

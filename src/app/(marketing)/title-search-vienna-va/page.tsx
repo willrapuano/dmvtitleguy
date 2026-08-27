@@ -16,14 +16,14 @@ import {
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 
 export const metadata: Metadata = {
-  title: "Vienna, VA Title Search Services | Pruitt Title",
+  title: "Vienna VA Title Search Guide | DMV Title Guy",
   description:
-    "Pruitt Title provides Vienna title searches for ownership, liens, easements, restrictions, and other recorded title risks. Submit a property for review.",
+    "Learn how Vienna title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-vienna-va",
   },
   openGraph: {
-    title: "Vienna, VA Title Search Services | Pruitt Title",
+    title: "Vienna VA Title Search Guide | DMV Title Guy",
     description: "Title search services for Vienna properties, including ownership, liens, easements, restrictions, and other recorded title risks.",
     url: "https://dmvtitleguy.io/title-search-vienna-va",
     type: "website",
@@ -44,7 +44,7 @@ const covers = [
   {
     icon: FileSearch,
     title: "Easements & Restrictions",
-    desc: "We review recorded easements, covenants, rights-of-way, and use restrictions that may affect value or future plans.",
+    desc: "An accepted provider may review recorded easements, covenants, rights-of-way, and use restrictions that may affect value or future plans.",
   },
   {
     icon: FileCheck,
@@ -54,7 +54,7 @@ const covers = [
   {
     icon: Building2,
     title: "HOA / Condo Review",
-    desc: "For association properties, we look for liens, assessments, resale package concerns, and recorded declarations.",
+    desc: "For association properties, a provider may review liens, assessments, resale-package concerns, and recorded declarations within its accepted scope.",
   },
   {
     icon: Shield,
@@ -72,7 +72,7 @@ const whyVienna = [
   {
     icon: Building2,
     title: "Residential and Investor Deals",
-    desc: "We review owner-occupied purchases, investor acquisitions, off-market deals, auction properties, and refinance-related title questions.",
+    desc: "DMV Title Guy explains common questions for owner-occupied purchases, investor acquisitions, off-market deals, auctions, and refinances; a provider confirms the actual scope.",
   },
   {
     icon: AlertTriangle,
@@ -90,7 +90,7 @@ const process = [
   {
     icon: Search,
     title: "2. We Run the Search",
-    desc: "Our team reviews land records, liens, judgments, taxes, easements, and title exceptions tied to the property.",
+    desc: "An accepted provider may review land records, liens, judgments, taxes, easements, and title exceptions tied to the property.",
   },
   {
     icon: CheckCircle2,
@@ -110,7 +110,7 @@ const faqs = [
   },
   {
     q: "How long does a Vienna title search take?",
-    a: "Standard turnaround is typically 5-7 business days depending on property complexity and record availability. Rush review may be available for auction deadlines, short contingencies, or fast closings.",
+    a: "Timing depends on record availability, property history, the provider's accepted scope, and any curative or underwriting work. The provider confirms timing after reviewing the file.",
   },
   {
     q: "Do Vienna properties have unique title issues?",
@@ -118,7 +118,7 @@ const faqs = [
   },
   {
     q: "Can you help clear a title defect after the search?",
-    a: "Yes. If the search identifies a defect, we explain the issue and the likely path to resolution, such as obtaining a release, payoff, corrective deed, court document, or additional underwriting review.",
+    a: "If a search identifies a defect, the accepted provider should explain the issue and possible cure path, such as a release, payoff, corrective deed, court document, or additional underwriting review.",
   },
 ];
 
@@ -194,7 +194,7 @@ export default function TitleSearchViennaPage() {
         <div className="container-xl">
           <h2 className="prose-title text-center mb-4">What a Title Search Covers</h2>
           <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            A useful title search goes beyond a name check. We review the
+            A useful title search goes beyond a name check. An accepted provider may review the
             recorded history and the practical issues that can delay closing or
             reduce property value.
           </p>
@@ -235,7 +235,7 @@ export default function TitleSearchViennaPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

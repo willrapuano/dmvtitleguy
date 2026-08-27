@@ -29,6 +29,7 @@ import {
 } from "@/lib/blog-portable-content";
 import { serializeJsonLd } from "@/lib/json-ld";
 import { PRUITT_TITLE, WILL } from "@/lib/brand-identity";
+import { normalizeIndependentProviderVoice } from "@/lib/provider-voice.ts";
 
 // Preserve the last successful render if Sanity is temporarily unavailable.
 export const revalidate = 3600;
@@ -66,7 +67,7 @@ export async function generateStaticParams() {
  * 500ing generateMetadata for any post with no excerpt and no body.
  */
 function stripPortableText(blocks: any[] | null = []): string {
-  return (blocks ?? [])
+  return normalizeIndependentProviderVoice((blocks ?? [])
     .map((block) =>
       Array.isArray(block?.children)
         ? block.children.map((child: any) => child.text || "").join("")
@@ -74,7 +75,7 @@ function stripPortableText(blocks: any[] | null = []): string {
     )
     .join(" ")
     .replace(/\s+/g, " ")
-    .trim();
+    .trim());
 }
 
 

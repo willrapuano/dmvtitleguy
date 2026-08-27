@@ -156,7 +156,7 @@ Yes — and you should. In Virginia and Maryland, the buyer and seller can negot
 
 ## ## How long does a real estate closing take?
 
-Most purchase closings take 60–90 minutes at the table. The pre-closing work — title search, lender coordination, document preparation — typically happens over 2–4 weeks during the contract period. At Pruitt Title, we aim to have the closing disclosure to buyers at least 3 business days before closing (as required by law for purchase transactions with a mortgage).
+The signing appointment may be much shorter than the pre-closing work, which can include title search, lender coordination, and document preparation. Timing varies by contract, lender, jurisdiction, property history, and provider. For many covered mortgage transactions, the lender generally must deliver the Closing Disclosure at least three business days before consummation; confirm the applicable rule and timeline with the lender and accepted settlement provider.
 
 ---
 

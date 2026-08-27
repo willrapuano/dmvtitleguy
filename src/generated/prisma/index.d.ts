@@ -15,39 +15,49 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 /**
  * Model ToolUser
- *
+ * 
  */
 export type ToolUser = $Result.DefaultSelection<Prisma.$ToolUserPayload>
 /**
  * Model ToolSession
- *
+ * 
  */
 export type ToolSession = $Result.DefaultSelection<Prisma.$ToolSessionPayload>
 /**
  * Model LoginCode
- *
+ * 
  */
 export type LoginCode = $Result.DefaultSelection<Prisma.$LoginCodePayload>
 /**
  * Model Analysis
- *
+ * 
  */
 export type Analysis = $Result.DefaultSelection<Prisma.$AnalysisPayload>
 /**
  * Model Finding
- *
+ * 
  */
 export type Finding = $Result.DefaultSelection<Prisma.$FindingPayload>
 /**
  * Model LeadRateLimitBucket
- *
+ * 
  */
 export type LeadRateLimitBucket = $Result.DefaultSelection<Prisma.$LeadRateLimitBucketPayload>
 /**
  * Model LeadSubmission
- *
+ * 
  */
 export type LeadSubmission = $Result.DefaultSelection<Prisma.$LeadSubmissionPayload>
+/**
+ * Model LeadOpportunityOutbox
+ * 
+ */
+export type LeadOpportunityOutbox = $Result.DefaultSelection<Prisma.$LeadOpportunityOutboxPayload>
+/**
+ * Model LeadSubmissionEvent
+ * 
+ */
+export type LeadSubmissionEvent = $Result.DefaultSelection<Prisma.$LeadSubmissionEventPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -159,7 +169,7 @@ export class PrismaClient<
    *   prisma.user.create({ data: { name: 'Alice' } }),
    * ])
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/orm/prisma-client/queries/transactions).
    */
   $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): $Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>
@@ -239,6 +249,26 @@ export class PrismaClient<
     * ```
     */
   get leadSubmission(): Prisma.LeadSubmissionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.leadOpportunityOutbox`: Exposes CRUD operations for the **LeadOpportunityOutbox** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LeadOpportunityOutboxes
+    * const leadOpportunityOutboxes = await prisma.leadOpportunityOutbox.findMany()
+    * ```
+    */
+  get leadOpportunityOutbox(): Prisma.LeadOpportunityOutboxDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.leadSubmissionEvent`: Exposes CRUD operations for the **LeadSubmissionEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LeadSubmissionEvents
+    * const leadSubmissionEvents = await prisma.leadSubmissionEvent.findMany()
+    * ```
+    */
+  get leadSubmissionEvent(): Prisma.LeadSubmissionEventDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -692,7 +722,9 @@ export namespace Prisma {
     Analysis: 'Analysis',
     Finding: 'Finding',
     LeadRateLimitBucket: 'LeadRateLimitBucket',
-    LeadSubmission: 'LeadSubmission'
+    LeadSubmission: 'LeadSubmission',
+    LeadOpportunityOutbox: 'LeadOpportunityOutbox',
+    LeadSubmissionEvent: 'LeadSubmissionEvent'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -708,7 +740,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "toolUser" | "toolSession" | "loginCode" | "analysis" | "finding" | "leadRateLimitBucket" | "leadSubmission"
+      modelProps: "toolUser" | "toolSession" | "loginCode" | "analysis" | "finding" | "leadRateLimitBucket" | "leadSubmission" | "leadOpportunityOutbox" | "leadSubmissionEvent"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1230,6 +1262,154 @@ export namespace Prisma {
           }
         }
       }
+      LeadOpportunityOutbox: {
+        payload: Prisma.$LeadOpportunityOutboxPayload<ExtArgs>
+        fields: Prisma.LeadOpportunityOutboxFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LeadOpportunityOutboxFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LeadOpportunityOutboxFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>
+          }
+          findFirst: {
+            args: Prisma.LeadOpportunityOutboxFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LeadOpportunityOutboxFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>
+          }
+          findMany: {
+            args: Prisma.LeadOpportunityOutboxFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>[]
+          }
+          create: {
+            args: Prisma.LeadOpportunityOutboxCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>
+          }
+          createMany: {
+            args: Prisma.LeadOpportunityOutboxCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LeadOpportunityOutboxCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>[]
+          }
+          delete: {
+            args: Prisma.LeadOpportunityOutboxDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>
+          }
+          update: {
+            args: Prisma.LeadOpportunityOutboxUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>
+          }
+          deleteMany: {
+            args: Prisma.LeadOpportunityOutboxDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LeadOpportunityOutboxUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LeadOpportunityOutboxUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>[]
+          }
+          upsert: {
+            args: Prisma.LeadOpportunityOutboxUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadOpportunityOutboxPayload>
+          }
+          aggregate: {
+            args: Prisma.LeadOpportunityOutboxAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLeadOpportunityOutbox>
+          }
+          groupBy: {
+            args: Prisma.LeadOpportunityOutboxGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LeadOpportunityOutboxGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LeadOpportunityOutboxCountArgs<ExtArgs>
+            result: $Utils.Optional<LeadOpportunityOutboxCountAggregateOutputType> | number
+          }
+        }
+      }
+      LeadSubmissionEvent: {
+        payload: Prisma.$LeadSubmissionEventPayload<ExtArgs>
+        fields: Prisma.LeadSubmissionEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LeadSubmissionEventFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LeadSubmissionEventFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>
+          }
+          findFirst: {
+            args: Prisma.LeadSubmissionEventFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LeadSubmissionEventFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>
+          }
+          findMany: {
+            args: Prisma.LeadSubmissionEventFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>[]
+          }
+          create: {
+            args: Prisma.LeadSubmissionEventCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>
+          }
+          createMany: {
+            args: Prisma.LeadSubmissionEventCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LeadSubmissionEventCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>[]
+          }
+          delete: {
+            args: Prisma.LeadSubmissionEventDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>
+          }
+          update: {
+            args: Prisma.LeadSubmissionEventUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.LeadSubmissionEventDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LeadSubmissionEventUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LeadSubmissionEventUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>[]
+          }
+          upsert: {
+            args: Prisma.LeadSubmissionEventUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LeadSubmissionEventPayload>
+          }
+          aggregate: {
+            args: Prisma.LeadSubmissionEventAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLeadSubmissionEvent>
+          }
+          groupBy: {
+            args: Prisma.LeadSubmissionEventGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LeadSubmissionEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LeadSubmissionEventCountArgs<ExtArgs>
+            result: $Utils.Optional<LeadSubmissionEventCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1267,7 +1447,7 @@ export namespace Prisma {
      * ```
      * // Shorthand for `emit: 'stdout'`
      * log: ['query', 'info', 'warn', 'error']
-     *
+     * 
      * // Emit as events only
      * log: [
      *   { emit: 'event', level: 'query' },
@@ -1275,14 +1455,14 @@ export namespace Prisma {
      *   { emit: 'event', level: 'warn' }
      *   { emit: 'event', level: 'error' }
      * ]
-     *
+     * 
      * / Emit as events and log to stdout
      * og: [
      *  { emit: 'stdout', level: 'query' },
      *  { emit: 'stdout', level: 'info' },
      *  { emit: 'stdout', level: 'warn' }
      *  { emit: 'stdout', level: 'error' }
-     *
+     * 
      * ```
      * Read more in our [docs](https://pris.ly/d/logging).
      */
@@ -1299,16 +1479,16 @@ export namespace Prisma {
     }
     /**
      * A driver adapter that PrismaClient uses to connect to your database, such as the ones provided by `@prisma/adapter-pg`, `@prisma/adapter-libsql`, `@prisma/adapter-planetscale`, etc.
-     *
+     * 
      * A driver adapter is **required** unless you connect to your database through Prisma Accelerate (in which case use `accelerateUrl` instead).
-     *
+     * 
      * Learn more: https://pris.ly/d/driver-adapters
-     *
+     * 
      * @example
      * ```ts
      * import { PrismaPg } from '@prisma/adapter-pg'
      * import { PrismaClient } from './generated/prisma/client'
-     *
+     * 
      * const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
      * const prisma = new PrismaClient({ adapter })
      * ```
@@ -1316,13 +1496,13 @@ export namespace Prisma {
     adapter?: runtime.SqlDriverAdapterFactory
     /**
      * The Prisma Accelerate connection URL. Use this option to connect to your database through Prisma Accelerate instead of using a driver adapter to connect directly.
-     *
+     * 
      * Learn more: https://pris.ly/d/accelerate
      */
     accelerateUrl?: string
     /**
      * Global configuration for omitting model fields by default.
-     *
+     * 
      * @example
      * ```
      * const prisma = new PrismaClient({
@@ -1338,7 +1518,7 @@ export namespace Prisma {
     /**
      * SQL commenter plugins that add metadata to SQL queries as comments.
      * Comments follow the sqlcommenter format: https://google.github.io/sqlcommenter/
-     *
+     * 
      * @example
      * ```
      * const prisma = new PrismaClient({
@@ -1360,6 +1540,8 @@ export namespace Prisma {
     finding?: FindingOmit
     leadRateLimitBucket?: LeadRateLimitBucketOmit
     leadSubmission?: LeadSubmissionOmit
+    leadOpportunityOutbox?: LeadOpportunityOutboxOmit
+    leadSubmissionEvent?: LeadSubmissionEventOmit
   }
 
   /* Types for Logging */
@@ -1587,43 +1769,43 @@ export namespace Prisma {
     where?: ToolUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolUsers to fetch.
      */
     orderBy?: ToolUserOrderByWithRelationInput | ToolUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: ToolUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned ToolUsers
     **/
     _count?: true | ToolUserCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ToolUserMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: ToolUserMaxAggregateInputType
@@ -1815,13 +1997,13 @@ export namespace Prisma {
      * @example
      * // Get all ToolUsers
      * const toolUsers = await prisma.toolUser.findMany()
-     *
+     * 
      * // Get first 10 ToolUsers
      * const toolUsers = await prisma.toolUser.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const toolUserWithIdOnly = await prisma.toolUser.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends ToolUserFindManyArgs>(args?: SelectSubset<T, ToolUserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -1835,7 +2017,7 @@ export namespace Prisma {
      *     // ... data to create a ToolUser
      *   }
      * })
-     *
+     * 
      */
     create<T extends ToolUserCreateArgs>(args: SelectSubset<T, ToolUserCreateArgs<ExtArgs>>): Prisma__ToolUserClient<$Result.GetResult<Prisma.$ToolUserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -1849,7 +2031,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends ToolUserCreateManyArgs>(args?: SelectSubset<T, ToolUserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -1863,7 +2045,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many ToolUsers and only return the `id`
      * const toolUserWithIdOnly = await prisma.toolUser.createManyAndReturn({
      *   select: { id: true },
@@ -1873,7 +2055,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends ToolUserCreateManyAndReturnArgs>(args?: SelectSubset<T, ToolUserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolUserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -1887,7 +2069,7 @@ export namespace Prisma {
      *     // ... filter to delete one ToolUser
      *   }
      * })
-     *
+     * 
      */
     delete<T extends ToolUserDeleteArgs>(args: SelectSubset<T, ToolUserDeleteArgs<ExtArgs>>): Prisma__ToolUserClient<$Result.GetResult<Prisma.$ToolUserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -1904,7 +2086,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends ToolUserUpdateArgs>(args: SelectSubset<T, ToolUserUpdateArgs<ExtArgs>>): Prisma__ToolUserClient<$Result.GetResult<Prisma.$ToolUserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -1918,7 +2100,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends ToolUserDeleteManyArgs>(args?: SelectSubset<T, ToolUserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -1937,7 +2119,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends ToolUserUpdateManyArgs>(args: SelectSubset<T, ToolUserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -1954,7 +2136,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more ToolUsers and only return the `id`
      * const toolUserWithIdOnly = await prisma.toolUser.updateManyAndReturn({
      *   select: { id: true },
@@ -1967,7 +2149,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends ToolUserUpdateManyAndReturnArgs>(args: SelectSubset<T, ToolUserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolUserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -2056,7 +2238,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends ToolUserGroupByArgs,
@@ -2168,7 +2350,7 @@ export namespace Prisma {
     readonly isAdmin: FieldRef<"ToolUser", 'Boolean'>
     readonly createdAt: FieldRef<"ToolUser", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -2237,31 +2419,31 @@ export namespace Prisma {
     where?: ToolUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolUsers to fetch.
      */
     orderBy?: ToolUserOrderByWithRelationInput | ToolUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for ToolUsers.
      */
     cursor?: ToolUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ToolUsers.
      */
     distinct?: ToolUserScalarFieldEnum | ToolUserScalarFieldEnum[]
@@ -2289,31 +2471,31 @@ export namespace Prisma {
     where?: ToolUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolUsers to fetch.
      */
     orderBy?: ToolUserOrderByWithRelationInput | ToolUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for ToolUsers.
      */
     cursor?: ToolUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ToolUsers.
      */
     distinct?: ToolUserScalarFieldEnum | ToolUserScalarFieldEnum[]
@@ -2341,31 +2523,31 @@ export namespace Prisma {
     where?: ToolUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolUsers to fetch.
      */
     orderBy?: ToolUserOrderByWithRelationInput | ToolUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing ToolUsers.
      */
     cursor?: ToolUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ToolUsers.
      */
     distinct?: ToolUserScalarFieldEnum | ToolUserScalarFieldEnum[]
@@ -2716,43 +2898,43 @@ export namespace Prisma {
     where?: ToolSessionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolSessions to fetch.
      */
     orderBy?: ToolSessionOrderByWithRelationInput | ToolSessionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: ToolSessionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolSessions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolSessions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned ToolSessions
     **/
     _count?: true | ToolSessionCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ToolSessionMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: ToolSessionMaxAggregateInputType
@@ -2942,13 +3124,13 @@ export namespace Prisma {
      * @example
      * // Get all ToolSessions
      * const toolSessions = await prisma.toolSession.findMany()
-     *
+     * 
      * // Get first 10 ToolSessions
      * const toolSessions = await prisma.toolSession.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const toolSessionWithIdOnly = await prisma.toolSession.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends ToolSessionFindManyArgs>(args?: SelectSubset<T, ToolSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -2962,7 +3144,7 @@ export namespace Prisma {
      *     // ... data to create a ToolSession
      *   }
      * })
-     *
+     * 
      */
     create<T extends ToolSessionCreateArgs>(args: SelectSubset<T, ToolSessionCreateArgs<ExtArgs>>): Prisma__ToolSessionClient<$Result.GetResult<Prisma.$ToolSessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -2976,7 +3158,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends ToolSessionCreateManyArgs>(args?: SelectSubset<T, ToolSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -2990,7 +3172,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many ToolSessions and only return the `id`
      * const toolSessionWithIdOnly = await prisma.toolSession.createManyAndReturn({
      *   select: { id: true },
@@ -3000,7 +3182,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends ToolSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, ToolSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolSessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -3014,7 +3196,7 @@ export namespace Prisma {
      *     // ... filter to delete one ToolSession
      *   }
      * })
-     *
+     * 
      */
     delete<T extends ToolSessionDeleteArgs>(args: SelectSubset<T, ToolSessionDeleteArgs<ExtArgs>>): Prisma__ToolSessionClient<$Result.GetResult<Prisma.$ToolSessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -3031,7 +3213,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends ToolSessionUpdateArgs>(args: SelectSubset<T, ToolSessionUpdateArgs<ExtArgs>>): Prisma__ToolSessionClient<$Result.GetResult<Prisma.$ToolSessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -3045,7 +3227,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends ToolSessionDeleteManyArgs>(args?: SelectSubset<T, ToolSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -3064,7 +3246,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends ToolSessionUpdateManyArgs>(args: SelectSubset<T, ToolSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -3081,7 +3263,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more ToolSessions and only return the `id`
      * const toolSessionWithIdOnly = await prisma.toolSession.updateManyAndReturn({
      *   select: { id: true },
@@ -3094,7 +3276,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends ToolSessionUpdateManyAndReturnArgs>(args: SelectSubset<T, ToolSessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ToolSessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -3183,7 +3365,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends ToolSessionGroupByArgs,
@@ -3293,7 +3475,7 @@ export namespace Prisma {
     readonly userId: FieldRef<"ToolSession", 'String'>
     readonly createdAt: FieldRef<"ToolSession", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -3362,31 +3544,31 @@ export namespace Prisma {
     where?: ToolSessionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolSessions to fetch.
      */
     orderBy?: ToolSessionOrderByWithRelationInput | ToolSessionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for ToolSessions.
      */
     cursor?: ToolSessionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolSessions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolSessions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ToolSessions.
      */
     distinct?: ToolSessionScalarFieldEnum | ToolSessionScalarFieldEnum[]
@@ -3414,31 +3596,31 @@ export namespace Prisma {
     where?: ToolSessionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolSessions to fetch.
      */
     orderBy?: ToolSessionOrderByWithRelationInput | ToolSessionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for ToolSessions.
      */
     cursor?: ToolSessionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolSessions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolSessions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ToolSessions.
      */
     distinct?: ToolSessionScalarFieldEnum | ToolSessionScalarFieldEnum[]
@@ -3466,31 +3648,31 @@ export namespace Prisma {
     where?: ToolSessionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of ToolSessions to fetch.
      */
     orderBy?: ToolSessionOrderByWithRelationInput | ToolSessionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing ToolSessions.
      */
     cursor?: ToolSessionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` ToolSessions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` ToolSessions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of ToolSessions.
      */
     distinct?: ToolSessionScalarFieldEnum | ToolSessionScalarFieldEnum[]
@@ -3789,43 +3971,43 @@ export namespace Prisma {
     where?: LoginCodeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LoginCodes to fetch.
      */
     orderBy?: LoginCodeOrderByWithRelationInput | LoginCodeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: LoginCodeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LoginCodes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LoginCodes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned LoginCodes
     **/
     _count?: true | LoginCodeCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: LoginCodeMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: LoginCodeMaxAggregateInputType
@@ -4027,13 +4209,13 @@ export namespace Prisma {
      * @example
      * // Get all LoginCodes
      * const loginCodes = await prisma.loginCode.findMany()
-     *
+     * 
      * // Get first 10 LoginCodes
      * const loginCodes = await prisma.loginCode.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const loginCodeWithIdOnly = await prisma.loginCode.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends LoginCodeFindManyArgs>(args?: SelectSubset<T, LoginCodeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoginCodePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -4047,7 +4229,7 @@ export namespace Prisma {
      *     // ... data to create a LoginCode
      *   }
      * })
-     *
+     * 
      */
     create<T extends LoginCodeCreateArgs>(args: SelectSubset<T, LoginCodeCreateArgs<ExtArgs>>): Prisma__LoginCodeClient<$Result.GetResult<Prisma.$LoginCodePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -4061,7 +4243,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends LoginCodeCreateManyArgs>(args?: SelectSubset<T, LoginCodeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -4075,7 +4257,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many LoginCodes and only return the `id`
      * const loginCodeWithIdOnly = await prisma.loginCode.createManyAndReturn({
      *   select: { id: true },
@@ -4085,7 +4267,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends LoginCodeCreateManyAndReturnArgs>(args?: SelectSubset<T, LoginCodeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoginCodePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -4099,7 +4281,7 @@ export namespace Prisma {
      *     // ... filter to delete one LoginCode
      *   }
      * })
-     *
+     * 
      */
     delete<T extends LoginCodeDeleteArgs>(args: SelectSubset<T, LoginCodeDeleteArgs<ExtArgs>>): Prisma__LoginCodeClient<$Result.GetResult<Prisma.$LoginCodePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -4116,7 +4298,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends LoginCodeUpdateArgs>(args: SelectSubset<T, LoginCodeUpdateArgs<ExtArgs>>): Prisma__LoginCodeClient<$Result.GetResult<Prisma.$LoginCodePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -4130,7 +4312,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends LoginCodeDeleteManyArgs>(args?: SelectSubset<T, LoginCodeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -4149,7 +4331,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends LoginCodeUpdateManyArgs>(args: SelectSubset<T, LoginCodeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -4166,7 +4348,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more LoginCodes and only return the `id`
      * const loginCodeWithIdOnly = await prisma.loginCode.updateManyAndReturn({
      *   select: { id: true },
@@ -4179,7 +4361,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends LoginCodeUpdateManyAndReturnArgs>(args: SelectSubset<T, LoginCodeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LoginCodePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -4268,7 +4450,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends LoginCodeGroupByArgs,
@@ -4380,7 +4562,7 @@ export namespace Prisma {
     readonly userId: FieldRef<"LoginCode", 'String'>
     readonly createdAt: FieldRef<"LoginCode", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -4449,31 +4631,31 @@ export namespace Prisma {
     where?: LoginCodeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LoginCodes to fetch.
      */
     orderBy?: LoginCodeOrderByWithRelationInput | LoginCodeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for LoginCodes.
      */
     cursor?: LoginCodeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LoginCodes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LoginCodes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LoginCodes.
      */
     distinct?: LoginCodeScalarFieldEnum | LoginCodeScalarFieldEnum[]
@@ -4501,31 +4683,31 @@ export namespace Prisma {
     where?: LoginCodeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LoginCodes to fetch.
      */
     orderBy?: LoginCodeOrderByWithRelationInput | LoginCodeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for LoginCodes.
      */
     cursor?: LoginCodeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LoginCodes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LoginCodes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LoginCodes.
      */
     distinct?: LoginCodeScalarFieldEnum | LoginCodeScalarFieldEnum[]
@@ -4553,31 +4735,31 @@ export namespace Prisma {
     where?: LoginCodeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LoginCodes to fetch.
      */
     orderBy?: LoginCodeOrderByWithRelationInput | LoginCodeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing LoginCodes.
      */
     cursor?: LoginCodeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LoginCodes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LoginCodes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LoginCodes.
      */
     distinct?: LoginCodeScalarFieldEnum | LoginCodeScalarFieldEnum[]
@@ -4919,43 +5101,43 @@ export namespace Prisma {
     where?: AnalysisWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Analyses to fetch.
      */
     orderBy?: AnalysisOrderByWithRelationInput | AnalysisOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: AnalysisWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Analyses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Analyses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned Analyses
     **/
     _count?: true | AnalysisCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: AnalysisMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: AnalysisMaxAggregateInputType
@@ -5186,13 +5368,13 @@ export namespace Prisma {
      * @example
      * // Get all Analyses
      * const analyses = await prisma.analysis.findMany()
-     *
+     * 
      * // Get first 10 Analyses
      * const analyses = await prisma.analysis.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const analysisWithIdOnly = await prisma.analysis.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends AnalysisFindManyArgs>(args?: SelectSubset<T, AnalysisFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnalysisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -5206,7 +5388,7 @@ export namespace Prisma {
      *     // ... data to create a Analysis
      *   }
      * })
-     *
+     * 
      */
     create<T extends AnalysisCreateArgs>(args: SelectSubset<T, AnalysisCreateArgs<ExtArgs>>): Prisma__AnalysisClient<$Result.GetResult<Prisma.$AnalysisPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -5220,7 +5402,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends AnalysisCreateManyArgs>(args?: SelectSubset<T, AnalysisCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -5234,7 +5416,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many Analyses and only return the `id`
      * const analysisWithIdOnly = await prisma.analysis.createManyAndReturn({
      *   select: { id: true },
@@ -5244,7 +5426,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends AnalysisCreateManyAndReturnArgs>(args?: SelectSubset<T, AnalysisCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnalysisPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -5258,7 +5440,7 @@ export namespace Prisma {
      *     // ... filter to delete one Analysis
      *   }
      * })
-     *
+     * 
      */
     delete<T extends AnalysisDeleteArgs>(args: SelectSubset<T, AnalysisDeleteArgs<ExtArgs>>): Prisma__AnalysisClient<$Result.GetResult<Prisma.$AnalysisPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -5275,7 +5457,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends AnalysisUpdateArgs>(args: SelectSubset<T, AnalysisUpdateArgs<ExtArgs>>): Prisma__AnalysisClient<$Result.GetResult<Prisma.$AnalysisPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -5289,7 +5471,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends AnalysisDeleteManyArgs>(args?: SelectSubset<T, AnalysisDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -5308,7 +5490,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends AnalysisUpdateManyArgs>(args: SelectSubset<T, AnalysisUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -5325,7 +5507,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more Analyses and only return the `id`
      * const analysisWithIdOnly = await prisma.analysis.updateManyAndReturn({
      *   select: { id: true },
@@ -5338,7 +5520,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends AnalysisUpdateManyAndReturnArgs>(args: SelectSubset<T, AnalysisUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnalysisPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -5427,7 +5609,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends AnalysisGroupByArgs,
@@ -5544,7 +5726,7 @@ export namespace Prisma {
     readonly metadataJson: FieldRef<"Analysis", 'String'>
     readonly createdAt: FieldRef<"Analysis", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -5613,31 +5795,31 @@ export namespace Prisma {
     where?: AnalysisWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Analyses to fetch.
      */
     orderBy?: AnalysisOrderByWithRelationInput | AnalysisOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for Analyses.
      */
     cursor?: AnalysisWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Analyses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Analyses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of Analyses.
      */
     distinct?: AnalysisScalarFieldEnum | AnalysisScalarFieldEnum[]
@@ -5665,31 +5847,31 @@ export namespace Prisma {
     where?: AnalysisWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Analyses to fetch.
      */
     orderBy?: AnalysisOrderByWithRelationInput | AnalysisOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for Analyses.
      */
     cursor?: AnalysisWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Analyses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Analyses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of Analyses.
      */
     distinct?: AnalysisScalarFieldEnum | AnalysisScalarFieldEnum[]
@@ -5717,31 +5899,31 @@ export namespace Prisma {
     where?: AnalysisWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Analyses to fetch.
      */
     orderBy?: AnalysisOrderByWithRelationInput | AnalysisOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing Analyses.
      */
     cursor?: AnalysisWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Analyses from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Analyses.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of Analyses.
      */
     distinct?: AnalysisScalarFieldEnum | AnalysisScalarFieldEnum[]
@@ -6076,43 +6258,43 @@ export namespace Prisma {
     where?: FindingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Findings to fetch.
      */
     orderBy?: FindingOrderByWithRelationInput | FindingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: FindingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Findings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Findings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned Findings
     **/
     _count?: true | FindingCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: FindingMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: FindingMaxAggregateInputType
@@ -6326,13 +6508,13 @@ export namespace Prisma {
      * @example
      * // Get all Findings
      * const findings = await prisma.finding.findMany()
-     *
+     * 
      * // Get first 10 Findings
      * const findings = await prisma.finding.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const findingWithIdOnly = await prisma.finding.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends FindingFindManyArgs>(args?: SelectSubset<T, FindingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FindingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -6346,7 +6528,7 @@ export namespace Prisma {
      *     // ... data to create a Finding
      *   }
      * })
-     *
+     * 
      */
     create<T extends FindingCreateArgs>(args: SelectSubset<T, FindingCreateArgs<ExtArgs>>): Prisma__FindingClient<$Result.GetResult<Prisma.$FindingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -6360,7 +6542,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends FindingCreateManyArgs>(args?: SelectSubset<T, FindingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -6374,7 +6556,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many Findings and only return the `id`
      * const findingWithIdOnly = await prisma.finding.createManyAndReturn({
      *   select: { id: true },
@@ -6384,7 +6566,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends FindingCreateManyAndReturnArgs>(args?: SelectSubset<T, FindingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FindingPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -6398,7 +6580,7 @@ export namespace Prisma {
      *     // ... filter to delete one Finding
      *   }
      * })
-     *
+     * 
      */
     delete<T extends FindingDeleteArgs>(args: SelectSubset<T, FindingDeleteArgs<ExtArgs>>): Prisma__FindingClient<$Result.GetResult<Prisma.$FindingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -6415,7 +6597,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends FindingUpdateArgs>(args: SelectSubset<T, FindingUpdateArgs<ExtArgs>>): Prisma__FindingClient<$Result.GetResult<Prisma.$FindingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -6429,7 +6611,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends FindingDeleteManyArgs>(args?: SelectSubset<T, FindingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -6448,7 +6630,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends FindingUpdateManyArgs>(args: SelectSubset<T, FindingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -6465,7 +6647,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more Findings and only return the `id`
      * const findingWithIdOnly = await prisma.finding.updateManyAndReturn({
      *   select: { id: true },
@@ -6478,7 +6660,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends FindingUpdateManyAndReturnArgs>(args: SelectSubset<T, FindingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FindingPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -6567,7 +6749,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends FindingGroupByArgs,
@@ -6681,7 +6863,7 @@ export namespace Prisma {
     readonly lineRef: FieldRef<"Finding", 'String'>
     readonly createdAt: FieldRef<"Finding", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -6750,31 +6932,31 @@ export namespace Prisma {
     where?: FindingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Findings to fetch.
      */
     orderBy?: FindingOrderByWithRelationInput | FindingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for Findings.
      */
     cursor?: FindingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Findings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Findings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of Findings.
      */
     distinct?: FindingScalarFieldEnum | FindingScalarFieldEnum[]
@@ -6802,31 +6984,31 @@ export namespace Prisma {
     where?: FindingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Findings to fetch.
      */
     orderBy?: FindingOrderByWithRelationInput | FindingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for Findings.
      */
     cursor?: FindingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Findings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Findings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of Findings.
      */
     distinct?: FindingScalarFieldEnum | FindingScalarFieldEnum[]
@@ -6854,31 +7036,31 @@ export namespace Prisma {
     where?: FindingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of Findings to fetch.
      */
     orderBy?: FindingOrderByWithRelationInput | FindingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing Findings.
      */
     cursor?: FindingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` Findings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` Findings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of Findings.
      */
     distinct?: FindingScalarFieldEnum | FindingScalarFieldEnum[]
@@ -7177,55 +7359,55 @@ export namespace Prisma {
     where?: LeadRateLimitBucketWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadRateLimitBuckets to fetch.
      */
     orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: LeadRateLimitBucketWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadRateLimitBuckets from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadRateLimitBuckets.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned LeadRateLimitBuckets
     **/
     _count?: true | LeadRateLimitBucketCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to average
     **/
     _avg?: LeadRateLimitBucketAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to sum
     **/
     _sum?: LeadRateLimitBucketSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: LeadRateLimitBucketMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: LeadRateLimitBucketMaxAggregateInputType
@@ -7399,13 +7581,13 @@ export namespace Prisma {
      * @example
      * // Get all LeadRateLimitBuckets
      * const leadRateLimitBuckets = await prisma.leadRateLimitBucket.findMany()
-     *
+     * 
      * // Get first 10 LeadRateLimitBuckets
      * const leadRateLimitBuckets = await prisma.leadRateLimitBucket.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `key`
      * const leadRateLimitBucketWithKeyOnly = await prisma.leadRateLimitBucket.findMany({ select: { key: true } })
-     *
+     * 
      */
     findMany<T extends LeadRateLimitBucketFindManyArgs>(args?: SelectSubset<T, LeadRateLimitBucketFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -7419,7 +7601,7 @@ export namespace Prisma {
      *     // ... data to create a LeadRateLimitBucket
      *   }
      * })
-     *
+     * 
      */
     create<T extends LeadRateLimitBucketCreateArgs>(args: SelectSubset<T, LeadRateLimitBucketCreateArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -7433,7 +7615,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends LeadRateLimitBucketCreateManyArgs>(args?: SelectSubset<T, LeadRateLimitBucketCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -7447,7 +7629,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many LeadRateLimitBuckets and only return the `key`
      * const leadRateLimitBucketWithKeyOnly = await prisma.leadRateLimitBucket.createManyAndReturn({
      *   select: { key: true },
@@ -7457,7 +7639,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends LeadRateLimitBucketCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadRateLimitBucketCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -7471,7 +7653,7 @@ export namespace Prisma {
      *     // ... filter to delete one LeadRateLimitBucket
      *   }
      * })
-     *
+     * 
      */
     delete<T extends LeadRateLimitBucketDeleteArgs>(args: SelectSubset<T, LeadRateLimitBucketDeleteArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -7488,7 +7670,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends LeadRateLimitBucketUpdateArgs>(args: SelectSubset<T, LeadRateLimitBucketUpdateArgs<ExtArgs>>): Prisma__LeadRateLimitBucketClient<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -7502,7 +7684,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends LeadRateLimitBucketDeleteManyArgs>(args?: SelectSubset<T, LeadRateLimitBucketDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -7521,7 +7703,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends LeadRateLimitBucketUpdateManyArgs>(args: SelectSubset<T, LeadRateLimitBucketUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -7538,7 +7720,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more LeadRateLimitBuckets and only return the `key`
      * const leadRateLimitBucketWithKeyOnly = await prisma.leadRateLimitBucket.updateManyAndReturn({
      *   select: { key: true },
@@ -7551,7 +7733,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends LeadRateLimitBucketUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadRateLimitBucketUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadRateLimitBucketPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -7640,7 +7822,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends LeadRateLimitBucketGroupByArgs,
@@ -7748,7 +7930,7 @@ export namespace Prisma {
     readonly windowEndsAt: FieldRef<"LeadRateLimitBucket", 'DateTime'>
     readonly updatedAt: FieldRef<"LeadRateLimitBucket", 'DateTime'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -7805,31 +7987,31 @@ export namespace Prisma {
     where?: LeadRateLimitBucketWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadRateLimitBuckets to fetch.
      */
     orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for LeadRateLimitBuckets.
      */
     cursor?: LeadRateLimitBucketWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadRateLimitBuckets from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadRateLimitBuckets.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LeadRateLimitBuckets.
      */
     distinct?: LeadRateLimitBucketScalarFieldEnum | LeadRateLimitBucketScalarFieldEnum[]
@@ -7853,31 +8035,31 @@ export namespace Prisma {
     where?: LeadRateLimitBucketWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadRateLimitBuckets to fetch.
      */
     orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for LeadRateLimitBuckets.
      */
     cursor?: LeadRateLimitBucketWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadRateLimitBuckets from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadRateLimitBuckets.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LeadRateLimitBuckets.
      */
     distinct?: LeadRateLimitBucketScalarFieldEnum | LeadRateLimitBucketScalarFieldEnum[]
@@ -7901,31 +8083,31 @@ export namespace Prisma {
     where?: LeadRateLimitBucketWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadRateLimitBuckets to fetch.
      */
     orderBy?: LeadRateLimitBucketOrderByWithRelationInput | LeadRateLimitBucketOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing LeadRateLimitBuckets.
      */
     cursor?: LeadRateLimitBucketWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadRateLimitBuckets from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadRateLimitBuckets.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LeadRateLimitBuckets.
      */
     distinct?: LeadRateLimitBucketScalarFieldEnum | LeadRateLimitBucketScalarFieldEnum[]
@@ -8168,6 +8350,7 @@ export namespace Prisma {
     ghlOpportunityId: string | null
     ghlSyncStatus: string | null
     ghlSyncErrorCode: string | null
+    isQa: boolean | null
   }
 
   export type LeadSubmissionMaxAggregateOutputType = {
@@ -8200,6 +8383,7 @@ export namespace Prisma {
     ghlOpportunityId: string | null
     ghlSyncStatus: string | null
     ghlSyncErrorCode: string | null
+    isQa: boolean | null
   }
 
   export type LeadSubmissionCountAggregateOutputType = {
@@ -8232,6 +8416,7 @@ export namespace Prisma {
     ghlOpportunityId: number
     ghlSyncStatus: number
     ghlSyncErrorCode: number
+    isQa: number
     _all: number
   }
 
@@ -8276,6 +8461,7 @@ export namespace Prisma {
     ghlOpportunityId?: true
     ghlSyncStatus?: true
     ghlSyncErrorCode?: true
+    isQa?: true
   }
 
   export type LeadSubmissionMaxAggregateInputType = {
@@ -8308,6 +8494,7 @@ export namespace Prisma {
     ghlOpportunityId?: true
     ghlSyncStatus?: true
     ghlSyncErrorCode?: true
+    isQa?: true
   }
 
   export type LeadSubmissionCountAggregateInputType = {
@@ -8340,6 +8527,7 @@ export namespace Prisma {
     ghlOpportunityId?: true
     ghlSyncStatus?: true
     ghlSyncErrorCode?: true
+    isQa?: true
     _all?: true
   }
 
@@ -8350,55 +8538,55 @@ export namespace Prisma {
     where?: LeadSubmissionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadSubmissions to fetch.
      */
     orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the start position
      */
     cursor?: LeadSubmissionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadSubmissions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadSubmissions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Count returned LeadSubmissions
     **/
     _count?: true | LeadSubmissionCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to average
     **/
     _avg?: LeadSubmissionAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to sum
     **/
     _sum?: LeadSubmissionSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: LeadSubmissionMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     *
+     * 
      * Select which fields to find the maximum value
     **/
     _max?: LeadSubmissionMaxAggregateInputType
@@ -8459,6 +8647,7 @@ export namespace Prisma {
     ghlOpportunityId: string | null
     ghlSyncStatus: string
     ghlSyncErrorCode: string | null
+    isQa: boolean
     _count: LeadSubmissionCountAggregateOutputType | null
     _avg: LeadSubmissionAvgAggregateOutputType | null
     _sum: LeadSubmissionSumAggregateOutputType | null
@@ -8510,6 +8699,7 @@ export namespace Prisma {
     ghlOpportunityId?: boolean
     ghlSyncStatus?: boolean
     ghlSyncErrorCode?: boolean
+    isQa?: boolean
   }, ExtArgs["result"]["leadSubmission"]>
 
   export type LeadSubmissionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -8542,6 +8732,7 @@ export namespace Prisma {
     ghlOpportunityId?: boolean
     ghlSyncStatus?: boolean
     ghlSyncErrorCode?: boolean
+    isQa?: boolean
   }, ExtArgs["result"]["leadSubmission"]>
 
   export type LeadSubmissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -8574,6 +8765,7 @@ export namespace Prisma {
     ghlOpportunityId?: boolean
     ghlSyncStatus?: boolean
     ghlSyncErrorCode?: boolean
+    isQa?: boolean
   }, ExtArgs["result"]["leadSubmission"]>
 
   export type LeadSubmissionSelectScalar = {
@@ -8606,9 +8798,10 @@ export namespace Prisma {
     ghlOpportunityId?: boolean
     ghlSyncStatus?: boolean
     ghlSyncErrorCode?: boolean
+    isQa?: boolean
   }
 
-  export type LeadSubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "source" | "formType" | "submittedAt" | "updatedAt" | "deliveredAt" | "lastAttemptAt" | "deliveryAttempts" | "payloadHash" | "conversionPath" | "firstLandingPath" | "firstReferrerHost" | "channel" | "jurisdiction" | "transactionType" | "contactRole" | "qualificationStatus" | "qualificationReason" | "qualifiedAt" | "acceptedAt" | "closedAt" | "outcomeValueCents" | "lostReason" | "lastDeliveryErrorCode" | "ghlContactId" | "ghlOpportunityId" | "ghlSyncStatus" | "ghlSyncErrorCode", ExtArgs["result"]["leadSubmission"]>
+  export type LeadSubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "status" | "source" | "formType" | "submittedAt" | "updatedAt" | "deliveredAt" | "lastAttemptAt" | "deliveryAttempts" | "payloadHash" | "conversionPath" | "firstLandingPath" | "firstReferrerHost" | "channel" | "jurisdiction" | "transactionType" | "contactRole" | "qualificationStatus" | "qualificationReason" | "qualifiedAt" | "acceptedAt" | "closedAt" | "outcomeValueCents" | "lostReason" | "lastDeliveryErrorCode" | "ghlContactId" | "ghlOpportunityId" | "ghlSyncStatus" | "ghlSyncErrorCode" | "isQa", ExtArgs["result"]["leadSubmission"]>
 
   export type $LeadSubmissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "LeadSubmission"
@@ -8643,6 +8836,7 @@ export namespace Prisma {
       ghlOpportunityId: string | null
       ghlSyncStatus: string
       ghlSyncErrorCode: string | null
+      isQa: boolean
     }, ExtArgs["result"]["leadSubmission"]>
     composites: {}
   }
@@ -8722,13 +8916,13 @@ export namespace Prisma {
      * @example
      * // Get all LeadSubmissions
      * const leadSubmissions = await prisma.leadSubmission.findMany()
-     *
+     * 
      * // Get first 10 LeadSubmissions
      * const leadSubmissions = await prisma.leadSubmission.findMany({ take: 10 })
-     *
+     * 
      * // Only select the `id`
      * const leadSubmissionWithIdOnly = await prisma.leadSubmission.findMany({ select: { id: true } })
-     *
+     * 
      */
     findMany<T extends LeadSubmissionFindManyArgs>(args?: SelectSubset<T, LeadSubmissionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
@@ -8742,7 +8936,7 @@ export namespace Prisma {
      *     // ... data to create a LeadSubmission
      *   }
      * })
-     *
+     * 
      */
     create<T extends LeadSubmissionCreateArgs>(args: SelectSubset<T, LeadSubmissionCreateArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -8756,7 +8950,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     *     
      */
     createMany<T extends LeadSubmissionCreateManyArgs>(args?: SelectSubset<T, LeadSubmissionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -8770,7 +8964,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Create many LeadSubmissions and only return the `id`
      * const leadSubmissionWithIdOnly = await prisma.leadSubmission.createManyAndReturn({
      *   select: { id: true },
@@ -8780,7 +8974,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     createManyAndReturn<T extends LeadSubmissionCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadSubmissionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
@@ -8794,7 +8988,7 @@ export namespace Prisma {
      *     // ... filter to delete one LeadSubmission
      *   }
      * })
-     *
+     * 
      */
     delete<T extends LeadSubmissionDeleteArgs>(args: SelectSubset<T, LeadSubmissionDeleteArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -8811,7 +9005,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     update<T extends LeadSubmissionUpdateArgs>(args: SelectSubset<T, LeadSubmissionUpdateArgs<ExtArgs>>): Prisma__LeadSubmissionClient<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
@@ -8825,7 +9019,7 @@ export namespace Prisma {
      *     // ... provide filter here
      *   }
      * })
-     *
+     * 
      */
     deleteMany<T extends LeadSubmissionDeleteManyArgs>(args?: SelectSubset<T, LeadSubmissionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -8844,7 +9038,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     *
+     * 
      */
     updateMany<T extends LeadSubmissionUpdateManyArgs>(args: SelectSubset<T, LeadSubmissionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
@@ -8861,7 +9055,7 @@ export namespace Prisma {
      *     // ... provide data here
      *   ]
      * })
-     *
+     * 
      * // Update zero or more LeadSubmissions and only return the `id`
      * const leadSubmissionWithIdOnly = await prisma.leadSubmission.updateManyAndReturn({
      *   select: { id: true },
@@ -8874,7 +9068,7 @@ export namespace Prisma {
      * })
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     *
+     * 
      */
     updateManyAndReturn<T extends LeadSubmissionUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadSubmissionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
@@ -8963,7 +9157,7 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     *
+     * 
     **/
     groupBy<
       T extends LeadSubmissionGroupByArgs,
@@ -9095,8 +9289,9 @@ export namespace Prisma {
     readonly ghlOpportunityId: FieldRef<"LeadSubmission", 'String'>
     readonly ghlSyncStatus: FieldRef<"LeadSubmission", 'String'>
     readonly ghlSyncErrorCode: FieldRef<"LeadSubmission", 'String'>
+    readonly isQa: FieldRef<"LeadSubmission", 'Boolean'>
   }
-
+    
 
   // Custom InputTypes
   /**
@@ -9153,31 +9348,31 @@ export namespace Prisma {
     where?: LeadSubmissionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadSubmissions to fetch.
      */
     orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for LeadSubmissions.
      */
     cursor?: LeadSubmissionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadSubmissions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadSubmissions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LeadSubmissions.
      */
     distinct?: LeadSubmissionScalarFieldEnum | LeadSubmissionScalarFieldEnum[]
@@ -9201,31 +9396,31 @@ export namespace Prisma {
     where?: LeadSubmissionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadSubmissions to fetch.
      */
     orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for searching for LeadSubmissions.
      */
     cursor?: LeadSubmissionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadSubmissions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadSubmissions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LeadSubmissions.
      */
     distinct?: LeadSubmissionScalarFieldEnum | LeadSubmissionScalarFieldEnum[]
@@ -9249,31 +9444,31 @@ export namespace Prisma {
     where?: LeadSubmissionWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     *
+     * 
      * Determine the order of LeadSubmissions to fetch.
      */
     orderBy?: LeadSubmissionOrderByWithRelationInput | LeadSubmissionOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     *
+     * 
      * Sets the position for listing LeadSubmissions.
      */
     cursor?: LeadSubmissionWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Take `±n` LeadSubmissions from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     *
+     * 
      * Skip the first `n` LeadSubmissions.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     *
+     * 
      * Filter by unique combinations of LeadSubmissions.
      */
     distinct?: LeadSubmissionScalarFieldEnum | LeadSubmissionScalarFieldEnum[]
@@ -9465,6 +9660,2127 @@ export namespace Prisma {
 
 
   /**
+   * Model LeadOpportunityOutbox
+   */
+
+  export type AggregateLeadOpportunityOutbox = {
+    _count: LeadOpportunityOutboxCountAggregateOutputType | null
+    _avg: LeadOpportunityOutboxAvgAggregateOutputType | null
+    _sum: LeadOpportunityOutboxSumAggregateOutputType | null
+    _min: LeadOpportunityOutboxMinAggregateOutputType | null
+    _max: LeadOpportunityOutboxMaxAggregateOutputType | null
+  }
+
+  export type LeadOpportunityOutboxAvgAggregateOutputType = {
+    attempts: number | null
+  }
+
+  export type LeadOpportunityOutboxSumAggregateOutputType = {
+    attempts: number | null
+  }
+
+  export type LeadOpportunityOutboxMinAggregateOutputType = {
+    submissionId: string | null
+    ciphertext: string | null
+    iv: string | null
+    authTag: string | null
+    attempts: number | null
+    nextAttemptAt: Date | null
+    lastAttemptAt: Date | null
+    lastErrorCode: string | null
+    expiresAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LeadOpportunityOutboxMaxAggregateOutputType = {
+    submissionId: string | null
+    ciphertext: string | null
+    iv: string | null
+    authTag: string | null
+    attempts: number | null
+    nextAttemptAt: Date | null
+    lastAttemptAt: Date | null
+    lastErrorCode: string | null
+    expiresAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LeadOpportunityOutboxCountAggregateOutputType = {
+    submissionId: number
+    ciphertext: number
+    iv: number
+    authTag: number
+    attempts: number
+    nextAttemptAt: number
+    lastAttemptAt: number
+    lastErrorCode: number
+    expiresAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LeadOpportunityOutboxAvgAggregateInputType = {
+    attempts?: true
+  }
+
+  export type LeadOpportunityOutboxSumAggregateInputType = {
+    attempts?: true
+  }
+
+  export type LeadOpportunityOutboxMinAggregateInputType = {
+    submissionId?: true
+    ciphertext?: true
+    iv?: true
+    authTag?: true
+    attempts?: true
+    nextAttemptAt?: true
+    lastAttemptAt?: true
+    lastErrorCode?: true
+    expiresAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LeadOpportunityOutboxMaxAggregateInputType = {
+    submissionId?: true
+    ciphertext?: true
+    iv?: true
+    authTag?: true
+    attempts?: true
+    nextAttemptAt?: true
+    lastAttemptAt?: true
+    lastErrorCode?: true
+    expiresAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LeadOpportunityOutboxCountAggregateInputType = {
+    submissionId?: true
+    ciphertext?: true
+    iv?: true
+    authTag?: true
+    attempts?: true
+    nextAttemptAt?: true
+    lastAttemptAt?: true
+    lastErrorCode?: true
+    expiresAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LeadOpportunityOutboxAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadOpportunityOutbox to aggregate.
+     */
+    where?: LeadOpportunityOutboxWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadOpportunityOutboxes to fetch.
+     */
+    orderBy?: LeadOpportunityOutboxOrderByWithRelationInput | LeadOpportunityOutboxOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LeadOpportunityOutboxWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadOpportunityOutboxes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadOpportunityOutboxes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LeadOpportunityOutboxes
+    **/
+    _count?: true | LeadOpportunityOutboxCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LeadOpportunityOutboxAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LeadOpportunityOutboxSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LeadOpportunityOutboxMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LeadOpportunityOutboxMaxAggregateInputType
+  }
+
+  export type GetLeadOpportunityOutboxAggregateType<T extends LeadOpportunityOutboxAggregateArgs> = {
+        [P in keyof T & keyof AggregateLeadOpportunityOutbox]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLeadOpportunityOutbox[P]>
+      : GetScalarType<T[P], AggregateLeadOpportunityOutbox[P]>
+  }
+
+
+
+
+  export type LeadOpportunityOutboxGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeadOpportunityOutboxWhereInput
+    orderBy?: LeadOpportunityOutboxOrderByWithAggregationInput | LeadOpportunityOutboxOrderByWithAggregationInput[]
+    by: LeadOpportunityOutboxScalarFieldEnum[] | LeadOpportunityOutboxScalarFieldEnum
+    having?: LeadOpportunityOutboxScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LeadOpportunityOutboxCountAggregateInputType | true
+    _avg?: LeadOpportunityOutboxAvgAggregateInputType
+    _sum?: LeadOpportunityOutboxSumAggregateInputType
+    _min?: LeadOpportunityOutboxMinAggregateInputType
+    _max?: LeadOpportunityOutboxMaxAggregateInputType
+  }
+
+  export type LeadOpportunityOutboxGroupByOutputType = {
+    submissionId: string
+    ciphertext: string
+    iv: string
+    authTag: string
+    attempts: number
+    nextAttemptAt: Date
+    lastAttemptAt: Date | null
+    lastErrorCode: string | null
+    expiresAt: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: LeadOpportunityOutboxCountAggregateOutputType | null
+    _avg: LeadOpportunityOutboxAvgAggregateOutputType | null
+    _sum: LeadOpportunityOutboxSumAggregateOutputType | null
+    _min: LeadOpportunityOutboxMinAggregateOutputType | null
+    _max: LeadOpportunityOutboxMaxAggregateOutputType | null
+  }
+
+  type GetLeadOpportunityOutboxGroupByPayload<T extends LeadOpportunityOutboxGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LeadOpportunityOutboxGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LeadOpportunityOutboxGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LeadOpportunityOutboxGroupByOutputType[P]>
+            : GetScalarType<T[P], LeadOpportunityOutboxGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LeadOpportunityOutboxSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    submissionId?: boolean
+    ciphertext?: boolean
+    iv?: boolean
+    authTag?: boolean
+    attempts?: boolean
+    nextAttemptAt?: boolean
+    lastAttemptAt?: boolean
+    lastErrorCode?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["leadOpportunityOutbox"]>
+
+  export type LeadOpportunityOutboxSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    submissionId?: boolean
+    ciphertext?: boolean
+    iv?: boolean
+    authTag?: boolean
+    attempts?: boolean
+    nextAttemptAt?: boolean
+    lastAttemptAt?: boolean
+    lastErrorCode?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["leadOpportunityOutbox"]>
+
+  export type LeadOpportunityOutboxSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    submissionId?: boolean
+    ciphertext?: boolean
+    iv?: boolean
+    authTag?: boolean
+    attempts?: boolean
+    nextAttemptAt?: boolean
+    lastAttemptAt?: boolean
+    lastErrorCode?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["leadOpportunityOutbox"]>
+
+  export type LeadOpportunityOutboxSelectScalar = {
+    submissionId?: boolean
+    ciphertext?: boolean
+    iv?: boolean
+    authTag?: boolean
+    attempts?: boolean
+    nextAttemptAt?: boolean
+    lastAttemptAt?: boolean
+    lastErrorCode?: boolean
+    expiresAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type LeadOpportunityOutboxOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"submissionId" | "ciphertext" | "iv" | "authTag" | "attempts" | "nextAttemptAt" | "lastAttemptAt" | "lastErrorCode" | "expiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["leadOpportunityOutbox"]>
+
+  export type $LeadOpportunityOutboxPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LeadOpportunityOutbox"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      submissionId: string
+      ciphertext: string
+      iv: string
+      authTag: string
+      attempts: number
+      nextAttemptAt: Date
+      lastAttemptAt: Date | null
+      lastErrorCode: string | null
+      expiresAt: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["leadOpportunityOutbox"]>
+    composites: {}
+  }
+
+  type LeadOpportunityOutboxGetPayload<S extends boolean | null | undefined | LeadOpportunityOutboxDefaultArgs> = $Result.GetResult<Prisma.$LeadOpportunityOutboxPayload, S>
+
+  type LeadOpportunityOutboxCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LeadOpportunityOutboxFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LeadOpportunityOutboxCountAggregateInputType | true
+    }
+
+  export interface LeadOpportunityOutboxDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LeadOpportunityOutbox'], meta: { name: 'LeadOpportunityOutbox' } }
+    /**
+     * Find zero or one LeadOpportunityOutbox that matches the filter.
+     * @param {LeadOpportunityOutboxFindUniqueArgs} args - Arguments to find a LeadOpportunityOutbox
+     * @example
+     * // Get one LeadOpportunityOutbox
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LeadOpportunityOutboxFindUniqueArgs>(args: SelectSubset<T, LeadOpportunityOutboxFindUniqueArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LeadOpportunityOutbox that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LeadOpportunityOutboxFindUniqueOrThrowArgs} args - Arguments to find a LeadOpportunityOutbox
+     * @example
+     * // Get one LeadOpportunityOutbox
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LeadOpportunityOutboxFindUniqueOrThrowArgs>(args: SelectSubset<T, LeadOpportunityOutboxFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadOpportunityOutbox that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadOpportunityOutboxFindFirstArgs} args - Arguments to find a LeadOpportunityOutbox
+     * @example
+     * // Get one LeadOpportunityOutbox
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LeadOpportunityOutboxFindFirstArgs>(args?: SelectSubset<T, LeadOpportunityOutboxFindFirstArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadOpportunityOutbox that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadOpportunityOutboxFindFirstOrThrowArgs} args - Arguments to find a LeadOpportunityOutbox
+     * @example
+     * // Get one LeadOpportunityOutbox
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LeadOpportunityOutboxFindFirstOrThrowArgs>(args?: SelectSubset<T, LeadOpportunityOutboxFindFirstOrThrowArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LeadOpportunityOutboxes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadOpportunityOutboxFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LeadOpportunityOutboxes
+     * const leadOpportunityOutboxes = await prisma.leadOpportunityOutbox.findMany()
+     * 
+     * // Get first 10 LeadOpportunityOutboxes
+     * const leadOpportunityOutboxes = await prisma.leadOpportunityOutbox.findMany({ take: 10 })
+     * 
+     * // Only select the `submissionId`
+     * const leadOpportunityOutboxWithSubmissionIdOnly = await prisma.leadOpportunityOutbox.findMany({ select: { submissionId: true } })
+     * 
+     */
+    findMany<T extends LeadOpportunityOutboxFindManyArgs>(args?: SelectSubset<T, LeadOpportunityOutboxFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LeadOpportunityOutbox.
+     * @param {LeadOpportunityOutboxCreateArgs} args - Arguments to create a LeadOpportunityOutbox.
+     * @example
+     * // Create one LeadOpportunityOutbox
+     * const LeadOpportunityOutbox = await prisma.leadOpportunityOutbox.create({
+     *   data: {
+     *     // ... data to create a LeadOpportunityOutbox
+     *   }
+     * })
+     * 
+     */
+    create<T extends LeadOpportunityOutboxCreateArgs>(args: SelectSubset<T, LeadOpportunityOutboxCreateArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LeadOpportunityOutboxes.
+     * @param {LeadOpportunityOutboxCreateManyArgs} args - Arguments to create many LeadOpportunityOutboxes.
+     * @example
+     * // Create many LeadOpportunityOutboxes
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LeadOpportunityOutboxCreateManyArgs>(args?: SelectSubset<T, LeadOpportunityOutboxCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LeadOpportunityOutboxes and returns the data saved in the database.
+     * @param {LeadOpportunityOutboxCreateManyAndReturnArgs} args - Arguments to create many LeadOpportunityOutboxes.
+     * @example
+     * // Create many LeadOpportunityOutboxes
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LeadOpportunityOutboxes and only return the `submissionId`
+     * const leadOpportunityOutboxWithSubmissionIdOnly = await prisma.leadOpportunityOutbox.createManyAndReturn({
+     *   select: { submissionId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LeadOpportunityOutboxCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadOpportunityOutboxCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LeadOpportunityOutbox.
+     * @param {LeadOpportunityOutboxDeleteArgs} args - Arguments to delete one LeadOpportunityOutbox.
+     * @example
+     * // Delete one LeadOpportunityOutbox
+     * const LeadOpportunityOutbox = await prisma.leadOpportunityOutbox.delete({
+     *   where: {
+     *     // ... filter to delete one LeadOpportunityOutbox
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LeadOpportunityOutboxDeleteArgs>(args: SelectSubset<T, LeadOpportunityOutboxDeleteArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LeadOpportunityOutbox.
+     * @param {LeadOpportunityOutboxUpdateArgs} args - Arguments to update one LeadOpportunityOutbox.
+     * @example
+     * // Update one LeadOpportunityOutbox
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LeadOpportunityOutboxUpdateArgs>(args: SelectSubset<T, LeadOpportunityOutboxUpdateArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LeadOpportunityOutboxes.
+     * @param {LeadOpportunityOutboxDeleteManyArgs} args - Arguments to filter LeadOpportunityOutboxes to delete.
+     * @example
+     * // Delete a few LeadOpportunityOutboxes
+     * const { count } = await prisma.leadOpportunityOutbox.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LeadOpportunityOutboxDeleteManyArgs>(args?: SelectSubset<T, LeadOpportunityOutboxDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadOpportunityOutboxes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadOpportunityOutboxUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LeadOpportunityOutboxes
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LeadOpportunityOutboxUpdateManyArgs>(args: SelectSubset<T, LeadOpportunityOutboxUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadOpportunityOutboxes and returns the data updated in the database.
+     * @param {LeadOpportunityOutboxUpdateManyAndReturnArgs} args - Arguments to update many LeadOpportunityOutboxes.
+     * @example
+     * // Update many LeadOpportunityOutboxes
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LeadOpportunityOutboxes and only return the `submissionId`
+     * const leadOpportunityOutboxWithSubmissionIdOnly = await prisma.leadOpportunityOutbox.updateManyAndReturn({
+     *   select: { submissionId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LeadOpportunityOutboxUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadOpportunityOutboxUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LeadOpportunityOutbox.
+     * @param {LeadOpportunityOutboxUpsertArgs} args - Arguments to update or create a LeadOpportunityOutbox.
+     * @example
+     * // Update or create a LeadOpportunityOutbox
+     * const leadOpportunityOutbox = await prisma.leadOpportunityOutbox.upsert({
+     *   create: {
+     *     // ... data to create a LeadOpportunityOutbox
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LeadOpportunityOutbox we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LeadOpportunityOutboxUpsertArgs>(args: SelectSubset<T, LeadOpportunityOutboxUpsertArgs<ExtArgs>>): Prisma__LeadOpportunityOutboxClient<$Result.GetResult<Prisma.$LeadOpportunityOutboxPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LeadOpportunityOutboxes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadOpportunityOutboxCountArgs} args - Arguments to filter LeadOpportunityOutboxes to count.
+     * @example
+     * // Count the number of LeadOpportunityOutboxes
+     * const count = await prisma.leadOpportunityOutbox.count({
+     *   where: {
+     *     // ... the filter for the LeadOpportunityOutboxes we want to count
+     *   }
+     * })
+    **/
+    count<T extends LeadOpportunityOutboxCountArgs>(
+      args?: Subset<T, LeadOpportunityOutboxCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LeadOpportunityOutboxCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LeadOpportunityOutbox.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadOpportunityOutboxAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LeadOpportunityOutboxAggregateArgs>(args: Subset<T, LeadOpportunityOutboxAggregateArgs>): Prisma.PrismaPromise<GetLeadOpportunityOutboxAggregateType<T>>
+
+    /**
+     * Group by LeadOpportunityOutbox.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadOpportunityOutboxGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LeadOpportunityOutboxGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LeadOpportunityOutboxGroupByArgs['orderBy'] }
+        : { orderBy?: LeadOpportunityOutboxGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LeadOpportunityOutboxGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeadOpportunityOutboxGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LeadOpportunityOutbox model
+   */
+  readonly fields: LeadOpportunityOutboxFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LeadOpportunityOutbox.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LeadOpportunityOutboxClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LeadOpportunityOutbox model
+   */
+  interface LeadOpportunityOutboxFieldRefs {
+    readonly submissionId: FieldRef<"LeadOpportunityOutbox", 'String'>
+    readonly ciphertext: FieldRef<"LeadOpportunityOutbox", 'String'>
+    readonly iv: FieldRef<"LeadOpportunityOutbox", 'String'>
+    readonly authTag: FieldRef<"LeadOpportunityOutbox", 'String'>
+    readonly attempts: FieldRef<"LeadOpportunityOutbox", 'Int'>
+    readonly nextAttemptAt: FieldRef<"LeadOpportunityOutbox", 'DateTime'>
+    readonly lastAttemptAt: FieldRef<"LeadOpportunityOutbox", 'DateTime'>
+    readonly lastErrorCode: FieldRef<"LeadOpportunityOutbox", 'String'>
+    readonly expiresAt: FieldRef<"LeadOpportunityOutbox", 'DateTime'>
+    readonly createdAt: FieldRef<"LeadOpportunityOutbox", 'DateTime'>
+    readonly updatedAt: FieldRef<"LeadOpportunityOutbox", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LeadOpportunityOutbox findUnique
+   */
+  export type LeadOpportunityOutboxFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadOpportunityOutbox to fetch.
+     */
+    where: LeadOpportunityOutboxWhereUniqueInput
+  }
+
+  /**
+   * LeadOpportunityOutbox findUniqueOrThrow
+   */
+  export type LeadOpportunityOutboxFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadOpportunityOutbox to fetch.
+     */
+    where: LeadOpportunityOutboxWhereUniqueInput
+  }
+
+  /**
+   * LeadOpportunityOutbox findFirst
+   */
+  export type LeadOpportunityOutboxFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadOpportunityOutbox to fetch.
+     */
+    where?: LeadOpportunityOutboxWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadOpportunityOutboxes to fetch.
+     */
+    orderBy?: LeadOpportunityOutboxOrderByWithRelationInput | LeadOpportunityOutboxOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LeadOpportunityOutboxes.
+     */
+    cursor?: LeadOpportunityOutboxWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadOpportunityOutboxes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadOpportunityOutboxes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeadOpportunityOutboxes.
+     */
+    distinct?: LeadOpportunityOutboxScalarFieldEnum | LeadOpportunityOutboxScalarFieldEnum[]
+  }
+
+  /**
+   * LeadOpportunityOutbox findFirstOrThrow
+   */
+  export type LeadOpportunityOutboxFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadOpportunityOutbox to fetch.
+     */
+    where?: LeadOpportunityOutboxWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadOpportunityOutboxes to fetch.
+     */
+    orderBy?: LeadOpportunityOutboxOrderByWithRelationInput | LeadOpportunityOutboxOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LeadOpportunityOutboxes.
+     */
+    cursor?: LeadOpportunityOutboxWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadOpportunityOutboxes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadOpportunityOutboxes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeadOpportunityOutboxes.
+     */
+    distinct?: LeadOpportunityOutboxScalarFieldEnum | LeadOpportunityOutboxScalarFieldEnum[]
+  }
+
+  /**
+   * LeadOpportunityOutbox findMany
+   */
+  export type LeadOpportunityOutboxFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadOpportunityOutboxes to fetch.
+     */
+    where?: LeadOpportunityOutboxWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadOpportunityOutboxes to fetch.
+     */
+    orderBy?: LeadOpportunityOutboxOrderByWithRelationInput | LeadOpportunityOutboxOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LeadOpportunityOutboxes.
+     */
+    cursor?: LeadOpportunityOutboxWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadOpportunityOutboxes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadOpportunityOutboxes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeadOpportunityOutboxes.
+     */
+    distinct?: LeadOpportunityOutboxScalarFieldEnum | LeadOpportunityOutboxScalarFieldEnum[]
+  }
+
+  /**
+   * LeadOpportunityOutbox create
+   */
+  export type LeadOpportunityOutboxCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * The data needed to create a LeadOpportunityOutbox.
+     */
+    data: XOR<LeadOpportunityOutboxCreateInput, LeadOpportunityOutboxUncheckedCreateInput>
+  }
+
+  /**
+   * LeadOpportunityOutbox createMany
+   */
+  export type LeadOpportunityOutboxCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LeadOpportunityOutboxes.
+     */
+    data: LeadOpportunityOutboxCreateManyInput | LeadOpportunityOutboxCreateManyInput[]
+  }
+
+  /**
+   * LeadOpportunityOutbox createManyAndReturn
+   */
+  export type LeadOpportunityOutboxCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * The data used to create many LeadOpportunityOutboxes.
+     */
+    data: LeadOpportunityOutboxCreateManyInput | LeadOpportunityOutboxCreateManyInput[]
+  }
+
+  /**
+   * LeadOpportunityOutbox update
+   */
+  export type LeadOpportunityOutboxUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * The data needed to update a LeadOpportunityOutbox.
+     */
+    data: XOR<LeadOpportunityOutboxUpdateInput, LeadOpportunityOutboxUncheckedUpdateInput>
+    /**
+     * Choose, which LeadOpportunityOutbox to update.
+     */
+    where: LeadOpportunityOutboxWhereUniqueInput
+  }
+
+  /**
+   * LeadOpportunityOutbox updateMany
+   */
+  export type LeadOpportunityOutboxUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LeadOpportunityOutboxes.
+     */
+    data: XOR<LeadOpportunityOutboxUpdateManyMutationInput, LeadOpportunityOutboxUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadOpportunityOutboxes to update
+     */
+    where?: LeadOpportunityOutboxWhereInput
+    /**
+     * Limit how many LeadOpportunityOutboxes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadOpportunityOutbox updateManyAndReturn
+   */
+  export type LeadOpportunityOutboxUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * The data used to update LeadOpportunityOutboxes.
+     */
+    data: XOR<LeadOpportunityOutboxUpdateManyMutationInput, LeadOpportunityOutboxUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadOpportunityOutboxes to update
+     */
+    where?: LeadOpportunityOutboxWhereInput
+    /**
+     * Limit how many LeadOpportunityOutboxes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadOpportunityOutbox upsert
+   */
+  export type LeadOpportunityOutboxUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * The filter to search for the LeadOpportunityOutbox to update in case it exists.
+     */
+    where: LeadOpportunityOutboxWhereUniqueInput
+    /**
+     * In case the LeadOpportunityOutbox found by the `where` argument doesn't exist, create a new LeadOpportunityOutbox with this data.
+     */
+    create: XOR<LeadOpportunityOutboxCreateInput, LeadOpportunityOutboxUncheckedCreateInput>
+    /**
+     * In case the LeadOpportunityOutbox was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LeadOpportunityOutboxUpdateInput, LeadOpportunityOutboxUncheckedUpdateInput>
+  }
+
+  /**
+   * LeadOpportunityOutbox delete
+   */
+  export type LeadOpportunityOutboxDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+    /**
+     * Filter which LeadOpportunityOutbox to delete.
+     */
+    where: LeadOpportunityOutboxWhereUniqueInput
+  }
+
+  /**
+   * LeadOpportunityOutbox deleteMany
+   */
+  export type LeadOpportunityOutboxDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadOpportunityOutboxes to delete
+     */
+    where?: LeadOpportunityOutboxWhereInput
+    /**
+     * Limit how many LeadOpportunityOutboxes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadOpportunityOutbox without action
+   */
+  export type LeadOpportunityOutboxDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadOpportunityOutbox
+     */
+    select?: LeadOpportunityOutboxSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadOpportunityOutbox
+     */
+    omit?: LeadOpportunityOutboxOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LeadSubmissionEvent
+   */
+
+  export type AggregateLeadSubmissionEvent = {
+    _count: LeadSubmissionEventCountAggregateOutputType | null
+    _min: LeadSubmissionEventMinAggregateOutputType | null
+    _max: LeadSubmissionEventMaxAggregateOutputType | null
+  }
+
+  export type LeadSubmissionEventMinAggregateOutputType = {
+    id: string | null
+    submissionId: string | null
+    eventType: string | null
+    stateCode: string | null
+    detailsHash: string | null
+    createdAt: Date | null
+  }
+
+  export type LeadSubmissionEventMaxAggregateOutputType = {
+    id: string | null
+    submissionId: string | null
+    eventType: string | null
+    stateCode: string | null
+    detailsHash: string | null
+    createdAt: Date | null
+  }
+
+  export type LeadSubmissionEventCountAggregateOutputType = {
+    id: number
+    submissionId: number
+    eventType: number
+    stateCode: number
+    detailsHash: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type LeadSubmissionEventMinAggregateInputType = {
+    id?: true
+    submissionId?: true
+    eventType?: true
+    stateCode?: true
+    detailsHash?: true
+    createdAt?: true
+  }
+
+  export type LeadSubmissionEventMaxAggregateInputType = {
+    id?: true
+    submissionId?: true
+    eventType?: true
+    stateCode?: true
+    detailsHash?: true
+    createdAt?: true
+  }
+
+  export type LeadSubmissionEventCountAggregateInputType = {
+    id?: true
+    submissionId?: true
+    eventType?: true
+    stateCode?: true
+    detailsHash?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type LeadSubmissionEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadSubmissionEvent to aggregate.
+     */
+    where?: LeadSubmissionEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadSubmissionEvents to fetch.
+     */
+    orderBy?: LeadSubmissionEventOrderByWithRelationInput | LeadSubmissionEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LeadSubmissionEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadSubmissionEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadSubmissionEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LeadSubmissionEvents
+    **/
+    _count?: true | LeadSubmissionEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LeadSubmissionEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LeadSubmissionEventMaxAggregateInputType
+  }
+
+  export type GetLeadSubmissionEventAggregateType<T extends LeadSubmissionEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateLeadSubmissionEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLeadSubmissionEvent[P]>
+      : GetScalarType<T[P], AggregateLeadSubmissionEvent[P]>
+  }
+
+
+
+
+  export type LeadSubmissionEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LeadSubmissionEventWhereInput
+    orderBy?: LeadSubmissionEventOrderByWithAggregationInput | LeadSubmissionEventOrderByWithAggregationInput[]
+    by: LeadSubmissionEventScalarFieldEnum[] | LeadSubmissionEventScalarFieldEnum
+    having?: LeadSubmissionEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LeadSubmissionEventCountAggregateInputType | true
+    _min?: LeadSubmissionEventMinAggregateInputType
+    _max?: LeadSubmissionEventMaxAggregateInputType
+  }
+
+  export type LeadSubmissionEventGroupByOutputType = {
+    id: string
+    submissionId: string
+    eventType: string
+    stateCode: string | null
+    detailsHash: string | null
+    createdAt: Date
+    _count: LeadSubmissionEventCountAggregateOutputType | null
+    _min: LeadSubmissionEventMinAggregateOutputType | null
+    _max: LeadSubmissionEventMaxAggregateOutputType | null
+  }
+
+  type GetLeadSubmissionEventGroupByPayload<T extends LeadSubmissionEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LeadSubmissionEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LeadSubmissionEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LeadSubmissionEventGroupByOutputType[P]>
+            : GetScalarType<T[P], LeadSubmissionEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LeadSubmissionEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    submissionId?: boolean
+    eventType?: boolean
+    stateCode?: boolean
+    detailsHash?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["leadSubmissionEvent"]>
+
+  export type LeadSubmissionEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    submissionId?: boolean
+    eventType?: boolean
+    stateCode?: boolean
+    detailsHash?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["leadSubmissionEvent"]>
+
+  export type LeadSubmissionEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    submissionId?: boolean
+    eventType?: boolean
+    stateCode?: boolean
+    detailsHash?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["leadSubmissionEvent"]>
+
+  export type LeadSubmissionEventSelectScalar = {
+    id?: boolean
+    submissionId?: boolean
+    eventType?: boolean
+    stateCode?: boolean
+    detailsHash?: boolean
+    createdAt?: boolean
+  }
+
+  export type LeadSubmissionEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "submissionId" | "eventType" | "stateCode" | "detailsHash" | "createdAt", ExtArgs["result"]["leadSubmissionEvent"]>
+
+  export type $LeadSubmissionEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LeadSubmissionEvent"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      submissionId: string
+      eventType: string
+      stateCode: string | null
+      detailsHash: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["leadSubmissionEvent"]>
+    composites: {}
+  }
+
+  type LeadSubmissionEventGetPayload<S extends boolean | null | undefined | LeadSubmissionEventDefaultArgs> = $Result.GetResult<Prisma.$LeadSubmissionEventPayload, S>
+
+  type LeadSubmissionEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LeadSubmissionEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LeadSubmissionEventCountAggregateInputType | true
+    }
+
+  export interface LeadSubmissionEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LeadSubmissionEvent'], meta: { name: 'LeadSubmissionEvent' } }
+    /**
+     * Find zero or one LeadSubmissionEvent that matches the filter.
+     * @param {LeadSubmissionEventFindUniqueArgs} args - Arguments to find a LeadSubmissionEvent
+     * @example
+     * // Get one LeadSubmissionEvent
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LeadSubmissionEventFindUniqueArgs>(args: SelectSubset<T, LeadSubmissionEventFindUniqueArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LeadSubmissionEvent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LeadSubmissionEventFindUniqueOrThrowArgs} args - Arguments to find a LeadSubmissionEvent
+     * @example
+     * // Get one LeadSubmissionEvent
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LeadSubmissionEventFindUniqueOrThrowArgs>(args: SelectSubset<T, LeadSubmissionEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadSubmissionEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionEventFindFirstArgs} args - Arguments to find a LeadSubmissionEvent
+     * @example
+     * // Get one LeadSubmissionEvent
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LeadSubmissionEventFindFirstArgs>(args?: SelectSubset<T, LeadSubmissionEventFindFirstArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LeadSubmissionEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionEventFindFirstOrThrowArgs} args - Arguments to find a LeadSubmissionEvent
+     * @example
+     * // Get one LeadSubmissionEvent
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LeadSubmissionEventFindFirstOrThrowArgs>(args?: SelectSubset<T, LeadSubmissionEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LeadSubmissionEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionEventFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LeadSubmissionEvents
+     * const leadSubmissionEvents = await prisma.leadSubmissionEvent.findMany()
+     * 
+     * // Get first 10 LeadSubmissionEvents
+     * const leadSubmissionEvents = await prisma.leadSubmissionEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const leadSubmissionEventWithIdOnly = await prisma.leadSubmissionEvent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LeadSubmissionEventFindManyArgs>(args?: SelectSubset<T, LeadSubmissionEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LeadSubmissionEvent.
+     * @param {LeadSubmissionEventCreateArgs} args - Arguments to create a LeadSubmissionEvent.
+     * @example
+     * // Create one LeadSubmissionEvent
+     * const LeadSubmissionEvent = await prisma.leadSubmissionEvent.create({
+     *   data: {
+     *     // ... data to create a LeadSubmissionEvent
+     *   }
+     * })
+     * 
+     */
+    create<T extends LeadSubmissionEventCreateArgs>(args: SelectSubset<T, LeadSubmissionEventCreateArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LeadSubmissionEvents.
+     * @param {LeadSubmissionEventCreateManyArgs} args - Arguments to create many LeadSubmissionEvents.
+     * @example
+     * // Create many LeadSubmissionEvents
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LeadSubmissionEventCreateManyArgs>(args?: SelectSubset<T, LeadSubmissionEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LeadSubmissionEvents and returns the data saved in the database.
+     * @param {LeadSubmissionEventCreateManyAndReturnArgs} args - Arguments to create many LeadSubmissionEvents.
+     * @example
+     * // Create many LeadSubmissionEvents
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LeadSubmissionEvents and only return the `id`
+     * const leadSubmissionEventWithIdOnly = await prisma.leadSubmissionEvent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LeadSubmissionEventCreateManyAndReturnArgs>(args?: SelectSubset<T, LeadSubmissionEventCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LeadSubmissionEvent.
+     * @param {LeadSubmissionEventDeleteArgs} args - Arguments to delete one LeadSubmissionEvent.
+     * @example
+     * // Delete one LeadSubmissionEvent
+     * const LeadSubmissionEvent = await prisma.leadSubmissionEvent.delete({
+     *   where: {
+     *     // ... filter to delete one LeadSubmissionEvent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LeadSubmissionEventDeleteArgs>(args: SelectSubset<T, LeadSubmissionEventDeleteArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LeadSubmissionEvent.
+     * @param {LeadSubmissionEventUpdateArgs} args - Arguments to update one LeadSubmissionEvent.
+     * @example
+     * // Update one LeadSubmissionEvent
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LeadSubmissionEventUpdateArgs>(args: SelectSubset<T, LeadSubmissionEventUpdateArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LeadSubmissionEvents.
+     * @param {LeadSubmissionEventDeleteManyArgs} args - Arguments to filter LeadSubmissionEvents to delete.
+     * @example
+     * // Delete a few LeadSubmissionEvents
+     * const { count } = await prisma.leadSubmissionEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LeadSubmissionEventDeleteManyArgs>(args?: SelectSubset<T, LeadSubmissionEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadSubmissionEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LeadSubmissionEvents
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LeadSubmissionEventUpdateManyArgs>(args: SelectSubset<T, LeadSubmissionEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LeadSubmissionEvents and returns the data updated in the database.
+     * @param {LeadSubmissionEventUpdateManyAndReturnArgs} args - Arguments to update many LeadSubmissionEvents.
+     * @example
+     * // Update many LeadSubmissionEvents
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LeadSubmissionEvents and only return the `id`
+     * const leadSubmissionEventWithIdOnly = await prisma.leadSubmissionEvent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LeadSubmissionEventUpdateManyAndReturnArgs>(args: SelectSubset<T, LeadSubmissionEventUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LeadSubmissionEvent.
+     * @param {LeadSubmissionEventUpsertArgs} args - Arguments to update or create a LeadSubmissionEvent.
+     * @example
+     * // Update or create a LeadSubmissionEvent
+     * const leadSubmissionEvent = await prisma.leadSubmissionEvent.upsert({
+     *   create: {
+     *     // ... data to create a LeadSubmissionEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LeadSubmissionEvent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LeadSubmissionEventUpsertArgs>(args: SelectSubset<T, LeadSubmissionEventUpsertArgs<ExtArgs>>): Prisma__LeadSubmissionEventClient<$Result.GetResult<Prisma.$LeadSubmissionEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LeadSubmissionEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionEventCountArgs} args - Arguments to filter LeadSubmissionEvents to count.
+     * @example
+     * // Count the number of LeadSubmissionEvents
+     * const count = await prisma.leadSubmissionEvent.count({
+     *   where: {
+     *     // ... the filter for the LeadSubmissionEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends LeadSubmissionEventCountArgs>(
+      args?: Subset<T, LeadSubmissionEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LeadSubmissionEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LeadSubmissionEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LeadSubmissionEventAggregateArgs>(args: Subset<T, LeadSubmissionEventAggregateArgs>): Prisma.PrismaPromise<GetLeadSubmissionEventAggregateType<T>>
+
+    /**
+     * Group by LeadSubmissionEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeadSubmissionEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LeadSubmissionEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LeadSubmissionEventGroupByArgs['orderBy'] }
+        : { orderBy?: LeadSubmissionEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LeadSubmissionEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeadSubmissionEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LeadSubmissionEvent model
+   */
+  readonly fields: LeadSubmissionEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LeadSubmissionEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LeadSubmissionEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LeadSubmissionEvent model
+   */
+  interface LeadSubmissionEventFieldRefs {
+    readonly id: FieldRef<"LeadSubmissionEvent", 'String'>
+    readonly submissionId: FieldRef<"LeadSubmissionEvent", 'String'>
+    readonly eventType: FieldRef<"LeadSubmissionEvent", 'String'>
+    readonly stateCode: FieldRef<"LeadSubmissionEvent", 'String'>
+    readonly detailsHash: FieldRef<"LeadSubmissionEvent", 'String'>
+    readonly createdAt: FieldRef<"LeadSubmissionEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LeadSubmissionEvent findUnique
+   */
+  export type LeadSubmissionEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmissionEvent to fetch.
+     */
+    where: LeadSubmissionEventWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmissionEvent findUniqueOrThrow
+   */
+  export type LeadSubmissionEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmissionEvent to fetch.
+     */
+    where: LeadSubmissionEventWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmissionEvent findFirst
+   */
+  export type LeadSubmissionEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmissionEvent to fetch.
+     */
+    where?: LeadSubmissionEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadSubmissionEvents to fetch.
+     */
+    orderBy?: LeadSubmissionEventOrderByWithRelationInput | LeadSubmissionEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LeadSubmissionEvents.
+     */
+    cursor?: LeadSubmissionEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadSubmissionEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadSubmissionEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeadSubmissionEvents.
+     */
+    distinct?: LeadSubmissionEventScalarFieldEnum | LeadSubmissionEventScalarFieldEnum[]
+  }
+
+  /**
+   * LeadSubmissionEvent findFirstOrThrow
+   */
+  export type LeadSubmissionEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmissionEvent to fetch.
+     */
+    where?: LeadSubmissionEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadSubmissionEvents to fetch.
+     */
+    orderBy?: LeadSubmissionEventOrderByWithRelationInput | LeadSubmissionEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LeadSubmissionEvents.
+     */
+    cursor?: LeadSubmissionEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadSubmissionEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadSubmissionEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeadSubmissionEvents.
+     */
+    distinct?: LeadSubmissionEventScalarFieldEnum | LeadSubmissionEventScalarFieldEnum[]
+  }
+
+  /**
+   * LeadSubmissionEvent findMany
+   */
+  export type LeadSubmissionEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * Filter, which LeadSubmissionEvents to fetch.
+     */
+    where?: LeadSubmissionEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LeadSubmissionEvents to fetch.
+     */
+    orderBy?: LeadSubmissionEventOrderByWithRelationInput | LeadSubmissionEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LeadSubmissionEvents.
+     */
+    cursor?: LeadSubmissionEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LeadSubmissionEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LeadSubmissionEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LeadSubmissionEvents.
+     */
+    distinct?: LeadSubmissionEventScalarFieldEnum | LeadSubmissionEventScalarFieldEnum[]
+  }
+
+  /**
+   * LeadSubmissionEvent create
+   */
+  export type LeadSubmissionEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * The data needed to create a LeadSubmissionEvent.
+     */
+    data: XOR<LeadSubmissionEventCreateInput, LeadSubmissionEventUncheckedCreateInput>
+  }
+
+  /**
+   * LeadSubmissionEvent createMany
+   */
+  export type LeadSubmissionEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LeadSubmissionEvents.
+     */
+    data: LeadSubmissionEventCreateManyInput | LeadSubmissionEventCreateManyInput[]
+  }
+
+  /**
+   * LeadSubmissionEvent createManyAndReturn
+   */
+  export type LeadSubmissionEventCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * The data used to create many LeadSubmissionEvents.
+     */
+    data: LeadSubmissionEventCreateManyInput | LeadSubmissionEventCreateManyInput[]
+  }
+
+  /**
+   * LeadSubmissionEvent update
+   */
+  export type LeadSubmissionEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * The data needed to update a LeadSubmissionEvent.
+     */
+    data: XOR<LeadSubmissionEventUpdateInput, LeadSubmissionEventUncheckedUpdateInput>
+    /**
+     * Choose, which LeadSubmissionEvent to update.
+     */
+    where: LeadSubmissionEventWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmissionEvent updateMany
+   */
+  export type LeadSubmissionEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LeadSubmissionEvents.
+     */
+    data: XOR<LeadSubmissionEventUpdateManyMutationInput, LeadSubmissionEventUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadSubmissionEvents to update
+     */
+    where?: LeadSubmissionEventWhereInput
+    /**
+     * Limit how many LeadSubmissionEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadSubmissionEvent updateManyAndReturn
+   */
+  export type LeadSubmissionEventUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * The data used to update LeadSubmissionEvents.
+     */
+    data: XOR<LeadSubmissionEventUpdateManyMutationInput, LeadSubmissionEventUncheckedUpdateManyInput>
+    /**
+     * Filter which LeadSubmissionEvents to update
+     */
+    where?: LeadSubmissionEventWhereInput
+    /**
+     * Limit how many LeadSubmissionEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadSubmissionEvent upsert
+   */
+  export type LeadSubmissionEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * The filter to search for the LeadSubmissionEvent to update in case it exists.
+     */
+    where: LeadSubmissionEventWhereUniqueInput
+    /**
+     * In case the LeadSubmissionEvent found by the `where` argument doesn't exist, create a new LeadSubmissionEvent with this data.
+     */
+    create: XOR<LeadSubmissionEventCreateInput, LeadSubmissionEventUncheckedCreateInput>
+    /**
+     * In case the LeadSubmissionEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LeadSubmissionEventUpdateInput, LeadSubmissionEventUncheckedUpdateInput>
+  }
+
+  /**
+   * LeadSubmissionEvent delete
+   */
+  export type LeadSubmissionEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+    /**
+     * Filter which LeadSubmissionEvent to delete.
+     */
+    where: LeadSubmissionEventWhereUniqueInput
+  }
+
+  /**
+   * LeadSubmissionEvent deleteMany
+   */
+  export type LeadSubmissionEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LeadSubmissionEvents to delete
+     */
+    where?: LeadSubmissionEventWhereInput
+    /**
+     * Limit how many LeadSubmissionEvents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LeadSubmissionEvent without action
+   */
+  export type LeadSubmissionEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LeadSubmissionEvent
+     */
+    select?: LeadSubmissionEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LeadSubmissionEvent
+     */
+    omit?: LeadSubmissionEventOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9581,10 +11897,40 @@ export namespace Prisma {
     ghlContactId: 'ghlContactId',
     ghlOpportunityId: 'ghlOpportunityId',
     ghlSyncStatus: 'ghlSyncStatus',
-    ghlSyncErrorCode: 'ghlSyncErrorCode'
+    ghlSyncErrorCode: 'ghlSyncErrorCode',
+    isQa: 'isQa'
   };
 
   export type LeadSubmissionScalarFieldEnum = (typeof LeadSubmissionScalarFieldEnum)[keyof typeof LeadSubmissionScalarFieldEnum]
+
+
+  export const LeadOpportunityOutboxScalarFieldEnum: {
+    submissionId: 'submissionId',
+    ciphertext: 'ciphertext',
+    iv: 'iv',
+    authTag: 'authTag',
+    attempts: 'attempts',
+    nextAttemptAt: 'nextAttemptAt',
+    lastAttemptAt: 'lastAttemptAt',
+    lastErrorCode: 'lastErrorCode',
+    expiresAt: 'expiresAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LeadOpportunityOutboxScalarFieldEnum = (typeof LeadOpportunityOutboxScalarFieldEnum)[keyof typeof LeadOpportunityOutboxScalarFieldEnum]
+
+
+  export const LeadSubmissionEventScalarFieldEnum: {
+    id: 'id',
+    submissionId: 'submissionId',
+    eventType: 'eventType',
+    stateCode: 'stateCode',
+    detailsHash: 'detailsHash',
+    createdAt: 'createdAt'
+  };
+
+  export type LeadSubmissionEventScalarFieldEnum = (typeof LeadSubmissionEventScalarFieldEnum)[keyof typeof LeadSubmissionEventScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9612,35 +11958,35 @@ export namespace Prisma {
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
-
+    
 
 
   /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-
+    
 
 
   /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-
+    
 
 
   /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-
+    
 
 
   /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-
+    
   /**
    * Deep Input Types
    */
@@ -10072,6 +12418,7 @@ export namespace Prisma {
     ghlOpportunityId?: StringNullableFilter<"LeadSubmission"> | string | null
     ghlSyncStatus?: StringFilter<"LeadSubmission"> | string
     ghlSyncErrorCode?: StringNullableFilter<"LeadSubmission"> | string | null
+    isQa?: BoolFilter<"LeadSubmission"> | boolean
   }
 
   export type LeadSubmissionOrderByWithRelationInput = {
@@ -10104,6 +12451,7 @@ export namespace Prisma {
     ghlOpportunityId?: SortOrderInput | SortOrder
     ghlSyncStatus?: SortOrder
     ghlSyncErrorCode?: SortOrderInput | SortOrder
+    isQa?: SortOrder
   }
 
   export type LeadSubmissionWhereUniqueInput = Prisma.AtLeast<{
@@ -10139,6 +12487,7 @@ export namespace Prisma {
     ghlOpportunityId?: StringNullableFilter<"LeadSubmission"> | string | null
     ghlSyncStatus?: StringFilter<"LeadSubmission"> | string
     ghlSyncErrorCode?: StringNullableFilter<"LeadSubmission"> | string | null
+    isQa?: BoolFilter<"LeadSubmission"> | boolean
   }, "id">
 
   export type LeadSubmissionOrderByWithAggregationInput = {
@@ -10171,6 +12520,7 @@ export namespace Prisma {
     ghlOpportunityId?: SortOrderInput | SortOrder
     ghlSyncStatus?: SortOrder
     ghlSyncErrorCode?: SortOrderInput | SortOrder
+    isQa?: SortOrder
     _count?: LeadSubmissionCountOrderByAggregateInput
     _avg?: LeadSubmissionAvgOrderByAggregateInput
     _max?: LeadSubmissionMaxOrderByAggregateInput
@@ -10211,6 +12561,148 @@ export namespace Prisma {
     ghlOpportunityId?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
     ghlSyncStatus?: StringWithAggregatesFilter<"LeadSubmission"> | string
     ghlSyncErrorCode?: StringNullableWithAggregatesFilter<"LeadSubmission"> | string | null
+    isQa?: BoolWithAggregatesFilter<"LeadSubmission"> | boolean
+  }
+
+  export type LeadOpportunityOutboxWhereInput = {
+    AND?: LeadOpportunityOutboxWhereInput | LeadOpportunityOutboxWhereInput[]
+    OR?: LeadOpportunityOutboxWhereInput[]
+    NOT?: LeadOpportunityOutboxWhereInput | LeadOpportunityOutboxWhereInput[]
+    submissionId?: StringFilter<"LeadOpportunityOutbox"> | string
+    ciphertext?: StringFilter<"LeadOpportunityOutbox"> | string
+    iv?: StringFilter<"LeadOpportunityOutbox"> | string
+    authTag?: StringFilter<"LeadOpportunityOutbox"> | string
+    attempts?: IntFilter<"LeadOpportunityOutbox"> | number
+    nextAttemptAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+    lastAttemptAt?: DateTimeNullableFilter<"LeadOpportunityOutbox"> | Date | string | null
+    lastErrorCode?: StringNullableFilter<"LeadOpportunityOutbox"> | string | null
+    expiresAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+    updatedAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+  }
+
+  export type LeadOpportunityOutboxOrderByWithRelationInput = {
+    submissionId?: SortOrder
+    ciphertext?: SortOrder
+    iv?: SortOrder
+    authTag?: SortOrder
+    attempts?: SortOrder
+    nextAttemptAt?: SortOrder
+    lastAttemptAt?: SortOrderInput | SortOrder
+    lastErrorCode?: SortOrderInput | SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadOpportunityOutboxWhereUniqueInput = Prisma.AtLeast<{
+    submissionId?: string
+    AND?: LeadOpportunityOutboxWhereInput | LeadOpportunityOutboxWhereInput[]
+    OR?: LeadOpportunityOutboxWhereInput[]
+    NOT?: LeadOpportunityOutboxWhereInput | LeadOpportunityOutboxWhereInput[]
+    ciphertext?: StringFilter<"LeadOpportunityOutbox"> | string
+    iv?: StringFilter<"LeadOpportunityOutbox"> | string
+    authTag?: StringFilter<"LeadOpportunityOutbox"> | string
+    attempts?: IntFilter<"LeadOpportunityOutbox"> | number
+    nextAttemptAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+    lastAttemptAt?: DateTimeNullableFilter<"LeadOpportunityOutbox"> | Date | string | null
+    lastErrorCode?: StringNullableFilter<"LeadOpportunityOutbox"> | string | null
+    expiresAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+    createdAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+    updatedAt?: DateTimeFilter<"LeadOpportunityOutbox"> | Date | string
+  }, "submissionId">
+
+  export type LeadOpportunityOutboxOrderByWithAggregationInput = {
+    submissionId?: SortOrder
+    ciphertext?: SortOrder
+    iv?: SortOrder
+    authTag?: SortOrder
+    attempts?: SortOrder
+    nextAttemptAt?: SortOrder
+    lastAttemptAt?: SortOrderInput | SortOrder
+    lastErrorCode?: SortOrderInput | SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: LeadOpportunityOutboxCountOrderByAggregateInput
+    _avg?: LeadOpportunityOutboxAvgOrderByAggregateInput
+    _max?: LeadOpportunityOutboxMaxOrderByAggregateInput
+    _min?: LeadOpportunityOutboxMinOrderByAggregateInput
+    _sum?: LeadOpportunityOutboxSumOrderByAggregateInput
+  }
+
+  export type LeadOpportunityOutboxScalarWhereWithAggregatesInput = {
+    AND?: LeadOpportunityOutboxScalarWhereWithAggregatesInput | LeadOpportunityOutboxScalarWhereWithAggregatesInput[]
+    OR?: LeadOpportunityOutboxScalarWhereWithAggregatesInput[]
+    NOT?: LeadOpportunityOutboxScalarWhereWithAggregatesInput | LeadOpportunityOutboxScalarWhereWithAggregatesInput[]
+    submissionId?: StringWithAggregatesFilter<"LeadOpportunityOutbox"> | string
+    ciphertext?: StringWithAggregatesFilter<"LeadOpportunityOutbox"> | string
+    iv?: StringWithAggregatesFilter<"LeadOpportunityOutbox"> | string
+    authTag?: StringWithAggregatesFilter<"LeadOpportunityOutbox"> | string
+    attempts?: IntWithAggregatesFilter<"LeadOpportunityOutbox"> | number
+    nextAttemptAt?: DateTimeWithAggregatesFilter<"LeadOpportunityOutbox"> | Date | string
+    lastAttemptAt?: DateTimeNullableWithAggregatesFilter<"LeadOpportunityOutbox"> | Date | string | null
+    lastErrorCode?: StringNullableWithAggregatesFilter<"LeadOpportunityOutbox"> | string | null
+    expiresAt?: DateTimeWithAggregatesFilter<"LeadOpportunityOutbox"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"LeadOpportunityOutbox"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"LeadOpportunityOutbox"> | Date | string
+  }
+
+  export type LeadSubmissionEventWhereInput = {
+    AND?: LeadSubmissionEventWhereInput | LeadSubmissionEventWhereInput[]
+    OR?: LeadSubmissionEventWhereInput[]
+    NOT?: LeadSubmissionEventWhereInput | LeadSubmissionEventWhereInput[]
+    id?: StringFilter<"LeadSubmissionEvent"> | string
+    submissionId?: StringFilter<"LeadSubmissionEvent"> | string
+    eventType?: StringFilter<"LeadSubmissionEvent"> | string
+    stateCode?: StringNullableFilter<"LeadSubmissionEvent"> | string | null
+    detailsHash?: StringNullableFilter<"LeadSubmissionEvent"> | string | null
+    createdAt?: DateTimeFilter<"LeadSubmissionEvent"> | Date | string
+  }
+
+  export type LeadSubmissionEventOrderByWithRelationInput = {
+    id?: SortOrder
+    submissionId?: SortOrder
+    eventType?: SortOrder
+    stateCode?: SortOrderInput | SortOrder
+    detailsHash?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type LeadSubmissionEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LeadSubmissionEventWhereInput | LeadSubmissionEventWhereInput[]
+    OR?: LeadSubmissionEventWhereInput[]
+    NOT?: LeadSubmissionEventWhereInput | LeadSubmissionEventWhereInput[]
+    submissionId?: StringFilter<"LeadSubmissionEvent"> | string
+    eventType?: StringFilter<"LeadSubmissionEvent"> | string
+    stateCode?: StringNullableFilter<"LeadSubmissionEvent"> | string | null
+    detailsHash?: StringNullableFilter<"LeadSubmissionEvent"> | string | null
+    createdAt?: DateTimeFilter<"LeadSubmissionEvent"> | Date | string
+  }, "id">
+
+  export type LeadSubmissionEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    submissionId?: SortOrder
+    eventType?: SortOrder
+    stateCode?: SortOrderInput | SortOrder
+    detailsHash?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: LeadSubmissionEventCountOrderByAggregateInput
+    _max?: LeadSubmissionEventMaxOrderByAggregateInput
+    _min?: LeadSubmissionEventMinOrderByAggregateInput
+  }
+
+  export type LeadSubmissionEventScalarWhereWithAggregatesInput = {
+    AND?: LeadSubmissionEventScalarWhereWithAggregatesInput | LeadSubmissionEventScalarWhereWithAggregatesInput[]
+    OR?: LeadSubmissionEventScalarWhereWithAggregatesInput[]
+    NOT?: LeadSubmissionEventScalarWhereWithAggregatesInput | LeadSubmissionEventScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LeadSubmissionEvent"> | string
+    submissionId?: StringWithAggregatesFilter<"LeadSubmissionEvent"> | string
+    eventType?: StringWithAggregatesFilter<"LeadSubmissionEvent"> | string
+    stateCode?: StringNullableWithAggregatesFilter<"LeadSubmissionEvent"> | string | null
+    detailsHash?: StringNullableWithAggregatesFilter<"LeadSubmissionEvent"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"LeadSubmissionEvent"> | Date | string
   }
 
   export type ToolUserCreateInput = {
@@ -10668,6 +13160,7 @@ export namespace Prisma {
     ghlOpportunityId?: string | null
     ghlSyncStatus?: string
     ghlSyncErrorCode?: string | null
+    isQa?: boolean
   }
 
   export type LeadSubmissionUncheckedCreateInput = {
@@ -10700,6 +13193,7 @@ export namespace Prisma {
     ghlOpportunityId?: string | null
     ghlSyncStatus?: string
     ghlSyncErrorCode?: string | null
+    isQa?: boolean
   }
 
   export type LeadSubmissionUpdateInput = {
@@ -10732,6 +13226,7 @@ export namespace Prisma {
     ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
     ghlSyncStatus?: StringFieldUpdateOperationsInput | string
     ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    isQa?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LeadSubmissionUncheckedUpdateInput = {
@@ -10764,6 +13259,7 @@ export namespace Prisma {
     ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
     ghlSyncStatus?: StringFieldUpdateOperationsInput | string
     ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    isQa?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LeadSubmissionCreateManyInput = {
@@ -10796,6 +13292,7 @@ export namespace Prisma {
     ghlOpportunityId?: string | null
     ghlSyncStatus?: string
     ghlSyncErrorCode?: string | null
+    isQa?: boolean
   }
 
   export type LeadSubmissionUpdateManyMutationInput = {
@@ -10828,6 +13325,7 @@ export namespace Prisma {
     ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
     ghlSyncStatus?: StringFieldUpdateOperationsInput | string
     ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    isQa?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type LeadSubmissionUncheckedUpdateManyInput = {
@@ -10860,6 +13358,168 @@ export namespace Prisma {
     ghlOpportunityId?: NullableStringFieldUpdateOperationsInput | string | null
     ghlSyncStatus?: StringFieldUpdateOperationsInput | string
     ghlSyncErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    isQa?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LeadOpportunityOutboxCreateInput = {
+    submissionId: string
+    ciphertext: string
+    iv: string
+    authTag: string
+    attempts?: number
+    nextAttemptAt?: Date | string
+    lastAttemptAt?: Date | string | null
+    lastErrorCode?: string | null
+    expiresAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadOpportunityOutboxUncheckedCreateInput = {
+    submissionId: string
+    ciphertext: string
+    iv: string
+    authTag: string
+    attempts?: number
+    nextAttemptAt?: Date | string
+    lastAttemptAt?: Date | string | null
+    lastErrorCode?: string | null
+    expiresAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadOpportunityOutboxUpdateInput = {
+    submissionId?: StringFieldUpdateOperationsInput | string
+    ciphertext?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    authTag?: StringFieldUpdateOperationsInput | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    nextAttemptAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadOpportunityOutboxUncheckedUpdateInput = {
+    submissionId?: StringFieldUpdateOperationsInput | string
+    ciphertext?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    authTag?: StringFieldUpdateOperationsInput | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    nextAttemptAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadOpportunityOutboxCreateManyInput = {
+    submissionId: string
+    ciphertext: string
+    iv: string
+    authTag: string
+    attempts?: number
+    nextAttemptAt?: Date | string
+    lastAttemptAt?: Date | string | null
+    lastErrorCode?: string | null
+    expiresAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LeadOpportunityOutboxUpdateManyMutationInput = {
+    submissionId?: StringFieldUpdateOperationsInput | string
+    ciphertext?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    authTag?: StringFieldUpdateOperationsInput | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    nextAttemptAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadOpportunityOutboxUncheckedUpdateManyInput = {
+    submissionId?: StringFieldUpdateOperationsInput | string
+    ciphertext?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    authTag?: StringFieldUpdateOperationsInput | string
+    attempts?: IntFieldUpdateOperationsInput | number
+    nextAttemptAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastAttemptAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastErrorCode?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadSubmissionEventCreateInput = {
+    id?: string
+    submissionId: string
+    eventType: string
+    stateCode?: string | null
+    detailsHash?: string | null
+    createdAt?: Date | string
+  }
+
+  export type LeadSubmissionEventUncheckedCreateInput = {
+    id?: string
+    submissionId: string
+    eventType: string
+    stateCode?: string | null
+    detailsHash?: string | null
+    createdAt?: Date | string
+  }
+
+  export type LeadSubmissionEventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    submissionId?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    stateCode?: NullableStringFieldUpdateOperationsInput | string | null
+    detailsHash?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadSubmissionEventUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    submissionId?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    stateCode?: NullableStringFieldUpdateOperationsInput | string | null
+    detailsHash?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadSubmissionEventCreateManyInput = {
+    id?: string
+    submissionId: string
+    eventType: string
+    stateCode?: string | null
+    detailsHash?: string | null
+    createdAt?: Date | string
+  }
+
+  export type LeadSubmissionEventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    submissionId?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    stateCode?: NullableStringFieldUpdateOperationsInput | string | null
+    detailsHash?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LeadSubmissionEventUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    submissionId?: StringFieldUpdateOperationsInput | string
+    eventType?: StringFieldUpdateOperationsInput | string
+    stateCode?: NullableStringFieldUpdateOperationsInput | string | null
+    detailsHash?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -11300,6 +13960,7 @@ export namespace Prisma {
     ghlOpportunityId?: SortOrder
     ghlSyncStatus?: SortOrder
     ghlSyncErrorCode?: SortOrder
+    isQa?: SortOrder
   }
 
   export type LeadSubmissionAvgOrderByAggregateInput = {
@@ -11337,6 +13998,7 @@ export namespace Prisma {
     ghlOpportunityId?: SortOrder
     ghlSyncStatus?: SortOrder
     ghlSyncErrorCode?: SortOrder
+    isQa?: SortOrder
   }
 
   export type LeadSubmissionMinOrderByAggregateInput = {
@@ -11369,6 +14031,7 @@ export namespace Prisma {
     ghlOpportunityId?: SortOrder
     ghlSyncStatus?: SortOrder
     ghlSyncErrorCode?: SortOrder
+    isQa?: SortOrder
   }
 
   export type LeadSubmissionSumOrderByAggregateInput = {
@@ -11390,6 +14053,83 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type LeadOpportunityOutboxCountOrderByAggregateInput = {
+    submissionId?: SortOrder
+    ciphertext?: SortOrder
+    iv?: SortOrder
+    authTag?: SortOrder
+    attempts?: SortOrder
+    nextAttemptAt?: SortOrder
+    lastAttemptAt?: SortOrder
+    lastErrorCode?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadOpportunityOutboxAvgOrderByAggregateInput = {
+    attempts?: SortOrder
+  }
+
+  export type LeadOpportunityOutboxMaxOrderByAggregateInput = {
+    submissionId?: SortOrder
+    ciphertext?: SortOrder
+    iv?: SortOrder
+    authTag?: SortOrder
+    attempts?: SortOrder
+    nextAttemptAt?: SortOrder
+    lastAttemptAt?: SortOrder
+    lastErrorCode?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadOpportunityOutboxMinOrderByAggregateInput = {
+    submissionId?: SortOrder
+    ciphertext?: SortOrder
+    iv?: SortOrder
+    authTag?: SortOrder
+    attempts?: SortOrder
+    nextAttemptAt?: SortOrder
+    lastAttemptAt?: SortOrder
+    lastErrorCode?: SortOrder
+    expiresAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LeadOpportunityOutboxSumOrderByAggregateInput = {
+    attempts?: SortOrder
+  }
+
+  export type LeadSubmissionEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    submissionId?: SortOrder
+    eventType?: SortOrder
+    stateCode?: SortOrder
+    detailsHash?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type LeadSubmissionEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    submissionId?: SortOrder
+    eventType?: SortOrder
+    stateCode?: SortOrder
+    detailsHash?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type LeadSubmissionEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    submissionId?: SortOrder
+    eventType?: SortOrder
+    stateCode?: SortOrder
+    detailsHash?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type ToolSessionCreateNestedManyWithoutUserInput = {

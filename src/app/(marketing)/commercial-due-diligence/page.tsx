@@ -28,7 +28,7 @@ const diligenceAreas = [
   {
     icon: Search,
     title: "Title and Ownership Review",
-    desc: "We review vesting, recorded deeds, ownership chain, legal description issues, and prior transfers before the deal moves too far.",
+    desc: "An accepted provider may review vesting, recorded deeds, ownership chain, legal-description issues, and prior transfers within its confirmed scope.",
   },
   {
     icon: Scale,
@@ -48,7 +48,7 @@ const diligenceAreas = [
   {
     icon: Landmark,
     title: "Lender and Title Insurance Needs",
-    desc: "We help identify title exceptions, endorsements, underwriting questions, and closing conditions that can affect financing.",
+    desc: "An accepted provider may identify title exceptions, endorsements, underwriting questions, and closing conditions that can affect financing.",
   },
   {
     icon: Shield,
@@ -93,7 +93,7 @@ const process = [
   {
     icon: Search,
     title: "2. Review the Title Record",
-    desc: "We examine ownership, liens, judgments, taxes, easements, restrictions, entity concerns, and commercial closing requirements.",
+    desc: "An accepted provider may examine ownership, liens, judgments, taxes, easements, restrictions, entity concerns, and commercial closing requirements.",
   },
   {
     icon: CheckCircle2,
@@ -113,11 +113,11 @@ const faqs = [
   },
   {
     q: "What commercial properties do you review?",
-    a: "We support due diligence for office, retail, industrial, mixed-use, multifamily, development, investor, distressed, and owner-operator commercial properties across DC, Maryland, and Virginia.",
+    a: "A provider may support due diligence for office, retail, industrial, mixed-use, multifamily, development, investor, distressed, or owner-operator properties. It must independently confirm eligibility, acceptance, scope, pricing, timing, and terms.",
   },
   {
     q: "Can you help with lender title requirements?",
-    a: "Yes. We help identify title exceptions, curative needs, entity concerns, survey-related questions, endorsements, and closing conditions that may matter to the commercial lender.",
+    a: "An accepted provider may identify title exceptions, curative needs, entity concerns, survey questions, endorsements, and closing conditions within its confirmed lender-facing scope.",
   },
   {
     q: "What should I send to start commercial due diligence?",
@@ -185,7 +185,7 @@ export default function CommercialDueDiligencePage() {
           </h1>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl">
             Title due diligence for commercial buyers, investors, lenders, and
-            operators across DC, Maryland, and Virginia. We identify title
+            operators across DC, Maryland, and Virginia. An accepted provider may identify title
             risks, liens, easements, restrictions, entity issues, and closing
             concerns before they slow the deal.
           </p>
@@ -262,7 +262,7 @@ export default function CommercialDueDiligencePage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

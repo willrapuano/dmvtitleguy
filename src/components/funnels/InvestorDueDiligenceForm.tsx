@@ -21,7 +21,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
     propertyAddress: "",
     buyerType: "LLC",
     source: "MLS",
-    timeframe: "Standard (5-7 days)",
+    timeframe: "Timing to be confirmed",
     notes: "",
   });
 
@@ -63,7 +63,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
         <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
         <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
-          Our team will review your submission and respond within one business day.
+          Will will review the information and may follow up. Any provider independently confirms acceptance, scope, timing, pricing, and terms.
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           For immediate assistance, call{" "}
@@ -76,7 +76,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
   return (
     <div className="rounded-xl bg-white p-5 shadow-lg sm:p-8">
       <h3 className="t-h5 text-brand-navy mb-2">Start Your Due Diligence</h3>
-      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Fill out the form below and we&apos;ll begin your title search immediately.</p>
+      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Share the property details with Will to request an educational review or a possible provider introduction.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="hidden" aria-hidden="true">
@@ -134,8 +134,8 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
           <div>
             <label htmlFor="idd-timeframe" className="block text-sm font-medium text-brand-dark-text mb-1">Timeframe</label>
             <select id="idd-timeframe" value={formData.timeframe} onChange={(e) => setFormData({ ...formData, timeframe: e.target.value })} className="form-control">
-              <option value="Rush (1-3 days)">Rush (1-3 days)</option>
-              <option value="Standard (5-7 days)">Standard (5-7 days)</option>
+              <option value="Timing to be confirmed">Timing to be confirmed</option>
+              <option value="Time-sensitive request">Time-sensitive request</option>
               <option value="Flexible">Flexible</option>
             </select>
           </div>

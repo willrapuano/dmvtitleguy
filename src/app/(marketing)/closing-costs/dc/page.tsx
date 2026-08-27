@@ -93,7 +93,7 @@ export default function DCClosingCostsPage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            DC has the highest closing costs in the DMV—properties over $400K pay 2.9% in combined taxes. But first-time buyers can save $10K+ through DC's recordation tax exemptions. We help buyers navigate these programs.
+            DC closing costs can include material recordation and transfer taxes, while some buyers may qualify for current government benefits. This guide helps identify questions; verify eligibility and current amounts with official DC sources and transaction professionals.
           </p>
         </div>
       </section>

@@ -158,12 +158,31 @@ interface LeadSubmissionDetails {
   transactionType?: string;
   contactRole?: string;
   transactionIntent: boolean;
+  isQa: boolean;
+}
+
+export async function recordLeadSubmissionEvent(
+  submissionId: string,
+  eventType: string,
+  stateCode?: string,
+  details?: Record<string, unknown>,
+) {
+  await prisma.leadSubmissionEvent.create({
+    data: {
+      submissionId,
+      eventType: eventType.slice(0, 80),
+      stateCode: stateCode?.slice(0, 120) || null,
+      detailsHash: details ? opaqueKey("lead-event", JSON.stringify(details)) : null,
+    },
+  });
 }
 
 export async function recordLeadSubmissionDetails(id: string, details: LeadSubmissionDetails) {
   const payloadHash = opaqueKey("lead-payload", JSON.stringify(details.payload));
   const updated = await prisma.leadSubmission.updateMany({
-    where: { id, status: "pending" },
+    // Acquisition and attribution fields are write-once. Later lifecycle
+    // changes use dedicated fields and append-only LeadSubmissionEvent rows.
+    where: { id, status: "pending", payloadHash: null },
     data: {
       source: details.source,
       formType: details.formType,
@@ -176,9 +195,11 @@ export async function recordLeadSubmissionDetails(id: string, details: LeadSubmi
       transactionType: details.transactionType || null,
       contactRole: details.contactRole || null,
       ghlSyncStatus: details.transactionIntent ? "pending" : "not-required",
+      isQa: details.isQa,
     },
   });
   if (updated.count !== 1) throw new LeadRequestError("Submission is already processing", 409);
+  await recordLeadSubmissionEvent(id, "acquisition-recorded", details.transactionIntent ? "transaction" : "non-transaction");
 }
 
 export async function completeLeadSubmission(id: string) {
@@ -186,6 +207,7 @@ export async function completeLeadSubmission(id: string) {
     where: { id },
     data: { status: "delivered", deliveredAt: new Date() },
   });
+  await recordLeadSubmissionEvent(id, "webhook-delivered", "confirmed");
 }
 
 export async function markLeadSubmissionSending(id: string) {
@@ -196,6 +218,7 @@ export async function markLeadSubmissionSending(id: string) {
   if (updated.count !== 1) {
     throw new LeadRequestError("Submission is already processing", 409);
   }
+  await recordLeadSubmissionEvent(id, "webhook-delivery-started", "sending");
 }
 
 export async function markLeadSubmissionUnknown(id: string, errorCode: string) {
@@ -203,6 +226,7 @@ export async function markLeadSubmissionUnknown(id: string, errorCode: string) {
     where: { id, status: "sending" },
     data: { status: "unknown", lastDeliveryErrorCode: errorCode.slice(0, 120) },
   });
+  await recordLeadSubmissionEvent(id, "webhook-delivery-ambiguous", errorCode);
 }
 
 export async function recordLeadCRMSync(
@@ -218,12 +242,20 @@ export async function recordLeadCRMSync(
       ghlSyncErrorCode: result.errorCode?.slice(0, 120) || null,
     },
   });
+  await recordLeadSubmissionEvent(
+    id,
+    "ghl-opportunity-sync",
+    result.errorCode ? "error" : "synced",
+    { contactId: result.contactId || null, opportunityId: result.opportunityId || null },
+  );
 }
 
 export async function releaseLeadSubmission(id: string) {
-  await prisma.leadSubmission.deleteMany({
-    where: { id, status: { in: ["pending", "sending"] } },
-  });
+  await recordLeadSubmissionEvent(id, "submission-released", "retry-safe").catch(() => undefined);
+  await prisma.$transaction([
+    prisma.leadOpportunityOutbox.deleteMany({ where: { submissionId: id } }),
+    prisma.leadSubmission.deleteMany({ where: { id, status: { in: ["pending", "sending"] } } }),
+  ]);
 }
 
 export function leadLandingPage(request: NextRequest) {

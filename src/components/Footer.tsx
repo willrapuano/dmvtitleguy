@@ -21,7 +21,7 @@ const QUICK_LINKS = [
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review",     label: "Foreclosure Title Review" },
   { href: "/about-will-rapuano",           label: "About Will & DMV Title Guy" },
-  { href: "/why-choose-us",                label: "Why Pruitt Title?" },
+  { href: "/why-choose-us",                label: "Choosing a Title Provider" },
   { href: "/my-classes",                   label: "My Classes" },
   { href: "/blog",                         label: "My Blog" },
   { href: "/subscribe",                    label: "Subscribe" },
@@ -57,12 +57,12 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Areas We Serve */}
+      {/* Areas Covered */}
       <div className="border-b border-white/10 bg-brand-navy-dark/40 py-8">
         <div className="container-xl">
           <details className="group">
             <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue-300 lg:hidden">
-              Areas We Serve
+              Areas Covered
               <span
                 aria-hidden="true"
                 className="text-xl transition-transform duration-150 ease-[var(--ease-out)] group-open:rotate-45 motion-reduce:transition-none lg:hidden"
@@ -72,7 +72,7 @@ export function Footer() {
             </summary>
             <div className="mt-5 hidden grid-cols-2 gap-x-6 gap-y-3 text-xs text-slate-300 group-open:grid lg:!grid lg:grid-cols-4 lg:gap-x-10 lg:gap-y-2.5">
               <h3 className="hidden text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue-300 lg:col-span-4 lg:mb-3 lg:block">
-                Areas We Serve
+                Areas Covered
               </h3>
               {SERVICE_AREAS.map((loc) => (
                 <Link key={loc.slug} href={`/${loc.slug}`} prefetch={false} className="block transition-colors duration-150 hover:text-white">

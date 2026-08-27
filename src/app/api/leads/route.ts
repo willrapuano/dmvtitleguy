@@ -8,14 +8,14 @@ import {
   markLeadSubmissionSending,
   markLeadSubmissionUnknown,
   readLeadBody,
-  recordLeadCRMSync,
   recordLeadSubmissionDetails,
   releaseLeadSubmission,
   reserveLeadSubmission,
   validateSubmissionId,
 } from "@/lib/lead-protection";
 import { leadAttributionFields } from "@/lib/lead-attribution";
-import { syncGHLTransactionOpportunity, TRANSACTION_INTENT_SOURCES } from "@/lib/ghl-crm";
+import { isSeoQaPayload, TRANSACTION_INTENT_SOURCES } from "@/lib/ghl-crm";
+import { stageGhlOpportunitySync, syncStagedGhlOpportunity } from "@/lib/ghl-opportunity-outbox";
 
 const FORM_TYPES = new Set(["quote", "subscribe", "advertising"]);
 
@@ -80,6 +80,7 @@ export async function POST(request: NextRequest) {
       landingPage: leadLandingPage(request),
       ...attribution,
     };
+    const isQa = isSeoQaPayload(webhookPayload);
     await recordLeadSubmissionDetails(submissionId, {
       source: `dmvtitleguy-${formType}`,
       formType,
@@ -92,7 +93,15 @@ export async function POST(request: NextRequest) {
       transactionType: webhookPayload.transactionType,
       contactRole: webhookPayload.role,
       transactionIntent: TRANSACTION_INTENT_SOURCES.has(formType),
+      isQa,
     });
+    if (TRANSACTION_INTENT_SOURCES.has(formType)) {
+      await stageGhlOpportunitySync(
+        submissionId,
+        formType,
+        isQa ? { ...webhookPayload, seoQaExcluded: true } : webhookPayload,
+      );
+    }
     await markLeadSubmissionSending(submissionId);
     deliveryStarted = true;
     const result = await postToGHLWebhook(webhookPayload, formType);
@@ -118,12 +127,10 @@ export async function POST(request: NextRequest) {
     });
     if (TRANSACTION_INTENT_SOURCES.has(formType)) {
       try {
-        const crm = await syncGHLTransactionOpportunity(webhookPayload, formType);
-        await recordLeadCRMSync(submissionId, crm);
+        await syncStagedGhlOpportunity(submissionId);
       } catch (error) {
         const errorCode = error instanceof Error ? error.message : "ghl-sync-failed";
         console.error(`[Lead API:${requestId}] GHL opportunity sync failed:`, errorCode);
-        await recordLeadCRMSync(submissionId, { errorCode }).catch(() => undefined);
       }
     }
     return NextResponse.json({ ok: true, requestId });

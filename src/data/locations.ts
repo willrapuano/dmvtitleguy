@@ -47,7 +47,7 @@ export const TIER1_LOCATIONS: Location[] = [
   { city: "Bethesda",         slug: "title-company-bethesda-md",      state: "MD", county: "Montgomery County",              tier: 1, alsoServing: ["Chevy Chase"], faqs: [
       { question: "How does a title search work in Maryland?", answer: "In Maryland, a title company examines public records going back at least 50 years to verify clear ownership, identify any liens or encumbrances, and ensure no outstanding claims on the property before issuing title insurance." },
       { question: "What's the difference between a title company and a settlement company in Maryland?", answer: "In Maryland, the terms are often used interchangeably. A title company focuses on title insurance, while a settlement company conducts the closing. Many firms, including DMV Title Guy, handle both roles." },
-      { question: "What are typical closing costs for a buyer in Bethesda, MD?", answer: "Bethesda buyer closing costs typically run 2–4% of the purchase price, including lender fees, title insurance, recording fees, and Maryland transfer taxes. Get a free estimate at our closing cost calculator." },
+      { question: "What are typical closing costs for a buyer in Bethesda, MD?", answer: "Bethesda buyer closing costs vary with lender fees, title insurance, recording charges, taxes, property value, and the transaction. Use the closing cost calculator for an educational estimate and confirm actual figures with the lender and accepted provider." },
     ] },
   { city: "Rockville",        slug: "title-company-rockville-md",     state: "MD", county: "Montgomery County",              tier: 1 },
   { city: "Silver Spring",    slug: "title-company-silver-spring-md", state: "MD", county: "Montgomery County",              tier: 1, alsoServing: ["Kensington", "Takoma Park", "Wheaton"] },
@@ -83,7 +83,7 @@ export const TIER2_LOCATIONS: Location[] = [
   { city: "Burke",            slug: "title-company-burke-va",            state: "VA", county: "Fairfax County",          tier: 2, alsoServing: ["Lorton"] },
   { city: "Springfield",      slug: "title-company-springfield-va",      state: "VA", county: "Fairfax County",          tier: 2, alsoServing: ["Lorton"], faqs: [
       { question: "What should I expect at closing in Springfield, VA?", answer: "In Springfield, VA, a typical closing takes 45–90 minutes. You'll sign the deed, deed of trust, closing disclosure, and other loan documents. The settlement attorney reviews everything, then coordinates funding and recording with Fairfax County." },
-      { question: "Can I get a title insurance quote online?", answer: "Yes. DMV Title Guy offers free title insurance quotes online through our closing cost calculator or by calling (703) 859-1467. You'll get a detailed breakdown of all fees within one business day." },
+      { question: "Can I estimate title and closing costs online?", answer: "Yes. DMV Title Guy offers educational closing-cost calculators. The results are estimates, not a provider quote. A provider must confirm actual fees, coverage, acceptance, terms, and disclosures directly." },
       { question: "Does title insurance cover boundary disputes in Virginia?", answer: "Standard title insurance in Virginia may cover some boundary and survey issues, but it depends on the policy. An enhanced owner's policy offers broader coverage than a standard policy." },
     ] },
   { city: "Annandale",        slug: "title-company-annandale-va",        state: "VA", county: "Fairfax County",          tier: 2 },

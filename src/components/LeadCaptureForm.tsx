@@ -15,8 +15,8 @@ interface LeadCaptureFormProps {
 }
 
 export function LeadCaptureForm({
-  title = "Get a Free Closing Cost Quote",
-  subtitle = "Serving DC, Maryland & Virginia. Response within one business day.",
+  title = "Request a Provider Introduction",
+  subtitle = "Share the transaction details with Will. Submission does not create a service relationship with Pruitt Title or another provider.",
   location = "site",
   compact = false,
   context,
@@ -81,9 +81,9 @@ export function LeadCaptureForm({
         className={`surface-card-elevated text-center focus:outline-none ${compact ? "p-6" : "p-5 sm:p-8"}`}
       >
         <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
-        <Heading className="t-h5 text-brand-navy mb-2">Got it — we&apos;ll be in touch!</Heading>
+        <Heading className="t-h5 text-brand-navy mb-2">Your request was received.</Heading>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
-          Will typically responds within one business day. You can also call directly at{" "}
+          Will will review the information and may follow up. You can also call directly at{" "}
           <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
         </p>
       </div>

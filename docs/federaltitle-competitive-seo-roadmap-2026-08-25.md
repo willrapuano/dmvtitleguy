@@ -121,7 +121,7 @@ Every 30 days, record:
 1. SpyFu ranking keywords, clicks, page count, new keywords, gained ranks, and gained clicks for DMVTitleGuy.io.
 2. Federal lost ranks, lost clicks, and broken top pages.
 3. Google Search Console impressions, clicks, average position, and indexed status for each target cluster.
-4. Organic quote starts, contact submissions, intake starts, and completed title orders by landing page.
+4. Organic quote starts, contact submissions, intake starts, qualified opportunities, accepted matters, and closed/won outcomes by normalized landing page.
 
 Success is not “more articles.” It is growth in non-branded page-one rankings and organic conversion actions while canonical, sitemap, and entity tests remain green.
 
@@ -157,7 +157,7 @@ Until then, report the exact metrics and gap—never “won,” “caught,” or
 
 Competitive visibility and internal business results must remain separate. A qualified organic opportunity is a transaction-intent submission whose first-touch channel is `organic-search`, has valid contact information and identifiable DMV property/jurisdiction or transaction context, and is confirmed by a human as neither spam, newsletter-only, advertising-only, nor QA. Track Submitted → Qualified → Referred → Accepted → Closed/Won in the `DMVTitleGuy Website Transaction Intent` GHL pipeline.
 
-Join GSC to the conversion ledger only in aggregate at `America/New_York date × normalized landing path × cluster`. Do not join a person to a search query. Report raw submissions, qualified opportunities, acceptance rate, closed/won count, and outcome value separately so mutable pipeline outcomes never rewrite the immutable acquisition event.
+Join GSC to the conversion ledger only in aggregate at period or week × normalized landing path × cluster. GSC dates use `America/Los_Angeles`; do not claim an Eastern-time daily join. Do not join a person to a search query. Report raw submissions, qualified opportunities, acceptance rate, closed/won count, and outcome value separately so mutable pipeline outcomes never rewrite the write-once acquisition fields and append-only event history.
 
 ## Final adversarial execution record — August 26, 2026
 
@@ -186,12 +186,13 @@ That order has been executed in production:
 The Search Console baseline through August 24, 2026 is 174 clicks, 32,600 impressions, 0.5% CTR, and average position 21.9. The latest 28 days versus the prior 28 days were 58 versus 50 clicks, 12,308 versus 8,961 impressions, 0.471% versus 0.558% CTR, and average position 22.18 versus 21.91.
 
 - **September 2–9:** inspect indexing, canonical selection, sitemap ingestion, and crawl health. Do not infer CTR or ranking impact yet.
-- **September 16–23:** earliest outcome review, and only for pages Google has recrawled with a meaningful impression sample.
-- **Day 30:** require all release gates green, confirm the five priority URLs are indexed, validate attribution fields in GoHighLevel, and record cluster-level impressions, clicks, CTR, position, and qualified leads.
-- **Day 60:** use a Search Console query-by-page export to review the title-insurance-cost, enhanced-versus-standard, settlement-fee, Virginia-contract, and lender-versus-owner clusters. Consolidate only when multiple URLs split the same query intent and a clear winner exists.
-- **Day 90:** expand only clusters that gained qualified impressions or leads. Build the DC tax-benefit hub only if Search Console shows consolidated demand and current DC primary sources can support it.
+- **September 23:** preliminary descriptive readout only; no performance edits.
+- **September 26 or later:** pull final August 27–September 23 post-window data.
+- **September 30:** first eligible 28-day decision, only if all technical, sample-size, click, and position-stability gates pass.
+- **October 25 (day 60):** review query-by-page clusters; do not consolidate before 56 final days and the explicit cannibalization thresholds in the checkpoint contract are met.
+- **November 24 (day 90):** expand only clusters that gained qualified visibility or business outcomes. Build the DC tax-benefit hub only if Search Console shows consolidated demand and current DC primary sources can support it.
 
-Except for factual, legal, security, or broken-link corrections, freeze discretionary title, meta-description, H1, canonical, redirect, and URL changes until the September 16–23 review. Changing them sooner would destroy the post-deployment comparison window.
+Except for factual, legal, security, entity-truth, or broken-link corrections, freeze discretionary title, meta-description, H1, canonical, redirect, and URL changes until the first eligible September 30 decision. Changing them sooner would destroy the post-deployment comparison window.
 
 ## Authority prospecting package
 

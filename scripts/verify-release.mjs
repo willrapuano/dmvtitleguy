@@ -58,6 +58,7 @@ try {
     "verify:blog-rendering",
     "verify:social-metadata",
     "verify:brand-identity",
+    "verify:rendered-provider-truth",
     "verify:competitive-content",
     "verify:ctr-consolidation",
     "verify:optimized-plan",

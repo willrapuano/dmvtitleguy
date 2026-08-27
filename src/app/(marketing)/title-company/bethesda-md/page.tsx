@@ -22,11 +22,11 @@ const faqs = [
   },
   {
     question: "Does Maryland require attorney involvement at closing?",
-    answer: "Maryland law requires that an attorney or licensed title agent conduct the settlement. At Pruitt Title, our experienced team handles all legal aspects of your closing to ensure compliance and protect your interests.",
+    answer: "Maryland settlement and title work must be handled by an appropriately authorized provider. The provider that accepts the file must explain its role, responsibilities, licensing or authorization, and required disclosures directly.",
   },
   {
     question: "What is unique about Bethesda real estate transactions?",
-    answer: "Bethesda's luxury market often involves high-value transactions with complex title issues, including trusts, estates, and multi-property holdings. Our team has extensive experience handling these sophisticated transactions while maintaining the highest standards of service.",
+    answer: "Bethesda transactions can involve high values, trusts, estates, or multiple properties. Ask the accepted provider to confirm experience, underwriting requirements, scope, responsibilities, timing, and disclosures for the particular file.",
   },
   {
     question: "How long does a Bethesda title search take?",
@@ -63,7 +63,7 @@ export default function BethesdaTitlePage() {
             Title Company Bethesda MD &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC is Montgomery County's premier title services provider. From Bethesda's luxury estates to starter homes, we deliver the expertise and attention to detail your transaction deserves.
+            DMV Title Guy publishes practical Bethesda and Montgomery County title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function BethesdaTitlePage() {
               Bethesda is one of Maryland's most desirable communities, known for its top-rated schools, vibrant downtown, and proximity to Washington DC. With median home prices exceeding $800,000, Bethesda attracts affluent buyers seeking a sophisticated suburban lifestyle.
             </p>
             <p className="max-w-[68ch]">
-              The Bethesda market includes a mix of established homes, new construction, and luxury estates—particularly in neighborhoods like Chevy Chase, the Battery Lane area, and Glen Echo. Many transactions involve high-value properties where thorough title research is essential. Our team understands Bethesda's unique market dynamics and handles each closing with the precision it deserves.
+              The Bethesda market includes established homes, new construction, and luxury estates in areas such as Chevy Chase, Battery Lane, and Glen Echo. High-value properties, trusts, or estates can require careful title and authority review by the provider that accepts the transaction.
             </p>
             <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
               <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Bethesda Closing Costs</h3>
@@ -220,7 +220,7 @@ export default function BethesdaTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Bethesda Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Bethesda property.
+            Send Will the Bethesda property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/maryland-closing-cost-calculator" className="btn-primary px-8">

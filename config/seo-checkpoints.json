@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "property": "sc-domain:dmvtitleguy.io",
+  "sourceTimezone": "America/Los_Angeles",
+  "reportingTimezone": "America/New_York",
+  "pathMapVersion": "v1-2026-08-26",
+  "priorityPaths": [
+    "/calculators/seller-net-sheet",
+    "/blog/firpta-explained-dmv",
+    "/blog/types-of-property-surveys-dc-md-va",
+    "/about-will-rapuano",
+    "/why-choose-us"
+  ],
+  "windows": {
+    "pre": { "startDate": "2026-07-29", "endDate": "2026-08-25" },
+    "post": { "startDate": "2026-08-27", "endDate": "2026-09-23", "notBefore": "2026-09-26" }
+  },
+  "brandDictionary": {
+    "version": "v1-2026-08-26",
+    "owned": ["dmv title guy", "dmvtitleguy", "will rapuano", "william rapuano"],
+    "partner": ["pruitt title", "pruitt-title"],
+    "competitor": ["federal title", "federaltitle"]
+  },
+  "clusters": {
+    "property-survey": ["survey", "property line", "boundary"],
+    "firpta": ["firpta", "foreign seller withholding"],
+    "dc-tax": ["dc homestead", "homestead dc", "dc property tax", "dc tax abatement", "dc real estate tax"],
+    "seller-proceeds": ["net sheet", "seller closing cost", "seller proceeds", "closing cost estimator for seller"],
+    "title-fees": ["title insurance cost", "title settlement fee", "title company fee", "lender's title insurance", "lenders title insurance"]
+  }
+}

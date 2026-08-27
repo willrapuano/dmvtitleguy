@@ -17,7 +17,7 @@ const AUDIENCE_CARDS = [
   { role: "For Realtors", desc: "Faster communication, fewer closing surprises, and a better client experience from contract to settlement.", icon: "Handshake", href: "/title-company-for-realtors" },
   { role: "For Lenders", desc: "Reliable coordination, cleaner files, and dependable settlement support for your active pipeline.", icon: "Landmark", href: "/title-company-for-lenders" },
   { role: "For Builders", desc: "Repeatable closing support for new construction, buyer coordination, and pipeline-ready settlement execution.", icon: "Hammer", href: "/title-company-for-builders" },
-  { role: "For Banks & Credit Unions", desc: "Institutional-grade title and escrow support with the reliability and responsiveness your teams expect.", icon: "Building2", href: "/title-company-for-credit-unions" },
+  { role: "For Banks & Credit Unions", desc: "Educational title and closing resources plus a path to request an independent provider introduction.", icon: "Building2", href: "/title-company-for-credit-unions" },
 ];
 
 const MONEY_PAGES = [

@@ -2,9 +2,9 @@ import { WhyChooseUsClient } from "@/components/WhyChooseUsClient";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  title: "Why Choose Pruitt Title? Services, Process & Credentials",
+  title: "How to Choose a DMV Title Provider | DMV Title Guy",
   description:
-    "Review Pruitt Title's DMV service area, title and settlement process, transaction support, and Will Rapuano's business-development role before requesting a quote.",
+    "Use practical questions to compare title and settlement providers, understand Will Rapuano's role, and request an introduction without creating a service relationship.",
   path: "/why-choose-us",
 });
 
@@ -14,10 +14,10 @@ const WHY_CHOOSE_FAQ_SCHEMA = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Why should I choose Pruitt Title LLC?",
+      name: "What should I compare when choosing a title provider?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pruitt Title LLC is an independently owned title, settlement, and escrow company serving Virginia, Maryland, and Washington DC. The company handles residential and commercial real estate transactions and coordinates closing support through its DMV offices and remote-closing options.",
+        text: "Compare licensing or authorization, underwriting relationships, written fees, communication practices, service area, transaction fit, signing options, policy terms, and who is responsible for each closing step.",
       },
     },
     {
@@ -25,12 +25,12 @@ const WHY_CHOOSE_FAQ_SCHEMA = {
       name: "What areas does Pruitt Title serve?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pruitt Title LLC provides title insurance and closing services throughout Washington DC, Northern Virginia, and Maryland. We serve real estate agents, mortgage lenders, home builders, banks, credit unions, and investors across the entire DMV region.",
+        text: "Pruitt Title's official public information describes service in Washington DC, Northern Virginia, and Maryland. Availability and acceptance remain transaction-specific and should be confirmed directly with Pruitt.",
       },
     },
     {
       "@type": "Question",
-      name: "What makes Pruitt Title different from other title companies?",
+      name: "What is Will Rapuano's relationship to Pruitt Title?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Will Rapuano supports real estate professionals through educational classes, workshops, marketing resources, and transaction-focused communication while serving as Marketing and Business Development Officer at Pruitt Title LLC.",

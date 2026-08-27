@@ -14,7 +14,7 @@ import { createPageMetadata } from "@/lib/site-metadata";
 export const metadata = createPageMetadata({
   title: "About Will Rapuano & DMV Title Guy",
   description:
-    "Meet Will Rapuano, learn why he created DMV Title Guy, and understand how his personal educational website relates to Pruitt Title LLC.",
+    "Meet Will Rapuano, learn why he created DMV Title Guy, and understand how this educational website relates to Pruitt Title LLC.",
   path: "/about-will-rapuano",
 });
 
@@ -52,11 +52,11 @@ const ABOUT_SCHEMA = {
 const roles = [
   {
     title: SITE_NAME,
-    text: "Will’s personal website for practical title education, calculators, local market resources, and direct relationship-building.",
+    text: "Will’s website for practical title education, calculators, local market resources, and direct relationship-building.",
   },
   {
     title: WILL.name,
-    text: "The person behind DMV Title Guy and your direct point of contact for questions, quotes, and help getting a transaction started.",
+    text: "The person behind DMV Title Guy and your direct point of contact for educational questions and, when requested, a possible provider introduction.",
   },
   {
     title: PRUITT_TITLE.name,
@@ -85,14 +85,14 @@ export default function AboutWillRapuanoPage() {
               I created DMV Title Guy to publish the resources real estate professionals and consumers actually need—and to make it easy to reach me directly when a transaction is ready to move.
             </p>
             <p className="mt-5 max-w-[62ch] leading-relaxed text-brand-muted">
-              I am Will Rapuano, Marketing and Business Development Officer at Pruitt Title LLC. DMV Title Guy is my personal educational and business-development website, separate from Pruitt&apos;s corporate website. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms acceptance and service terms directly.
+              I am Will Rapuano, Marketing and Business Development Officer at Pruitt Title LLC. I operate DMV Title Guy as an educational and business-development website separate from Pruitt&apos;s corporate website. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms acceptance and service terms directly.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact" className="btn-primary px-8 text-center">
                 Contact Will <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <Link href="/calculators/title-quote" className="btn-outline px-8 text-center">
-                Get a Title Quote
+                Estimate Closing Costs
               </Link>
             </div>
           </div>
@@ -150,8 +150,8 @@ export default function AboutWillRapuanoPage() {
           <ol className="space-y-5">
             {[
               "Use DMV Title Guy to research title questions, compare costs, and prepare for your transaction.",
-              "Contact Will directly when you need a quote, an answer, or help opening a title order.",
-              "Pruitt Title LLC performs the title insurance, escrow, and settlement services for the transaction.",
+              "Contact Will directly when you need an educational answer or want to request a provider introduction.",
+              "If you request transaction services, an eligible matter may be referred to Pruitt Title for independent review. Pruitt decides whether to accept it and confirms its own scope, pricing, timing, terms, and disclosures.",
             ].map((step) => (
               <li key={step} className="flex gap-4 border-b border-slate-200 pb-5 last:border-b-0">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue-deep" aria-hidden="true" />
@@ -185,15 +185,8 @@ export default function AboutWillRapuanoPage() {
                 <dd className="mt-1"><a href={WILL.phoneHref} className="text-brand-blue-deep hover:underline">{WILL.phoneDisplay}</a></dd>
               </div>
               <div>
-                <dt className="font-semibold text-brand-navy">Will’s Pruitt Title email</dt>
+                <dt className="font-semibold text-brand-navy">Will’s work email</dt>
                 <dd className="mt-1 break-all"><a href={`mailto:${WILL.email}`} className="text-brand-blue-deep hover:underline">{WILL.email}</a></dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-brand-navy">Pruitt Title office</dt>
-                <dd className="mt-1 leading-relaxed text-brand-muted">
-                  {PRUITT_TITLE.address.streetAddress}<br />
-                  {PRUITT_TITLE.address.addressLocality}, {PRUITT_TITLE.address.addressRegion} {PRUITT_TITLE.address.postalCode}
-                </dd>
               </div>
             </dl>
           </aside>

@@ -7,7 +7,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company in Falls Church, VA | Local Settlement Services",
-  description: "Falls Church title company for insurance, escrow, and closings. Pruitt Title serves City of Falls Church and nearby Fairfax County. Request a fast quote today.",
+  description: "Practical Falls Church title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title for independent review.",
   alternates: { canonical: "/title-company/falls-church-va" },
 };
 
@@ -63,7 +63,7 @@ export default function FallsChurchTitlePage() {
             Reliable Title &amp; Settlement Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC is proud to serve the Falls Church community. Our local expertise and personalized service make us the trusted choice for homeowners and real estate professionals in this unique Northern Virginia city.
+            DMV Title Guy publishes practical guidance for Falls Church City and nearby Fairfax County transactions. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
           </p>
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function FallsChurchTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Falls Church City is one of the DC area's best-kept secrets for families—top-rated schools and a small-town vibe with median prices around $650K. Our local team's direct access to city records means faster turn times than the larger counties.
+            Falls Church City has its own land records and local processes, while nearby addresses may fall in Fairfax County. Confirm the correct jurisdiction, record source, and title-review timing with the accepted provider.
           </p>
         </div>
       </section>
@@ -207,7 +207,7 @@ export default function FallsChurchTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Falls Church Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Falls Church property.
+            Send Will the Falls Church property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

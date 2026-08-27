@@ -88,7 +88,12 @@ function customFieldValues(fields: Map<string, string>, data: Record<string, unk
   add("Timeframe", data.timeframe, 80);
   add("Closing Date", data.closingDate, 40);
   add("Listing", data.listing, 240);
+  if (data.seoQaExcluded === true) add("SEO QA Excluded", "true", 10);
   return values;
+}
+
+export function isSeoQaPayload(data: Record<string, unknown>) {
+  return clean(data.email, 200).toLowerCase() === "dmvtitleguy-attribution-qa@example.invalid";
 }
 
 export async function syncGHLTransactionOpportunity(data: Record<string, unknown>, source: string) {
@@ -124,6 +129,37 @@ export async function syncGHLTransactionOpportunity(data: Record<string, unknown
   if (prior) return { contactId, opportunityId: prior.id, duplicate: true as const };
 
   const fields = await opportunityFields(locationId);
+  const values = customFieldValues(fields, data);
+  // This location currently disallows multiple opportunities for one contact
+  // in the same pipeline. Preserve one durable CRM card per contact and move it
+  // back to Submitted for a new transaction request; the append-only local
+  // ledger remains the submission-level system of record.
+  const contactQuery = new URLSearchParams({
+    locationId,
+    pipelineId,
+    contactId,
+    status: "all",
+    order: "updated_desc",
+    limit: "20",
+  });
+  const contactOpportunities = await ghlRequest<{ opportunities: GHLOpportunity[] }>(
+    `/opportunities/search?${contactQuery.toString()}`
+  );
+  const reusable = contactOpportunities.opportunities?.[0];
+  if (reusable) {
+    const updated = await ghlRequest<{ opportunity: GHLOpportunity }>(`/opportunities/${reusable.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        pipelineId,
+        pipelineStageId: submittedStageId,
+        name: `Website ${source} | ${submissionId}`,
+        status: "open",
+        customFields: values,
+      }),
+    });
+    return { contactId, opportunityId: updated.opportunity.id, duplicate: false as const, reused: true as const };
+  }
+
   const created = await ghlRequest<{ opportunity: GHLOpportunity }>("/opportunities/", {
     method: "POST",
     body: JSON.stringify({
@@ -133,7 +169,7 @@ export async function syncGHLTransactionOpportunity(data: Record<string, unknown
       contactId,
       name: `Website ${source} | ${submissionId}`,
       status: "open",
-      customFields: customFieldValues(fields, data),
+      customFields: values,
     }),
   });
   return { contactId, opportunityId: created.opportunity.id, duplicate: false as const };

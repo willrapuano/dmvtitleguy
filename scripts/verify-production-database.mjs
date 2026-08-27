@@ -10,10 +10,10 @@ assert.ok(authToken, "TURSO_AUTH_TOKEN is required");
 const db = createClient({ url, authToken });
 try {
   const result = await db.execute(
-    "SELECT name FROM sqlite_master WHERE type = 'table' AND name IN ('LeadSubmission', 'LeadRateLimitBucket') ORDER BY name"
+    "SELECT name FROM sqlite_master WHERE type = 'table' AND name IN ('LeadSubmission', 'LeadRateLimitBucket', 'LeadOpportunityOutbox', 'LeadSubmissionEvent') ORDER BY name"
   );
   const names = result.rows.map((row) => String(row.name));
-  assert.deepEqual(names, ["LeadRateLimitBucket", "LeadSubmission"], "Lead-protection migration is not applied");
+  assert.deepEqual(names, ["LeadOpportunityOutbox", "LeadRateLimitBucket", "LeadSubmission", "LeadSubmissionEvent"], "Lead-protection migration is not applied");
   const columns = await db.execute('PRAGMA table_info("LeadSubmission")');
   const columnNames = new Set(columns.rows.map((row) => String(row.name)));
   for (const required of [
@@ -27,6 +27,7 @@ try {
     "lastDeliveryErrorCode",
     "ghlOpportunityId",
     "ghlSyncStatus",
+    "isQa",
   ]) {
     assert.ok(columnNames.has(required), `LeadSubmission.${required} is missing`);
   }

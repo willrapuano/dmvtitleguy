@@ -6,34 +6,34 @@ const isVercelPreview = new URL(targetOrigin).hostname.endsWith(".vercel.app");
 
 const fixtures = {
   "/title-company-herndon-va": {
-    title: "Title Company Serving Herndon, VA | Pruitt Title",
-    description: "Pruitt Title provides title search, title insurance, escrow, and settlement services for Herndon and Fairfax County transactions. Request an itemized quote.",
+    title: "Herndon VA Title Company Guide | DMV Title Guy",
+    description: "Practical Herndon and Fairfax County title and closing guidance. Request a provider introduction for independent review of an eligible transaction.",
     h1: "Herndon, VA Title Company & Closing Services",
   },
   "/title-company-tysons-va": {
-    title: "Title Company Serving Tysons, VA | Pruitt Title",
-    description: "Pruitt Title provides title search, title insurance, escrow, and settlement services for Tysons, Tysons Corner, and Fairfax County transactions.",
+    title: "Tysons VA Title Company Guide | DMV Title Guy",
+    description: "Practical title and closing guidance for Tysons, Tysons Corner, and Fairfax County, plus a path to request an independent provider review.",
     h1: "Tysons, VA Title Company & Settlement Services",
   },
   "/title-search-vienna-va": {
-    title: "Vienna, VA Title Search Services | Pruitt Title",
-    description: "Pruitt Title provides Vienna title searches for ownership, liens, easements, restrictions, and other recorded title risks. Submit a property for review.",
+    title: "Vienna VA Title Search Guide | DMV Title Guy",
+    description: "Learn how Vienna title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
     h1: "Vienna, VA Title Search Services",
   },
   "/title-company-falls-church-va": {
-    title: "Title Company Serving Falls Church, VA | Pruitt Title",
-    description: "Pruitt Title provides title search, title insurance, escrow, and settlement services for Falls Church City and Falls Church addresses in Fairfax County.",
+    title: "Falls Church VA Title Company Guide | DMV Title Guy",
+    description: "Practical title and closing guidance for Falls Church City and Fairfax County addresses, plus a path to request a provider introduction.",
     h1: "Title Company Serving Falls Church, VA",
   },
   "/title-company-silver-spring-md": {
-    title: "Title Company Serving Silver Spring, MD | Pruitt Title",
-    description: "Pruitt Title provides title insurance, escrow, and settlement services for Silver Spring and Montgomery County transactions. Request an itemized quote.",
+    title: "Silver Spring MD Title Company Guide | DMV Title Guy",
+    description: "Practical title and closing guidance for Silver Spring and Montgomery County, plus a path to request a provider introduction.",
     h1: "Title Company Serving Silver Spring, MD",
   },
   "/why-choose-us": {
-    title: "Why Choose Pruitt Title? Services, Process & Credentials",
-    description: "Review Pruitt Title's DMV service area, title and settlement process, transaction support, and Will Rapuano's business-development role before requesting a quote.",
-    h1: "Why Pruitt Title?",
+    title: "How to Choose a DMV Title Provider | DMV Title Guy",
+    description: "Use practical questions to compare title and settlement providers, understand Will Rapuano's role, and request an introduction without creating a service relationship.",
+    h1: "How to Choose a Title Provider",
   },
   "/blog/what-is-a-title-settlement-fee": {
     title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",

@@ -8,14 +8,14 @@ import {
   markLeadSubmissionSending,
   markLeadSubmissionUnknown,
   readLeadBody,
-  recordLeadCRMSync,
   recordLeadSubmissionDetails,
   releaseLeadSubmission,
   reserveLeadSubmission,
   validateSubmissionId,
 } from "@/lib/lead-protection";
 import { leadAttributionFields } from "@/lib/lead-attribution";
-import { syncGHLTransactionOpportunity, TRANSACTION_INTENT_SOURCES } from "@/lib/ghl-crm";
+import { isSeoQaPayload, TRANSACTION_INTENT_SOURCES } from "@/lib/ghl-crm";
+import { stageGhlOpportunitySync, syncStagedGhlOpportunity } from "@/lib/ghl-opportunity-outbox";
 
 export function leadText(value: unknown, maxLength = 500) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -68,6 +68,7 @@ export async function handleProtectedFunnelLead(
       landingPage: leadLandingPage(request),
       ...attribution,
     };
+    const isQa = isSeoQaPayload(webhookPayload);
     await recordLeadSubmissionDetails(submissionId, {
       source: `dmvtitleguy-${source}`,
       formType: source,
@@ -80,7 +81,15 @@ export async function handleProtectedFunnelLead(
       transactionType: leadText(body.transactionType, 80),
       contactRole: leadText(body.role, 80),
       transactionIntent: TRANSACTION_INTENT_SOURCES.has(source),
+      isQa,
     });
+    if (TRANSACTION_INTENT_SOURCES.has(source)) {
+      await stageGhlOpportunitySync(
+        submissionId,
+        source,
+        isQa ? { ...webhookPayload, seoQaExcluded: true } : webhookPayload,
+      );
+    }
     // Move out of the reclaimable pre-delivery lease before contacting the
     // webhook. If the process dies during delivery, retries stay blocked rather
     // than risking a duplicate CRM record.
@@ -109,12 +118,10 @@ export async function handleProtectedFunnelLead(
     });
     if (TRANSACTION_INTENT_SOURCES.has(source)) {
       try {
-        const crm = await syncGHLTransactionOpportunity(webhookPayload, source);
-        await recordLeadCRMSync(submissionId, crm);
+        await syncStagedGhlOpportunity(submissionId);
       } catch (error) {
         const errorCode = error instanceof Error ? error.message : "ghl-sync-failed";
         console.error(`[${source}:${requestId}] GHL opportunity sync failed:`, errorCode);
-        await recordLeadCRMSync(submissionId, { errorCode }).catch(() => undefined);
       }
     }
     return NextResponse.json({ ok: true, requestId });
