@@ -120,6 +120,7 @@ Phone calls, direct emails, and third-party funnels remain a known attribution g
 - The first final GSC snapshot covers July 29–August 23: 52 clicks, 11,359 impressions, 0.458% CTR, and average position 21.97. All five priority URLs are indexed with Google-selected and user-declared canonicals aligned.
 - The first normalized SpyFu scorecard records 39 estimated monthly organic clicks for DMV Title Guy versus 4,492 for Federal Title, a 0.0087 ratio. DMV Title Guy currently leads 0 of the 23 frozen comparison keywords and 0 of 5 clusters. These are the starting gaps, not a ranking claim.
 - Final deployment `dpl_GrcePfyBho49XrpZhkstC5hg7jAz` passed the isolated candidate gates and was promoted to `dmvtitleguy.io` on August 26, 2026. Vercel resolved the apex back to that exact deployment after promotion; the five priority paths, sitemap, canonical aliases, disabled payment endpoints, cron authorization boundary, and rendered provider-truth gate were rechecked live.
+- The post-promotion production-health audit reached Turso and GHL directly: 5 ledger rows (2 non-QA and 3 QA), 0 pending encrypted-outbox rows, 1 QA-excluded GHL opportunity, 1 recognized reused opportunity card, and 0 incidents. The one-card recovery record is therefore fully drained rather than merely updated in GHL.
 
 ## Permission-safe authority queue
 
