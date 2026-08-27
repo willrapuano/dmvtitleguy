@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import ts from "typescript";
 
 const requiredClientForms = [
   "src/components/LeadCaptureForm.tsx",
@@ -32,6 +33,29 @@ assert.ok(!/gclid|fbclid|msclkid/i.test(attributionSource), "ad click IDs must n
 const serverAttributionSource = await readFile("src/lib/lead-attribution.ts", "utf8");
 assert.match(serverAttributionSource, /deploymentEnvironment/, "server-derived deployment environment is missing");
 assert.match(serverAttributionSource, /attributionComplete/, "attribution completeness flag is missing");
+assert.match(serverAttributionSource, /classifyFirstChannel/, "server attribution does not use the behavioral channel classifier");
+
+const channelSource = await readFile("src/lib/attribution-channel.ts", "utf8");
+const channelJavaScript = ts.transpileModule(channelSource, {
+  compilerOptions: { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2022 },
+}).outputText;
+const { classifyFirstChannel } = await import(`data:text/javascript;base64,${Buffer.from(channelJavaScript).toString("base64")}`);
+const channel = (overrides = {}) => classifyFirstChannel({
+  firstReferrerHost: "",
+  utmSource: "",
+  utmMedium: "",
+  utmCampaign: "",
+  utmContent: "",
+  ...overrides,
+});
+assert.equal(channel({ utmSource: "google", utmMedium: "organic", utmCampaign: "gbp", utmContent: "profile-website-button" }), "google-business-profile");
+assert.equal(channel({ utmSource: "bing", utmMedium: "organic", utmCampaign: "gbp", utmContent: "profile-website-button" }), "organic-search");
+assert.equal(channel({ utmSource: "google", utmMedium: "organic", utmCampaign: "gbp", utmContent: "wrong-button" }), "organic-search");
+assert.equal(channel({ utmSource: "google", utmMedium: "cpc", utmCampaign: "gbp", utmContent: "profile-website-button" }), "paid");
+assert.equal(channel({ firstReferrerHost: "www.google.com" }), "organic-search");
+assert.equal(channel({ utmSource: "newsletter", utmCampaign: "summer" }), "campaign");
+assert.equal(channel({ firstReferrerHost: "example.com" }), "referral");
+assert.equal(channel(), "direct-or-unknown");
 
 const protectionSource = await readFile("src/lib/lead-protection.ts", "utf8");
 assert.match(protectionSource, /parsed\.pathname\.slice/, "server landing-page attribution must discard query strings");

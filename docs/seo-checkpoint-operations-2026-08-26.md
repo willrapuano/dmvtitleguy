@@ -42,6 +42,19 @@ The first title/meta CTR decision requires complete 28-day pre and post windows,
 - “Surpassed” requires every current test to pass for three consecutive distinct SpyFu data months, plus green release/attribution gates and non-declining trailing-90-day GSC and qualified-opportunity outcomes. Report exact gaps until then.
 - National SpyFu and GSC data are not a true local rank grid. Treat jurisdiction pages, jurisdiction-modified queries, and jurisdiction-tagged qualified opportunities as hyperlocal proxies unless a separately approved local-grid system is established.
 
+## Local-search measurement contract
+
+- The local lane is governed by `config/local-search-measurement.json` and `docs/local-search-measurement-2026-08-27.md`. It remains separate from GSC CTR and the FederalTitle SpyFu scorecard.
+- A row is protocol-valid only when it matches the frozen query × eligible-cell matrix, pinned coordinate/tolerance, stable target ID, business-hours daypart, Chrome device profile, fresh signed-out private session, locale, no-filter state, surface-specific scan depth, full result sequence, target open state, timestamp, and recorder-verified evidence manifest. Protocol-valid does not itself mean improved; compare only identical comparison keys.
+- The August 27 user screenshot shows the target as the third listing visible in the captured sequence and immediately above Pruitt Title LLC. Because query and geo are unknown, it is not a controlled rank baseline.
+- Use manual controlled observations; do not automate Google result scraping. Measurement does not authorize a GBP, directory, website, or brand edit.
+- The primary weekly batch is 12 three-result Local Pack observations on Wednesday, 9:00–11:00 a.m. Eastern. Local Finder is a separate 20-result conditional surface and Maps is a separate diagnostic; never combine their ordinals. Missing/invalid samples block decisions. Require two complete baselines for direction and four complete like-for-like batches before optimization, absent an identity/eligibility incident.
+- Preview a batch first, then persist a complete checkpoint exactly once with `npm run report:local-search -- --batch YYYY-Www --write`. Canonical batch files are immutable, reject overwrites, and provide the prior-week history used by the trend gate.
+- GBP Performance metrics do not expose rank. Treat Search/Maps impressions, website clicks, call clicks, and direction requests as their own diagnostics; they include organic and Ads activity and must not be added to GSC totals.
+- `CALL_CLICKS` is not a completed or answered call. `WEBSITE_CLICKS` is not a session or lead. Message/conversation availability is profile- and product-dependent and must be probed after authorized connection.
+- GBP API Content defaults to in-memory/no storage. Google's limited cache allowance is only to improve the API project's performance, expires within 30 days, and does not permit manipulation or aggregation. Do not create a reporting warehouse or committed aggregate.
+- The prepared website-button UTM convention is `google / organic / gbp / profile-website-button`; only that exact tuple classifies as `google-business-profile`. The classifier is production-active after communication-suppressed browser → server → Turso → GHL QA on August 27. Do not apply the URL to the public profile until practitioner eligibility, written Pruitt authorization, and separate data-sharing/edit authority are confirmed.
+
 ## Qualification and outcome contract
 
 A human must triage each non-QA transaction-intent opportunity within two business days. Use one primary reason:
@@ -84,6 +97,8 @@ The recovery worker may retry only the idempotent GHL opportunity sync after con
 - GHL contact/opportunity PII: review for deletion or anonymization 24 months after the last meaningful activity unless an active transaction, legal obligation, documented consent, or legal hold applies.
 - Controlled QA: keep the single reserved DND QA contact and explicit QA tag/field; remove obsolete QA opportunities after 30 days once reconciliation evidence is preserved.
 - Raw GSC query exports: private, access-limited, and retained 13 months for year-over-year analysis, then deleted. Committed aggregates and hashes may remain.
+- Private controlled-observation screenshots: retain 13 months, then delete unless needed for an active dispute or documented longitudinal audit; committed observation metadata and hashes may remain.
+- Any authorized GBP API-provided Content: in-memory/no storage by default. A secure, unmanipulated, unaggregated cache may exist only to improve the API project's performance and must be deleted no later than 30 days after retrieval.
 
 No destructive retention action is automated by this release. The owner must approve the first deletion run after confirming legal and operational retention requirements.
 
@@ -94,6 +109,10 @@ No destructive retention action is automated by this release. The owner must app
 | DMV Title Guy website content | Will-controlled | Entity-truth and release gates green. |
 | Will-controlled LinkedIn or social profile | Frozen | Owner confirms operator/DBA language and approves exact profile copy. |
 | Pruitt website, GBP, directory, social, logo, testimonials, awards, volume or licensing claims | Blocked | Written authorization from the appropriate Pruitt owner plus source evidence. |
+| Manual observation of publicly visible local results | Measure-only | Exact protocol context and evidence; no automated scraping, profile mutation, control claim, or ownership inference. |
+| GBP read access | Blocked pending proof | Stable target identity, practitioner eligibility review, and verified Owner/Manager read authority. |
+| GA4 ↔ GBP data-sharing link | Blocked pending proof | Explicit data-sharing authorization from the appropriate business owner in addition to GA4 and GBP roles. |
+| Pruitt-associated GBP website/name/hours edit | Blocked | Practitioner eligibility plus written Pruitt-owner edit authorization; Owner/Manager access alone is insufficient. |
 | Association, CE instructor, brokerage-resource, podcast, or partner outreach as DMV Title Guy | Frozen | Operator identity confirmed, exact sender identity approved, relationship basis documented, no compensation or reciprocal-link scheme. |
 | Directory/GBP creation at a Pruitt address | Prohibited without authorization | Written location/brand authorization and compliance review; never infer permission from employment or a GHL label. |
 

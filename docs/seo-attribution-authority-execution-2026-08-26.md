@@ -28,6 +28,7 @@ Three independent reviewers evaluated the plan from technical delivery, SEO meas
 | GHL contact attribution + transaction pipeline | Complete | Workflow `DMVTitleGuy Website Lead Intake` preserves 10 write-once first-touch fields and 17 latest/submission fields. Pipeline `DMVTitleGuy Website Transaction Intent` records Submitted, Qualified, Referred, Accepted, Closed/Won, and Lost outcomes; opportunity fields preserve form context and explicitly exclude controlled SEO QA. |
 | Communication-suppressed synthetic test | Complete | The reserved-domain QA contact uses a reserved 555 test number, global DND, and the `dmvtitleguy-qa-no-contact` tag. The audited intake workflow contains no outbound communication action. |
 | FederalTitle competitive scorecard | Complete | The competitive roadmap freezes a 23-keyword v1 universe, same-database monthly snapshots, an explicit three-month surpass rule, and a separate business outcome scorecard. The first raw snapshot is preserved under `docs/seo-scorecards/`. |
+| Local-search measurement lane | Measurement active; controlled baseline and external connection blocked | The August 27 screenshot is preserved as protocol-invalid discovery evidence. Six hypothesis-v1 queries, three frozen geo anchors, a 12-sample pack matrix, surface-specific validation, immutable checkpoint history, evidence custody, and public Place IDs for the target and related Pruitt listing are implemented. The first complete controlled batch has not been collected. The exact GBP website classifier is production-active and QA-proven, but the profile UTM is not applied. API automation remains disabled because OAuth returned `invalid_grant`, quota was zero when last probed, and no private account/location ID is known. |
 | External authority changes/outreach | Prepared, unsent | The safe queue and draft below require control confirmation or send approval. |
 
 The Production build fails closed if lead delivery, protection, durable database, or GHL opportunity configuration is missing. Deployment `dpl_AK2ANytjJTfmJryRczyHQnGZg4xk` passed the environment gate and controlled GHL opportunity QA before promotion to `dmvtitleguy.io`.
@@ -81,6 +82,8 @@ Add outcome fields controlled by the sales process: qualified/unqualified reason
 
 Phone calls, direct emails, and third-party funnels remain a known attribution gap until their systems can carry a landing-page/session token or use dedicated tracking numbers. Do not merge unattributed calls into “organic” merely because a person mentions Google.
 
+GBP website traffic using the prepared `google / organic / gbp / profile-website-button` convention now resolves in production to the dedicated first-touch channel `google-business-profile`. Only that exact tuple qualifies; keep it separate from ordinary `organic-search`. A GBP call click is only a button click, not an answered call or qualified lead. The public profile URL has not been edited because practitioner eligibility, Pruitt authorization, data-sharing authority, and edit authority remain unconfirmed.
+
 ## Safe production test protocol
 
 1. Using a DMV Title Guy location-scoped token or authenticated sub-account session, inspect the identified production inbound-webhook workflow and map the fields above.
@@ -121,6 +124,14 @@ Phone calls, direct emails, and third-party funnels remain a known attribution g
 - The first normalized SpyFu scorecard records 39 estimated monthly organic clicks for DMV Title Guy versus 4,492 for Federal Title, a 0.0087 ratio. DMV Title Guy currently leads 0 of the 23 frozen comparison keywords and 0 of 5 clusters. These are the starting gaps, not a ranking claim.
 - Final deployment `dpl_GrcePfyBho49XrpZhkstC5hg7jAz` passed the isolated candidate gates and was promoted to `dmvtitleguy.io` on August 26, 2026. Vercel resolved the apex back to that exact deployment after promotion; the five priority paths, sitemap, canonical aliases, disabled payment endpoints, cron authorization boundary, and rendered provider-truth gate were rechecked live.
 - The post-promotion production-health audit reached Turso and GHL directly: 5 ledger rows (2 non-QA and 3 QA), 0 pending encrypted-outbox rows, 1 QA-excluded GHL opportunity, 1 recognized reused opportunity card, and 0 incidents. The one-card recovery record is therefore fully drained rather than merely updated in GHL.
+
+### August 27 local-measurement and GBP-attribution release
+
+- Three independent adversarial reviewers approved the controlled local-search protocol after its invalid-observation, sponsored-row, evidence-custody, comparison-key, immutable checkpoint, consecutive-week, policy, and authority gates passed.
+- Production deployment `dpl_DbUekSDJARApNk6WXH6e6CqDYCUJ` passed the 289-page release build and was promoted only after isolated candidate QA.
+- A real 390×844 Chromium session in an ephemeral sandbox captured `google / organic / gbp / profile-website-button` as first touch and submitted `b10aab80-e44b-4063-b155-abe60be30d2b`. The exact Turso row was delivered as `google-business-profile`; the reused GHL opportunity exposed the same channel, submission ID, paths, and `SEO QA Excluded = true`.
+- The reserved contact remained globally DND with the `dmvtitleguy-qa-no-contact` tag. The opportunity was restored to the Lost stage, the ledger row was marked `test` / `qa-excluded-from-kpi`, the outbox was empty, and the post-promotion audit reported zero incidents.
+- The website classifier is live. The Pruitt-associated profile URL was not edited, GBP/GA4 was not connected, and no profile-control claim was made because practitioner eligibility and written data-sharing/edit authority remain blocking.
 
 ## Permission-safe authority queue
 

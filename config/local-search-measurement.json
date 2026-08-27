@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "measurementVersion": "local-v1-2026-08-27",
+  "objective": "Measure hyperlocal visibility and GBP-attributed outcomes without mixing them into GSC CTR or inferring control of a Pruitt-associated profile.",
+  "targetProfile": {
+    "displayNameAsObserved": "Will Rapuano, Pruitt Title",
+    "addressAsObserved": "1900 Gallows Rd Ste 230",
+    "stableIdentity": {
+      "type": "google-place-id",
+      "value": "ChIJlS-QUdNLtokRYYLhJ7JGdyc",
+      "resolvedAt": "2026-08-27",
+      "resolutionSource": "Google Places Text Search read-only exact name and address match",
+      "resolutionState": "resolved-public-read-only"
+    },
+    "relationshipState": "public-listing-observed-control-not-inferred",
+    "profileEditAuthority": "unconfirmed",
+    "legalEntityClaim": "none"
+  },
+  "relatedProfiles": [
+    {
+      "displayNameAsObserved": "Pruitt Title LLC",
+      "relationship": "employer-company-listing-not-standard-competitor",
+      "stableIdentity": {
+        "type": "google-place-id",
+        "value": "ChIJg18_dR5LtokRLWDQDIWcXD4"
+      }
+    }
+  ],
+  "eligibilityAndAuthorityGates": {
+    "profileReadAuthorized": false,
+    "dataSharingLinkAuthorized": false,
+    "profileEditAuthorized": false,
+    "writtenPruittAuthorizationVerified": false,
+    "practitionerEligibilityReview": {
+      "status": "required-blocking",
+      "checks": [
+        "public-facing practitioner role",
+        "direct contactability at the verified location during stated hours",
+        "real-world practitioner naming",
+        "location and signage eligibility",
+        "hours accuracy",
+        "lead-generation-agent prohibition"
+      ]
+    }
+  },
+  "policy": {
+    "mode": "measure-only",
+    "automatedGoogleSerpScraping": false,
+    "profileMutationsAuthorized": false,
+    "rankSource": "controlled-human-observation",
+    "rankClaim": "visible ordinal only when exact query, geo, device, session state, locale, scan depth, and evidence are recorded"
+  },
+  "searchProtocol": {
+    "owner": "Will Rapuano",
+    "cadence": {
+      "frequency": "weekly",
+      "dayOfWeek": "Wednesday",
+      "localTimeWindow": "09:00-11:00",
+      "timezone": "America/New_York",
+      "primaryDaypart": "business-hours-primary",
+      "allowedDayparts": [
+        "business-hours-primary"
+      ],
+      "freshPrivateSessionPerQuery": true
+    },
+    "queryUniverseState": "hypothesis-v1-freeze-until-versioned-review-with-gbp-gsc-or-spyfu-evidence",
+    "coordinateToleranceDegrees": 0.001,
+    "surfaceContracts": {
+      "google-local-pack": {
+        "metric": "packPosition",
+        "scanDepth": 3,
+        "sponsoredRowsAllowed": false,
+        "primary": true
+      },
+      "google-local-finder": {
+        "metric": "finderOrdinal",
+        "scanDepth": 20,
+        "sponsoredRowsAllowed": false,
+        "primary": false,
+        "runWhen": "target-not-visible-in-pack"
+      },
+      "google-maps-results": {
+        "metric": "mapsOrdinal",
+        "scanDepth": 20,
+        "sponsoredRowsAllowed": false,
+        "primary": false,
+        "runWhen": "separately-approved-diagnostic"
+      }
+    },
+    "allowedGeoMethods": [
+      "browser-sensor-pinned"
+    ],
+    "deviceProfiles": [
+      {
+        "id": "mobile-chrome-390x844",
+        "device": "mobile",
+        "browserFamily": "Chrome",
+        "viewport": "390x844",
+        "primary": true
+      }
+    ],
+    "requiredProtocolFields": [
+      "batch.batchId",
+      "batch.daypart",
+      "capture.capturedAt",
+      "capture.captureTimezone",
+      "capture.source",
+      "search.query",
+      "search.queryId",
+      "search.marketCellId",
+      "search.geo.latitudeRounded3",
+      "search.geo.longitudeRounded3",
+      "search.geo.method",
+      "search.geo.locationProofCaptured",
+      "search.device",
+      "search.browserFamily",
+      "search.deviceProfile",
+      "search.browserSession",
+      "search.signedInState",
+      "search.locale",
+      "search.resultSurface",
+      "search.scanDepth",
+      "search.filtersApplied",
+      "search.scanStartsAtFirstResult",
+      "search.scanEvidenceComplete",
+      "search.sponsoredRowsObserved",
+      "target.displayNameAsObserved",
+      "target.stableIdentityKeyAsObserved",
+      "target.visibilityStatus",
+      "target.openStateAsObserved",
+      "evidence.manifestSha256",
+      "evidence.verifiedAtRecordTime"
+    ],
+    "queries": [
+      {
+        "id": "title-company-near-me",
+        "query": "title company near me",
+        "intent": "local-commercial"
+      },
+      {
+        "id": "title-company-tysons-va",
+        "query": "title company tysons va",
+        "intent": "local-commercial"
+      },
+      {
+        "id": "title-company-vienna-va",
+        "query": "title company vienna va",
+        "intent": "local-commercial"
+      },
+      {
+        "id": "settlement-company-near-me",
+        "query": "real estate settlement company near me",
+        "intent": "local-commercial"
+      },
+      {
+        "id": "settlement-company-tysons-va",
+        "query": "real estate settlement company tysons va",
+        "intent": "local-commercial"
+      },
+      {
+        "id": "title-insurance-company-near-me",
+        "query": "title insurance company near me",
+        "intent": "local-commercial"
+      }
+    ],
+    "allowedOpenStates": [
+      "open",
+      "closed",
+      "open-24-hours-label",
+      "hours-not-shown",
+      "temporarily-closed"
+    ],
+    "marketCells": [
+      {
+        "id": "tysons-office",
+        "label": "1900 Gallows Rd, Tysons/Vienna",
+        "anchor": "1900 Gallows Rd, Vienna, VA 22182",
+        "latitudeRounded3": 38.914,
+        "longitudeRounded3": -77.228,
+        "coordinateSource": "U.S. Census Geocoder Public_AR_Current address match resolved 2026-08-27",
+        "coordinateSourceUrl": "https://geocoding.geo.census.gov/geocoder/"
+      },
+      {
+        "id": "vienna-center",
+        "label": "Vienna Community Center",
+        "anchor": "120 Cherry St SE, Vienna, VA 22180",
+        "latitudeRounded3": 38.9,
+        "longitudeRounded3": -77.259,
+        "coordinateSource": "U.S. Census Geocoder Public_AR_Current address match resolved 2026-08-27",
+        "coordinateSourceUrl": "https://geocoding.geo.census.gov/geocoder/"
+      },
+      {
+        "id": "fairfax-center",
+        "label": "Fairfax City Hall",
+        "anchor": "10455 Armstrong St, Fairfax, VA 22030",
+        "latitudeRounded3": 38.841,
+        "longitudeRounded3": -77.307,
+        "coordinateSource": "U.S. Census Geocoder Public_AR_Current address match resolved 2026-08-27",
+        "coordinateSourceUrl": "https://geocoding.geo.census.gov/geocoder/"
+      }
+    ],
+    "observationMatrix": [
+      {
+        "queryId": "title-company-near-me",
+        "eligibleCellIds": ["tysons-office", "vienna-center", "fairfax-center"]
+      },
+      {
+        "queryId": "title-company-tysons-va",
+        "eligibleCellIds": ["tysons-office"]
+      },
+      {
+        "queryId": "title-company-vienna-va",
+        "eligibleCellIds": ["vienna-center"]
+      },
+      {
+        "queryId": "settlement-company-near-me",
+        "eligibleCellIds": ["tysons-office", "vienna-center", "fairfax-center"]
+      },
+      {
+        "queryId": "settlement-company-tysons-va",
+        "eligibleCellIds": ["tysons-office"]
+      },
+      {
+        "queryId": "title-insurance-company-near-me",
+        "eligibleCellIds": ["tysons-office", "vienna-center", "fairfax-center"]
+      }
+    ]
+  },
+  "decisionRules": {
+    "minimumCompleteBaselineBatches": 2,
+    "trendBatchesBeforeOptimization": 4,
+    "exceptions": [
+      "target disappearance from a previously stable pack",
+      "wrong identity or material listing accuracy issue",
+      "eligibility, legal, security, or authorization incident"
+    ],
+    "primaryMetrics": [
+      "packTopThreeInclusionShare",
+      "packPositionByComparisonKey"
+    ],
+    "secondaryMetrics": [
+      "finderTopTenInclusionShare",
+      "finderTopTwentyInclusionShare",
+      "finderOrdinalByComparisonKey",
+      "relatedProfileComposition"
+    ]
+  },
+  "businessProfilePerformance": {
+    "automationEnabled": false,
+    "rankAvailable": false,
+    "currentAccessState": {
+      "observedAt": "2026-08-27",
+      "owner": "Will Rapuano",
+      "oauth": "reauthorization-required",
+      "apiQuota": "zero-as-last-probed-2026-07-07",
+      "accountId": "unknown",
+      "locationId": "unknown",
+      "evidence": [
+        "OpenClaw autopublish state recorded GBP_OAUTH_INVALID_GRANT on 2026-08-26",
+        "direct API probe recorded zero Account Management and Performance quota on 2026-07-07"
+      ],
+      "nextActionsInOrder": [
+        "complete practitioner eligibility review and written authority checks",
+        "reauthorize business.manage",
+        "obtain nonzero API access/quota or explicitly authorize the GA4 product link",
+        "resolve private account and location IDs"
+      ]
+    },
+    "supportedMetricsForAuthorizedTransientReview": [
+      "BUSINESS_IMPRESSIONS_DESKTOP_MAPS",
+      "BUSINESS_IMPRESSIONS_MOBILE_MAPS",
+      "BUSINESS_IMPRESSIONS_DESKTOP_SEARCH",
+      "BUSINESS_IMPRESSIONS_MOBILE_SEARCH",
+      "WEBSITE_CLICKS",
+      "CALL_CLICKS",
+      "BUSINESS_DIRECTION_REQUESTS",
+      "BUSINESS_BOOKINGS"
+    ],
+    "profileDependentMetricsToProbeAfterAuthorization": [
+      "BUSINESS_CONVERSATIONS"
+    ],
+    "interpretation": {
+      "trafficScope": "organic-and-ads-blended",
+      "callClicks": "call-button clicks, not completed or answered calls",
+      "websiteClicks": "profile website-button clicks, not sessions or leads",
+      "directions": "Google-adjusted direction requests, not office visits",
+      "messages": "profile- and product-dependent; the API enum remains documented and the authorized connection must be probed"
+    },
+    "contentPolicy": {
+      "defaultStorageMode": "in-memory-no-storage",
+      "limitedCachePurpose": "only to improve the GBP API project's performance",
+      "maxStorageDays": 30,
+      "manipulationAllowed": false,
+      "aggregationAllowed": false,
+      "committedApiContentAllowed": false,
+      "policyUrl": "https://developers.google.com/my-business/content/policies"
+    },
+    "preferredAuthorizedIntegration": {
+      "type": "ga4-google-business-profile-product-link",
+      "verificationState": "unverified",
+      "requires": [
+        "GA4 Editor or Administrator",
+        "GBP Owner or Manager"
+      ],
+      "documentationUrl": "https://support.google.com/analytics/answer/16930347?hl=en"
+    }
+  },
+  "websiteAttribution": {
+    "destination": "https://dmvtitleguy.io/",
+    "profileWebsiteUrl": "https://dmvtitleguy.io/?utm_source=google&utm_medium=organic&utm_campaign=gbp&utm_content=profile-website-button",
+    "utmSource": "google",
+    "utmMedium": "organic",
+    "utmCampaign": "gbp",
+    "utmContent": "profile-website-button",
+    "firstChannel": "google-business-profile",
+    "classifierStatus": "production-active-qa-verified-2026-08-27",
+    "verifiedDeploymentId": "dpl_DbUekSDJARApNk6WXH6e6CqDYCUJ",
+    "verifiedQaSubmissionId": "b10aab80-e44b-4063-b155-abe60be30d2b",
+    "profileEditStatus": "prepared-not-applied-pending-authority"
+  }
+}

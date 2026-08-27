@@ -1,4 +1,5 @@
 import { leadLandingPage } from "@/lib/lead-protection";
+import { classifyFirstChannel } from "@/lib/attribution-channel";
 import type { NextRequest } from "next/server";
 
 const ATTRIBUTION_WINDOW_MS = 90 * 24 * 60 * 60 * 1000;
@@ -42,12 +43,10 @@ export function leadAttributionFields(body: Record<string, unknown>, request: Ne
   const firstTouchAt = timestamp(body.firstTouchAt, validVersion);
   const utmSource = campaignText(body.utmSource);
   const utmMedium = campaignText(body.utmMedium);
-  const hasCampaign = Boolean(utmSource || utmMedium);
-  const paidMedium = /^(cpc|ppc|paid|paidsearch|display|retargeting)$/i.test(utmMedium);
-  const organicMedium = /^(organic|organic-search|seo)$/i.test(utmMedium);
-  const organicSource = /^(google|bing|yahoo|duckduckgo)$/i.test(utmSource);
-  const searchReferrer = /(^|\.)(google|bing|yahoo|duckduckgo)\.[a-z.]+$|(^|\.)bing\.com$|(^|\.)duckduckgo\.com$/i.test(firstReferrerHost);
-  const firstChannel = paidMedium ? "paid" : searchReferrer || organicMedium || organicSource && organicMedium ? "organic-search" : hasCampaign ? "campaign" : firstReferrerHost ? "referral" : "direct-or-unknown";
+  const utmCampaign = campaignText(body.utmCampaign);
+  const utmContent = campaignText(body.utmContent);
+  const hasCampaign = Boolean(utmSource || utmMedium || utmCampaign || utmContent);
+  const firstChannel = classifyFirstChannel({ firstReferrerHost, utmSource, utmMedium, utmCampaign, utmContent });
   const attributionComplete = Boolean(validVersion && firstLandingPage && firstTouchAt);
 
   const serverConversionPage = leadLandingPage(request);
@@ -59,9 +58,9 @@ export function leadAttributionFields(body: Record<string, unknown>, request: Ne
     firstTouchAt,
     utmSource,
     utmMedium,
-    utmCampaign: campaignText(body.utmCampaign),
+    utmCampaign,
     utmTerm: campaignText(body.utmTerm),
-    utmContent: campaignText(body.utmContent),
+    utmContent,
     firstChannel,
     lastNonDirectReferrerHost: hostname(body.lastNonDirectReferrerHost),
     lastNonDirectTouchAt: timestamp(body.lastNonDirectTouchAt, validVersion),

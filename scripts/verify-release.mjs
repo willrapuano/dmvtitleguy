@@ -42,6 +42,7 @@ const staticChecks = [
   ["npm", ["run", "verify:dependency-overrides"]],
   ["npm", ["run", "verify:provider-truth"]],
   ["npm", ["run", "verify:lead-attribution"]],
+  ["npm", ["run", "verify:local-search-measurement"]],
   ["npm", ["run", "security:audit"]],
   ["npm", ["run", "build"]],
 ];
