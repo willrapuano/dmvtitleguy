@@ -1,14 +1,23 @@
 import assert from "node:assert/strict";
-import { createHash, createSign } from "node:crypto";
+import { createSign } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { chmod, lstat, mkdir, readFile, realpath, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  assertResponseAggregation,
   brandBucket,
+  createPrivateCaptureDirectory,
+  describeExactPage,
+  groupRows,
   intentBucket,
   positionBand,
   queryGeographicModifierBucket,
+  rowsWithinHourWindow,
+  selectLatestRollingHourWindow,
+  sha256,
+  validateFreshSnapshotOptions,
+  writePrivateArtifact,
 } from "./lib/gsc-fresh-opportunities.mjs";
 
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
@@ -51,14 +60,7 @@ const endDate = args.get("--end") || defaultEndDate;
 const minimumImpressions = Number(args.get("--minimum-impressions") || 10);
 const captureName = args.get("--capture-name") || capturedAt.toISOString().replace(/[:.]/g, "-");
 
-assert.match(startDate, /^\d{4}-\d{2}-\d{2}$/, "--start must be YYYY-MM-DD");
-assert.match(endDate, /^\d{4}-\d{2}-\d{2}$/, "--end must be YYYY-MM-DD");
-assert.ok(startDate <= endDate, "--start must be on or before --end");
-const dateSpanDays = 1 + Math.round((Date.parse(`${endDate}T00:00:00Z`) - Date.parse(`${startDate}T00:00:00Z`)) / 86_400_000);
-assert.ok(dateSpanDays >= 2, "The hourly API request must span at least two Pacific calendar dates");
-assert.ok(dateSpanDays <= 10, "Search Console hourly data supports at most ten calendar dates per request");
-assert.ok(Number.isFinite(minimumImpressions) && minimumImpressions >= 1, "--minimum-impressions must be at least 1");
-assert.match(captureName, /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/, "--capture-name must be a safe single path segment");
+validateFreshSnapshotOptions({ startDate, endDate, minimumImpressions, captureName });
 
 const serviceAccountPath = process.env.GSC_SERVICE_ACCOUNT_PATH;
 assert.ok(serviceAccountPath, "GSC_SERVICE_ACCOUNT_PATH is required");
@@ -126,7 +128,7 @@ async function searchAnalytics(name, dimensions, dataState, aggregationType) {
     if (!response.ok) {
       throw new Error(`Google Search Analytics returned HTTP ${response.status}: ${body.error?.message || "unknown"}`);
     }
-    assert.equal(body.responseAggregationType, aggregationType, `${name} returned unexpected aggregation ${body.responseAggregationType || "missing"}`);
+    assertResponseAggregation(body.responseAggregationType, aggregationType, name);
     const pageRows = body.rows || [];
     rows.push(...pageRows);
     if (body.metadata) metadata.push(body.metadata);
@@ -144,26 +146,19 @@ const [daily, hourlyProperty, hourlyQueries, hourlyPages, hourlyQueryPages] = aw
   searchAnalytics("rolling-hourly-query-page", ["hour", "query", "page"], "hourly_all", "byPage"),
 ]);
 
-const availableHourKeys = hourlyProperty.rows.map((row) => String(row.keys?.[0] || "")).filter(Boolean).sort();
-assert.ok(availableHourKeys.length, "Search Console returned no hourly property rows");
-const lastAvailableHour = availableHourKeys.at(-1);
-const rollingEndMs = Date.parse(lastAvailableHour);
-assert.ok(Number.isFinite(rollingEndMs), "Search Console returned an invalid last available hour");
-const rollingStartMs = rollingEndMs - 23 * 60 * 60 * 1000;
-const rollingEndExclusiveMs = rollingEndMs + 60 * 60 * 1000;
+const rollingWindow = selectLatestRollingHourWindow(hourlyProperty.rows, 24);
+const lastAvailableHour = rollingWindow.lastAvailableHour;
+const rollingStartMs = rollingWindow.startMs;
+const rollingEndMs = rollingWindow.endMs;
+const rollingEndExclusiveMs = rollingWindow.endExclusiveMs;
 const rollingStartDate = dateInTimezone(new Date(rollingStartMs), SOURCE_TIMEZONE);
 const rollingEndDate = dateInTimezone(new Date(rollingEndMs), SOURCE_TIMEZONE);
 assert.ok(rollingStartDate >= startDate && rollingEndDate <= endDate, "Requested dates do not contain the latest 24 API-available hours");
 
-function withinRollingWindow(row) {
-  const timestamp = Date.parse(String(row.keys?.[0] || ""));
-  return Number.isFinite(timestamp) && timestamp >= rollingStartMs && timestamp <= rollingEndMs;
-}
-
-const selectedPropertyRows = hourlyProperty.rows.filter(withinRollingWindow);
-const selectedQueryRows = hourlyQueries.rows.filter(withinRollingWindow);
-const selectedPageRows = hourlyPages.rows.filter(withinRollingWindow);
-const selectedQueryPageRows = hourlyQueryPages.rows.filter(withinRollingWindow);
+const selectedPropertyRows = rollingWindow.rows;
+const selectedQueryRows = rowsWithinHourWindow(hourlyQueries.rows, rollingStartMs, rollingEndMs);
+const selectedPageRows = rowsWithinHourWindow(hourlyPages.rows, rollingStartMs, rollingEndMs);
+const selectedQueryPageRows = rowsWithinHourWindow(hourlyQueryPages.rows, rollingStartMs, rollingEndMs);
 
 function metric(rows) {
   const aggregate = rows.reduce((sum, row) => ({
@@ -177,17 +172,6 @@ function metric(rows) {
     ctr: aggregate.impressions ? Number((aggregate.clicks / aggregate.impressions).toFixed(6)) : 0,
     position: aggregate.impressions ? Number((aggregate.weightedPosition / aggregate.impressions).toFixed(2)) : null,
   };
-}
-
-function groupRows(rows, keyFor) {
-  const groups = new Map();
-  for (const row of rows) {
-    const key = keyFor(row);
-    const group = groups.get(key) || [];
-    group.push(row);
-    groups.set(key, group);
-  }
-  return groups;
 }
 
 function groupedMetrics(rows, field) {
@@ -211,19 +195,7 @@ const queryMetrics = [...groupRows(selectedQueryRows, (row) => String(row.keys?.
     positionBand: positionBand(value.position || 0),
   };
 });
-function describePage(page) {
-  try {
-    const url = new URL(page);
-    const hasVariant = Boolean(url.search || url.hash);
-    let urlClass = "other-origin";
-    if (url.origin === CANONICAL_ORIGIN && !hasVariant) urlClass = "canonical-origin-clean-url";
-    else if (url.origin === CANONICAL_ORIGIN) urlClass = "canonical-origin-query-or-fragment-variant";
-    else if (url.hostname.replace(/^www\./, "") === new URL(CANONICAL_ORIGIN).hostname) urlClass = "legacy-scheme-or-www-origin";
-    return { page, origin: url.origin, path: url.pathname || "/", urlClass };
-  } catch {
-    return { page, origin: null, path: null, urlClass: "invalid-url" };
-  }
-}
+const describePage = (page) => describeExactPage(page, CANONICAL_ORIGIN);
 
 const pageMetrics = [...groupRows(selectedPageRows, (row) => String(row.keys?.[1] || "")).entries()].map(([page, rows]) => ({
   ...describePage(page),
@@ -381,10 +353,6 @@ const privateInventory = {
   indexedUrlDiagnostics,
 };
 
-function sha256(value) {
-  return createHash("sha256").update(value).digest("hex");
-}
-
 function percent(value) {
   return `${(100 * value).toFixed(2)}%`;
 }
@@ -451,29 +419,13 @@ const sanitizedManifest = {
 };
 
 const privateRootConfigured = resolve(REPOSITORY_ROOT, "private-seo", "gsc-fresh");
-await mkdir(privateRootConfigured, { recursive: true, mode: 0o700 });
-await chmod(privateRootConfigured, 0o700);
-const privateRoot = await realpath(privateRootConfigured);
-const outputDirectory = resolve(privateRoot, captureName);
-assert.equal(dirname(outputDirectory), privateRoot, "Capture directory escaped private-seo/gsc-fresh");
-await mkdir(outputDirectory, { recursive: false, mode: 0o700 });
-const outputStats = await lstat(outputDirectory);
-assert.ok(outputStats.isDirectory() && !outputStats.isSymbolicLink(), "Capture target must be a newly created real directory");
-await chmod(outputDirectory, 0o700);
-
-async function writePrivate(name, content) {
-  assert.match(name, /^[a-z0-9][a-z0-9.-]*$/, "Unsafe artifact filename");
-  const path = resolve(outputDirectory, name);
-  assert.equal(dirname(path), outputDirectory, "Artifact escaped capture directory");
-  await writeFile(path, content, { flag: "wx", mode: 0o600 });
-  await chmod(path, 0o600);
-}
+const outputDirectory = await createPrivateCaptureDirectory(privateRootConfigured, captureName);
 
 await Promise.all([
-  writePrivate("raw-search-analytics.json", rawSerialized),
-  writePrivate("opportunity-inventory.json", inventorySerialized),
-  writePrivate("manifest-sanitized.json", `${JSON.stringify(sanitizedManifest, null, 2)}\n`),
-  writePrivate("summary.md", summaryMarkdown),
+  writePrivateArtifact(outputDirectory, "raw-search-analytics.json", rawSerialized),
+  writePrivateArtifact(outputDirectory, "opportunity-inventory.json", inventorySerialized),
+  writePrivateArtifact(outputDirectory, "manifest-sanitized.json", `${JSON.stringify(sanitizedManifest, null, 2)}\n`),
+  writePrivateArtifact(outputDirectory, "summary.md", summaryMarkdown),
 ]);
 
 process.stdout.write(`${JSON.stringify({
