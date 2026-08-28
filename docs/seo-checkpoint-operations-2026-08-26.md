@@ -88,6 +88,8 @@ Do not consolidate before 56 final days. A candidate pair must share a manually 
 
 ## Incident thresholds
 
+Attempt the production health gate with `npm run checkpoint:health:vercel`. The runner verifies the fixed Vercel project/team binding, keeps Vercel's exportable environment in the ephemeral wrapper only, passes just the five required Turso/GHL variables plus the literal production origin to the health child, and forwards only the sanitized allowlisted report. Vercel does not export a variable marked `sensitive`; if any required variable is unavailable, the command must fail closed and the full health gate remains blocked until an authorized production-native or existing private credential source can supply it. Do not downgrade a sensitive variable, use `vercel env pull`, print raw environment output, or treat an incomplete GHL opportunity page as a green reconciliation.
+
 Treat these as P0/P1 incidents, not SEO experiments:
 
 - any non-QA webhook delivery in `unknown`;

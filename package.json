@@ -33,6 +33,8 @@
     "verify:local-search-measurement": "node scripts/verify-local-search-measurement.mjs",
     "verify:gsc-fresh-opportunities": "node scripts/verify-gsc-fresh-opportunities.mjs",
     "verify:gsc-checkpoint": "node scripts/verify-gsc-checkpoint.mjs",
+    "verify:gsc-access": "node scripts/validate-gsc-credential.mjs",
+    "verify:seo-operations": "node scripts/verify-seo-operations.mjs",
     "verify:production-env": "node scripts/verify-production-env.mjs",
     "verify:production-database": "node scripts/verify-production-database.mjs",
     "migrate:lead-protection": "node scripts/apply-lead-protection-migration.mjs",
@@ -42,6 +44,8 @@
     "record:local-search": "node scripts/record-local-search-observation.mjs",
     "report:local-search": "node scripts/report-local-search-checkpoint.mjs",
     "checkpoint:health": "node scripts/check-seo-operations.mjs",
+    "checkpoint:health:production": "node scripts/run-seo-health-with-env.mjs",
+    "checkpoint:health:vercel": "node scripts/run-production-seo-health-via-vercel.mjs",
     "repair:sanity-links": "node scripts/repair-sanity-internal-links.mjs",
     "publish:blogs:daily": "node ../scripts/daily-publish.mjs --limit 1"
   },

@@ -1,5 +1,18 @@
 import assert from "node:assert/strict";
 import { createClient } from "@libsql/client";
+import { paginateGhlOpportunities, sanitizeOperationsReport } from "./lib/seo-operations.mjs";
+
+function failClosed() {
+  console.error(JSON.stringify({
+    schemaVersion: 2,
+    healthy: false,
+    error: { code: "CHECKPOINT_HEALTH_EXECUTION_FAILED" },
+  }));
+  process.exit(1);
+}
+
+process.on("uncaughtException", failClosed);
+process.on("unhandledRejection", failClosed);
 
 const origin = (process.env.TARGET_ORIGIN || "https://dmvtitleguy.io").replace(/\/$/, "");
 const priorityPaths = [
@@ -115,31 +128,40 @@ const locationId = process.env.GHL_LOCATION_ID;
 const pipelineId = process.env.GHL_WEBSITE_PIPELINE_ID;
 assert.ok(ghlToken && locationId && pipelineId, "GHL health-check configuration is required");
 const ghlHeaders = { Authorization: `Bearer ${ghlToken}`, Version: "v3", Accept: "application/json" };
-async function ghl(path) {
+async function ghl(path, label) {
   const response = await fetch(`https://services.leadconnectorhq.com${path}`, {
     headers: ghlHeaders,
     cache: "no-store",
     signal: AbortSignal.timeout(20_000),
   });
   const body = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(`GHL ${path} returned HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`GHL ${label} returned HTTP ${response.status}`);
   return body;
 }
 
-const fieldsBody = await ghl(`/locations/${locationId}/customFields?model=opportunity`);
+const fieldsBody = await ghl(`/locations/${locationId}/customFields?model=opportunity`, "opportunity-custom-fields");
 const fields = new Map((fieldsBody.customFields || []).map((field) => [field.name, field.id]));
 for (const required of ["SEO Submission ID", "SEO QA Excluded"]) {
   if (!fields.has(required)) incident("ghl-field-missing", "P0", { field: required });
 }
 
-const opportunityBody = await ghl(`/opportunities/search?${new URLSearchParams({ locationId, pipelineId, status: "all", limit: "100" })}`);
-const opportunities = opportunityBody.opportunities || [];
+const opportunitySearch = await paginateGhlOpportunities({
+  fetchPage: async ({ page, limit }) => ghl(`/opportunities/search?${new URLSearchParams({
+    locationId,
+    pipelineId,
+    status: "all",
+    order: "added_asc",
+    page: String(page),
+    limit: String(limit),
+  })}`, "opportunity-search"),
+});
+const opportunities = opportunitySearch.opportunities;
 const detailQueue = opportunities.map((opportunity) => opportunity.id).filter(Boolean);
 const opportunityDetails = new Map();
 await Promise.all(Array.from({ length: 5 }, async () => {
   while (detailQueue.length) {
     const id = detailQueue.shift();
-    const detail = await ghl(`/opportunities/${id}`);
+    const detail = await ghl(`/opportunities/${id}`, "opportunity-detail");
     if (detail.opportunity) opportunityDetails.set(id, detail.opportunity);
   }
 }));
@@ -235,8 +257,8 @@ const report = {
     outbox: outboxRows,
   },
   ghl: {
-    pipelineId,
     opportunities: opportunities.length,
+    pages: opportunitySearch.pages,
     mappedSubmissions: bySubmission.size,
     qaExcluded: qaOpportunities,
     reusedOpportunityCards,
@@ -244,5 +266,5 @@ const report = {
   incidents,
   healthy: incidents.length === 0,
 };
-console.log(JSON.stringify(report, null, 2));
+console.log(JSON.stringify(sanitizeOperationsReport(report)));
 if (incidents.length) process.exitCode = 1;
