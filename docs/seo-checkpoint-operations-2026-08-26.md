@@ -11,7 +11,7 @@ Will Rapuano operates `dmvtitleguy.io`. The public site is separate from Pruitt 
 | Date | Checkpoint | Permitted decision |
 |---|---|---|
 | September 2, 2026 | Technical | Inspect five priority URLs, sitemap state, Google/user canonical agreement, crawl/indexing state, public route health, and attribution operations. No SEO performance edits. |
-| September 9, 2026 | Technical | Repeat technical inspection and reconcile any non-QA delivery or GHL incident. No SEO performance edits. |
+| September 9, 2026 | Technical + final Week 1 archive | Repeat technical inspection, reconcile any non-QA delivery or GHL incident, and archive the finalized August 27–September 2 GSC window. This is descriptive only, does not substitute for the formal 28-day post window, and authorizes no SEO performance edits. |
 | September 23, 2026 | Preliminary | Descriptive GSC and GHL readout only. Do not infer a completed post period. |
 | September 26, 2026 or later | Final-data pull | Pull the August 27–September 23 post window with `dataState=final`. |
 | September 30, 2026 | First eligible 28-day decision | Evaluate the fixed pre/post experiment if sample, position, and technical gates pass. |
@@ -23,14 +23,23 @@ Will Rapuano operates `dmvtitleguy.io`. The public site is separate from Pruitt 
 
 - Exclude August 26 as a washout day.
 - Pre window: July 29–August 25, 2026.
+- Final Week 1 descriptive window: August 27–September 2, 2026. It may not be captured before September 9 and is never decision-eligible.
 - Post window: August 27–September 23, 2026.
 - GSC source dates use `America/Los_Angeles`. Do not claim an Eastern-time daily join.
 - Join only at period or week × normalized landing path × fixed cluster. Never join a person or GHL contact to a search query.
 - Report total property metrics separately from visible-query coverage. Within visible queries, report owned brand, partner brand, competitor brand, visible known non-brand, and residual/unclassified. Anonymous-query totals make an exact non-brand property total impossible.
 - Freeze brand dictionary `v1-2026-08-26`: owned = DMV Title Guy, dmvtitleguy, Will Rapuano, William Rapuano and normalized variants; partner = Pruitt Title variants; competitor = Federal Title and FederalTitle variants.
 - Raw query exports stay in ignored `private-seo/`. Committed artifacts contain aggregates plus hashes and request manifests, not query text.
+- Finalized captures use explicit grains: property totals, dates, and queries are `byProperty`; pages and query × page routing are `byPage`. Page-grain totals must never be presented as property coverage.
+- A canonical finalized capture fails closed unless the GSC completeness probe places the first incomplete date after the requested window, every expected Pacific date is returned, property and daily totals reconcile, the Git tree is clean, and the immutable private artifacts pass their hash and permission checks.
+- Run the Week 1 archive on or after September 9 with `npm run snapshot:gsc-checkpoint -- --window post-week-1 --capture-name 2026-09-09-post-week-1-final`.
+- Run the formal post archive on or after September 26 with `npm run snapshot:gsc-checkpoint -- --window post --capture-name 2026-09-26-post-final`. Passing capture validation does not itself authorize an edit; the first decision review remains September 30.
 
 The first title/meta CTR decision requires complete 28-day pre and post windows, at least 4,500 impressions in each window (or a documented page-specific power analysis), at least 20 clicks in each window, average position stable within 2 positions, and all technical gates green. Otherwise report the result as underpowered and make no CTR-driven edit.
+
+## Preliminary opportunity queue
+
+The August 28 rolling snapshot is a provisional queue, not an edit authorization. Preserve Silver Spring, Herndon, Tysons, Falls Church, and Vienna as controls. At the September 30 gate, review McLean first, followed by the Virginia title-company-choice guide, the enhanced-versus-standard title-insurance guide, the property-survey guide, the Maryland title-insurance-cost guide, Leesburg, and Arlington. Re-rank this queue from the finalized Week 1 and 28-day evidence; never preserve its order merely because it appears here.
 
 ## SpyFu competitive contract
 

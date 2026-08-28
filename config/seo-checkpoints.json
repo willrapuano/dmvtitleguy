@@ -4,6 +4,7 @@
   "sourceTimezone": "America/Los_Angeles",
   "reportingTimezone": "America/New_York",
   "pathMapVersion": "v1-2026-08-26",
+  "pathMapSource": "config/domain-redirects.mjs#legacyPathMappings",
   "priorityPaths": [
     "/calculators/seller-net-sheet",
     "/blog/firpta-explained-dmv",
@@ -12,9 +13,33 @@
     "/why-choose-us"
   ],
   "windows": {
-    "pre": { "startDate": "2026-07-29", "endDate": "2026-08-25" },
-    "post": { "startDate": "2026-08-27", "endDate": "2026-09-23", "notBefore": "2026-09-26" }
+    "pre": {
+      "startDate": "2026-07-29",
+      "endDate": "2026-08-25",
+      "expectedCalendarDays": 28,
+      "notBefore": "2026-08-28",
+      "purpose": "final-reference-window",
+      "decisionEligible": false
+    },
+    "post-week-1": {
+      "startDate": "2026-08-27",
+      "endDate": "2026-09-02",
+      "expectedCalendarDays": 7,
+      "notBefore": "2026-09-09",
+      "purpose": "descriptive-final-checkpoint",
+      "decisionEligible": false
+    },
+    "post": {
+      "startDate": "2026-08-27",
+      "endDate": "2026-09-23",
+      "expectedCalendarDays": 28,
+      "notBefore": "2026-09-26",
+      "decisionNotBefore": "2026-09-30",
+      "purpose": "formal-final-post-window",
+      "decisionEligible": false
+    }
   },
+  "washoutDates": ["2026-08-26"],
   "brandDictionary": {
     "version": "v1-2026-08-26",
     "owned": ["dmv title guy", "dmvtitleguy", "will rapuano", "william rapuano"],

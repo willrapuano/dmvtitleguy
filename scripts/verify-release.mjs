@@ -44,6 +44,7 @@ const staticChecks = [
   ["npm", ["run", "verify:lead-attribution"]],
   ["npm", ["run", "verify:local-search-measurement"]],
   ["npm", ["run", "verify:gsc-fresh-opportunities"]],
+  ["npm", ["run", "verify:gsc-checkpoint"]],
   ["npm", ["run", "security:audit"]],
   ["npm", ["run", "build"]],
 ];

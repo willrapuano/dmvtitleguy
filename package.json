@@ -32,6 +32,7 @@
     "verify:lead-attribution": "node scripts/verify-lead-attribution.mjs",
     "verify:local-search-measurement": "node scripts/verify-local-search-measurement.mjs",
     "verify:gsc-fresh-opportunities": "node scripts/verify-gsc-fresh-opportunities.mjs",
+    "verify:gsc-checkpoint": "node scripts/verify-gsc-checkpoint.mjs",
     "verify:production-env": "node scripts/verify-production-env.mjs",
     "verify:production-database": "node scripts/verify-production-database.mjs",
     "migrate:lead-protection": "node scripts/apply-lead-protection-migration.mjs",
