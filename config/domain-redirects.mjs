@@ -2,6 +2,9 @@ export const canonicalOrigin = "https://dmvtitleguy.io";
 
 export const redirectingHosts = [
   "www.dmvtitleguy.io",
+  // The .io site is canonical. Send the legacy www.com host to the matching
+  // .io path without ever moving a customer away from DMVTitleGuy.io.
+  "www.dmvtitleguy.com",
 ];
 
 // This is the single inventory for known path migrations. The Next config and
@@ -11,7 +14,8 @@ export const legacyPathMappings = [
   ["/home", "/"],
   ["/looking-to-grow-your-business", "/title-company-for-realtors"],
   ["/what-does-a-title-company-do", "/blog/what-does-a-title-company-do"],
-  ["/blog/title-search-process-explained", "/blog/what-does-a-title-company-do"],
+  // 2026-08-11: removed /blog/title-search-process-explained → what-does-a-title-company-do
+  // That slug is now a live dedicated commercial post in Sanity (no longer a soft-404 map).
   ["/my-blog", "/blog"],
   ["/title-quote", "/calculators/title-quote"],
   ["/blog/alta-homeowner-policy-dmv", "/blog/alta-homeowner-policy"],
@@ -19,6 +23,16 @@ export const legacyPathMappings = [
   ["/blog/who-does-title-insurance-protect-dmv", "/blog/who-does-title-insurance-protect"],
   ["/blog/sterling-virginia-settlement", "/blog/title-company-sterling-va"],
   ["/closing-costs/virginia", "/virginia-closing-cost-calculator"],
+  // Consolidate the older nested location routes into the flat URLs that
+  // already carry the strongest Search Console history and internal-link
+  // equity. Keeping one URL per local intent prevents the two templates from
+  // competing for the same query.
+  ["/title-company/alexandria-va", "/title-company-alexandria-va"],
+  ["/title-company/arlington-va", "/title-company-arlington-va"],
+  ["/title-company/fairfax-va", "/title-search-fairfax-va"],
+  ["/title-company/loudoun-county-va", "/title-company-loudoun-county-va"],
+  ["/title-company/prince-william-county-va", "/title-company-prince-william-county-va"],
+  ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
   ["/title-company/vienna-va", "/title-search-vienna-va"],
   ["/title-company/mclean-va", "/title-company-mclean-va"],
   ["/title-company/rockville-md", "/title-company-rockville-md"],
@@ -36,11 +50,10 @@ export const legacyPathMappings = [
   ["/blog/understanding-title-commitments-agents", "/blog/how-to-read-a-title-commitment"],
   ["/blog/title-insurance-first-time-buyers-dmv", "/blog/first-time-homebuyer-guide-dmv"],
   ["/title-company/herndon", "/title-company-herndon-va"],
+  ["/title-company/falls-church-va", "/title-company-falls-church-va"],
   ["/closing-cost-calculator-maryland", "/maryland-closing-cost-calculator"],
   ["/title-company-vienna-va", "/title-search-vienna-va"],
   ["/title-company-fairfax-va", "/title-search-fairfax-va"],
-  ["/title-company/falls-church-va", "/title-company-falls-church-va"],
-  ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
   ["/blog/title-settlement-fee", "/blog/what-is-a-title-settlement-fee"],
   ["/title-insurance-cost-virginia", "/blog/title-insurance-cost-virginia"],
   ["/closing-costs-maryland-2026", "/blog/closing-costs-maryland-2026"],

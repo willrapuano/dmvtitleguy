@@ -2,13 +2,13 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company in Falls Church, VA | Local Settlement Services",
   description: "Practical Falls Church title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title for independent review.",
-  alternates: { canonical: "/title-company/falls-church-va" },
+  alternates: { canonical: "/title-company-falls-church-va" },
 };
 
 const faqs = [
@@ -68,7 +68,7 @@ export default function FallsChurchTitlePage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="VA" />
+      <TitleQuoteEmbed title="Get a Falls Church TitleCapture Quote" />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
@@ -176,13 +176,13 @@ export default function FallsChurchTitlePage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
-            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">

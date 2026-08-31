@@ -2,7 +2,7 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
@@ -82,7 +82,10 @@ export default function MarylandClosingCostsPage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="MD" />
+      <TitleQuoteEmbed
+        title="Get a Maryland TitleCapture Quote"
+        subtitle="Use Pruitt Title's live quote tool for title insurance, settlement charges, and applicable Maryland closing items."
+      />
 
       <section className="py-8 bg-white border-b border-gray-100">
         <div className="container-xl max-w-3xl">
@@ -93,7 +96,7 @@ export default function MarylandClosingCostsPage() {
               <Link href="/maryland-closing-cost-calculator" className="font-semibold text-brand-blue-deep hover:underline">
                 Maryland closing cost calculator
               </Link>{" "}
-              to estimate buyer and seller costs, including title insurance, transfer tax, recordation fees, and Montgomery County settlement costs before requesting a final quote.
+              for Pruitt Title&apos;s embedded TitleCapture estimate. Pruitt Title confirms final figures after reviewing the contract and transaction details.
             </p>
           </div>
         </div>
@@ -284,10 +287,10 @@ export default function MarylandClosingCostsPage() {
             <Link href="/title-company-rockville-md" className="text-brand-blue-deep hover:underline">
               Rockville Title Services →
             </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
           </div>

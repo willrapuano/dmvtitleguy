@@ -223,7 +223,13 @@ function checkSimilarity(proposedTitle, proposedKeyword, existingTitle) {
     // Also check containment: if one title's core is fully inside the other
     const cont1 = containment(propCore, existCore);
     const cont2 = containment(existCore, propCore);
-    if (cont1 > 0.65 || cont2 > 0.65) { // Lowered from 0.70
+    if (cont1 >= 0.99 || cont2 >= 0.99) {
+      if (propCore.length > 5 || existCore.length > 5) {
+        issues.push({ level: 'DUPLICATE', reason: `topic containment ${(Math.max(cont1, cont2) * 100).toFixed(0)}%` });
+      } else {
+        issues.push({ level: 'WARNING', reason: `High topic containment on short title (${(Math.max(cont1, cont2) * 100).toFixed(0)}%)` });
+      }
+    } else if (cont1 > 0.65 || cont2 > 0.65) {
       issues.push({ level: 'DUPLICATE', reason: `topic containment ${(Math.max(cont1, cont2) * 100).toFixed(0)}%` });
     }
   }

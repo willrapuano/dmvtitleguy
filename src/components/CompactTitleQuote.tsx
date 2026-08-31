@@ -2,8 +2,7 @@
 
 import { Calculator, Check, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-
-const TITLE_QUOTE_URL = "https://pruitt-title.titlecapture.com/title-quote";
+import { TITLECAPTURE_QUOTE_URL } from "@/lib/titleCapture";
 
 declare global {
   interface Window {
@@ -11,7 +10,12 @@ declare global {
   }
 }
 
-export function CompactTitleQuote() {
+interface CompactTitleQuoteProps {
+  locationName: string;
+  placement: string;
+}
+
+export function CompactTitleQuote({ locationName, placement }: CompactTitleQuoteProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const previousBodyOverflowRef = useRef<string | null>(null);
@@ -44,7 +48,7 @@ export function CompactTitleQuote() {
     document.body.style.overflow = "hidden";
     window.gtag?.("event", "title_quote_open", {
       page_location: window.location.href,
-      placement: "herndon_hero",
+      placement,
     });
   };
 
@@ -86,13 +90,13 @@ export function CompactTitleQuote() {
         </div>
 
         <p className="mb-5 text-sm leading-relaxed text-brand-muted">
-          See estimated title insurance and settlement costs for your Herndon transaction in minutes.
+          See estimated title insurance and settlement costs for your {locationName} transaction in minutes.
         </p>
 
         <ul className="mb-6 hidden space-y-3 text-sm text-brand-ink sm:block" aria-label="Calculator benefits">
           {[
             "Purchase and refinance quotes",
-            "Virginia rates and local transaction details",
+            "Local rates and transaction details",
             "No obligation to start your estimate",
           ].map((item) => (
             <li key={item} className="flex items-start gap-3">
@@ -174,12 +178,12 @@ export function CompactTitleQuote() {
           {shouldLoad && (
             <iframe
               key={iframeKey}
-              src={TITLE_QUOTE_URL}
+              src={TITLECAPTURE_QUOTE_URL}
               className="h-full w-full border-0"
-              title="Pruitt Title title quote calculator"
+              title="Title quote calculator"
               allow="clipboard-write"
               referrerPolicy="strict-origin-when-cross-origin"
-              sandbox="allow-downloads allow-forms allow-modals allow-same-origin allow-scripts"
+              sandbox="allow-downloads allow-forms allow-modals allow-same-origin allow-scripts allow-storage-access-by-user-activation"
               onLoad={() => setLoadStatus("ready")}
             />
           )}

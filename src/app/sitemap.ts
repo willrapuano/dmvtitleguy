@@ -17,8 +17,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * groups below.
    *
    * Three classes of entry were removed rather than moved:
-   *  - /title-search-vienna-va and /title-search-fairfax-va, which ALL_LOCATIONS
-   *    already supplies — they were emitted twice.
+   *  - Local and county landing pages, which ALL_LOCATIONS and COUNTIES supply.
+   *    Keeping them out of the hand-maintained list prevents a second URL
+   *    inventory from drifting away from the canonical route data.
    *  - /privacy-policy and /terms, which serve `noindex`. Listing a noindex page in a
    *    sitemap asks Google to crawl something it is told not to index.
    *  - /agent-tools/contract-analyzer, which 307s to a login wall.
@@ -51,9 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/title-company-for-builders", "/title-company-for-credit-unions",
       "/title-company-for-lenders", "/title-company-for-realtors",
       "/closing-costs/maryland", "/closing-costs/dc", "/closing-costs/dc-who-pays",
-      "/closing-costs/buyer-maryland", "/closing-costs/seller-virginia",
-      "/title-company/alexandria-va", "/title-company/arlington-va", "/title-company/fairfax-va",
-      "/title-company/loudoun-county-va", "/title-company/prince-william-county-va"].map((p) => entry(p, 0.8)),
+      "/closing-costs/buyer-maryland", "/closing-costs/seller-virginia"].map((p) => entry(p, 0.8)),
 
     entry("/blog", 0.8, "weekly"),
 
@@ -68,9 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/subscribe", 0.6),
   ];
 
-  const locationPages: MetadataRoute.Sitemap = ALL_LOCATIONS
-    .filter((loc) => !['title-company-vienna-va', 'title-company-fairfax-va'].includes(loc.slug))
-    .map((loc) => ({
+  const locationPages: MetadataRoute.Sitemap = ALL_LOCATIONS.map((loc) => ({
       url: `${BASE_URL}/${loc.slug}`,
       changeFrequency: "monthly" as const,
       priority: loc.tier === 1 ? 0.9 : 0.7,

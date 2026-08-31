@@ -36,6 +36,9 @@ async function waitForServer(server) {
 const staticChecks = [
   ["npm", ["run", "lint"]],
   ["npm", ["run", "typecheck"]],
+  ["npm", ["run", "verify:community-quotes"]],
+  ["npm", ["run", "verify:titlecapture-fleet"]],
+  ["npm", ["run", "verify:seo-contracts"]],
   ["npm", ["run", "verify:canonical-domain"]],
   ["npm", ["run", "verify:blog-normalizer"]],
   ["npm", ["run", "verify:blog-publication"]],

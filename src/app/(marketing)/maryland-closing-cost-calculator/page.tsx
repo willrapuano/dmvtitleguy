@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { FAQSection } from "@/components/FAQSection";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 import { SITE_NAME, willPersonReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost Calculator (2026) | Free Buyer & Seller Estimates",
+  title: "Maryland Closing Cost Calculator (2026) | Buyer & Seller",
   description:
     "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, and county costs for Montgomery, PG, and statewide.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
@@ -145,7 +144,7 @@ const faqs = [
   {
     question: "How much are closing costs in Maryland?",
     answer:
-      "Maryland closing costs depend on the purchase price, loan amount, county, title insurance, lender fees, taxes, recording charges, and escrow deposits. The calculator applies Maryland, Montgomery County, and Prince George's County tax rates verified for June 2026.",
+      "Maryland closing costs depend on the purchase price, loan amount, county, title insurance, lender fees, taxes, recording charges, and escrow deposits. Use the embedded TitleCapture tool for a transaction-specific estimate, then have Pruitt Title confirm the final figures from the contract and closing details.",
   },
   {
     question: "Who pays transfer tax in Maryland?",
@@ -200,7 +199,7 @@ const faqs = [
   {
     question: "Is this Maryland closing cost calculator exact?",
     answer:
-      "The calculator applies the listed June 2026 tax rates, but final closing costs still depend on the signed contract, lender information, county, title insurance requirements, payoff details, and target closing date.",
+      "The quote is generated through Pruitt Title's TitleCapture tool using the transaction details you enter. It is still an estimate until Pruitt Title reviews the signed contract, lender information, county, title requirements, payoff details, and target closing date.",
   },
   {
     question: "How should I estimate Montgomery County closing costs?",
@@ -231,7 +230,7 @@ const pageSchema = {
       operatingSystem: "Web",
       isAccessibleForFree: true,
       description:
-        "Free interactive closing cost calculator for Maryland buyers and sellers. Estimate transfer tax, recordation fees, title insurance, and settlement charges.",
+        "Embedded TitleCapture quote tool for Maryland buyers and sellers to estimate title insurance, settlement charges, and applicable closing items.",
       offers: {
         "@type": "Offer",
         price: "0",
@@ -311,20 +310,17 @@ export default function MarylandCalculatorPage() {
             <span>Maryland Closing Cost Calculator</span>
           </nav>
           <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">Free Tool</p>
-          <h1 className="t-h1 text-white mb-4">Maryland Closing Cost Calculator for Buyers and Sellers</h1>
+          <h1 className="t-h1 text-white mb-4">Maryland Closing Cost Calculator for Buyers & Sellers</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Estimate Maryland closing costs for buyers and sellers before settlement. Covers state and county transfer taxes, title insurance, recordation fees, lender charges, seller costs, and county-specific assumptions for Montgomery County and Prince George&apos;s County.
+            Use Pruitt Title&apos;s live TitleCapture tool for a Maryland title and settlement estimate based on the transaction details you enter. The calculator remains here on DMV Title Guy.
           </p>
         </div>
       </section>
 
-      <section className="section-light">
-        <div className="container-xl">
-          <ClosingCostCalculator state="MD" />
-        </div>
-      </section>
-
-      <TitleQuoteEmbed />
+      <TitleQuoteEmbed
+        title="Get Your Maryland Quote Through TitleCapture"
+        subtitle="Use the live Pruitt Title quote tool for title insurance, settlement charges, and applicable Maryland closing items. Final figures are confirmed after the contract and transaction details are reviewed."
+      />
 
       <section className="section-gray">
         <div className="container-xl max-w-4xl">
@@ -332,14 +328,13 @@ export default function MarylandCalculatorPage() {
             <h2 className="t-h4 text-brand-navy mb-4">Closing Cost Calculator Maryland</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
               <p className="max-w-[68ch]">
-                This closing cost calculator Maryland page is built for buyers, sellers, agents, and lenders who need
-                a Maryland-specific estimate instead of a generic national calculator. Enter the purchase price, loan
-                amount, party type, county, and first-time homebuyer details to compare buyer cash-to-close and seller
-                closing cost exposure.
+                This page uses Pruitt Title&apos;s TitleCapture quote tool rather than a hand-maintained formula. Buyers,
+                sellers, agents, and lenders can enter the transaction details TitleCapture requests and receive a
+                Maryland-specific estimate from the same quote system Pruitt Title uses.
               </p>
               <p className="max-w-[68ch]">
-                The calculator is most useful before ordering a title quote, reviewing a lender estimate, or checking
-                whether a contract allocates transfer taxes to the buyer, seller, or both sides.
+                Use the result to prepare for a closing-cost conversation or compare it with a lender estimate. Pruitt
+                Title will confirm the final figures after reviewing the contract, lender information, and property details.
               </p>
             </div>
           </div>
@@ -350,7 +345,8 @@ export default function MarylandCalculatorPage() {
               <p className="max-w-[68ch]">
                 Maryland closing costs combine lender fees, title insurance, settlement fees, recordation taxes,
                 transfer taxes, recording fees, prepaid taxes and insurance, escrow deposits, and prorations.
-                The calculator is a starting point for organizing those line items before a final title quote.
+                TitleCapture organizes the applicable quote items from the details entered above. It does not replace
+                the lender&apos;s Loan Estimate or Pruitt Title&apos;s review of the signed contract.
               </p>
               <p className="max-w-[68ch]">
                 Buyer costs commonly vary by loan amount, property type, county, contract terms, and whether the
@@ -405,8 +401,8 @@ export default function MarylandCalculatorPage() {
                 the state transfer tax rate is 0.25% and must be paid by the seller.
               </p>
               <p className="max-w-[68ch]">
-                Use the Maryland transfer tax calculator controls above to compare Montgomery County and Prince
-                George&apos;s County. The final allocation still depends on the contract and any negotiated tax split.
+                Use the TitleCapture quote above with the property&apos;s actual county and transaction details. The final
+                allocation still depends on the contract and any negotiated tax split.
               </p>
               <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
                 <table className="w-full text-left text-sm">

@@ -158,5 +158,5 @@ Title insurance premiums in the DMV are state-regulated and based on purchase pr
 
 - [Get a title quote in Bethesda](/title-company-bethesda-md)
 - [See DC closing costs](/closing-costs/dc)
-- [Get a title quote in Arlington](/title-company/arlington-va)
+- [Get a title quote in Arlington](/title-company-arlington-va)
 - [Compare Maryland closing costs](/closing-costs/maryland)

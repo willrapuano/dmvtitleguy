@@ -15,9 +15,10 @@ import {
   Shield,
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
+import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 
 export const metadata: Metadata = {
-  title: "Fairfax VA Title Search & Title Company | Free Online Quote",
+  title: "Fairfax, VA Title Company & Title Search | Pruitt Title",
   description:
     "Learn how Fairfax title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
   alternates: {
@@ -207,26 +208,29 @@ export default function TitleSearchFairfaxPage() {
       <section
         className="page-hero"
       >
-        <div className="container-xl">
-          <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-200">Title Search Fairfax VA</span>
-          </nav>
-          <h1 className="t-h1 text-white mb-4">
-            Title Search Fairfax VA
-          </h1>
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-            Get a Fairfax title search before closing, bidding, or committing
-            to a deal. A provider may review ownership, liens, judgments, taxes, easements,
-            and title defects so you know what you are taking on.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <TitleSearchOrderButton />
-            <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Start Contract Intake
-            </Link>
+        <div className="container-xl grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <nav className="text-xs text-gray-400 mb-4">
+              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <span className="mx-2">/</span>
+              <span className="text-gray-200">Title Search Fairfax VA</span>
+            </nav>
+            <h1 className="t-h1 text-white mb-4">
+              Title Search Fairfax VA
+            </h1>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl">
+              Get a Fairfax title search before closing, bidding, or committing
+              to a deal. A provider may review ownership, liens, judgments, taxes, easements,
+              and title defects so you know what you are taking on.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <TitleSearchOrderButton />
+              <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
+                Start Contract Intake
+              </Link>
+            </div>
           </div>
+          <CompactTitleQuote locationName="Fairfax, VA" placement="title-search-fairfax-va-hero" />
         </div>
       </section>
 

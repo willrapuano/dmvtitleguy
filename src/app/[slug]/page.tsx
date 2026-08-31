@@ -609,8 +609,15 @@ function BethesdaExpansionSections() {
 }
 
 // ─── Static Params ─────────────────────────────────────────────────────────────
+const DEDICATED_LOCATION_SLUGS = new Set([
+  "title-search-fairfax-va",
+  "title-search-vienna-va",
+]);
+
 export async function generateStaticParams() {
-  const locationSlugs = ALL_LOCATIONS.map((l) => ({ slug: l.slug }));
+  const locationSlugs = ALL_LOCATIONS
+    .filter((location) => !DEDICATED_LOCATION_SLUGS.has(location.slug))
+    .map((location) => ({ slug: location.slug }));
   const countySlugs = COUNTIES.map((c) => ({ slug: c.slug }));
   const cityCalcSlugs = CITY_CALCULATOR_DATA.map((c) => ({ slug: c.slug }));
   return [...locationSlugs, ...countySlugs, ...cityCalcSlugs];
@@ -825,6 +832,7 @@ function LocationPage({ location }: { location: Location }) {
   const priorityHeroCopy = priorityHero[slug];
   const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
   const isTysons = slug === "title-company-tysons-va";
+  const isFallsChurch = slug === "title-company-falls-church-va";
   const hasCheckoutCta = isTysons || slug === "title-company-herndon-va" || isNeighborhood;
   const calculatorLinkLabel =
     state === "MD"
@@ -886,6 +894,8 @@ function LocationPage({ location }: { location: Location }) {
                 ? priorityHeroCopy.h1
                 : slug === "title-company-bethesda-md"
                 ? "Bethesda-Chevy Chase MD Title Company & Escrow Services"
+                : isFallsChurch
+                ? "Falls Church, VA Title & Settlement Services"
                 : isNeighborhood
                 ? `Title Company in ${locationName}`
                 : "Reliable Title & Settlement Services"}
@@ -911,11 +921,7 @@ function LocationPage({ location }: { location: Location }) {
             </div>
           </div>
           <div>
-            {slug === "title-company-herndon-va" ? (
-              <CompactTitleQuote />
-            ) : (
-              <LeadCaptureForm compact location={`location-${slug}`} />
-            )}
+            <CompactTitleQuote locationName={locationName} placement={`location-${slug}-hero`} />
           </div>
         </div>
       </section>
@@ -1297,7 +1303,7 @@ function CountyPage({ county }: { county: County }) {
             </div>
           </div>
           <div>
-            <LeadCaptureForm compact location={`county-${slug}`} />
+            <CompactTitleQuote locationName={fullName} placement={`county-${slug}-hero`} />
           </div>
         </div>
       </section>

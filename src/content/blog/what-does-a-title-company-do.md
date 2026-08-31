@@ -172,7 +172,7 @@ If you're buying or selling property in Northern Virginia, Maryland, or DC and w
 
 ## Next Steps
 
-- [Get a title quote in Alexandria](/title-company/alexandria-va)
+- [Get a title quote in Alexandria](/title-company-alexandria-va)
 - [Get a title quote in Falls Church](/title-company-falls-church-va)
-- [Get a title quote in Arlington](/title-company/arlington-va)
+- [Get a title quote in Arlington](/title-company-arlington-va)
 - [Compare Maryland closing costs](/closing-costs/maryland)
