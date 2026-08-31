@@ -20,7 +20,7 @@ import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 export const metadata: Metadata = {
   title: "Fairfax, VA Title Company & Title Search | Pruitt Title",
   description:
-    "Fairfax title searches, title insurance, escrow, and settlement support from Pruitt Title. Serving Fairfax City and Fairfax County transactions since 2007.",
+    "Learn how Fairfax title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-fairfax-va",
   },
@@ -55,7 +55,7 @@ const covers = [
   {
     icon: Shield,
     title: "Curative Guidance",
-    desc: "When a defect appears, we explain the likely cure path and what needs to happen before the title can be insured.",
+    desc: "When a defect appears, the accepted provider should explain the likely cure path and what may be required before title can be insured.",
   },
 ];
 
@@ -101,7 +101,7 @@ const process = [
   {
     icon: Search,
     title: "2. Search the Records",
-    desc: "We review land records, liens, judgments, taxes, restrictions, and title exceptions tied to the property and owners.",
+    desc: "An accepted provider may review land records, liens, judgments, taxes, restrictions, and title exceptions tied to the property and owners.",
   },
   {
     icon: CheckCircle2,
@@ -129,7 +129,7 @@ const faqs = [
   },
   {
     q: "Can a title search help with foreclosure or investor properties?",
-    a: "Yes. Fairfax investor and foreclosure properties often require deeper review for surviving liens, judgment risks, missing releases, and chain-of-title defects. We flag those issues and explain the practical next steps.",
+    a: "Fairfax investor and foreclosure properties may require deeper review for surviving liens, judgment risks, missing releases, and record-chain defects. The accepted provider should identify issues and explain the transaction-specific next steps.",
   },
   {
     q: "Where are Fairfax County land records recorded?",
@@ -146,42 +146,25 @@ const faqs = [
 ];
 
 const relatedPages = [
+  { href: "/blog/types-of-property-surveys-dc-md-va", label: "Types of Property Surveys" },
   { href: "/title-search-vienna-va", label: "Title Search Vienna VA" },
   { href: "/commercial-property-title-search", label: "Commercial Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
   { href: "/upload-contract", label: "Start Contract Intake" },
-  { href: "/request-title-review", label: "Order Title Search" },
+  { href: "/request-title-review", label: "Request Title Review" },
 ];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "LegalService"],
-      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#business",
-      name: "DMV Title Guy | Pruitt Title LLC",
-      url: "https://dmvtitleguy.io/title-search-fairfax-va",
-      telephone: "+1-703-859-1467",
-      image: "https://dmvtitleguy.io/logo.png",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "1900 Gallows Rd Ste 230",
-        addressLocality: "Vienna",
-        addressRegion: "VA",
-        postalCode: "22182",
-        addressCountry: "US",
-      },
-      areaServed: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
-    },
-    {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#service",
-      name: "Title Search Fairfax VA",
-      serviceType: "Title Search",
-      provider: { "@id": "https://dmvtitleguy.io/title-search-fairfax-va#business" },
-      areaServed: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/title-search-fairfax-va#guide",
+      headline: "Title Search Guide for Fairfax VA",
+      about: { "@type": "Thing", name: "Title Search" },
+      spatialCoverage: { "@type": "City", name: "Fairfax", addressRegion: "VA" },
       description:
-        "Title search services for Fairfax, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",
+        "Educational guide to Fairfax, VA title-search topics including ownership chains, liens, judgments, taxes, easements, restrictions, and title defects.",
     },
     {
       "@type": "FAQPage",
@@ -237,7 +220,7 @@ export default function TitleSearchFairfaxPage() {
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl">
               Get a Fairfax title search before closing, bidding, or committing
-              to a deal. We review ownership, liens, judgments, taxes, easements,
+              to a deal. A provider may review ownership, liens, judgments, taxes, easements,
               and title defects so you know what you are taking on.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -309,7 +292,7 @@ export default function TitleSearchFairfaxPage() {
             ))}
           </div>
           <div className="mt-8 rounded-lg border border-gray-200 p-5">
-            <h3 className="t-h6 text-brand-navy mb-2">Fairfax title issues we watch closely</h3>
+            <h3 className="t-h6 text-brand-navy mb-2">Fairfax title issues to review closely</h3>
             <p className="text-brand-muted leading-relaxed max-w-[68ch]">
               Fairfax transactions often involve mature subdivisions, active HOA and condo communities, townhome clusters, estate-owned properties, investor resales, and new construction or redevelopment files. Our review looks for recorded covenants, association liens, easements, access restrictions, unreleased trusts, judgment liens, tax matters, subdivision documents, and builder or entity authority issues before they disrupt closing.
             </p>
@@ -319,7 +302,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

@@ -1,47 +1,14 @@
 import { NextResponse } from "next/server";
-import { getPayPalAccessToken, getPayPalBaseUrl } from "@/lib/paypal";
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json().catch(() => ({}));
-    const orderId = typeof body.orderId === "string" ? body.orderId.trim() : "";
-
-    if (!orderId) {
-      return NextResponse.json({ error: "Missing PayPal order ID." }, { status: 400 });
-    }
-
-    const accessToken = await getPayPalAccessToken();
-    const response = await fetch(`${getPayPalBaseUrl()}/v2/checkout/orders/${orderId}/capture`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-        Prefer: "return=representation",
-      },
-      cache: "no-store",
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: "Unable to capture PayPal order.", details: data },
-        { status: response.status },
-      );
-    }
-
-    const capture = data.purchase_units?.[0]?.payments?.captures?.[0];
-
-    return NextResponse.json({
-      id: data.id,
-      status: data.status,
-      captureId: capture?.id,
-      captureStatus: capture?.status || data.status,
-    });
-  } catch (error) {
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Unable to capture PayPal order." },
-      { status: 500 },
-    );
-  }
+// Legacy capture is intentionally disabled. The site does not maintain a
+// server-side order allowlist that can prove an arbitrary PayPal order belongs
+// to this merchant and is authorized for capture. Historical orders must be
+// reviewed and captured manually in PayPal after owner authorization.
+export async function POST() {
+  return NextResponse.json(
+    {
+      error: "Online PayPal capture is unavailable. Contact Will for help with a prior order.",
+    },
+    { status: 503, headers: { "Cache-Control": "no-store" } },
+  );
 }

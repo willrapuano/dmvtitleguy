@@ -6,40 +6,40 @@ import Image from "next/image";
 
 const ACCORDION_ITEMS = [
   {
-    title: "Our Reputation",
-    body: "Pruitt Title LLC was established in 2007 as a locally-owned, woman-owned title and settlement company based in Vienna, Virginia. For nearly two decades, we've built a reputation for professionalism, integrity, and exceptional service throughout the DMV region. Our clients trust us because we consistently deliver smooth closings and clear communication.",
+    title: "Company & Authorization",
+    body: "Confirm the provider's legal identity, licensing or authorization, underwriter relationships, service area, and the entity that will receive funds and issue documents. Use the provider's official website and transaction disclosures as the authority.",
   },
   {
-    title: "Our Resources",
-    body: "Pruitt Title is an authorized agent of First American Title Insurance Company, one of the nation's leading providers of title insurance and a Fortune 500 company. This partnership gives us access to cutting-edge technology, extensive underwriting expertise, and financial resources that smaller title companies simply cannot match. When you work with us, you get local service backed by national strength.",
+    title: "Title Insurance & Underwriting",
+    body: "Ask which policy and endorsements may be available, who the underwriter is, and which exclusions, exceptions, conditions, and transaction-specific underwriting requirements may apply.",
   },
   {
-    title: "Our Marketing",
-    body: "Will Rapuano brings a unique background in video marketing, digital advertising, and real estate technology. Unlike traditional title companies, we actively help our referral partners grow their businesses through innovative marketing strategies, educational workshops, and creative campaigns. Our marketing support is a value-add that sets us apart from every other title company in the DMV.",
+    title: "Education & Preparation",
+    body: "Useful calculators, plain-language explanations, and early issue spotting can help parties ask better questions. These resources are educational and do not replace a provider's file-specific review.",
   },
   {
-    title: "Our Size",
-    body: "We're a nimble, locally-owned company that provides the personalized attention and fast turnarounds that large title companies can't match — while still having the backing of First American's national infrastructure. You get the best of both worlds: the responsiveness of a boutique firm and the resources of a Fortune 500 company.",
+    title: "Team & Capacity",
+    body: "Ask who will examine title, coordinate settlement, handle funds, support signing, record documents, and respond after closing—and whether the team has capacity for the transaction's actual deadline.",
   },
   {
-    title: "Our Technology",
-    body: "We leverage the latest technology to streamline the closing process for all parties. From digital closings and e-signatures to real-time status updates and secure document sharing, our tech stack is designed to make every transaction faster, more transparent, and more convenient for agents, lenders, and their clients.",
+    title: "Process & Communication",
+    body: "Ask how the provider shares milestones, requests documents, reports title issues, confirms signing logistics, and handles recording and post-closing questions.",
   },
   {
-    title: "Our Flexibility",
-    body: "Whether it's a residential purchase, commercial transaction, luxury property, new construction deal, refinance, or investor flip — we handle every type of closing with the same level of professionalism and care. No transaction type is outside our expertise, and we adapt our process to fit the unique needs of each deal.",
+    title: "Transaction Fit",
+    body: "Residential purchases, commercial matters, refinances, estates, new construction, and investor transactions can require different experience. Confirm the provider accepts the specific property, jurisdiction, lender, and transaction type.",
   },
   {
-    title: "Our Strength",
-    body: "First American Title Insurance Company provides the financial reserves and stability that protect every policy we issue. With over a century of experience and billions in assets, First American's financial strength means your clients' title insurance policies are backed by one of the strongest companies in the industry.",
+    title: "Policy-Specific Protection",
+    body: "Title insurance protection is governed by the policy actually issued, including covered risks, exclusions, exceptions, and conditions. Ask the accepted provider to explain the available policy and endorsements.",
   },
   {
-    title: "Our Diversity",
-    body: "Pruitt Title LLC is a proud woman-owned business with a diverse team that reflects the communities we serve. We believe diversity drives better outcomes — for our clients, our partners, and our industry. Our inclusive approach to business ensures that every client feels welcome and valued.",
+    title: "Service Area & Signing",
+    body: "Confirm that the provider can serve the property jurisdiction and support the needed signing method. Remote, mobile, or in-office options can depend on the state, lender, documents, and transaction.",
   },
   {
-    title: "Our People",
-    body: "Will Rapuano is an educator, a connector, and an advocate for real estate professionals in the DMV. Recognized among the top 5% of title insurance executives nationwide, Will goes beyond just closing transactions — he hosts free CE classes, organizes industry events, and provides one-on-one mentorship to help agents and lenders grow their businesses. When you partner with Pruitt Title, you're partnering with people who genuinely care about your success.",
+    title: "Will, DMV Title Guy & Pruitt",
+    body: "Will Rapuano operates DMV Title Guy and works as Pruitt Title's Marketing and Business Development Officer. DMV Title Guy is not Pruitt's corporate site. A requested introduction does not bind Pruitt; Pruitt independently confirms acceptance and terms.",
   },
 ];
 
@@ -86,8 +86,11 @@ export function WhyChooseUsClient() {
         <div className="absolute inset-0 bg-brand-navy/80" />
         <div className="container-xl relative z-10 text-center">
           <h1 className="t-display text-white">
-            Why Pruitt Title?
+            How to Choose a Title Provider
           </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
+            Will Rapuano operates DMV Title Guy as an education and business-development website separate from Pruitt Title LLC&apos;s corporate website. Will is Pruitt&apos;s Marketing and Business Development Officer. Eligible transaction requests may be referred to Pruitt for independent review; submission does not mean Pruitt has accepted the transaction.
+          </p>
         </div>
       </section>
 
@@ -95,7 +98,7 @@ export function WhyChooseUsClient() {
       <section className="section-light">
         <div className="container-xl max-w-3xl">
           <h2 className="prose-title text-center mb-2">
-            9 Reasons Why Real Estate Professionals Choose Pruitt Title
+            9 Questions to Ask Before You Choose
           </h2>
           <div className="mt-10 space-y-3">
             {ACCORDION_ITEMS.map((item, i) => {
@@ -154,16 +157,14 @@ export function WhyChooseUsClient() {
               you are purchasing.
             </p>
             <p className="max-w-[68ch]">
-              First American Title Insurance Company provides title insurance that gives you the assurance that possible
-              clouds on title to the property you are purchasing have been investigated and resolved. Additionally, it is
-              insurance that if any undiscovered claims arise out of the past to threaten your ownership, they will be
-              disposed of, or you will be reimbursed as your title insurance policy provides.
+              A title search and underwriting review can identify recorded matters before settlement. An owner&apos;s title
+              insurance policy can provide protection against covered title risks, subject to the policy&apos;s terms,
+              exclusions, exceptions, and conditions.
             </p>
             <p className="max-w-[68ch]">
-              Pruitt Title LLC works with First American Title Insurance Company, a respected Fortune 500 leader in the
-              industry, combining local DMV expertise with national financial strength to protect your investment. Whether
-              you&apos;re a first-time buyer, seasoned investor, or industry professional — title insurance is the foundation
-              that protects your most important transaction.
+              If you request an introduction through DMV Title Guy, an eligible matter may be referred to Pruitt Title
+              for independent review. Pruitt decides whether to accept the matter and confirms any available policy,
+              endorsements, signing options, pricing, timing, terms, and required disclosures directly.
             </p>
           </div>
         </div>
@@ -189,13 +190,13 @@ export function WhyChooseUsClient() {
       {/* Contact CTA */}
       <section className="section-blue">
         <div className="container-xl text-center max-w-2xl">
-          <h2 className="t-h2 text-white mb-4">Ready to Get Started?</h2>
+          <h2 className="t-h2 text-white mb-4">Have a Transaction Question?</h2>
           <p className="text-white/80 mb-8 max-w-[68ch] leading-relaxed">
-            Contact Will Rapuano at Pruitt Title LLC for a title insurance quote or to open your order today.
+            Contact Will through DMV Title Guy for an educational answer or to request a provider introduction. Submission does not create a Pruitt Title service relationship.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/calculators/title-quote" className="btn-light px-8 py-3.5">
-              Get a Quote
+              Estimate Closing Costs
             </Link>
             <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-blue px-8 py-3.5">
               Call (703) 859-1467

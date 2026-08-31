@@ -7,6 +7,8 @@ import type { Metadata } from "next";
 import { Open_Sans, Source_Serif_4 } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "@/lib/brand-identity";
+import { AttributionCapture } from "@/components/AttributionCapture";
 
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
 
@@ -22,14 +24,12 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
-const siteUrl = "https://dmvtitleguy.io";
-const siteName = "Pruitt Title | DMV Title Guy";
-const defaultTitle = "Real Estate Title & Escrow in DC, MD & VA | Pruitt Title";
+const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
 const defaultDescription =
-  "Pruitt Title provides real estate title insurance, escrow, and settlement services across Northern Virginia, Maryland, and Washington, DC. Get a quote.";
+  "Practical title and closing guidance from Will Rapuano, with eligible transaction requests available for referral to Pruitt Title LLC for independent review.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: { default: defaultTitle, template: `%s` },
   description: defaultDescription,
   icons: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    siteName,
+    siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
   },
@@ -55,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${openSans.variable} ${sourceSerif.variable}`}>
       <body className="min-h-screen antialiased bg-white text-brand-dark-text font-sans">
+        <AttributionCapture />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7JQ2YPBX58"
           strategy="afterInteractive"

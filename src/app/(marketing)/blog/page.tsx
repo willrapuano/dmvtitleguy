@@ -4,7 +4,8 @@ import BlogIndexClient from "@/components/BlogIndexClient";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 
-export const revalidate = 0;
+// ISR retains the last known-good index when the CMS cannot be reached.
+export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: "Blog | DMV Title Guy — Title Insurance & Real Estate Tips",

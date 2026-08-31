@@ -6,10 +6,19 @@
 import { BlogPost, BLOG_POSTS, PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { getAllPosts, getPostBySlug, getAllPostSlugs, SanityBlogPost } from "./sanity-queries";
 import { getBlogContent, getMarkdownBlogSlugs } from "./blog-content";
+import { postCanonicalPath } from "./post-titles";
+import { normalizeIndependentProviderVoice } from "./provider-voice.ts";
 
 const LOCAL_MARKDOWN_BODY_OVERRIDES = new Set([
+  "firpta-explained-dmv",
   "title-insurance-cost-virginia-maryland",
+  "what-is-a-title-settlement-fee",
 ]);
+
+const LOCAL_CONTENT_UPDATED_AT: Record<string, string> = {
+  "firpta-explained-dmv": "2026-08-26T00:00:00.000Z",
+  "what-is-a-title-settlement-fee": "2026-08-26T00:00:00.000Z",
+};
 
 function normalizeCategory(category?: string | null, slug?: string): string {
   const value = (category || "").trim();
@@ -49,8 +58,8 @@ function mapSanityPost(p: SanityBlogPost): BlogPost {
       day: "numeric",
     }),
     dateISO: p.publishedAt?.slice(0, 10) ?? "",
-    updatedAtISO: p._updatedAt || undefined,
-    excerpt: p.excerpt ?? "",
+    updatedAtISO: LOCAL_CONTENT_UPDATED_AT[p.slug] || p._updatedAt || undefined,
+    excerpt: normalizeIndependentProviderVoice(p.excerpt ?? ""),
     category: normalizeCategory(p.category, p.slug),
     readTime: p.readTime ?? "5 min read",
     image:
@@ -86,14 +95,11 @@ function mergeUniquePosts(...groups: BlogPost[][]): BlogPost[] {
 
 /** Fetch all posts — Sanity first, then merge with static/markdown legacy inventory */
 export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
-  let sanityPosts: SanityBlogPost[] = [];
-  try {
-    sanityPosts = await getAllPosts();
-    console.log(`[BlogData] Sanity returned ${sanityPosts.length} posts`);
-  } catch (error) {
-    console.error('[BlogData] Error fetching from Sanity:', error);
-    // Continue with empty sanityPosts - will use static fallback
-  }
+  // Let Sanity outages throw. These routes use ISR, so a failed revalidation
+  // keeps the last known-good page instead of replacing the index or sitemap
+  // with a silently truncated static fallback.
+  const sanityPosts: SanityBlogPost[] = await getAllPosts();
+  console.log(`[BlogData] Sanity returned ${sanityPosts.length} posts`);
   const mappedSanityPosts = sanityPosts.map(mapSanityPost);
 
   const staticPosts = PUBLISHED_BLOG_POSTS.map((post) => ({
@@ -107,8 +113,9 @@ export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
   }));
 
   const merged = mergeUniquePosts(mappedSanityPosts, staticPosts, markdownPosts);
-  console.log(`[BlogData] Total merged posts: ${merged.length}`);
-  return merged;
+  const canonicalPosts = merged.filter((post) => postCanonicalPath(post.slug) === `/blog/${post.slug}`);
+  console.log(`[BlogData] Total merged posts: ${canonicalPosts.length}`);
+  return canonicalPosts;
 }
 
 /** Fetch a single post — Sanity first, static fallback */

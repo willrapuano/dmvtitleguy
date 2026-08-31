@@ -17,9 +17,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "commercial closing Services for DMV Deals | Pruitt Title",
+  title: "Commercial Closing Guide for DMV Deals | DMV Title Guy",
   description:
-    "Commercial closing support for DMV buyers, sellers, lenders, and investors. Pruitt Title coordinates title, escrow, and settlement. Call today.",
+    "Educational commercial-closing guidance for DMV buyers, sellers, lenders, and investors, with an option to request a provider introduction.",
   alternates: {
     canonical: "https://dmvtitleguy.io/commercial-real-estate-closings",
   },
@@ -34,7 +34,7 @@ const closingInvolves = [
   {
     icon: Shield,
     title: "Title Insurance Coordination",
-    desc: "We coordinate title insurance requirements, endorsements, underwriting questions, and lender title conditions.",
+    desc: "An accepted provider may coordinate title-insurance requirements, endorsements, underwriting questions, and lender title conditions within its confirmed scope.",
   },
   {
     icon: Landmark,
@@ -118,7 +118,7 @@ const faqs = [
   },
   {
     q: "Can you help with commercial title issues before closing?",
-    a: "Yes. We identify title exceptions and curative requirements, then help coordinate releases, payoffs, corrective documents, underwriting review, and lender title conditions.",
+    a: "An accepted provider may identify title exceptions and curative requirements, then coordinate releases, payoffs, corrective documents, underwriting review, and lender title conditions within its confirmed scope.",
   },
 ];
 
@@ -133,24 +133,11 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/commercial-real-estate-closings#service",
-      name: "Commercial Real Estate Closings",
-      serviceType: "Commercial Real Estate Closing Services",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/commercial-real-estate-closings#guide",
+      headline: "Commercial Real Estate Closing Guide",
+      about: { "@type": "Thing", name: "Commercial Real Estate Closings" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },

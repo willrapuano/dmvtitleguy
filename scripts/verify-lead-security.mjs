@@ -57,4 +57,13 @@ response = await fetch(`${targetOrigin}/api/funnels/upload-url`, {
 });
 record("public funnel document uploads are disabled", response.status === 410, `HTTP ${response.status}`);
 
+for (const route of ["create-order", "capture-order"]) {
+  response = await fetch(`${targetOrigin}/api/paypal/${route}`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: "{}",
+  });
+  record(`PayPal ${route} is disabled`, response.status === 503, `HTTP ${response.status}`);
+}
+
 if (checks.some((check) => !check.ok)) process.exitCode = 1;

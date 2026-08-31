@@ -1,6 +1,7 @@
 export const canonicalOrigin = "https://dmvtitleguy.io";
 
 export const redirectingHosts = [
+  "www.dmvtitleguy.io",
   // The .io site is canonical. Send the legacy www.com host to the matching
   // .io path without ever moving a customer away from DMVTitleGuy.io.
   "www.dmvtitleguy.com",
@@ -22,15 +23,8 @@ export const legacyPathMappings = [
   ["/blog/who-does-title-insurance-protect-dmv", "/blog/who-does-title-insurance-protect"],
   ["/blog/sterling-virginia-settlement", "/blog/title-company-sterling-va"],
   ["/closing-costs/virginia", "/virginia-closing-cost-calculator"],
-  // Consolidate the older nested location routes into the flat URLs that
-  // already carry the strongest Search Console history and internal-link
-  // equity. Keeping one URL per local intent prevents the two templates from
-  // competing for the same query.
-  ["/title-company/alexandria-va", "/title-company-alexandria-va"],
-  ["/title-company/arlington-va", "/title-company-arlington-va"],
-  ["/title-company/fairfax-va", "/title-search-fairfax-va"],
-  ["/title-company/loudoun-county-va", "/title-company-loudoun-county-va"],
-  ["/title-company/prince-william-county-va", "/title-company-prince-william-county-va"],
+  // Keep the five pre-existing nested Northern Virginia landing pages live
+  // and self-canonical while their Search Console measurement window is open.
   ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
   ["/title-company/vienna-va", "/title-search-vienna-va"],
   ["/title-company/mclean-va", "/title-company-mclean-va"],
@@ -53,6 +47,21 @@ export const legacyPathMappings = [
   ["/closing-cost-calculator-maryland", "/maryland-closing-cost-calculator"],
   ["/title-company-vienna-va", "/title-search-vienna-va"],
   ["/title-company-fairfax-va", "/title-search-fairfax-va"],
+  ["/blog/title-settlement-fee", "/blog/what-is-a-title-settlement-fee"],
+  ["/title-insurance-cost-virginia", "/blog/title-insurance-cost-virginia"],
+  ["/closing-costs-maryland-2026", "/blog/closing-costs-maryland-2026"],
+  ["/title-and-settlement-services", "/why-choose-us"],
+  ["/closing-costs-maryland", "/closing-costs/maryland"],
+  ["/closing-costs-dc", "/closing-costs/dc"],
+  ["/who-pays-closing-costs-in-virginia", "/blog/who-pays-closing-costs-in-virginia"],
+  ["/closing-costs-in-virginia-2026", "/blog/closing-costs-in-virginia-2026"],
+  ["/title-company-maryland", "/closing-costs/maryland"],
+  ["/what-is-lenders-title-insurance", "/blog/what-is-lenders-title-insurance"],
+  ["/lenders-title-insurance-vs-owners-title-insurance", "/blog/lenders-title-insurance-vs-owners-title-insurance"],
+  ["/settlement-company-fairfax-county", "/blog/settlement-company-fairfax-county"],
+  ["/blog/what-is-a-title-search", "/blog/title-search-vs-title-insurance"],
+  ["/blog/what-is-title-insurance", "/title-insurance"],
+  ["/blog/virginia-settlement-closing-process-explained", "/blog/what-happens-at-closing-real-estate"],
 ];
 
 export function slashForms(source) {

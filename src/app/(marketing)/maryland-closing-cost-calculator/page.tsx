@@ -3,11 +3,12 @@ import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
+import { SITE_NAME, willPersonReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Maryland Closing Cost Calculator (2026) | Buyer & Seller",
   description:
-    "Estimate buyer and seller closing costs in Maryland by county, including transfer tax, recordation fees, title insurance, and cash to close. Free, no signup.",
+    "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, and county costs for Montgomery, PG, and statewide.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 
@@ -235,10 +236,11 @@ const pageSchema = {
         price: "0",
         priceCurrency: "USD",
       },
-      provider: {
-        "@type": "LocalBusiness",
-        name: "DMV Title Guy - Pruitt Title LLC",
-        url: SITE_URL,
+      creator: willPersonReference(),
+      publisher: {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
       },
     },
     {
@@ -248,7 +250,7 @@ const pageSchema = {
       name: "Maryland Closing Cost Calculator | Buyer & Seller Costs in MD",
       description:
         "Calculate Maryland closing costs for buyers and sellers. Estimate MD transfer tax, recordation fees, title insurance, and Montgomery County costs. Get a free quote.",
-      isPartOf: { "@id": SITE_URL },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
       about: [
         { "@type": "Thing", name: "Maryland closing costs" },
         { "@type": "Thing", name: "Maryland recordation tax" },
@@ -438,6 +440,9 @@ export default function MarylandCalculatorPage() {
                 A seller net estimate should be reviewed with the payoff, contract, county, expected closing date, and
                 any negotiated repair credits before the seller relies on the final net proceeds number.
               </p>
+              <p className="max-w-[68ch]">
+                Use the <Link href="/calculators/seller-net-sheet" className="font-semibold text-brand-blue-deep hover:underline">seller net sheet calculator</Link> to estimate seller proceeds from your own inputs. It is a planning estimate, not a quote or final settlement statement.
+              </p>
             </div>
             <h3 className="t-h5 text-brand-navy mb-4">Who Pays Closing Costs in Maryland: Buyer vs Seller</h3>
             <div className="grid md:grid-cols-2 gap-5">
@@ -592,7 +597,7 @@ export default function MarylandCalculatorPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="t-h5 text-brand-navy mb-6">Maryland Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Maryland Market Guides</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {MD_LOCATIONS.map((l) => (
               <Link key={l.slug} href={`/${l.slug}`} className="text-sm text-brand-blue-deep border border-brand-gray-bg rounded px-3 py-2 bg-brand-gray-bg hover:border-brand-blue transition-colors">

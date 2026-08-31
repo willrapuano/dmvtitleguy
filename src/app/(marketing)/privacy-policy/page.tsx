@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { PRUITT_TITLE, RELATIONSHIP_DISCLOSURE, WILL } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | DMV Title Guy",
-  robots: { index: false },
+  robots: { index: false, follow: true },
   alternates: { canonical: "https://dmvtitleguy.io/privacy-policy" },
 };
 
@@ -10,149 +11,115 @@ export default function PrivacyPolicyPage() {
   return (
     <section className="section-light min-h-[60vh]">
       <div className="container-xl max-w-3xl py-12">
-        <h1 className="prose-title mb-8">Privacy Policy</h1>
-        <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">
-          <strong>Effective Date:</strong> March 20, 2026
+        <h1 className="prose-title mb-4">Privacy Policy</h1>
+        <p className="mb-8 text-sm text-brand-muted">
+          <strong>Effective date:</strong> August 26, 2026
         </p>
 
-        <div className="prose prose-sm text-brand-muted space-y-6">
-          <p className="max-w-[68ch]">
-            DMV Title Guy (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting
-            your privacy. This Privacy Policy explains how we collect, use, disclose,
-            and safeguard your information when you visit our website{" "}
-            <a href="https://dmvtitleguy.io" className="text-brand-blue-deep hover:underline">
-              dmvtitleguy.io
-            </a>{" "}
-            or use our services.
+        <div className="prose prose-sm max-w-none space-y-6 text-brand-muted">
+          <p>{RELATIONSHIP_DISCLOSURE}</p>
+          <p>
+            This policy explains how {WILL.name}, as the operator of dmvtitleguy.io, handles information collected
+            through this website and when that information is provided to {PRUITT_TITLE.name} to respond to a title,
+            escrow, or settlement request. Pruitt Title may separately provide notices governing accepted transaction files.
           </p>
 
-          <h2 className="t-h6 font-semibold text-brand-navy">1. Information We Collect</h2>
-
-          <h3 className="text-base font-medium text-brand-navy">Personal Information</h3>
-          <p>We may collect personal information that you voluntarily provide, including:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Name, email address, and phone number</li>
-            <li>Property address and transaction details</li>
-            <li>Information submitted through contact forms, home valuation requests, or consultation bookings</li>
-            <li>Account information if you register for our contract analyzer or other tools</li>
-          </ul>
-
-          <h3 className="text-base font-medium text-brand-navy">Automatically Collected Information</h3>
-          <p>When you visit our website, we may automatically collect:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>IP address, browser type, and operating system</li>
-            <li>Pages visited, time spent on pages, and referring URLs</li>
-            <li>Device identifiers and usage data</li>
-          </ul>
-
-          <h2 className="t-h6 font-semibold text-brand-navy">2. How We Use Your Information</h2>
-          <p>We use the information we collect to:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Provide, operate, and maintain our services</li>
-            <li>Respond to your inquiries and fulfill your requests</li>
-            <li>Process title and settlement transactions</li>
-            <li>Send you relevant updates, marketing communications, and service information</li>
-            <li>Improve our website and user experience</li>
-            <li>Comply with legal obligations</li>
-          </ul>
-
-          <h2 className="t-h6 font-semibold text-brand-navy">3. Sharing of Information</h2>
-          <p>We do not sell your personal information. We may share your information with:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>
-              <strong>Service Providers:</strong> Third-party vendors who assist with website hosting,
-              analytics, email delivery, CRM, and payment processing
-            </li>
-            <li>
-              <strong>Business Partners:</strong> Lenders, real estate agents, and other parties
-              involved in your real estate transaction, with your consent
-            </li>
-            <li>
-              <strong>Legal Requirements:</strong> When required by law, subpoena, or to protect
-              our rights, safety, or property
-            </li>
-          </ul>
-
-          <h2 className="t-h6 font-semibold text-brand-navy">4. Cookies and Tracking Technologies</h2>
-          <p className="max-w-[68ch]">
-            We use cookies, web beacons, and similar technologies to enhance your experience,
-            analyze site traffic, and understand usage patterns. You can control cookie preferences
-            through your browser settings. Disabling cookies may affect site functionality.
-          </p>
-
-          <h2 className="t-h6 font-semibold text-brand-navy">5. Third-Party Services</h2>
-          <p>Our website may contain links to third-party websites or integrate with services such as:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Google Analytics for website analytics</li>
-            <li>GoHighLevel for CRM and marketing automation</li>
-            <li>TitleCapture for closing cost calculators</li>
-            <li>Repliers for property search (IDX/MLS data)</li>
+          <h2 className="t-h6 text-brand-navy">1. Information collected</h2>
+          <p>Depending on the feature you use, the website may collect:</p>
+          <ul className="list-disc space-y-1 pl-5">
+            <li>Name, email address, phone number, and communication preferences.</li>
+            <li>Property address, jurisdiction, transaction type, price range, closing timing, and questions you submit.</li>
+            <li>Account and document information submitted through a clearly identified secure tool.</li>
+            <li>Device, browser, IP address, referring page, pages viewed, and interaction events used for security and analytics.</li>
           </ul>
           <p>
-            These third parties have their own privacy policies, and we encourage you to review them.
+            Do not submit Social Security numbers, taxpayer identification numbers, bank or wire instructions,
+            passwords, or payment-card data through a general contact form.
           </p>
 
-          <h2 className="t-h6 font-semibold text-brand-navy">6. Data Security</h2>
-          <p className="max-w-[68ch]">
-            We implement reasonable administrative, technical, and physical safeguards to protect
-            your personal information. However, no method of electronic transmission or storage
-            is 100% secure, and we cannot guarantee absolute security.
-          </p>
-
-          <h2 className="t-h6 font-semibold text-brand-navy">7. Data Retention</h2>
-          <p className="max-w-[68ch]">
-            We retain your personal information only as long as necessary to fulfill the purposes
-            outlined in this policy, comply with legal obligations, resolve disputes, and enforce
-            our agreements.
-          </p>
-
-          <h2 className="t-h6 font-semibold text-brand-navy">8. Your Rights</h2>
-          <p>Depending on your location, you may have the right to:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Access, correct, or delete your personal information</li>
-            <li>Opt out of marketing communications</li>
-            <li>Request a copy of the data we hold about you</li>
-            <li>Withdraw consent where processing is based on consent</li>
+          <h2 className="t-h6 text-brand-navy">2. Why information is used</h2>
+          <ul className="list-disc space-y-1 pl-5">
+            <li>To answer a question, provide an estimate, or route a requested title or settlement inquiry.</li>
+            <li>To operate, secure, troubleshoot, and improve the website and its calculators.</li>
+            <li>To measure which pages and campaigns produce useful inquiries.</li>
+            <li>To send marketing messages when permitted; marketing email should provide an opt-out.</li>
+            <li>To prevent abuse, comply with law, and preserve records needed for a transaction or dispute.</li>
           </ul>
+
+          <h2 className="t-h6 text-brand-navy">3. Who receives information</h2>
+          <p>The website does not sell personal information. Information may be disclosed to:</p>
+          <ul className="list-disc space-y-1 pl-5">
+            <li><strong>{PRUITT_TITLE.name}:</strong> when you request title, escrow, settlement, or transaction support.</li>
+            <li>
+              <strong>Website processors:</strong> Vercel for hosting, Sanity for content, Google Analytics for traffic
+              measurement, and GoHighLevel for lead routing and communications.
+            </li>
+            <li>
+              <strong>Tools you choose to open:</strong> for example, TitleCapture or another clearly linked quote or
+              calculator service, and PayPal when a payment feature is used.
+            </li>
+            <li>
+              <strong>Transaction participants:</strong> only when requested, authorized, or reasonably necessary for
+              an accepted transaction, subject to applicable professional and legal obligations.
+            </li>
+            <li>
+              <strong>Authorities or advisers:</strong> when required by law or reasonably necessary to investigate
+              fraud, security incidents, or legal claims.
+            </li>
+          </ul>
+
+          <h2 className="t-h6 text-brand-navy">4. Cookies and analytics</h2>
           <p>
-            To exercise any of these rights, contact us at{" "}
-            <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">
-              wrapuano@pruitt-title.com
-            </a>.
+            Essential storage may be used for security and site operation. Analytics tools may record page views,
+            referrals, and conversion events. Browser controls can restrict cookies, although doing so may affect
+            some features. Analytics events are not intended to collect SSNs, TINs, bank data, or document contents.
+          </p>
+          <p>
+            The site also stores a limited first-touch attribution record in browser storage: the landing path,
+            referring host, timestamp, and UTM campaign fields. When you submit a form, those fields and the conversion
+            path may be sent with the request to help measure which public content produced the inquiry. This record does
+            not include ad click IDs, document contents, or the sensitive financial identifiers listed above.
           </p>
 
-          <h2 className="t-h6 font-semibold text-brand-navy">9. Children&apos;s Privacy</h2>
-          <p className="max-w-[68ch]">
-            Our services are not directed to individuals under 18. We do not knowingly collect
-            personal information from children. If we learn we have collected information from
-            a child, we will take steps to delete it promptly.
+          <h2 className="t-h6 text-brand-navy">5. Retention</h2>
+          <p>
+            General website submissions are retained only as long as reasonably needed to respond, maintain lead-routing
+            integrity, measure outcomes, and meet legal obligations. Inactive marketing contacts are periodically reviewed
+            for deletion or suppression. If an inquiry becomes a title or settlement matter, {PRUITT_TITLE.name} may retain
+            the transaction record for the period required by applicable law, underwriting, insurance, accounting, and
+            professional recordkeeping rules. Security logs and duplicate-submission records may be kept for shorter
+            operational periods. You may request the retention basis applicable to your record.
           </p>
 
-          <h2 className="t-h6 font-semibold text-brand-navy">10. Changes to This Policy</h2>
-          <p className="max-w-[68ch]">
-            We may update this Privacy Policy from time to time. The updated version will be
-            indicated by the &quot;Effective Date&quot; at the top of this page. We encourage you to
-            review this policy periodically.
+          <h2 className="t-h6 text-brand-navy">6. Security and wire-fraud warning</h2>
+          <p>
+            Reasonable administrative and technical safeguards are used, but no internet system is risk-free. Never rely
+            on emailed wire instructions without independently confirming them by calling a trusted, previously verified
+            phone number. Report suspicious instructions immediately.
           </p>
 
-          <h2 className="t-h6 font-semibold text-brand-navy">11. Contact Us</h2>
-          <p>If you have questions about this Privacy Policy, contact us at:</p>
-          <div className="bg-gray-50 rounded-lg p-4">
-            <p className="font-medium text-brand-navy max-w-[68ch] leading-relaxed">DMV Title Guy</p>
-            <p>Will Rapuano</p>
-            <p>
-              Email:{" "}
-              <a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue-deep hover:underline">
-                wrapuano@pruitt-title.com
-              </a>
-            </p>
-            <p>
-              Website:{" "}
-              <a href="https://dmvtitleguy.io" className="text-brand-blue-deep hover:underline">
-                dmvtitleguy.io
-              </a>
-            </p>
-          </div>
+          <h2 className="t-h6 text-brand-navy">7. Your choices</h2>
+          <p>
+            You may ask to access, correct, or delete website-submitted information, request a copy, or opt out of marketing.
+            Some records cannot be deleted when retention is required for a transaction, fraud prevention, legal claim, or
+            regulatory obligation. Requests will be verified before action is taken.
+          </p>
+
+          <h2 className="t-h6 text-brand-navy">8. Children and external websites</h2>
+          <p>
+            This website is intended for adults involved in real-estate matters and is not directed to children. External
+            websites and services have their own privacy practices; review them before submitting information.
+          </p>
+
+          <h2 className="t-h6 text-brand-navy">9. Updates and contact</h2>
+          <p>
+            This policy may change as the website or its providers change. The effective date identifies the current version.
+            Privacy questions and requests may be sent to {WILL.name} at{" "}
+            <a className="text-brand-blue-deep hover:underline" href={`mailto:${WILL.email}`}>
+              {WILL.email}
+            </a>
+            .
+          </p>
         </div>
       </div>
     </section>

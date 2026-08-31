@@ -41,7 +41,7 @@ const investorServices = [
   {
     icon: Scale,
     title: "Lien and Judgment Checks",
-    desc: "We identify recorded liens, judgments, tax items, HOA charges, municipal issues, and payoff concerns that need attention.",
+    desc: "An accepted provider may identify recorded liens, judgments, tax items, HOA charges, municipal issues, and payoff concerns within its confirmed scope.",
   },
   {
     icon: Users,
@@ -56,7 +56,7 @@ const investorServices = [
   {
     icon: Shield,
     title: "Title Insurance Coordination",
-    desc: "We help move title issues toward cure, underwriting review, insurable title, and settlement readiness.",
+    desc: "An accepted provider may coordinate curative and underwriting steps toward insurable title and settlement readiness within its confirmed scope.",
   },
 ];
 
@@ -95,7 +95,7 @@ const process = [
   },
   {
     icon: Search,
-    title: "2. We Review Title Risk",
+    title: "2. Provider Reviews Title Risk",
     desc: "We search ownership, liens, judgments, taxes, recorded exceptions, entity concerns, and investor-specific title issues.",
   },
   {
@@ -120,7 +120,7 @@ const faqs = [
   },
   {
     q: "Do you work with wholesalers and flippers?",
-    a: "Yes. We support wholesalers, flippers, buy-and-hold investors, auction buyers, foreclosure buyers, and portfolio investors across the DMV area.",
+    a: "You can ask Will about wholesale, flip, buy-and-hold, auction, foreclosure, or portfolio transactions. Any provider independently confirms eligibility, acceptance, scope, pricing, timing, and terms.",
   },
   {
     q: "What should I send to order title work?",
@@ -140,24 +140,11 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/investor-title-services#service",
-      name: "Investor Title Services",
-      serviceType: "Investor Title Services",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/investor-title-services#guide",
+      headline: "Investor Title Guide",
+      about: { "@type": "Thing", name: "Investor Title Topics" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },
@@ -273,7 +260,7 @@ export default function InvestorTitleServicesPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

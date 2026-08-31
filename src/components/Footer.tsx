@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { ALL_LOCATIONS } from "@/data/locations";
+import { RELATIONSHIP_DISCLOSURE, WILL } from "@/lib/brand-identity";
 
 /* Same four links as the hero, which already uses these icons — the footer was
    still spelling them out as "FB" / "IG" / "IN" / "YT". */
@@ -19,7 +20,8 @@ const QUICK_LINKS = [
   { href: "/investor-title-services",      label: "Investor Title Services" },
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review",     label: "Foreclosure Title Review" },
-  { href: "/why-choose-us",                label: "Why Pruitt Title?" },
+  { href: "/about-will-rapuano",           label: "About Will & DMV Title Guy" },
+  { href: "/why-choose-us",                label: "Choosing a Title Provider" },
   { href: "/my-classes",                   label: "My Classes" },
   { href: "/blog",                         label: "My Blog" },
   { href: "/subscribe",                    label: "Subscribe" },
@@ -35,17 +37,17 @@ export function Footer() {
         <div className="container-xl">
           <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300">Ready when your contract is</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300">Practical next steps for DMV transactions</p>
               <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
-                Start with clear numbers—or start the closing.
+                Start with clear numbers—or ask Will for an introduction.
               </h2>
               <p className="mt-4 max-w-[62ch] leading-relaxed text-slate-300">
-                Get a title quote, send the transaction details, or speak directly with Will about a purchase, refinance, or builder closing.
+                Estimate costs, share transaction context, or speak directly with Will. Any provider independently confirms acceptance, scope, and terms.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Link href="/calculators/title-quote" className="btn-primary px-7">
-                Get a Title Quote <ArrowRight size={16} aria-hidden="true" />
+                Estimate Title Costs <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <Link href="/contact" className="btn-on-dark px-7">
                 Contact Will
@@ -55,12 +57,12 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Areas We Serve */}
+      {/* Areas Covered */}
       <div className="border-b border-white/10 bg-brand-navy-dark/40 py-8">
         <div className="container-xl">
           <details className="group">
             <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue-300 lg:hidden">
-              Areas We Serve
+              Areas Covered
               <span
                 aria-hidden="true"
                 className="text-xl transition-transform duration-150 ease-[var(--ease-out)] group-open:rotate-45 motion-reduce:transition-none lg:hidden"
@@ -70,7 +72,7 @@ export function Footer() {
             </summary>
             <div className="mt-5 hidden grid-cols-2 gap-x-6 gap-y-3 text-xs text-slate-300 group-open:grid lg:!grid lg:grid-cols-4 lg:gap-x-10 lg:gap-y-2.5">
               <h3 className="hidden text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue-300 lg:col-span-4 lg:mb-3 lg:block">
-                Areas We Serve
+                Areas Covered
               </h3>
               {SERVICE_AREAS.map((loc) => (
                 <Link key={loc.slug} href={`/${loc.slug}`} prefetch={false} className="block transition-colors duration-150 hover:text-white">
@@ -110,27 +112,23 @@ export function Footer() {
             Got your back on every contract
           </p>
           <p className="max-w-sm text-sm leading-relaxed text-slate-300">
-            Trusted title &amp; escrow services for real estate professionals, builders, and financial institutions — serving the DMV and clients nationwide.
+            Practical title education and direct access to Will Rapuano for transactions across Washington DC, Maryland, and Virginia.
           </p>
+          <p className="mt-5 max-w-2xl text-xs leading-relaxed text-slate-400">{RELATIONSHIP_DISCLOSURE}</p>
         </div>
 
         {/* Column 2: Contact */}
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Contact Us</h3>
-          <address className="space-y-2 text-sm not-italic text-slate-300">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-blue mb-4">Contact Will</h3>
+          <div className="space-y-2 text-sm text-slate-300">
             <p>
-              <a href="mailto:wrapuano@pruitt-title.com" className="hover:text-brand-blue transition-colors">
-                wrapuano@pruitt-title.com
+              <span className="block text-xs text-slate-400">Will’s direct line</span>
+              <a href={WILL.phoneHref} className="hover:text-brand-blue transition-colors">
+                {WILL.phoneDisplay}
               </a>
             </p>
-            <p>
-              <a href="tel:+17038591467" className="hover:text-brand-blue transition-colors">
-                (703) 859-1467
-              </a>
-            </p>
-            <p>1900 Gallows Rd Ste 230</p>
-            <p>Vienna, VA 22182</p>
-          </address>
+            <p className="pt-1 text-xs leading-relaxed text-slate-400">Use the contact form for DMV Title Guy inquiries. Employer contact details appear only on Will’s About page.</p>
+          </div>
         </div>
 
         {/* Column 3: Follow Us */}

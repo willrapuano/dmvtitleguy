@@ -32,7 +32,7 @@ export default async function OrderConfirmationPage(props: OrderConfirmationPage
             Thank you for your order!
           </h1>
           <p className="mb-8 text-brand-muted max-w-[68ch] leading-relaxed">
-            Pruitt Title will contact you within one business day.
+            This page confirms a prior PayPal transaction. Contact Will if you need help identifying the merchant or fulfillment terms for that order.
           </p>
 
           <dl className="space-y-4 rounded-lg bg-gray-50 p-5 text-left">

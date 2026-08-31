@@ -76,7 +76,7 @@ export default function VirginiaCalculatorPage() {
       {/* ── LOCATION LINKS ── */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="t-h5 text-brand-navy mb-6">Virginia Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Virginia Market Guides</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {VA_LOCATIONS.map((l) => (
               <Link

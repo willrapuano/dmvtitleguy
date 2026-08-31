@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Clock, AlertTriangle, Home, Phone } from "lucide-react";
 import { TitleReviewForm } from "@/components/funnels/TitleReviewForm";
-import { PayPalTitleSearchCheckout } from "@/components/TitleSearchCheckout";
 import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Request a Title Review | DMV Title Guy",
-  description: "Need clarity on a property's title status? Submit your request and our team will respond within one business day. Full title searches, lien searches, and foreclosure reviews.",
+  description: "Send a property-title question to Will Rapuano. DMV Title Guy reviews the request and may introduce eligible matters to an independent provider.",
   alternates: { canonical: "https://dmvtitleguy.io/request-title-review" },
   robots: { index: false, follow: true },
 };
@@ -23,7 +22,7 @@ const faqs = [
   { q: "What's the difference between a full title search and a lien search?", a: "A full title search examines the complete ownership chain, all recorded documents, liens, easements, and judgments. A lien search focuses specifically on outstanding liens and monetary encumbrances against the property." },
   { q: "When should I request a title search update?", a: "If you've had a title search done previously but need current information — for example, if time has passed since the original search or new activity may have occurred on the property — an update brings your report current." },
   { q: "What is a foreclosure title review?", a: "A foreclosure review examines the title specifically for risks common to foreclosed properties: prior liens that survived the foreclosure, judgment liens, incomplete chain of title, and recording defects that could affect your ownership." },
-  { q: "How quickly will I get my title review results?", a: "Standard requests are completed within 5-7 business days. Rush requests are prioritized and typically completed within 1-3 business days." },
+  { q: "What happens after I submit a request?", a: "Will reviews the information and may follow up for context. If you ask for transaction services, an eligible request may be introduced to a provider for independent review. The provider confirms whether it accepts the matter, along with scope, pricing, timing, terms, and required disclosures." },
 ];
 
 export default function RequestTitleReviewPage() {
@@ -31,7 +30,7 @@ export default function RequestTitleReviewPage() {
     <>
       <ServiceSchema
         name="Request a Title Review"
-        description="Need clarity on a property's title status? Submit your request and our team will respond within one business day."
+        description="Send a property-title question to Will Rapuano for an initial educational review and, when requested and eligible, a possible provider introduction."
         serviceType="Title Review"
       />
       <script
@@ -62,7 +61,7 @@ export default function RequestTitleReviewPage() {
               Request a Title Review
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Need clarity on a property&apos;s title status? Submit your request and our team will respond within one business day.
+              Send the property details to Will for an initial review. Submission is not a title order and does not mean that Pruitt Title or another provider has accepted the matter.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#review-form" className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2">
@@ -75,9 +74,6 @@ export default function RequestTitleReviewPage() {
           </div>
           <div id="review-form">
             <TitleReviewForm />
-            <div className="mt-6">
-              <PayPalTitleSearchCheckout />
-            </div>
           </div>
         </div>
       </section>

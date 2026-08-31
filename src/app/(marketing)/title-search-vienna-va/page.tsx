@@ -17,11 +17,17 @@ import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 
 export const metadata: Metadata = {
-  title: "Vienna, VA Title Company & Title Search | Pruitt Title",
+  title: "Vienna VA Title Search Guide | DMV Title Guy",
   description:
-    "Vienna title searches, title insurance, escrow, and settlement support from Pruitt Title. Serving Fairfax County real estate transactions since 2007.",
+    "Learn how Vienna title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-vienna-va",
+  },
+  openGraph: {
+    title: "Vienna VA Title Search Guide | DMV Title Guy",
+    description: "Title search services for Vienna properties, including ownership, liens, easements, restrictions, and other recorded title risks.",
+    url: "https://dmvtitleguy.io/title-search-vienna-va",
+    type: "website",
   },
 };
 
@@ -29,7 +35,7 @@ const covers = [
   {
     icon: Search,
     title: "Ownership Chain",
-    desc: "We verify the recorded deed history and identify gaps, estate issues, missing releases, or transfers that need attention.",
+    desc: "An accepted provider may verify the recorded deed history and identify gaps, estate issues, missing releases, or transfers that need attention.",
   },
   {
     icon: Scale,
@@ -39,7 +45,7 @@ const covers = [
   {
     icon: FileSearch,
     title: "Easements & Restrictions",
-    desc: "We review recorded easements, covenants, rights-of-way, and use restrictions that may affect value or future plans.",
+    desc: "An accepted provider may review recorded easements, covenants, rights-of-way, and use restrictions that may affect value or future plans.",
   },
   {
     icon: FileCheck,
@@ -49,7 +55,7 @@ const covers = [
   {
     icon: Building2,
     title: "HOA / Condo Review",
-    desc: "For association properties, we look for liens, assessments, resale package concerns, and recorded declarations.",
+    desc: "For association properties, a provider may review liens, assessments, resale-package concerns, and recorded declarations within its accepted scope.",
   },
   {
     icon: Shield,
@@ -67,7 +73,7 @@ const whyVienna = [
   {
     icon: Building2,
     title: "Residential and Investor Deals",
-    desc: "We review owner-occupied purchases, investor acquisitions, off-market deals, auction properties, and refinance-related title questions.",
+    desc: "DMV Title Guy explains common questions for owner-occupied purchases, investor acquisitions, off-market deals, auctions, and refinances; a provider confirms the actual scope.",
   },
   {
     icon: AlertTriangle,
@@ -85,7 +91,7 @@ const process = [
   {
     icon: Search,
     title: "2. We Run the Search",
-    desc: "Our team reviews land records, liens, judgments, taxes, easements, and title exceptions tied to the property.",
+    desc: "An accepted provider may review land records, liens, judgments, taxes, easements, and title exceptions tied to the property.",
   },
   {
     icon: CheckCircle2,
@@ -105,7 +111,7 @@ const faqs = [
   },
   {
     q: "How long does a Vienna title search take?",
-    a: "Standard turnaround is typically 5-7 business days depending on property complexity and record availability. Rush review may be available for auction deadlines, short contingencies, or fast closings.",
+    a: "Timing depends on record availability, property history, the provider's accepted scope, and any curative or underwriting work. The provider confirms timing after reviewing the file.",
   },
   {
     q: "Do Vienna properties have unique title issues?",
@@ -113,47 +119,30 @@ const faqs = [
   },
   {
     q: "Can you help clear a title defect after the search?",
-    a: "Yes. If the search identifies a defect, we explain the issue and the likely path to resolution, such as obtaining a release, payoff, corrective deed, court document, or additional underwriting review.",
+    a: "If a search identifies a defect, the accepted provider should explain the issue and possible cure path, such as a release, payoff, corrective deed, court document, or additional underwriting review.",
   },
 ];
 
 const relatedPages = [
+  { href: "/blog/types-of-property-surveys-dc-md-va", label: "Types of Property Surveys" },
   { href: "/investor-title-services", label: "Investor Title Services" },
   { href: "/auction-property-title-search", label: "Auction Property Title Search" },
   { href: "/foreclosure-title-review", label: "Foreclosure Title Review" },
   { href: "/upload-contract", label: "Start Contract Intake" },
-  { href: "/request-title-review", label: "Order Title Search" },
+  { href: "/request-title-review", label: "Request Title Review" },
 ];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness", "LegalService"],
-      "@id": "https://dmvtitleguy.io/title-search-vienna-va#business",
-      name: "DMV Title Guy | Pruitt Title LLC",
-      url: "https://dmvtitleguy.io/title-search-vienna-va",
-      telephone: "+1-703-859-1467",
-      image: "https://dmvtitleguy.io/logo.png",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "1900 Gallows Rd Ste 230",
-        addressLocality: "Vienna",
-        addressRegion: "VA",
-        postalCode: "22182",
-        addressCountry: "US",
-      },
-      areaServed: { "@type": "City", name: "Vienna", addressRegion: "VA" },
-    },
-    {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/title-search-vienna-va#service",
-      name: "Title Search Vienna VA",
-      serviceType: "Title Search",
-      provider: { "@id": "https://dmvtitleguy.io/title-search-vienna-va#business" },
-      areaServed: { "@type": "City", name: "Vienna", addressRegion: "VA" },
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/title-search-vienna-va#guide",
+      headline: "Title Search Guide for Vienna, VA",
+      about: { "@type": "Thing", name: "Title Search" },
+      spatialCoverage: { "@type": "City", name: "Vienna", addressRegion: "VA" },
       description:
-        "Title search services for Vienna, VA properties, including ownership chain, liens, judgments, taxes, easements, restrictions, and title defect review.",
+        "Educational guide to Vienna, VA title-search topics including ownership chains, liens, judgments, taxes, easements, restrictions, and title defects.",
     },
     {
       "@type": "FAQPage",
@@ -186,12 +175,13 @@ export default function TitleSearchViennaPage() {
               <span className="text-gray-200">Title Search Vienna VA</span>
             </nav>
             <h1 className="t-h1 text-white mb-4">
-              Title Search Vienna VA
+              Vienna, VA Title Search Services
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl">
-              Get a practical title search for a Vienna property before you buy,
-              bid, refinance, or close. We identify liens, judgments, easements,
-              ownership issues, and title defects early.
+              DMV Title Guy explains title-search issues for Vienna properties before
+              a purchase, bid, refinance, or closing. Eligible requests may be referred
+              to Pruitt Title LLC for independent review of recorded
+              liens, judgments, easements, ownership issues, and other title risks.
             </p>
             <div className="flex flex-wrap gap-4">
               <TitleSearchOrderButton />
@@ -208,7 +198,7 @@ export default function TitleSearchViennaPage() {
         <div className="container-xl">
           <h2 className="prose-title text-center mb-4">What a Title Search Covers</h2>
           <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
-            A useful title search goes beyond a name check. We review the
+            A useful title search goes beyond a name check. An accepted provider may review the
             recorded history and the practical issues that can delay closing or
             reduce property value.
           </p>
@@ -249,7 +239,7 @@ export default function TitleSearchViennaPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

@@ -7,7 +7,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company in Silver Spring, MD | Settlement & Escrow",
-  description: "Silver Spring MD title company for Montgomery County closings. Title insurance, escrow, transfer-tax guidance, and Fast settlement. Free Pruitt Title quote online.",
+  description: "Practical Silver Spring and Montgomery County title and closing guidance, with a path to request an independent provider review.",
   alternates: { canonical: "/title-company-silver-spring-md" },
 };
 
@@ -22,19 +22,19 @@ const faqs = [
   },
   {
     question: "Does Maryland require an attorney at closing in Silver Spring?",
-    answer: "Yes, Maryland law requires that a licensed attorney or title agent conduct the settlement. At Pruitt Title, our experienced settlement team ensures full compliance with Maryland regulations while providing a smooth, efficient closing experience for Silver Spring buyers and sellers.",
+    answer: "Maryland settlement and title-insurance work must be handled by an appropriately authorized provider. DMV Title Guy can provide initial education and refer an eligible request to Pruitt Title LLC for transaction-specific review.",
   },
   {
     question: "What is unique about Silver Spring real estate transactions?",
-    answer: "Silver Spring's urban-suburban mix means transactions range from downtown condos to single-family homes in established neighborhoods. Many properties are in the Wheaton/Silver Spring revitalization area, where new development and historic preservation intersect. Our team handles both straightforward residential closings and complex transactions involving trusts, estates, and investment properties.",
+    answer: "Silver Spring transactions range from downtown condominiums to established single-family homes and redevelopment areas. Ask the accepted provider to confirm its experience and scope for condominiums, trusts, estates, investments, or other property-specific issues.",
   },
   {
     question: "How long does a Silver Spring title search take?",
-    answer: "Montgomery County title searches typically take 5-7 business days. For properties in downtown Silver Spring with multiple prior owners or condominium conversions, we recommend allowing additional time for thorough research into all liens, easements, and HOA documentation.",
+    answer: "Timing depends on Montgomery County record availability, property history, condominium or HOA documents, the provider's accepted scope, and any curative work. The provider should confirm timing after reviewing the file.",
   },
   {
     question: "Are there first-time homebuyer programs in Montgomery County?",
-    answer: "Yes, Montgomery County offers several first-time homebuyer assistance programs, including closing cost assistance and down payment help. First-time buyers may also qualify for exemptions from the county transfer tax. Our team can connect you with local resources to take advantage of these programs.",
+    answer: "Montgomery County and Maryland may offer first-time-buyer programs or tax benefits subject to current eligibility rules. Verify them with the administering government agency, lender, tax adviser, and accepted settlement provider before relying on an example.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function SilverSpringTitlePage() {
         state="MD"
         county="Montgomery County"
         slug="title-company/silver-spring-md"
-        description="Pruitt Title LLC provides expert title and settlement services in Silver Spring, MD. Fast closings, competitive rates, and local expertise since 2007."
+    description="DMV Title Guy provides local title and closing education for Silver Spring, MD. Eligible requests can be referred to Pruitt Title LLC for review."
       />
 
       {/* HERO */}
@@ -63,7 +63,7 @@ export default function SilverSpringTitlePage() {
             Title Company Silver Spring MD &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC delivers expert title and settlement services in Silver Spring and throughout Montgomery County. From downtown condos to Wheaton single-families, we understand the unique dynamics of closing in one of Maryland's most diverse communities.
+            DMV Title Guy provides local closing education for Silver Spring and Montgomery County. Eligible title and settlement requests can be referred to Pruitt Title LLC for review and transaction-specific acceptance.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function SilverSpringTitlePage() {
               Silver Spring is one of the most vibrant and diverse communities in the Washington DC metro area. With a median home price around $525,000 and homes selling in approximately 12 days, Silver Spring offers urban convenience at a relative value compared to DC and Bethesda.
             </p>
             <p className="max-w-[68ch]">
-              The Silver Spring market is uniquely varied. Downtown Silver Spring features high-rise condos and apartments steps from the Metro. Neighborhoods like Woodmoor, Northwood, and Four Corners offer established single-family homes with mature trees and community character. The ongoing revitalization of the Wheaton and Silver Spring corridors is bringing new development, creating opportunities for buyers and investors alike. This diversity means title work can range from straightforward condo unit transfers to complex transactions involving historic properties, estate sales, and investment portfolios. Pruitt Title's Montgomery County expertise handles it all.
+              The Silver Spring market is uniquely varied. Downtown Silver Spring features high-rise condos and apartments steps from the Metro. Neighborhoods like Woodmoor, Northwood, and Four Corners offer established single-family homes with mature trees and community character. The ongoing revitalization of the Wheaton and Silver Spring corridors is bringing new development, creating opportunities for buyers and investors alike. This diversity means title work can range from straightforward condo unit transfers to matters involving historic properties, estate sales, and investment portfolios.
             </p>
             <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
               <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Silver Spring Closing Costs</h3>
@@ -164,7 +164,7 @@ export default function SilverSpringTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
             </Link>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function SilverSpringTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Silver Spring Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Silver Spring property.
+            Send Will the Silver Spring property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/maryland-closing-cost-calculator" className="btn-primary px-8">

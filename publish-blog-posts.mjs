@@ -293,7 +293,7 @@ export function markdownToPortableText(markdown) {
 function findInternalLinks(body) {
   return [...body.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)]
     .map((match) => match[1])
-    .filter((href) => href.startsWith('/') || href.includes('dmvtitleguy.com'));
+    .filter((href) => href.startsWith('/') || href.includes('dmvtitleguy.io'));
 }
 
 function hasCta(body) {
@@ -371,7 +371,7 @@ export function validatePostShape(filePath, meta, body) {
   if (!hasCta(body)) errors.push('CTA required');
   if (/todo|fixme|xxx|\[notes?\]/i.test(body)) errors.push('unresolved notes or TODOs present');
   if (/^(true|yes)$/i.test(String(meta.noindex || meta.no_index || ''))) errors.push('noindex must not be true');
-  if (meta.canonical && !String(meta.canonical).includes('dmvtitleguy.com') && !String(meta.canonical).startsWith('/')) {
+  if (meta.canonical && !String(meta.canonical).includes('dmvtitleguy.io') && !String(meta.canonical).startsWith('/')) {
     errors.push('canonical must be internal');
   }
   if ((meta.meta_title || meta.title_tag) && !/Pruitt Title/i.test(String(meta.meta_title || meta.title_tag))) {
@@ -600,7 +600,7 @@ export async function publishPost(filePath, options = {}) {
     filePath: resolved,
     blocks: verify.bodyLen,
     category: doc.category,
-    url: `https://dmvtitleguy.com/blog/${slug}`,
+    url: `https://dmvtitleguy.io/blog/${slug}`,
   };
   if (options.archive) result.archivedTo = archivePublishedFile(resolved);
   appendPublishLog(result);

@@ -179,8 +179,57 @@ exports.Prisma.LeadRateLimitBucketScalarFieldEnum = {
 exports.Prisma.LeadSubmissionScalarFieldEnum = {
   id: 'id',
   status: 'status',
+  source: 'source',
+  formType: 'formType',
+  submittedAt: 'submittedAt',
+  updatedAt: 'updatedAt',
+  deliveredAt: 'deliveredAt',
+  lastAttemptAt: 'lastAttemptAt',
+  deliveryAttempts: 'deliveryAttempts',
+  payloadHash: 'payloadHash',
+  conversionPath: 'conversionPath',
+  firstLandingPath: 'firstLandingPath',
+  firstReferrerHost: 'firstReferrerHost',
+  channel: 'channel',
+  jurisdiction: 'jurisdiction',
+  transactionType: 'transactionType',
+  contactRole: 'contactRole',
+  qualificationStatus: 'qualificationStatus',
+  qualificationReason: 'qualificationReason',
+  qualifiedAt: 'qualifiedAt',
+  acceptedAt: 'acceptedAt',
+  closedAt: 'closedAt',
+  outcomeValueCents: 'outcomeValueCents',
+  lostReason: 'lostReason',
+  lastDeliveryErrorCode: 'lastDeliveryErrorCode',
+  ghlContactId: 'ghlContactId',
+  ghlOpportunityId: 'ghlOpportunityId',
+  ghlSyncStatus: 'ghlSyncStatus',
+  ghlSyncErrorCode: 'ghlSyncErrorCode',
+  isQa: 'isQa'
+};
+
+exports.Prisma.LeadOpportunityOutboxScalarFieldEnum = {
+  submissionId: 'submissionId',
+  ciphertext: 'ciphertext',
+  iv: 'iv',
+  authTag: 'authTag',
+  attempts: 'attempts',
+  nextAttemptAt: 'nextAttemptAt',
+  lastAttemptAt: 'lastAttemptAt',
+  lastErrorCode: 'lastErrorCode',
+  expiresAt: 'expiresAt',
   createdAt: 'createdAt',
-  deliveredAt: 'deliveredAt'
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LeadSubmissionEventScalarFieldEnum = {
+  id: 'id',
+  submissionId: 'submissionId',
+  eventType: 'eventType',
+  stateCode: 'stateCode',
+  detailsHash: 'detailsHash',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -201,7 +250,9 @@ exports.Prisma.ModelName = {
   Analysis: 'Analysis',
   Finding: 'Finding',
   LeadRateLimitBucket: 'LeadRateLimitBucket',
-  LeadSubmission: 'LeadSubmission'
+  LeadSubmission: 'LeadSubmission',
+  LeadOpportunityOutbox: 'LeadOpportunityOutbox',
+  LeadSubmissionEvent: 'LeadSubmissionEvent'
 };
 
 /**

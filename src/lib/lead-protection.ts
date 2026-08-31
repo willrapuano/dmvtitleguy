@@ -108,9 +108,6 @@ export async function enforceLeadRateLimit(request: NextRequest, email: string) 
   await prisma.leadRateLimitBucket.deleteMany({
     where: { windowEndsAt: { lt: new Date(now.getTime() - 24 * 60 * 60 * 1000) } },
   });
-  await prisma.leadSubmission.deleteMany({
-    where: { status: "delivered", deliveredAt: { lt: new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000) } },
-  });
 }
 
 export function validateSubmissionId(value: unknown) {
@@ -122,16 +119,26 @@ export function validateSubmissionId(value: unknown) {
 
 export async function reserveLeadSubmission(id: string) {
   try {
-    await prisma.leadSubmission.create({ data: { id } });
+    const now = new Date();
+    await prisma.leadSubmission.create({ data: { id, submittedAt: now, updatedAt: now } });
     return "reserved" as const;
   } catch {
     const existing = await prisma.leadSubmission.findUnique({ where: { id } });
     if (existing?.status === "delivered") return "delivered" as const;
+    if (existing?.status === "unknown" || existing?.status === "sending") {
+      if (existing.status === "sending" && existing.lastAttemptAt && existing.lastAttemptAt.getTime() <= Date.now() - IDEMPOTENCY_LEASE_MS) {
+        await prisma.leadSubmission.updateMany({
+          where: { id, status: "sending" },
+          data: { status: "unknown", lastDeliveryErrorCode: "delivery-interrupted" },
+        });
+      }
+      return "pending-review" as const;
+    }
     if (existing?.status === "pending") {
       const staleBefore = new Date(Date.now() - IDEMPOTENCY_LEASE_MS);
       const takeover = await prisma.leadSubmission.updateMany({
-        where: { id, status: "pending", createdAt: { lte: staleBefore } },
-        data: { createdAt: new Date() },
+        where: { id, status: "pending", submittedAt: { lte: staleBefore } },
+        data: { updatedAt: new Date() },
       });
       if (takeover.count === 1) return "reserved" as const;
     }
@@ -139,27 +146,116 @@ export async function reserveLeadSubmission(id: string) {
   }
 }
 
+interface LeadSubmissionDetails {
+  source: string;
+  formType: string;
+  payload: Record<string, unknown>;
+  conversionPath: string;
+  firstLandingPath: string;
+  firstReferrerHost: string;
+  channel: string;
+  jurisdiction?: string;
+  transactionType?: string;
+  contactRole?: string;
+  transactionIntent: boolean;
+  isQa: boolean;
+}
+
+export async function recordLeadSubmissionEvent(
+  submissionId: string,
+  eventType: string,
+  stateCode?: string,
+  details?: Record<string, unknown>,
+) {
+  await prisma.leadSubmissionEvent.create({
+    data: {
+      submissionId,
+      eventType: eventType.slice(0, 80),
+      stateCode: stateCode?.slice(0, 120) || null,
+      detailsHash: details ? opaqueKey("lead-event", JSON.stringify(details)) : null,
+    },
+  });
+}
+
+export async function recordLeadSubmissionDetails(id: string, details: LeadSubmissionDetails) {
+  const payloadHash = opaqueKey("lead-payload", JSON.stringify(details.payload));
+  const updated = await prisma.leadSubmission.updateMany({
+    // Acquisition and attribution fields are write-once. Later lifecycle
+    // changes use dedicated fields and append-only LeadSubmissionEvent rows.
+    where: { id, status: "pending", payloadHash: null },
+    data: {
+      source: details.source,
+      formType: details.formType,
+      payloadHash,
+      conversionPath: details.conversionPath,
+      firstLandingPath: details.firstLandingPath,
+      firstReferrerHost: details.firstReferrerHost,
+      channel: details.channel,
+      jurisdiction: details.jurisdiction || null,
+      transactionType: details.transactionType || null,
+      contactRole: details.contactRole || null,
+      ghlSyncStatus: details.transactionIntent ? "pending" : "not-required",
+      isQa: details.isQa,
+    },
+  });
+  if (updated.count !== 1) throw new LeadRequestError("Submission is already processing", 409);
+  await recordLeadSubmissionEvent(id, "acquisition-recorded", details.transactionIntent ? "transaction" : "non-transaction");
+}
+
 export async function completeLeadSubmission(id: string) {
   await prisma.leadSubmission.update({
     where: { id },
     data: { status: "delivered", deliveredAt: new Date() },
   });
+  await recordLeadSubmissionEvent(id, "webhook-delivered", "confirmed");
 }
 
 export async function markLeadSubmissionSending(id: string) {
   const updated = await prisma.leadSubmission.updateMany({
     where: { id, status: "pending" },
-    data: { status: "sending" },
+    data: { status: "sending", lastAttemptAt: new Date(), deliveryAttempts: { increment: 1 }, lastDeliveryErrorCode: null },
   });
   if (updated.count !== 1) {
     throw new LeadRequestError("Submission is already processing", 409);
   }
+  await recordLeadSubmissionEvent(id, "webhook-delivery-started", "sending");
+}
+
+export async function markLeadSubmissionUnknown(id: string, errorCode: string) {
+  await prisma.leadSubmission.updateMany({
+    where: { id, status: "sending" },
+    data: { status: "unknown", lastDeliveryErrorCode: errorCode.slice(0, 120) },
+  });
+  await recordLeadSubmissionEvent(id, "webhook-delivery-ambiguous", errorCode);
+}
+
+export async function recordLeadCRMSync(
+  id: string,
+  result: { contactId?: string; opportunityId?: string; errorCode?: string }
+) {
+  await prisma.leadSubmission.update({
+    where: { id },
+    data: {
+      ghlContactId: result.contactId || undefined,
+      ghlOpportunityId: result.opportunityId || undefined,
+      ghlSyncStatus: result.errorCode ? "error" : "synced",
+      ghlSyncErrorCode: result.errorCode?.slice(0, 120) || null,
+    },
+  });
+  await recordLeadSubmissionEvent(
+    id,
+    "ghl-opportunity-sync",
+    result.errorCode ? "error" : "synced",
+    { contactId: result.contactId || null, opportunityId: result.opportunityId || null },
+  );
 }
 
 export async function releaseLeadSubmission(id: string) {
-  await prisma.leadSubmission.deleteMany({
-    where: { id, status: { in: ["pending", "sending"] } },
-  });
+  await recordLeadSubmissionEvent(id, "submission-released", "retry-safe").catch(() => undefined);
+  await prisma.$transaction([
+    prisma.leadOpportunityOutbox.deleteMany({ where: { submissionId: id } }),
+    prisma.leadSubmission.deleteMany({ where: { id, status: { in: ["pending", "sending"] } } }),
+  ]);
 }
 
 export function leadLandingPage(request: NextRequest) {
@@ -168,7 +264,7 @@ export function leadLandingPage(request: NextRequest) {
   if (!referer || !host) return "/unknown";
   try {
     const parsed = new URL(referer);
-    return parsed.host === host ? `${parsed.pathname}${parsed.search}`.slice(0, 500) : "/unknown";
+    return parsed.host === host ? parsed.pathname.slice(0, 500) : "/unknown";
   } catch {
     return "/unknown";
   }

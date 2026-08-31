@@ -50,24 +50,11 @@ export default function DCClosingCostsPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Washington DC Closing Cost Guide",
+            "@type": "Article",
+            headline: "Washington DC Closing Cost Guide",
             url: "https://dmvtitleguy.io/closing-costs/dc",
             description: "Complete guide to DC closing costs for buyers and sellers. Learn about recordation tax, transfer tax, title insurance, and what to expect at settlement.",
-            provider: {
-              "@type": "LocalBusiness",
-              name: "DMV Title Guy — Pruitt Title LLC",
-              telephone: "(703) 859-1467",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "1900 Gallows Rd Ste 230",
-                addressLocality: "Vienna",
-                addressRegion: "VA",
-                postalCode: "22182",
-                addressCountry: "US",
-              },
-            },
-            areaServed: {
+            spatialCoverage: {
               "@type": "City",
               name: "Washington",
               addressRegion: "DC",
@@ -109,7 +96,7 @@ export default function DCClosingCostsPage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            DC has the highest closing costs in the DMV—properties over $400K pay 2.9% in combined taxes. But first-time buyers can save $10K+ through DC's recordation tax exemptions. We help buyers navigate these programs.
+            DC closing costs can include material recordation and transfer taxes, while some buyers may qualify for current government benefits. This guide helps identify questions; verify eligibility and current amounts with official DC sources and transaction professionals.
           </p>
         </div>
       </section>

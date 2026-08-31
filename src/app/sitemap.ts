@@ -7,6 +7,10 @@ import { postCanonicalPath } from "@/lib/post-titles";
 
 const BASE_URL = "https://dmvtitleguy.io";
 
+// A CMS outage during revalidation keeps the previous complete sitemap rather
+// than publishing a partial inventory that drops Sanity-backed articles.
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /**
    * Hand-listed routes, by priority band. Everything else comes from the generated
@@ -40,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/investor-due-diligence"].map((p) => entry(p, 0.9)),
 
     // Hubs, guides and audience pages
-    ...["/title-insurance", "/why-choose-us", "/investor-friendly-title-company", "/calculators",
+    ...["/title-insurance", "/about-will-rapuano", "/why-choose-us", "/investor-friendly-title-company", "/calculators",
       // /request-title-review and /upload-contract are deliberately absent: both
       // serve "noindex, follow" as conversion endpoints, not landing pages.
       "/agent-tools", "/contact",
@@ -48,7 +52,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/title-company-for-builders", "/title-company-for-credit-unions",
       "/title-company-for-lenders", "/title-company-for-realtors",
       "/closing-costs/maryland", "/closing-costs/dc", "/closing-costs/dc-who-pays",
-      "/closing-costs/buyer-maryland", "/closing-costs/seller-virginia"].map((p) => entry(p, 0.8)),
+      "/closing-costs/buyer-maryland", "/closing-costs/seller-virginia",
+      "/title-company/alexandria-va", "/title-company/arlington-va", "/title-company/fairfax-va",
+      "/title-company/loudoun-county-va", "/title-company/prince-william-county-va"].map((p) => entry(p, 0.8)),
 
     entry("/blog", 0.8, "weekly"),
 

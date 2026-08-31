@@ -6,7 +6,7 @@
  * Matches: /title-company-{city}-{state} and /title-company-{county}-county-{state}
  */
 
-import { Phone, Mail, MapPin, Check, AlertTriangle } from "lucide-react";
+import { Phone, Check, AlertTriangle } from "lucide-react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
@@ -120,15 +120,15 @@ const BETHESDA_FAQS: FaqItem[] = [
   },
   {
     question: "What is escrow and how does it work in a Bethesda closing?",
-    answer: "Escrow is the neutral handling of money and documents during the closing. Pruitt Title receives and safeguards funds, follows written settlement instructions, disburses money only when closing conditions are satisfied, and coordinates recording so the Bethesda transaction is completed properly.",
+    answer: "Escrow is the neutral handling of money and documents during a closing. If a provider accepts the transaction, its written instructions and disclosures should identify who receives funds, the conditions for disbursement, and who coordinates recording.",
   },
   {
     question: "How long does a title search take in Montgomery County?",
-    answer: "Many Montgomery County title searches can be completed in a few business days, but older homes, estate transfers, trusts, unreleased deeds of trust, judgments, or missing releases can extend the timeline. Pruitt Title flags those issues early so the parties can clear them before settlement.",
+    answer: "Timing varies with the property history, record availability, estates or trusts, unreleased deeds of trust, judgments, missing releases, and any curative work. The accepted provider should confirm its own timeline after reviewing the file.",
   },
   {
     question: "Can Pruitt Title handle commercial real estate closings in Bethesda?",
-    answer: "Yes. Pruitt Title handles Bethesda commercial title and settlement work for office, medical, retail, mixed-use, investor, and lender-financed transactions, including title search, survey and easement review coordination, entity authority checks, escrow, endorsements, and settlement.",
+    answer: "Pruitt Title's official public information describes commercial title and settlement work. Eligibility, capacity, underwriting requirements, scope, and acceptance must be confirmed directly by Pruitt for the specific Bethesda transaction.",
   },
   {
     question: "What settlement issues are common in Bethesda older homes?",
@@ -143,11 +143,11 @@ const BETHESDA_FAQS: FaqItem[] = [
 const TYSONS_FAQS: FaqItem[] = [
   {
     question: "What title services does Pruitt Title provide in Tysons VA?",
-    answer: "Pruitt Title provides title searches, title insurance, escrow coordination, settlement services, refinance closings, commercial closings, and curative support for Tysons, Tysons Corner, McLean, and Fairfax County real estate transactions.",
+    answer: "Pruitt Title's official public information describes title, escrow, settlement, refinance, commercial, and curative work in the DMV. Pruitt must confirm whether it accepts a specific Tysons transaction and what services apply.",
   },
   {
     question: "Do you handle commercial real estate closings in Tysons?",
-    answer: "Yes. Tysons has a large office, retail, mixed-use, and investor property market, and Pruitt Title supports commercial real estate closings that require entity review, lender coordination, title endorsements, escrow, and settlement.",
+    answer: "Tysons has a large office, retail, mixed-use, and investor market. Commercial files may require entity review, lender coordination, title endorsements, escrow, and settlement; the selected provider must confirm its eligibility and scope.",
   },
   {
     question: "How long does a title search take for a Tysons property?",
@@ -159,11 +159,11 @@ const TYSONS_FAQS: FaqItem[] = [
   },
   {
     question: "Can Pruitt Title help with title insurance for a Tysons purchase?",
-    answer: "Yes. Pruitt Title can issue owner's and lender's title insurance policies for eligible Tysons purchases and refinances, including residential, commercial, investor, and lender-financed transactions.",
+    answer: "If Pruitt accepts an eligible Tysons transaction, it will confirm the available owner's or lender's policy, underwriting requirements, endorsements, exceptions, terms, and pricing directly.",
   },
   {
     question: "How do I order a Tysons title search?",
-    answer: "Use the Order Title Search button to submit the property details or start contract intake. The team will confirm what is needed, provide secure document-transfer instructions, and begin the title search and settlement process.",
+    answer: "Use Request Title Review to send the property details to Will. If you request transaction services, an eligible matter may be referred to a provider for independent review. The provider—not DMV Title Guy—confirms acceptance, document-transfer instructions, scope, pricing, timing, and terms.",
   },
 ];
 
@@ -213,22 +213,12 @@ function TysonsStructuredData() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "LegalService"],
-        "@id": "https://dmvtitleguy.io/title-company-tysons-va#business",
-        name: "DMV Title Guy — Pruitt Title LLC — Tysons VA Title Company",
+        "@type": "Article",
+        "@id": "https://dmvtitleguy.io/title-company-tysons-va#guide",
+        headline: "Title and Closing Guide for Tysons, VA",
         url: "https://dmvtitleguy.io/title-company-tysons-va",
-        telephone: "(703) 859-1467",
-        email: "wrapuano@pruitt-title.com",
-        image: "https://dmvtitleguy.io/logo.png",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-        areaServed: [
+        about: { "@type": "Thing", name: "Title Insurance and Settlement" },
+        spatialCoverage: [
           { "@type": "City", name: "Tysons", addressRegion: "VA" },
           { "@type": "Place", name: "Tysons Corner" },
           { "@type": "City", name: "McLean", addressRegion: "VA" },
@@ -290,7 +280,7 @@ function TysonsExpansionSections() {
           <h2 className={sectionHeadingClass}>Tysons VA Title Company for Residential and Commercial Closings</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
-              Pruitt Title provides title search, title insurance, escrow, and settlement services for Tysons and Tysons Corner real estate transactions. Our office is nearby in Vienna, and our team regularly handles Fairfax County closings for buyers, sellers, agents, lenders, builders, and investors.
+              DMV Title Guy publishes educational guidance for Tysons and Tysons Corner transactions. If you request transaction services, an eligible matter may be introduced to Pruitt Title for independent review; Pruitt confirms whether it accepts the file and what services apply.
             </p>
             <p className={bodyClass}>
               Tysons sits at the center of Northern Virginia's business corridor, with high-value condominiums, office properties, mixed-use redevelopment, retail assets, and nearby McLean and Vienna residential neighborhoods. That mix makes careful title work and clear settlement coordination especially important.
@@ -326,14 +316,14 @@ function TysonsExpansionSections() {
           <h2 className={sectionHeadingClass}>Why Choose Pruitt Title for Tysons?</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
-              Pruitt Title has served the DMV region since 2007, combining local settlement experience with practical communication for busy agents, lenders, and clients. Tysons transactions often involve tight lender timelines, entity ownership, high-value collateral, or commercial requirements, so we focus on identifying title issues early and keeping the parties aligned.
+              Tysons transactions can involve tight lender timelines, entity ownership, high-value collateral, or commercial requirements. Ask any prospective provider how it identifies issues, communicates milestones, and confirms responsibilities for the particular file.
             </p>
             <p className={bodyClass}>
               If you need title search support before a Tysons offer, closing, refinance, or commercial acquisition, start with our{" "}
               <Link href="/title-search-vienna-va" className="font-semibold text-brand-blue-deep hover:underline">
                 Vienna VA title search
               </Link>{" "}
-              team or order a title review online.
+              guide or send Will a request for a possible provider introduction.
             </p>
           </div>
         </div>
@@ -376,9 +366,9 @@ function TysonsExpansionSections() {
 
       <section className="section-navy">
         <div className="container-xl text-center">
-          <h2 className="t-h3 text-white mb-4">Start a Tysons Title Search or Closing</h2>
+          <h2 className="t-h3 text-white mb-4">Ask About a Tysons Transaction</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send us the property address, contract, or deal details and we will help you start the title review process.
+            Share the property address and transaction context with Will. Any provider independently confirms acceptance, scope, pricing, timing, and terms.
           </p>
           <TitleSearchOrderButton className="btn-primary" />
         </div>
@@ -446,10 +436,10 @@ function BethesdaExpansionSections() {
           <h2 className={sectionHeadingClass}>Bethesda-Chevy Chase Title &amp; Escrow Services</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
-              Pruitt Title handles the title search, lien review, escrow coordination, lender communication, settlement statement review, deed recording, and final title policy issuance for Bethesda-Chevy Chase real estate transactions. The work starts with public-record research and continues through funding, recording, and post-closing delivery.
+              A Bethesda-Chevy Chase closing can involve title search, lien review, escrow coordination, lender communication, settlement-statement review, recording, and final policy issuance. The selected provider should identify which steps it accepts responsibility for in writing.
             </p>
             <p className={bodyClass}>
-              Our team supports residential purchases, refinances, commercial closings, investor acquisitions, estate and trust transfers, and transactions where out-of-area buyers or lenders need a settlement team that understands Montgomery County procedures.
+              Residential purchases, refinances, commercial closings, investor acquisitions, estates, and trust transfers can require different experience. Ask the selected provider to confirm its transaction fit and Montgomery County process.
             </p>
           </div>
         </div>
@@ -457,7 +447,7 @@ function BethesdaExpansionSections() {
 
       <section className="section-gray">
         <div className="container-xl max-w-4xl">
-          <h2 className={sectionHeadingClass}>Settlement Issues We Watch For in Bethesda</h2>
+          <h2 className={sectionHeadingClass}>Settlement Issues to Watch For in Bethesda</h2>
           <p className={`${bodyClass} mb-5`}>
             Bethesda files often deserve extra attention because property values are high, ownership history can be long, and many transactions involve trusts, estates, inherited property, condominiums, or redevelopment plans.
           </p>
@@ -677,22 +667,22 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
      */
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Herndon, VA Title Company | Pruitt Title",
-        description: "Herndon title insurance, escrow, and settlement support for buyers, sellers, agents, and lenders. Serving Fairfax County since 2007. Request a quote.",
-        ogTitle: "Herndon, VA Title Company | Pruitt Title",
-        ogDescription: "Herndon title insurance, escrow, and settlement support for buyers, sellers, agents, and lenders. Serving Fairfax County since 2007.",
+        title: "Herndon VA Title Company Guide | DMV Title Guy",
+        description: "Practical Herndon and Fairfax County title and closing guidance. Request a provider introduction for independent review of an eligible transaction.",
+        ogTitle: "Herndon VA Title Company Guide | DMV Title Guy",
+        ogDescription: "Educational title and closing guidance for Herndon and Fairfax County transactions.",
       },
       "title-search-vienna-va": {
-        title: "Title Company in Vienna, VA | Trusted Closings Since 2007",
-        description: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
-        ogTitle: "Title Company in Vienna, VA | Trusted Closings Since 2007",
-        ogDescription: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
+        title: "Vienna VA Title Search Guide | DMV Title Guy",
+        description: "Learn how Vienna title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
+        ogTitle: "Vienna VA Title Search Guide | DMV Title Guy",
+        ogDescription: "Educational guidance on title searches for Vienna properties.",
       },
       "title-company-tysons-va": {
-        title: "Tysons, VA Title Company & Escrow | Pruitt Title",
-        description: "Title insurance, escrow, and settlement support for Tysons and Tysons Corner transactions. Pruitt Title has served Fairfax County since 2007.",
-        ogTitle: "Tysons, VA Title Company & Escrow | Pruitt Title",
-        ogDescription: "Title insurance, escrow, and settlement support for Tysons and Tysons Corner transactions. Serving Fairfax County since 2007.",
+        title: "Tysons VA Title Company Guide | DMV Title Guy",
+        description: "Practical title and closing guidance for Tysons, Tysons Corner, and Fairfax County, plus a path to request an independent provider review.",
+        ogTitle: "Tysons VA Title Company Guide | DMV Title Guy",
+        ogDescription: "Educational title and closing guidance for Tysons and Fairfax County transactions.",
       },
       "title-company-bethesda-md": {
         title: "Title Company in Bethesda, MD | Settlement, Escrow & Title Insurance",
@@ -702,15 +692,15 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       },
       "title-company-reston-va": {
         title: "Title Company in Reston, VA | Title Insurance & Settlement",
-        description: "Reston VA title company for title insurance, escrow, and closings. 17+ years serving Fairfax County buyers, sellers, and agents. Free Pruitt Title quote online.",
+        description: "Practical Reston and Fairfax County title and closing guidance, with a path to request an independent provider review.",
         ogTitle: "Title Company in Reston, VA | Title Insurance & Settlement",
-        ogDescription: "Reston VA title company for title insurance, escrow, and closings. 17+ years serving Fairfax County buyers, sellers, and agents. Free Pruitt Title quote online.",
+        ogDescription: "Educational title and closing guidance for Reston and Fairfax County transactions.",
       },
       "title-company-mclean-va": {
         title: "Title Company in McLean, VA | Escrow, Insurance & Local Closings",
-        description: "McLean VA title company with 17+ years in Fairfax County. Title insurance, escrow, and settlement for residential and complex closings. Get a free Pruitt Title quote today.",
+        description: "Practical McLean and Fairfax County title and closing guidance, including considerations for residential and complex transactions.",
         ogTitle: "Title Company in McLean, VA | Escrow, Insurance & Local Closings",
-        ogDescription: "McLean VA title company with 17+ years in Fairfax County. Title insurance, escrow, and settlement for residential and complex closings. Get a free Pruitt Title quote today.",
+        ogDescription: "Educational title and closing guidance for McLean and Fairfax County transactions.",
       },
       "title-company-springfield-va": {
         title: "Springfield VA Title Company | DMV Title Guy",
@@ -719,10 +709,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Professional title insurance and closing services in Springfield, VA. Residential, commercial & investor closings. Since 2007.",
       },
       "title-company-falls-church-va": {
-        title: "Falls Church, VA Title Company | Pruitt Title",
-        description: "Falls Church title insurance, escrow, and settlement support for buyers, sellers, agents, and lenders. Request a closing-cost estimate from Pruitt Title.",
-        ogTitle: "Falls Church, VA Title Company | Pruitt Title",
-        ogDescription: "Falls Church title insurance, escrow, and settlement support from Pruitt Title.",
+        title: "Falls Church VA Title Company Guide | DMV Title Guy",
+        description: "Practical title and closing guidance for Falls Church City and Fairfax County addresses, plus a path to request a provider introduction.",
+        ogTitle: "Falls Church VA Title Company Guide | DMV Title Guy",
+        ogDescription: "Educational title and closing guidance for Falls Church transactions.",
       },
       "title-company-stafford-va": {
         title: "Stafford VA Title and Escrow Closings | Pruitt Title",
@@ -732,33 +722,27 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       },
       "title-company-woodbridge-va": {
         title: "Woodbridge VA Title Company & Closings | Pruitt Title",
-        description: "Woodbridge title company for title insurance, escrow, and closings across Prince William County. Pruitt Title makes settlement simple. Call today.",
+        description: "Practical Woodbridge and Prince William County title and closing guidance, with a path to request an independent provider review.",
         ogTitle: "Woodbridge VA Title Company & Closings | Pruitt Title",
         ogDescription: "Title insurance, escrow, and closing services in Woodbridge and Prince William County.",
       },
       "title-company-fairfax-va": {
         title: "Title Company in Fairfax, VA | Settlement & Title Insurance",
-        description: "Fairfax VA title company for title search, insurance, escrow, and settlement. 17+ years closing Fairfax County deals. Get a free Pruitt Title quote online today.",
+        description: "Practical Fairfax title-search and closing guidance, with a path to request an independent provider review.",
         ogTitle: "Title Company in Fairfax, VA | Settlement & Title Insurance",
-        ogDescription: "Fairfax VA title company for title search, insurance, escrow, and settlement. 17+ years closing Fairfax County deals. Get a free Pruitt Title quote online today.",
+        ogDescription: "Educational title-search and closing guidance for Fairfax City and Fairfax County.",
       },
       "title-company-silver-spring-md": {
-        title: "Title Company in Silver Spring, MD | MD Settlement & Escrow",
-        description: "Silver Spring MD title company for Montgomery County closings. Title insurance, escrow, transfer-tax guidance, and fast settlement. Request a free Pruitt Title quote.",
-        ogTitle: "Title Company in Silver Spring, MD | MD Settlement & Escrow",
-        ogDescription: "Silver Spring MD title company for Montgomery County closings. Title insurance, escrow, transfer-tax guidance, and fast settlement. Request a free Pruitt Title quote.",
-      },
-      "title-company-vienna-va": {
-        title: "Title Company in Vienna, VA | Trusted Closings Since 2007",
-        description: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
-        ogTitle: "Title Company in Vienna, VA | Trusted Closings Since 2007",
-        ogDescription: "Vienna VA title settlement for residential and commercial closings. 17+ years serving Fairfax County. Order a title search or get a free quote: (703) 859-1467.",
+        title: "Silver Spring MD Title Company Guide | DMV Title Guy",
+        description: "Practical title and closing guidance for Silver Spring and Montgomery County, plus a path to request a provider introduction.",
+        ogTitle: "Silver Spring MD Title Company Guide | DMV Title Guy",
+        ogDescription: "Educational title and closing guidance for Silver Spring transactions.",
       },
       "title-search-fairfax-va": {
-        title: "Fairfax VA Title Search & Title Company | Free Online Quote",
-        description: "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
-        ogTitle: "Fairfax VA Title Search & Title Company | Free Online Quote",
-        ogDescription: "Need a Fairfax VA title company or title search? Pruitt Title handles searches, insurance, escrow, and settlement across Fairfax City and Fairfax County. Free online quote.",
+        title: "Fairfax VA Title Search Guide | DMV Title Guy",
+        description: "Learn how Fairfax title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
+        ogTitle: "Fairfax VA Title Search Guide | DMV Title Guy",
+        ogDescription: "Educational title-search guidance for Fairfax City and Fairfax County.",
       },
     };
 
@@ -771,6 +755,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         openGraph: {
           title: o.ogTitle ?? o.title,
           description: o.ogDescription ?? o.description,
+          url: `https://dmvtitleguy.io/${params.slug}`,
         },
       };
     }
@@ -782,14 +767,14 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         alternates: { canonical: `/${params.slug}` },
         openGraph: {
           title: `Title Company in ${locationName} | DMV Title Guy`,
-          description: `Local title and settlement services in ${locationName}. Order a title search or start your closing with Pruitt Title LLC.`,
+          description: `Local title and closing education for ${locationName}, with a path to request an independent provider review.`,
         },
       };
     }
 
     return {
       title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
-      description: `Trusted title & settlement services in ${locationName}. 17+ years serving ${countyLabel} buyers, sellers & investors. Fast, reliable closings. Free quote: (703) 859-1467.`,
+      description: `Practical title and closing guidance for ${locationName}. Eligible service requests may be referred to Pruitt Title for independent review.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
         title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
@@ -801,7 +786,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const { fullName } = result.data;
   return {
     title: `Title Company in ${fullName} | DMV Title Guy`,
-    description: `DMV Title Guy — Pruitt Title LLC provides title insurance and closing services throughout ${fullName}. Call (703) 859-1467.`,
+    description: `Get practical title and closing guidance for ${fullName} from Will Rapuano. Eligible service requests may be referred to Pruitt Title LLC for independent review.`,
     alternates: { canonical: `/${params.slug}` },
   };
 }
@@ -822,6 +807,29 @@ function LocationPage({ location }: { location: Location }) {
   const countySuffix = county && !/^[\s—-]+$/.test(county) ? ` across ${county}` : "";
   const stateFullName = state === "VA" ? "Virginia" : state === "MD" ? "Maryland" : "Washington DC";
   const locationName = getLocationDisplayName(location);
+  const priorityHero: Record<string, { h1: string; lede: string }> = {
+    "title-company-herndon-va": {
+      h1: "Herndon, VA Title Company & Closing Services",
+      lede: "DMV Title Guy provides practical title and closing education for Herndon transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+    },
+    "title-company-tysons-va": {
+      h1: "Tysons, VA Title Company & Settlement Services",
+      lede: "DMV Title Guy provides practical title and closing education for Tysons and Tysons Corner transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+    },
+    "title-search-vienna-va": {
+      h1: "Vienna, VA Title Search Services",
+      lede: "DMV Title Guy explains title-search issues for Vienna properties before a purchase, bid, refinance, or closing. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+    },
+    "title-company-falls-church-va": {
+      h1: "Title Company Serving Falls Church, VA",
+      lede: "DMV Title Guy provides practical title and closing education for Falls Church City and Falls Church addresses in Fairfax County. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+    },
+    "title-company-silver-spring-md": {
+      h1: "Title Company Serving Silver Spring, MD",
+      lede: "DMV Title Guy provides practical title and closing education for Silver Spring and Montgomery County transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+    },
+  };
+  const priorityHeroCopy = priorityHero[slug];
   const parentLocationName = parentLocation ? getLocationDisplayName(parentLocation) : undefined;
   const isTysons = slug === "title-company-tysons-va";
   const isFallsChurch = slug === "title-company-falls-church-va";
@@ -851,20 +859,20 @@ function LocationPage({ location }: { location: Location }) {
     "Commercial Transactions",
     "New Construction Closings",
     "Investor / Wholesale Closings",
-    "Remote Online Notarization (RON)",
+    "Remote signing options (when available)",
   ];
 
   const PROCESS_STEPS = [
-    { step: "1", title: "Open Order", desc: "Submit your purchase contract or refinance details. We'll confirm receipt within hours." },
-    { step: "2", title: "Title Search", desc: "We examine public records going back 50+ years to ensure clear, marketable title." },
-    { step: "3", title: "Title Commitment", desc: "You receive a full title commitment with all conditions and coverage details." },
-    { step: "4", title: "Clear to Close", desc: "We coordinate lender, buyer, seller, and agent schedules for a smooth settlement." },
-    { step: "5", title: "Settlement", desc: "Documents signed, funds disbursed, deed recorded. Keys delivered." },
+    { step: "1", title: "Provider Acceptance", desc: "The selected provider confirms whether it accepts the transaction and supplies its scope, pricing, timing, and terms." },
+    { step: "2", title: "Title Search", desc: "The accepted provider reviews relevant records and identifies matters that may need attention before settlement." },
+    { step: "3", title: "Title Commitment", desc: "The provider delivers the applicable commitment, requirements, exceptions, and coverage information." },
+    { step: "4", title: "Closing Coordination", desc: "The provider coordinates the accepted closing tasks with the lender, parties, and agents." },
+    { step: "5", title: "Settlement & Recording", desc: "The provider follows its written instructions for signing, funding, disbursement, recording, and post-closing work." },
   ];
 
   return (
     <>
-      <LocationSchema city={city} state={state} county={county} slug={slug} description={`Professional title insurance and closing services in ${locationName} — Pruitt Title LLC.`} />
+      <LocationSchema city={city} state={state} county={county} slug={slug} description={`Educational title and closing guidance for ${locationName} from DMV Title Guy.`} />
       {isBethesda && <BethesdaStructuredData />}
       {isTysons && <TysonsStructuredData />}
       {slug === "title-company-herndon-va" && <HerndonStructuredData />}
@@ -882,10 +890,8 @@ function LocationPage({ location }: { location: Location }) {
               {stateFullName} Title Insurance
             </p>
             <h1 className="t-h1 text-white mb-4">
-              {slug === "title-company-herndon-va"
-                ? "Herndon VA Title Closings"
-                : isTysons
-                ? "Tysons VA Title Closings & Settlement Services"
+              {priorityHeroCopy
+                ? priorityHeroCopy.h1
                 : slug === "title-company-bethesda-md"
                 ? "Bethesda-Chevy Chase MD Title Company & Escrow Services"
                 : isFallsChurch
@@ -895,21 +901,19 @@ function LocationPage({ location }: { location: Location }) {
                 : "Reliable Title & Settlement Services"}
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              {slug === "title-company-herndon-va"
-                ? "Need title closings in Herndon? Pruitt Title handles Herndon title services, title insurance, escrow, settlement, and online title search orders for buyers, sellers, agents, lenders, and investors across Fairfax County."
-                : isFallsChurch
-                ? "Buying, refinancing, or closing in Falls Church? DMV Title Guy handles the title search, title insurance, escrow, and settlement for properties in the City of Falls Church and nearby Fairfax County."
+              {priorityHeroCopy
+                ? priorityHeroCopy.lede
                 : isNeighborhood && parentLocation
-                ? `Pruitt Title LLC provides title search, title insurance, escrow, and settlement services for ${city} and nearby ${parentLocation.city} neighborhoods.`
+                ? `DMV Title Guy provides practical title and closing education for ${city} and nearby ${parentLocation.city} neighborhoods. Eligible requests may be referred to Pruitt Title LLC for independent review.`
                 : isSecondary
-                ? `Pruitt Title LLC — professional title insurance and closing services in ${locationName}. Residential, commercial, and all transaction types.`
-                : `DMV Title Guy is your trusted title and settlement partner in ${locationName}. Fast, reliable closings for agents, lenders, and investors${countySuffix}.`}
+                ? `DMV Title Guy provides local closing education for ${locationName}. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.`
+                : `DMV Title Guy provides practical title and closing education for ${locationName}${countySuffix}. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.`}
             </p>
             <div className="flex flex-wrap gap-3">
               {hasCheckoutCta ? (
                 <TitleSearchOrderButton className="btn-primary" />
               ) : (
-                <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
+                <Link href="/calculators/title-quote" className="btn-primary">Estimate Closing Costs →</Link>
               )}
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
                 <Phone size={15} strokeWidth={2.25} className="mr-2 inline-block align-[-2px]" aria-hidden="true" />(703) 859-1467
@@ -927,10 +931,10 @@ function LocationPage({ location }: { location: Location }) {
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">What We Offer</p>
-              <h2 className="t-h3 text-brand-navy mb-4">Title Services in {locationName}</h2>
+              <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">What to Understand</p>
+              <h2 className="t-h3 text-brand-navy mb-4">Title and Closing Topics in {locationName}</h2>
               <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
-                Pruitt Title LLC has been serving the {stateFullName} real estate market since 2007. Our team handles every aspect of the title and settlement process — from search to closing — so your transaction closes on time, every time.
+                These are common parts of a real estate closing. The provider that accepts the transaction must confirm its responsibilities, availability, pricing, timing, terms, and required disclosures directly.
               </p>
               <ul className="grid grid-cols-2 gap-2">
                 {SERVICES_LIST.map((s) => (
@@ -940,9 +944,19 @@ function LocationPage({ location }: { location: Location }) {
                   </li>
                 ))}
               </ul>
+              {(slug === "title-search-vienna-va" || slug === "title-search-fairfax-va") && (
+                <p className="mt-6 text-sm">
+                  <Link
+                    href="/blog/types-of-property-surveys-dc-md-va"
+                    className="font-semibold text-brand-blue-deep hover:underline"
+                  >
+                    Compare the types of property surveys used in DC, Maryland, and Virginia →
+                  </Link>
+                </p>
+              )}
             </div>
             <div id="quote">
-              <LeadCaptureForm title={`Get a Quote — ${locationName}`} location={`location-${slug}-form`} />
+              <LeadCaptureForm title={`Request an Introduction — ${locationName}`} location={`location-${slug}-form`} />
             </div>
           </div>
         </div>
@@ -955,7 +969,7 @@ function LocationPage({ location }: { location: Location }) {
             <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">How It Works</p>
             <h2 className="prose-title">The Closing Process in {city}</h2>
             <p className="prose-subtitle max-w-2xl mx-auto">
-              From contract to keys, here&apos;s what to expect when you work with DMV Title Guy in {locationName}.
+              From contract to keys, here&apos;s the typical process after a title company accepts a transaction in {locationName}.
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-4">
@@ -1222,9 +1236,9 @@ function LocationPage({ location }: { location: Location }) {
               </Link>
             </div>
             <div>
-              <h3 className="font-bold text-brand-navy mb-3">All Transaction Types</h3>
+              <h3 className="font-bold text-brand-navy mb-3">Common Transaction Scenarios</h3>
               <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">
-                Residential, commercial, refinances, investment properties — we handle every type of closing professionally.
+                The team reviews residential, commercial, refinance, and investment-property requests and confirms the services and requirements for each transaction.
               </p>
               <Link href="/investor-friendly-title-company" className="text-sm text-brand-blue-deep hover:underline">
                 Learn More →
@@ -1281,7 +1295,7 @@ function CountyPage({ county }: { county: County }) {
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">{stateFullName} Title Insurance</p>
             <h1 className="t-h1 text-white mb-4">Title Company in {fullName}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Pruitt Title LLC serves every city and community in {fullName}. Professional title search, title insurance, and settlement services — residential, commercial, and all transaction types.
+              DMV Title Guy provides local closing education for communities across {fullName}. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
@@ -1300,7 +1314,7 @@ function CountyPage({ county }: { county: County }) {
           <div className="text-center mb-10">
             <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Service Coverage</p>
             <h2 className="prose-title">Cities &amp; Communities in {name}</h2>
-            <p className="prose-subtitle max-w-xl mx-auto">We provide full-service title and closing services to every community in {fullName}.</p>
+            <p className="prose-subtitle max-w-xl mx-auto">Explore local closing guidance for communities across {fullName}.</p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {citiesInCounty.map((loc) => (
@@ -1332,12 +1346,10 @@ function CountyPage({ county }: { county: County }) {
       <section id="quote" className="section-navy">
         <div className="container-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="t-h3 text-white mb-4">Start Your Order in {name}</h2>
-            <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Contact Will Rapuano at Pruitt Title LLC to open your title order or get a quote for your next transaction in {fullName}.</p>
+            <h2 className="t-h3 text-white mb-4">Request an Introduction in {name}</h2>
+            <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Share your transaction question with Will. If you request a provider introduction, that provider independently confirms whether it accepts the matter and supplies its scope, pricing, and terms.</p>
             <div className="space-y-2 text-sm text-gray-300">
               <p className="flex items-center gap-2"><Phone size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>
-              <p className="flex items-center gap-2"><Mail size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="mailto:wrapuano@pruitt-title.com" className="text-brand-blue">wrapuano@pruitt-title.com</a></p>
-              <p className="flex items-center gap-2"><MapPin size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" />1900 Gallows Rd Ste 230, Vienna, VA 22182</p>
             </div>
           </div>
           <LeadCaptureForm location={`county-${slug}-form`} />

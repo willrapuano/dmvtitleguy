@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "commercial property title search Guide | Pruitt Title",
+  title: "Commercial Property Title Search Guide | DMV Title Guy",
   description:
-    "Commercial property title search for DMV buyers, lenders, and investors. Pruitt Title reviews liens, easements, entities, and risks. Call today.",
+    "Educational commercial-property title-search guide for DMV buyers, lenders, and investors covering liens, easements, entities, and common risks.",
   alternates: {
     canonical: "https://dmvtitleguy.io/commercial-property-title-search",
   },
@@ -93,7 +93,7 @@ const process = [
   {
     icon: Search,
     title: "2. Run Commercial Title",
-    desc: "We review land records, liens, judgments, taxes, exceptions, entity concerns, and commercial-specific closing requirements.",
+    desc: "An accepted provider may review land records, liens, judgments, taxes, exceptions, entity concerns, and commercial-specific closing requirements.",
   },
   {
     icon: CheckCircle2,
@@ -117,7 +117,7 @@ const faqs = [
   },
   {
     q: "Can you coordinate commercial title insurance?",
-    a: "Yes. We help identify title exceptions, curative needs, and underwriting questions so the commercial closing can move toward insurable title and lender approval.",
+    a: "An accepted provider may identify title exceptions, curative needs, and underwriting questions within the confirmed scope for a commercial closing.",
   },
   {
     q: "What documents help with a commercial title search?",
@@ -129,31 +129,18 @@ const relatedPages = [
   { href: "/commercial-real-estate-closings", label: "Commercial Real Estate Closings" },
   { href: "/commercial-due-diligence", label: "Commercial Due Diligence" },
   { href: "/investor-title-services", label: "Investor Title Services" },
-  { href: "/request-title-review", label: "Order Title Search" },
+  { href: "/request-title-review", label: "Request Title Review" },
 ];
 
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Service",
-      "@id": "https://dmvtitleguy.io/commercial-property-title-search#service",
-      name: "Commercial Property Title Search",
-      serviceType: "Commercial Property Title Search",
-      provider: {
-        "@type": "LegalService",
-        name: "DMV Title Guy | Pruitt Title LLC",
-        telephone: "+1-703-859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-      },
-      areaServed: [
+      "@type": "Article",
+      "@id": "https://dmvtitleguy.io/commercial-property-title-search#guide",
+      headline: "Commercial Property Title Search Guide",
+      about: { "@type": "Thing", name: "Commercial Property Title Search" },
+      spatialCoverage: [
         { "@type": "State", name: "Virginia" },
         { "@type": "State", name: "Maryland" },
         { "@type": "AdministrativeArea", name: "Washington DC" },
@@ -203,7 +190,7 @@ export default function CommercialPropertyTitleSearchPage() {
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Order Title Search
+              Request Title Review
             </Link>
           </div>
         </div>
@@ -252,7 +239,7 @@ export default function CommercialPropertyTitleSearchPage() {
           <h2 className="prose-title text-center mb-4">Commercial Due Diligence Support</h2>
           <p className="text-brand-muted text-center text-lg mb-10 max-w-2xl mx-auto">
             Title due diligence should produce usable answers, not just a pile
-            of exceptions. We help turn the search into an action plan.
+            of exceptions. The accepted provider should turn its search into a clear action plan.
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {dueDiligence.map((item) => (
@@ -267,7 +254,7 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">Our Process</h2>
+          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">
@@ -296,7 +283,7 @@ export default function CommercialPropertyTitleSearchPage() {
               Commercial Due Diligence
             </Link>
             <Link href="/request-title-review" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">
-              Order Title Search
+              Request Title Review
             </Link>
           </div>
           <p className="text-gray-400 text-sm max-w-[68ch] mx-auto leading-relaxed">

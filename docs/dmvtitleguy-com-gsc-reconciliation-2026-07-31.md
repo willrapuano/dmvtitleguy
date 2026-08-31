@@ -1,5 +1,7 @@
 # DMVTitleGuy Search Console reconciliation — 2026-07-31
 
+> **Historical only.** On August 25, 2026, the proposed `.com` migration was cancelled. `dmvtitleguy.io` remains canonical and is the verified Search Console property. Do not use this note to switch canonical URLs to `.com`.
+
 This is a read-only pre-cutover inventory. No Search Console property, sitemap, DNS record, deployment, or production setting was changed.
 
 ## Verified state
