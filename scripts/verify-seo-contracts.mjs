@@ -69,13 +69,16 @@ assert.match(
   "Shared metadata must use the same Pruitt Title and DMV Title Guy site identity."
 );
 
+const frozenLocationRoutes = [
+  "/title-company/alexandria-va",
+  "/title-company/arlington-va",
+  "/title-company/fairfax-va",
+  "/title-company/loudoun-county-va",
+  "/title-company/prince-william-county-va",
+];
+
 const consolidatedLocationRoutes = [
-  ["/title-company/alexandria-va", "/title-company-alexandria-va"],
-  ["/title-company/arlington-va", "/title-company-arlington-va"],
-  ["/title-company/fairfax-va", "/title-search-fairfax-va"],
   ["/title-company/falls-church-va", "/title-company-falls-church-va"],
-  ["/title-company/loudoun-county-va", "/title-company-loudoun-county-va"],
-  ["/title-company/prince-william-county-va", "/title-company-prince-william-county-va"],
   ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
 ];
 
@@ -90,4 +93,20 @@ for (const [duplicate, canonical] of consolidatedLocationRoutes) {
   );
 }
 
-console.log("SEO origin, brand identity, and location consolidation contracts verified.");
+for (const route of frozenLocationRoutes) {
+  assert.ok(
+    !source.domainConfig.includes(`["${route}",`),
+    `${route} must remain directly reachable during the measurement freeze.`
+  );
+  assert.ok(
+    source.sitemap.includes(`"${route}"`) || source.sitemap.includes(`'${route}'`),
+    `${route} must remain in the sitemap during the measurement freeze.`
+  );
+  const pageSource = await readFile(`src/app/(marketing)${route}/page.tsx`, "utf8");
+  assert.ok(
+    pageSource.includes(`canonical: "${route}"`) || pageSource.includes(`canonical: '${route}'`),
+    `${route} must remain self-canonical during the measurement freeze.`
+  );
+}
+
+console.log("SEO origin, brand identity, frozen-route, and location consolidation contracts verified.");

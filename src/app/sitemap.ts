@@ -52,7 +52,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/title-company-for-builders", "/title-company-for-credit-unions",
       "/title-company-for-lenders", "/title-company-for-realtors",
       "/closing-costs/maryland", "/closing-costs/dc", "/closing-costs/dc-who-pays",
-      "/closing-costs/buyer-maryland", "/closing-costs/seller-virginia"].map((p) => entry(p, 0.8)),
+      "/closing-costs/buyer-maryland", "/closing-costs/seller-virginia",
+      "/title-company/alexandria-va", "/title-company/arlington-va", "/title-company/fairfax-va",
+      "/title-company/loudoun-county-va", "/title-company/prince-william-county-va"].map((p) => entry(p, 0.8)),
 
     entry("/blog", 0.8, "weekly"),
 

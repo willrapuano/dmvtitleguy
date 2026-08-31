@@ -2,13 +2,13 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
+import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company Loudoun County VA | Settlement & Title Services",
   description: "Practical Loudoun County title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review.",
-  alternates: { canonical: "/title-company-loudoun-county-va" },
+  alternates: { canonical: "/title-company/loudoun-county-va" },
 };
 
 const faqs = [
@@ -68,7 +68,7 @@ export default function LoudounCountyTitlePage() {
         </div>
       </section>
 
-      <TitleQuoteEmbed title="Get a Loudoun County TitleCapture Quote" />
+      <ClosingCostCalculator state="VA" />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
@@ -176,16 +176,16 @@ export default function LoudounCountyTitlePage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
-            <Link href="/title-company-prince-william-county-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/prince-william-county-va" className="text-brand-blue-deep hover:underline">
               Prince William County Title Services →
             </Link>
-            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
