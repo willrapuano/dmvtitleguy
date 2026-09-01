@@ -82,6 +82,12 @@ assert.match(crmSource, /Version:\s*"v3"/, "GHL opportunity sync must declare it
 assert.match(crmSource, /locationId,\s*\n\s*pipelineId,/, "GHL v3 opportunity search must use camelCase query keys");
 assert.match(crmSource, /SEO Submission ID/, "GHL opportunities do not preserve submission IDs");
 assert.match(crmSource, /SEO QA Excluded/, "GHL opportunities do not carry an explicit QA exclusion");
+assert.match(crmSource, /token !== token\.trim\(\)/, "GHL credentials with loader prefixes or surrounding whitespace must fail closed");
+assert.match(crmSource, /\\u0000-\\u0020\\u007f/, "GHL credentials containing control characters must fail closed");
+
+const reconciliationRouteSource = await readFile("src/app/api/cron/reconcile-ghl-opportunities/route.ts", "utf8");
+assert.match(reconciliationRouteSource, /GHL_RECONCILIATION_FAILED/, "GHL reconciliation errors need a stable incident code");
+assert.doesNotMatch(reconciliationRouteSource, /error\s+instanceof\s+Error|error\.message/, "GHL reconciliation must never serialize provider error text");
 
 const outboxSource = await readFile("src/lib/ghl-opportunity-outbox.ts", "utf8");
 assert.match(outboxSource, /aes-256-gcm/, "GHL recovery payload is not encrypted at rest");
