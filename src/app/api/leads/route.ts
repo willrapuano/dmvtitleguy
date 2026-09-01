@@ -16,6 +16,7 @@ import {
 import { leadAttributionFields } from "@/lib/lead-attribution";
 import { isSeoQaPayload, TRANSACTION_INTENT_SOURCES } from "@/lib/ghl-crm";
 import { stageGhlOpportunitySync, syncStagedGhlOpportunity } from "@/lib/ghl-opportunity-outbox";
+import { ghlSyncErrorCode } from "@/lib/ghl-error";
 
 const FORM_TYPES = new Set(["quote", "subscribe", "advertising"]);
 
@@ -129,8 +130,9 @@ export async function POST(request: NextRequest) {
       try {
         await syncStagedGhlOpportunity(submissionId);
       } catch (error) {
-        const errorCode = error instanceof Error ? error.message : "ghl-sync-failed";
-        console.error(`[Lead API:${requestId}] GHL opportunity sync failed:`, errorCode);
+        console.error(`[Lead API:${requestId}] GHL opportunity sync failed`, {
+          code: ghlSyncErrorCode(error),
+        });
       }
     }
     return NextResponse.json({ ok: true, requestId });

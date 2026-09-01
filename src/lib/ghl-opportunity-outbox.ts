@@ -2,6 +2,7 @@ import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:
 import { prisma } from "@/lib/prisma";
 import { recordLeadCRMSync, recordLeadSubmissionEvent } from "@/lib/lead-protection";
 import { syncGHLTransactionOpportunity } from "@/lib/ghl-crm";
+import { ghlSyncErrorCode } from "@/lib/ghl-error";
 
 const OUTBOX_RETENTION_MS = 14 * 24 * 60 * 60 * 1000;
 
@@ -48,10 +49,6 @@ function decryptEnvelope(row: { ciphertext: string; iv: string; authTag: string 
   return parsed;
 }
 
-function errorCode(error: unknown) {
-  return (error instanceof Error ? error.message : "ghl-sync-failed").slice(0, 120);
-}
-
 export async function stageGhlOpportunitySync(
   submissionId: string,
   source: string,
@@ -90,7 +87,7 @@ export async function syncStagedGhlOpportunity(submissionId: string) {
     await prisma.leadOpportunityOutbox.delete({ where: { submissionId } });
     return { skipped: false as const, ...crm };
   } catch (error) {
-    const code = errorCode(error);
+    const code = ghlSyncErrorCode(error);
     const delayMinutes = Math.min(24 * 60, 2 ** Math.min(outbox.attempts, 10));
     await prisma.leadOpportunityOutbox.updateMany({
       where: { submissionId },
@@ -144,7 +141,7 @@ export async function retryDueGhlOpportunitySyncs(limit = 25) {
       await syncStagedGhlOpportunity(row.submissionId);
       results.push({ submissionId: row.submissionId, status: "synced" });
     } catch (error) {
-      results.push({ submissionId: row.submissionId, status: "error", code: errorCode(error) });
+      results.push({ submissionId: row.submissionId, status: "error", code: ghlSyncErrorCode(error) });
     }
   }
   return { attempted: due.length, expired: expired.length, results };
