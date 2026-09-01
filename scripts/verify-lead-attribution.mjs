@@ -89,7 +89,26 @@ const reconciliationRouteSource = await readFile("src/app/api/cron/reconcile-ghl
 assert.match(reconciliationRouteSource, /GHL_RECONCILIATION_FAILED/, "GHL reconciliation errors need a stable incident code");
 assert.doesNotMatch(reconciliationRouteSource, /error\s+instanceof\s+Error|error\.message/, "GHL reconciliation must never serialize provider error text");
 
+const ghlErrorSource = await readFile("src/lib/ghl-error.ts", "utf8");
+const ghlErrorJavaScript = ts.transpileModule(ghlErrorSource, {
+  compilerOptions: { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2022 },
+}).outputText;
+const { ghlSyncErrorCode } = await import(`data:text/javascript;base64,${Buffer.from(ghlErrorJavaScript).toString("base64")}`);
+assert.equal(ghlSyncErrorCode(new Error("GHL transaction measurement is not configured")), "ghl-configuration-missing");
+assert.equal(ghlSyncErrorCode(new Error("GHL transaction measurement credential is invalid")), "ghl-credential-invalid");
+assert.equal(ghlSyncErrorCode(new Error("GHL API /opportunities/search returned HTTP 403")), "ghl-api-http-403");
+assert.equal(ghlSyncErrorCode(new Error("Headers.set: Bearer secret-token is invalid")), "ghl-sync-failed");
+assert.equal(ghlSyncErrorCode(new Error("GHL API /path returned HTTP 403\nBearer secret-token")), "ghl-sync-failed");
+
 const outboxSource = await readFile("src/lib/ghl-opportunity-outbox.ts", "utf8");
+assert.doesNotMatch(outboxSource, /error\.message/, "GHL outbox must not persist raw provider error text");
+assert.match(outboxSource, /ghlSyncErrorCode\(error\)/, "GHL outbox must persist only the allowlisted error code");
+for (const file of ["src/app/api/leads/route.ts", "src/lib/protected-lead-route.ts"]) {
+  const source = await readFile(file, "utf8");
+  assert.doesNotMatch(source, /GHL opportunity sync failed:[^\n]*errorCode/, `${file} logs raw GHL sync errors`);
+  assert.match(source, /code:\s*ghlSyncErrorCode\(error\)/, `${file} does not sanitize GHL sync errors`);
+}
+
 assert.match(outboxSource, /aes-256-gcm/, "GHL recovery payload is not encrypted at rest");
 assert.match(outboxSource, /status !== "delivered"/, "GHL retry could run before confirmed webhook delivery");
 assert.match(outboxSource, /syncGHLTransactionOpportunity/, "GHL retry does not use the idempotent opportunity sync");
