@@ -18,7 +18,7 @@ Pull requests and pushes to `main` run:
 4. the complete Next.js production build; and
 5. a production-dependency audit that fails on high or critical findings.
 
-Dependabot checks npm dependencies weekly. Main-branch protection should require the `CI / verify` and Vercel deployment checks after this workflow has successfully run on `main` once.
+Dependabot checks npm dependencies weekly. Main-branch protection must require `CI / configured-receipt`, `CI / verify`, and `Vercel` exactly as specified by the owner-only checklist in `docs/seo-checkpoint-operations-2026-08-26.md` after each check has successfully run once.
 
 ## Rollback
 

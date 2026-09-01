@@ -14,18 +14,45 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  configured-receipt:
+    name: configured-receipt
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      actions: read
+      contents: read
+      issues: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Authenticate configured SEO health receipts
+        run: npm run verify:seo-operational-health:configured-receipt
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
   verify:
+    name: verify
+    needs: configured-receipt
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22
           cache: npm
       - run: npm ci --workspaces=false
       - run: npm run lint
       - run: npm run typecheck
+      - run: npm run verify:seo-operational-health:behavior
+      - name: Verify static SEO operational-health release controls
+        run: npm run verify:seo-operational-health
       - run: npm run verify:blog-normalizer
       - run: npm run verify:dependency-overrides
       - run: npm run build
@@ -34,7 +61,7 @@ jobs:
           npm run start -- -p 3101 > /tmp/dmvtitleguy-next.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
-          for attempt in {1..60}; do
+          for _ in {1..60}; do
             if curl -fsS http://127.0.0.1:3101/ > /dev/null; then
               break
             fi
