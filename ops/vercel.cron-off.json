@@ -1,0 +1,21 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "regions": ["iad1"],
+  "crons": [
+    {
+      "path": "/api/cron/reconcile-ghl-opportunities",
+      "schedule": "*/15 * * * *"
+    }
+  ],
+  "functions": {
+    "src/app/api/agent-tools/contract-analyzer/upload/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/funnels/upload-url/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}

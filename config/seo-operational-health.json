@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "seo-operational-health-v1-2026-08-31",
+  "scope": "live-operational-health-only",
+  "origin": "https://dmvtitleguy.io",
+  "timezone": "America/New_York",
+  "scheduler": "github-actions",
+  "rolloutPhase": "disabled",
+  "permanentCronSchedule": "17 12 * * *",
+  "archiveSignature": {
+    "algorithm": "Ed25519",
+    "keyId": "",
+    "publicKeySpkiBase64": ""
+  },
+  "deploymentBinding": {
+    "gitProvider": "github",
+    "productionBranch": "main",
+    "githubDeployment": {
+      "environment": "Production",
+      "creatorLogin": "vercel[bot]",
+      "creatorId": 35613825,
+      "creatorType": "Bot",
+      "maxDeployments": 50
+    },
+    "vercelControlPlane": {
+      "canonicalAlias": "dmvtitleguy.io",
+      "teamId": "team_0uqBDI4YSqqqiWK6WhlHAU1D",
+      "integrationConfigurationId": "",
+      "integrationId": "",
+      "integrationSlug": "",
+      "projectSelection": "selected",
+      "requiredResourceScopes": [
+        "read:deployment",
+        "read:domain",
+        "read:integration-configuration",
+        "read:project"
+      ]
+    },
+    "fingerprints": {
+      "projectIdSha256": "21b1dc2fa71e7b868bd3fa61d0e5e363f8840cd8e51ab3ca90fc67850d3bafd1",
+      "gitRepoIdSha256": "85bf4d33245000f0dd0f7413530ac67b2565adcd54081309bf4aa06441e29b09",
+      "gitRepoOwnerSha256": "2661cfa52c31a40828c264e1a79644327de615ec7336f8593a905b75998def0d",
+      "gitRepoSlugSha256": "26a09457805c64b31540aebeb24137e10615df007bf86b1b072b93fd75dd1853",
+      "productionHostnameSha256": "bb839f997efe11ea8198e2e2563d10e15b6e90ba0d78e2308d79f181f22b2ea4",
+      "vercelControlTokenSha256": ""
+    }
+  },
+  "checkpointCalendar": {
+    "2026-09-02": "technical-2026-09-02",
+    "2026-09-09": "technical-week-1-2026-09-09",
+    "2026-09-23": "preliminary-2026-09-23",
+    "2026-09-26": "final-data-pull-2026-09-26",
+    "2026-09-30": "first-eligible-decision-review-2026-09-30",
+    "2026-10-25": "day-60-2026-10-25",
+    "2026-11-24": "day-90-2026-11-24",
+    "2027-02-22": "earliest-day-180-review-2027-02-22"
+  },
+  "checkpointDates": {},
+  "canaryDates": [],
+  "canaryReceipt": null,
+  "checkpointHistory": {},
+  "schedulerContinuity": {
+    "publicRepositoryInactivityDisableDays": 60,
+    "maximumDetectionMinutes": 60,
+    "maximumOwnerRecoveryHours": 24,
+    "maximumReceiptAgeHours": 168,
+    "maximumRecoveryDrillAgeDays": 30,
+    "independentWatchdog": {
+      "provider": "",
+      "monitorIdSha256": "",
+      "githubAppIdSha256": "",
+      "installationIdSha256": "",
+      "workflowPathSha256": "03662efdb89d42d156c09eb7deae00a3950f4a4405a46f34884ff98db7f66e94",
+      "requiredPermissions": {
+        "actions": "write",
+        "metadata": "read"
+      },
+      "receiptSignature": {
+        "algorithm": "Ed25519",
+        "keyId": "",
+        "publicKeySpkiBase64": ""
+      },
+      "receipt": null
+    }
+  },
+  "credentialPolicy": {
+    "turso": {
+      "maximumLifetimeDays": 210,
+      "finalCheckpointSafetyMarginHours": 48,
+      "minimumValidThrough": "2027-02-24T12:17:00.000Z",
+      "tokenIssuedAt": "",
+      "tokenExpiresAt": "",
+      "claimProfile": "turso-fine-grained-v1",
+      "requiredPermissions": [
+        {
+          "table": "LeadOpportunityOutbox",
+          "actions": ["data_read"]
+        },
+        {
+          "table": "LeadSubmission",
+          "actions": ["data_read"]
+        },
+        {
+          "table": "LeadSubmissionEvent",
+          "actions": ["data_read"]
+        }
+      ]
+    },
+    "ghl": {
+      "claimProfile": "highlevel-pit-oauth-meta-v1",
+      "requiredScopes": [
+        "locations.readonly",
+        "locations/customFields.readonly",
+        "opportunities.readonly"
+      ]
+    }
+  },
+  "priorityPaths": [
+    "/calculators/seller-net-sheet",
+    "/blog/firpta-explained-dmv",
+    "/blog/types-of-property-surveys-dc-md-va",
+    "/about-will-rapuano",
+    "/why-choose-us"
+  ],
+  "expectedPipeline": {
+    "name": "DMVTitleGuy Website Transaction Intent",
+    "stages": [
+      "Submitted",
+      "Qualified",
+      "Referred",
+      "Accepted",
+      "Closed/Won",
+      "Lost"
+    ]
+  },
+  "requiredOpportunityFields": [
+    "SEO Submission ID",
+    "SEO Submitted At",
+    "Web Form Type",
+    "First Landing Path",
+    "Conversion Path",
+    "Attribution Channel",
+    "Jurisdiction",
+    "Transaction Type",
+    "Contact Role",
+    "Property Address",
+    "Review Type",
+    "Urgency",
+    "Closing Timeline",
+    "Buyer Type",
+    "Acquisition Source",
+    "Timeframe",
+    "Closing Date",
+    "Listing",
+    "SEO QA Excluded"
+  ],
+  "fingerprints": {
+    "databaseUrlSha256": "d5e1c5244d6c64a44ca72af3e6bd0463bd6b32778e28f02370d74b5d5c26aae9",
+    "databaseTokenSha256": "",
+    "ghlLocationIdSha256": "7ec84059f3443d4c13baa064c3a28210af0ca91bface065a86d0b96cbb089c27",
+    "ghlPipelineIdSha256": "b2c2d2dfb510b49652b3306ee721e4ac86512da84aaa8f71d6fa25fde625dae4",
+    "ghlSubmittedStageIdSha256": "2bd35b5d83a5682785bad79e3481a8bf68d95efd7474d3b91b28228d46d10699",
+    "ghlReadTokenSha256": "",
+    "ghlTargetSha256": ""
+  },
+  "bounds": {
+    "routeMaxDurationSeconds": 180,
+    "internalDeadlineMs": 120000,
+    "publicRequestTimeoutMs": 12000,
+    "ghlRequestTimeoutMs": 12000,
+    "maxHtmlBytes": 1572864,
+    "maxSitemapBytes": 2097152,
+    "maxGhlResponseBytes": 2097152,
+    "maxLedgerRows": 5000,
+    "maxOutboxRows": 1000,
+    "maxExpiredEventRows": 1000,
+    "maxGhlPages": 20,
+    "maxGhlDetailRequests": 50,
+    "maxGhlRequests": 80,
+    "ghlDetailConcurrency": 2
+  }
+}

@@ -1,0 +1,58 @@
+name: SEO operational health missed-checkpoint recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      checkpoint_date:
+        description: Exact elapsed checkpoint date from checkpointCalendar (YYYY-MM-DD)
+        required: true
+        type: string
+      checkpoint_id:
+        description: Exact checkpoint ID paired with that date in checkpointCalendar
+        required: true
+        type: string
+      reason_code:
+        description: Truthful rollout state in which the checkpoint elapsed
+        required: true
+        type: choice
+        options:
+          - SEO_HEALTH_ROLLOUT_DISABLED_CHECKPOINT_MISSED
+          - SEO_HEALTH_ROLLOUT_CANARY_CHECKPOINT_MISSED
+          - SEO_HEALTH_ROLLOUT_PERMANENT_CHECKPOINT_MISSED
+
+permissions: {}
+
+concurrency:
+  group: seo-operational-health-missed-checkpoint-recovery
+  cancel-in-progress: false
+
+jobs:
+  record:
+    name: Sign truthful missed-checkpoint incident
+    if: >-
+      github.actor == 'willrapuano' &&
+      github.actor_id == '200251753' &&
+      github.repository == 'willrapuano/dmvtitleguy' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      actions: read
+      contents: read
+      issues: write
+    environment: seo-health-production
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Verify protected main and sign the elapsed checkpoint incident
+        run: npm run checkpoint:seo-operational-health:recover-missed
+        env:
+          SEO_HEALTH_RECOVERY_CHECKPOINT_DATE: ${{ inputs.checkpoint_date }}
+          SEO_HEALTH_RECOVERY_CHECKPOINT_ID: ${{ inputs.checkpoint_id }}
+          SEO_HEALTH_RECOVERY_REASON_CODE: ${{ inputs.reason_code }}
+          SEO_HEALTH_ARCHIVE_SIGNING_PRIVATE_KEY: ${{ secrets.SEO_HEALTH_ARCHIVE_SIGNING_PRIVATE_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}

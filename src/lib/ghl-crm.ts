@@ -91,7 +91,9 @@ function customFieldValues(fields: Map<string, string>, data: Record<string, unk
   add("Timeframe", data.timeframe, 80);
   add("Closing Date", data.closingDate, 40);
   add("Listing", data.listing, 240);
-  if (data.seoQaExcluded === true) add("SEO QA Excluded", "true", 10);
+  // Always overwrite the QA marker when a durable opportunity card is reused.
+  // Omitting false can leave a prior controlled-QA card permanently excluded.
+  add("SEO QA Excluded", data.seoQaExcluded === true ? "true" : "false", 10);
   return values;
 }
 

@@ -1,0 +1,13 @@
+# Owner review is mandatory for the authorization and runtime boundary.
+/.github/CODEOWNERS @willrapuano
+/.github/workflows/ @willrapuano
+/config/seo-operational-health.json @willrapuano
+/docs/security-baseline.md @willrapuano
+/docs/seo-checkpoint-operations-2026-08-26.md @willrapuano
+/package.json @willrapuano
+/scripts/*seo-operational-health*.mjs @willrapuano
+/scripts/verify-production-env.mjs @willrapuano
+/scripts/lib/seo-health-*.mjs @willrapuano
+/src/app/api/ops/seo-health-attestation/ @willrapuano
+/src/lib/seo-health-*.ts @willrapuano
+/src/lib/seo-operational-health*.ts @willrapuano
