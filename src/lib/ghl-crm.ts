@@ -29,6 +29,9 @@ function requiredEnvironment() {
   if (!token || !locationId || !pipelineId || !submittedStageId) {
     throw new Error("GHL transaction measurement is not configured");
   }
+  if (token !== token.trim() || /[\u0000-\u0020\u007f]/.test(token)) {
+    throw new Error("GHL transaction measurement credential is invalid");
+  }
   return { token, locationId, pipelineId, submittedStageId };
 }
 

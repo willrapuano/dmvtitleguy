@@ -25,11 +25,12 @@ export async function GET(request: Request) {
       { ok: true, ...result },
       { headers: { "Cache-Control": "no-store" } },
     );
-  } catch (error) {
-    console.error(
-      "[GHL opportunity reconciliation] Failed:",
-      error instanceof Error ? error.message : "unknown-error",
-    );
+  } catch {
+    // Provider and header errors can echo credential-bearing values. Keep the
+    // runtime log machine-actionable without ever serializing thrown text.
+    console.error("[GHL opportunity reconciliation] Failed", {
+      code: "GHL_RECONCILIATION_FAILED",
+    });
     return NextResponse.json(
       { ok: false, error: "Reconciliation failed" },
       { status: 500, headers: { "Cache-Control": "no-store" } },
