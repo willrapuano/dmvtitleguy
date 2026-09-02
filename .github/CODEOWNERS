@@ -1,4 +1,5 @@
 # Owner review is mandatory for the authorization and runtime boundary.
+# Validate automatic owner review requests with a comment-only test PR after ruleset setup.
 /.github/CODEOWNERS @willrapuano
 /.github/workflows/ @willrapuano
 /config/seo-operational-health.json @willrapuano
