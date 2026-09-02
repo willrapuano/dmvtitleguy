@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { ALL_LOCATIONS, COUNTIES } from "@/data/locations";
 import { blogPostModifiedDateISO } from "@/data/blog";
 import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
+import { GLOSSARY_TERMS } from "@/data/glossary";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 import { postCanonicalPath } from "@/lib/post-titles";
 
@@ -100,6 +101,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  const pages = [...staticPages, ...locationPages, ...countyPages, ...cityCalcPages, ...blogPages];
+  /* Generated from the same data the routes are, for the reason the comment at
+     the top of this file gives: a second hand-maintained URL inventory drifts
+     away from the routes it is supposed to describe. */
+  const glossaryPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/glossary`, changeFrequency: "monthly" as const, priority: 0.8 },
+    ...GLOSSARY_TERMS.map((entry) => ({
+      url: `${BASE_URL}/glossary/${entry.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  const pages = [...staticPages, ...locationPages, ...countyPages, ...cityCalcPages, ...glossaryPages, ...blogPages];
   return Array.from(new Map(pages.map((page) => [page.url, page])).values());
 }
