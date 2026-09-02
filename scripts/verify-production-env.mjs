@@ -40,6 +40,21 @@ function digestMatches(value, expectedDigest) {
   );
 }
 
+function productionHostnameDiagnostic(value) {
+  if (value === undefined) return "missing";
+  if (value === "") return "empty";
+  // Only these already-public project domains may appear in a build error.
+  // Never echo arbitrary environment input, even if it looks like a hostname.
+  const publicProjectHostnames = [
+    "dmvtitleguy.io",
+    "www.dmvtitleguy.io",
+    "dmvtitleguy.com",
+    "www.dmvtitleguy.com",
+    "dmvtitleguy.vercel.app",
+  ];
+  return publicProjectHostnames.includes(value) ? value : "other-redacted";
+}
+
 function validArchiveSignature(config, required) {
   if (!config || typeof config !== "object" || Array.isArray(config)) return false;
   const expectedKeys = ["algorithm", "keyId", "publicKeySpkiBase64"].sort();
@@ -269,7 +284,7 @@ requireCondition(
     process.env.VERCEL_PROJECT_PRODUCTION_URL || "",
     seoHealthConfig.deploymentBinding.fingerprints.productionHostnameSha256,
   ),
-  "Production hostname fingerprint mismatch",
+  `Production hostname fingerprint mismatch (VERCEL_PROJECT_PRODUCTION_URL=${productionHostnameDiagnostic(process.env.VERCEL_PROJECT_PRODUCTION_URL)})`,
 );
 requireCondition(/^https:\/\/[^\s]+$/.test(webhook), "GHL_WEBHOOK_URL must be an HTTPS URL");
 requireCondition(protectionSecret.length >= 64, "LEAD_PROTECTION_SECRET must contain at least 32 random bytes");

@@ -26,6 +26,13 @@ If a production deployment fails functional verification, use Vercel to promote 
 
 ## Accepted baseline debt
 
+### September 2 production hostname diagnosis
+
+- Production build `3264efb` failed at the hostname fingerprint gate after Prisma generation and a zero-vulnerability dependency audit. The pinned hostname remains exactly `dmvtitleguy.io`; the failed build log did not expose the actual system-variable value.
+- Vercel documents `VERCEL_PROJECT_PRODUCTION_URL` as an automatically selected production domain, not an independently verified canonical-domain binding. See the [system-variable definition](https://vercel.com/docs/environment-variables/system-environment-variables#vercel_project_production_url). A Domains-page screenshot or public HTTP success alone does not prove the value supplied to a particular build.
+- The mismatch error now reports only `missing`, `empty`, one of the five already-public project hostnames, or `other-redacted`. Unknown strings, URL-shaped values, whitespace variants, log-injection input, and accidentally misplaced credentials are never echoed. This is diagnostic only: the exact fingerprint comparison, failure exit, runtime attestation, canonical alias, and deployment authority checks are unchanged.
+- Do not change DNS, override Vercel system variables, relax the gate, or repin an unverified alias to make a build pass. Obtain the bounded diagnostic from a reviewed Production build first, then determine whether code or owner-managed configuration needs correction. Domains, environment settings, and credentials remain owner-only. The diagnostic changes the health-source digest; rollout remains disabled and a future scheduled canary must include the reviewed source.
+
 ### September 2 dependency security correction
 
 - Pin the existing fast-uri v3 dependency line to `3.1.7`, including the [September 2 security fixes](https://github.com/fastify/fast-uri/releases/tag/v3.1.7).

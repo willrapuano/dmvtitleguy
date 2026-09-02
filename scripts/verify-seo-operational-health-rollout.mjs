@@ -803,6 +803,74 @@ requireCondition(
 );
 assertNoFixtureSecrets(fixtureOutput, fixtureEnvironment);
 
+// A diagnostic must identify known public aliases without accepting them or
+// printing an unknown value that might accidentally contain a credential.
+const canonicalSiteEnvironment = {
+  ...siteEnvironment,
+  VERCEL_PROJECT_PRODUCTION_URL: "dmvtitleguy.io",
+};
+const canonicalSiteConfig = productionFixtureConfig({
+  phase: "disabled",
+  withCredentialPins: false,
+  values: canonicalSiteEnvironment,
+});
+fixtureResult = await runProductionGateFixture({
+  config: canonicalSiteConfig,
+  manifest: isolatedManifest,
+  environment: canonicalSiteEnvironment,
+});
+requireCondition(fixtureResult.status === 0, "the exact pinned canonical hostname was rejected");
+assertNoFixtureSecrets(outputOf(fixtureResult), fixtureEnvironment);
+
+const wrongHostnamePinConfig = structuredClone(canonicalSiteConfig);
+wrongHostnamePinConfig.deploymentBinding.fingerprints.productionHostnameSha256 = "0".repeat(64);
+fixtureResult = await runProductionGateFixture({
+  config: wrongHostnamePinConfig,
+  manifest: isolatedManifest,
+  environment: canonicalSiteEnvironment,
+});
+fixtureOutput = outputOf(fixtureResult);
+requireCondition(fixtureResult.status === 1, "a recognized hostname bypassed a mismatched fingerprint");
+requireCondition(
+  fixtureOutput.includes("Production hostname fingerprint mismatch (VERCEL_PROJECT_PRODUCTION_URL=dmvtitleguy.io)"),
+  "canonical hostname diagnostic was missing after a fingerprint mismatch",
+);
+assertNoFixtureSecrets(fixtureOutput, fixtureEnvironment);
+
+for (const [value, expectedDiagnostic] of [
+  [undefined, "missing"],
+  ["", "empty"],
+  ["www.dmvtitleguy.io", "www.dmvtitleguy.io"],
+  ["dmvtitleguy.com", "dmvtitleguy.com"],
+  ["www.dmvtitleguy.com", "www.dmvtitleguy.com"],
+  ["dmvtitleguy.vercel.app", "dmvtitleguy.vercel.app"],
+  ["unknown.example.invalid", "other-redacted"],
+  ["https://dmvtitleguy.io", "other-redacted"],
+  ["dmvtitleguy.io ", "other-redacted"],
+  ["dmvtitleguy.io\nfixture-injected-log-entry", "other-redacted"],
+  [fixtureEnvironment.TURSO_AUTH_TOKEN, "other-redacted"],
+  ["fixture-oversized-input-".repeat(500), "other-redacted"],
+]) {
+  const environment = { ...canonicalSiteEnvironment };
+  if (value === undefined) delete environment.VERCEL_PROJECT_PRODUCTION_URL;
+  else environment.VERCEL_PROJECT_PRODUCTION_URL = value;
+  const result = await runProductionGateFixture({
+    config: canonicalSiteConfig,
+    manifest: isolatedManifest,
+    environment,
+  });
+  const output = outputOf(result);
+  requireCondition(result.status === 1, "a noncanonical hostname did not fail closed");
+  requireCondition(
+    output.includes(`Production hostname fingerprint mismatch (VERCEL_PROJECT_PRODUCTION_URL=${expectedDiagnostic})`),
+    "hostname mismatch did not include the bounded diagnostic",
+  );
+  if (expectedDiagnostic === "other-redacted") {
+    requireCondition(!output.includes(value), "hostname diagnostic exposed unknown environment input");
+  }
+  assertNoFixtureSecrets(output, fixtureEnvironment);
+}
+
 const siteEnvironmentWithAttestation = {
   ...siteEnvironment,
   SEO_HEALTH_ATTESTATION_SECRET: fixtureEnvironment.SEO_HEALTH_ATTESTATION_SECRET,
