@@ -507,9 +507,21 @@ function productionFixtureEnvironment() {
   };
 }
 
-async function runProductionGateFixture({ config, manifest, environment }) {
+async function runProductionGateFixture({ config, manifest, environment, now = "2026-08-30T12:00:00.000Z" }) {
   const fixtureRoot = await mkdtemp(join(tmpdir(), "seo-health-production-gate-"));
   try {
+    // The fixture's history and signed watchdog receipt are dated August 30.
+    // Freeze only this isolated test process, not the production gate's clock.
+    // Otherwise the intended negative assertion is masked by expired evidence.
+    const fixtureClockPath = join(fixtureRoot, "fixture-clock.mjs");
+    await writeFile(fixtureClockPath, `
+      const NativeDate = Date;
+      const instant = ${JSON.stringify(now)};
+      globalThis.Date = class extends NativeDate {
+        constructor(...args) { super(...(args.length ? args : [instant])); }
+        static now() { return NativeDate.parse(instant); }
+      };
+    `, { mode: 0o600 });
     await mkdir(join(fixtureRoot, "config"));
     await writeFile(
       join(fixtureRoot, "config", "seo-operational-health.json"),
@@ -521,7 +533,7 @@ async function runProductionGateFixture({ config, manifest, environment }) {
       `${JSON.stringify(manifest, null, 2)}\n`,
       { mode: 0o600 },
     );
-    return spawnSync(process.execPath, [productionGatePath], {
+    return spawnSync(process.execPath, ["--import", fixtureClockPath, productionGatePath], {
       cwd: fixtureRoot,
       encoding: "utf8",
       env: { ...environment },
@@ -904,6 +916,22 @@ requireCondition(fixtureResult.status !== 0, "canary with checkpoint execution e
 requireCondition(
   fixtureOutput.includes("canary rollout must disable checkpoints"),
   "invalid canary failed without the expected safe error",
+);
+assertNoFixtureSecrets(fixtureOutput, fixtureEnvironment);
+
+// Advancing the isolated clock must still enforce the real history gate.
+// Freezing the primary fixture must not remove time-sensitive coverage.
+fixtureResult = await runProductionGateFixture({
+  config: invalidCanaryConfig,
+  manifest: isolatedManifest,
+  environment: siteEnvironmentWithAttestation,
+  now: "2030-01-02T12:00:00.000Z",
+});
+fixtureOutput = outputOf(fixtureResult);
+requireCondition(fixtureResult.status !== 0, "missing past history passed at the advanced fixture date");
+requireCondition(
+  fixtureOutput.includes("SEO_HEALTH_CHECKPOINT_HISTORY_INCOMPLETE"),
+  "advanced fixture date did not enforce the production history gate",
 );
 assertNoFixtureSecrets(fixtureOutput, fixtureEnvironment);
 

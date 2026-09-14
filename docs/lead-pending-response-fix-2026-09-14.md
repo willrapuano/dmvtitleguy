@@ -49,6 +49,12 @@ No animation, transition, visual direction, or UI dependencies were added. This 
 
 ## Owner-only work remains separate
 
+### CI follow-up
+
+The first PR run passed the form regression suite and the Vercel preview, but failed an existing production-gate fixture with `invalid canary failed without the expected safe error`. That fixture used an August 30 signed watchdog receipt and empty checkpoint history while its subprocess evaluated the current wall clock. After the checkpoint date passed, the production history gate correctly rejected the fixture before its intended canary assertion.
+
+The test helper now freezes time only in its isolated temporary subprocess using a test-only preload; production code and production clock handling are unchanged. An additional 2030 fixture explicitly verifies that missing historical evidence still fails closed. The entire `verify:seo-operational-health` suite now passes locally, including rollout, attestation, isolation, process boundaries, recovery, source digest, archive, and receipt checks. This does not activate the disabled monitor or substitute for live provider evidence.
+
 The independent SEO/provider health monitor remains disabled. Follow the exact integration, environment, signing, attestation, and watchdog checklist in [SEO checkpoint operations](seo-checkpoint-operations-2026-08-26.md). The key starting settings are:
 
 1. DMV Title Guy GHL sub-account → Settings → Private Integrations: dedicated `DMVTitleGuy SEO Health Read-only`, with `locations.readonly`, `opportunities.readonly`, and `locations/customFields.readonly` scopes.
