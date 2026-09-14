@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { trackAnalyticsEvent, trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
 import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
+import { LeadSubmissionPending } from "@/components/LeadSubmissionPending";
+import { classifyLeadSubmissionResponse } from "@/lib/lead-submission-result";
 
 interface LeadCaptureFormProps {
   title?: string;
@@ -21,7 +23,7 @@ export function LeadCaptureForm({
   compact = false,
   context,
 }: LeadCaptureFormProps) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "pending" | "error">("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -55,10 +57,13 @@ export function LeadCaptureForm({
         body: JSON.stringify({ ...formData, ...getLeadAttribution(), formType: "quote", submissionId: submissionIdRef.current, website }),
       });
       const result = await response.json();
-      if (!response.ok || !result.ok) throw new Error(result.error || "Lead delivery failed");
-      trackLeadConversion("quote", location);
-      trackAnalyticsEvent("lead_form_submit_success", { form_type: "quote", page_context: location });
-      setStatus("success");
+      const outcome = classifyLeadSubmissionResponse(response, result);
+      if (outcome.status === "error") throw new Error("Lead delivery failed");
+      if (outcome.trackConversion) {
+        trackLeadConversion("quote", location);
+        trackAnalyticsEvent("lead_form_submit_success", { form_type: "quote", page_context: location });
+      }
+      setStatus(outcome.status);
     } catch {
       trackAnalyticsEvent("lead_form_submit_failure", { form_type: "quote", page_context: location });
       setStatus("error");
@@ -70,6 +75,8 @@ export function LeadCaptureForm({
     formStartedRef.current = true;
     trackAnalyticsEvent("lead_form_start", { form_type: "quote", page_context: location });
   };
+
+  if (status === "pending") return <LeadSubmissionPending />;
 
   if (status === "success") {
     return (

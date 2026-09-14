@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import ts from "typescript";
+import "./verify-lead-submission-results.mjs";
 
 const requiredClientForms = [
   "src/components/LeadCaptureForm.tsx",

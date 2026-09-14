@@ -5,13 +5,15 @@ import { CheckCircle, ShieldCheck } from "lucide-react";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
 import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
+import { LeadSubmissionPending } from "@/components/LeadSubmissionPending";
+import { classifyLeadSubmissionResponse } from "@/lib/lead-submission-result";
 
 interface InvestorDueDiligenceFormProps {
   location?: string;
 }
 
 export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }: InvestorDueDiligenceFormProps) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "pending" | "error">("idle");
   const submissionIdRef = useRef<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
@@ -46,16 +48,15 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         }),
       });
       const data = await res.json();
-      if (data.ok) {
-        trackLeadConversion("investor-due-diligence", location);
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
+      const outcome = classifyLeadSubmissionResponse(res, data);
+      if (outcome.trackConversion) trackLeadConversion("investor-due-diligence", location);
+      setStatus(outcome.status);
     } catch {
       setStatus("error");
     }
   };
+
+  if (status === "pending") return <LeadSubmissionPending />;
 
   if (status === "success") {
     return (

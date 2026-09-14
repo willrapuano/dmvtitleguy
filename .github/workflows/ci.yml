@@ -50,6 +50,7 @@ jobs:
       - run: npm ci --workspaces=false
       - run: npm run lint
       - run: npm run typecheck
+      - run: npm run verify:lead-attribution
       - run: npm run verify:seo-operational-health:behavior
       - name: Verify static SEO operational-health release controls
         run: npm run verify:seo-operational-health

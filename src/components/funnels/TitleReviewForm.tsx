@@ -5,13 +5,15 @@ import { CheckCircle, ShieldCheck } from "lucide-react";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
 import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
+import { LeadSubmissionPending } from "@/components/LeadSubmissionPending";
+import { classifyLeadSubmissionResponse } from "@/lib/lead-submission-result";
 
 interface TitleReviewFormProps {
   location?: string;
 }
 
 export function TitleReviewForm({ location = "request-title-review" }: TitleReviewFormProps) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "pending" | "error">("idle");
   const submissionIdRef = useRef<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
@@ -45,16 +47,15 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
         }),
       });
       const data = await res.json();
-      if (data.ok) {
-        trackLeadConversion("request-title-review", location);
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
+      const outcome = classifyLeadSubmissionResponse(res, data);
+      if (outcome.trackConversion) trackLeadConversion("request-title-review", location);
+      setStatus(outcome.status);
     } catch {
       setStatus("error");
     }
   };
+
+  if (status === "pending") return <LeadSubmissionPending />;
 
   if (status === "success") {
     return (
