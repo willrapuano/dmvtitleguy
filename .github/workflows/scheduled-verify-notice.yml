@@ -1,0 +1,55 @@
+name: Scheduled CI failure notice
+
+# Separate from ci.yml on purpose. The canary-receipt guard asserts that
+# everything from the `verify` job to the end of ci.yml is free of GITHUB_TOKEN,
+# `actions: read` and `issues: read` -- verify runs `npm ci` and a full build, so
+# it is deliberately credential-free. A notifier needs `issues: write`, so it
+# cannot live there. workflow_run gives it a separate privilege boundary.
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  notice:
+    name: notice
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    # Only the cron. A failing PR is already visible to whoever opened it; a
+    # failing scheduled run is visible to nobody, which is the gap this closes.
+    if: >-
+      github.event.workflow_run.event == 'schedule' &&
+      github.event.workflow_run.conclusion == 'failure'
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Open a tracking issue unless one is already open
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          REPO: ${{ github.repository }}
+          TITLE: Scheduled CI failure on main
+        run: |
+          set -euo pipefail
+          existing="$(gh issue list --repo "$REPO" --state open \
+            --search "\"$TITLE\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$REPO" --body "Still failing: $RUN_URL"
+            exit 0
+          fi
+          gh issue create --repo "$REPO" --title "$TITLE" --body \
+          "The daily run of the \`verify\` job against \`main\` failed.
+
+          $RUN_URL
+
+          Nothing was pushed, so this is most likely time-dependent: an aged-out
+          test fixture, an expired signed receipt, or a pinned dependency that has
+          drifted below the fixed version of a newly published advisory. Check
+          \`npm audit\` and the operational-health fixtures first.
+
+          Close this once the scheduled run is green; the next failure reopens it."
