@@ -5,6 +5,16 @@ on:
   push:
     branches:
       - main
+  # Both defects that froze this repo for three weeks in September 2026 were
+  # caused by time passing, not by anyone changing code: a fixture checkpoint
+  # date fell into the past, a signed watchdog receipt aged out of its 168-hour
+  # window, and two pinned overrides drifted below their advisories' fixed
+  # versions. Nothing was pushed, so nothing ran, and the breakage only
+  # surfaced when an unrelated PR arrived and appeared to be at fault.
+  # A daily run finds that class of failure on the day it happens.
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
