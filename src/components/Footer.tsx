@@ -1,16 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { FacebookIcon, InstagramIcon, LinkedInIcon, YouTubeIcon } from "@/components/BrandIcons";
 import { ALL_LOCATIONS } from "@/data/locations";
 import { RELATIONSHIP_DISCLOSURE, WILL } from "@/lib/brand-identity";
 
 /* Same four links as the hero, which already uses these icons — the footer was
    still spelling them out as "FB" / "IG" / "IN" / "YT". */
 const SOCIAL_LINKS = [
-  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", Icon: Facebook },
-  { label: "Instagram", href: "https://www.instagram.com/dmvtitleguy",                  Icon: Instagram },
-  { label: "LinkedIn",  href: "https://www.linkedin.com/in/will-rapuano-86914b130",      Icon: Linkedin },
-  { label: "YouTube",   href: "https://www.youtube.com/@dmvtitleguy",                   Icon: Youtube },
+  { label: "Facebook",  href: "https://www.facebook.com/profile.php?id=61556322698901", Icon: FacebookIcon },
+  { label: "Instagram", href: "https://www.instagram.com/dmvtitleguy",                  Icon: InstagramIcon },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/in/will-rapuano-86914b130",      Icon: LinkedInIcon },
+  { label: "YouTube",   href: "https://www.youtube.com/@dmvtitleguy",                   Icon: YouTubeIcon },
 ];
 
 const SERVICE_AREAS = ALL_LOCATIONS;
