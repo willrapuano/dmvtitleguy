@@ -358,17 +358,7 @@ function productionFixtureConfig({
   withCredentialPins,
   values,
 }) {
-  // Must stay in the future. These fixtures spawn verify-production-env.mjs as a
-  // subprocess, and that gate evaluates rollout readiness against the real clock
-  // -- unlike the in-process assertions below, which pin `fixedNow`. Once a
-  // calendar date falls into the past it becomes a REQUIRED history entry, so an
-  // empty checkpointHistory starts failing SEO_HEALTH_CHECKPOINT_HISTORY_INCOMPLETE
-  // before the gate ever reaches the rule each fixture is actually testing. A
-  // hardcoded 2026-09-02 did exactly that on 2026-09-03 and blocked every PR.
-  // Keep this distinct from the canary date (2099-01-02) and the permanent
-  // receipt's scheduledDate (2027-01-02); the gate rejects a calendar containing
-  // either.
-  const checkpointCalendar = { "2099-06-01": "technical-2099-06-01" };
+  const checkpointCalendar = { "2026-09-02": "technical-2026-09-02" };
   return {
     scheduler: "github-actions",
     rolloutPhase: phase,
@@ -408,17 +398,7 @@ function productionFixtureConfig({
         receiptSignature: { algorithm: "Ed25519", keyId: "", publicKeySpkiBase64: "" },
         receipt: null,
       },
-    } : fixtureSchedulerContinuity(
-      sha256(values.VERCEL_GIT_REPO_ID),
-      // Relative to the real clock, for the same reason as checkpointCalendar
-      // above: productionFixtureConfig is only ever handed to
-      // runProductionGateFixture, which spawns the gate as a subprocess where
-      // `now` is Date.now(). The absolute default is correct for the in-process
-      // callers that pin fixedNow, but here it ages out -- a receipt older than
-      // maximumReceiptAgeHours (168) fails SEO_HEALTH_WATCHDOG_RECEIPT_STALE
-      // before the gate reaches the rule under test.
-      new Date(Date.now() - 3_600_000).toISOString(),
-    ),
+    } : fixtureSchedulerContinuity(sha256(values.VERCEL_GIT_REPO_ID)),
     deploymentBinding: {
       gitProvider: values.VERCEL_GIT_PROVIDER,
       productionBranch: values.VERCEL_GIT_COMMIT_REF,
