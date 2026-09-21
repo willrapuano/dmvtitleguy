@@ -63,7 +63,7 @@ export function InvestorPageTemplate({
             <h1 className="t-h1 text-white mb-4">{h1}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">{heroBody}</p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${slug}#quote`} className="btn-primary">Start Your Order →</Link>
+              <Link href={`/${slug}#quote`} className="btn-primary">Request an Introduction →</Link>
               <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy">
                 <Phone size={15} strokeWidth={2.25} className="mr-2 inline-block align-[-2px]" aria-hidden="true" />(703) 859-1467
               </a>
@@ -80,7 +80,7 @@ export function InvestorPageTemplate({
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="prose-title mb-4">What We Handle</h2>
+              <h2 className="prose-title mb-4">What a Provider May Review</h2>
               <ul className="space-y-4">
                 {services.map((s) => (
                   <li key={s.title} className="flex gap-3">

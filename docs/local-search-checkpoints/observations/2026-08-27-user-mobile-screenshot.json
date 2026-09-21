@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "measurementVersion": "local-v1-2026-08-27",
+  "observationId": "2026-08-27-user-mobile-screenshot",
+  "purpose": "discovery-evidence-not-controlled-rank-baseline",
+  "batch": {
+    "batchId": null,
+    "daypart": "after-hours-diagnostic",
+    "capturedByRole": "user"
+  },
+  "capture": {
+    "receivedDate": "2026-08-27",
+    "capturedAt": null,
+    "displayedDeviceTime": "18:19",
+    "captureTimezone": null,
+    "source": "user-supplied-mobile-screenshot"
+  },
+  "search": {
+    "query": null,
+    "queryId": null,
+    "marketCellId": null,
+    "geo": {
+      "label": null,
+      "latitudeRounded3": null,
+      "longitudeRounded3": null,
+      "method": null,
+      "locationProofCaptured": false
+    },
+    "device": "mobile",
+    "browserFamily": null,
+    "deviceProfile": null,
+    "browserSession": null,
+    "signedInState": "unknown",
+    "personalizationState": "unknown",
+    "locale": null,
+    "resultSurface": "google-mobile-local-results-list",
+    "scanDepth": 4,
+    "filtersApplied": null,
+    "scanStartsAtFirstResult": null,
+    "scanEvidenceComplete": false,
+    "sponsoredRowsObserved": null,
+    "visibleControls": [
+      "Online appointments",
+      "Open now"
+    ]
+  },
+  "target": {
+    "displayNameAsObserved": "Will Rapuano, Pruitt Title",
+    "stableIdentityKeyAsObserved": null,
+    "addressAsObserved": "1900 Gallows Rd Ste 230",
+    "categoryAsObserved": "Title company",
+    "ratingAsObserved": 5,
+    "reviewCountAsObserved": 24,
+    "openStateAsObserved": "open-24-hours-label",
+    "visibilityStatus": "visible",
+    "visibleOrdinalInCapturedSequence": 3
+  },
+  "observedSequence": [
+    {
+      "visibleOrdinalInCapturedSequence": 1,
+      "displayNameAsObserved": "Central Title & Escrow, Inc.",
+      "stableIdentityKeyAsObserved": null,
+      "sponsored": false,
+      "openStateAsObserved": "closed",
+      "ratingAsObserved": 4.4,
+      "reviewCountAsObserved": 23
+    },
+    {
+      "visibleOrdinalInCapturedSequence": 2,
+      "displayNameAsObserved": "International Title & Escrow, Inc.",
+      "stableIdentityKeyAsObserved": null,
+      "sponsored": false,
+      "openStateAsObserved": "closed",
+      "ratingAsObserved": 4.4,
+      "reviewCountAsObserved": 37
+    },
+    {
+      "visibleOrdinalInCapturedSequence": 3,
+      "displayNameAsObserved": "Will Rapuano, Pruitt Title",
+      "stableIdentityKeyAsObserved": null,
+      "sponsored": false,
+      "openStateAsObserved": "open-24-hours-label",
+      "ratingAsObserved": 5,
+      "reviewCountAsObserved": 24
+    },
+    {
+      "visibleOrdinalInCapturedSequence": 4,
+      "displayNameAsObserved": "Pruitt Title LLC",
+      "stableIdentityKeyAsObserved": null,
+      "sponsored": false,
+      "openStateAsObserved": "closed",
+      "ratingAsObserved": 4.9,
+      "reviewCountAsObserved": 80
+    }
+  ],
+  "evidence": {
+    "sourceType": "screenshot",
+    "files": [
+      {
+        "privatePath": "private-seo/local-search/evidence/2026-08-27-user-mobile-screenshot.jpg",
+        "sha256": "462e1cc655421ffddcd2d98ec94417fe2284719a34eb2baddc2409b6596bc513",
+        "bytes": 145607,
+        "widthPx": 589,
+        "heightPx": 1280
+      }
+    ],
+    "manifestSha256": "f2504aab0a42efe78338dc26f4992903ae9375846244bb101893f2259b9e3d72",
+    "verifiedAtRecordTime": true,
+    "recorderVersion": "record-local-search-observation-v1"
+  },
+  "interpretation": {
+    "supportedStatement": "The target was the third listing visible in the captured sequence and appeared immediately above Pruitt Title LLC in this screenshot.",
+    "prohibitedStatement": "The target ranked number three for a controlled query or across the Tysons market.",
+    "controlOrOwnershipInferred": false
+  },
+  "protocolValidity": {
+    "protocolValid": false,
+    "comparisonKey": null,
+    "exclusionReasons": [
+      "browser-session-not-fresh-private",
+      "capture-source-not-controlled-human",
+      "daypart-not-in-protocol",
+      "filters-not-confirmed-off",
+      "location-proof-not-captured",
+      "missing:batch.batchId",
+      "missing:capture.captureTimezone",
+      "missing:capture.capturedAt",
+      "missing:search.browserFamily",
+      "missing:search.browserSession",
+      "missing:search.deviceProfile",
+      "missing:search.filtersApplied",
+      "missing:search.geo.latitudeRounded3",
+      "missing:search.geo.longitudeRounded3",
+      "missing:search.geo.method",
+      "missing:search.locale",
+      "missing:search.marketCellId",
+      "missing:search.query",
+      "missing:search.queryId",
+      "missing:search.scanStartsAtFirstResult",
+      "missing:search.signedInState",
+      "missing:search.sponsoredRowsObserved",
+      "missing:target.stableIdentityKeyAsObserved",
+      "result-surface-not-in-protocol",
+      "scan-evidence-incomplete",
+      "scan-start-not-confirmed",
+      "search-session-not-signed-out",
+      "sponsored-row-count-sequence-mismatch",
+      "target-stable-identity-mismatch",
+      "target-stable-identity-sequence-mismatch"
+    ]
+  },
+  "integrity": {
+    "metadataSha256": "709bdcf2b70798bca7676befb978d16c37da6dc008b8a73febcde768af9ff387"
+  }
+}

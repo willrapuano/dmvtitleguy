@@ -1,0 +1,1881 @@
+{
+  "schemaVersion": 1,
+  "manifest": {
+    "property": "sc-domain:dmvtitleguy.io",
+    "window": {
+      "name": "custom",
+      "startDate": "2026-07-29",
+      "endDate": "2026-08-23"
+    },
+    "generatedAt": "2026-08-27T00:26:35.220Z",
+    "gitSha": "6998ea914e2e587169908cd4af57ee4f99536ba9",
+    "deploymentId": "dpl_AK2ANytjJTfmJryRczyHQnGZg4xk",
+    "releaseTimestamp": "2026-08-26T22:00:00Z",
+    "sourceTimezone": "America/Los_Angeles",
+    "reportingTimezone": "America/New_York",
+    "joinGrain": "period x normalized-path x cluster; never person x query",
+    "dataState": "final",
+    "pathMapVersion": "v1-2026-08-26",
+    "brandDictionaryVersion": "v1-2026-08-26",
+    "requestDefinitions": [
+      {
+        "name": "query-page",
+        "startDate": "2026-07-29",
+        "endDate": "2026-08-23",
+        "dimensions": [
+          "query",
+          "page"
+        ],
+        "dataState": "final",
+        "rowLimit": 25000,
+        "aggregationType": "auto",
+        "startRow": 0,
+        "resultCount": 777
+      },
+      {
+        "name": "property-daily",
+        "startDate": "2026-07-29",
+        "endDate": "2026-08-23",
+        "dimensions": [
+          "date"
+        ],
+        "dataState": "final",
+        "rowLimit": 25000,
+        "aggregationType": "auto",
+        "startRow": 0,
+        "resultCount": 26
+      },
+      {
+        "name": "property-total",
+        "startDate": "2026-07-29",
+        "endDate": "2026-08-23",
+        "dimensions": [],
+        "dataState": "final",
+        "rowLimit": 25000,
+        "aggregationType": "auto",
+        "startRow": 0,
+        "resultCount": 1
+      },
+      {
+        "name": "page",
+        "startDate": "2026-07-29",
+        "endDate": "2026-08-23",
+        "dimensions": [
+          "page"
+        ],
+        "dataState": "final",
+        "rowLimit": 25000,
+        "aggregationType": "auto",
+        "startRow": 0,
+        "resultCount": 191
+      }
+    ],
+    "rawArtifacts": [
+      {
+        "name": "search-analytics.json",
+        "sha256": "0747af82239079c8d224f3a773762cf361e4903fe83cfad7fb13f9d08799a3c4",
+        "bytes": 257674
+      },
+      {
+        "name": "sitemaps.json",
+        "sha256": "8582688d266f38846642fd26c9e07c4bfa846deecf3eb79649b70ce534cb663a",
+        "bytes": 445
+      },
+      {
+        "name": "url-inspection.json",
+        "sha256": "385d0e3977f923a401f53f580d976f8b6bf36c31fab836bb9a86e1242e73cff3",
+        "bytes": 6152
+      }
+    ]
+  },
+  "propertyTotal": {
+    "clicks": 52,
+    "impressions": 11359,
+    "ctr": 0.004578,
+    "position": 21.97
+  },
+  "visibleQueryCoverage": {
+    "visibleClicks": 5,
+    "visibleImpressions": 8440,
+    "totalClicks": 52,
+    "totalImpressions": 11359,
+    "visibleClickCoveragePct": 9.62,
+    "visibleImpressionCoveragePct": 74.3,
+    "residualUnclassifiedClicks": 47,
+    "residualUnclassifiedImpressions": 2919
+  },
+  "visibleQueryCategories": {
+    "visible-known-non-brand": {
+      "clicks": 5,
+      "impressions": 7950,
+      "ctr": 0.000629,
+      "position": 32.67
+    },
+    "partner-brand": {
+      "clicks": 0,
+      "impressions": 269,
+      "ctr": 0,
+      "position": 21.75
+    },
+    "owned-brand": {
+      "clicks": 0,
+      "impressions": 221,
+      "ctr": 0,
+      "position": 42.29
+    }
+  },
+  "visibleQueryClusters": {
+    "unclassified": {
+      "clicks": 5,
+      "impressions": 8400,
+      "ctr": 0.000595,
+      "position": 32.56
+    },
+    "title-fees": {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 21.71
+    },
+    "seller-proceeds": {
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 37.48
+    }
+  },
+  "pathClusterCellsMinimumFiveImpressions": {
+    "/title-company-herndon-va::unclassified": {
+      "clicks": 1,
+      "impressions": 415,
+      "ctr": 0.00241,
+      "position": 14.19
+    },
+    "/maryland-closing-cost-calculator::unclassified": {
+      "clicks": 1,
+      "impressions": 575,
+      "ctr": 0.001739,
+      "position": 48.98
+    },
+    "/::unclassified": {
+      "clicks": 3,
+      "impressions": 539,
+      "ctr": 0.005566,
+      "position": 5.17
+    },
+    "/blog/dc-first-time-homebuyer-tax-exemption::unclassified": {
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0,
+      "position": 14.46
+    },
+    "/title-company-del-ray-alexandria-va::unclassified": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 42.38
+    },
+    "/title-company-alexandria-va::unclassified": {
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 71.39
+    },
+    "/blog/alta-homeowner-policy::unclassified": {
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 18.8
+    },
+    "/title-company-annandale-va::unclassified": {
+      "clicks": 0,
+      "impressions": 119,
+      "ctr": 0,
+      "position": 19.61
+    },
+    "/blog/who-chooses-title-company-maryland::unclassified": {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 37
+    },
+    "/auction-property-title-search::unclassified": {
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0,
+      "position": 29.26
+    },
+    "/closing-costs/buyer-maryland::unclassified": {
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 66.86
+    },
+    "/blog/best-title-company-near-me::unclassified": {
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0,
+      "position": 52.26
+    },
+    "/title-company-bethesda-md::unclassified": {
+      "clicks": 0,
+      "impressions": 117,
+      "ctr": 0,
+      "position": 13.7
+    },
+    "/title-company-fredericksburg-va::unclassified": {
+      "clicks": 0,
+      "impressions": 158,
+      "ctr": 0,
+      "position": 34.18
+    },
+    "/title-company-for-builders::unclassified": {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 45
+    },
+    "/title-company-courthouse-va::unclassified": {
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 76.76
+    },
+    "/calculators/title-quote::unclassified": {
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 40.54
+    },
+    "/dc-closing-cost-calculator::unclassified": {
+      "clicks": 0,
+      "impressions": 119,
+      "ctr": 0,
+      "position": 60.23
+    },
+    "/closing-costs/dc::unclassified": {
+      "clicks": 0,
+      "impressions": 95,
+      "ctr": 0,
+      "position": 58.19
+    },
+    "/blog/closing-costs-dc::unclassified": {
+      "clicks": 0,
+      "impressions": 40,
+      "ctr": 0,
+      "position": 73.25
+    },
+    "/blog/settlement-services-arlington-va::unclassified": {
+      "clicks": 0,
+      "impressions": 254,
+      "ctr": 0,
+      "position": 32.68
+    },
+    "/blog/title-companies-in-northern-virginia::unclassified": {
+      "clicks": 0,
+      "impressions": 294,
+      "ctr": 0,
+      "position": 22.41
+    },
+    "/title-search-fairfax-va::unclassified": {
+      "clicks": 0,
+      "impressions": 438,
+      "ctr": 0,
+      "position": 33.58
+    },
+    "/title-company-spotsylvania-va::unclassified": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 14.5
+    },
+    "/title-company-college-park-md::unclassified": {
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 24.66
+    },
+    "/blog/title-company-northern-virginia::unclassified": {
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0,
+      "position": 33.17
+    },
+    "/blog/title-insurance-new-construction::unclassified": {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 32.88
+    },
+    "/title-company-bowie-md::unclassified": {
+      "clicks": 0,
+      "impressions": 75,
+      "ctr": 0,
+      "position": 20.45
+    },
+    "/blog/title-companies-near-me::unclassified": {
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 24.44
+    },
+    "/title-company-washington-dc::unclassified": {
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 50.13
+    },
+    "/title-company-germantown-md::unclassified": {
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 46.33
+    },
+    "/title-company-pentagon-city-va::unclassified": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 36.88
+    },
+    "/title-company-potomac-md::unclassified": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 32.8
+    },
+    "/blog::unclassified": {
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 20.84
+    },
+    "/blog/who-chooses-the-title-company-in-virginia::unclassified": {
+      "clicks": 0,
+      "impressions": 86,
+      "ctr": 0,
+      "position": 22.03
+    },
+    "/title-search-vienna-va::unclassified": {
+      "clicks": 0,
+      "impressions": 196,
+      "ctr": 0,
+      "position": 20.9
+    },
+    "/title-company-woodbridge-va::unclassified": {
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 24.07
+    },
+    "/blog/enhanced-vs-standard-title-insurance::unclassified": {
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 21.3
+    },
+    "/blog/enhanced-title-insurance-vs-standard::unclassified": {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 87.4
+    },
+    "/blog/title-insurance-cost-maryland::unclassified": {
+      "clicks": 0,
+      "impressions": 335,
+      "ctr": 0,
+      "position": 22.16
+    },
+    "/blog/what-is-enhanced-title-insurance::unclassified": {
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 77.91
+    },
+    "/blog/standard-vs-extended-title-insurance::unclassified": {
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 54.44
+    },
+    "/title-company-silver-spring-md::unclassified": {
+      "clicks": 0,
+      "impressions": 557,
+      "ctr": 0,
+      "position": 25.36
+    },
+    "/title-company/silver-spring-md::unclassified": {
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 35.9
+    },
+    "/title-company-rockville-md::unclassified": {
+      "clicks": 0,
+      "impressions": 124,
+      "ctr": 0,
+      "position": 40.38
+    },
+    "/title-insurance::unclassified": {
+      "clicks": 0,
+      "impressions": 85,
+      "ctr": 0,
+      "position": 72.15
+    },
+    "/title-company-gainesville-va::unclassified": {
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 66.07
+    },
+    "/title-company-falls-church-va::unclassified": {
+      "clicks": 0,
+      "impressions": 214,
+      "ctr": 0,
+      "position": 7.96
+    },
+    "/title-company-reston-va::unclassified": {
+      "clicks": 0,
+      "impressions": 68,
+      "ctr": 0,
+      "position": 48.82
+    },
+    "/blog/title-company-sterling-va::unclassified": {
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 98.56
+    },
+    "/title-company-leesburg-va::unclassified": {
+      "clicks": 0,
+      "impressions": 153,
+      "ctr": 0,
+      "position": 26.99
+    },
+    "/title-company-south-riding-va::unclassified": {
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 61.24
+    },
+    "/title-company-sterling-va::unclassified": {
+      "clicks": 0,
+      "impressions": 48,
+      "ctr": 0,
+      "position": 46.9
+    },
+    "/title-company-old-town-alexandria-va::unclassified": {
+      "clicks": 0,
+      "impressions": 66,
+      "ctr": 0,
+      "position": 56.09
+    },
+    "/title-company-eisenhower-alexandria-va::unclassified": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 69
+    },
+    "/blog/title-insurance-cost-virginia-maryland::unclassified": {
+      "clicks": 0,
+      "impressions": 546,
+      "ctr": 0,
+      "position": 51.68
+    },
+    "/blog/title-insurance-cost-dc::unclassified": {
+      "clicks": 0,
+      "impressions": 249,
+      "ctr": 0,
+      "position": 13.39
+    },
+    "/blog/how-much-does-title-insurance-cost::unclassified": {
+      "clicks": 0,
+      "impressions": 402,
+      "ctr": 0,
+      "position": 72.59
+    },
+    "/title-insurance-cost-by-state::unclassified": {
+      "clicks": 0,
+      "impressions": 68,
+      "ctr": 0,
+      "position": 43.4
+    },
+    "/blog/title-insurance-cost-virginia::unclassified": {
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 71.4
+    },
+    "/blog/refinance-title-insurance::unclassified": {
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 39.41
+    },
+    "/title-company-hyattsville-md::unclassified": {
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 42.6
+    },
+    "/maryland-closing-cost-calculator::seller-proceeds": {
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 29.79
+    },
+    "/blog/title-company-montgomery-county-md::unclassified": {
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 14.5
+    },
+    "/title-company-gaithersburg-md::unclassified": {
+      "clicks": 0,
+      "impressions": 145,
+      "ctr": 0,
+      "position": 46.65
+    },
+    "/contact::unclassified": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 32.2
+    },
+    "/title-company-carlyle-alexandria-va::unclassified": {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 45.29
+    },
+    "/title-company-chantilly-va::unclassified": {
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 25
+    },
+    "/title-company-mclean-va::unclassified": {
+      "clicks": 0,
+      "impressions": 171,
+      "ctr": 0,
+      "position": 26.16
+    },
+    "/title-company-rosslyn-va::unclassified": {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 46.71
+    },
+    "/title-company-springfield-va::unclassified": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 35.38
+    },
+    "/title-company-tysons-va::unclassified": {
+      "clicks": 0,
+      "impressions": 262,
+      "ctr": 0,
+      "position": 6.64
+    },
+    "/title-company-virginia-square-va::unclassified": {
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 24.89
+    },
+    "/why-choose-us::unclassified": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 18.15
+    },
+    "/title-company-centreville-va::unclassified": {
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0,
+      "position": 11.06
+    },
+    "/title-company-shirlington-va::unclassified": {
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 28.26
+    },
+    "/title-company-stafford-va::unclassified": {
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0,
+      "position": 21.72
+    },
+    "/blog/virginia-real-estate-contract::unclassified": {
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 32.36
+    },
+    "/blog/settlement-company-virginia::unclassified": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 62.54
+    },
+    "/blog/title-company-woodbridge-va::unclassified": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 15
+    },
+    "/title-company-manassas-park-va::unclassified": {
+      "clicks": 0,
+      "impressions": 122,
+      "ctr": 0,
+      "position": 24.57
+    },
+    "/title-company-arlington-va::unclassified": {
+      "clicks": 0,
+      "impressions": 126,
+      "ctr": 0,
+      "position": 38.6
+    },
+    "/title-company-upper-marlboro-md::unclassified": {
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 50.79
+    },
+    "/title-company-fairfax-county-va::unclassified": {
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0,
+      "position": 53.17
+    },
+    "/title-company-for-credit-unions::unclassified": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 43.38
+    },
+    "/title-company-laurel-md::unclassified": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 52
+    },
+    "/title-company-vienna-va::unclassified": {
+      "clicks": 0,
+      "impressions": 50,
+      "ctr": 0,
+      "position": 5.96
+    },
+    "/blog/who-does-title-insurance-protect::unclassified": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 85.83
+    },
+    "/subscribe::unclassified": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.17
+    },
+    "/title-company-clarendon-va::unclassified": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 12.33
+    }
+  },
+  "pageMetrics": {
+    "/maryland-closing-cost-calculator": {
+      "clicks": 8,
+      "impressions": 1180,
+      "ctr": 0.00678,
+      "position": 29.21
+    },
+    "/": {
+      "clicks": 2,
+      "impressions": 399,
+      "ctr": 0.005013,
+      "position": 6.82
+    },
+    "/blog/enhanced-vs-standard-title-insurance": {
+      "clicks": 4,
+      "impressions": 176,
+      "ctr": 0.022727,
+      "position": 11.13
+    },
+    "/blog/who-chooses-the-title-company-in-virginia": {
+      "clicks": 4,
+      "impressions": 181,
+      "ctr": 0.022099,
+      "position": 14.28
+    },
+    "/blog/who-pays-closing-costs-maryland": {
+      "clicks": 4,
+      "impressions": 86,
+      "ctr": 0.046512,
+      "position": 6.36
+    },
+    "/blog/refinance-title-insurance": {
+      "clicks": 3,
+      "impressions": 148,
+      "ctr": 0.02027,
+      "position": 13.55
+    },
+    "/blog/virginia-real-estate-contract": {
+      "clicks": 2,
+      "impressions": 98,
+      "ctr": 0.020408,
+      "position": 15.03
+    },
+    "/closing-costs-fairfax-va": {
+      "clicks": 2,
+      "impressions": 88,
+      "ctr": 0.022727,
+      "position": 7.98
+    },
+    "/blog/closing-costs-virginia": {
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.142857,
+      "position": 7.71
+    },
+    "/blog/enhanced-title-insurance-vs-standard": {
+      "clicks": 1,
+      "impressions": 18,
+      "ctr": 0.055556,
+      "position": 28.33
+    },
+    "/blog/settlement-company-virginia": {
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037037,
+      "position": 33.33
+    },
+    "/blog/standard-vs-extended-title-insurance": {
+      "clicks": 1,
+      "impressions": 29,
+      "ctr": 0.034483,
+      "position": 24.59
+    },
+    "/blog/title-insurance-claims-process": {
+      "clicks": 1,
+      "impressions": 21,
+      "ctr": 0.047619,
+      "position": 12
+    },
+    "/blog/title-insurance-cost-dc": {
+      "clicks": 1,
+      "impressions": 271,
+      "ctr": 0.00369,
+      "position": 13.04
+    },
+    "/blog/title-insurance-cost-virginia": {
+      "clicks": 1,
+      "impressions": 80,
+      "ctr": 0.0125,
+      "position": 20.23
+    },
+    "/blog/title-insurance-cost-virginia-maryland": {
+      "clicks": 1,
+      "impressions": 657,
+      "ctr": 0.001522,
+      "position": 44.62
+    },
+    "/blog/washington-dc-real-estate-attorneys": {
+      "clicks": 1,
+      "impressions": 26,
+      "ctr": 0.038462,
+      "position": 7.04
+    },
+    "/blog/who-chooses-title-company-maryland": {
+      "clicks": 1,
+      "impressions": 46,
+      "ctr": 0.021739,
+      "position": 13.37
+    },
+    "/closing-costs-alexandria-va": {
+      "clicks": 1,
+      "impressions": 55,
+      "ctr": 0.018182,
+      "position": 7.09
+    },
+    "/closing-costs-fredericksburg-va": {
+      "clicks": 1,
+      "impressions": 21,
+      "ctr": 0.047619,
+      "position": 6.76
+    },
+    "/closing-costs/dc": {
+      "clicks": 1,
+      "impressions": 247,
+      "ctr": 0.004049,
+      "position": 26.85
+    },
+    "/foreclosure-title-review": {
+      "clicks": 1,
+      "impressions": 16,
+      "ctr": 0.0625,
+      "position": 6.94
+    },
+    "/title-company-herndon-va": {
+      "clicks": 1,
+      "impressions": 446,
+      "ctr": 0.002242,
+      "position": 14.18
+    },
+    "/title-company-laurel-md": {
+      "clicks": 1,
+      "impressions": 28,
+      "ctr": 0.035714,
+      "position": 20.21
+    },
+    "/title-company-purcellville-va": {
+      "clicks": 1,
+      "impressions": 13,
+      "ctr": 0.076923,
+      "position": 13.85
+    },
+    "/title-company-silver-spring-md": {
+      "clicks": 1,
+      "impressions": 593,
+      "ctr": 0.001686,
+      "position": 24.51
+    },
+    "/title-company-sterling-va": {
+      "clicks": 1,
+      "impressions": 74,
+      "ctr": 0.013514,
+      "position": 33.99
+    },
+    "/advertising-services": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 20
+    },
+    "/auction-property-title-search": {
+      "clicks": 0,
+      "impressions": 70,
+      "ctr": 0,
+      "position": 26.39
+    },
+    "/blog": {
+      "clicks": 0,
+      "impressions": 65,
+      "ctr": 0,
+      "position": 12.06
+    },
+    "/blog/alexandria-va-housing-market-april-2026": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 22.5
+    },
+    "/blog/alta-homeowner-policy": {
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 13.63
+    },
+    "/blog/best-title-company-maryland": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 18.38
+    },
+    "/blog/best-title-company-near-me": {
+      "clicks": 0,
+      "impressions": 68,
+      "ctr": 0,
+      "position": 32.03
+    },
+    "/blog/builders-preferred-title-company": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 5.3
+    },
+    "/blog/buyer-closing-cost-calculator-estimating-real-estate-fees": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 58
+    },
+    "/blog/ce-continuing-education-real-estate-agents": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 19.8
+    },
+    "/blog/closing-costs-dc": {
+      "clicks": 0,
+      "impressions": 117,
+      "ctr": 0,
+      "position": 31.58
+    },
+    "/blog/closing-costs-dmv-buyers-sellers": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    "/blog/closing-costs-maryland": {
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 12.25
+    },
+    "/blog/closing-costs-maryland-2026": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 6
+    },
+    "/blog/construction-loan-title-insurance": {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 11.88
+    },
+    "/blog/construction-loans-maryland": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 21.3
+    },
+    "/blog/dc-first-time-homebuyer-tax-exemption": {
+      "clicks": 0,
+      "impressions": 78,
+      "ctr": 0,
+      "position": 12.23
+    },
+    "/blog/dc-homestead-deduction": {
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 18.64
+    },
+    "/blog/dc-real-estate-taxes": {
+      "clicks": 0,
+      "impressions": 59,
+      "ctr": 0,
+      "position": 20.42
+    },
+    "/blog/difference-between-lenders-and-owners-title-insurance": {
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 26.56
+    },
+    "/blog/escrow-companies-near-me-dmv": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6.33
+    },
+    "/blog/firpta-explained-dmv": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    "/blog/how-much-does-title-insurance-cost": {
+      "clicks": 0,
+      "impressions": 406,
+      "ctr": 0,
+      "position": 72.04
+    },
+    "/blog/how-to-choose-a-title-company-in-virginia-maryland-or-dc": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 9.33
+    },
+    "/blog/how-to-compare-title-quotes": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    "/blog/how-to-read-a-title-commitment": {
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 6.25
+    },
+    "/blog/lender-title-insurance": {
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 12.44
+    },
+    "/blog/mechanic-lien-agent-virginia": {
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 7.52
+    },
+    "/blog/net-sheet-calculator-dmv": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 9.08
+    },
+    "/blog/networking-tips-real-estate-professionals": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 54
+    },
+    "/blog/nova-real-estate-market-q1-2026": {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 26.8
+    },
+    "/blog/qualia-closing-software-pruitt-title": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    "/blog/real-estate-closing-companies-near-me": {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 7
+    },
+    "/blog/real-estate-closing-company-dc": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 9.4
+    },
+    "/blog/real-estate-marketing-strategies-dmv-agents": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 32.67
+    },
+    "/blog/reston-station-lofts": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.33
+    },
+    "/blog/seller-net-sheet": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10
+    },
+    "/blog/settlement-closing-fee": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 8
+    },
+    "/blog/settlement-company-fairfax-county": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    "/blog/settlement-company-near-me": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 95
+    },
+    "/blog/settlement-services-arlington-va": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    "/blog/social-media-strategies-realtors-2025": {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 37
+    },
+    "/blog/sterling-virginia-settlement": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 26.33
+    },
+    "/blog/title-and-settlement-services": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.67
+    },
+    "/blog/title-companies-in-northern-virginia": {
+      "clicks": 0,
+      "impressions": 343,
+      "ctr": 0,
+      "position": 21.32
+    },
+    "/blog/title-companies-near-me": {
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 19.64
+    },
+    "/blog/title-companies-new-construction": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    "/blog/title-company-alexandria-va": {
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 8.09
+    },
+    "/blog/title-company-arlington-va": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.67
+    },
+    "/blog/title-company-bethesda-md": {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 9.75
+    },
+    "/blog/title-company-fairfax-county-va": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6
+    },
+    "/blog/title-company-fairfax-va": {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 8.14
+    },
+    "/blog/title-company-falls-church-va": {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10
+    },
+    "/blog/title-company-for-realtors": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    "/blog/title-company-maryland": {
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 10.11
+    },
+    "/blog/title-company-mclean-va": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    "/blog/title-company-montgomery-county-md": {
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 11.92
+    },
+    "/blog/title-company-northern-virginia": {
+      "clicks": 0,
+      "impressions": 46,
+      "ctr": 0,
+      "position": 28.83
+    },
+    "/blog/title-company-reston-va": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    "/blog/title-company-springfield-va": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9
+    },
+    "/blog/title-company-sterling-va": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 90.2
+    },
+    "/blog/title-company-vienna-va": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 5.88
+    },
+    "/blog/title-company-washington-dc": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.17
+    },
+    "/blog/title-company-woodbridge-va": {
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 13.44
+    },
+    "/blog/title-insurance-cost-maryland": {
+      "clicks": 0,
+      "impressions": 407,
+      "ctr": 0,
+      "position": 19.71
+    },
+    "/blog/title-insurance-enhanced-vs-standard": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8.67
+    },
+    "/blog/title-insurance-new-construction": {
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 18.92
+    },
+    "/blog/title-insurance-real-estate-lenders-dmv": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    "/blog/title-quote": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9
+    },
+    "/blog/title-search-refinance": {
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 6.37
+    },
+    "/blog/title-search-vs-title-insurance": {
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 8.57
+    },
+    "/blog/title-settlement-fee": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    "/blog/video-marketing-real-estate-agents": {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 49.76
+    },
+    "/blog/virginia-real-estate-continuing-education-requirements": {
+      "clicks": 0,
+      "impressions": 60,
+      "ctr": 0,
+      "position": 11.98
+    },
+    "/blog/virginia-residential-sales-contract": {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 7.94
+    },
+    "/blog/what-does-a-title-company-do": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    "/blog/what-does-a-title-company-do-dmv": {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 2.25
+    },
+    "/blog/what-happens-at-closing-real-estate": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 7
+    },
+    "/blog/what-is-a-deed-transfer": {
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 8.9
+    },
+    "/blog/what-is-a-title-settlement-fee": {
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 10.18
+    },
+    "/blog/what-is-enhanced-title-insurance": {
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 50.19
+    },
+    "/blog/who-does-title-insurance-protect": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 43.77
+    },
+    "/blog/why-is-title-insurance-so-expensive": {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 7
+    },
+    "/blog/why-is-title-insurance-so-expensive-what-dmv-buyers-are-actually-paying-for": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 6
+    },
+    "/blog/working-with-builders-title-perspective": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    "/calculators/loan-estimate": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    "/calculators/title-quote": {
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 31.26
+    },
+    "/closing-costs-ashburn-va": {
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 8.32
+    },
+    "/closing-costs-mclean-va": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5.83
+    },
+    "/closing-costs-rockville-md": {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 7.14
+    },
+    "/closing-costs-woodbridge-va": {
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 6.13
+    },
+    "/closing-costs/buyer-maryland": {
+      "clicks": 0,
+      "impressions": 40,
+      "ctr": 0,
+      "position": 48.6
+    },
+    "/closing-costs/dc-who-pays": {
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 21.58
+    },
+    "/commercial-due-diligence": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    "/commercial-property-title-search": {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7
+    },
+    "/commercial-real-estate-closings": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    "/contact": {
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 16.71
+    },
+    "/dc-closing-cost-calculator": {
+      "clicks": 0,
+      "impressions": 186,
+      "ctr": 0,
+      "position": 43.18
+    },
+    "/investor-friendly-title-company": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    "/my-classes": {
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 26.71
+    },
+    "/subscribe": {
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 7.22
+    },
+    "/title-company-alexandria-va": {
+      "clicks": 0,
+      "impressions": 69,
+      "ctr": 0,
+      "position": 48.32
+    },
+    "/title-company-annandale-va": {
+      "clicks": 0,
+      "impressions": 141,
+      "ctr": 0,
+      "position": 19.93
+    },
+    "/title-company-arlington-va": {
+      "clicks": 0,
+      "impressions": 135,
+      "ctr": 0,
+      "position": 36.74
+    },
+    "/title-company-ballston-va": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    "/title-company-bethesda-md": {
+      "clicks": 0,
+      "impressions": 191,
+      "ctr": 0,
+      "position": 12.26
+    },
+    "/title-company-bowie-md": {
+      "clicks": 0,
+      "impressions": 92,
+      "ctr": 0,
+      "position": 18.87
+    },
+    "/title-company-bristow-va": {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 23.2
+    },
+    "/title-company-burke-va": {
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 20.74
+    },
+    "/title-company-carlyle-alexandria-va": {
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 24.87
+    },
+    "/title-company-centreville-va": {
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0,
+      "position": 13.43
+    },
+    "/title-company-chantilly-va": {
+      "clicks": 0,
+      "impressions": 40,
+      "ctr": 0,
+      "position": 26.2
+    },
+    "/title-company-clarendon-va": {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 10.86
+    },
+    "/title-company-college-park-md": {
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0,
+      "position": 21.14
+    },
+    "/title-company-courthouse-va": {
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 59.68
+    },
+    "/title-company-crystal-city-va": {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 27
+    },
+    "/title-company-del-ray-alexandria-va": {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 31.41
+    },
+    "/title-company-eisenhower-alexandria-va": {
+      "clicks": 0,
+      "impressions": 41,
+      "ctr": 0,
+      "position": 28.07
+    },
+    "/title-company-fairfax-county-va": {
+      "clicks": 0,
+      "impressions": 40,
+      "ctr": 0,
+      "position": 47.58
+    },
+    "/title-company-falls-church-va": {
+      "clicks": 0,
+      "impressions": 235,
+      "ctr": 0,
+      "position": 9.14
+    },
+    "/title-company-for-builders": {
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 33.47
+    },
+    "/title-company-for-credit-unions": {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 44.65
+    },
+    "/title-company-for-lenders": {
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 29.5
+    },
+    "/title-company-for-realtors": {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 13.2
+    },
+    "/title-company-fredericksburg-va": {
+      "clicks": 0,
+      "impressions": 179,
+      "ctr": 0,
+      "position": 31.81
+    },
+    "/title-company-gainesville-va": {
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0,
+      "position": 46.42
+    },
+    "/title-company-gaithersburg-md": {
+      "clicks": 0,
+      "impressions": 160,
+      "ctr": 0,
+      "position": 42.99
+    },
+    "/title-company-germantown-md": {
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 29.07
+    },
+    "/title-company-great-falls-va": {
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 34
+    },
+    "/title-company-haymarket-va": {
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 25.26
+    },
+    "/title-company-hyattsville-md": {
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 35.96
+    },
+    "/title-company-leesburg-va": {
+      "clicks": 0,
+      "impressions": 181,
+      "ctr": 0,
+      "position": 25.39
+    },
+    "/title-company-manassas-park-va": {
+      "clicks": 0,
+      "impressions": 127,
+      "ctr": 0,
+      "position": 24.53
+    },
+    "/title-company-mclean-va": {
+      "clicks": 0,
+      "impressions": 180,
+      "ctr": 0,
+      "position": 25.92
+    },
+    "/title-company-montgomery-county-md": {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    "/title-company-old-town-alexandria-va": {
+      "clicks": 0,
+      "impressions": 73,
+      "ctr": 0,
+      "position": 54.59
+    },
+    "/title-company-pentagon-city-va": {
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 41.89
+    },
+    "/title-company-potomac-md": {
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 24.81
+    },
+    "/title-company-reston-va": {
+      "clicks": 0,
+      "impressions": 76,
+      "ctr": 0,
+      "position": 45.53
+    },
+    "/title-company-rockville-md": {
+      "clicks": 0,
+      "impressions": 133,
+      "ctr": 0,
+      "position": 39.65
+    },
+    "/title-company-rosslyn-va": {
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 36.21
+    },
+    "/title-company-shirlington-va": {
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 30.7
+    },
+    "/title-company-south-riding-va": {
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 42.03
+    },
+    "/title-company-spotsylvania-va": {
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 15.96
+    },
+    "/title-company-springfield-va": {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 20.71
+    },
+    "/title-company-stafford-va": {
+      "clicks": 0,
+      "impressions": 59,
+      "ctr": 0,
+      "position": 20.53
+    },
+    "/title-company-tysons-va": {
+      "clicks": 0,
+      "impressions": 314,
+      "ctr": 0,
+      "position": 7.27
+    },
+    "/title-company-upper-marlboro-md": {
+      "clicks": 0,
+      "impressions": 54,
+      "ctr": 0,
+      "position": 35.15
+    },
+    "/title-company-vienna-va": {
+      "clicks": 0,
+      "impressions": 55,
+      "ctr": 0,
+      "position": 7.35
+    },
+    "/title-company-virginia-square-va": {
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 19
+    },
+    "/title-company-washington-dc": {
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0,
+      "position": 42.4
+    },
+    "/title-company-woodbridge-va": {
+      "clicks": 0,
+      "impressions": 89,
+      "ctr": 0,
+      "position": 20.02
+    },
+    "/title-company/alexandria-va": {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    "/title-company/silver-spring-md": {
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 33.07
+    },
+    "/title-insurance": {
+      "clicks": 0,
+      "impressions": 90,
+      "ctr": 0,
+      "position": 68.81
+    },
+    "/title-insurance-cost-by-state": {
+      "clicks": 0,
+      "impressions": 78,
+      "ctr": 0,
+      "position": 39.1
+    },
+    "/title-search-fairfax-va": {
+      "clicks": 0,
+      "impressions": 511,
+      "ctr": 0,
+      "position": 30.84
+    },
+    "/title-search-vienna-va": {
+      "clicks": 0,
+      "impressions": 222,
+      "ctr": 0,
+      "position": 20.52
+    },
+    "/virginia-closing-cost-calculator": {
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 11.23
+    },
+    "/why-choose-us": {
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 9.91
+    }
+  },
+  "finalDataThrough": "2026-08-23",
+  "sitemaps": [
+    {
+      "path": "https://dmvtitleguy.io/sitemap.xml",
+      "isPending": false,
+      "isSitemapsIndex": false,
+      "lastSubmitted": "2026-08-26T16:04:41.317Z",
+      "errors": "0",
+      "warnings": "0"
+    }
+  ],
+  "priorityUrlInspection": [
+    {
+      "path": "/calculators/seller-net-sheet",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": "https://dmvtitleguy.io/calculators/seller-net-sheet",
+      "userCanonical": "https://dmvtitleguy.io/calculators/seller-net-sheet",
+      "lastCrawlTime": "2026-08-26T16:10:49Z"
+    },
+    {
+      "path": "/blog/firpta-explained-dmv",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": "https://dmvtitleguy.io/blog/firpta-explained-dmv",
+      "userCanonical": "https://dmvtitleguy.io/blog/firpta-explained-dmv",
+      "lastCrawlTime": "2026-08-26T16:09:27Z"
+    },
+    {
+      "path": "/blog/types-of-property-surveys-dc-md-va",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": "https://dmvtitleguy.io/blog/types-of-property-surveys-dc-md-va",
+      "userCanonical": "https://dmvtitleguy.io/blog/types-of-property-surveys-dc-md-va",
+      "lastCrawlTime": "2026-08-26T16:12:31Z"
+    },
+    {
+      "path": "/about-will-rapuano",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": "https://dmvtitleguy.io/about-will-rapuano",
+      "userCanonical": "https://dmvtitleguy.io/about-will-rapuano",
+      "lastCrawlTime": "2026-08-26T16:27:55Z"
+    },
+    {
+      "path": "/why-choose-us",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": "https://dmvtitleguy.io/why-choose-us",
+      "userCanonical": "https://dmvtitleguy.io/why-choose-us",
+      "lastCrawlTime": "2026-08-26T16:27:55Z"
+    }
+  ]
+}

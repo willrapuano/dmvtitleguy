@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
   title: "Title Insurance Resources | DMV Title Guy",
-  description: "Downloadable title insurance resources, FAQs, and educational guides from Pruitt Title LLC. Serving Washington D.C., Maryland, and Virginia.",
+  description: "Downloadable title insurance resources, FAQs, and educational guides from DMV Title Guy for Washington DC, Maryland, and Virginia.",
   path: "/title-insurance",
 });
 
@@ -32,7 +32,7 @@ const titleInsuranceFaqs = [
   },
   {
     question: "How much does title insurance cost in DC, Maryland, and Virginia?",
-    answer: "Title insurance premiums vary by state and property value. In Virginia and Maryland, rates are regulated and based on the property's sale price. In DC, rates may vary. Pruitt Title LLC can provide a free quote for your specific transaction.",
+    answer: "Title insurance premiums vary by state, property value, policy, and transaction. Use the calculators for education only; the provider that accepts the matter must confirm actual coverage, rates, fees, terms, and disclosures.",
   },
   {
     question: "What does a title search find?",
@@ -142,10 +142,10 @@ export default function TitleInsurancePage() {
                 reimbursed exactly as your title insurance policy provides.
               </p>
               <p className="max-w-[68ch]">
-                Pruitt Title LLC works with First American Title Insurance
-                Company, a respected Fortune 500 leader in the industry,
-                combining local DMV expertise with national financial strength to
-                protect your investment.
+                The provider that accepts a transaction should identify the
+                proposed underwriter, policy form, endorsements, exceptions,
+                exclusions, conditions, premium, and required disclosures before
+                the parties rely on coverage.
               </p>
             </div>
           </div>
@@ -289,8 +289,7 @@ export default function TitleInsurancePage() {
         <div className="container-xl text-center">
           <h2 className="prose-title mb-4">Ready to Open a Title Order?</h2>
           <p className="prose-subtitle max-w-xl mx-auto mb-6">
-            Contact Will Rapuano at Pruitt Title LLC for a title insurance quote
-            or to open your order today.
+            Contact Will through DMV Title Guy for an educational answer or to request a provider introduction. Submission does not create a title order or service relationship.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link href="/calculators/title-quote" className="btn-primary">

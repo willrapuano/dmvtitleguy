@@ -1,0 +1,220 @@
+name: SEO operational health
+
+on:
+  schedule:
+    - cron: "17 12 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: seo-operational-health-production
+  cancel-in-progress: false
+
+jobs:
+  schedule:
+    name: Secretless date gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions:
+      actions: read
+      contents: read
+      issues: read
+    outputs:
+      due: ${{ steps.schedule.outputs.due }}
+      effective_date: ${{ steps.schedule.outputs.effective_date }}
+      checkpoint_id: ${{ steps.schedule.outputs.checkpoint_id }}
+      run_kind: ${{ steps.schedule.outputs.run_kind }}
+      controls_ready: ${{ steps.schedule.outputs.controls_ready }}
+      controls_failure_code: ${{ steps.schedule.outputs.controls_failure_code }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - id: schedule
+        name: Resolve the Eastern date allowlist without secrets
+        run: npm run checkpoint:seo-operational-health:gate
+      - name: Verify the accepted canary before any credential-bearing job
+        if: steps.schedule.outputs.due == 'true'
+        run: npm run checkpoint:seo-operational-health:verify-canary-receipt
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  pre_attestation:
+    name: Bind production deployment before attestation
+    needs: schedule
+    if: >-
+      needs.schedule.outputs.due == 'true' &&
+      needs.schedule.outputs.controls_ready == 'true' &&
+      github.repository == 'willrapuano/dmvtitleguy' &&
+      github.ref == 'refs/heads/main' &&
+      (
+        github.event_name != 'workflow_dispatch' ||
+        (github.actor == 'willrapuano' && github.actor_id == '200251753')
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      deployments: read
+    environment: seo-health-production
+    outputs:
+      attestation_bundle: ${{ steps.preflight.outputs.attestation_bundle }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - id: preflight
+        name: Verify origin, SHA, attestation, and Vercel bot deployment
+        run: npm run checkpoint:seo-operational-health:pre-attestation
+        env:
+          SEO_HEALTH_ATTESTATION_SECRET: ${{ secrets.SEO_HEALTH_ATTESTATION_SECRET }}
+          SEO_HEALTH_VERCEL_CONTROL_TOKEN: ${{ secrets.SEO_HEALTH_VERCEL_CONTROL_TOKEN }}
+          SEO_HEALTH_SCHEDULE_DUE: ${{ needs.schedule.outputs.due }}
+          SEO_HEALTH_SCHEDULE_EFFECTIVE_DATE: ${{ needs.schedule.outputs.effective_date }}
+          SEO_HEALTH_SCHEDULE_CHECKPOINT_ID: ${{ needs.schedule.outputs.checkpoint_id }}
+          SEO_HEALTH_SCHEDULE_RUN_KIND: ${{ needs.schedule.outputs.run_kind }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+  provider:
+    name: Run provider reads without attestation or GitHub credentials
+    needs: [schedule, pre_attestation]
+    if: >-
+      needs.schedule.outputs.due == 'true' &&
+      needs.schedule.outputs.controls_ready == 'true' &&
+      github.repository == 'willrapuano/dmvtitleguy' &&
+      github.ref == 'refs/heads/main' &&
+      (
+        github.event_name != 'workflow_dispatch' ||
+        (github.actor == 'willrapuano' && github.actor_id == '200251753')
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    environment: seo-health-production
+    outputs:
+      terminal_bundle: ${{ steps.provider.outputs.terminal_bundle }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install runtime dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --omit=dev --workspaces=false
+      - id: provider
+        name: Run the bounded read-only provider checkpoint
+        run: npm run checkpoint:seo-operational-health:provider
+        env:
+          SEO_HEALTH_ATTESTATION_BUNDLE: ${{ needs.pre_attestation.outputs.attestation_bundle }}
+          SEO_HEALTH_SCHEDULE_DUE: ${{ needs.schedule.outputs.due }}
+          SEO_HEALTH_SCHEDULE_EFFECTIVE_DATE: ${{ needs.schedule.outputs.effective_date }}
+          SEO_HEALTH_SCHEDULE_CHECKPOINT_ID: ${{ needs.schedule.outputs.checkpoint_id }}
+          SEO_HEALTH_SCHEDULE_RUN_KIND: ${{ needs.schedule.outputs.run_kind }}
+          SEO_HEALTH_TURSO_DATABASE_URL: ${{ secrets.SEO_HEALTH_TURSO_DATABASE_URL }}
+          SEO_HEALTH_TURSO_AUTH_TOKEN: ${{ secrets.SEO_HEALTH_TURSO_AUTH_TOKEN }}
+          SEO_HEALTH_GHL_READ_TOKEN: ${{ secrets.SEO_HEALTH_GHL_READ_TOKEN }}
+          GHL_LOCATION_ID: ${{ secrets.GHL_LOCATION_ID }}
+          GHL_WEBSITE_PIPELINE_ID: ${{ secrets.GHL_WEBSITE_PIPELINE_ID }}
+          GHL_WEBSITE_SUBMITTED_STAGE_ID: ${{ secrets.GHL_WEBSITE_SUBMITTED_STAGE_ID }}
+
+  archive:
+    name: Re-attest and archive immutable evidence
+    needs: [schedule, pre_attestation, provider]
+    if: >-
+      always() &&
+      needs.schedule.result == 'success' &&
+      needs.schedule.outputs.due == 'true' &&
+      needs.schedule.outputs.controls_ready == 'true' &&
+      github.repository == 'willrapuano/dmvtitleguy' &&
+      github.ref == 'refs/heads/main' &&
+      (
+        github.event_name != 'workflow_dispatch' ||
+        (github.actor == 'willrapuano' && github.actor_id == '200251753')
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      deployments: read
+      issues: write
+    environment: seo-health-production
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Revalidate the deployment and archive the terminal evidence
+        run: npm run checkpoint:seo-operational-health:archive
+        env:
+          SEO_HEALTH_ATTESTATION_SECRET: ${{ secrets.SEO_HEALTH_ATTESTATION_SECRET }}
+          SEO_HEALTH_VERCEL_CONTROL_TOKEN: ${{ secrets.SEO_HEALTH_VERCEL_CONTROL_TOKEN }}
+          SEO_HEALTH_ARCHIVE_SIGNING_PRIVATE_KEY: ${{ secrets.SEO_HEALTH_ARCHIVE_SIGNING_PRIVATE_KEY }}
+          SEO_HEALTH_ATTESTATION_BUNDLE: ${{ needs.pre_attestation.outputs.attestation_bundle }}
+          SEO_HEALTH_TERMINAL_BUNDLE: ${{ needs.provider.outputs.terminal_bundle }}
+          SEO_HEALTH_SCHEDULE_DUE: ${{ needs.schedule.outputs.due }}
+          SEO_HEALTH_SCHEDULE_EFFECTIVE_DATE: ${{ needs.schedule.outputs.effective_date }}
+          SEO_HEALTH_SCHEDULE_CHECKPOINT_ID: ${{ needs.schedule.outputs.checkpoint_id }}
+          SEO_HEALTH_SCHEDULE_RUN_KIND: ${{ needs.schedule.outputs.run_kind }}
+          SEO_HEALTH_PRE_ATTESTATION_RESULT: ${{ needs.pre_attestation.result }}
+          SEO_HEALTH_PROVIDER_RESULT: ${{ needs.provider.result }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+  incident_fallback:
+    name: Sign checkpoint failure incident
+    needs: [schedule, pre_attestation, provider, archive]
+    if: >-
+      always() &&
+      needs.schedule.result == 'success' &&
+      needs.schedule.outputs.due == 'true' &&
+      needs.schedule.outputs.run_kind == 'checkpoint' &&
+      github.repository == 'willrapuano/dmvtitleguy' &&
+      github.ref == 'refs/heads/main' &&
+      (
+        github.event_name != 'workflow_dispatch' ||
+        (github.actor == 'willrapuano' && github.actor_id == '200251753')
+      ) &&
+      (
+        needs.schedule.outputs.controls_ready != 'true' ||
+        needs.pre_attestation.result != 'success' ||
+        needs.provider.result != 'success' ||
+        needs.archive.result != 'success'
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      issues: write
+    environment: seo-health-production
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Sign a minimal idempotent missed-checkpoint incident
+        run: npm run checkpoint:seo-operational-health:incident-fallback
+        env:
+          SEO_HEALTH_ARCHIVE_SIGNING_PRIVATE_KEY: ${{ secrets.SEO_HEALTH_ARCHIVE_SIGNING_PRIVATE_KEY }}
+          SEO_HEALTH_SCHEDULE_DUE: ${{ needs.schedule.outputs.due }}
+          SEO_HEALTH_SCHEDULE_EFFECTIVE_DATE: ${{ needs.schedule.outputs.effective_date }}
+          SEO_HEALTH_SCHEDULE_CHECKPOINT_ID: ${{ needs.schedule.outputs.checkpoint_id }}
+          SEO_HEALTH_SCHEDULE_RUN_KIND: ${{ needs.schedule.outputs.run_kind }}
+          SEO_HEALTH_CONTROLS_READY: ${{ needs.schedule.outputs.controls_ready }}
+          SEO_HEALTH_CONTROLS_FAILURE_CODE: ${{ needs.schedule.outputs.controls_failure_code }}
+          SEO_HEALTH_PRE_ATTESTATION_RESULT: ${{ needs.pre_attestation.result }}
+          SEO_HEALTH_PROVIDER_RESULT: ${{ needs.provider.result }}
+          SEO_HEALTH_ARCHIVE_RESULT: ${{ needs.archive.result }}
+          GITHUB_TOKEN: ${{ github.token }}

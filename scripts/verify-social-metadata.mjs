@@ -4,7 +4,9 @@ const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").repl
 const canonicalOrigin = "https://dmvtitleguy.io";
 const routes = [
   "/",
+  "/about-will-rapuano",
   "/blog",
+  "/blog/types-of-property-surveys-dc-md-va",
   "/contact",
   "/title-insurance",
   "/title-company-for-realtors",

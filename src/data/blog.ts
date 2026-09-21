@@ -13,6 +13,16 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "types-of-property-surveys-dc-md-va",
+    title: "Types of Property Surveys: A DMV Homebuyer and Closing Guide",
+    date: "August 25, 2026",
+    dateISO: "2026-08-25",
+    excerpt: "Compare boundary surveys, location drawings, ALTA/NSPS land title surveys, topographic surveys, and building plats—and learn which survey fits a DC, Maryland, or Virginia transaction.",
+    category: "Education",
+    readTime: "9 min read",
+    image: "/blog/property-deeds-types-explained.jpg",
+  },
+  {
     slug: "title-insurance-cost-virginia-maryland",
     title: "Title Insurance Costs in Virginia and Maryland: What Buyers Actually Pay at Closing",
     date: "March 25, 2026",

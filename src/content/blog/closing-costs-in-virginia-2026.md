@@ -15,7 +15,7 @@ internal_links:
   - /blog/lenders-title-insurance-vs-owners-title-insurance → "title insurance"
   - /blog/what-does-a-title-company-do → "title company"
   - /contract-analyzer → CTA
-  - /title-company-vienna-va → "Vienna title company"
+  - /title-search-vienna-va → "Vienna title company"
   - /title-company-herndon-va → "Herndon title company"
 ---
 

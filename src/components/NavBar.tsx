@@ -13,6 +13,7 @@ interface NavGroup {
 
 const NAV_LINKS: (NavGroup | { label: string; href: string })[] = [
   { label: "Home", href: "/" },
+  { label: "About Will", href: "/about-will-rapuano" },
   {
     label: "Services",
     children: [

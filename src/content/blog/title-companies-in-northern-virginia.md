@@ -16,7 +16,7 @@ internal_links:
   - /blog/lenders-title-insurance-vs-owners-title-insurance → "title insurance"
   - /blog/closing-costs-in-virginia-2026 → "closing costs"
   - /contact → CTA
-  - /title-company-vienna-va → "Vienna title company"
+  - /title-search-vienna-va → "Vienna title company"
   - /title-company-herndon-va → "Herndon title company"
   - /title-company-springfield-va → "Springfield title company"
 ---

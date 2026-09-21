@@ -53,24 +53,11 @@ export default function MarylandClosingCostsPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Maryland Closing Cost Guide",
+            "@type": "Article",
+            headline: "Maryland Closing Cost Guide",
             url: "https://dmvtitleguy.io/closing-costs/maryland",
             description: "Complete guide to Maryland closing costs for buyers and sellers. Learn about transfer taxes, recordation fees, title insurance, and what to expect at settlement.",
-            provider: {
-              "@type": "LocalBusiness",
-              name: "DMV Title Guy — Pruitt Title LLC",
-              telephone: "(703) 859-1467",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "1900 Gallows Rd Ste 230",
-                addressLocality: "Vienna",
-                addressRegion: "VA",
-                postalCode: "22182",
-                addressCountry: "US",
-              },
-            },
-            areaServed: {
+            spatialCoverage: {
               "@type": "State",
               name: "Maryland",
             },
@@ -126,7 +113,7 @@ export default function MarylandClosingCostsPage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Maryland has the most variable closing costs in the DMV—Montgomery County's 1.5% transfer tax vs. Frederick's 1.0% can mean a $2,500 difference on a $500K home. We help buyers understand county-specific costs before signing.
+            Maryland closing costs can vary materially by county and transaction. This guide helps buyers identify county-sensitive questions before signing; verify current rates and actual charges with official sources, the lender, and the accepted provider.
           </p>
         </div>
       </section>
@@ -262,7 +249,7 @@ export default function MarylandClosingCostsPage() {
       {/* LOCATION LINKS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="t-h5 text-brand-navy mb-6">Maryland Markets We Serve</h2>
+          <h2 className="t-h5 text-brand-navy mb-6">Maryland Market Guides</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {MD_LOCATIONS.map((l) => (
               <Link

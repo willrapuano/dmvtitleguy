@@ -28,8 +28,11 @@ import {
   slugifyBlogHeading,
 } from "@/lib/blog-portable-content";
 import { serializeJsonLd } from "@/lib/json-ld";
+import { PRUITT_TITLE, WILL } from "@/lib/brand-identity";
+import { normalizeIndependentProviderVoice } from "@/lib/provider-voice.ts";
 
-export const revalidate = 0;
+// Preserve the last successful render if Sanity is temporarily unavailable.
+export const revalidate = 3600;
 
 const INTERNAL_PATH_ALIASES: Record<string, string> = {
   "/construction-loan-title-insurance": "/title-company-for-builders",
@@ -64,7 +67,7 @@ export async function generateStaticParams() {
  * 500ing generateMetadata for any post with no excerpt and no body.
  */
 function stripPortableText(blocks: any[] | null = []): string {
-  return (blocks ?? [])
+  return normalizeIndependentProviderVoice((blocks ?? [])
     .map((block) =>
       Array.isArray(block?.children)
         ? block.children.map((child: any) => child.text || "").join("")
@@ -72,7 +75,7 @@ function stripPortableText(blocks: any[] | null = []): string {
     )
     .join(" ")
     .replace(/\s+/g, " ")
-    .trim();
+    .trim());
 }
 
 
@@ -111,10 +114,10 @@ function RelatedLocalTitleServices() {
   return (
     <section className="mt-10 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
       <h2 className="t-h4 text-brand-navy mb-3">
-        Serving Buyers Across the DMV
+        Local Title and Closing Resources
       </h2>
       <p className="text-gray-700 leading-relaxed mb-5 max-w-[68ch]">
-        Need title insurance or settlement services near you? Pruitt Title serves buyers, realtors, and lenders across Virginia, Maryland, and Washington DC.
+        Use these DMV Title Guy resources to understand local costs and process. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.
       </p>
       <ul className="space-y-3 mb-6">
         {dmvTitleServiceLinks.map((link) => (
@@ -256,6 +259,20 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
    * now stripped on structure rather than on text.
    */
   const displayTitle = postDisplayTitle(post.slug, post.title);
+  const leadContext =
+    post.slug === "firpta-explained-dmv"
+      ? {
+          context: "firpta" as const,
+          title: "Request an Early FIRPTA Closing Review",
+          subtitle: "Share the timing and non-sensitive transaction context. Do not send taxpayer IDs or tax documents here.",
+        }
+      : post.slug === "types-of-property-surveys-dc-md-va"
+        ? {
+            context: "survey" as const,
+            title: "Talk Through a Survey or Title Concern",
+            subtitle: "Share the jurisdiction, timing, and issue you are trying to resolve before closing.",
+          }
+        : null;
   const heroImage = resolvePostImage(post.slug, post.image) ?? post.image;
   const heroImageAlt = resolvePostImageAlt(post.slug);
 
@@ -283,24 +300,24 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
     },
     author: {
       "@type": "Person",
-      name: "Will Rapuano",
-      jobTitle: "Business Development, Pruitt Title LLC",
-      url: "https://dmvtitleguy.io",
-      image: "https://dmvtitleguy.io/will-rapuano-headshot.jpg",
-      sameAs: [
-        "https://www.linkedin.com/in/will-rapuano-86914b130",
-        "https://www.instagram.com/dmvtitleguy",
-        "https://www.youtube.com/@dmvtitleguy",
-      ],
+      "@id": `${WILL.url}#person`,
+      name: WILL.name,
+      jobTitle: WILL.jobTitle,
+      url: WILL.url,
+      image: WILL.image,
+      worksFor: {
+        "@type": "Organization",
+        "@id": PRUITT_TITLE.id,
+        name: PRUITT_TITLE.name,
+        url: PRUITT_TITLE.url,
+      },
+      sameAs: WILL.sameAs,
     },
     publisher: {
-      "@type": "Organization",
-      name: "DMV Title Guy — Pruitt Title LLC",
-      url: "https://dmvtitleguy.io",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://dmvtitleguy.io/logo.png",
-      },
+      "@type": "Person",
+      "@id": `${WILL.url}#person`,
+      name: WILL.name,
+      url: WILL.url,
     },
   };
 
@@ -643,7 +660,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                   Ready to Get a Title Quote?
                 </h3>
                 <p className="text-white/70 mb-6 max-w-md mx-auto">
-                  Pruitt Title serves buyers, sellers, and lenders across Virginia, Maryland, and Washington DC. We make closing simple.
+                  Send your transaction details through DMV Title Guy. Will can answer initial questions and, when eligible, refer the request to Pruitt Title LLC for review.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
@@ -688,7 +705,9 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               {/* Lead Capture Form */}
               <LeadCaptureForm
                 compact
-                title="Get a Free Quote"
+                title={leadContext?.title ?? "Get a Free Quote"}
+                subtitle={leadContext?.subtitle}
+                context={leadContext?.context}
                 location={`blog-${post.slug}`}
               />
 
@@ -721,12 +740,21 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                     WR
                   </div>
                   <div>
-                    <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">Will Rapuano</p>
-                    <p className="text-xs text-gray-500 max-w-[68ch]">Business Development, Pruitt Title LLC</p>
+                    <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
+                      <Link href={WILL.url.replace("https://dmvtitleguy.io", "")} className="hover:underline">
+                        {WILL.name}
+                      </Link>
+                    </p>
+                    <p className="text-xs text-gray-500 max-w-[68ch]">{WILL.jobTitle}, Pruitt Title LLC</p>
                   </div>
                 </div>
                 <p className="text-xs text-gray-600 leading-relaxed max-w-[68ch]">
-                  Will is a title professional serving buyers, sellers, and lenders across the DMV area. He writes about real estate closings, title insurance, and navigating the DC/Maryland/Virginia markets.
+                  Will creates educational resources for buyers, sellers, agents, and lenders across the DMV and connects
+                  transaction questions with the appropriate Pruitt Title team member. Read more about{" "}
+                  <Link href="/about-will-rapuano" className="font-medium text-brand-blue-deep hover:underline">
+                    his role and this website
+                  </Link>
+                  .
                 </p>
               </div>
             </aside>

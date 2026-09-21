@@ -11,6 +11,7 @@ const files = {
   locations: "src/data/locations.ts",
   domainConfig: "config/domain-redirects.mjs",
   siteMetadata: "src/lib/site-metadata.ts",
+  brandIdentity: "src/lib/brand-identity.ts",
 };
 
 const source = Object.fromEntries(
@@ -32,14 +33,14 @@ for (const [name, contents] of Object.entries(source).filter(
 )) {
   assert.match(
     contents,
-    /https:\/\/dmvtitleguy\.io|canonical: `\/\$\{params\.slug\}`/,
+    /https:\/\/dmvtitleguy\.io|\bSITE_URL\b|canonical: `\/\$\{params\.slug\}`/,
     `${name} must identify DMVTitleGuy.io as the public origin or emit a relative canonical.`
   );
 }
 
 assert.match(
   source.generatedLocations,
-  /title: "Falls Church, VA Title Company \| Pruitt Title"/,
+  /title: "Falls Church VA Title Company Guide \| DMV Title Guy"/,
   "Falls Church must keep a concise, query-aligned, branded search title."
 );
 assert.match(
@@ -54,8 +55,13 @@ assert.match(
 );
 assert.match(
   source.marketingLayout,
-  /name: "Pruitt Title \| DMV Title Guy"/,
-  "WebSite schema must connect the public DMV Title Guy name with the Pruitt Title brand."
+  /name: SITE_NAME/,
+  "WebSite schema must use the canonical DMV Title Guy identity constant."
+);
+assert.match(
+  source.marketingLayout,
+  /"@id": PRUITT_TITLE\.id/,
+  "Marketing schema must preserve Pruitt Title as a distinct organization entity."
 );
 assert.match(
   source.siteMetadata,
@@ -63,13 +69,16 @@ assert.match(
   "Shared metadata must use the same Pruitt Title and DMV Title Guy site identity."
 );
 
+const frozenLocationRoutes = [
+  "/title-company/alexandria-va",
+  "/title-company/arlington-va",
+  "/title-company/fairfax-va",
+  "/title-company/loudoun-county-va",
+  "/title-company/prince-william-county-va",
+];
+
 const consolidatedLocationRoutes = [
-  ["/title-company/alexandria-va", "/title-company-alexandria-va"],
-  ["/title-company/arlington-va", "/title-company-arlington-va"],
-  ["/title-company/fairfax-va", "/title-search-fairfax-va"],
   ["/title-company/falls-church-va", "/title-company-falls-church-va"],
-  ["/title-company/loudoun-county-va", "/title-company-loudoun-county-va"],
-  ["/title-company/prince-william-county-va", "/title-company-prince-william-county-va"],
   ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
 ];
 
@@ -84,4 +93,20 @@ for (const [duplicate, canonical] of consolidatedLocationRoutes) {
   );
 }
 
-console.log("SEO origin, brand identity, and location consolidation contracts verified.");
+for (const route of frozenLocationRoutes) {
+  assert.ok(
+    !source.domainConfig.includes(`["${route}",`),
+    `${route} must remain directly reachable during the measurement freeze.`
+  );
+  assert.ok(
+    source.sitemap.includes(`"${route}"`) || source.sitemap.includes(`'${route}'`),
+    `${route} must remain in the sitemap during the measurement freeze.`
+  );
+  const pageSource = await readFile(`src/app/(marketing)${route}/page.tsx`, "utf8");
+  assert.ok(
+    pageSource.includes(`canonical: "${route}"`) || pageSource.includes(`canonical: '${route}'`),
+    `${route} must remain self-canonical during the measurement freeze.`
+  );
+}
+
+console.log("SEO origin, brand identity, frozen-route, and location consolidation contracts verified.");

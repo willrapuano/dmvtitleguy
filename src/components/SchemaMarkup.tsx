@@ -1,13 +1,16 @@
 /**
  * Page-level schema markup component.
- * Renders JSON-LD for LocalBusiness + Service per location page,
- * WebPage for static pages, etc.
+ * Renders page-level JSON-LD without representing every service area as a
+ * physical DMV Title Guy office.
  */
 
 import { formatLocationName, type StateCode } from "@/data/locations";
-
-const SITE_URL = "https://dmvtitleguy.io";
-const BUSINESS_NAME = "DMV Title Guy — Pruitt Title LLC";
+import {
+  SITE_NAME,
+  SITE_URL,
+  willPersonReference,
+} from "@/lib/brand-identity";
+import { serializeJsonLd } from "@/lib/json-ld";
 
 interface LocationSchemaProps {
   city: string;
@@ -44,11 +47,11 @@ export function LocationSchema({ city, state, slug, description }: LocationSchem
         ...(state !== "DC" ? { addressRegion: state } : {}),
       };
   const serviceName = isBethesda
-    ? "Bethesda-Chevy Chase MD Title Company, Escrow & Settlement Services"
-    : `Title Insurance & Closing Services in ${locationName}`;
+    ? "Bethesda-Chevy Chase MD Title and Closing Guide"
+    : `Title and Closing Guide for ${locationName}`;
   const serviceDescription = isBethesda
-    ? "Professional escrow, title search, title insurance, settlement, recording, and closing services for residential, commercial, refinance, investor, trust, and estate transactions in Bethesda-Chevy Chase and Montgomery County."
-    : `Professional title search, title insurance, and real estate closing services for buyers, sellers, agents, and lenders in ${locationName}.`;
+    ? "Educational guide to escrow, title search, title insurance, settlement, recording, and closing topics for Bethesda-Chevy Chase and Montgomery County."
+    : `Educational title-search, title-insurance, and real-estate-closing guide for ${locationName}.`;
   const serviceType = isBethesda
     ? "Escrow, Title Search, Settlement, Title Insurance, and Real Estate Closing Services"
     : "Title Insurance & Settlement Services";
@@ -56,49 +59,23 @@ export function LocationSchema({ city, state, slug, description }: LocationSchem
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "LegalService"],
-        "@id": `${SITE_URL}/${slug}#business`,
-        name: `${BUSINESS_NAME} — ${locationName}`,
-        url: `${SITE_URL}/${slug}`,
-        telephone: "(703) 859-1467",
-        email: "wrapuano@pruitt-title.com",
+        "@type": "Article",
+        "@id": `${SITE_URL}/${slug}#guide`,
+        headline: serviceName,
         description,
-        image: `${SITE_URL}/logo.png`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
-        areaServed: localAreaServed,
-        parentOrganization: {
-          "@type": "Organization",
-          name: "Pruitt Title LLC",
-          url: SITE_URL,
-        },
-      },
-      {
-        "@type": "Service",
-        "@id": `${SITE_URL}/${slug}#service`,
-        name: serviceName,
-        provider: {
-          "@type": "LocalBusiness",
-          "@id": `${SITE_URL}/${slug}#business`,
-          name: BUSINESS_NAME,
-        },
-        areaServed: localAreaServed,
-        description: serviceDescription,
-        serviceType,
+        about: { "@type": "Thing", name: serviceType },
+        spatialCoverage: localAreaServed,
+        author: willPersonReference(),
       },
       {
         "@type": "WebPage",
         "@id": `${SITE_URL}/${slug}#webpage`,
         url: `${SITE_URL}/${slug}`,
         name: `Title & Closing Services in ${locationName} | DMV Title Guy`,
-        isPartOf: { "@id": SITE_URL },
-        about: { "@id": `${SITE_URL}/${slug}` },
+        description: serviceDescription,
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        mainEntity: { "@id": `${SITE_URL}/${slug}#guide` },
+        author: willPersonReference(),
       },
     ],
   };
@@ -107,7 +84,7 @@ export function LocationSchema({ city, state, slug, description }: LocationSchem
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
     />
   );
 }
@@ -121,32 +98,24 @@ interface CountySchemaProps {
 export function CountySchema({ countyName, state, slug }: CountySchemaProps) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "LegalService"],
-    "@id": `${SITE_URL}/${slug}#business`,
-    name: `${BUSINESS_NAME} — ${countyName}`,
+    "@type": "Article",
+    "@id": `${SITE_URL}/${slug}#guide`,
+    headline: `Title and Closing Guide for ${countyName}`,
     url: `${SITE_URL}/${slug}`,
-    telephone: "(703) 859-1467",
-    image: `${SITE_URL}/logo.png`,
-    areaServed: {
+    about: { "@type": "Thing", name: "Title Insurance and Settlement" },
+    spatialCoverage: {
       "@type": "AdministrativeArea",
       name: countyName,
       addressRegion: state,
     },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "1900 Gallows Rd Ste 230",
-      addressLocality: "Vienna",
-      addressRegion: "VA",
-      postalCode: "22182",
-      addressCountry: "US",
-    },
+    author: willPersonReference(),
   };
 
   return (
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
     />
   );
 }
@@ -164,18 +133,15 @@ export function CalculatorSchema({ state, slug }: CalculatorSchemaProps) {
     url: `${SITE_URL}/${slug}`,
     applicationCategory: "FinanceApplication",
     description: `Free interactive closing cost calculator for real estate transactions in ${state}. Estimate buyer and seller closing costs.`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: BUSINESS_NAME,
-      url: SITE_URL,
-    },
+    creator: willPersonReference(),
+    publisher: willPersonReference(),
   };
 
   return (
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
     />
   );
 }
@@ -189,35 +155,23 @@ interface ServiceSchemaProps {
 export function ServiceSchema({ name, description, serviceType }: ServiceSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name,
+    "@type": "Article",
+    headline: name,
     description,
-    provider: {
-      "@type": "RealEstateAgent",
-      name: "DMV Title Guy | Pruitt Title LLC",
-      telephone: "+1-703-859-1467",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "1900 Gallows Rd Ste 230",
-        addressLocality: "Vienna",
-        addressRegion: "VA",
-        postalCode: "22182",
-        addressCountry: "US",
-      },
-      areaServed: [
-        { "@type": "State", name: "Virginia" },
-        { "@type": "State", name: "Maryland" },
-        { "@type": "State", name: "District of Columbia" },
-      ],
-    },
-    serviceType,
+    about: { "@type": "Thing", name: serviceType },
+    spatialCoverage: [
+      { "@type": "State", name: "Virginia" },
+      { "@type": "State", name: "Maryland" },
+      { "@type": "State", name: "District of Columbia" },
+    ],
+    author: willPersonReference(),
   };
 
   return (
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
     />
   );
 }
@@ -240,19 +194,11 @@ export function CityCalculatorSchema({ city, state, county, slug, faqs }: CityCa
       url: `${SITE_URL}/${slug}`,
       applicationCategory: "FinanceApplication",
       description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including local ${county} taxes.`,
-      provider: {
-        "@type": "LocalBusiness",
-        name: BUSINESS_NAME,
-        url: SITE_URL,
-        telephone: "(703) 859-1467",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "1900 Gallows Rd Ste 230",
-          addressLocality: "Vienna",
-          addressRegion: "VA",
-          postalCode: "22182",
-          addressCountry: "US",
-        },
+      creator: willPersonReference(),
+      publisher: {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
       },
     },
     {
@@ -260,7 +206,8 @@ export function CityCalculatorSchema({ city, state, county, slug, faqs }: CityCa
       "@id": `${SITE_URL}/${slug}#webpage`,
       url: `${SITE_URL}/${slug}`,
       name: `Closing Costs in ${cityLabel} | DMV Title Guy`,
-      isPartOf: { "@id": SITE_URL },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      author: willPersonReference(),
     },
   ];
 
@@ -287,7 +234,7 @@ export function CityCalculatorSchema({ city, state, county, slug, faqs }: CityCa
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
     />
   );
 }

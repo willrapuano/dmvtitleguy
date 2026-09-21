@@ -2,13 +2,13 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
+import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company Prince William County VA | Settlement & Title Services",
-  description: "Pruitt Title LLC provides expert title and settlement services in Prince William County, VA. Fast closings, competitive rates, and local expertise since 2007.",
-  alternates: { canonical: "/title-company-prince-william-county-va" },
+  description: "Practical Prince William County title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review.",
+  alternates: { canonical: "/title-company/prince-william-county-va" },
 };
 
 const faqs = [
@@ -46,7 +46,7 @@ export default function PrinceWilliamCountyTitlePage() {
         state="VA"
         county="Prince William County"
         slug="title-company/prince-william-county-va"
-        description="Pruitt Title LLC provides expert title and settlement services in Prince William County, VA. Fast closings, competitive rates, and local expertise since 2007."
+        description="Practical Prince William County title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
       />
 
       {/* HERO */}
@@ -63,12 +63,12 @@ export default function PrinceWilliamCountyTitlePage() {
             Title Company Prince William County VA &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC proudly serves Prince William County homeowners and real estate professionals. From Woodbridge to Gainesville, we deliver reliable title and settlement services tailored to this dynamic Northern Virginia market.
+            DMV Title Guy publishes practical Prince William County title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
           </p>
         </div>
       </section>
 
-      <TitleQuoteEmbed title="Get a Prince William County TitleCapture Quote" />
+      <ClosingCostCalculator state="VA" />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
@@ -81,7 +81,7 @@ export default function PrinceWilliamCountyTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Prince William County offers some of the best value in Northern Virginia with a median home price around $525K. But with 15 average days on market, buyers still need a title partner who can move fast. We keep Prince William closings on schedule.
+            Prince William County transactions can have short contingencies across varied property types. Confirm the accepted provider&apos;s capacity, record-review timing, communication process, and responsibility for each closing milestone.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function PrinceWilliamCountyTitlePage() {
               Prince William County is Northern Virginia's most populous county and one of its most affordable major jurisdictions. With a median home price around $525,000 and homes typically selling in about 15 days, Prince William attracts first-time buyers, growing families, and military personnel stationed at Quantico.
             </p>
             <p className="max-w-[68ch]">
-              The county's real estate market is incredibly diverse. Woodbridge and Dale City offer established neighborhoods with mature trees and community amenities. Gainesville and Bristow feature newer construction with modern floor plans. Manassas and Manassas Park provide historic charm with urban conveniences. Each area presents unique title considerations, from HOA covenants in planned communities to historic easements in older districts. Our team's deep knowledge of Prince William County ensures smooth closings no matter the property type.
+              The county's market spans established Woodbridge and Dale City neighborhoods, newer Gainesville and Bristow construction, and historic Manassas properties. Title considerations can range from HOA covenants to older easements. Ask the accepted provider how it will investigate the particular property and communicate any issues.
             </p>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function PrinceWilliamCountyTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
             </Link>
           </div>
         </div>
@@ -176,16 +176,16 @@ export default function PrinceWilliamCountyTitlePage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
-            <Link href="/title-company-loudoun-county-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/loudoun-county-va" className="text-brand-blue-deep hover:underline">
               Loudoun County Title Services →
             </Link>
-            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
             <Link href="/title-company-falls-church-va" className="text-brand-blue-deep hover:underline">
@@ -213,7 +213,7 @@ export default function PrinceWilliamCountyTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Prince William County Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Prince William County property.
+            Send Will the Prince William County property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

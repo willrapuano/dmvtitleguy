@@ -2,13 +2,13 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
+import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company in Fairfax, VA | Settlement & Title Insurance",
-  description: "Fairfax VA title company for title search, insurance, escrow, and settlement. 17+ years closing Fairfax County deals. Get a free Pruitt Title quote online today.",
-  alternates: { canonical: "/title-search-fairfax-va" },
+  description: "Practical Fairfax title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title for independent review.",
+  alternates: { canonical: "/title-company/fairfax-va" },
 };
 
 const faqs = [
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "Can I schedule a weekend closing in Fairfax?",
-    answer: "Yes! Pruitt Title offers flexible closing times including evenings and weekends to accommodate busy schedules. We work around your availability to ensure a smooth closing experience.",
+    answer: "Signing availability depends on the provider, lender, documents, jurisdiction, and transaction. If Pruitt accepts the file, confirm any evening, weekend, remote, mobile, or office option directly with Pruitt.",
   },
   {
     question: "What is the average time to close in Fairfax?",
@@ -46,7 +46,7 @@ export default function FairfaxTitlePage() {
         state="VA" 
         county="Fairfax County" 
         slug="title-company/fairfax-va"
-        description="Pruitt Title LLC provides expert title and settlement services in Fairfax, VA. Fast closings, competitive rates, and local expertise since 2007."
+        description="Practical Fairfax title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
       />
 
       {/* HERO */}
@@ -63,12 +63,12 @@ export default function FairfaxTitlePage() {
             Reliable Title &amp; Settlement Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC is Fairfax County's trusted name in title services. With deep roots in the community and extensive experience with Fairfax County's unique requirements, we ensure your closing is efficient and stress-free.
+            DMV Title Guy publishes practical Fairfax title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
           </p>
         </div>
       </section>
 
-      <TitleQuoteEmbed title="Get a Fairfax TitleCapture Quote" />
+      <ClosingCostCalculator state="VA" />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
@@ -81,7 +81,7 @@ export default function FairfaxTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Fairfax is Virginia's most populous county—with 1.1M residents, delays here mean bigger risks. Our local team has direct access to Fairfax County land records for 48-hour title turnarounds.
+            Fairfax County has a high transaction volume and varied property histories. Confirm record availability, provider capacity, and title-review timing for the specific file before relying on a closing deadline.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function FairfaxTitlePage() {
               Fairfax County is the most populous jurisdiction in Virginia and one of the wealthiest counties in America. With a median home price around $650,000 and top-rated schools, Fairfax attracts families and professionals seeking quality of life near Washington DC.
             </p>
             <p className="max-w-[68ch]">
-              The Fairfax real estate market is diverse, from starter homes in established neighborhoods to luxury estates in Great Falls and McLean. This variety means title issues can be complex—older properties may have easements, covenants, or heirship concerns that require careful research. Pruitt Title's local expertise catches these issues early, keeping your transaction on track.
+              The Fairfax market ranges from older neighborhoods to Great Falls and McLean estates. Title questions can include easements, covenants, unreleased liens, or heirship concerns. Ask the accepted provider how it will investigate and communicate those matters.
             </p>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function FairfaxTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
             </Link>
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function FairfaxTitlePage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
             <Link href="/title-search-vienna-va" className="text-brand-blue-deep hover:underline">
@@ -185,7 +185,7 @@ export default function FairfaxTitlePage() {
             <Link href="/title-company-mclean-va" className="text-brand-blue-deep hover:underline">
               McLean Title Services →
             </Link>
-            <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
               Alexandria Title Services →
             </Link>
             <Link href="/title-company-falls-church-va" className="text-brand-blue-deep hover:underline">
@@ -213,7 +213,7 @@ export default function FairfaxTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Fairfax Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Fairfax property.
+            Send Will the Fairfax property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

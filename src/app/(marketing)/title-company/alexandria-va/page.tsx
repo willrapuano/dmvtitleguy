@@ -2,13 +2,13 @@ import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
-import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
+import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company Alexandria VA | Settlement & Title Services",
-  description: "Pruitt Title LLC provides expert title and settlement services in Alexandria, VA. Fast closings, competitive rates, and local expertise since 2007.",
-  alternates: { canonical: "/title-company-alexandria-va" },
+  description: "Practical Alexandria title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review.",
+  alternates: { canonical: "/title-company/alexandria-va" },
 };
 
 const faqs = [
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: "How do historic covenants affect Alexandria title?",
-    answer: "Many Old Town properties have historic covenants and preservation restrictions that run with the land. Our title search specifically identifies these to ensure buyers understand any use restrictions before closing.",
+    answer: "Many Old Town properties have historic covenants or preservation restrictions. Ask the accepted provider whether its title-search scope addresses those recorded matters and how exceptions will be explained before closing.",
   },
   {
     question: "Are RON closings available in Alexandria?",
@@ -46,7 +46,7 @@ export default function AlexandriaTitlePage() {
         state="VA" 
         county="Alexandria City" 
         slug="title-company/alexandria-va"
-        description="Pruitt Title LLC provides expert title and settlement services in Alexandria, VA. Fast closings, competitive rates, and local expertise since 2007."
+        description="Practical Alexandria title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
       />
 
       {/* HERO */}
@@ -63,12 +63,12 @@ export default function AlexandriaTitlePage() {
             Title Company Alexandria VA &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Pruitt Title LLC has been serving Alexandria homeowners and real estate professionals for years. From historic Old Town townhouses to new construction in West End, we understand Alexandria's unique real estate landscape.
+            DMV Title Guy publishes practical Alexandria title and closing guidance, from Old Town properties to West End new construction. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
           </p>
         </div>
       </section>
 
-      <TitleQuoteEmbed title="Get an Alexandria TitleCapture Quote" />
+      <ClosingCostCalculator state="VA" />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
@@ -81,7 +81,7 @@ export default function AlexandriaTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Alexandria's 270-year history means properties here can have complex, centuries-old title issues. Our team has specific expertise in historic covenants common in Old Town and surrounding neighborhoods.
+            Alexandria's long history means some properties can involve older deeds, easements, or historic covenants. Ask the accepted provider how it will review the record chain and property-specific exceptions.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function AlexandriaTitlePage() {
               Alexandria is a unique market in Northern Virginia—an independent city with its own character, separate from Fairfax County. With a median home price around $550,000 and a mix of historic properties, condos, and new construction, Alexandria offers something for every buyer.
             </p>
             <p className="max-w-[68ch]">
-              The city's historic district, dating back to the 1700s, presents unique title considerations. Properties may have historic easements, preservation covenants, or older title issues that require careful research. Meanwhile, the West End andhybla Valley areas offer newer construction with more straightforward titles. Our team handles both with equal expertise.
+              The city's historic district presents different title considerations from newer West End and Hybla Valley construction. Properties may involve historic easements, preservation covenants, or older record-chain questions that the accepted provider should research within its confirmed scope.
             </p>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function AlexandriaTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & start your title search.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
             </Link>
           </div>
         </div>
@@ -176,10 +176,10 @@ export default function AlexandriaTitlePage() {
             <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
               Virginia Closing Cost Calculator →
             </Link>
-            <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
             <Link href="/title-company-falls-church-va" className="text-brand-blue-deep hover:underline">
@@ -207,7 +207,7 @@ export default function AlexandriaTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Alexandria Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us for a competitive title insurance quote for your Alexandria property.
+            Send Will the Alexandria property details to request an educational review or a possible provider introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

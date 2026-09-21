@@ -44,7 +44,7 @@ export default function DCCalculatorPage() {
               <li>Typically split 50/50 between buyer and seller by contract</li>
               <li>First-time DC homebuyer exemptions available on recordation tax</li>
             </ul>
-            <p className="max-w-[68ch]">DC title insurance rates are set by the DC Insurance Commissioner. Pruitt Title LLC provides owner&apos;s and lender&apos;s coverage for all transaction types.</p>
+            <p className="max-w-[68ch]">Title insurance premiums and eligibility depend on the filed rates, policy type, transaction, and underwriter. Use this calculator for planning, then request a current written quote for the property.</p>
           </div>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function DCCalculatorPage() {
         <div className="container-xl">
           <div className="text-center">
             <h2 className="t-h5 text-brand-navy mb-3">Need Help with Your DC Closing?</h2>
-            <p className="text-brand-muted mb-5 text-sm max-w-[68ch] mx-auto leading-relaxed">Contact Will Rapuano at Pruitt Title LLC for a precise quote on your DC transaction.</p>
+            <p className="text-brand-muted mb-5 text-sm max-w-[68ch] mx-auto leading-relaxed">Contact Will Rapuano through DMV Title Guy to request a current quote and confirm whether the transaction can be accepted.</p>
             <div className="flex justify-center gap-4">
               <Link href="/calculators/title-quote" className="btn-primary">Get a Quote</Link>
               <Link href="/title-company-washington-dc" className="btn-outline">DC Title Services</Link>
