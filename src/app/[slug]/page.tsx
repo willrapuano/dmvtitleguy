@@ -276,7 +276,7 @@ function TysonsExpansionSections() {
     <>
       <section className="section-light border-t border-gray-100">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Overview</p>
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">Overview</p>
           <h2 className={sectionHeadingClass}>Tysons VA Title Company for Residential and Commercial Closings</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
@@ -291,7 +291,7 @@ function TysonsExpansionSections() {
 
       <section className="section-gray">
         <div className="container-xl max-w-5xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Services</p>
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">Services</p>
           <h2 className={sectionHeadingClass}>Title and Settlement Services in Tysons</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -312,7 +312,7 @@ function TysonsExpansionSections() {
 
       <section className="section-light">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Why Pruitt Title</p>
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">Why Pruitt Title</p>
           <h2 className={sectionHeadingClass}>Why Choose Pruitt Title for Tysons?</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
@@ -331,7 +331,7 @@ function TysonsExpansionSections() {
 
       <section className="section-gray">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Local Expertise</p>
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">Local Expertise</p>
           <h2 className={sectionHeadingClass}>Local Expertise Across Tysons Corner, McLean, and Fairfax County</h2>
           <p className={`${bodyClass} mb-5`}>
             Tysons closings can touch Fairfax County land records, HOA and condo documents, commercial leases, easements, access rights, prior releases, entity authority, and lender-specific title endorsements. Our nearby team understands the local market and coordinates with parties across Tysons Corner, McLean, Vienna, Merrifield, Dunn Loring, and the broader Fairfax County corridor.
@@ -432,7 +432,7 @@ function BethesdaExpansionSections() {
     <>
       <section className="section-light border-t border-gray-100">
         <div className="container-xl max-w-4xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Bethesda-Chevy Chase Closings</p>
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">Bethesda-Chevy Chase Closings</p>
           <h2 className={sectionHeadingClass}>Bethesda-Chevy Chase Title &amp; Escrow Services</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
@@ -931,7 +931,7 @@ function LocationPage({ location }: { location: Location }) {
         <div className="container-xl">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">What to Understand</p>
+              <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">What to Understand</p>
               <h2 className="t-h3 text-brand-navy mb-4">Title and Closing Topics in {locationName}</h2>
               <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
                 These are common parts of a real estate closing. The provider that accepts the transaction must confirm its responsibilities, availability, pricing, timing, terms, and required disclosures directly.
@@ -966,7 +966,7 @@ function LocationPage({ location }: { location: Location }) {
       <section className="section-gray">
         <div className="container-xl">
           <div className="text-center mb-10">
-            <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">How It Works</p>
+            <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">How It Works</p>
             <h2 className="prose-title">The Closing Process in {city}</h2>
             <p className="prose-subtitle max-w-2xl mx-auto">
               From contract to keys, here&apos;s the typical process after a title company accepts a transaction in {locationName}.
@@ -1312,7 +1312,7 @@ function CountyPage({ county }: { county: County }) {
       <section className="section-light">
         <div className="container-xl">
           <div className="text-center mb-10">
-            <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Service Coverage</p>
+            <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">Service Coverage</p>
             <h2 className="prose-title">Cities &amp; Communities in {name}</h2>
             <p className="prose-subtitle max-w-xl mx-auto">Explore local closing guidance for communities across {fullName}.</p>
           </div>

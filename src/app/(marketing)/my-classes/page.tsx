@@ -115,7 +115,7 @@ export default function MyClassesPage() {
       {/* Past Classes & Workshops */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-2">Past Classes &amp; Workshops</h2>
+          <h2 className="prose-title mb-2">Past Classes &amp; Workshops</h2>
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {PAST_CLASSES.map((c) => (
               <div key={c.title} className="card p-6">

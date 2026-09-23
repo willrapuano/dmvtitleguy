@@ -64,7 +64,7 @@ export function SubscribePageClient() {
       {/* Join Our Community */}
       <section className="section-light">
         <div className="container-xl max-w-2xl">
-          <h2 className="prose-title text-center mb-2">Join Our Community</h2>
+          <h2 className="prose-title mb-2">Join Our Community</h2>
 
           <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mt-8">
             {/* Benefits */}

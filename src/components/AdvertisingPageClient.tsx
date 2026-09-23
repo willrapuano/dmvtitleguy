@@ -95,7 +95,7 @@ export function AdvertisingPageClient() {
               {status === "pending" ? <LeadSubmissionPending /> : status === "success" ? (
                 <div ref={successRef} role="status" aria-live="polite" tabIndex={-1} className="text-center py-8 focus:outline-none">
                   <div className="mb-3"><Rocket size={30} strokeWidth={1.5} className="text-brand-blue-deep" aria-hidden="true" /></div>
-                  <h3 className="t-h6 text-brand-navy mb-2">We&apos;re on it!</h3>
+                  <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">We&apos;re on it!</h3>
                   <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">Your listing has been submitted. We&apos;ll launch your campaign within 48 hours.</p>
                 </div>
               ) : (
@@ -148,7 +148,7 @@ export function AdvertisingPageClient() {
       {/* How It Works */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-2">How It Works</h2>
+          <h2 className="prose-title mb-2">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-8 mt-10">
             {STEPS.map((step) => (
               <div key={step.num} className="text-center">
@@ -166,7 +166,7 @@ export function AdvertisingPageClient() {
       {/* Advertising Packages */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-2">Advertising Packages</h2>
+          <h2 className="prose-title mb-2">Advertising Packages</h2>
           <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-4xl mx-auto">
             {/* Listing Traffic Boost */}
             <div className="bg-white rounded-xl shadow-lg border-2 border-brand-blue overflow-hidden">
@@ -214,7 +214,7 @@ export function AdvertisingPageClient() {
       {/* Why Advertise */}
       <section className="section-gray">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-2">Why Advertise Your Listings?</h2>
+          <h2 className="prose-title mb-2">Why Advertise Your Listings?</h2>
           <div className="grid md:grid-cols-2 gap-6 mt-10 max-w-4xl mx-auto">
             {WHY_ADVERTISE.map((item) => (
               <div key={item.title} className="surface-card p-6">

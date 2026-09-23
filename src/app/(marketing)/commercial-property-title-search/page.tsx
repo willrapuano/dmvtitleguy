@@ -198,16 +198,15 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">Commercial vs. Residential Title Search</h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">Commercial vs. Residential Title Search</h2>
+          <p className="text-brand-ink text-lg mb-12 max-w-2xl">
             Commercial title work has more moving parts. The review must account
             for ownership structure, lender requirements, operations, and future use.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {differences.map((item) => (
               <div key={item.title} className="bg-gray-50 rounded-lg p-6">
-                <item.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{item.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -217,16 +216,15 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">Common Commercial Title Issues</h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">Common Commercial Title Issues</h2>
+          <p className="text-brand-ink text-lg mb-12 max-w-2xl">
             We look for issues that can affect lender approval, title insurance,
             use of the property, and your ability to exit later.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {issues.map((item) => (
-              <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
-                <item.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
+              <div key={item.title} className="border-t-2 border-brand-navy pt-5">
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{item.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -236,8 +234,8 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl max-w-4xl">
-          <h2 className="prose-title text-center mb-4">Commercial Due Diligence Support</h2>
-          <p className="text-brand-muted text-center text-lg mb-10 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">Commercial Due Diligence Support</h2>
+          <p className="text-brand-ink text-lg mb-10 max-w-2xl">
             Title due diligence should produce usable answers, not just a pile
             of exceptions. The accepted provider should turn its search into a clear action plan.
           </p>
@@ -254,14 +252,11 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
-                  <step.icon className="h-7 w-7 text-brand-navy" />
-                </div>
-                <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{step.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
@@ -297,7 +292,7 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
+          <h2 className="prose-title mb-10">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <details key={faq.q} className="bg-white rounded-lg shadow-sm group">

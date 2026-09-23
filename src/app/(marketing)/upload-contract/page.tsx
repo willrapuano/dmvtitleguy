@@ -76,14 +76,11 @@ export default function UploadContractPage() {
       {/* WHAT HAPPENS NEXT */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">What Happens Next</h2>
+          <h2 className="prose-title mb-12">What Happens Next</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {nextSteps.map((step) => (
               <div key={step.title} className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
-                  <step.icon className="h-7 w-7 text-brand-navy" />
-                </div>
-                <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{step.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
@@ -94,7 +91,7 @@ export default function UploadContractPage() {
       {/* FAQ */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
+          <h2 className="prose-title mb-10">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
               <div key={faq.q} className="surface-card p-6">

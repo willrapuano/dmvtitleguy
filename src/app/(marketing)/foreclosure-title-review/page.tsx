@@ -216,20 +216,17 @@ export default function ForeclosureTitleReviewPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">Foreclosure Title Risks</h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">Foreclosure Title Risks</h2>
+          <p className="text-brand-ink text-lg mb-12 max-w-2xl">
             Foreclosure can clear some issues and leave others behind. Buyers
             need to know what survived, what is defective, and what must be
             resolved before closing.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {foreclosureRisks.map((item) => (
-              <div key={item.title} className="flex gap-4">
-                <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-green">
-                  <item.icon className="h-6 w-6 text-brand-navy" />
-                </div>
+              <div key={item.title} className="border-t-2 border-brand-navy pt-5">
                 <div>
-                  <h3 className="t-h6 text-brand-navy mb-1">{item.title}</h3>
+                  <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{item.title}</h3>
                   <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -240,17 +237,16 @@ export default function ForeclosureTitleReviewPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">What Foreclosure Title Review Covers</h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">What Foreclosure Title Review Covers</h2>
+          <p className="text-brand-ink text-lg mb-12 max-w-2xl">
             The review focuses on recorded matters and foreclosure-specific
             title issues that can affect closing, title insurance, resale, and
             refinance.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviewCovers.map((item) => (
-              <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
-                <item.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
+              <div key={item.title} className="border-t-2 border-brand-navy pt-5">
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{item.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -260,8 +256,8 @@ export default function ForeclosureTitleReviewPage() {
 
       <section className="section-light">
         <div className="container-xl max-w-4xl">
-          <h2 className="prose-title text-center mb-4">Why Title Review Before Foreclosure Closing Matters</h2>
-          <p className="text-brand-muted text-center text-lg mb-10 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">Why Title Review Before Foreclosure Closing Matters</h2>
+          <p className="text-brand-ink text-lg mb-10 max-w-2xl">
             Title findings should be available while there is still time to
             cure, negotiate, underwrite, or make a different decision.
           </p>
@@ -278,14 +274,11 @@ export default function ForeclosureTitleReviewPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
-                  <step.icon className="h-7 w-7 text-brand-navy" />
-                </div>
-                <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{step.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
@@ -321,7 +314,7 @@ export default function ForeclosureTitleReviewPage() {
 
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
+          <h2 className="prose-title mb-10">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <details key={faq.q} className="bg-white rounded-lg shadow-sm group">
