@@ -1145,7 +1145,7 @@ function LocationPage({ location }: { location: Location }) {
             <h2 className="t-h5 text-brand-navy mb-4">Also Serving Communities Near {city}</h2>
             <div className="flex flex-wrap gap-3">
               {alsoServing.map((community) => (
-                <span key={community} className="text-sm bg-brand-gray-bg border border-gray-200 rounded-full px-4 py-1 text-brand-muted">
+                <span key={community} className="text-sm bg-brand-gray-bg border border-gray-200 rounded-none px-4 py-1 text-brand-muted">
                   {community}
                 </span>
               ))}
@@ -1320,7 +1320,7 @@ function CountyPage({ county }: { county: County }) {
             {citiesInCounty.map((loc) => (
               <Link key={loc.slug} href={`/${loc.slug}`} className="bg-brand-gray-bg hover:bg-brand-action hover:text-white border border-gray-200 rounded-lg p-4 text-center transition-colors group">
                 <p className="font-semibold text-brand-navy group-hover:text-white max-w-[68ch] leading-relaxed">{loc.city}</p>
-                <p className="text-xs text-brand-muted group-hover:text-blue-100 mt-1 max-w-[68ch]">{loc.tier === 1 ? "Primary Market" : "Service Area"}</p>
+                <p className="text-xs text-brand-muted group-hover:text-brand-blue-100 mt-1 max-w-[68ch]">{loc.tier === 1 ? "Primary Market" : "Service Area"}</p>
               </Link>
             ))}
           </div>

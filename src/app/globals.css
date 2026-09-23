@@ -3,18 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --site-canvas: #fbfcfd;
+  /* Capital Standard (Paper, Sep 2026): white ground, navy structure, one brass
+     accent, square edges, no drop shadows. */
+  --site-canvas: #ffffff;
   --site-surface: #ffffff;
-  --site-subtle: #f3f6f8;
-  --site-line: #dce4e8;
-  --site-navy: #0b1d3a;
-  --site-ink: #26384b;
-  --site-muted: #5d6b78;
-  --site-action: #1b6fa8;
-  --site-action-dark: #155a87;
+  --site-subtle: #f4f7f8;
+  --site-line: #d7e0e5;
+  --site-navy: #0b2742;
+  --site-ink: #17354d;
+  --site-muted: #536c7c;
+  --site-action: #0b2742;
+  --site-action-dark: #17354d;
+  --site-brass: #c5a25d;
   --site-blush: #f7edef;
-  --site-shadow-sm: 0 1px 2px rgb(11 29 58 / 0.04), 0 10px 30px -24px rgb(11 29 58 / 0.28);
-  --site-shadow-md: 0 24px 60px -36px rgb(11 29 58 / 0.42);
+  --site-shadow-sm: none;
+  --site-shadow-md: none;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -44,10 +47,10 @@
 
 /* ─── Blog Article Body ─── */
 .blog-content {
-  max-width: 680px;
-  color: #374151;
-  line-height: 1.85;
-  font-size: 1.0625rem;
+  max-width: 720px;
+  color: #17354D;
+  line-height: 1.75;
+  font-size: 1.125rem;
 }
 
 .blog-content p {
@@ -57,23 +60,22 @@
 
 .blog-content h2 {
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #0B1D3A;
-  margin-top: 2.25rem;
-  margin-bottom: 0.875rem;
-  line-height: 1.25;
-  padding-left: 0.875rem;
-  border-left: 4px solid #1B6FA8;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #0B2742;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.15;
   scroll-margin-top: 6rem;
 }
 
 .blog-content h3 {
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0B1D3A;
-  margin-top: 1.75rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0B2742;
+  margin-top: 2rem;
   margin-bottom: 0.625rem;
   line-height: 1.3;
   scroll-margin-top: 6rem;
@@ -82,7 +84,7 @@
 .blog-content h4 {
   font-size: 1.0625rem;
   font-weight: 700;
-  color: #0B1D3A;
+  color: #0B2742;
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
 }
@@ -115,7 +117,7 @@
 
 .blog-content strong {
   font-weight: 700;
-  color: #0B1D3A;
+  color: #0B2742;
 }
 
 .blog-content em {
@@ -126,22 +128,28 @@
   /* #3BAEF7 measured 2.45:1 on white — inline body links failed AA, and because
      this selector is class+element it silently overrode the utility class on
      every one of them. #1B6FA8 is 5.5:1. */
-  color: #1B6FA8;
-  text-decoration: none;
+  color: #0B2742;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #C5A25D;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 .blog-content a:hover {
-  text-decoration: underline;
+  text-decoration-color: #0B2742;
 }
 
+/* Statute and source quotes are the site's evidence, so they get a cited block. */
 .blog-content blockquote {
-  border-left: 4px solid #1B6FA8;
-  background-color: #f0f8ff;
-  padding: 1rem 1.25rem;
-  margin: 1.75rem 0;
-  border-radius: 0 0.5rem 0.5rem 0;
-  color: #1e3a5f;
-  font-style: italic;
+  border-left: 4px solid #C5A25D;
+  background-color: #F4F7F8;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  color: #0B2742;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.55;
 }
 
 .blog-content blockquote p {
@@ -182,7 +190,7 @@
 }
 
 .blog-content th {
-  background-color: #0B1D3A;
+  background-color: #0B2742;
   color: #fff;
   padding: 0.625rem 0.875rem;
   text-align: left;
@@ -201,7 +209,7 @@
 }
 
 .blog-content img {
-  border-radius: 0.5rem;
+  border-radius: 0;
   max-width: 100%;
   height: auto;
   margin: 1.5rem 0;
@@ -239,7 +247,6 @@
 @media (hover: hover) and (pointer: fine) {
   .editorial-card:hover {
     border-color: rgb(27 111 168 / 0.28);
-    box-shadow: 0 18px 40px -24px rgb(11 29 58 / 0.42);
   }
 
   .editorial-card:hover img {
@@ -267,26 +274,31 @@
      White on the old #3BAEF7 measured 2.45:1. brand-action (#1B6FA8) carries
      white text at 5.5:1 and reads as the same blue family, just deeper. */
   .btn-primary {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-action px-6 py-3 font-semibold text-white transition-[background-color,color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-none bg-brand-action px-6 py-3 font-semibold text-white transition-[background-color,color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action;
     transition-timing-function: var(--ease-out);
   }
   .btn-primary:hover { @apply bg-brand-action-dark; }
   .btn-outline {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-brand-action bg-transparent px-6 py-3 font-semibold text-brand-action transition-[background-color,color,border-color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-none border border-brand-action bg-transparent px-6 py-3 font-semibold text-brand-action transition-[background-color,color,border-color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action;
     transition-timing-function: var(--ease-out);
   }
   .btn-outline:hover { @apply bg-brand-action text-white; }
   /* On navy/photo sections, where the border and label are already white. */
   .btn-on-dark {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/70 px-6 py-3 font-semibold text-white transition-[background-color,color,border-color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-none border border-white/70 px-6 py-3 font-semibold text-white transition-[background-color,color,border-color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
     transition-timing-function: var(--ease-out);
   }
   .btn-on-dark:hover { @apply border-white bg-white text-brand-navy; }
   .btn-light {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-brand-action transition-[background-color,color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-none bg-white px-6 py-3 font-semibold text-brand-action transition-[background-color,color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
     transition-timing-function: var(--ease-out);
   }
   .btn-light:hover { @apply bg-brand-blue-50 text-brand-action-dark; }
+  /* The one accent button: brass with navy text (6.1:1). */
+  .btn-brass {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-none bg-brand-brass px-6 py-3 font-bold text-brand-navy transition-[background-color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy;
+  }
+  .btn-brass:hover { @apply bg-brand-brass-dark; }
 
   /* ── Section rhythm ──
      Was a spread of py-12/16/20/24 across pages; one scale keeps the vertical
@@ -317,22 +329,22 @@
     @apply mx-auto max-w-[1240px] px-5 sm:px-6 lg:px-8;
   }
   .card {
-    @apply overflow-hidden rounded-2xl border bg-white;
+    @apply overflow-hidden rounded-none border bg-white;
     border-color: var(--site-line);
     box-shadow: var(--site-shadow-sm);
   }
   .surface-card {
-    @apply rounded-2xl border bg-white;
+    @apply rounded-none border bg-white;
     border-color: var(--site-line);
     box-shadow: var(--site-shadow-sm);
   }
   .surface-card-elevated {
-    @apply rounded-2xl border bg-white;
+    @apply rounded-none border bg-white;
     border-color: rgb(220 228 232 / 0.82);
     box-shadow: var(--site-shadow-md);
   }
   .surface-subtle {
-    @apply rounded-2xl border;
+    @apply rounded-none border;
     border-color: var(--site-line);
     background: var(--site-subtle);
   }
@@ -358,25 +370,24 @@
     @apply max-w-3xl;
   }
   .page-hero-eyebrow {
-    @apply mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300;
+    @apply mb-4 text-xs font-bold uppercase tracking-[0.16em] text-brand-brass;
   }
   .page-hero-lede {
-    @apply mt-5 max-w-[64ch] text-base leading-relaxed text-slate-200 md:text-lg;
+    @apply mt-5 max-w-[64ch] text-lg leading-relaxed text-slate-100 md:text-xl;
   }
 
   .form-control {
-    @apply min-h-12 w-full rounded-xl border bg-white px-4 py-3 text-sm text-brand-dark-text outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-slate-400 focus:border-brand-action focus:ring-4 focus:ring-brand-blue-100;
+    @apply min-h-12 w-full rounded-none border bg-white px-4 py-3 text-base text-brand-dark-text outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-slate-400 focus:border-brand-action focus:ring-4 focus:ring-brand-blue-100;
     border-color: var(--site-line);
   }
   .form-label {
     @apply mb-1.5 block text-sm font-semibold text-brand-navy;
   }
   .trust-chip {
-    @apply inline-flex min-h-9 items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-brand-navy;
-    box-shadow: 0 1px 2px rgb(11 29 58 / 0.04);
+    @apply inline-flex min-h-9 items-center gap-2 rounded-none border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-brand-navy;
   }
   .cta-panel {
-    @apply relative overflow-hidden rounded-3xl bg-brand-navy px-6 py-10 text-white sm:px-10 md:px-14 md:py-14;
+    @apply relative overflow-hidden rounded-none bg-brand-navy px-6 py-10 text-white sm:px-10 md:px-14 md:py-14;
     background-image:
       radial-gradient(circle at 88% 12%, rgb(59 174 247 / 0.22), transparent 24rem),
       linear-gradient(135deg, #0b1d3a, #123452);
@@ -394,22 +405,22 @@
   /* Starts at text-3xl: these headings run long (the homepage H1 is 16 words),
      and at text-4xl a phone showed nothing but the heading. Unchanged from sm up. */
   .t-display {
-    @apply font-display text-4xl sm:text-5xl lg:text-[4rem] font-semibold leading-[1.02] tracking-[-0.035em];
+    @apply font-display text-4xl sm:text-5xl lg:text-[4rem] font-medium leading-[1.02] tracking-[-0.03em];
   }
   .t-h1 {
-    @apply font-display text-4xl md:text-5xl font-semibold leading-[1.1] tracking-[-0.02em];
+    @apply font-display text-4xl md:text-6xl font-medium leading-[1.05] tracking-[-0.025em];
   }
   .t-h2 {
-    @apply font-display text-3xl md:text-4xl font-semibold leading-[1.16] tracking-[-0.015em];
+    @apply font-display text-3xl md:text-5xl font-medium leading-[1.1] tracking-[-0.02em];
   }
   .t-h3 {
-    @apply font-display text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.01em];
+    @apply font-display text-2xl md:text-3xl font-medium leading-snug tracking-[-0.01em];
   }
   .t-h4 {
-    @apply font-display text-xl md:text-2xl font-semibold leading-snug;
+    @apply font-display text-xl md:text-2xl font-medium leading-snug;
   }
   .t-h5 {
-    @apply font-display text-lg md:text-xl font-semibold leading-snug;
+    @apply font-display text-lg md:text-xl font-medium leading-snug;
   }
   .t-h6 {
     @apply text-base md:text-lg font-bold leading-snug;
@@ -429,14 +440,14 @@
 
   /* Eyebrow + heading pair for section headers on light backgrounds. */
   .section-label {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue-deep;
+    @apply text-xs font-bold uppercase tracking-[0.16em] text-brand-muted;
   }
   .section-title {
     @apply t-h4 text-brand-navy mt-1.5;
   }
   /* Same eyebrow on navy/photo, where the light brand blue is legible again. */
   .section-label-on-dark {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue;
+    @apply text-xs font-bold uppercase tracking-[0.16em] text-brand-brass;
   }
   .prose-title {
     @apply t-h2 text-brand-navy;

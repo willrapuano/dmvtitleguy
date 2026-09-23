@@ -39,7 +39,7 @@ export default async function PendingPage() {
             Access to the Contract Analyzer requires approval.
           </p>
 
-          <div className="rounded-lg bg-blue-50 border border-blue-200 p-4 text-sm text-blue-800">
+          <div className="rounded-lg bg-brand-gray-bg border border-brand-blue-200 p-4 text-sm text-brand-blue-800">
             <p className="font-medium mb-1 max-w-[68ch] leading-relaxed">What happens next?</p>
             <p className="max-w-[68ch]">
               We&apos;ll review your request and grant access shortly. You&apos;ll be

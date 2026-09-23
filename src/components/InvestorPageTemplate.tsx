@@ -141,18 +141,18 @@ export function InvestorPageTemplate({
               <Link
                 key={p.href}
                 href={p.href}
-                className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-full px-4 py-1.5 hover:bg-brand-action hover:text-white transition-colors"
+                className="text-sm border border-brand-blue-deep text-brand-blue-deep rounded-none px-4 py-1.5 hover:bg-brand-action hover:text-white transition-colors"
               >
                 {p.label}
               </Link>
             ))}
-            <Link href="/virginia-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-full px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
+            <Link href="/virginia-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
               VA Closing Cost Calculator
             </Link>
-            <Link href="/maryland-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-full px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
               MD Closing Cost Calculator
             </Link>
-            <Link href="/" className="text-sm border border-gray-200 text-brand-muted rounded-full px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
+            <Link href="/" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
               ← Back to Home
             </Link>
           </div>

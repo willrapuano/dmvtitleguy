@@ -66,13 +66,13 @@ export default function CityCalculatorPage({ data }: Props) {
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">{data.intro}</p>
           <div className="flex flex-wrap gap-3 mt-6">
-            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-none">
               Median Price: ${data.medianHomePrice.toLocaleString()}
             </span>
-            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-none">
               Est. Range: {data.costRangeText}
             </span>
-            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-none">
               {data.county}
             </span>
           </div>

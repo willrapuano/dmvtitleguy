@@ -112,7 +112,7 @@ function PostImage({
 function PostMeta({ post, className = "" }: { post: Post; className?: string }) {
   return (
     <div className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-xs ${className}`}>
-      <span className="rounded-full bg-sky-50 px-2.5 py-1 font-semibold text-brand-blue-deep">
+      <span className="rounded-none bg-brand-gray-bg px-2.5 py-1 font-semibold text-brand-blue-deep">
         {post.category}
       </span>
       <span className="text-gray-500">{post.date}</span>
@@ -209,7 +209,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                   type="button"
                   onClick={() => setActive(category)}
                   aria-pressed={isActive}
-                  className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue-deep ${
+                  className={`shrink-0 whitespace-nowrap rounded-none border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue-deep ${
                     isActive
                       ? "border-brand-navy bg-brand-navy text-white"
                       : "border-gray-200 bg-white text-gray-700 hover:border-brand-blue-deep hover:text-brand-blue-deep"
@@ -261,7 +261,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                     sizes="(min-width: 768px) 576px, 100vw"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-navy shadow-sm">
+                  <span className="absolute left-4 top-4 rounded-none bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-navy shadow-sm">
                     Featured
                   </span>
                 </div>

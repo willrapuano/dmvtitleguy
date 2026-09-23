@@ -18,7 +18,7 @@ import Link from "next/link";
 const severityConfig = {
   critical: { icon: XCircle, color: "text-red-600", bg: "bg-red-50 border-red-200", badge: "bg-red-100 text-red-700" },
   warning: { icon: AlertTriangle, color: "text-amber-600", bg: "bg-amber-50 border-amber-200", badge: "bg-amber-100 text-amber-700" },
-  info: { icon: Info, color: "text-blue-600", bg: "bg-blue-50 border-blue-200", badge: "bg-blue-100 text-blue-700" },
+  info: { icon: Info, color: "text-brand-blue-600", bg: "bg-brand-gray-bg border-brand-blue-200", badge: "bg-brand-blue-100 text-brand-blue-700" },
 };
 
 export default async function AnalysisPage(
@@ -89,7 +89,7 @@ export default async function AnalysisPage(
               </span>
             )}
             {infoCount > 0 && (
-              <span className="flex items-center gap-1 text-blue-600">
+              <span className="flex items-center gap-1 text-brand-blue-600">
                 <Info className="h-4 w-4" /> {infoCount} info
               </span>
             )}

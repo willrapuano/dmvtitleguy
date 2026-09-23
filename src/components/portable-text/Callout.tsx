@@ -6,7 +6,7 @@ import { Info, AlertTriangle, CheckCircle2, Lightbulb } from "lucide-react";
  * by shape as well as by hue, which colour alone does not convey.
  */
 const TONE_STYLES: Record<string, { wrapper: string; Icon: typeof Info }> = {
-  info:    { wrapper: "bg-blue-50 border-blue-400 text-blue-900",       Icon: Info },
+  info:    { wrapper: "bg-brand-gray-bg border-brand-blue-400 text-brand-blue-900",       Icon: Info },
   warning: { wrapper: "bg-yellow-50 border-yellow-400 text-yellow-900", Icon: AlertTriangle },
   success: { wrapper: "bg-green-50 border-green-400 text-green-900",    Icon: CheckCircle2 },
   tip:     { wrapper: "bg-purple-50 border-purple-400 text-purple-900", Icon: Lightbulb },

@@ -152,7 +152,7 @@ export default function CalculatorsPage() {
                       </span>
                     );
                   })()}
-                  <span className="text-xs font-semibold text-brand-blue-deep bg-blue-50 px-2 py-0.5 rounded-full">{calc.tag}</span>
+                  <span className="text-xs font-semibold text-brand-blue-deep bg-brand-gray-bg px-2 py-0.5 rounded-none">{calc.tag}</span>
                 </div>
                 <h2 className="t-h6 text-brand-navy group-hover:text-brand-blue mb-2 transition-colors">
                   {calc.title}

@@ -109,7 +109,7 @@ export default function AboutWillRapuanoPage() {
                 priority
               />
             </div>
-            <dl className="border-x border-b border-slate-200 bg-white px-6 py-5 text-sm shadow-[0_24px_70px_-52px_rgba(11,29,58,0.7)]">
+            <dl className="border-x border-b border-slate-200 bg-white px-6 py-5 text-sm ">
               <div className="border-b border-slate-100 pb-3">
                 <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/60">Role</dt>
                 <dd className="mt-1 font-semibold text-brand-navy">{WILL.jobTitle}</dd>

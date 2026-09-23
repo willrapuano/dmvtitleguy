@@ -76,10 +76,10 @@ export default function UploadForm() {
         {...getRootProps()}
         className={`flex min-h-[300px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors ${
           isDragActive
-            ? "border-brand-blue bg-blue-50"
+            ? "border-brand-blue bg-brand-gray-bg"
             : uploading
             ? "border-gray-300 bg-gray-50"
-            : "border-gray-300 bg-white hover:border-brand-blue hover:bg-blue-50/50"
+            : "border-gray-300 bg-white hover:border-brand-blue hover:bg-brand-gray-bg/50"
         }`}
       >
         <input {...getInputProps()} />

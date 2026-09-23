@@ -108,7 +108,7 @@ export function NavBar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 text-brand-navy shadow-[0_8px_30px_-26px_rgba(11,29,58,0.5)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 text-brand-navy  backdrop-blur-xl">
       <div className="container-xl flex h-[4.5rem] items-center justify-between">
         {/* Logo */}
         {/**
@@ -151,7 +151,7 @@ export function NavBar() {
                     aria-expanded={isActive}
                     aria-controls={isActive ? dropdownId : undefined}
                     onClick={() => setActiveDropdown(isActive ? null : l.label)}
-                    className={`flex min-h-11 items-center gap-1 rounded-full px-3.5 transition-colors duration-150 hover:bg-brand-blue-50 hover:text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${groupCurrent ? "bg-brand-blue-50 text-brand-navy" : "text-brand-navy/75"}`}
+                    className={`flex min-h-11 items-center gap-1 rounded-none px-3.5 transition-colors duration-150 hover:bg-brand-blue-50 hover:text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${groupCurrent ? "bg-brand-blue-50 text-brand-navy" : "text-brand-navy/75"}`}
                   >
                     {l.label}
                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -170,7 +170,7 @@ export function NavBar() {
                 key={l.href!}
                 href={l.href!}
                 aria-current={current ? "page" : undefined}
-                className={`flex min-h-11 items-center rounded-full px-3.5 transition-colors duration-150 hover:bg-brand-blue-50 hover:text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${
+                className={`flex min-h-11 items-center rounded-none px-3.5 transition-colors duration-150 hover:bg-brand-blue-50 hover:text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${
                   current ? "bg-brand-blue-50 text-brand-navy" : "text-brand-navy/75"
                 }`}
               >
@@ -178,7 +178,7 @@ export function NavBar() {
               </Link>
             );
           })}
-          <Link href="/calculators/title-quote" className="btn-primary ml-3 px-5 py-2 text-sm">
+          <Link href="/calculators/title-quote" className="btn-brass ml-3 px-5 py-2 text-sm">
             Get a Quote
           </Link>
         </nav>
@@ -236,7 +236,7 @@ export function NavBar() {
               </Link>
             );
           })}
-          <Link href="/calculators/title-quote" className="btn-primary mt-4 flex w-full text-center text-sm" onClick={() => setOpen(false)}>
+          <Link href="/calculators/title-quote" className="btn-brass mt-4 flex w-full text-center text-sm" onClick={() => setOpen(false)}>
             Get a Quote
           </Link>
         </nav>

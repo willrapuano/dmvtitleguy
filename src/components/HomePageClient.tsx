@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin, CheckCircle2 } from "lucide-react";
+import { Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { SectionHead } from "@/components/SectionHead";
@@ -183,22 +183,23 @@ export function HomePageClient() {
   return (
     <>
       {/* ── SECTION 1: HERO ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(145deg,#fbfcfd_0%,#f3f7fa_62%,#eef5f8_100%)]">
-        <div aria-hidden="true" className="absolute -left-32 top-8 h-80 w-80 rounded-full bg-brand-blush/80 blur-3xl" />
-        <div aria-hidden="true" className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-brand-blue-100/70 blur-3xl" />
-
-        <div className="container-xl relative grid items-center gap-10 py-12 sm:py-16 lg:min-h-[660px] lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-20">
-          <div className="max-w-2xl">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-blue-deep">
+      {/* Capital Standard: copy on white, a real DC street photographed full-bleed
+          on the right, square edges. The H1 wording is unchanged until the SEO
+          freeze's September 30 decision. */}
+      <section className="relative border-b border-brand-line bg-white">
+        <div className="grid lg:min-h-[640px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:py-20 lg:pl-[max(2rem,calc((100vw-1240px)/2+2rem))] lg:pr-16">
+            <p className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-ink">
+              <span aria-hidden="true" className="h-0.5 w-9 bg-brand-brass" />
               Independent educational guidance from Will Rapuano for DC, Maryland, and Virginia
             </p>
             <h1 className="t-display max-w-[15ch] text-brand-navy">
               Practical title guidance for DC, Maryland, and Virginia real estate.
             </h1>
-            <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-brand-ink md:text-xl">
+            <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-brand-ink md:text-xl">
               Use local guides and calculators to understand the next step. When you need a provider, ask Will for an introduction; the provider independently confirms acceptance, scope, and terms.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/calculators/title-quote" className="btn-primary px-8 text-center text-base">
                 Estimate Title Costs <span aria-hidden="true">→</span>
               </Link>
@@ -206,44 +207,22 @@ export function HomePageClient() {
                 Request an Introduction
               </Link>
             </div>
-            <ul className="mt-8 hidden flex-wrap gap-2.5 lg:flex" aria-label="Service assurances">
-              {["DMV-focused education", "Calculators and local guides", "Direct access to Will"].map((item) => (
-                <li key={item} className="trust-chip">
-                  <CheckCircle2 size={14} strokeWidth={2} className="text-brand-blue-deep" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
 
-          <div className="relative lg:justify-self-end">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-white/80 bg-brand-blue-50 shadow-[0_36px_90px_-48px_rgba(11,29,58,0.65)] sm:aspect-[5/4] lg:aspect-[4/5] lg:max-h-[560px] lg:w-[500px]">
-              <Image
-                src="/hero-bg.jpg"
-                alt="Washington Monument framed by cherry blossoms along the Tidal Basin"
-                fill
-                priority
-                sizes="(min-width: 1024px) 1000px, 100vw"
-                className="object-cover object-[58%_center]"
-              />
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/25 bg-brand-navy/80 p-5 text-white shadow-xl backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[285px]">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-200">Local coverage</p>
-                <p className="mt-2 font-display text-xl font-semibold leading-snug">
-                  Virginia · Maryland · Washington DC
-                </p>
-              </div>
+          <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-0">
+            <Image
+              src="/home-dc-rowhouses.jpg"
+              alt="Porch-front rowhouses in Washington, DC, with a District of Columbia flag hanging on the front"
+              fill
+              priority
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute bottom-0 left-0 bg-brand-navy px-6 py-4 text-white">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-brass">Local coverage</p>
+              <p className="mt-1 font-display text-xl font-medium">Virginia · Maryland · Washington DC</p>
             </div>
           </div>
-
-          <ul className="flex flex-wrap gap-2.5 lg:hidden" aria-label="Service assurances">
-            {["DMV-focused education", "Calculators and local guides", "Direct access to Will"].map((item) => (
-              <li key={item} className="trust-chip">
-                <CheckCircle2 size={14} strokeWidth={2} className="text-brand-blue-deep" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

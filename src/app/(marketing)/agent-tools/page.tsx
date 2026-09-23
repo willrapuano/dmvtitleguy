@@ -36,7 +36,7 @@ export default function AgentToolsPage() {
       <div className="container-xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 px-4 py-1.5 text-sm font-medium text-brand-navy mb-4">
+          <div className="inline-flex items-center gap-2 rounded-none bg-brand-navy/10 px-4 py-1.5 text-sm font-medium text-brand-navy mb-4">
             <Wrench className="h-4 w-4" />
             Exclusive Agent Tools
           </div>
@@ -66,7 +66,7 @@ export default function AgentToolsPage() {
                   </div>
                   {tool.badge && (
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${tool.badgeColor}`}
+                      className={`rounded-none px-2.5 py-0.5 text-xs font-semibold ${tool.badgeColor}`}
                     >
                       {tool.badge}
                     </span>
