@@ -274,7 +274,10 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
           }
         : null;
   const heroImage = resolvePostImage(post.slug, post.image) ?? post.image;
-  const heroImageAlt = resolvePostImageAlt(post.slug);
+  // A hand-written override wins; otherwise use the alt text saved with the CMS image,
+  // which the publisher now requires. Before this, every post without an override
+  // rendered its hero with alt="".
+  const heroImageAlt = resolvePostImageAlt(post.slug) || post.imageAlt || "";
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);

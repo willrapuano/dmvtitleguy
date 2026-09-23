@@ -9,6 +9,8 @@ export interface BlogPost {
   category: string;
   readTime: string;
   image: string;
+  /** Alt text stored with the CMS image, when there is one. */
+  imageAlt?: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
