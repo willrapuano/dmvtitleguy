@@ -32,7 +32,7 @@ const CONFIGS: Record<State, CalculatorConfig> = {
   DC: {
     state: "DC",
     stateFullName: "Washington DC",
-    transferTaxNote: "DC recordation & transfer taxes: combined ~2.9% on properties over $400K.",
+    transferTaxNote: "DC recordation & transfer taxes: combined 2.2% under $400K and 2.9% at $400K and up.",
   },
 };
 
@@ -155,10 +155,6 @@ function calculateMD(
     appraisal: 600,
     prepaidItems: loanAmount * 0.015,
   };
-
-  if (options.county === "princeGeorges") {
-    buyerCosts.princeGeorgesDeedOfTrustTransferTax = loanAmount * countyInfo.transferTaxRate;
-  }
 
   const sellerCosts: Record<string, number> = {
     agentCommission: price * 0.025,
@@ -461,7 +457,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
         )}
         {state === "MD" && marylandCounty === "princeGeorges" && (
           <p className="text-xs text-brand-muted mt-2 max-w-[68ch]">
-            Prince George&apos;s County uses 0.55% recordation tax and 1.4% county transfer tax. The 1.4% local transfer tax also applies to mortgages and deeds of trust.
+            Prince George&apos;s County uses 0.55% recordation tax and 1.4% county transfer tax. The transfer tax does not apply to a purchase-money deed of trust.
           </p>
         )}
       </div>

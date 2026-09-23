@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "What are the transfer and recordation taxes in Bethesda?",
-    answer: "In Montgomery County, sellers pay a transfer tax ($0.00 per $1,000 for properties under $1M, with some exceptions). Buyers pay recordation taxes: state recordation ($0.005 per $100) plus Montgomery County recordation ($0.0085 per $100).",
+    answer: "In Montgomery County, the state transfer tax is 0.5% and the county transfer tax is 1% of the price. Recordation tax is $4.45 per $500 on the first $500,000, with higher rates above that and the first $100,000 exempt for a principal residence. Maryland law presumes the buyer and seller split these taxes equally unless the contract says otherwise.",
   },
   {
     question: "Does Maryland require attorney involvement at closing?",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     question: "Are there first-time homebuyer exemptions in Montgomery County?",
-    answer: "Yes, first-time homebuyers in Montgomery County may qualify for exemptions from the county transfer tax. The state transfer tax is 0.5% and the county adds 1.0%, making exemptions valuable for qualifying buyers.",
+    answer: "Yes. First-time Maryland homebuyers pay no state transfer tax: the rate drops from 0.5% to 0.25% and the seller pays it. By default the seller also pays the county transfer and recordation taxes, unless the contract expressly says otherwise. The county transfer tax itself is 1% of the price.",
   },
 ];
 

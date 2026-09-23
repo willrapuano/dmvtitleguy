@@ -13,15 +13,15 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "How much are closing costs in Washington DC?",
-    answer: "Washington DC has some of the highest closing costs in the nation. Combined recordation and transfer taxes can reach 2.9% of the sales price for properties over $400,000. Buyers typically pay 3% to 5% of the purchase price; sellers pay 1% to 3% (excluding agent commissions).",
+    answer: "Washington DC has some of the highest closing costs in the nation. Combined recordation and transfer taxes reach 2.9% of the sales price for properties of $400,000 or more. Buyers typically pay 3% to 5% of the purchase price; sellers pay 1% to 3% (excluding agent commissions).",
   },
   {
     question: "What are DC recordation and transfer taxes?",
-    answer: "DC charges both recordation tax (based on loan amount) and transfer tax (based on sales price). For properties $400,000 and under, the combined rate is 2.2% (1.1% each). For properties over $400,000, the combined rate increases to 2.9% (1.45% each). These are typically split 50/50 between buyer and seller.",
+    answer: "DC charges a recordation tax and a transfer tax, both based on the sale price. Below $400,000 the combined rate is 2.2% (1.1% each). At $400,000 or more it is 2.9% (1.45% each). These are typically split 50/50 between buyer and seller.",
   },
   {
     question: "Are there any exemptions from DC closing costs?",
-    answer: "Yes, first-time DC homebuyers may qualify for exemptions from the recordation tax. There are also exemptions for properties transferred to a spouse, as a gift, or in connection with a divorce. Senior citizens and disabled homeowners may qualify for additional exemptions. Consult with your title company for eligibility.",
+    answer: "Yes, qualifying first-time DC homebuyers pay a reduced 0.725% recordation tax rate. There are also exemptions for properties transferred to a spouse, as a gift, or in connection with a divorce. Senior citizens and disabled homeowners may qualify for additional exemptions. Consult with your title company for eligibility.",
   },
   {
     question: "How much does title insurance cost in DC?",
@@ -33,11 +33,11 @@ const faqs = [
   },
   {
     question: "How do DC's tax rates impact buyers at different price points?",
-    answer: "Properties under $400K pay 2.2% combined tax; properties over $400K jump to 2.9%. On a $600K home, this means over $17,000 in transfer and recordation taxes alone—making DC the most expensive jurisdiction in the DMV for closing costs.",
+    answer: "Properties under $400K pay 2.2% combined tax; properties at $400K and up pay 2.9%. On a $600K home, this means over $17,000 in transfer and recordation taxes alone—making DC the most expensive jurisdiction in the DMV for closing costs.",
   },
   {
     question: "What first-time buyer programs are available in DC?",
-    answer: "DC offers several first-time homebuyer programs that can exempt buyers from recordation taxes on properties up to $500,000. The DC Open Doors program provides down payment assistance and closing cost grants. These programs can save qualified buyers $10,000+.",
+    answer: "DC reduces the recordation tax rate to 0.725% (from 1.1% or 1.45%) for qualifying first-time District homebuyers, subject to household income and purchase-price limits. The DC Open Doors program provides down payment assistance and closing cost grants.",
   },
 ];
 
@@ -110,8 +110,8 @@ export default function DCClosingCostsPage() {
               DC buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. The high costs are primarily due to DC's recordation and transfer taxes, which are among the highest in the nation.
             </p>
             <ul className="list-disc list-inside space-y-2">
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties &le;$400K) or 1.45% (properties &gt;$400K)</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties &le;$400K) or 1.45% (properties &gt;$400K)</li>
+              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up)</li>
+              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up)</li>
               <li><strong>Title Insurance:</strong> Owner's and lender's title insurance premiums</li>
               <li><strong>Settlement/Attorney Fees:</strong> Typically $600-1,200 for closing services</li>
               <li><strong>Recording Fees:</strong> Fees to record the deed and mortgage</li>
@@ -135,8 +135,8 @@ export default function DCClosingCostsPage() {
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li><strong>Real Estate Commission:</strong> Typically 5-6% of the sale price (negotiable)</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties &le;$400K) or 1.45% (properties &gt;$400K)</li>
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties &le;$400K) or 1.45% (properties &gt;$400K)</li>
+              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up)</li>
+              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up)</li>
               <li><strong>Prorated Property Taxes:</strong> Property taxes from January 1 to closing date</li>
               <li><strong>Outstanding Liens:</strong> Any liens on the property must be paid at closing</li>
               <li><strong>Condo/Co-op Fees:</strong> Any outstanding monthly fees or special assessments</li>
@@ -164,13 +164,13 @@ export default function DCClosingCostsPage() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="p-3">$0 - $400,000</td>
+                  <td className="p-3">Under $400,000</td>
                   <td className="p-3 text-right">1.1%</td>
                   <td className="p-3 text-right">1.1%</td>
                   <td className="p-3 text-right font-semibold">2.2%</td>
                 </tr>
                 <tr>
-                  <td className="p-3">Over $400,000</td>
+                  <td className="p-3">$400,000 and up</td>
                   <td className="p-3 text-right">1.45%</td>
                   <td className="p-3 text-right">1.45%</td>
                   <td className="p-3 text-right font-semibold">2.9%</td>
@@ -180,7 +180,7 @@ export default function DCClosingCostsPage() {
           </div>
           <div className="mt-6 space-y-3 text-brand-muted text-sm">
             <p className="max-w-[68ch]"><strong>Note:</strong> By custom (not law), buyers and sellers typically split these taxes 50/50. This is negotiated in the purchase contract.</p>
-            <p className="max-w-[68ch]"><strong>First-Time Homebuyer Exemption:</strong> First-time DC homebuyers may be exempt from the recordation tax on properties up to $500,000. This can save buyers thousands of dollars at closing.</p>
+            <p className="max-w-[68ch]"><strong>First-Time Homebuyer Reduced Rate:</strong> Qualifying first-time DC homebuyers pay recordation tax at 0.725% instead of 1.1% or 1.45% (D.C. Code § 42-1103(e)). Eligibility depends on DC residency, household income of no more than 180% of Area Median Income, and a purchase-price cap that DC&apos;s Office of Tax and Revenue sets each fiscal year.</p>
           </div>
         </div>
       </section>

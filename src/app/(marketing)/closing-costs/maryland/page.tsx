@@ -20,15 +20,15 @@ const faqs = [
   },
   {
     question: "Who pays transfer taxes in Maryland?",
-    answer: "In Maryland, transfer taxes are generally split between buyer and seller, but this can be negotiated in the contract. The state transfer tax is 0.5% (1.0% for non-primary residences), and county transfer taxes vary by jurisdiction—Montgomery County charges 1.0%, while Prince George's County charges 1.4%.",
+    answer: "In Maryland, transfer taxes are generally split between buyer and seller, but this can be negotiated in the contract. The state transfer tax is 0.5% of the price, and county transfer taxes vary by jurisdiction—Montgomery County charges 1.0%, while Prince George's County charges 1.4%.",
   },
   {
     question: "What is the recordation tax in Maryland?",
-    answer: "Maryland recordation tax varies by county. In Montgomery County, it's $6.60 per $1,000 of the loan amount for the state portion, plus additional county recordation taxes. The buyer typically pays recordation taxes based on the mortgage amount.",
+    answer: "Maryland has no statewide recordation tax rate: each county sets its own, charged on the purchase price rather than the loan, and a purchase-money mortgage recorded with the deed is not taxed separately. Montgomery County charges $4.45 per $500 ($8.90 per $1,000) on the first $500,000, with higher rates above that, and the first $100,000 is exempt for a principal residence. Unless the contract says otherwise, Maryland law presumes the buyer and seller split recordation and transfer taxes equally.",
   },
   {
     question: "Are there any exemptions from Maryland transfer taxes?",
-    answer: "Yes, first-time homebuyers in Maryland may qualify for exemptions from county transfer taxes in certain circumstances. There are also exemptions for properties transferred between spouses, to a trust for estate planning purposes, or in connection with a divorce settlement. Consult with your title company for specific eligibility.",
+    answer: "Yes. First-time Maryland homebuyers buying a principal residence pay no state transfer tax: the rate drops to 0.25% and the seller pays it. By default the seller also pays the recordation and county transfer taxes, unless the contract says otherwise. There are also exemptions for properties transferred between spouses, to a trust for estate planning purposes, or in connection with a divorce settlement. Consult with your title company for specific eligibility.",
   },
   {
     question: "How much does title insurance cost in Maryland?",
@@ -36,11 +36,11 @@ const faqs = [
   },
   {
     question: "How do Maryland closing costs differ by county?",
-    answer: "Maryland counties have varying transfer tax rates. Montgomery County has the highest at 1.5% combined, while Frederick County is lower at 1.0%. Prince George's County charges 1.9%. These differences significantly impact total closing costs.",
+    answer: "Combined state and county transfer tax is 1.9% in Prince George's County, 1.75% in Howard County, 1.5% in Montgomery County, 1.5% in Anne Arundel County (2.0% at $1 million or more), and 0.5% in Frederick County, which has no county transfer tax. These differences significantly impact total closing costs.",
   },
   {
     question: "What is the first-time homebuyer benefit in Maryland?",
-    answer: "First-time Maryland homebuyers may qualify for exemptions from county transfer taxes and reduced recordation taxes. Programs vary by county—Montgomery County offers generous exemptions that can save thousands at closing.",
+    answer: "First-time Maryland homebuyers buying a principal residence pay no state transfer tax: the rate drops from 0.5% to 0.25% and the seller pays all of it. By default the seller also pays the recordation and county transfer taxes, unless the contract expressly says otherwise. Separately, some counties exempt part of the price from recordation tax for any owner-occupant—Montgomery County exempts the first $100,000.",
   },
 ];
 
@@ -127,10 +127,9 @@ export default function MarylandClosingCostsPage() {
               Maryland buyers typically pay <strong>3% to 5%</strong> of the purchase price in closing costs, in addition to their down payment. These costs include:
             </p>
             <ul className="list-disc list-inside space-y-2">
-              <li><strong>State Recordation Tax:</strong> $6.60 per $1,000 of the loan amount (varies by county)</li>
-              <li><strong>County Recordation Tax:</strong> Varies by county—Montgomery County is approximately $6.60 per $1,000</li>
-              <li><strong>State Transfer Tax:</strong> 0.5% of purchase price (1.0% if not primary residence)</li>
-              <li><strong>County Transfer Tax:</strong> Varies by county—0% to 1.4% depending on jurisdiction</li>
+                            <li><strong>Recordation Tax:</strong> Set by each county and charged on the purchase price—Montgomery County is $8.90 per $1,000 on the first $500,000, with the first $100,000 exempt for a principal residence</li>
+              <li><strong>State Transfer Tax:</strong> 0.5% of purchase price (0.25%, paid by the seller, for qualifying first-time Maryland homebuyers)</li>
+              <li><strong>County Transfer Tax:</strong> Varies by county—from none in Frederick County to 1.4% in Prince George&apos;s County (1.5% in Anne Arundel County at $1 million or more)</li>
               <li><strong>Title Insurance:</strong> Owner's and lender's title insurance premiums</li>
               <li><strong>Attorney/Settlement Fees:</strong> Typically $500-1,000 for closing services</li>
               <li><strong>Survey and Inspection Fees:</strong> Varies by transaction</li>
@@ -154,7 +153,7 @@ export default function MarylandClosingCostsPage() {
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li><strong>Real Estate Commission:</strong> Typically 5-6% of the sale price (negotiable)</li>
-              <li><strong>State Transfer Tax:</strong> 0.5% of purchase price (1.0% if buyer won't use as primary residence)</li>
+              <li><strong>State Transfer Tax:</strong> 0.5% of purchase price</li>
               <li><strong>County Transfer Tax:</strong> Varies by county—Montgomery County is 1.0%</li>
               <li><strong>Prorated Property Taxes:</strong> Property taxes from January 1 to closing date</li>
               <li><strong>Outstanding Liens:</strong> Any liens on the property must be paid at closing</li>
@@ -198,26 +197,26 @@ export default function MarylandClosingCostsPage() {
                 <tr>
                   <td className="p-3">Howard County</td>
                   <td className="p-3 text-right">0.5%</td>
-                  <td className="p-3 text-right">1.0%</td>
-                  <td className="p-3 text-right font-semibold">1.5%</td>
+                  <td className="p-3 text-right">1.25%</td>
+                  <td className="p-3 text-right font-semibold">1.75%</td>
                 </tr>
                 <tr>
                   <td className="p-3">Anne Arundel County</td>
                   <td className="p-3 text-right">0.5%</td>
-                  <td className="p-3 text-right">1.0%</td>
-                  <td className="p-3 text-right font-semibold">1.5%</td>
+                  <td className="p-3 text-right">1.0% (1.5% at $1M+)</td>
+                  <td className="p-3 text-right font-semibold">1.5% (2.0% at $1M+)</td>
                 </tr>
                 <tr>
                   <td className="p-3">Frederick County</td>
                   <td className="p-3 text-right">0.5%</td>
-                  <td className="p-3 text-right">0.5%</td>
-                  <td className="p-3 text-right font-semibold">1.0%</td>
+                  <td className="p-3 text-right">None</td>
+                  <td className="p-3 text-right font-semibold">0.5%</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="text-sm text-brand-muted mt-4 max-w-[68ch] leading-relaxed">
-            <em>Note: These rates are subject to change. First-time homebuyers may qualify for exemptions in certain counties. Consult with your title company for current rates.</em>
+            <em>Note: These rates are subject to change. First-time Maryland homebuyers pay no state transfer tax; county-level exemptions are narrow (Prince George&apos;s and Howard counties exempt certain teachers, police and fire/rescue members). Consult with your title company for current rates.</em>
           </p>
         </div>
       </section>
