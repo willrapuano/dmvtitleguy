@@ -419,6 +419,14 @@ export function discoverQueueFiles() {
     .sort((a, b) => sortableDate(a).localeCompare(sortableDate(b)) || path.basename(a).localeCompare(path.basename(b)));
 }
 
+// Read-only lookup of the featured image a post will upload. Dry runs use it to
+// check the image gate without touching Sanity.
+function findFeaturedImage(slug) {
+  return ['png', 'jpg', 'jpeg', 'webp']
+    .map((ext) => path.join(IMAGES_DIR, `${slug}.${ext}`))
+    .find((candidate) => existsSync(candidate));
+}
+
 function safeStamp(date = new Date()) {
   return date.toISOString().replace(/[:.]/g, '-');
 }
@@ -578,17 +586,21 @@ export async function publishPost(filePath, options = {}) {
     throw new Error(`BLOCK_PUBLISH_IMAGE_ALT_WEAK: slug "${slug}" mainImageAlt missing/generic`);
   }
 
-  const image = await uploadImage(slug, title, mainImageAlt);
-  if (!image) {
+  if (!findFeaturedImage(slug)) {
     throw new Error(
       `BLOCK_PUBLISH_WITHOUT_IMAGE: missing required featured image for slug "${slug}" (expected blog-queue/images/${slug}.{png|jpg|jpeg|webp})`,
     );
   }
-  doc.mainImage = image;
 
+  // Return before the upload: assets.upload writes to the production dataset, so a
+  // dry run that reached it left an unreferenced image asset behind every time.
   if (options.dryRun) {
     return { status: 'dry-run', slug, title, filePath: resolved, blocks: blocks.length, category: doc.category };
   }
+
+  const image = await uploadImage(slug, title, mainImageAlt);
+  if (!image) throw new Error(`BLOCK_PUBLISH_WITHOUT_IMAGE: featured image for slug "${slug}" disappeared before upload`);
+  doc.mainImage = image;
 
   await getClient().createOrReplace(doc);
   const verify = await getClient().fetch(`*[_id == $id][0]{"bodyLen": length(body), "title": title}`, { id: doc._id });
