@@ -1,4 +1,6 @@
-import { consolidatedKeeper } from "../../config/consolidated-posts.mjs";
+// Kept in domain-redirects.mjs, not its own module: the SEO health digest requires
+// every local import of that file to be on its reviewed source list.
+import { consolidatedPosts } from "../../config/domain-redirects.mjs";
 
 /**
  * Per-post title and metadata overrides, shared by every surface that shows a
@@ -169,7 +171,7 @@ export function postDisplayTitle(slug: string, cmsTitle: string): string {
 
 /** Canonical route shared by article metadata and the sitemap. */
 export function postCanonicalPath(slug: string): string {
-  const keeper = consolidatedKeeper(slug);
+  const keeper = (consolidatedPosts as Record<string, string>)[slug];
   if (keeper) return `/blog/${keeper}`;
   return BLOG_SEO_OVERRIDES[slug]?.canonical || `/blog/${slug}`;
 }
