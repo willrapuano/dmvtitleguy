@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "What are DC recordation and transfer taxes?",
-    answer: "DC charges a recordation tax and a transfer tax, both based on the sale price. Below $400,000 the combined rate is 2.2% (1.1% each). At $400,000 or more it is 2.9% (1.45% each). These are typically split 50/50 between buyer and seller.",
+    answer: "DC charges a recordation tax and a transfer tax, both based on the sale price. Below $400,000 the combined rate is 2.2% (1.1% each). At $400,000 or more it is 2.9% (1.45% each). By custom the buyer pays the recordation tax and the seller pays the transfer tax, which the seller owes by law.",
   },
   {
     question: "Are there any exemptions from DC closing costs?",
@@ -179,7 +179,7 @@ export default function DCClosingCostsPage() {
             </table>
           </div>
           <div className="mt-6 space-y-3 text-brand-muted text-sm">
-            <p className="max-w-[68ch]"><strong>Note:</strong> By custom (not law), buyers and sellers typically split these taxes 50/50. This is negotiated in the purchase contract.</p>
+            <p className="max-w-[68ch]"><strong>Note:</strong> By law the seller owes the transfer tax (D.C. Code § 47-903(c)); by custom the buyer pays the recordation tax. The purchase contract can allocate them differently.</p>
             <p className="max-w-[68ch]"><strong>First-Time Homebuyer Reduced Rate:</strong> Qualifying first-time DC homebuyers pay recordation tax at 0.725% instead of 1.1% or 1.45% (D.C. Code § 42-1103(e)). Eligibility depends on DC residency, household income of no more than 180% of Area Median Income, and a purchase-price cap that DC&apos;s Office of Tax and Revenue sets each fiscal year.</p>
           </div>
         </div>
