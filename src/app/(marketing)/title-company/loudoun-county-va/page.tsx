@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { regionalTransportationFeeRate, vaLocalRecordationRate } from "@/data/closingCostData";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ const faqs = [
   },
   {
     question: "What are the closing costs for buyers in Loudoun County?",
-    answer: "Buyers in Loudoun County pay approximately 2-4% of the purchase price in closing costs. This includes the state recordation tax ($0.25 per $100), lender fees, title insurance, and prorated property taxes. Loudoun County does not add a local recordation tax, keeping buyer costs slightly lower than some neighboring jurisdictions.",
+    answer: "Buyers in Loudoun County pay approximately 2-4% of the purchase price in closing costs. This includes the state recordation tax ($0.25 per $100 on the price and on the purchase loan), Loudoun County's local recordation tax ($0.083 per $100 on both), lender fees, title insurance, and prorated property taxes. Fairfax, Arlington and Prince William charge the same local rate.",
   },
   {
     question: "How long does a Loudoun County title search take?",
@@ -34,7 +35,7 @@ const faqs = [
   },
   {
     question: "Does Loudoun County have additional transfer taxes for sellers?",
-    answer: "Sellers in Loudoun County pay Virginia's standard grantor tax of $0.50 per $500 of the sales price. There is no additional local transfer tax in Loudoun County, which helps keep seller closing costs predictable compared to some Maryland jurisdictions.",
+    answer: "Sellers in Loudoun County pay Virginia's standard grantor tax of $0.50 per $500 of the sales price. There is no local transfer tax in Loudoun County, but as in the rest of Northern Virginia, sellers also pay two regional fees of $0.10 per $100 each.",
   },
 ];
 
@@ -68,7 +69,13 @@ export default function LoudounCountyTitlePage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="VA" />
+      <ClosingCostCalculator
+        state="VA"
+        cityOverrides={{
+          localRecordationTaxRate: vaLocalRecordationRate("Loudoun County"),
+          regionalTransportationFeeRate: regionalTransportationFeeRate("Loudoun County"),
+        }}
+      />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
