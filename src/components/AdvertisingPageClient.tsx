@@ -6,6 +6,8 @@ import Link from "next/link";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
 import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
+import { LeadSubmissionPending } from "@/components/LeadSubmissionPending";
+import { classifyLeadSubmissionResponse } from "@/lib/lead-submission-result";
 
 const FEATURE_CARDS = [
   { title: "Traffic-Generating Ads", desc: "Strategic Facebook and Instagram ad campaigns that drive real buyer traffic to your listings.", icon: "Target" },
@@ -43,7 +45,7 @@ const WHY_ADVERTISE = [
 ];
 
 export function AdvertisingPageClient() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "pending" | "error">("idle");
   const [form, setForm] = useState({ name: "", listing: "", email: "", phone: "" });
   const submissionIdRef = useRef<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
@@ -64,9 +66,9 @@ export function AdvertisingPageClient() {
         body: JSON.stringify({ ...form, ...getLeadAttribution(), formType: "advertising", submissionId: submissionIdRef.current, website }),
       });
       const result = await response.json();
-      if (!response.ok || !result.ok) throw new Error(result.error || "Listing submission failed");
-      trackLeadConversion("advertising");
-      setStatus("success");
+      const outcome = classifyLeadSubmissionResponse(response, result);
+      if (outcome.trackConversion) trackLeadConversion("advertising");
+      setStatus(outcome.status);
     } catch {
       setStatus("error");
     }
@@ -90,7 +92,7 @@ export function AdvertisingPageClient() {
             {/* Listing Submission Form */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
               <h2 className="t-h5 text-brand-navy mb-4">Get Started</h2>
-              {status === "success" ? (
+              {status === "pending" ? <LeadSubmissionPending /> : status === "success" ? (
                 <div ref={successRef} role="status" aria-live="polite" tabIndex={-1} className="text-center py-8 focus:outline-none">
                   <div className="mb-3"><Rocket size={30} strokeWidth={1.5} className="text-brand-blue-deep" aria-hidden="true" /></div>
                   <h3 className="t-h6 text-brand-navy mb-2">We&apos;re on it!</h3>

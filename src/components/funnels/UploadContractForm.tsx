@@ -5,13 +5,15 @@ import { CheckCircle, ShieldCheck } from "lucide-react";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
 import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
+import { LeadSubmissionPending } from "@/components/LeadSubmissionPending";
+import { classifyLeadSubmissionResponse } from "@/lib/lead-submission-result";
 
 interface UploadContractFormProps {
   location?: string;
 }
 
 export function UploadContractForm({ location = "upload-contract" }: UploadContractFormProps) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "pending" | "error">("idle");
   const submissionIdRef = useRef<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
@@ -44,16 +46,15 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
         }),
       });
       const data = await res.json();
-      if (data.ok) {
-        trackLeadConversion("upload-contract", location);
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
+      const outcome = classifyLeadSubmissionResponse(res, data);
+      if (outcome.trackConversion) trackLeadConversion("upload-contract", location);
+      setStatus(outcome.status);
     } catch {
       setStatus("error");
     }
   };
+
+  if (status === "pending") return <LeadSubmissionPending />;
 
   if (status === "success") {
     return (

@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { trackLeadConversion } from "@/lib/client-analytics";
 import { getLeadAttribution } from "@/lib/client-lead-attribution";
 import { LeadRoutingNotice } from "@/components/LeadRoutingNotice";
+import { LeadSubmissionPending } from "@/components/LeadSubmissionPending";
+import { classifyLeadSubmissionResponse } from "@/lib/lead-submission-result";
 
 const BENEFITS = [
   "Exclusive real estate marketing strategies and tips",
@@ -15,7 +17,7 @@ const BENEFITS = [
 ];
 
 export function SubscribePageClient() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "pending" | "error">("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const submissionIdRef = useRef<string | null>(null);
@@ -37,9 +39,9 @@ export function SubscribePageClient() {
         body: JSON.stringify({ ...getLeadAttribution(), formType: "subscribe", submissionId: submissionIdRef.current, name, email, website }),
       });
       const result = await response.json();
-      if (!response.ok || !result.ok) throw new Error(result.error || "Subscription failed");
-      trackLeadConversion("subscribe");
-      setStatus("success");
+      const outcome = classifyLeadSubmissionResponse(response, result);
+      if (outcome.trackConversion) trackLeadConversion("subscribe");
+      setStatus(outcome.status);
     } catch {
       setStatus("error");
     }
@@ -76,7 +78,7 @@ export function SubscribePageClient() {
             </ul>
 
             {/* Form */}
-            {status === "success" ? (
+            {status === "pending" ? <LeadSubmissionPending /> : status === "success" ? (
               <div ref={successRef} role="status" aria-live="polite" tabIndex={-1} className="text-center py-8 focus:outline-none">
                 <div className="mb-3"><CheckCircle2 size={34} strokeWidth={1.5} className="text-emerald-600" aria-hidden="true" /></div>
                 <h3 className="t-h5 text-brand-navy mb-2">You&apos;re subscribed!</h3>
