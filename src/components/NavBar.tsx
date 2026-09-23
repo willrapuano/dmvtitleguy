@@ -108,8 +108,8 @@ export function NavBar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 text-brand-navy  backdrop-blur-xl">
-      <div className="container-xl flex h-[4.5rem] items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-brand-line bg-white text-brand-navy">
+      <div className="mx-auto flex h-[4.75rem] max-w-[1296px] items-center justify-between px-5 sm:px-8 lg:px-6">
         {/* Logo */}
         {/**
          * logo-wordmark-white.png is the wordmark alone — no tagline, trimmed to
@@ -117,7 +117,7 @@ export function NavBar() {
          * lockup would render about 2px tall, and the old invert+screen knockout
          * (needed because logo.png has no alpha) is gone with it.
          */}
-        <Link href="/" className="flex items-center" aria-label="DMV Title Guy — home">
+        <Link href="/" className="flex items-baseline gap-3.5" aria-label="DMV Title Guy — home">
           <Image
             src="/logo-wordmark-white.png"
             alt="DMV Title Guy"
@@ -125,12 +125,13 @@ export function NavBar() {
             height={164}
             sizes="184px"
             priority
-            className="brand-wordmark-dark h-auto w-[160px] sm:w-[184px]"
+            className="brand-wordmark-dark h-auto w-[160px] self-center sm:w-[184px]"
           />
+          <span className="hidden text-[13px] font-medium text-brand-muted xl:inline">with Will Rapuano</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav aria-label="Primary navigation" className="hidden items-center gap-1 text-sm font-semibold lg:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-2 text-[15px] font-semibold lg:flex">
           {NAV_LINKS.map((l) => {
             if ("children" in l && l.children) {
               const dropdownId = `nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`;
@@ -151,7 +152,7 @@ export function NavBar() {
                     aria-expanded={isActive}
                     aria-controls={isActive ? dropdownId : undefined}
                     onClick={() => setActiveDropdown(isActive ? null : l.label)}
-                    className={`flex min-h-11 items-center gap-1 rounded-none px-3.5 transition-colors duration-150 hover:bg-brand-blue-50 hover:text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${groupCurrent ? "bg-brand-blue-50 text-brand-navy" : "text-brand-navy/75"}`}
+                    className={`flex min-h-11 items-center gap-1 rounded-none px-3.5 transition-colors duration-150 hover:text-brand-navy hover:underline hover:decoration-brand-brass hover:decoration-2 hover:underline-offset-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${groupCurrent ? "text-brand-navy underline decoration-brand-brass decoration-2 underline-offset-8" : "text-brand-ink"}`}
                   >
                     {l.label}
                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -170,15 +171,15 @@ export function NavBar() {
                 key={l.href!}
                 href={l.href!}
                 aria-current={current ? "page" : undefined}
-                className={`flex min-h-11 items-center rounded-none px-3.5 transition-colors duration-150 hover:bg-brand-blue-50 hover:text-brand-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${
-                  current ? "bg-brand-blue-50 text-brand-navy" : "text-brand-navy/75"
+                className={`flex min-h-11 items-center rounded-none px-3.5 transition-colors duration-150 hover:text-brand-navy hover:underline hover:decoration-brand-brass hover:decoration-2 hover:underline-offset-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action ${
+                  current ? "text-brand-navy underline decoration-brand-brass decoration-2 underline-offset-8" : "text-brand-ink"
                 }`}
               >
                 {l.label}
               </Link>
             );
           })}
-          <Link href="/calculators/title-quote" className="btn-brass ml-3 px-5 py-2 text-sm">
+          <Link href="/calculators/title-quote" className="btn-brass ml-4 px-5 py-2.5 text-[15px]">
             Get a Quote
           </Link>
         </nav>

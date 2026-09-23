@@ -34,26 +34,18 @@ export function Footer() {
 
   return (
     <footer className="bg-brand-navy text-white">
-      <div className="border-b border-white/10 py-12 md:py-16">
-        <div className="container-xl">
-          <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300">Practical next steps for DMV transactions</p>
-              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
-                Start with clear numbers—or ask Will for an introduction.
-              </h2>
-              <p className="mt-4 max-w-[62ch] leading-relaxed text-slate-300">
-                Estimate costs, share transaction context, or speak directly with Will. Any provider independently confirms acceptance, scope, and terms.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <Link href="/calculators/title-quote" className="btn-primary px-7">
-                Estimate Title Costs <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-              <Link href="/contact" className="btn-on-dark px-7">
-                Contact Will
-              </Link>
-            </div>
+      <div className="border-b border-white/10">
+        <div className="mx-auto flex max-w-[1296px] flex-col gap-7 px-6 py-14 md:flex-row md:items-center md:justify-between md:py-16">
+          <h2 className="font-display text-[2rem] font-medium leading-[1.1] tracking-[-0.02em] text-white md:text-5xl">
+            Get your numbers before you sign.
+          </h2>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <Link href="/calculators/title-quote" className="btn-brass px-7">
+              Estimate Title Costs <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link href="/contact" className="btn-on-dark px-7">
+              Contact Will
+            </Link>
           </div>
         </div>
       </div>

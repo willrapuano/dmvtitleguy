@@ -1,16 +1,7 @@
 "use client";
 
-import { Home, Handshake, Landmark, Hammer, Building2, Clock, MessageSquare, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { SectionHead } from "@/components/SectionHead";
-
-/**
- * Emoji were doing the work of icons here — they render differently on every OS,
- * ignore the palette, and sat oddly beside the serif headings. lucide-react was
- * already a dependency.
- */
-const ROLE_ICONS = { Home, Handshake, Landmark, Hammer, Building2 } as const;
 
 const AUDIENCE_CARDS = [
   { role: "For Buyers & Sellers", desc: "Clear title work, responsive communication, and smoother purchase, sale, and refinance closings across the DMV.", icon: "Home", href: "/calculators/title-quote" },
@@ -179,358 +170,187 @@ const SERVICE_AREAS: ServiceAreaColumn[] = [
   },
 ];
 
-export function HomePageClient() {
+export interface HomeGuide {
+  slug: string;
+  title: string;
+  category: string;
+  readTime: string;
+  image: string;
+}
+
+/* Capital Standard homepage (Paper: "DMV Title Guy — Website Design Options",
+   page "Sep 2026 — Live vs Refresh"). Hero, a navy "what do you need" band,
+   the latest guides, Will, and a closing call to action. The H1 wording is held
+   until the SEO freeze's September 30 decision. The service, role and area
+   links stay at the foot of the page as an index: they are internal links to
+   pages that rank, and removing them is a separate SEO decision. */
+export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide[] }) {
   return (
     <>
-      {/* ── SECTION 1: HERO ──────────────────────────────────────── */}
-      {/* Capital Standard: copy on white, a real DC street photographed full-bleed
-          on the right, square edges. The H1 wording is unchanged until the SEO
-          freeze's September 30 decision. */}
+      {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="relative border-b border-brand-line bg-white">
-        <div className="grid lg:min-h-[640px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:py-20 lg:pl-[max(2rem,calc((100vw-1240px)/2+2rem))] lg:pr-16">
-            <p className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-ink">
-              <span aria-hidden="true" className="h-0.5 w-9 bg-brand-brass" />
-              Independent educational guidance from Will Rapuano for DC, Maryland, and Virginia
+        <div className="grid lg:min-h-[680px] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)]">
+          <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:py-20 lg:pl-[max(2rem,calc((100vw-1296px)/2+1.5rem))] lg:pr-16">
+            <p className="mb-7 flex items-center gap-3.5 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink">
+              <span aria-hidden="true" className="h-0.5 w-9 shrink-0 bg-brand-brass" />
+              DC · Maryland · Virginia
             </p>
-            <h1 className="t-display max-w-[15ch] text-brand-navy">
+            <h1 className="max-w-[15ch] font-display text-[2.75rem] font-medium leading-[1.03] tracking-[-0.025em] text-brand-navy sm:text-6xl lg:text-[4.75rem]">
               Practical title guidance for DC, Maryland, and Virginia real estate.
             </h1>
-            <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-brand-ink md:text-xl">
-              Use local guides and calculators to understand the next step. When you need a provider, ask Will for an introduction; the provider independently confirms acceptance, scope, and terms.
+            <p className="mt-7 max-w-[56ch] text-lg leading-[1.65] text-brand-ink md:text-[19px]">
+              Independent educational guidance from Will Rapuano. Use local guides and calculators to understand the next step. When you need a provider, ask Will for an introduction; the provider independently confirms acceptance, scope, and terms.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/calculators/title-quote" className="btn-primary px-8 text-center text-base">
+            <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap">
+              <Link href="/calculators/title-quote" className="btn-primary px-7 py-4 text-base">
                 Estimate Title Costs <span aria-hidden="true">→</span>
               </Link>
-              <Link href="/contact" className="btn-outline px-8 text-center text-base">
+              <Link href="/contact" className="btn-outline px-7 py-4 text-base">
                 Request an Introduction
               </Link>
             </div>
           </div>
 
-          <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-0">
+          <div className="relative min-h-[340px] sm:min-h-[460px] lg:min-h-0">
             <Image
               src="/home-dc-rowhouses.jpg"
               alt="Porch-front rowhouses in Washington, DC, with a District of Columbia flag hanging on the front"
               fill
               priority
-              sizes="(min-width: 1024px) 45vw, 100vw"
+              sizes="(min-width: 1024px) 44vw, 100vw"
               className="object-cover object-center"
             />
-            <div className="absolute bottom-0 left-0 bg-brand-navy px-6 py-4 text-white">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-brass">Local coverage</p>
-              <p className="mt-1 font-display text-xl font-medium">Virginia · Maryland · Washington DC</p>
+            <div className="absolute bottom-0 left-0 bg-brand-navy px-6 py-[18px]">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-brass">Photographed in</p>
+              <p className="mt-1 font-display text-[22px] font-medium text-white">Washington, DC</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 2: MONEY PAGE ROUTING ──────────────────────── */}
-      <section className="section-light">
-        <div className="container-xl">
-          <SectionHead
-            index="01"
-            label="Start here"
-            title="Title quotes, closings, and service pages"
-            lede="Route directly into the pages that matter most for quotes, closing support, and local title service coverage across Virginia, Maryland, and Washington DC."
-          />
-          {/* An index, not a card wall: hairline rules and a hanging arrow read as
-              a directory, and drop the shadowed-box repetition entirely. */}
-          <ul className="mt-12 grid gap-x-12 border-t border-gray-200 sm:grid-cols-2">
-            {MONEY_PAGES.map((item) => (
-              <li key={item.href} className="border-b border-gray-200">
-                <Link href={item.href} className="group flex items-baseline gap-4 py-5">
-                  <span className="min-w-0 flex-1">
-                    <span className="block font-display text-lg font-semibold leading-snug text-brand-navy">
-                      {item.label}
-                    </span>
-                    <span className="mt-1.5 block max-w-[58ch] text-sm leading-relaxed text-brand-muted">
-                      {item.detail}
-                    </span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="shrink-0 text-brand-blue-deep"
-                  >
-                    →
-                  </span>
+      {/* ── WHAT DO YOU NEED ─────────────────────────────────────── */}
+      <section className="bg-brand-navy text-white">
+        <div className="mx-auto grid max-w-[1296px] gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[300px_1fr_1fr_1fr] lg:gap-0 lg:px-6">
+          <div className="lg:pr-10">
+            <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-brass">Start here</p>
+            <h2 className="mt-2.5 font-display text-4xl font-medium leading-[1.1] tracking-[-0.015em] text-white lg:text-[40px]">
+              What do you need today?
+            </h2>
+          </div>
+          {[
+            { h: "A number", d: "Title premium, transfer and recordation taxes, and settlement fees for your price and county.", cta: "Open the calculator", href: "/calculators/title-quote" },
+            { h: "An explanation", d: "Contracts, title insurance and closing costs, explained state by state with the statute cited.", cta: "Browse the guides", href: "/blog" },
+            { h: "A person", d: "Ask Will about a specific transaction, or request an introduction to a provider.", cta: "Contact Will", href: "/contact" },
+          ].map((item) => (
+            <Link key={item.h} href={item.href} className="group flex flex-col gap-3 border-t border-white/20 pt-6 lg:border-l lg:border-t-0 lg:px-9 lg:pt-0">
+              <span className="font-display text-[26px] font-medium text-white">{item.h}</span>
+              <span className="text-base leading-relaxed text-brand-blue-100">{item.d}</span>
+              <span className="pt-1.5 text-[15px] font-bold text-brand-brass group-hover:underline">{item.cta} <span aria-hidden="true">→</span></span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── LATEST GUIDES ────────────────────────────────────────── */}
+      {latestGuides.length > 0 && (
+        <section className="bg-white">
+          <div className="mx-auto max-w-[1296px] px-5 py-20 sm:px-8 lg:px-6 lg:py-24">
+            <div className="flex items-end justify-between gap-6">
+              <h2 className="font-display text-4xl font-medium tracking-[-0.02em] text-brand-navy md:text-[52px] md:leading-[1.08]">Latest guides</h2>
+              <Link href="/blog" className="shrink-0 border-b-2 border-brand-brass pb-1 text-[15px] font-bold text-brand-navy">
+                All guides <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="mt-11 grid gap-10 md:grid-cols-3 md:gap-8">
+              {latestGuides.map((guide) => (
+                <Link key={guide.slug} href={`/blog/${guide.slug}`} className="group flex flex-col gap-4">
+                  <div className="relative aspect-[3/2] overflow-hidden bg-brand-gray-bg">
+                    <Image src={guide.image} alt="" fill sizes="(min-width: 768px) 400px, 100vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+                  </div>
+                  <span className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-muted">{guide.category}</span>
+                  <span className="font-display text-[26px] font-medium leading-[1.2] tracking-[-0.01em] text-brand-navy group-hover:underline group-hover:decoration-brand-brass group-hover:decoration-2 group-hover:underline-offset-4">{guide.title}</span>
+                  <span className="text-[15px] text-brand-muted">{guide.readTime}</span>
                 </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── WHO WE WORK WITH ─────────────────────────────────────── */}
-      <section className="section-gray">
-        <div className="container-xl">
-          {/* Left-aligned to share an edge with the list below it; a centred
-              heading over a left-aligned list was the leftover inconsistency. */}
-          <SectionHead
-            index="02"
-            label="By role"
-            title="Routing by transaction partner"
-            lede="Choose the closing path that matches your role. These pages route buyers, realtors, lenders, builders, and institutions into the right title, escrow, and settlement support."
-          />
-          {/**
-           * Was five 205px cards of centred text. At that width the descriptions
-           * wrapped at 23 characters per line into 5-7 ragged lines each — no
-           * icon or typeface choice survives a column that narrow.
-           *
-           * A ruled list gives the copy the full container width (~60-70 chars)
-           * and lets the eye scan role names down a single edge. Rows stack on
-           * mobile, where a 5-up grid was collapsing anyway.
-           */}
-          <ul className="mt-12 border-t border-gray-200">
-            {AUDIENCE_CARDS.map((item) => {
-              const Icon = ROLE_ICONS[item.icon as keyof typeof ROLE_ICONS];
-              const inner = (
-                <>
-                  <span className="flex items-start gap-3 sm:col-span-4">
-                    <Icon
-                      size={18}
-                      strokeWidth={1.75}
-                      className="mt-0.5 shrink-0 text-brand-blue-deep"
-                      aria-hidden="true"
-                    />
-                    <span className="t-h6 text-brand-navy">{item.role}</span>
-                  </span>
-                  <span className="text-sm leading-relaxed text-brand-muted sm:col-span-7">
-                    {item.desc}
-                  </span>
-                  {item.href && (
-                    <span
-                      aria-hidden="true"
-                      className="hidden text-brand-blue-deep sm:col-span-1 sm:block sm:justify-self-end"
-                    >
-                      →
-                    </span>
-                  )}
-                </>
-              );
-              const rowClass =
-                "group grid gap-x-8 gap-y-2 border-b border-gray-200 py-5 sm:grid-cols-12 sm:items-baseline";
-              return (
-                <li key={item.role}>
-                  {item.href ? (
-                    <Link href={item.href} className={`${rowClass} transition-colors hover:bg-white`}>
-                      {inner}
-                    </Link>
-                  ) : (
-                    <div className={rowClass}>{inner}</div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── SECTION 3: QUICK START CTA ───────────────────────────── */}
-      <section className="section-blue">
-        <div className="container-xl text-center">
-          <h2 className="t-h2 text-white mb-4">
-            Need to start a closing or get numbers fast?
-          </h2>
-          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Start with a title quote, open title for an active transaction, or contact the team for purchase, refinance, and builder closings across the DMV.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/calculators/title-quote" className="btn-light px-8 py-3.5">
-              Estimate Title Costs →
-            </Link>
-            <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy px-8 py-3.5">
-              Open Title
-            </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* ── SECTION 4: WHAT YOU GET ─────────────────────────────── */}
-      <section className="section-light">
-        <div className="container-xl">
-          <SectionHead
-            index="03"
-            label="Why it moves faster"
-            title="Title, escrow, and settlement — built for real transactions"
-            lede="Communication and problem-solving first, not paperwork thrown over a wall."
-          />
-
-          {/* Numbered columns under a heavy rule instead of icons in pastel
-              circles — that pattern is the single most generic thing on a
-              marketing page, and a rule plus a numeral carries the same
-              hierarchy with none of the decoration. */}
-          <div className="mt-14 grid gap-x-12 gap-y-12 md:grid-cols-3">
-            {[
-              {
-                Icon: Clock,
-                title: "Title & escrow that doesn't slow you down",
-                body: "Fast, reliable title work and settlement coordination for purchase, refinance, resale, and builder transactions across DC, Maryland, and Virginia.",
-              },
-              {
-                Icon: MessageSquare,
-                title: "Responsive communication from contract to closing",
-                body: "Buyers, agents, lenders, and builders get proactive updates, cleaner coordination, and fewer last-minute surprises at settlement.",
-              },
-              {
-                Icon: MapPin,
-                title: "Local DMV expertise for complex closings",
-                body: "From Montgomery County and Bethesda to Washington DC and Northern Virginia, the team understands local taxes, title issues, and settlement workflows that affect real transactions.",
-              },
-            ].map((d, i) => (
-              <div key={d.title} className="border-t-2 border-brand-navy pt-5">
-                <div className="flex items-center gap-3">
-                  <span className="font-display text-sm font-semibold text-brand-blue-deep tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <d.Icon size={17} strokeWidth={1.75} className="text-brand-blue-deep" aria-hidden="true" />
-                </div>
-                <h3 className="t-h5 mt-4 text-brand-navy">{d.title}</h3>
-                <p className="mt-3 max-w-[46ch] text-[15px] leading-relaxed text-brand-muted">{d.body}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Pull-quote as a real editorial moment: display serif at scale, no
-              box, hanging off the same left edge as everything above it. */}
-          <blockquote className="mt-20 max-w-4xl border-t border-gray-200 pt-10">
-            <p className="font-display text-2xl leading-[1.4] text-brand-navy md:text-[1.75rem]">
-              &ldquo;My goal is simple: help real estate professionals in the DMV grow their
-              businesses through better marketing, better education, and better title decisions.
-              When my partners succeed, everybody wins.&rdquo;
+      {/* ── MEET WILL ────────────────────────────────────────────── */}
+      <section className="border-t border-brand-line bg-white">
+        <div className="mx-auto grid max-w-[1296px] items-end gap-10 px-5 pt-16 sm:px-8 lg:grid-cols-[1fr_480px] lg:gap-14 lg:px-6">
+          <div className="pb-4 lg:pb-20 lg:pt-8">
+            <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-muted">Who writes these</p>
+            <h2 className="mt-5 max-w-[18ch] font-display text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-brand-navy md:text-[56px]">
+              Hi, I&apos;m Will. I&apos;d rather you ask now than find out at the closing table.
+            </h2>
+            <p className="mt-6 text-sm font-bold uppercase tracking-[0.12em] text-brand-ink">
+              Founder of DMV Title Guy · Marketing and Business Development Officer at Pruitt Title LLC
             </p>
-            <footer className="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-brand-blue-deep">
-              Will Rapuano
-              <span className="ml-2 font-medium normal-case tracking-normal text-brand-muted">
-                DMV Title Guy
-              </span>
-            </footer>
-          </blockquote>
+            <p className="mt-5 max-w-[62ch] text-lg leading-[1.65] text-brand-ink">
+              Will Rapuano created and operates DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Eligible transaction requests may be referred to Pruitt Title LLC for independent review; Pruitt confirms whether it accepts the request and the applicable scope, pricing, terms, and disclosures.
+            </p>
+            <div className="mt-8 flex flex-wrap items-end gap-8">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-muted">Call</p>
+                <a href="tel:+17038591467" className="mt-1 block font-display text-2xl font-medium text-brand-navy hover:underline">(703) 859-1467</a>
+              </div>
+              <Link href="/about-will-rapuano" className="border-b-2 border-brand-brass pb-1 text-[15px] font-bold text-brand-navy">
+                About Will &amp; DMV Title Guy <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+          <div className="relative mx-auto h-[520px] w-full max-w-[440px] overflow-hidden lg:h-[600px] lg:max-w-none">
+            <Image
+              src="/will-rapuano-headshot.jpg"
+              alt="Will Rapuano, Pruitt Title LLC"
+              fill
+              sizes="(min-width: 1024px) 480px, 90vw"
+              className="object-cover object-[50%_58%] [transform:scale(1.28)] [transform-origin:50%_62%]"
+            />
+          </div>
         </div>
       </section>
 
-      {/* ── SERVICE AREA SECTION ────────────────────────────────── */}
-      <section className="section-gray">
-        <div className="container-xl">
-          <SectionHead
-            index="04"
-            label="Coverage"
-            title="Local title and closing education across the DMV"
-            lede="Explore DMV-focused guides, calculators, and transaction-introduction resources for Washington DC, Northern Virginia, and Maryland."
-          />
-          {/* Location links were 73 fixed-width pills centred inside three cards,
-              which produced a ragged grid of half-empty rows. As a left-aligned
-              inline set they read as an index and set their own rhythm. */}
-          <div className="mt-14 grid gap-x-12 gap-y-12 lg:grid-cols-3">
-            {SERVICE_AREAS.map((area) => (
-              <div key={area.title} className="border-t border-gray-300 pt-6">
-                <h3 className="t-h5 text-brand-navy">{area.title}</h3>
-                <p className="mt-3 max-w-[46ch] text-sm leading-relaxed text-brand-muted">
-                  {area.description}
-                </p>
-                <div className="mt-6 space-y-5">
+      {/* ── PAGE INDEX (internal links kept for SEO) ─────────────── */}
+      <section className="border-t border-brand-line bg-brand-gray-bg">
+        <div className="mx-auto grid max-w-[1296px] gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_1fr_2fr] lg:px-6">
+          <div>
+            <h2 className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-navy">Title quotes and services</h2>
+            <ul className="mt-5 space-y-3">
+              {MONEY_PAGES.map((item) => (
+                <li key={item.href + item.label}><Link href={item.href} className="text-[15px] text-brand-ink hover:text-brand-navy hover:underline">{item.label}</Link></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-navy">By role</h2>
+            <ul className="mt-5 space-y-3">
+              {AUDIENCE_CARDS.map((item) => (
+                <li key={item.href}><Link href={item.href} className="text-[15px] text-brand-ink hover:text-brand-navy hover:underline">{item.role}</Link></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-navy">By area</h2>
+            <div className="mt-5 space-y-5">
+              {SERVICE_AREAS.map((area) => (
+                <div key={area.title}>
                   {area.groups.map((group) => (
-                    <div key={group.heading}>
-                      <h4 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-navy/70">
-                        {group.heading}
-                      </h4>
-                      {/* Separator trails its own link rather than leading the next
-                          one, so a wrap can never start a line with a stray dot. */}
-                      <ul className="mt-2 flex flex-wrap text-sm leading-relaxed">
-                        {group.links.map((link, i) => (
-                          <li key={`${group.heading}-${link.label}`}>
-                            {/* Same reason as the footer's area list: 78 links here,
-                                each pulling ~25 KB of RSC payload on viewport entry,
-                                was 1.44 MB of speculative download on the homepage.
-                                Hover still prefetches. */}
-                            <Link
-                              href={link.href}
-                              prefetch={false}
-                              className="text-brand-blue-deep decoration-brand-blue-deep/30 underline-offset-4 transition hover:underline"
-                            >
-                              {link.label}
-                            </Link>
-                            {i < group.links.length - 1 && (
-                              <span aria-hidden="true" className="mx-1.5 text-gray-400">
-                                ·
-                              </span>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <p key={group.heading} className="text-[15px] leading-7 text-brand-ink">
+                      <span className="font-bold text-brand-navy">{group.heading}: </span>
+                      {group.links.map((link, i) => (
+                        <span key={link.label}>
+                          <Link href={link.href} className="hover:text-brand-navy hover:underline">{link.label}</Link>
+                          {i < group.links.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
+                    </p>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ── SECTION 9: WILL / TRUST BUILDER ─────────────────────── */}
-      {/* Was a centred wall of text in a 3xl column with the headshot nowhere on
-          the page. An asymmetric 7/5 split gives the person a face and turns the
-          contact details into a proper colophon instead of a stack of centred
-          lines. */}
-      <section className="section-light">
-        <div className="container-xl">
-          <SectionHead index="05" label="Who you'll deal with" title="Meet Will Rapuano" />
-          <div className="mt-12 grid gap-12 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-deep">
-                Founder of DMV Title Guy · Marketing and Business Development Officer at Pruitt Title LLC
-              </p>
-              <div className="mt-6 space-y-5 leading-relaxed text-brand-muted">
-                <p className="max-w-[68ch] text-[17px]">
-                  Will Rapuano created and operates DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Will serves as Marketing and Business Development Officer at Pruitt Title LLC. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms whether it accepts the request and the applicable scope, pricing, terms, and disclosures.
-                </p>
-                <p className="max-w-[68ch]">
-                  Need help finding the right next step? Reach out to Will with your transaction question or request an introduction.
-                </p>
-              </div>
-              <div className="mt-9 flex flex-wrap gap-4">
-                <Link href="/calculators/title-quote" className="btn-primary px-8">
-                  Estimate Closing Costs
-                </Link>
-                <Link href="/contact" className="btn-outline px-8">
-                  Contact Will
-                </Link>
-                <Link href="/about-will-rapuano" className="inline-flex min-h-11 items-center px-2 font-semibold text-brand-blue-deep underline decoration-brand-blue-deep/30 underline-offset-4 hover:decoration-brand-blue-deep">
-                  About Will &amp; DMV Title Guy
-                </Link>
-              </div>
+              ))}
             </div>
-
-            <aside className="md:col-span-5">
-              {/* The file is a 1638x2048 cutout with a pure-white ground, so on a
-                  white section it floated with no edge. A tinted panel plus
-                  multiply drops the white and gives the portrait a frame; the
-                  source is already 4:5, so nothing is cropped. */}
-              <div className="overflow-hidden rounded-sm bg-brand-blue-50">
-                <Image
-                  src="/will-rapuano-headshot.jpg"
-                  alt="Will Rapuano, Pruitt Title LLC"
-                  width={1638}
-                  height={2048}
-                  sizes="(min-width: 768px) 420px, 100vw"
-                  className="h-auto w-full [mix-blend-mode:multiply]"
-                />
-              </div>
-              <dl className="mt-6 border-t border-gray-200 pt-5 text-sm">
-                {[
-                  { k: "Phone", v: <a href="tel:+17038591467" className="text-brand-blue-deep hover:underline">(703) 859-1467</a> },
-                ].map((row) => (
-                  <div key={row.k} className="flex gap-4 border-b border-gray-100 py-2.5 last:border-0">
-                    <dt className="w-16 shrink-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-navy/70">
-                      {row.k}
-                    </dt>
-                    <dd className="min-w-0 flex-1">{row.v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </aside>
           </div>
         </div>
       </section>
