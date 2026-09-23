@@ -13,3 +13,17 @@ updates:
         dependency-type: production
       development-dependencies:
         dependency-type: development
+    # Majors of these need migration work (Tailwind 4 rewrites the config;
+    # TypeScript 7 and ESLint 10 change the toolchain; @types/node should
+    # track the Node runtime, not the latest release). Bundled into the weekly
+    # group they turn it red and block the safe minor updates with it.
+    # Take them on deliberately, one at a time.
+    ignore:
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
