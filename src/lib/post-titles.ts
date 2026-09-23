@@ -1,3 +1,5 @@
+import { consolidatedKeeper } from "../../config/consolidated-posts.mjs";
+
 /**
  * Per-post title and metadata overrides, shared by every surface that shows a
  * post's name — the index cards, the related-post cards, the article h1 and the
@@ -167,5 +169,7 @@ export function postDisplayTitle(slug: string, cmsTitle: string): string {
 
 /** Canonical route shared by article metadata and the sitemap. */
 export function postCanonicalPath(slug: string): string {
+  const keeper = consolidatedKeeper(slug);
+  if (keeper) return `/blog/${keeper}`;
   return BLOG_SEO_OVERRIDES[slug]?.canonical || `/blog/${slug}`;
 }

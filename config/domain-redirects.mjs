@@ -1,3 +1,5 @@
+import { consolidatedPosts } from "./consolidated-posts.mjs";
+
 export const canonicalOrigin = "https://dmvtitleguy.io";
 
 export const redirectingHosts = [
@@ -37,7 +39,7 @@ export const legacyPathMappings = [
   ["/blog/extended-vs-standard-title-insurance", "/blog/enhanced-vs-standard-title-insurance"],
   ["/blog/title-insurance-requirements-dmv", "/blog/title-insurance-requirements-dc-md-va"],
   ["/blog/title-insurance-requirements-dmv-comparison", "/blog/title-insurance-requirements-dc-md-va"],
-  ["/blog/choose-right-title-company-dmv", "/blog/how-to-choose-right-title-company-dmv"],
+  ["/blog/choose-right-title-company-dmv", "/blog/how-to-choose-a-title-company-in-virginia-maryland-or-dc"],
   ["/blog/settlement-costs-buyers-sellers", "/blog/closing-costs-dmv-buyers-sellers"],
   ["/blog/understanding-closing-costs-dmv", "/blog/closing-costs-dmv-buyers-sellers"],
   ["/blog/understanding-title-commitments-agents", "/blog/how-to-read-a-title-commitment"],
@@ -49,20 +51,34 @@ export const legacyPathMappings = [
   ["/title-company-fairfax-va", "/title-search-fairfax-va"],
   ["/blog/title-settlement-fee", "/blog/what-is-a-title-settlement-fee"],
   ["/title-insurance-cost-virginia", "/blog/title-insurance-cost-virginia"],
-  ["/closing-costs-maryland-2026", "/blog/closing-costs-maryland-2026"],
+  ["/closing-costs-maryland-2026", "/blog/closing-costs-maryland"],
   ["/title-and-settlement-services", "/why-choose-us"],
   ["/closing-costs-maryland", "/closing-costs/maryland"],
   ["/closing-costs-dc", "/closing-costs/dc"],
   ["/who-pays-closing-costs-in-virginia", "/blog/who-pays-closing-costs-in-virginia"],
-  ["/closing-costs-in-virginia-2026", "/blog/closing-costs-in-virginia-2026"],
+  ["/closing-costs-in-virginia-2026", "/blog/closing-costs-virginia"],
   ["/title-company-maryland", "/closing-costs/maryland"],
-  ["/what-is-lenders-title-insurance", "/blog/what-is-lenders-title-insurance"],
-  ["/lenders-title-insurance-vs-owners-title-insurance", "/blog/lenders-title-insurance-vs-owners-title-insurance"],
+  ["/what-is-lenders-title-insurance", "/blog/lender-title-insurance"],
+  ["/lenders-title-insurance-vs-owners-title-insurance", "/blog/difference-between-lenders-and-owners-title-insurance"],
   ["/settlement-company-fairfax-county", "/blog/settlement-company-fairfax-county"],
   ["/blog/what-is-a-title-search", "/blog/title-search-vs-title-insurance"],
   ["/blog/what-is-title-insurance", "/title-insurance"],
   ["/blog/virginia-settlement-closing-process-explained", "/blog/what-happens-at-closing-real-estate"],
+  // 2026-09-23: duplicate posts retired into the strongest post on the same
+  // intent. The five entries above that used to land on a retired slug now
+  // point at its keeper, so every redirect stays one hop.
+  ...Object.entries(consolidatedPosts).map(([retired, keeper]) => [`/blog/${retired}`, `/blog/${keeper}`]),
 ];
+
+// A destination that is itself redirected makes a two-hop chain. Fail the build
+// instead of shipping one.
+{
+  const sources = new Set(legacyPathMappings.map(([source]) => source));
+  const chained = legacyPathMappings.filter(([, destination]) => sources.has(destination));
+  if (chained.length > 0) {
+    throw new Error(`Redirect chain: ${chained.map(([s, d]) => `${s} -> ${d}`).join(", ")}`);
+  }
+}
 
 export function slashForms(source) {
   return source === "/" ? [source] : [source, `${source}/`];
