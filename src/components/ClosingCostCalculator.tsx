@@ -151,7 +151,8 @@ function calculateMD(
     recordingFee: 150,
     stateTransferTax: buyerStateTransferTax,
     countyTransferTax: countyTransferTaxTotal / 2,
-    recordationTax,
+    // Real Prop. § 14-104(b): presumed shared equally unless the contract says otherwise.
+    recordationTax: recordationTax / 2,
     loanOriginationEst: loanAmount * 0.01,
     appraisal: 600,
     prepaidItems: loanAmount * 0.015,
@@ -161,6 +162,7 @@ function calculateMD(
     agentCommission: price * 0.025,
     stateTransferTax: sellerStateTransferTax,
     countyTransferTax: countyTransferTaxTotal / 2,
+    recordationTax: recordationTax / 2,
     settlementFee: 295,
     recordingFee: 50,
     payoffProcessing: 75,
@@ -170,9 +172,12 @@ function calculateMD(
 }
 
 function calculateDC(price: number, loanAmount: number): CalcResult {
-  // DC: combined recordation + transfer = ~2.9% over $400K, split buyer/seller
-  const combinedRate = price >= 400000 ? 0.029 : 0.022;
-  const halfTax = (price * combinedRate) / 2;
+  // D.C. Code §§ 42-1103(a-4), 47-903(a-4): each tax is 1.1% below $400,000 and 1.45%
+  // at $400,000 or more. The seller owes the transfer tax (§ 47-903(c)); the buyer
+  // customarily pays the recordation tax, whose first-time-buyer benefit goes to the
+  // grantee (§ 42-1103(e)).
+  const rate = price >= 400000 ? 0.0145 : 0.011;
+  const deedTax = price * rate;
 
   const buyerCosts: Record<string, number> = {
     titleSearch: 250,
@@ -180,8 +185,7 @@ function calculateDC(price: number, loanAmount: number): CalcResult {
     titleInsuranceOwner: price * 0.005,
     settlementFee: 595,
     recordingFee: 200,
-    recordationTax: halfTax,
-    transferTax: halfTax,
+    recordationTax: deedTax,
     loanOriginationEst: loanAmount * 0.01,
     appraisal: 700,
     prepaidItems: loanAmount * 0.015,
@@ -189,8 +193,7 @@ function calculateDC(price: number, loanAmount: number): CalcResult {
 
   const sellerCosts: Record<string, number> = {
     agentCommission: price * 0.025,
-    recordationTax: halfTax,
-    transferTax: halfTax,
+    transferTax: deedTax,
     settlementFee: 395,
     recordingFee: 100,
     payoffProcessing: 75,

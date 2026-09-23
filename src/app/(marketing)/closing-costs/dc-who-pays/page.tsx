@@ -77,7 +77,7 @@ export default function DCWhoPaysClosingCostsPage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            DC has some of the highest closing costs in the nation. The combined recordation and transfer taxes reach 2.9% for properties of $400,000 or more—typically split 50/50 between buyer and seller by custom.
+            DC has some of the highest closing costs in the nation. The combined recordation and transfer taxes reach 2.9% for properties of $400,000 or more—by custom the buyer pays the recordation tax and the seller pays the transfer tax.
           </p>
         </div>
       </section>
@@ -97,8 +97,7 @@ export default function DCWhoPaysClosingCostsPage() {
               <li><strong>Home Inspection Fees:</strong> Optional but recommended, costing $400-$600.</li>
               <li><strong>Prepaid Expenses:</strong> Includes property taxes, homeowners insurance, and prepaid interest from closing date to end of the month.</li>
               <li><strong>Recording Fees:</strong> Fees to record the deed and mortgage with DC authorities.</li>
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50.</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50.</li>
+              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — customarily paid by the buyer.</li>
             </ul>
           </div>
         </div>
@@ -114,8 +113,7 @@ export default function DCWhoPaysClosingCostsPage() {
             </p>
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commissions:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50 with buyer.</li>
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50 with buyer.</li>
+              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — owed by the seller by law (D.C. Code § 47-903(c)).</li>
               <li><strong>Title Insurance for Buyer:</strong> Sellers often pay for the owner's title insurance policy as a concession.</li>
               <li><strong>Prorated Property Taxes:</strong> Property taxes from January 1 to the closing date.</li>
               <li><strong>Outstanding Liens:</strong> Any liens on the property must be paid at closing.</li>
@@ -144,13 +142,13 @@ export default function DCWhoPaysClosingCostsPage() {
                   <td className="p-3">Recordation Tax</td>
                   <td className="p-3 text-right">1.1%</td>
                   <td className="p-3 text-right">1.45%</td>
-                  <td className="p-3 text-right">Split 50/50</td>
+                  <td className="p-3 text-right">Buyer</td>
                 </tr>
                 <tr>
                   <td className="p-3">Transfer Tax</td>
                   <td className="p-3 text-right">1.1%</td>
                   <td className="p-3 text-right">1.45%</td>
-                  <td className="p-3 text-right">Split 50/50</td>
+                  <td className="p-3 text-right">Seller</td>
                 </tr>
                 <tr className="bg-gray-50 font-semibold">
                   <td className="p-3">Combined Total</td>
@@ -162,7 +160,7 @@ export default function DCWhoPaysClosingCostsPage() {
             </table>
           </div>
           <div className="mt-6 space-y-3 text-brand-muted text-sm">
-            <p><strong>Example:</strong> On a $600,000 home ($400K and up), the combined taxes are 2.9% or $17,400. Split 50/50, each party pays $8,700.</p>
+            <p><strong>Example:</strong> On a $600,000 home ($400K and up), the combined taxes are 2.9% or $17,400. The buyer pays the $8,700 recordation tax and the seller the $8,700 transfer tax.</p>
           </div>
         </div>
       </section>
@@ -173,7 +171,7 @@ export default function DCWhoPaysClosingCostsPage() {
           <h2 className="t-h4 text-brand-navy mb-4">Can Closing Costs Be Negotiated?</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p className="max-w-[68ch]">
-              Yes! While there's a customary 50/50 split for recordation and transfer taxes, buyers and sellers can negotiate who pays other fees:
+              Yes! While the buyer customarily pays the recordation tax and the seller the transfer tax, buyers and sellers can negotiate who pays other fees:
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li><strong>Title Insurance:</strong> Who pays can be negotiated (traditionally split or paid by seller as concession)</li>

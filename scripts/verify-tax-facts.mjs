@@ -87,7 +87,9 @@ for (const county of ["Fairfax County", "Arlington County", "Loudoun County", "P
 }
 if (/DeedOfTrustTransferTax/.test(calculator)) failures.push("rate drift: a purchase-money deed of trust is not subject to PG County transfer tax (§ 10-188(d))");
 // D.C. Code §§ 42-1103(a-4), 47-903(a-4): 1.45% each at $400,000 or more, 1.1% each below.
-expectMatch(calculator, /price >= 400000 \? 0\.029 : 0\.022/, "DC combined rate must be 2.9% at $400,000 or more, 2.2% below");
+expectMatch(calculator, /price >= 400000 \? 0\.0145 : 0\.011/, "DC recordation and transfer tax must each be 1.45% at $400,000 or more, 1.1% below");
+// Md. Real Prop. § 14-104(b): recordation tax presumed shared equally.
+expectMatch(calculator, /recordationTax: recordationTax \/ 2,[\s\S]*recordationTax: recordationTax \/ 2,/, "Maryland recordation tax must be split equally between buyer and seller (RP § 14-104(b))");
 
 if (failures.length) {
   console.error(`Tax facts check failed (${failures.length}):\n${failures.join("\n")}`);

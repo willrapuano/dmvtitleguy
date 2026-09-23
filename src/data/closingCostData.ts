@@ -127,7 +127,7 @@ const DC_FAQS = [
   },
   {
     question: "Who pays DC transfer taxes?",
-    answer: "In DC, recordation and transfer taxes are typically split between buyer and seller, though this is negotiable. First-time DC homebuyers may qualify for a reduced recordation tax rate.",
+    answer: "In DC the seller owes the transfer tax by law, and the buyer customarily pays the recordation tax, though the contract can allocate them differently. First-time DC homebuyers may qualify for a reduced recordation tax rate.",
   },
   {
     question: "Are there any DC homebuyer tax breaks?",
@@ -557,7 +557,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0,
     localTaxNote: "The District has no separate county layer — recordation and transfer taxes are both levied at the district level, and deeds record with the DC Recorder of Deeds.",
     intro: "Calculate closing costs for Washington DC real estate. DC has some of the highest transfer taxes in the region — combined recordation and transfer taxes can reach 2.9% on properties of $400,000 or more. Median home prices are approximately $650,000.",
-    localTaxExplainer: "Washington DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties under $400,000, each tax is 1.1% (2.2% combined). For properties at or above $400,000, each increases to 1.45% (2.9% combined). These taxes are typically split between buyer and seller. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. Because the rate steps at $400,000 rather than sliding, a contract written just over that line costs meaningfully more than one written just under it.",
+    localTaxExplainer: "Washington DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties under $400,000, each tax is 1.1% (2.2% combined). For properties at or above $400,000, each increases to 1.45% (2.9% combined). The seller owes the transfer tax by law and the buyer customarily pays the recordation tax. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. Because the rate steps at $400,000 rather than sliding, a contract written just over that line costs meaningfully more than one written just under it.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: DC_FAQS,
   },

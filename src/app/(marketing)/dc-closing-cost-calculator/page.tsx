@@ -36,12 +36,12 @@ export default function DCCalculatorPage() {
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Understanding DC Closing Costs</h2>
           <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
-            <p className="max-w-[68ch]">Washington DC has some of the highest closing costs in the nation. Combined recordation and transfer taxes can reach <strong className="text-brand-dark-text">2.9%</strong> of the sales price for properties of $400,000 or more — typically split equally between buyer and seller.</p>
+            <p className="max-w-[68ch]">Washington DC has some of the highest closing costs in the nation. Combined recordation and transfer taxes can reach <strong className="text-brand-dark-text">2.9%</strong> of the sales price for properties of $400,000 or more — by custom the buyer pays the recordation tax and the seller the transfer tax.</p>
             <h3 className="text-brand-navy font-bold text-base">DC Tax Rates</h3>
             <ul className="list-disc list-inside space-y-1">
               <li><strong>Properties under $400,000:</strong> 1.1% recordation + 1.1% transfer = 2.2% combined</li>
               <li><strong>Properties $400,000 and up:</strong> 1.45% recordation + 1.45% transfer = 2.9% combined</li>
-              <li>Typically split 50/50 between buyer and seller by contract</li>
+              <li>Recordation tax customarily paid by the buyer; transfer tax owed by the seller</li>
               <li>A reduced 0.725% recordation tax rate for qualifying first-time DC homebuyers</li>
             </ul>
             <p className="max-w-[68ch]">Title insurance premiums and eligibility depend on the filed rates, policy type, transaction, and underwriter. Use this calculator for planning, then request a current written quote for the property.</p>
