@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "How much is the DC transfer tax?",
-    answer: "The transfer tax is 1.1% of the sale price, typically split between buyer and seller.",
+    answer: "The transfer tax is 1.1% of the sale price below $400,000 and 1.45% at $400,000 or more. By law the seller owes it, though the purchase contract can allocate it differently.",
   },
   {
     question: "When do I pay closing costs?",
@@ -77,7 +77,7 @@ export default function DCWhoPaysClosingCostsPage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            DC has some of the highest closing costs in the nation. The combined recordation and transfer taxes reach 2.9% for properties over $400,000—typically split 50/50 between buyer and seller by custom.
+            DC has some of the highest closing costs in the nation. The combined recordation and transfer taxes reach 2.9% for properties of $400,000 or more—typically split 50/50 between buyer and seller by custom.
           </p>
         </div>
       </section>
@@ -97,8 +97,8 @@ export default function DCWhoPaysClosingCostsPage() {
               <li><strong>Home Inspection Fees:</strong> Optional but recommended, costing $400-$600.</li>
               <li><strong>Prepaid Expenses:</strong> Includes property taxes, homeowners insurance, and prepaid interest from closing date to end of the month.</li>
               <li><strong>Recording Fees:</strong> Fees to record the deed and mortgage with DC authorities.</li>
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50.</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50.</li>
+              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50.</li>
+              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50.</li>
             </ul>
           </div>
         </div>
@@ -114,8 +114,8 @@ export default function DCWhoPaysClosingCostsPage() {
             </p>
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commissions:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
-              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50 with buyer.</li>
-              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties over $400K) — typically split 50/50 with buyer.</li>
+              <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50 with buyer.</li>
+              <li><strong>DC Recordation Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — typically split 50/50 with buyer.</li>
               <li><strong>Title Insurance for Buyer:</strong> Sellers often pay for the owner's title insurance policy as a concession.</li>
               <li><strong>Prorated Property Taxes:</strong> Property taxes from January 1 to the closing date.</li>
               <li><strong>Outstanding Liens:</strong> Any liens on the property must be paid at closing.</li>
@@ -135,7 +135,7 @@ export default function DCWhoPaysClosingCostsPage() {
                 <tr className="bg-brand-navy text-white">
                   <th className="text-left p-3">Tax Type</th>
                   <th className="text-right p-3">Properties under $400K</th>
-                  <th className="text-right p-3">Properties over $400K</th>
+                  <th className="text-right p-3">Properties $400K and up</th>
                   <th className="text-right p-3">Typically Paid By</th>
                 </tr>
               </thead>
@@ -162,7 +162,7 @@ export default function DCWhoPaysClosingCostsPage() {
             </table>
           </div>
           <div className="mt-6 space-y-3 text-brand-muted text-sm">
-            <p><strong>Example:</strong> On a $600,000 home (over $400K), the combined taxes are 2.9% or $17,400. Split 50/50, each party pays $8,700.</p>
+            <p><strong>Example:</strong> On a $600,000 home ($400K and up), the combined taxes are 2.9% or $17,400. Split 50/50, each party pays $8,700.</p>
           </div>
         </div>
       </section>

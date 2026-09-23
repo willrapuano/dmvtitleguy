@@ -23,11 +23,11 @@ const taxRateNotice =
 const transferTaxRows = [
   { county: "State of Maryland", rate: "0.5% state transfer tax; 0.25% for qualifying first-time Maryland homebuyers, paid by seller." },
   { county: "Montgomery County", rate: "1.0% local transfer tax for consideration of $70,000 or more; 0.50% from $40,000 to $70,000; 0.25% under $40,000." },
-  { county: "Prince George's County", rate: "1.4% local transfer tax; the 1.4% local transfer tax also applies to mortgages and deeds of trust." },
+  { county: "Prince George's County", rate: "1.4% local transfer tax; it does not apply to a purchase-money mortgage or deed of trust." },
 ];
 
 const recordationRows = [
-  { county: "State recordation tax base", rate: "$2.50 per $500, with county rates set locally." },
+  { county: "State of Maryland", rate: "No statewide rate; each county sets its own (Tax-Property § 12-103). A purchase-money mortgage recorded with the deed is not taxed separately." },
   { county: "Montgomery County", rate: "$4.45 per $500 up to $500,000; $6.75 per $500 from $500,000.01-$600,000; $10.20 per $500 from $600,000.01-$750,000; $10.78 per $500 from $750,000.01-$1,000,000; $11.35 per $500 over $1,000,000." },
   { county: "Montgomery owner-occupied exemption", rate: "First $100,000 exempt for owner-occupied residential property when the buyer intends to occupy for 7 of the next 12 months." },
   { county: "Prince George's County", rate: "0.55%, equal to $2.75 per $500." },
@@ -85,7 +85,7 @@ const calculationExamples = [
   {
     title: "$475,000 Prince George's County Purchase",
     lines: [
-      "Prince George's County estimates should include the 1.4% county transfer tax, 0.55% recordation tax, and the additional deed of trust transfer tax on the loan amount.",
+      "Prince George's County estimates should include the 1.4% county transfer tax and 0.55% recordation tax. A purchase-money deed of trust is not subject to the county transfer tax.",
       "A Hyattsville, Bowie, or Upper Marlboro buyer should compare buyer cash to close and seller net because county tax allocation can shift by contract.",
     ],
   },
@@ -154,7 +154,7 @@ const faqs = [
   {
     question: "What is the Maryland recordation tax?",
     answer:
-      "Maryland recordation tax is charged when deeds, deeds of trust, mortgages, and certain other instruments are recorded in land records. The state base is $2.50 per $500, but each county sets its own rate.",
+      "Maryland recordation tax is charged when deeds, deeds of trust, mortgages, and certain other instruments are recorded in land records. There is no statewide rate: each county sets its own.",
   },
   {
     question: "Are closing costs different in Montgomery County?",
@@ -184,7 +184,7 @@ const faqs = [
   {
     question: "Does Maryland have county transfer taxes?",
     answer:
-      "Yes. Montgomery County charges 1.0% for consideration of $70,000 or more, with lower tiers below $70,000. Prince George's County charges 1.4%, and that local transfer tax also applies to mortgages and deeds of trust.",
+      "Yes. Montgomery County charges 1.0% for consideration of $70,000 or more, with lower tiers below $70,000. Prince George's County charges 1.4%, which does not apply to a purchase-money mortgage or deed of trust.",
   },
   {
     question: "Do first-time homebuyers pay transfer tax in Maryland?",
@@ -209,7 +209,7 @@ const faqs = [
   {
     question: "Why are Prince George's County closing costs different?",
     answer:
-      "Prince George's County uses a 1.4% local transfer tax and 0.55% recordation tax. The county's 1.4% local transfer tax also applies to mortgages and deeds of trust, so loan amount can affect the estimate.",
+      "Prince George's County uses a 1.4% local transfer tax and 0.55% recordation tax. A purchase-money deed of trust is not subject to the county's transfer tax, so the loan amount does not add to it.",
   },
   {
     question: "Does Baltimore County use the same closing cost estimate as Montgomery or Prince George's County?",
@@ -364,7 +364,7 @@ export default function MarylandCalculatorPage() {
                 instruments in Maryland land records. It is separate from title insurance and settlement fees.
               </p>
               <p className="max-w-[68ch]">
-                Maryland law sets the state recordation tax base at $2.50 per $500, and each county sets its own
+                Maryland has no statewide recordation tax rate; each county sets its own
                 rate. Montgomery County uses a tiered schedule under Bill 17-23, while Prince George&apos;s County uses
                 0.55%, equal to $2.75 per $500.
               </p>

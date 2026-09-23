@@ -19,8 +19,8 @@
  *  - County transfer tax varies: Montgomery=1%, PG=1.4%, etc.
  *
  * DC:
- *  - Recordation tax: 1.1% (≤$400K) or 1.45% (>$400K)
- *  - Transfer tax: 1.1% (≤$400K) or 1.45% (>$400K)
+ *  - Recordation tax: 1.1% (<$400K) or 1.45% (≥$400K), D.C. Code § 42-1103
+ *  - Transfer tax: 1.1% (<$400K) or 1.45% (≥$400K), D.C. Code § 47-903
  */
 
 import type { StateCode } from "./locations";
@@ -112,18 +112,18 @@ const MD_FAQS = (city: string, county: string) => [
   },
   {
     question: `Does ${city} have a recordation tax?`,
-    answer: `Yes. Maryland charges a state recordation tax based on the sale price. In ${county}, this applies to deeds, deeds of trust, and other recorded instruments. Contact Pruitt Title for exact calculations.`,
+    answer: `Yes. ${county} sets its own recordation tax, charged on the sale price when the deed is recorded; Maryland has no separate statewide rate. A purchase-money mortgage recorded with the deed is not taxed separately. Contact Pruitt Title for exact calculations.`,
   },
 ];
 
 const DC_FAQS = [
   {
     question: "How much are closing costs in Washington DC?",
-    answer: "DC closing costs are among the highest in the DMV area, typically 3% to 6% for buyers and 2% to 4% for sellers. The combined recordation and transfer taxes can exceed 2.9% on properties over $400,000.",
+    answer: "DC closing costs are among the highest in the DMV area, typically 3% to 6% for buyers and 2% to 4% for sellers. The combined recordation and transfer taxes reach 2.9% on properties of $400,000 or more.",
   },
   {
     question: "What are DC's recordation and transfer taxes?",
-    answer: "DC charges both a recordation tax and a transfer tax. For properties up to $400,000, each is 1.1%. For properties over $400,000, each increases to 1.45%. Combined, that's 2.2% to 2.9% of the sale price.",
+    answer: "DC charges both a recordation tax and a transfer tax. For properties under $400,000, each is 1.1%. At $400,000 or more, each is 1.45%. Combined, that's 2.2% to 2.9% of the sale price.",
   },
   {
     question: "Who pays DC transfer taxes?",
@@ -450,7 +450,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     localRecordationTaxRate: 0,
     localTaxNote: "Bethesda is unincorporated Montgomery County, so no municipal transfer tax sits on top of the county's, and deeds record with the county in Rockville.",
     intro: "Estimate closing costs for Bethesda, MD real estate. Montgomery County's transfer taxes are among the highest in the DMV region. With median home prices around $950,000, precise closing cost calculations are essential.",
-    localTaxExplainer: "Bethesda's median is near $950,000, which is what makes percentage-based charges bite harder here than anywhere else in the Maryland DMV — the same rate that costs a Gaithersburg buyer a few thousand dollars costs a Bethesda buyer several times that. Maryland also levies a state recordation tax on the sale price, and Maryland title insurance premiums come from rate schedules each underwriter files with the Maryland Insurance Administration, so the premium is set by the filed rate rather than negotiated at the table.",
+    localTaxExplainer: "Bethesda's median is near $950,000, which is what makes percentage-based charges bite harder here than anywhere else in the Maryland DMV — the same rate that costs a Gaithersburg buyer a few thousand dollars costs a Bethesda buyer several times that. Montgomery County also charges recordation tax on the sale price, at tiered rates that rise above $500,000, and Maryland title insurance premiums come from rate schedules each underwriter files with the Maryland Insurance Administration, so the premium is set by the filed rate rather than negotiated at the table.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: MD_FAQS("Bethesda", "Montgomery County"),
   },
@@ -531,8 +531,8 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     countyTransferTaxRate: 0,
     localRecordationTaxRate: 0,
     localTaxNote: "The District has no separate county layer — recordation and transfer taxes are both levied at the district level, and deeds record with the DC Recorder of Deeds.",
-    intro: "Calculate closing costs for Washington DC real estate. DC has some of the highest transfer taxes in the region — combined recordation and transfer taxes can reach 2.9% on properties over $400,000. Median home prices are approximately $650,000.",
-    localTaxExplainer: "Washington DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties up to $400,000, each tax is 1.1% (2.2% combined). For properties above $400,000, each increases to 1.45% (2.9% combined). These taxes are typically split between buyer and seller. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. Because the rate steps at $400,000 rather than sliding, a contract written just over that line costs meaningfully more than one written just under it.",
+    intro: "Calculate closing costs for Washington DC real estate. DC has some of the highest transfer taxes in the region — combined recordation and transfer taxes can reach 2.9% on properties of $400,000 or more. Median home prices are approximately $650,000.",
+    localTaxExplainer: "Washington DC charges both a recordation tax and a transfer tax on all real estate transactions. For properties under $400,000, each tax is 1.1% (2.2% combined). For properties at or above $400,000, each increases to 1.45% (2.9% combined). These taxes are typically split between buyer and seller. First-time DC homebuyers may qualify for a reduced recordation tax rate of 0.725%, which can save $4,000+ on a $650,000 home. Because the rate steps at $400,000 rather than sliding, a contract written just over that line costs meaningfully more than one written just under it.",
     costRangeText: "3% to 6% for buyers, 2% to 4% for sellers",
     faqs: DC_FAQS,
   },

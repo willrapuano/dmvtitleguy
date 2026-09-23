@@ -77,7 +77,7 @@ export default function BuyerMarylandClosingCostsPage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Maryland's recordation tax is 0.5% of the loan amount, and the state transfer tax is 0.5% of the sales price—combined, buyers can expect to pay 1% of the purchase price in taxes at closing.
+            Maryland's recordation tax is set by each county and charged on the purchase price, and the state transfer tax is 0.5% of the sales price. Maryland law presumes the buyer and seller split these taxes equally unless the contract says otherwise, and first-time Maryland homebuyers pay no state transfer tax.
           </p>
         </div>
       </section>
@@ -105,20 +105,21 @@ export default function BuyerMarylandClosingCostsPage() {
           <h2 className="t-h4 text-brand-navy mb-4">Maryland Recordation & Transfer Taxes</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p>
-              Maryland charges both recordation tax (based on loan amount) and transfer tax (based on sales price):
+              Maryland charges recordation tax and transfer tax, both based on the purchase price:
             </p>
             <ul className="list-disc list-inside space-y-2">
-              <li><strong>Recordation Tax:</strong> 0.5% of the loan amount (for mortgages over $50,000)</li>
-              <li><strong>Transfer Tax:</strong> 0.5% of the sales price (buyer pays, typically)</li>
-              <li><strong>State Transfer Tax:</strong> Additional 0.5% of sales price (varies by county)</li>
+              <li><strong>Recordation Tax:</strong> Set by each county—Montgomery County is $4.45 per $500 on the first $500,000, with the first $100,000 exempt for a principal residence</li>
+              <li><strong>State Transfer Tax:</strong> 0.5% of the sales price (0.25%, paid entirely by the seller, for qualifying first-time Maryland homebuyers)</li>
+              <li><strong>County Transfer Tax:</strong> Set by each county—Montgomery County is 1% of the price</li>
             </ul>
             <p>
-              <strong>Example:</strong> For a $500,000 home with a $400,000 mortgage:
+              <strong>Example:</strong> For a $500,000 principal residence in Montgomery County, with taxes split equally:
             </p>
             <ul className="list-disc list-inside space-y-2">
-              <li>Recordation Tax (0.5% of $400K): $2,000</li>
-              <li>Transfer Tax (0.5% of $500K): $2,500</li>
-              <li>Total State/County Taxes: $4,500</li>
+              <li>Recordation Tax (buyer&apos;s half of $3,560): $1,780</li>
+              <li>State Transfer Tax (buyer&apos;s half of $2,500): $1,250</li>
+              <li>County Transfer Tax (buyer&apos;s half of $5,000): $2,500</li>
+              <li>Total Buyer Taxes: $5,530</li>
             </ul>
           </div>
         </div>
@@ -138,16 +139,16 @@ export default function BuyerMarylandClosingCostsPage() {
             </p>
             <div className="bg-brand-navy text-white p-6 rounded-lg">
               <h3 className="t-h6 mb-2">Estimated Buyer Costs Example</h3>
-              <p className="text-gray-300 max-w-[68ch] leading-relaxed">For a $500,000 home with 20% down ($400,000 loan):</p>
+              <p className="text-gray-300 max-w-[68ch] leading-relaxed">For a $500,000 Montgomery County principal residence with 20% down ($400,000 loan), taxes split equally:</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>• Loan Origination (1%): $4,000</li>
                 <li>• Title Insurance (Owner's + Lender's): $2,000-3,000</li>
                 <li>• Appraisal: $400-500</li>
                 <li>• Inspection: $400-500</li>
-                <li>• Recordation Tax: $2,000</li>
-                <li>• Transfer Tax: $2,500</li>
+                <li>• Recordation Tax: $1,780</li>
+                <li>• State + County Transfer Tax: $3,750</li>
                 <li>• Prepaid Taxes/Insurance: $3,000-5,000</li>
-                <li className="border-t border-gray-600 pt-2 font-semibold">• Estimated Total: $14,300 - $17,500</li>
+                <li className="border-t border-gray-600 pt-2 font-semibold">• Estimated Total: $15,300 - $18,500</li>
               </ul>
             </div>
           </div>
