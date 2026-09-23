@@ -448,7 +448,11 @@ function archivePublishedFile(filePath) {
   return target;
 }
 
-async function uploadImage(slug, title) {
+// `alt` is the caller's validated mainImageAlt. It was passed by the caller but
+// not accepted here, so every post shipped with alt === title and the upstream
+// check rejecting generic alt text guarded nothing. Falls back to the title
+// only when the caller supplies no alt.
+async function uploadImage(slug, title, alt) {
   const imagePath = ['png', 'jpg', 'jpeg', 'webp']
     .map((ext) => path.join(IMAGES_DIR, `${slug}.${ext}`))
     .find((candidate) => existsSync(candidate));
@@ -461,7 +465,7 @@ async function uploadImage(slug, title) {
   return {
     _type: 'image',
     asset: { _type: 'reference', _ref: asset._id },
-    alt: title,
+    alt: alt || title,
   };
 }
 
