@@ -67,7 +67,7 @@ export default function BuyerMarylandClosingCostsPage() {
       </section>
 
       {/* LOCAL INSIGHT */}
-      <section className="bg-brand-action py-10 text-white">
+      <section className="bg-brand-navy py-10 text-white">
         <div className="container-xl max-w-3xl">
           {/* The label previously used an undefined brand colour utility, so it
               inherited the band's white and carried no emphasis at all. Now an

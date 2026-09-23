@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 
@@ -12,8 +11,9 @@ interface NavGroup {
 }
 
 const NAV_LINKS: (NavGroup | { label: string; href: string })[] = [
-  { label: "Home", href: "/" },
-  { label: "About Will", href: "/about-will-rapuano" },
+  { label: "Guides", href: "/blog" },
+  { label: "Calculators", href: "/calculators" },
+  { label: "Classes", href: "/my-classes" },
   {
     label: "Services",
     children: [
@@ -21,19 +21,12 @@ const NAV_LINKS: (NavGroup | { label: string; href: string })[] = [
       { label: "Investor Title Services", href: "/investor-title-services", desc: "Title searches, auction support & wholesale closings" },
       { label: "Auction Property Title Search", href: "/auction-property-title-search", desc: "Pre-auction title search & risk assessment" },
       { label: "Foreclosure Title Review", href: "/foreclosure-title-review", desc: "Surviving liens & chain-of-title review" },
-    ],
-  },
-  {
-    label: "Get Started",
-    children: [
       { label: "Start Contract Intake", href: "/upload-contract", desc: "Begin intake and receive secure transfer instructions" },
       { label: "Investor Due Diligence", href: "/investor-due-diligence", desc: "Submit property info & get a title search started" },
       { label: "Request Title Review", href: "/request-title-review", desc: "Get clarity on a property's title status" },
     ],
   },
-  { label: "Calculators", href: "/calculators" },
-  { label: "Classes", href: "/my-classes" },
-  { label: "Blog", href: "/blog" },
+  { label: "About Will", href: "/about-will-rapuano" },
 ];
 
 function isCurrentPath(pathname: string, href: string) {
@@ -111,27 +104,16 @@ export function NavBar() {
     <header className="sticky top-0 z-50 border-b border-brand-line bg-white text-brand-navy">
       <div className="mx-auto flex h-[4.75rem] max-w-[1296px] items-center justify-between px-5 sm:px-8 lg:px-6">
         {/* Logo */}
-        {/**
-         * logo-wordmark-white.png is the wordmark alone — no tagline, trimmed to
-         * the ink, white on transparent. At this size the tagline in the full
-         * lockup would render about 2px tall, and the old invert+screen knockout
-         * (needed because logo.png has no alpha) is gone with it.
-         */}
+        {/* Text wordmark in the display face, as in the Paper artboards. */}
         <Link href="/" className="flex items-baseline gap-3.5" aria-label="DMV Title Guy — home">
-          <Image
-            src="/logo-wordmark-white.png"
-            alt="DMV Title Guy"
-            width={1235}
-            height={164}
-            sizes="184px"
-            priority
-            className="brand-wordmark-dark h-auto w-[160px] self-center sm:w-[184px]"
-          />
+          <span className="font-display text-[1.5rem] font-semibold leading-none tracking-[-0.01em] text-brand-navy sm:text-[1.625rem]">
+            DMV Title Guy
+          </span>
           <span className="hidden text-[13px] font-medium text-brand-muted xl:inline">with Will Rapuano</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav aria-label="Primary navigation" className="hidden items-center gap-2 text-[15px] font-semibold lg:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-1 text-[15px] font-semibold lg:flex">
           {NAV_LINKS.map((l) => {
             if ("children" in l && l.children) {
               const dropdownId = `nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`;
@@ -179,8 +161,8 @@ export function NavBar() {
               </Link>
             );
           })}
-          <Link href="/calculators/title-quote" className="btn-brass ml-4 px-5 py-2.5 text-[15px]">
-            Get a Quote
+          <Link href="/calculators/title-quote" className="btn-brass ml-5 px-5 py-2.5 text-[15px]">
+            Estimate Title Costs
           </Link>
         </nav>
 

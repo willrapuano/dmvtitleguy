@@ -189,16 +189,16 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
     <>
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="relative border-b border-brand-line bg-white">
-        <div className="grid lg:min-h-[680px] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)]">
+        <div className="grid lg:min-h-[680px] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
           <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:py-20 lg:pl-[max(2rem,calc((100vw-1296px)/2+1.5rem))] lg:pr-16">
             <p className="mb-7 flex items-center gap-3.5 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink">
               <span aria-hidden="true" className="h-0.5 w-9 shrink-0 bg-brand-brass" />
               DC · Maryland · Virginia
             </p>
-            <h1 className="max-w-[15ch] font-display text-[2.75rem] font-medium leading-[1.03] tracking-[-0.025em] text-brand-navy sm:text-6xl lg:text-[4.75rem]">
+            <h1 className="font-display text-[2.75rem] font-medium leading-[1.02] tracking-[-0.028em] text-brand-navy sm:text-6xl xl:text-[4.5rem]">
               Practical title guidance for DC, Maryland, and Virginia real estate.
             </h1>
-            <p className="mt-7 max-w-[56ch] text-lg leading-[1.65] text-brand-ink md:text-[19px]">
+            <p className="mt-7 max-w-[54ch] text-[17px] leading-[1.65] text-brand-ink md:text-lg">
               Independent educational guidance from Will Rapuano. Use local guides and calculators to understand the next step. When you need a provider, ask Will for an introduction; the provider independently confirms acceptance, scope, and terms.
             </p>
             <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap">
@@ -285,10 +285,10 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
             <h2 className="mt-5 max-w-[18ch] font-display text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-brand-navy md:text-[56px]">
               Hi, I&apos;m Will. I&apos;d rather you ask now than find out at the closing table.
             </h2>
-            <p className="mt-6 text-sm font-bold uppercase tracking-[0.12em] text-brand-ink">
+            <p className="mt-6 text-base font-semibold text-brand-navy">
               Founder of DMV Title Guy · Marketing and Business Development Officer at Pruitt Title LLC
             </p>
-            <p className="mt-5 max-w-[62ch] text-lg leading-[1.65] text-brand-ink">
+            <p className="mt-3 max-w-[58ch] text-[17px] leading-[1.7] text-brand-ink-light">
               Will Rapuano created and operates DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Eligible transaction requests may be referred to Pruitt Title LLC for independent review; Pruitt confirms whether it accepts the request and the applicable scope, pricing, terms, and disclosures.
             </p>
             <div className="mt-8 flex flex-wrap items-end gap-8">
@@ -301,7 +301,7 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
               </Link>
             </div>
           </div>
-          <div className="relative mx-auto h-[520px] w-full max-w-[440px] overflow-hidden lg:h-[600px] lg:max-w-none">
+          <div className="relative mx-auto h-[520px] w-full max-w-[440px] overflow-hidden lg:h-[680px] lg:max-w-none">
             <Image
               src="/will-rapuano-headshot.jpg"
               alt="Will Rapuano, Pruitt Title LLC"
@@ -315,45 +315,62 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
 
       {/* ── PAGE INDEX (internal links kept for SEO) ─────────────── */}
       <section className="border-t border-brand-line bg-brand-gray-bg">
-        <div className="mx-auto grid max-w-[1296px] gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_1fr_2fr] lg:px-6">
-          <div>
-            <h2 className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-navy">Title quotes and services</h2>
-            <ul className="mt-5 space-y-3">
-              {MONEY_PAGES.map((item) => (
-                <li key={item.href + item.label}><Link href={item.href} className="text-[15px] text-brand-ink hover:text-brand-navy hover:underline">{item.label}</Link></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-navy">By role</h2>
-            <ul className="mt-5 space-y-3">
-              {AUDIENCE_CARDS.map((item) => (
-                <li key={item.href}><Link href={item.href} className="text-[15px] text-brand-ink hover:text-brand-navy hover:underline">{item.role}</Link></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-navy">By area</h2>
-            <div className="mt-5 space-y-5">
-              {SERVICE_AREAS.map((area) => (
-                <div key={area.title}>
-                  {area.groups.map((group) => (
-                    <p key={group.heading} className="text-[15px] leading-7 text-brand-ink">
-                      <span className="font-bold text-brand-navy">{group.heading}: </span>
-                      {group.links.map((link, i) => (
-                        <span key={link.label}>
-                          <Link href={link.href} className="hover:text-brand-navy hover:underline">{link.label}</Link>
-                          {i < group.links.length - 1 ? ", " : ""}
-                        </span>
-                      ))}
-                    </p>
-                  ))}
-                </div>
-              ))}
+        <div className="mx-auto max-w-[1296px] px-5 py-16 sm:px-8 lg:px-6 lg:py-20">
+          <h2 className="font-display text-3xl font-medium tracking-[-0.015em] text-brand-navy md:text-[2.25rem]">
+            Title help across the DMV
+          </h2>
+          <div className="mt-10 grid gap-12 md:grid-cols-2 lg:grid-cols-[1fr_2fr_1fr] lg:gap-14">
+            <div className="space-y-10">
+              <IndexList title="Quotes and services" links={MONEY_PAGES.map((m) => ({ label: m.label, href: m.href }))} />
+              <IndexList title="By role" links={AUDIENCE_CARDS.map((c) => ({ label: c.role.replace(/^For /, ""), href: c.href }))} />
+            </div>
+            <AreaColumn area={SERVICE_AREAS[0]} split />
+            <div className="space-y-10">
+              <AreaColumn area={SERVICE_AREAS[1]} />
+              <AreaColumn area={SERVICE_AREAS[2]} />
             </div>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function IndexList({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+  return (
+    <div className="border-t-2 border-brand-navy pt-4">
+      <h3 className="text-xs font-extrabold uppercase tracking-[0.14em] text-brand-navy">{title}</h3>
+      <ul className="mt-4 space-y-2.5">
+        {links.map((link) => (
+          <li key={link.href + link.label}>
+            <Link href={link.href} className="text-[15px] text-brand-ink hover:text-brand-navy hover:underline">{link.label}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function AreaColumn({ area, split = false }: { area: ServiceAreaColumn; split?: boolean }) {
+  const state = area.title.replace(/ Title & Escrow Services$/, "");
+  return (
+    <div className="border-t-2 border-brand-navy pt-4">
+      <h3 className="text-xs font-extrabold uppercase tracking-[0.14em] text-brand-navy">{state}</h3>
+      <div className={split ? "mt-4 gap-x-10 sm:columns-2" : "mt-4"}>
+        {area.groups.map((group) => (
+          <div key={group.heading} className="mb-5 break-inside-avoid">
+            <p className="text-sm font-bold text-brand-navy">{group.heading.replace(/, (VA|MD|DC)$/, "")}</p>
+            <p className="mt-1 text-sm leading-6 text-brand-ink-light">
+              {group.links.map((link, i) => (
+                <span key={link.label}>
+                  <Link href={link.href} className="hover:text-brand-navy hover:underline">{link.label.replace(/, (VA|MD|DC)$/, "")}</Link>
+                  {i < group.links.length - 1 ? "\u00a0· " : ""}
+                </span>
+              ))}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

@@ -299,6 +299,28 @@
     @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-none bg-brand-brass px-6 py-3 font-bold text-brand-navy transition-[background-color,transform] duration-150 motion-safe:active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy;
   }
   .btn-brass:hover { @apply bg-brand-brass-dark; }
+  /* The primary button is navy; on a navy band it vanishes. Inside dark
+     sections it takes the brass treatment, as in the Paper artboards. */
+  .page-hero .btn-primary,
+  .cta-panel .btn-primary,
+  .bg-brand-navy .btn-primary {
+    @apply bg-brand-brass font-bold text-brand-navy;
+  }
+  .page-hero .btn-outline,
+  .cta-panel .btn-outline,
+  .bg-brand-navy .btn-outline {
+    @apply border-white/70 text-white;
+  }
+  .page-hero .btn-outline:hover,
+  .cta-panel .btn-outline:hover,
+  .bg-brand-navy .btn-outline:hover {
+    @apply border-white bg-white text-brand-navy;
+  }
+  .page-hero .btn-primary:hover,
+  .cta-panel .btn-primary:hover,
+  .bg-brand-navy .btn-primary:hover {
+    @apply bg-brand-brass-dark;
+  }
 
   /* ── Section rhythm ──
      Was a spread of py-12/16/20/24 across pages; one scale keeps the vertical
@@ -349,31 +371,22 @@
     background: var(--site-subtle);
   }
 
+  /* Flat navy band, as in the Paper artboards: no glow, no grid texture. */
   .page-hero {
     @apply relative overflow-hidden bg-brand-navy py-14 text-white md:py-20;
-    background-image:
-      radial-gradient(circle at 82% 18%, rgb(59 174 247 / 0.18), transparent 28rem),
-      radial-gradient(circle at 8% 110%, rgb(247 237 239 / 0.09), transparent 24rem),
-      linear-gradient(145deg, #0b1d3a 0%, #0d2745 58%, #123352 100%);
-    isolation: isolate;
-  }
-  .page-hero::after {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-image: linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
-    background-size: 48px 48px;
-    content: "";
-    mask-image: linear-gradient(to bottom, black, transparent 82%);
   }
   .page-hero-copy {
     @apply max-w-3xl;
   }
   .page-hero-eyebrow {
-    @apply mb-4 text-xs font-bold uppercase tracking-[0.16em] text-brand-brass;
+    @apply mb-5 flex items-center gap-3.5 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-brass;
+  }
+  .page-hero-eyebrow::before {
+    @apply h-0.5 w-9 shrink-0 bg-brand-brass;
+    content: "";
   }
   .page-hero-lede {
-    @apply mt-5 max-w-[64ch] text-lg leading-relaxed text-slate-100 md:text-xl;
+    @apply mt-6 max-w-[60ch] text-lg leading-relaxed text-[#C9D6E0];
   }
 
   .form-control {
@@ -388,10 +401,6 @@
   }
   .cta-panel {
     @apply relative overflow-hidden rounded-none bg-brand-navy px-6 py-10 text-white sm:px-10 md:px-14 md:py-14;
-    background-image:
-      radial-gradient(circle at 88% 12%, rgb(59 174 247 / 0.22), transparent 24rem),
-      linear-gradient(135deg, #0b1d3a, #123452);
-    box-shadow: var(--site-shadow-md);
   }
   /* Headings are set in the display serif to match the wordmark; t-h6 stays on
      the body sans because at card-label size a serif reads as decoration. */
@@ -479,4 +488,15 @@
    renders it in the site navy for the light navigation. */
 .brand-wordmark-dark {
   filter: brightness(0) saturate(100%) invert(12%) sepia(27%) saturate(1810%) hue-rotate(177deg) brightness(91%) contrast(97%);
+}
+
+/* The footer area directory is a closed <details> that CSS forces open on
+   desktop. Current Chrome hides closed details content in ::details-content,
+   which beats display rules on the children, so reopen that slot too. */
+@media (min-width: 1024px) {
+  .footer-areas::details-content {
+    content-visibility: visible;
+    display: block;
+    height: auto;
+  }
 }

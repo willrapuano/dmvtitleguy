@@ -73,7 +73,7 @@ export default function AboutWillRapuanoPage() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(ABOUT_SCHEMA) }}
       />
 
-      <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(145deg,#fbfcfd_0%,#f3f7fa_62%,#eef5f8_100%)]">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-white">
         <div aria-hidden="true" className="absolute -left-32 top-8 h-80 w-80 rounded-full bg-brand-blush/80 blur-3xl" />
         <div className="container-xl relative grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1fr_0.72fr] lg:py-24">
           <div className="max-w-3xl">

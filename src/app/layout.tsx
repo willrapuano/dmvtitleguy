@@ -18,7 +18,10 @@ const bodyFont = Manrope({ subsets: ["latin"], variable: "--font-body", display:
  */
 const displayFont = Newsreader({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  // Variable font with the optical-size axis: large headings get the tight
+  // display cut the Paper artboards use. Fixed weights drop the axis and
+  // every heading falls back to the loose text cut.
+  axes: ["opsz"],
   variable: "--font-display",
   display: "swap",
 });

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedInIcon, YouTubeIcon } from "@/components/BrandIcons";
 import { ALL_LOCATIONS } from "@/data/locations";
@@ -53,7 +52,7 @@ export function Footer() {
       {/* Areas Covered */}
       <div className="border-b border-white/10 bg-brand-navy-dark/40 py-8">
         <div className="container-xl">
-          <details className="group">
+          <details className="footer-areas group">
             <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue-300 lg:hidden">
               Areas Covered
               <span
@@ -90,16 +89,8 @@ export function Footer() {
            * tagline in the full lockup sets about 7px tall — so it goes below as
            * real text instead, where it is legible and selectable.
            */}
-          <Link href="/" className="inline-block" aria-label="DMV Title Guy — home">
-            <Image
-              src="/logo-wordmark-white.png"
-              alt="DMV Title Guy"
-              width={1235}
-              height={164}
-              sizes="220px"
-              className="h-auto w-[220px]"
-              priority={false}
-            />
+          <Link href="/" className="inline-block font-display text-[1.75rem] font-semibold leading-none tracking-[-0.01em] text-white" aria-label="DMV Title Guy — home">
+            DMV Title Guy
           </Link>
           <p className="mb-5 mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-300">
             Got your back on every contract
