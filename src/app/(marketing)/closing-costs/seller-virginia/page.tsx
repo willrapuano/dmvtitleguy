@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "How much is the Virginia transfer tax?",
-    answer: "The state transfer tax is $1 per $1,000 of the sale price. Localities may add additional fees.",
+    answer: "The state grantor tax is $1 per $1,000 of the sale price. In Northern Virginia, sellers also pay two regional fees of $0.10 per $100 each.",
   },
   {
     question: "When do I pay closing costs?",
@@ -90,7 +90,7 @@ export default function SellerVirginiaClosingCostsPage() {
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commission:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
               <li><strong>Title Insurance:</strong> Protects the buyer and lender from title disputes. Sellers often pay for the owner's title insurance policy.</li>
-              <li><strong>Transfer Taxes:</strong> Virginia charges a state transfer tax, and some localities may add additional fees.</li>
+              <li><strong>Transfer Taxes:</strong> Virginia charges a state grantor tax, and Northern Virginia adds two regional fees.</li>
               <li><strong>Attorney Fees:</strong> If you hire an attorney to handle the closing, expect to pay $500-$1,500.</li>
               <li><strong>Recording Fees:</strong> Paid to the county to record the deed transfer.</li>
               <li><strong>Outstanding Mortgage Balance:</strong> Any remaining mortgage balance will be paid off at closing.</li>
@@ -105,10 +105,10 @@ export default function SellerVirginiaClosingCostsPage() {
           <h2 className="t-h4 text-brand-navy mb-4">Virginia Transfer Tax</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p className="max-w-[68ch]">
-              Virginia's state transfer tax is <strong>$1 per $1,000</strong> of the sale price (0.1%). Some localities may add additional transfer taxes or fees on top of the state rate.
+              Virginia's state transfer tax is <strong>$1 per $1,000</strong> of the sale price (0.1%). In Northern Virginia (Arlington, Fairfax, Loudoun and Prince William counties and the cities of Alexandria, Fairfax, Falls Church, Manassas and Manassas Park), sellers also pay a regional WMATA capital fee and a regional congestion relief fee of $0.10 per $100 each (Va. Code §§ 58.1-802.3 and 58.1-802.4).
             </p>
             <p className="max-w-[68ch]">
-              <strong>Example:</strong> On a $500,000 home, the Virginia state transfer tax would be $500. Localities like Fairfax County may add additional fees.
+              <strong>Example:</strong> On a $500,000 home, the Virginia state transfer tax would be $500. In Fairfax County the two regional fees add another $1,000, for $1,500 in total.
             </p>
             <p className="max-w-[68ch]">
               Unlike Maryland and DC, Virginia does not have a recordation tax based on loan amount—this makes Virginia one of the more affordable jurisdictions for closing costs in the DMV region.

@@ -164,6 +164,30 @@ const NOVA_JURISDICTIONS = new Set([
   "City of Manassas Park",
 ]);
 
+/**
+ * Local recordation tax under §§ 58.1-814 and 58.1-3800: one-third of the state
+ * tax, owed on every taxable instrument — the deed and the purchase deed of trust
+ * alike. Listed only where an official source states the locality levies it
+ * (checked 2026-09-23):
+ *   Fairfax County — Circuit Court fee schedule CCR A-50: "County $0.083 per $100"
+ *   Arlington County — FY 2027 Adopted Budget, Revenue Summary: "$0.0833 per $100"
+ *   Loudoun County — FY 2027 Proposed Budget: "$0.083 per $100 of recorded value"
+ *   Prince William County — Circuit Court land-records fees: "1/3 of the state tax"
+ *   City of Alexandria — alexandriava.gov/real-estate/recordation-tax: "$0.083 per $100"
+ * Falls Church and Fredericksburg are absent because no official page confirmed it.
+ */
+export const VA_LOCAL_RECORDATION_RATES: Record<string, number> = {
+  "Fairfax County": 0.00083,
+  "Arlington County": 0.000833,
+  "Loudoun County": 0.00083,
+  "Prince William County": 0.000833,
+  "City of Alexandria": 0.00083,
+};
+
+export function vaLocalRecordationRate(county: string): number {
+  return VA_LOCAL_RECORDATION_RATES[county] ?? 0;
+}
+
 /** § 58.1-802.3 — $0.10 per $100, i.e. 0.1%. Grantor-paid, conveyances only. */
 export const WMATA_CAPITAL_FEE_RATE = 0.001;
 
@@ -223,22 +247,23 @@ export function regionalFeeParagraph(county: string, medianHomePrice?: number): 
 /**
  * The Virginia recordation position, also said once.
  *
- * Every Virginia entry carries `localRecordationTaxRate: 0`, and that 0 needs the
- * same caveat attached wherever it is shown. The Office of the Executive Secretary
- * circuit court fee schedule lists the § 58.1-814 local tax as "⅓ State Grantee Tax
- * … (if ordinance adopted by locality)" — so it is grantee-paid and conditional on a
- * local ordinance, and which of these nine localities adopted one is not something
- * the published schedules resolve. Pasting this into each city's `localTaxExplainer`
- * is what made five of them near-identical strings.
+ * The § 58.1-814 local tax is one-third of the state tax and applies only where a
+ * locality levies it. `VA_LOCAL_RECORDATION_RATES` lists the localities an official
+ * source confirms; elsewhere the caveat says to confirm with the clerk. Pasting this
+ * into each city's `localTaxExplainer` is what made five of them near-identical strings.
  */
 export function recordationCaveat(state: StateCode, county: string): string | undefined {
   if (state !== "VA") return undefined;
-  return (
-    `Buyers have a separate Virginia recordation tax of $0.25 per $100. ${county} can add a ` +
-    `small local charge only if it has adopted an ordinance, so ask your title company or the ` +
-    `Circuit Court Clerk to confirm the final amount for your property. See Va. Code §§ ` +
-    `58.1-801 and 58.1-814.`
-  );
+  const base =
+    `Buyers pay Virginia recordation tax of $0.25 per $100 on the deed (the price) and ` +
+    `$0.25 per $100 on the purchase deed of trust (the loan). `;
+  const local =
+    vaLocalRecordationRate(county) > 0
+      ? `${capitalized(withArticle(county))} adds a local recordation tax of one-third of the state tax, ` +
+        `about $0.083 per $100, on both. `
+      : `${capitalized(withArticle(county))} can add a local charge of one-third of the state tax only if ` +
+        `it levies one, so ask your title company or the Circuit Court Clerk to confirm. `;
+  return `${base}${local}See Va. Code §§ 58.1-801, 58.1-803 and 58.1-814.`;
 }
 
 /**
@@ -292,7 +317,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Arlington County",
     medianHomePrice: 715000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0,
+    localRecordationTaxRate: vaLocalRecordationRate("Arlington County"),
     localTaxNote: "Arlington County levies no transfer tax of its own — Virginia gives localities no such power — and deeds record with the Arlington Circuit Court Clerk.",
     intro: "Estimate your closing costs for buying or selling a home in Arlington, VA. Arlington County is one of the most active real estate markets in the DMV, with a median home price around $715,000. Use our free calculator to get a detailed breakdown of buyer and seller costs.",
     localTaxExplainer: "Arlington's property values are what make its closing costs distinctive — the percentages are the same as anywhere in Virginia, but at a median near $715,000 title insurance and recordation together routinely clear $5,000 on a single transaction. The county's condo and mid-rise inventory adds a second variable: an association resale packet and its transfer fee, set by the association rather than by the county.",
@@ -306,7 +331,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "City of Alexandria",
     medianHomePrice: 625000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0,
+    localRecordationTaxRate: vaLocalRecordationRate("City of Alexandria"),
     localTaxNote: "Alexandria is an independent city, so it records through its own circuit court clerk rather than a county's. Virginia gives no locality the power to levy a transfer tax, so nothing of that kind is added here.",
     intro: "Calculate closing costs for real estate transactions in Alexandria, VA. As an independent city, Alexandria has its own recording office but follows Virginia's standard tax schedule. Median home prices hover around $625,000.",
     localTaxExplainer: "What varies most in Alexandria is property type, not the tax schedule. The city's stock runs from Old Town rowhouses to Eisenhower Valley high-rises, and the paperwork differs sharply between them: a condo purchase brings a resale packet and an association transfer fee, an older Old Town parcel brings a longer chain of title and sometimes a historic-district covenant recorded against it. Both add cost and days that no percentage table shows.",
@@ -320,7 +345,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 650000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10 — that is a § 58.1-802.3 / 58.1-802.4 regional fee, not recordation.
+    localRecordationTaxRate: vaLocalRecordationRate("Fairfax County"),
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote:
@@ -337,7 +362,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 1200000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10 — that is a § 58.1-802.3 / 58.1-802.4 regional fee, not recordation.
+    localRecordationTaxRate: vaLocalRecordationRate("Fairfax County"),
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
     intro: "Calculate closing costs for McLean, VA real estate. McLean is one of the most affluent communities in the DMV with a median home price exceeding $1.2 million. Higher purchase prices mean closing costs require careful planning.",
@@ -352,7 +377,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 850000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10 — that is a § 58.1-802.3 / 58.1-802.4 regional fee, not recordation.
+    localRecordationTaxRate: vaLocalRecordationRate("Fairfax County"),
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "Vienna is an incorporated town, so the town government appears on your tax bill — but not in your closing costs. It levies no transfer or recordation tax, and deeds record with Fairfax County.",
@@ -368,7 +393,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Fairfax County",
     medianHomePrice: 560000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10 — that is a § 58.1-802.3 / 58.1-802.4 regional fee, not recordation.
+    localRecordationTaxRate: vaLocalRecordationRate("Fairfax County"),
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
     intro: "Calculate closing costs for Reston, VA real estate transactions. Reston's mix of condos, townhomes, and single-family homes creates a wide range of closing cost scenarios. Median prices are around $560,000.",
@@ -383,7 +408,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Loudoun County",
     medianHomePrice: 700000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10 — that is a § 58.1-802.3 / 58.1-802.4 regional fee, not recordation.
+    localRecordationTaxRate: vaLocalRecordationRate("Loudoun County"),
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
     intro: "Estimate closing costs in Ashburn, VA. As one of the fastest-growing communities in Loudoun County, Ashburn's real estate market is competitive with median home prices around $700,000.",
@@ -398,7 +423,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Loudoun County",
     medianHomePrice: 620000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0, // was $0.10 — that is a § 58.1-802.3 / 58.1-802.4 regional fee, not recordation.
+    localRecordationTaxRate: vaLocalRecordationRate("Loudoun County"),
     // 0 here means "no local add-on recorded", NOT "verified as none": § 58.1-814
     // permits up to $0.0833 and the locality fee schedules were not reachable.
     localTaxNote: "Leesburg is an incorporated town and the Loudoun County seat, so the Circuit Court Clerk that records your deed is in town. The town itself levies no transfer or recordation tax.",
@@ -414,7 +439,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "Prince William County",
     medianHomePrice: 450000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0,
+    localRecordationTaxRate: vaLocalRecordationRate("Prince William County"),
     localTaxNote: "Prince William County levies no transfer tax of its own, and deeds record with the Circuit Court Clerk at the county's judicial center in Manassas.",
     intro: "Estimate closing costs for Woodbridge, VA real estate. Prince William County offers more affordable entry points into the Northern Virginia market with median home prices around $450,000.",
     localTaxExplainer: "Woodbridge is where the Northern Virginia market gets reachable, and that changes which closing costs matter. At a median near $450,000 the percentage-based taxes are a smaller number than in Fairfax or Loudoun, so fixed charges — lender fees, the survey, the settlement fee — make up more of the total than they would further north. It also means down-payment assistance and first-time buyer programs are more often in play, and those carry their own recording requirements.",

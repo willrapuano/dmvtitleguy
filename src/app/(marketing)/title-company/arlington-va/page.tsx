@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { regionalTransportationFeeRate, vaLocalRecordationRate } from "@/data/closingCostData";
 import { LocationSchema } from "@/components/SchemaMarkup";
 import { PageHero } from "@/components/PageHero";
 
@@ -63,7 +64,13 @@ export default function ArlingtonTitlePage() {
         }
       />
 
-      <ClosingCostCalculator state="VA" />
+      <ClosingCostCalculator
+        state="VA"
+        cityOverrides={{
+          localRecordationTaxRate: vaLocalRecordationRate("Arlington County"),
+          regionalTransportationFeeRate: regionalTransportationFeeRate("Arlington County"),
+        }}
+      />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
