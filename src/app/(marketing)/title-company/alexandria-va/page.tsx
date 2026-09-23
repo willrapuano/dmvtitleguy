@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { regionalTransportationFeeRate, vaLocalRecordationRate } from "@/data/closingCostData";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
@@ -68,7 +69,13 @@ export default function AlexandriaTitlePage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="VA" />
+      <ClosingCostCalculator
+        state="VA"
+        cityOverrides={{
+          localRecordationTaxRate: vaLocalRecordationRate("City of Alexandria"),
+          regionalTransportationFeeRate: regionalTransportationFeeRate("City of Alexandria"),
+        }}
+      />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
