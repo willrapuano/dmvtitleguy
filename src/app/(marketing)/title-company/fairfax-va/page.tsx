@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { regionalTransportationFeeRate, vaLocalRecordationRate } from "@/data/closingCostData";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ const faqs = [
   },
   {
     question: "Does Fairfax County have additional transfer taxes?",
-    answer: "Fairfax County adds a local recordation tax to the state rate. The combined state and local recordation tax is approximately $0.35 per $100 of the sales price for buyers, making it important to budget accordingly.",
+    answer: "Fairfax County adds a local recordation tax to the state rate. The combined state and local recordation tax is about $0.33 per $100, charged on the sales price and again on the purchase loan, making it important to budget accordingly.",
   },
 ];
 
@@ -68,7 +69,13 @@ export default function FairfaxTitlePage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="VA" />
+      <ClosingCostCalculator
+        state="VA"
+        cityOverrides={{
+          localRecordationTaxRate: vaLocalRecordationRate("Fairfax County"),
+          regionalTransportationFeeRate: regionalTransportationFeeRate("Fairfax County"),
+        }}
+      />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">

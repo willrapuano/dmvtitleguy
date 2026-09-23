@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { regionalTransportationFeeRate, vaLocalRecordationRate } from "@/data/closingCostData";
 import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ const faqs = [
   },
   {
     question: "Who pays transfer taxes in Prince William County?",
-    answer: "In Prince William County, sellers pay the Virginia grantor tax ($0.50 per $500 of sales price). Buyers pay the state recordation tax ($0.25 per $100 of the loan or sales price). There is no additional local recordation tax in Prince William County, which helps keep closing costs manageable.",
+    answer: "In Prince William County, sellers pay the Virginia grantor tax ($0.50 per $500 of sales price). Buyers pay the state recordation tax of $0.25 per $100 on the deed (the price) and on the purchase deed of trust (the loan), and Prince William County adds a local recordation tax of one-third of the state tax on both. Northern Virginia sellers also pay two regional fees of $0.10 per $100 each.",
   },
   {
     question: "How long does it take to close in Prince William County?",
@@ -68,7 +69,13 @@ export default function PrinceWilliamCountyTitlePage() {
         </div>
       </section>
 
-      <ClosingCostCalculator state="VA" />
+      <ClosingCostCalculator
+        state="VA"
+        cityOverrides={{
+          localRecordationTaxRate: vaLocalRecordationRate("Prince William County"),
+          regionalTransportationFeeRate: regionalTransportationFeeRate("Prince William County"),
+        }}
+      />
 
       {/* LOCAL INSIGHT */}
       <section className="bg-brand-action py-10 text-white">
