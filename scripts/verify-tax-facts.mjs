@@ -32,6 +32,12 @@ const bannedClaims = [
   { pattern: /also applies to mortgages and deeds of trust|deed of trust transfer tax on the loan/i, why: "PG transfer tax excludes purchase-money deeds of trust (PG Code § 10-188(d))" },
   // Frederick County imposes no county transfer tax.
   { pattern: /Frederick County is lower at 1\.0%/i, why: "Frederick has no county transfer tax" },
+  // Va. Code § 58.1-802: grantor's tax is $0.50 per $500 ($0.10 per $100).
+  { pattern: /grantor'?s? tax[^.\n]{0,40}\$0\.(?:25|50) per \$100/i, why: "Virginia grantor's tax is $0.10 per $100 (§ 58.1-802)" },
+  // § 58.1-802.2 (a single $0.15 congestion fee) was repealed in 2018; §§ 58.1-802.3 and 802.4 are $0.10 each.
+  { pattern: /congestion[^.\n]{0,40}\$0\.15|\$0\.15[^.\n]{0,40}congestion/i, why: "the $0.15 congestion fee was repealed; two $0.10 fees apply (§§ 58.1-802.3, 802.4)" },
+  // §§ 58.1-814, 58.1-3800: Fairfax, Arlington, Loudoun, Prince William and Alexandria levy the local third.
+  { pattern: /(?:does not add|no additional) (?:a )?local recordation tax/i, why: "NoVA localities levy the § 58.1-3800 local recordation tax" },
   // D.C. Code §§ 42-1103(a-4), 47-903(a-4): residential rates top out at 1.45% each.
   { pattern: /can exceed 2\.9%/i, why: "DC residential recordation + transfer tax is at most 2.9% combined" },
 ];
@@ -72,6 +78,13 @@ for (const [limit, rate] of [["500000", "4.45"], ["600000", "6.75"], ["750000", 
   expectMatch(calculator, new RegExp(`limit: ${limit}, ratePer500: ${rate.replace(".", "\\.")}\\b`), `Montgomery recordation tier ${limit} must be $${rate}/$500 (Bill 17-23)`);
 }
 expectMatch(calculator, /price - \(ownerOccupiedResidential \? 100000 : 0\)/, "Montgomery principal-residence exemption must be the first $100,000");
+// Va. Code §§ 58.1-801, 58.1-802, 58.1-803: deed and purchase deed of trust at $0.25/$100; grantor at $0.10/$100.
+expectMatch(calculator, /recordationTax: price \* 0\.0025,/, "Virginia deed recordation must be $0.25/$100 of price (§ 58.1-801)");
+expectMatch(calculator, /deedOfTrustRecordationTax: loanAmount \* 0\.0025,/, "Virginia purchase deed of trust must be taxed at $0.25/$100 of the loan (§ 58.1-803)");
+expectMatch(calculator, /grantorTax: price \* 0\.001,/, "Virginia grantor's tax must be $0.10/$100 (§ 58.1-802)");
+for (const county of ["Fairfax County", "Arlington County", "Loudoun County", "Prince William County", "City of Alexandria"]) {
+  expectMatch(rateData, new RegExp(`"${county}": 0\\.00083`), `${county} local recordation (§ 58.1-3800) must be listed`);
+}
 if (/DeedOfTrustTransferTax/.test(calculator)) failures.push("rate drift: a purchase-money deed of trust is not subject to PG County transfer tax (§ 10-188(d))");
 // D.C. Code §§ 42-1103(a-4), 47-903(a-4): 1.45% each at $400,000 or more, 1.1% each below.
 expectMatch(calculator, /price >= 400000 \? 0\.0145 : 0\.011/, "DC recordation and transfer tax must each be 1.45% at $400,000 or more, 1.1% below");
@@ -83,4 +96,4 @@ if (failures.length) {
   process.exit(1);
 }
 assert.ok(true);
-console.log(`Tax facts verified: ${bannedClaims.length} banned claims absent from src/, calculator rates match MD and DC statutes`);
+console.log(`Tax facts verified: ${bannedClaims.length} banned claims absent from src/, calculator rates match MD, DC and VA statutes`);

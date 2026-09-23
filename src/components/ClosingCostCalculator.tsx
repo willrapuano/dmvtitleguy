@@ -22,7 +22,7 @@ const CONFIGS: Record<State, CalculatorConfig> = {
   VA: {
     state: "VA",
     stateFullName: "Virginia",
-    transferTaxNote: "VA grantor tax: $0.50/$500 on the seller. In Northern Virginia the seller also owes two regional fees at $0.10/$100 each — $0.20/$100 combined — on a purchase; neither applies to a refinance. A locality that adopted an ordinance may add up to $0.0833/$100 of recordation tax, charged to the buyer.",
+    transferTaxNote: "VA grantor tax: $0.50/$500 on the seller. In Northern Virginia the seller also owes two regional fees at $0.10/$100 each — $0.20/$100 combined — on a purchase; neither applies to a refinance. Buyers pay $0.25/$100 state recordation tax on the deed and on the purchase loan, plus a local third (about $0.083/$100) on both where the locality levies it, as Fairfax, Arlington, Loudoun, Prince William and Alexandria do.",
   },
   MD: {
     state: "MD",
@@ -97,7 +97,8 @@ function calculateVA(price: number, loanAmount: number): CalcResult {
     titleInsuranceOwner: price * 0.004,
     settlementFee: 495,
     recordingFee: price < 500000 ? 100 : 150,
-    recordationTax: price * 0.0025, // state recordation tax (buyer portion)
+    recordationTax: price * 0.0025, // § 58.1-801: state recordation tax on the deed, $0.25/$100 of price
+    deedOfTrustRecordationTax: loanAmount * 0.0025, // § 58.1-803: $0.25/$100 of the loan on the purchase deed of trust
     loanOriginationEst: loanAmount * 0.01,
     appraisal: 550,
     homeInspection: 450,
@@ -306,7 +307,10 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
 
     // Apply city-level tax overrides if provided
     if (cityOverrides) {
-      const localRecTax = (cityOverrides.localRecordationTaxRate ?? 0) * price;
+      // §§ 58.1-814 and 58.1-3800: the local third applies to each taxable instrument —
+      // the deed (price) and, in Virginia, the purchase deed of trust (loan) as well.
+      const localRecTax =
+        (cityOverrides.localRecordationTaxRate ?? 0) * (state === "VA" ? price + loanAmount : price);
       const localTransferTax = (cityOverrides.localTransferTaxRate ?? 0) * price;
 
       if (localRecTax > 0) {
