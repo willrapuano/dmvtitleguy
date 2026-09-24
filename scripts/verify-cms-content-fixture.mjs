@@ -25,6 +25,8 @@ const mustCatch = [
   ["fixture-structure", "(callouts 2 and 4): the same callout appears twice"],
   ["fixture-structure", "missing _key"],
   ["fixture-structure", "has no body text"],
+  ["fixture-drafting-leftovers", "leftover AI-assistant text"],
+  ["fixture-drafting-leftovers", "content-pipeline metadata"],
 ];
 for (const [slug, text] of mustCatch) {
   assert.ok(out.split("\n").some((line) => line.includes(`/blog/${slug}`) && line.includes(text)), `expected a failure on ${slug}: ${text}`);

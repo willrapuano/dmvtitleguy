@@ -218,6 +218,51 @@
             "marks": []
           }
         ]
+      },
+      {
+        "_key": "d5",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Do I have to use the title company my lender recommends?",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fixture-drafting-leftovers",
+    "title": "Fixture: drafting leftovers",
+    "body": [
+      {
+        "_key": "e1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "I have the article ready. However, I am unable to write files directly.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "e2",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "status: approved target_keyword: title insurance",
+            "marks": []
+          }
+        ]
       }
     ]
   }
