@@ -54,9 +54,9 @@ export default function AlexandriaTitlePage() {
       <section className="page-hero">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/virginia-closing-cost-calculator" className="hover:text-brand-blue">Virginia Closing Costs</Link>
+            <Link href="/virginia-closing-cost-calculator" className="hover:text-white">Virginia Closing Costs</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-200">Alexandria</span>
           </nav>

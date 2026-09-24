@@ -29,7 +29,7 @@ export default async function AdminPage() {
       <div className="container-xl max-w-3xl">
         <Link
           href="/agent-tools"
-          className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-blue"
+          className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-navy hover:underline"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Agent Tools
         </Link>
@@ -87,7 +87,7 @@ export default async function AdminPage() {
                 <div className="flex items-center gap-2">
                   <p className="font-medium text-gray-900 max-w-[68ch] leading-relaxed">{u.email}</p>
                   {u.isAdmin && (
-                    <span className="rounded-full bg-brand-navy/10 px-2 py-0.5 text-xs font-medium text-brand-navy">
+                    <span className="rounded-none bg-brand-navy/10 px-2 py-0.5 text-xs font-medium text-brand-navy">
                       Admin
                     </span>
                   )}

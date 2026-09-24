@@ -58,7 +58,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(IDENTITY_SCHEMA) }}
       />
       <NavBar />
-      <main className="flex-1">{children}</main>
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">{children}</main>
       <Footer />
     </div>
   );

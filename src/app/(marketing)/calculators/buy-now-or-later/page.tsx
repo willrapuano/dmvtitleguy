@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BuyNowOrLaterCalculator } from "@/components/calculators/BuyNowOrLaterCalculator";
 
 export const metadata: Metadata = {
   title: "Buy Now or Later Calculator | DMV Title Guy",
@@ -14,9 +15,9 @@ export default function BuyNowOrLaterPage() {
       <section className="page-hero md:py-16">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/calculators" className="hover:text-brand-blue">Calculators</Link>
+            <Link href="/calculators" className="hover:text-white">Calculators</Link>
             <span className="mx-2">/</span>
             <span>Buy Now or Later</span>
           </nav>
@@ -32,13 +33,7 @@ export default function BuyNowOrLaterPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <iframe
-            src="https://palmagent.com/app/calculators/"
-            width="100%"
-            style={{ border: "none", minHeight: "800px" }}
-            title="Buy Now or Later Calculator — Pruitt Title LLC"
-            allow="clipboard-write"
-          />
+          <BuyNowOrLaterCalculator />
         </div>
       </section>
     </>

@@ -112,14 +112,9 @@ function PostImage({
 function PostMeta({ post, className = "" }: { post: Post; className?: string }) {
   return (
     <div className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-xs ${className}`}>
-      <span className="rounded-full bg-sky-50 px-2.5 py-1 font-semibold text-brand-blue-deep">
-        {post.category}
-      </span>
-      <span className="text-gray-500">{post.date}</span>
-      <span aria-hidden="true" className="text-gray-300">
-        ·
-      </span>
-      <span className="text-gray-500">{post.readTime}</span>
+      <span className="font-bold uppercase tracking-[0.14em] text-brand-ink-light">{post.category}</span>
+      <span aria-hidden="true" className="text-brand-line">|</span>
+      <span className="text-brand-ink-light">{post.date} · {post.readTime}</span>
     </div>
   );
 }
@@ -162,9 +157,9 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
   const renderedCount = visiblePosts.length + (featured ? 1 : 0);
 
   return (
-    <section className="bg-brand-gray-bg py-12 md:py-16">
+    <section className="bg-white py-12 md:py-16">
       <div className="container-xl">
-        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-5">
+        <div className="mb-12">
           <div className="relative mb-4">
             <svg
               aria-hidden="true"
@@ -185,7 +180,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search title insurance, closing costs, markets…"
-              className="min-h-11 w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-sm text-brand-navy outline-none placeholder:text-slate-500 focus:border-brand-blue-deep focus:bg-white focus:ring-2 focus:ring-brand-blue-deep/20"
+              className="min-h-12 w-full rounded-none border border-brand-line bg-white py-3 pl-10 pr-4 text-[15px] text-brand-navy outline-none placeholder:text-brand-ink-light focus:border-brand-navy md:max-w-xl"
             />
           </div>
           <div className="mb-2 flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-wide text-slate-500 md:hidden">
@@ -197,7 +192,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
             role="group"
             aria-label="Filter posts by category"
           >
-            <div className="flex gap-2 md:flex-wrap">
+            <div className="flex gap-x-7 border-b border-brand-line md:flex-wrap">
             {categories.map((category) => {
               const isActive = active === category;
               const count = category === "All"
@@ -209,14 +204,14 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                   type="button"
                   onClick={() => setActive(category)}
                   aria-pressed={isActive}
-                  className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue-deep ${
+                  className={`-mb-px shrink-0 whitespace-nowrap border-b-2 pb-3 pt-2 text-[15px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy ${
                     isActive
-                      ? "border-brand-navy bg-brand-navy text-white"
-                      : "border-gray-200 bg-white text-gray-700 hover:border-brand-blue-deep hover:text-brand-blue-deep"
+                      ? "border-brand-brass text-brand-navy"
+                      : "border-transparent text-brand-ink-light hover:text-brand-navy"
                   }`}
                 >
                   {category}
-                  <span className={`ml-1.5 text-xs ${isActive ? "text-white/80" : "text-slate-600"}`}>
+                  <span className="ml-1.5 text-xs font-medium text-brand-ink-light">
                     {count}
                   </span>
                 </button>
@@ -224,7 +219,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
             })}
             </div>
           </div>
-          <p className="mt-3 text-xs text-slate-500" aria-live="polite">
+          <p className="mt-4 text-[13px] text-brand-ink-light" aria-live="polite">
             Showing {renderedCount} of {filtered.length} {filtered.length === 1 ? "article" : "articles"}
             {query.trim() ? ` matching “${query.trim()}”` : ""}
           </p>
@@ -232,7 +227,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
 
         <div id="blog-results">
         {filtered.length === 0 ? (
-          <div className="rounded-2xl border border-gray-200 bg-white px-6 py-16 text-center">
+          <div className="border-t-2 border-brand-navy bg-brand-gray-bg px-6 py-16 text-center">
             <p className="font-semibold text-brand-navy max-w-[68ch] mx-auto leading-relaxed">No articles match those filters.</p>
             <button
               type="button"
@@ -250,9 +245,9 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
             {featured && (
               <Link
                 href={`/blog/${featured.slug}`}
-                className="group mb-12 grid overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm md:grid-cols-2"
+                className="group mb-16 grid gap-8 md:grid-cols-[7fr_5fr] md:gap-12"
               >
-                <div className="relative aspect-[16/9] overflow-hidden bg-brand-navy md:aspect-auto md:min-h-[300px]">
+                <div className="relative aspect-[3/2] overflow-hidden bg-brand-navy">
                   <PostImage
                     post={featured}
                     priority
@@ -261,19 +256,19 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                     sizes="(min-width: 768px) 576px, 100vw"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-navy shadow-sm">
+                  <span className="absolute bottom-0 left-0 bg-brand-navy px-4 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-brand-brass">
                     Featured
                   </span>
                 </div>
-                <div className="flex flex-col justify-center p-6 md:p-9">
+                <div className="flex flex-col justify-center">
                   <PostMeta post={featured} />
-                  <h2 className="mt-4 t-h4 text-brand-navy transition-colors group-hover:text-brand-blue-deep">
+                  <h2 className="mt-4 font-display text-[2rem] font-medium leading-[1.1] tracking-[-0.02em] text-brand-navy group-hover:underline group-hover:decoration-brand-brass group-hover:decoration-2 group-hover:underline-offset-4 md:text-[2.625rem]">
                     {postDisplayTitle(featured.slug, featured.title)}
                   </h2>
-                  <p className="mt-3 line-clamp-3 text-[15px] leading-relaxed text-brand-muted max-w-[68ch]">
+                  <p className="mt-4 line-clamp-3 max-w-[52ch] text-[17px] leading-relaxed text-brand-ink">
                     {featured.excerpt}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue-deep">
+                  <span className="mt-7 inline-flex w-fit items-center gap-1.5 border-b-2 border-brand-brass pb-1 text-[15px] font-bold text-brand-navy">
                     Read article
                     <span aria-hidden="true">→</span>
                   </span>
@@ -283,19 +278,18 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
 
             {gridPosts.length > 0 && (
               <>
-                <div className="mb-6 flex flex-wrap items-end justify-between gap-x-4 gap-y-1 border-b border-gray-200 pb-4">
+                <div className="mb-8 flex flex-wrap items-end justify-between gap-x-4 gap-y-1 border-t-2 border-brand-navy pt-5">
                   <div>
-                    <p className="section-label max-w-[68ch] leading-relaxed">Insights &amp; Resources</p>
-                    <h2 className="section-title">
+                    <h2 className="font-display text-[2rem] font-medium tracking-[-0.015em] text-brand-navy md:text-[2.5rem]">
                       {active === "All" ? "More Articles" : active}
                     </h2>
                   </div>
-                  <span className="text-sm text-gray-500">
+                  <span className="text-[13px] text-brand-ink-light">
                     {visiblePosts.length} of {gridPosts.length} {gridPosts.length === 1 ? "post" : "posts"}
                   </span>
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
                   {visiblePosts.map((post) => (
                     <Link
                       key={post.slug}
@@ -306,9 +300,9 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                          The featured card above keeps its prefetch; hover still
                          prefetches these. */
                       prefetch={false}
-                      className="editorial-card group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
+                      className="group flex flex-col"
                     >
-                      <div className="relative aspect-[16/9] overflow-hidden bg-brand-navy">
+                      <div className="relative aspect-[3/2] overflow-hidden bg-brand-navy">
                         <PostImage
                           post={post}
                           /* 3-up at lg (~355px), 2-up at sm, full width on mobile. */
@@ -317,18 +311,14 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                           className="absolute inset-0 h-full w-full object-cover"
                         />
                       </div>
-                      <div className="flex flex-1 flex-col p-5">
+                      <div className="flex flex-1 flex-col pt-4">
                         <PostMeta post={post} />
-                        <h3 className="mt-3 line-clamp-2 text-base font-bold leading-snug text-brand-navy transition-colors group-hover:text-brand-blue-deep">
+                        <h3 className="mt-2.5 line-clamp-3 font-display text-[1.375rem] font-medium leading-[1.25] text-brand-navy group-hover:underline group-hover:decoration-brand-brass group-hover:decoration-2 group-hover:underline-offset-4">
                           {postDisplayTitle(post.slug, post.title)}
                         </h3>
-                        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-brand-muted max-w-[68ch]">
+                        <p className="mt-2.5 line-clamp-2 text-[15px] leading-relaxed text-brand-ink-light">
                           {post.excerpt}
                         </p>
-                        <span className="mt-4 inline-flex items-center gap-1.5 pt-1 text-sm font-semibold text-brand-blue-deep">
-                          Read post
-                          <span aria-hidden="true">→</span>
-                        </span>
                       </div>
                     </Link>
                   ))}
@@ -338,7 +328,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                     <button
                       type="button"
                       onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
-                      className="min-h-11 rounded-lg border-2 border-brand-action px-6 py-2.5 text-sm font-semibold text-brand-action transition-[background-color,color,transform] duration-150 hover:bg-brand-action hover:text-white motion-safe:active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-action"
+                      className="btn-outline px-7"
                     >
                       Load {Math.min(PAGE_SIZE, gridPosts.length - visibleCount)} more articles
                     </button>

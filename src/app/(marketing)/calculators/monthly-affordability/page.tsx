@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AffordabilityCalculator } from "@/components/calculators/AffordabilityCalculator";
 
 export const metadata: Metadata = {
   title: "Monthly Affordability Calculator | DMV Title Guy",
@@ -44,9 +45,9 @@ export default function MonthlyAffordabilityPage() {
       <section className="page-hero md:py-16">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/calculators" className="hover:text-brand-blue">Calculators</Link>
+            <Link href="/calculators" className="hover:text-white">Calculators</Link>
             <span className="mx-2">/</span>
             <span>Monthly Affordability</span>
           </nav>
@@ -61,20 +62,9 @@ export default function MonthlyAffordabilityPage() {
       </section>
 
       <section className="section-light">
-        <div className="container-xl max-w-4xl">
-          <div className="card p-8 mb-8 text-center">
-            <h2 className="t-h4 text-brand-navy mb-3">Launch the Monthly Affordability Tool</h2>
-            <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
-              Use the live PalmAgent calculator to estimate your home buying budget based on income, debts, down payment, taxes, and insurance.
-            </p>
-            <a
-              href="https://palmagent.com/app/calculators/MonthlyAffordability"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary px-8"
-            >
-              Open Monthly Affordability Calculator →
-            </a>
+        <div className="container-xl">
+          <div className="mb-16">
+            <AffordabilityCalculator />
           </div>
 
           <div className="prose max-w-none text-brand-muted">

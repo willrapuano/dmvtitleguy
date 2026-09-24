@@ -36,7 +36,7 @@ export default function AgentToolsPage() {
       <div className="container-xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-brand-navy/10 px-4 py-1.5 text-sm font-medium text-brand-navy mb-4">
+          <div className="inline-flex items-center gap-2 rounded-none bg-brand-navy/10 px-4 py-1.5 text-sm font-medium text-brand-navy mb-4">
             <Wrench className="h-4 w-4" />
             Exclusive Agent Tools
           </div>
@@ -62,23 +62,23 @@ export default function AgentToolsPage() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="rounded-xl bg-brand-navy/5 p-3 group-hover:bg-brand-blue/10 transition-colors">
-                    <Icon className="h-8 w-8 text-brand-navy group-hover:text-brand-blue transition-colors" />
+                    <Icon className="h-8 w-8 text-brand-navy group-hover:text-brand-navy group-hover:underline transition-colors" />
                   </div>
                   {tool.badge && (
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${tool.badgeColor}`}
+                      className={`rounded-none px-2.5 py-0.5 text-xs font-semibold ${tool.badgeColor}`}
                     >
                       {tool.badge}
                     </span>
                   )}
                 </div>
-                <h2 className="t-h5 text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+                <h2 className="t-h5 text-brand-navy mb-2 group-hover:text-brand-navy group-hover:underline transition-colors">
                   {tool.title}
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed max-w-[68ch]">
                   {tool.description}
                 </p>
-                <div className="mt-4 text-sm font-medium text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-4 text-sm font-semibold text-brand-navy opacity-0 group-hover:opacity-100 transition-opacity">
                   Launch tool →
                 </div>
               </Link>

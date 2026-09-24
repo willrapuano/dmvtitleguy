@@ -115,17 +115,17 @@ export default function MyClassesPage() {
       {/* Past Classes & Workshops */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-2">Past Classes &amp; Workshops</h2>
+          <h2 className="prose-title mb-2">Past Classes &amp; Workshops</h2>
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {PAST_CLASSES.map((c) => (
               <div key={c.title} className="card p-6">
                 <h3 className="text-brand-navy t-h6 mb-2">{c.title}</h3>
                 <p className="text-brand-muted text-sm mb-4 leading-relaxed max-w-[68ch]">{c.desc}</p>
                 <div className="flex flex-wrap gap-3 text-xs">
-                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium"><CalendarDays size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.date}</span>
-                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium"><Clock size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.time}</span>
-                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-full text-brand-muted font-medium"><MapPin size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.location}</span>
-                  <span className="bg-brand-blue/10 px-3 py-1.5 rounded-full text-brand-blue-deep font-semibold">{c.price}</span>
+                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-none text-brand-muted font-medium"><CalendarDays size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.date}</span>
+                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-none text-brand-muted font-medium"><Clock size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.time}</span>
+                  <span className="bg-brand-gray-bg px-3 py-1.5 rounded-none text-brand-muted font-medium"><MapPin size={13} strokeWidth={2} className="mr-1.5 inline-block align-[-2px]" aria-hidden="true" />{c.location}</span>
+                  <span className="bg-brand-blue/10 px-3 py-1.5 rounded-none text-brand-blue-deep font-semibold">{c.price}</span>
                 </div>
               </div>
             ))}

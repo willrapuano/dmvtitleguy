@@ -50,9 +50,9 @@ export default function CityCalculatorPage({ data }: Props) {
       <section className="page-hero md:py-16">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href={`/${stateCalcSlug}`} className="hover:text-brand-blue">
+            <Link href={`/${stateCalcSlug}`} className="hover:text-white">
               {stateFullName} Closing Costs
             </Link>
             <span className="mx-2">/</span>
@@ -66,13 +66,13 @@ export default function CityCalculatorPage({ data }: Props) {
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">{data.intro}</p>
           <div className="flex flex-wrap gap-3 mt-6">
-            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="border border-brand-brass/60 text-brand-brass text-xs font-semibold px-3 py-1 rounded-none">
               Median Price: ${data.medianHomePrice.toLocaleString()}
             </span>
-            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="border border-brand-brass/60 text-brand-brass text-xs font-semibold px-3 py-1 rounded-none">
               Est. Range: {data.costRangeText}
             </span>
-            <span className="bg-brand-blue/20 text-brand-blue text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="border border-brand-brass/60 text-brand-brass text-xs font-semibold px-3 py-1 rounded-none">
               {data.county}
             </span>
           </div>

@@ -211,7 +211,7 @@ export default function TitleSearchFairfaxPage() {
         <div className="container-xl grid items-center gap-10 md:grid-cols-2">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <Link href="/" className="hover:text-white">Home</Link>
               <span className="mx-2">/</span>
               <span className="text-gray-200">Title Search Fairfax VA</span>
             </nav>
@@ -236,19 +236,16 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">What a Title Search Covers</h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">What a Title Search Covers</h2>
+          <p className="text-brand-ink text-lg mb-12 max-w-2xl">
             We focus on the recorded matters that affect ownership, financing,
             resale, and title insurance.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {covers.map((item) => (
-              <div key={item.title} className="flex gap-4">
-                <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-green">
-                  <item.icon className="h-6 w-6 text-brand-navy" />
-                </div>
+              <div key={item.title} className="border-t-2 border-brand-navy pt-5">
                 <div>
-                  <h3 className="t-h6 text-brand-navy mb-1">{item.title}</h3>
+                  <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{item.title}</h3>
                   <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -259,16 +256,15 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-4">Why Fairfax Title Searches Matter</h2>
-          <p className="text-brand-muted text-center text-lg mb-12 max-w-2xl mx-auto">
+          <h2 className="prose-title mb-4">Why Fairfax Title Searches Matter</h2>
+          <p className="text-brand-ink text-lg mb-12 max-w-2xl">
             Fairfax properties can have layered title history. Catching issues
             early protects your timeline and your negotiating position.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {whyFairfax.map((item) => (
-              <div key={item.title} className="bg-white rounded-lg p-6 shadow-sm">
-                <item.icon className="h-8 w-8 text-brand-blue mb-3" />
-                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
+              <div key={item.title} className="border-t-2 border-brand-navy pt-5">
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{item.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -278,7 +274,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="container-xl max-w-5xl">
-          <p className="text-sm uppercase tracking-widest text-brand-blue-deep font-semibold mb-2 max-w-[68ch] mx-auto leading-relaxed">Fairfax County Details</p>
+          <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">Fairfax County Details</p>
           <h2 className="prose-title mb-4">Local Title Search Details for Fairfax County</h2>
           <p className="text-brand-muted text-lg mb-8 max-w-3xl">
             A Fairfax VA title search should account for the way local records, recording fees, HOAs, condominiums, and new construction documents affect settlement and title insurance.
@@ -286,13 +282,13 @@ export default function TitleSearchFairfaxPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {fairfaxCountyDetails.map((item) => (
               <div key={item.title} className="rounded-lg border border-gray-200 bg-brand-gray-bg p-5">
-                <h3 className="t-h6 text-brand-navy mb-2">{item.title}</h3>
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{item.title}</h3>
                 <p className="text-brand-muted text-sm leading-relaxed max-w-[68ch]">{item.desc}</p>
               </div>
             ))}
           </div>
           <div className="mt-8 rounded-lg border border-gray-200 p-5">
-            <h3 className="t-h6 text-brand-navy mb-2">Fairfax title issues to review closely</h3>
+            <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">Fairfax title issues to review closely</h3>
             <p className="text-brand-muted leading-relaxed max-w-[68ch]">
               Fairfax transactions often involve mature subdivisions, active HOA and condo communities, townhome clusters, estate-owned properties, investor resales, and new construction or redevelopment files. Our review looks for recorded covenants, association liens, easements, access restrictions, unreleased trusts, judgment liens, tax matters, subdivision documents, and builder or entity authority issues before they disrupt closing.
             </p>
@@ -302,14 +298,11 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-green mb-4">
-                  <step.icon className="h-7 w-7 text-brand-navy" />
-                </div>
-                <h3 className="t-h6 text-brand-navy mb-2">{step.title}</h3>
+                <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{step.title}</h3>
                 <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{step.desc}</p>
               </div>
             ))}
@@ -343,7 +336,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
+          <h2 className="prose-title mb-10">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <details key={faq.q} className="bg-white rounded-lg shadow-sm group">
