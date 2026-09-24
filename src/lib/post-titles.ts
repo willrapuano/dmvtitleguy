@@ -29,6 +29,30 @@ export const BLOG_SEO_OVERRIDES: Record<
   string,
   { title: string; description?: string; canonical?: string; h1?: string }
 > = {
+  // ── 2026-09-30 CTR decision (fixed pre/post windows in docs/seo-checkpoint-operations-2026-08-26.md).
+  // Pages already ranking near page one whose result showed a truncated title or a
+  // raw first-paragraph description. Titles use the searchers' own wording.
+  "what-is-a-deed-transfer": {
+    title: "What Is a Deed Transfer? How It Works in VA, MD & DC",
+    description:
+      "What a deed transfer is, how the deed moves from seller to buyer at closing, how it differs from a title transfer, and what can go wrong along the way.",
+  },
+  "title-search-refinance": {
+    title: "Do You Need a New Title Search to Refinance? | DMV Title Guy",
+    description:
+      "Why lenders require a new title search for a refinance in DC, Maryland, and Virginia, what the search checks, what it costs, and when the reissue rate saves you money.",
+  },
+  "virginia-real-estate-contract": {
+    title: "Virginia Real Estate Contract: How the NVAR Form Works",
+    description:
+      "How the standard Northern Virginia purchase contract works, which deadlines matter most, and the four clauses agents most often miss before settlement.",
+  },
+  "refinance-title-insurance": {
+    title: "Refinance Title Insurance: Cost and the Reissue Rate",
+  },
+  "types-of-property-surveys-dc-md-va": {
+    title: "Title Survey vs Boundary Survey: DMV Property Survey Guide",
+  },
   "firpta-explained-dmv": {
     title: "FIRPTA Withholding: A DMV Buyer, Seller & Agent Guide",
     description:
