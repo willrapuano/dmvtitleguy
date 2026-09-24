@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 
 const howItWorks = [
   { icon: FileCheck, title: "1. Submit Property Info", desc: "Fill out the form with property details. We'll follow up with secure instructions for any supporting documents." },
-  { icon: Shield, title: "2. Request Provider Review", desc: "If you want transaction services, Will may introduce an eligible request to a provider for independent acceptance." },
-  { icon: Clock, title: "3. Provider Confirms Next Steps", desc: "The provider confirms scope, pricing, timing, terms, required disclosures, document handling, and deliverables directly." },
+  { icon: Shield, title: "2. Pruitt Title Reviews the Title", desc: "The Pruitt Title team searches the title and flags liens, judgments, and ownership issues." },
+  { icon: Clock, title: "3. Will Confirms Next Steps", desc: "Will confirms the quote, timing, deliverables, and how to send documents securely." },
 ];
 
 const faqs = [
-  { q: "What can investor due diligence include?", a: "Depending on the accepted scope, it may include title search, lien and judgment checks, ownership-chain review, easement review, and a written report. The provider must define the actual deliverables." },
-  { q: "How fast can I get results?", a: "Timing depends on the provider, jurisdiction, record availability, property history, underwriting questions, and requested scope. The provider confirms timing after it accepts and reviews the matter." },
-  { q: "Can a provider review wholesale deals?", a: "Some providers review wholesale transactions, assignments, and double closings, subject to jurisdiction, underwriting, lender, and provider requirements. Confirm eligibility directly with the provider." },
-  { q: "What documents might a provider request?", a: "A provider may ask for the ratified contract, prior title policies, deeds, entity documents, or other transaction-specific material. Wait for approved secure transfer instructions before sending sensitive documents." },
-  { q: "Can I request due diligence before going under contract?", a: "You can ask Will about an auction or off-market property before finalizing an offer. Any actual title-search scope, acceptance, timing, pricing, and reliance must come from the provider." },
+  { q: "What can investor due diligence include?", a: "It can include a title search, lien and judgment checks, ownership-chain review, easement review, and a written report. Will confirms the deliverables for your property up front." },
+  { q: "How fast can I get results?", a: "Timing depends on the jurisdiction, record availability, property history, underwriting questions, and what you need. Pruitt Title confirms timing after it reviews the property." },
+  { q: "Can you review wholesale deals?", a: "Wholesale transactions, assignments, and double closings depend on jurisdiction, underwriting, and lender requirements. Send Will the deal structure and he confirms what Pruitt Title can do for it." },
+  { q: "What documents might you need?", a: "Will may ask for the ratified contract, prior title policies, deeds, entity documents, or other transaction-specific material. Wait for approved secure transfer instructions before sending sensitive documents." },
+  { q: "Can I request due diligence before going under contract?", a: "Yes. Send Will an auction or off-market property before you finalize an offer. Will confirms the title-search quote, timing, and next steps with you." },
 ];
 
 export default function InvestorDueDiligencePage() {
@@ -60,7 +60,7 @@ export default function InvestorDueDiligencePage() {
               Investor Title Due Diligence
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Learn what to investigate before acquiring a DMV property, then send Will the details if you want to request an independent provider review.
+              Learn what to investigate before acquiring a DMV property, then send Will the details. Will and the Pruitt Title team handle the title search and your closing.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#due-diligence-form" className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2">

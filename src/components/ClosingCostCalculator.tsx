@@ -483,7 +483,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
       <div className="bg-brand-navy text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
           <h3 className="t-h6">Ready for a Precise Quote?</h3>
-          <p className="text-gray-300 text-sm max-w-[68ch] leading-relaxed">Will Rapuano can walk through actual costs for your transaction and, if you want, introduce you to Pruitt Title LLC.</p>
+          <p className="text-gray-300 text-sm max-w-[68ch] leading-relaxed">This is an estimate, not a quote. Will Rapuano can give you an actual quote from Pruitt Title for your transaction.</p>
         </div>
         <div className="flex gap-3">
           <Link href="/calculators/title-quote" className="btn-primary whitespace-nowrap">Get a Real Quote</Link>

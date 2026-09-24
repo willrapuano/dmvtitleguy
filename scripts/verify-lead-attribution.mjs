@@ -121,7 +121,7 @@ for (const field of ["submittedAt", "qualificationStatus", "ghlOpportunityId", "
 }
 
 const routingNoticeSource = await readFile("src/components/LeadRoutingNotice.tsx", "utf8");
-assert.match(routingNoticeSource, /Submission does not mean Pruitt has accepted the transaction/, "transaction routing notice is incomplete");
+assert.match(routingNoticeSource, /Sending it doesn't open an order; Will confirms next steps with you/, "transaction routing notice is incomplete");
 assert.match(routingNoticeSource, /does not enroll you in Pruitt Title marketing/, "newsletter consent boundary is incomplete");
 
 console.log(`Lead-attribution gate passed across ${requiredClientForms.length} public forms and both server intake paths`);

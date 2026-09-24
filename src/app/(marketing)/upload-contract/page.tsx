@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 
 const nextSteps = [
   { icon: Send, title: "1. Start Intake", desc: "Tell us how to reach you and share the basic transaction details." },
-  { icon: FileCheck, title: "2. Await Secure Instructions", desc: "Will may follow up with a secure transfer path. Do not send a contract through an unapproved public channel." },
-  { icon: Clock, title: "3. Provider Review", desc: "If an introduction is requested and eligible, the provider independently confirms acceptance, timing, scope, pricing, terms, and next steps." },
+  { icon: FileCheck, title: "2. Await Secure Instructions", desc: "Will follows up with a secure way to send the contract. Do not send a contract through an unapproved public channel." },
+  { icon: Clock, title: "3. Pruitt Title Gets to Work", desc: "Will confirms the quote, timing, and next steps with you, and the Pruitt Title team starts the title work." },
 ];
 
 const faqs = [
-  { q: "How do I send my contract?", a: "Submit only the basic intake details first. Will may provide secure transfer instructions. Contracts are not accepted through a public upload link." },
-  { q: "How quickly will Will follow up?", a: "Follow-up timing depends on availability and the request. Submission does not create a deadline or service relationship." },
-  { q: "What happens after a provider receives my contract?", a: "The provider independently reviews the material and confirms whether it accepts the transaction, along with its scope, pricing, timing, terms, required disclosures, and milestone process." },
+  { q: "How do I send my contract?", a: "Submit only the basic intake details first. Will sends you secure transfer instructions. Contracts are not accepted through a public upload link." },
+  { q: "How quickly will Will follow up?", a: "Will follows up as soon as he can. Sending the intake form doesn't open an order; Will confirms next steps with you." },
+  { q: "What happens after Will receives my contract?", a: "Will confirms the quote, timing, and next steps with you. The Pruitt Title team then handles the title work and settlement, and keeps you posted at each milestone." },
 ];
 
 export default function UploadContractPage() {

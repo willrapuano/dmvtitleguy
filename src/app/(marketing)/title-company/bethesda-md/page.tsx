@@ -22,11 +22,11 @@ const faqs = [
   },
   {
     question: "Does Maryland require attorney involvement at closing?",
-    answer: "Maryland settlement and title work must be handled by an appropriately authorized provider. The provider that accepts the file must explain its role, responsibilities, licensing or authorization, and required disclosures directly.",
+    answer: "Maryland settlement and title work must be handled by an appropriately authorized provider. For clients closing with Will, the Pruitt Title team handles the title and settlement work and provides the required disclosures.",
   },
   {
     question: "What is unique about Bethesda real estate transactions?",
-    answer: "Bethesda transactions can involve high values, trusts, estates, or multiple properties. Ask the accepted provider to confirm experience, underwriting requirements, scope, responsibilities, timing, and disclosures for the particular file.",
+    answer: "Bethesda transactions can involve high values, trusts, estates, or multiple properties. Tell Will about these early so the Pruitt Title team can plan for underwriting requirements and timing on your file.",
   },
   {
     question: "How long does a Bethesda title search take?",
@@ -63,7 +63,7 @@ export default function BethesdaTitlePage() {
             Title Company Bethesda MD &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            DMV Title Guy publishes practical Bethesda and Montgomery County title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
+            DMV Title Guy publishes practical Bethesda and Montgomery County title and closing guidance. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function BethesdaTitlePage() {
               Bethesda is one of Maryland's most desirable communities, known for its top-rated schools, vibrant downtown, and proximity to Washington DC. With median home prices exceeding $800,000, Bethesda attracts affluent buyers seeking a sophisticated suburban lifestyle.
             </p>
             <p className="max-w-[68ch]">
-              The Bethesda market includes established homes, new construction, and luxury estates in areas such as Chevy Chase, Battery Lane, and Glen Echo. High-value properties, trusts, or estates can require careful title and authority review by the provider that accepts the transaction.
+              The Bethesda market includes established homes, new construction, and luxury estates in areas such as Chevy Chase, Battery Lane, and Glen Echo. High-value properties, trusts, or estates can require careful title and authority review before closing.
             </p>
             <div className="rounded-lg border border-brand-blue/20 bg-white p-5">
               <h3 className="text-base font-bold text-brand-navy mb-2">Estimate Bethesda Closing Costs</h3>
@@ -164,7 +164,7 @@ export default function BethesdaTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
             </Link>
           </div>
         </div>
@@ -220,7 +220,7 @@ export default function BethesdaTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Bethesda Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send Will the Bethesda property details to request an educational review or a possible provider introduction.
+            Send Will the Bethesda property details for a quote or a title question. Will confirms next steps with you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/maryland-closing-cost-calculator" className="btn-primary px-8">

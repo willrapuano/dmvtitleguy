@@ -40,7 +40,7 @@ export function EmbedClosingCosts() {
         <a href="https://dmvtitleguy.io/?utm_source=embed&utm_medium=widget&utm_campaign=pruitt-calculator" target="_blank" rel="noopener" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">
           DMV Title Guy
         </a>
-        , an educational website by Will Rapuano.
+        , Will Rapuano of Pruitt Title.
       </p>
     </div>
   );

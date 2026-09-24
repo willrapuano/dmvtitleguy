@@ -14,19 +14,19 @@ interface TitleSearchOrderButtonProps extends CheckoutFormProps {
 export function PayPalTitleSearchCheckout() {
   return (
     <div className="rounded-xl bg-white p-6 shadow-lg">
-      <h3 className="t-h5 text-brand-navy mb-2">Request a title-search introduction</h3>
+      <h3 className="t-h5 text-brand-navy mb-2">Order a title search</h3>
       <p className="text-sm text-brand-muted mb-5 max-w-[68ch] leading-relaxed">
-        Share the property and timing with Will. DMV Title Guy does not accept payment for title services; any provider must confirm scope, pricing, terms, and acceptance directly.
+        Send Will the property and your timing. There is no online payment here; Will confirms the quote and next steps with you.
       </p>
       <Link href="/request-title-review" className="btn-primary inline-flex px-6 py-3">
-        Request an introduction
+        Send the property details
       </Link>
     </div>
   );
 }
 
 export function TitleSearchOrderButton({
-  label = "Request a title-search introduction",
+  label = "Order a title search",
   className = "btn-primary px-6 py-3 text-base font-semibold",
 }: TitleSearchOrderButtonProps) {
   return (

@@ -23,11 +23,11 @@ const faqs = [
   },
   {
     question: "How long does a Loudoun County title search take?",
-    answer: "Timing depends on Loudoun County record availability, property history, HOA or new-construction documents, the provider's accepted scope, and any curative work. The provider should confirm timing after reviewing the file.",
+    answer: "Timing depends on Loudoun County record availability, property history, HOA or new-construction documents, and any curative work. Pruitt Title confirms timing after reviewing the file.",
   },
   {
     question: "What makes Loudoun County title work unique?",
-    answer: "Loudoun's growth means many transactions involve new construction, master-planned communities, HOA structures, or utility and airport-related easements. Ask the accepted provider how it will review the specific recorded matters and community documents.",
+    answer: "Loudoun's growth means many transactions involve new construction, master-planned communities, HOA structures, or utility and airport-related easements. Ask Will how the Pruitt Title team will review the specific recorded matters and community documents.",
   },
   {
     question: "Are RON closings available in Loudoun County?",
@@ -64,7 +64,7 @@ export default function LoudounCountyTitlePage() {
             Title Company Loudoun County VA &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            DMV Title Guy publishes practical Loudoun County title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
+            DMV Title Guy publishes practical Loudoun County title and closing guidance. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function LoudounCountyTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Loudoun transactions may have short contingencies and high values. Confirm title-search capacity and timing directly with the provider after it reviews the property, scope, and record availability.
+            Loudoun transactions may have short contingencies and high values. Send Will the contract early; Pruitt Title confirms title-search timing after it reviews the property and record availability.
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function LoudounCountyTitlePage() {
               Loudoun County is the wealthiest county in America by median household income and one of the fastest-growing regions in the country. With a median home price around $775,000 and homes selling in approximately 10 days, Loudoun is a competitive market where every hour counts.
             </p>
             <p className="max-w-[68ch]">
-              The county's real estate landscape spans historic Leesburg, the Ashburn and Dulles tech corridors, master-planned communities, and rural properties. Title questions can range from HOA covenants in new developments to older easements. Ask the accepted provider how it will review those transaction-specific matters.
+              The county's real estate landscape spans historic Leesburg, the Ashburn and Dulles tech corridors, master-planned communities, and rural properties. Title questions can range from HOA covenants in new developments to older easements. Ask Will how the Pruitt Title team will review those matters for your property.
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function LoudounCountyTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
             </Link>
           </div>
         </div>
@@ -217,7 +217,7 @@ export default function LoudounCountyTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Loudoun County Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send Will the Loudoun County property details to request an educational review or a possible provider introduction.
+            Send Will the Loudoun County property details for a quote or a title question. Will confirms next steps with you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

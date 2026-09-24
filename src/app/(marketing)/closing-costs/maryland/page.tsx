@@ -113,7 +113,7 @@ export default function MarylandClosingCostsPage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Maryland closing costs can vary materially by county and transaction. This guide helps buyers identify county-sensitive questions before signing; verify current rates and actual charges with official sources, the lender, and the accepted provider.
+            Maryland closing costs can vary materially by county and transaction. This guide helps buyers identify county-sensitive questions before signing; verify current rates with official sources. Your lender and Pruitt Title's quote set the actual charges, and your Closing Disclosure governs.
           </p>
         </div>
       </section>

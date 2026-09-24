@@ -22,7 +22,7 @@ const faqs = [
   { q: "What's the difference between a full title search and a lien search?", a: "A full title search examines the complete ownership chain, all recorded documents, liens, easements, and judgments. A lien search focuses specifically on outstanding liens and monetary encumbrances against the property." },
   { q: "When should I request a title search update?", a: "If you've had a title search done previously but need current information — for example, if time has passed since the original search or new activity may have occurred on the property — an update brings your report current." },
   { q: "What is a foreclosure title review?", a: "A foreclosure review examines the title specifically for risks common to foreclosed properties: prior liens that survived the foreclosure, judgment liens, incomplete chain of title, and recording defects that could affect your ownership." },
-  { q: "What happens after I submit a request?", a: "Will reviews the information and may follow up for context. If you ask for transaction services, an eligible request may be introduced to a provider for independent review. The provider confirms whether it accepts the matter, along with scope, pricing, timing, terms, and required disclosures." },
+  { q: "What happens after I submit a request?", a: "Will reviews the details and follows up with you. Sending the request doesn't open an order; Will confirms the quote, timing, and next steps with you, and the Pruitt Title team does the title work." },
 ];
 
 export default function RequestTitleReviewPage() {
@@ -61,7 +61,7 @@ export default function RequestTitleReviewPage() {
               Request a Title Review
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Send the property details to Will for an initial review. Submission is not a title order and does not mean that Pruitt Title or another provider has accepted the matter.
+              Send Will the property details. The Pruitt Title team handles the title search and review. Sending this form doesn&apos;t open a title order; Will confirms next steps with you.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#review-form" className="btn-primary px-6 py-3 text-base font-semibold inline-flex items-center gap-2">

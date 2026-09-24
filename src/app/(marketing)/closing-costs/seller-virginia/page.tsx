@@ -189,7 +189,7 @@ export default function SellerVirginiaClosingCostsPage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Virginia Seller Closing Cost Estimate</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Submit your property details through DMV Title Guy for an itemized planning estimate and to request a current quote from the provider handling the transaction.
+            Send Will your property details for an itemized estimate and a current quote from Pruitt Title.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

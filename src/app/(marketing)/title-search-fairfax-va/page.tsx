@@ -55,7 +55,7 @@ const covers = [
   {
     icon: Shield,
     title: "Curative Guidance",
-    desc: "When a defect appears, the accepted provider should explain the likely cure path and what may be required before title can be insured.",
+    desc: "When a defect appears, the Pruitt Title team explains the likely cure path and what may be required before title can be insured.",
   },
 ];
 
@@ -101,7 +101,7 @@ const process = [
   {
     icon: Search,
     title: "2. Search the Records",
-    desc: "An accepted provider may review land records, liens, judgments, taxes, restrictions, and title exceptions tied to the property and owners.",
+    desc: "The Pruitt Title team reviews land records, liens, judgments, taxes, restrictions, and title exceptions tied to the property and owners.",
   },
   {
     icon: CheckCircle2,
@@ -129,7 +129,7 @@ const faqs = [
   },
   {
     q: "Can a title search help with foreclosure or investor properties?",
-    a: "Fairfax investor and foreclosure properties may require deeper review for surviving liens, judgment risks, missing releases, and record-chain defects. The accepted provider should identify issues and explain the transaction-specific next steps.",
+    a: "Fairfax investor and foreclosure properties may require deeper review for surviving liens, judgment risks, missing releases, and record-chain defects. The Pruitt Title team identifies the issues and explains the next steps for your transaction.",
   },
   {
     q: "Where are Fairfax County land records recorded?",
@@ -220,7 +220,7 @@ export default function TitleSearchFairfaxPage() {
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl">
               Get a Fairfax title search before closing, bidding, or committing
-              to a deal. A provider may review ownership, liens, judgments, taxes, easements,
+              to a deal. The Pruitt Title team reviews ownership, liens, judgments, taxes, easements,
               and title defects so you know what you are taking on.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -298,7 +298,7 @@ export default function TitleSearchFairfaxPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">How It Works with Pruitt Title</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

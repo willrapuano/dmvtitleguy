@@ -64,7 +64,7 @@ const searchIncludes = [
   {
     icon: Search,
     title: "Ownership and Chain Review",
-    desc: "An accepted provider may review current vesting, prior transfers, legal-description issues, and recorded ownership concerns.",
+    desc: "The Pruitt Title team reviews current vesting, prior transfers, legal-description issues, and recorded ownership concerns.",
   },
   {
     icon: FileSearch,
@@ -111,7 +111,7 @@ const process = [
   {
     icon: Search,
     title: "2. Search Title Risk",
-    desc: "An accepted provider may review ownership, liens, judgments, taxes, recorded defects, easements, restrictions, and jurisdiction-specific issues.",
+    desc: "The Pruitt Title team reviews ownership, liens, judgments, taxes, recorded defects, easements, restrictions, and jurisdiction-specific issues.",
   },
   {
     icon: CheckCircle2,
@@ -135,11 +135,11 @@ const faqs = [
   },
   {
     q: "Can auction liens survive the sale?",
-    a: "Some liens and claims can survive depending on the sale type, lien priority, jurisdiction, and recorded facts. The accepted provider should identify recorded issues within its scope before you rely on the auction result.",
+    a: "Some liens and claims can survive depending on the sale type, lien priority, jurisdiction, and recorded facts. Have the title searched before you rely on the auction result, so recorded issues surface early.",
   },
   {
     q: "Do you support auction buyers across the DMV?",
-    a: "You can ask Will about an auction property in DC, Maryland, or Virginia. Any provider must independently confirm whether it accepts the matter and what title-search scope, pricing, timing, terms, and reliance apply.",
+    a: "Yes. Send Will the auction property in DC, Maryland, or Virginia. Will confirms the title-search quote, timing, and next steps with you.",
   },
 ];
 
@@ -274,7 +274,7 @@ export default function AuctionPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">How It Works with Pruitt Title</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

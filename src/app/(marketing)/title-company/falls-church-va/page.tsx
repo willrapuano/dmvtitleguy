@@ -63,7 +63,7 @@ export default function FallsChurchTitlePage() {
             Reliable Title &amp; Settlement Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            DMV Title Guy publishes practical guidance for Falls Church City and nearby Fairfax County transactions. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
+            DMV Title Guy publishes practical guidance for Falls Church City and nearby Fairfax County transactions. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
           </p>
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function FallsChurchTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Falls Church City has its own land records and local processes, while nearby addresses may fall in Fairfax County. Confirm the correct jurisdiction, record source, and title-review timing with the accepted provider.
+            Falls Church City has its own land records and local processes, while nearby addresses may fall in Fairfax County. Will confirms the correct jurisdiction, record source, and title-review timing for your property.
           </p>
         </div>
       </section>
@@ -154,7 +154,7 @@ export default function FallsChurchTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
             </Link>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function FallsChurchTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Falls Church Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send Will the Falls Church property details to request an educational review or a possible provider introduction.
+            Send Will the Falls Church property details for a quote or a title question. Will confirms next steps with you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

@@ -34,7 +34,7 @@ const closingInvolves = [
   {
     icon: Shield,
     title: "Title Insurance Coordination",
-    desc: "An accepted provider may coordinate title-insurance requirements, endorsements, underwriting questions, and lender title conditions within its confirmed scope.",
+    desc: "The Pruitt Title team coordinates title-insurance requirements, endorsements, underwriting questions, and lender title conditions.",
   },
   {
     icon: Landmark,
@@ -118,7 +118,7 @@ const faqs = [
   },
   {
     q: "Can you help with commercial title issues before closing?",
-    a: "An accepted provider may identify title exceptions and curative requirements, then coordinate releases, payoffs, corrective documents, underwriting review, and lender title conditions within its confirmed scope.",
+    a: "The Pruitt Title team identifies title exceptions and curative requirements, then coordinate releases, payoffs, corrective documents, underwriting review, and lender title conditions.",
   },
 ];
 

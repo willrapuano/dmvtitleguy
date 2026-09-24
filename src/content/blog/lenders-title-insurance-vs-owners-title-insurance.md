@@ -176,7 +176,7 @@ Title insurance covers defects that existed before your policy date but weren't 
 
 Whether you're buying, selling, or refinancing in Virginia, Maryland, or DC, title insurance is one closing cost that's worth understanding before you sign.
 
-Ask the provider that accepts your transaction to explain the available policy options in plain language, including coverage, exclusions, exceptions, conditions, endorsements, premium, and who the policy protects. DMV Title Guy can help you prepare questions, but it does not issue policies or perform settlement services.
+Ask your title company to explain the available policy options in plain language, including coverage, exclusions, exceptions, endorsements, premium, and who the policy protects. If you're closing with Will and Pruitt Title, Will can walk you through your options before closing.
 
 **[Learn more with the title insurance resources →][LINK:/title-insurance]**
 

@@ -93,7 +93,7 @@ The DMV covers three jurisdictions with three different sets of closing rules. I
 
 Virginia requires what's called a **wet closing** — meaning the lender must fund (wire the loan proceeds) before or at the closing table, and the seller typically gets paid the same day. You sign, money moves, keys change hands. It's efficient.
 
-Virginia settlement services must be handled by an appropriately licensed or authorized provider. DMV Title Guy publishes local guidance for Northern Virginia; an eligible request can be referred to Pruitt Title LLC for review and acceptance.
+Virginia settlement services must be handled by an appropriately licensed or authorized provider. In Northern Virginia, Will and the Pruitt Title team handle title and settlement for clients' closings.
 
 ### Maryland
 
@@ -124,7 +124,7 @@ Fees vary by jurisdiction and transaction complexity. Virginia charges a grantor
 
 If you want a detailed breakdown of what closing will cost you in Virginia, use our [Virginia closing cost calculator][LINK:/virginia-closing-cost-calculator].
 
-For more detail on the public relationship between DMV Title Guy and Pruitt Title, along with the factors to compare before choosing a provider, review [why choose DMV Title Guy][LINK:/why-choose-us].
+For more on how Will, DMV Title Guy, and Pruitt Title fit together, along with the factors to compare before choosing a title company, review [why choose DMV Title Guy][LINK:/why-choose-us].
 
 ---
 
@@ -166,7 +166,7 @@ A title company's job is to make sure you actually own what you paid for — and
 
 In the DMV specifically, where you might be buying in one jurisdiction, the seller lives in another, and the lender is headquartered in a third state, having a title company that knows these markets is worth more than saving $200 by going with whoever your lender pushed.
 
-If you're buying or selling property in Northern Virginia, Maryland, or DC and want to talk through the process before you're sitting at the table, [contact Will through DMV Title Guy][LINK:/why-choose-us]. Eligible service requests can be referred to Pruitt Title LLC for review.
+If you're buying or selling property in Northern Virginia, Maryland, or DC and want to talk through the process before you're sitting at the table, [contact Will through DMV Title Guy][LINK:/why-choose-us]. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
 
 ---
 

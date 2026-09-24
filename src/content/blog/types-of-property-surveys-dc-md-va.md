@@ -169,7 +169,7 @@ A survey and an owner's title insurance policy solve different problems. The sur
 
 A current survey may let the underwriter remove or narrow the survey exception, as described above, but the result depends on the policy, the underwriter, the jurisdiction, and the facts. Never assume a survey automatically creates coverage, or that title insurance removes the need to investigate a physical discrepancy.
 
-If you are buying, refinancing, developing, or improving property in DC, Maryland, or Virginia, [contact Will](/contact) before ordering. DMV Title Guy can help you frame the title and closing questions. Eligible transaction requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.
+If you are buying, refinancing, developing, or improving property in DC, Maryland, or Virginia, [contact Will](/contact) before ordering. Will can help you sort out the title and closing questions, and when you're ready to close, Will and the Pruitt Title team handle your title and settlement.
 
 ## Frequently asked questions
 
