@@ -170,7 +170,7 @@ export default function TitleSearchViennaPage() {
         <div className="container-xl grid items-center gap-10 md:grid-cols-2">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <Link href="/" className="hover:text-white">Home</Link>
               <span className="mx-2">/</span>
               <span className="text-gray-200">Title Search Vienna VA</span>
             </nav>

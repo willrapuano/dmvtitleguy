@@ -19,7 +19,7 @@ export default async function ContractAnalyzerPage() {
       <div className="container-xl max-w-3xl">
         <Link
           href="/agent-tools"
-          className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-blue"
+          className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-navy hover:underline"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Agent Tools
         </Link>

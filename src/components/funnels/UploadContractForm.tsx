@@ -66,7 +66,7 @@ export function UploadContractForm({ location = "upload-contract" }: UploadContr
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Questions? Call{" "}
-          <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
+          <a href="tel:+17038591467" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">(703) 859-1467</a>.
         </p>
       </div>
     );

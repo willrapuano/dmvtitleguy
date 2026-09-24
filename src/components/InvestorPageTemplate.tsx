@@ -55,7 +55,7 @@ export function InvestorPageTemplate({
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <Link href="/" className="hover:text-white">Home</Link>
               <span className="mx-2">/</span>
               <span className="text-gray-200">Investor Services</span>
             </nav>
@@ -146,13 +146,13 @@ export function InvestorPageTemplate({
                 {p.label}
               </Link>
             ))}
-            <Link href="/virginia-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
+            <Link href="/virginia-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-navy hover:underline transition-colors">
               VA Closing Cost Calculator
             </Link>
-            <Link href="/maryland-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
+            <Link href="/maryland-closing-cost-calculator" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-navy hover:underline transition-colors">
               MD Closing Cost Calculator
             </Link>
-            <Link href="/" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors">
+            <Link href="/" className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-navy hover:underline transition-colors">
               ← Back to Home
             </Link>
           </div>

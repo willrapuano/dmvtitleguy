@@ -67,7 +67,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Need it faster? Call{" "}
-          <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
+          <a href="tel:+17038591467" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">(703) 859-1467</a>.
         </p>
       </div>
     );

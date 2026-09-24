@@ -62,7 +62,7 @@ export default function AgentToolsPage() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="rounded-xl bg-brand-navy/5 p-3 group-hover:bg-brand-blue/10 transition-colors">
-                    <Icon className="h-8 w-8 text-brand-navy group-hover:text-brand-blue transition-colors" />
+                    <Icon className="h-8 w-8 text-brand-navy group-hover:text-brand-navy group-hover:underline transition-colors" />
                   </div>
                   {tool.badge && (
                     <span
@@ -72,13 +72,13 @@ export default function AgentToolsPage() {
                     </span>
                   )}
                 </div>
-                <h2 className="t-h5 text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+                <h2 className="t-h5 text-brand-navy mb-2 group-hover:text-brand-navy group-hover:underline transition-colors">
                   {tool.title}
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed max-w-[68ch]">
                   {tool.description}
                 </p>
-                <div className="mt-4 text-sm font-medium text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-4 text-sm font-semibold text-brand-navy opacity-0 group-hover:opacity-100 transition-opacity">
                   Launch tool →
                 </div>
               </Link>

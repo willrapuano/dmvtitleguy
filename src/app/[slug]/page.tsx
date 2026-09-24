@@ -882,7 +882,7 @@ function LocationPage({ location }: { location: Location }) {
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <Link href="/" className="hover:text-white">Home</Link>
               <span className="mx-2">/</span>
               <span className="text-gray-200">{locationName}</span>
             </nav>
@@ -1288,7 +1288,7 @@ function CountyPage({ county }: { county: County }) {
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <Link href="/" className="hover:text-white">Home</Link>
               <span className="mx-2">/</span>
               <span className="text-gray-200">{fullName}</span>
             </nav>
@@ -1364,7 +1364,7 @@ function DynamicMarketingShell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <NavBar />
-      <main className="flex-1">{children}</main>
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">{children}</main>
       <Footer />
     </div>
   );

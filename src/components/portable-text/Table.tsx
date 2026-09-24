@@ -14,7 +14,7 @@ export function Table({ value }: { value: TableValue }) {
     <div className="article-table my-8 overflow-x-auto">
       <table className="w-full border-collapse text-left text-sm">
         {value.caption && (
-          <caption className="text-gray-500 text-sm mb-2 text-left">{value.caption}</caption>
+          <caption className="text-brand-ink-light text-sm mb-2 text-left">{value.caption}</caption>
         )}
         <tbody>
           {rows.map((row, ri) =>

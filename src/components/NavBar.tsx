@@ -102,6 +102,12 @@ export function NavBar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-brand-line bg-white text-brand-navy">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:bg-brand-navy focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+      >
+        Skip to content
+      </a>
       <div className="mx-auto flex h-[4.75rem] max-w-[1296px] items-center justify-between px-5 sm:px-8 lg:px-6">
         {/* Logo */}
         {/* Text wordmark in the display face, as in the Paper artboards. */}

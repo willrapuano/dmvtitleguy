@@ -48,7 +48,7 @@ export default async function AnalysisPage(
       <div className="container-xl max-w-4xl">
         <Link
           href="/agent-tools/contract-analyzer/history"
-          className="mb-4 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-blue"
+          className="mb-4 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-navy hover:underline"
         >
           <ArrowLeft className="h-4 w-4" /> Back to History
         </Link>

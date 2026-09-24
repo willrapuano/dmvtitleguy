@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RentVsBuyCalculator } from "@/components/calculators/RentVsBuyCalculator";
 
 export const metadata: Metadata = {
   title: "Rent vs Buy Calculator | DMV Title Guy",
@@ -14,9 +15,9 @@ export default function RentVsBuyPage() {
       <section className="page-hero md:py-16">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/calculators" className="hover:text-brand-blue">Calculators</Link>
+            <Link href="/calculators" className="hover:text-white">Calculators</Link>
             <span className="mx-2">/</span>
             <span>Rent vs Buy</span>
           </nav>
@@ -25,20 +26,14 @@ export default function RentVsBuyPage() {
             Rent vs Buy Calculator
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Wondering whether it makes more sense to rent or buy in the DMV? Compare the long-term financial impact of both options including equity growth, tax benefits, and opportunity costs.
+            Wondering whether it makes more sense to rent or buy in the DMV? Compare the long-term financial impact of both options including equity growth, selling costs, and what your down payment could earn if you kept renting.
           </p>
         </div>
       </section>
 
       <section className="section-light">
         <div className="container-xl">
-          <iframe
-            src="https://palmagent.com/app/calculators/RentVBuy"
-            width="100%"
-            style={{ border: "none", minHeight: "800px" }}
-            title="Rent vs Buy Calculator — Pruitt Title LLC"
-            allow="clipboard-write"
-          />
+          <RentVsBuyCalculator />
         </div>
       </section>
     </>

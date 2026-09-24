@@ -107,7 +107,7 @@ export function Footer() {
           <div className="space-y-2 text-sm text-slate-300">
             <p>
               <span className="block text-xs text-slate-400">Will’s direct line</span>
-              <a href={WILL.phoneHref} className="hover:text-brand-blue transition-colors">
+              <a href={WILL.phoneHref} className="hover:text-white transition-colors">
                 {WILL.phoneDisplay}
               </a>
             </p>
@@ -137,7 +137,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-slate-300">
               {QUICK_LINKS.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} prefetch={false} className="hover:text-brand-blue transition-colors">
+                  <Link href={l.href} prefetch={false} className="hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>

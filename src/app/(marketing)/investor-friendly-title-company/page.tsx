@@ -81,7 +81,7 @@ export default function AllTransactionsPage() {
         <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">
+              <Link href="/" className="hover:text-white">
                 Home
               </Link>
               <span className="mx-2">/</span>
@@ -262,13 +262,13 @@ export default function AllTransactionsPage() {
             </Link>
             <Link
               href="/blog"
-              className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors"
+              className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-navy hover:underline transition-colors"
             >
               Blog & Resources
             </Link>
             <Link
               href="/"
-              className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue transition-colors"
+              className="text-sm border border-gray-200 text-brand-muted rounded-none px-4 py-1.5 hover:border-brand-blue hover:text-brand-navy hover:underline transition-colors"
             >
               ← Back to Home
             </Link>

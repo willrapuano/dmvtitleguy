@@ -96,7 +96,7 @@ export default function UploadForm() {
         ) : isDragActive ? (
           <div className="flex flex-col items-center gap-3">
             <FileText className="h-10 w-10 text-brand-blue" />
-            <p className="text-sm font-medium text-brand-blue max-w-[68ch] leading-relaxed">Drop PDF here</p>
+            <p className="text-sm font-medium text-brand-navy max-w-[68ch] leading-relaxed">Drop PDF here</p>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-3">
