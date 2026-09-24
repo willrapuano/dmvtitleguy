@@ -6,8 +6,8 @@ import { createPageMetadata } from "@/lib/site-metadata";
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
-  title: "DMV Title Guy | Title Education & Transaction Introductions",
-  description: "Practical title education, calculators, and local transaction resources from Will Rapuano for DC, Maryland, and Virginia.",
+  title: "Title Insurance & Closing Costs: VA, MD, DC | DMV Title Guy",
+  description: "Estimate title insurance and closing costs for Virginia, Maryland, and DC with free calculators and plain-English guides from Will Rapuano, Pruitt Title.",
   path: "/",
 });
 
