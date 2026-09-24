@@ -196,7 +196,7 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
               DC · Maryland · Virginia
             </p>
             <h1 className="font-display text-[2.75rem] font-medium leading-[1.02] tracking-[-0.028em] text-brand-navy sm:text-6xl xl:text-[4.5rem]">
-              Practical title guidance for DC, Maryland, and Virginia real estate.
+              Know what your closing will cost before you sign.
             </h1>
             <p className="mt-7 max-w-[54ch] text-[17px] leading-[1.65] text-brand-ink md:text-lg">
               Independent educational guidance from Will Rapuano. Use local guides and calculators to understand the next step. When you need a provider, ask Will for an introduction; the provider independently confirms acceptance, scope, and terms.
