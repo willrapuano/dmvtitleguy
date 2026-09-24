@@ -188,7 +188,7 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative border-b border-brand-line bg-white">
+      <section className="relative bg-white">
         <div className="grid lg:min-h-[680px] lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)]">
           <div className="flex flex-col justify-center px-5 py-14 sm:px-8 lg:py-20 lg:pl-[max(2rem,calc((100vw-1296px)/2+1.5rem))] lg:pr-16">
             <p className="mb-7 flex items-center gap-3.5 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink">
