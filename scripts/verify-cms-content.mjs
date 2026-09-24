@@ -44,6 +44,13 @@ const identityRules = [
   { pattern: /\bwe(?:'ll| will| can| also)? (?:close|conduct|disburse|underwrite) (?:transactions|closings|settlements|the closing|funds)\b/i, why: "site-voice claim of closing or disbursing" },
 ];
 
+// Drafting leftovers that reached a live post on 2026-09-24: an AI assistant's reply
+// ("I am unable to write files directly…") and content-pipeline metadata.
+const draftingLeftovers = [
+  { pattern: /\bI (?:am unable|cannot|can't) (?:to )?write files\b|\bsave the following content to a file\b|\bas an AI\b|\bHere is the (?:complete|full|revised|updated) (?:blog )?post\b/i, why: "leftover AI-assistant text, not article content" },
+  { pattern: /\b(?:target_keyword|ownership_status|dedup_status|slug_status)\s*:/i, why: "leftover content-pipeline metadata, not article content" },
+];
+
 const spanText = (blocks) =>
   Array.isArray(blocks) ? blocks.map((b) => (b?.children || []).map((s) => s?.text || "").join("")).join("\n") : String(blocks || "");
 
@@ -86,7 +93,7 @@ if (!fixture && posts.length < 50) {
 }
 
 const failures = [];
-const rules = [...bannedClaims, ...cmsClaims, ...identityRules];
+const rules = [...bannedClaims, ...cmsClaims, ...identityRules, ...draftingLeftovers];
 for (const post of posts) {
   for (const [where, text] of texts(post)) {
     for (const sentence of text.split(/(?<=[.!?])\s+|\n+/)) {
