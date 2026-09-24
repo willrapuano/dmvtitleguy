@@ -68,7 +68,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           For immediate assistance, call{" "}
-          <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
+          <a href="tel:+17038591467" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">(703) 859-1467</a>.
         </p>
       </div>
     );
@@ -113,7 +113,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
           <label className="block text-sm font-medium text-brand-dark-text mb-2">Buyer Type *</label>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {["LLC", "Individual", "Trust", "Other"].map((type) => (
-              <label key={type} className={`flex cursor-pointer items-center justify-center rounded border px-3 py-2 text-sm transition-colors focus-within:ring-2 focus-within:ring-brand-blue focus-within:ring-offset-2 ${formData.buyerType === type ? "border-brand-blue bg-blue-50 text-brand-blue font-medium" : "border-gray-300 text-gray-600 hover:border-brand-blue"}`}>
+              <label key={type} className={`flex cursor-pointer items-center justify-center rounded border px-3 py-2 text-sm transition-colors focus-within:ring-2 focus-within:ring-brand-blue focus-within:ring-offset-2 ${formData.buyerType === type ? "border-brand-navy bg-brand-gray-bg text-brand-navy font-semibold" : "border-gray-300 text-gray-600 hover:border-brand-blue"}`}>
                 <input type="radio" name="buyerType" value={type} checked={formData.buyerType === type} onChange={(e) => setFormData({ ...formData, buyerType: e.target.value })} className="sr-only" />
                 {type}
               </label>
@@ -142,7 +142,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
           </div>
         </div>
 
-        <div className="flex gap-3 rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-brand-navy">
+        <div className="flex gap-3 rounded-xl border border-brand-blue-100 bg-brand-gray-bg p-4 text-sm text-brand-navy">
           <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-brand-blue-deep" aria-hidden="true" />
           <p className="leading-relaxed">
             Have contracts, deeds, or prior policies? We&apos;ll provide secure transfer instructions after we receive your request.

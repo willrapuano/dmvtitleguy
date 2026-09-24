@@ -112,7 +112,7 @@ const dmvTitleServiceLinks = [
 
 function RelatedLocalTitleServices() {
   return (
-    <section className="mt-10 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
+    <section className="mt-10 rounded-xl border border-brand-blue/20 bg-brand-gray-bg p-6">
       <h2 className="t-h4 text-brand-navy mb-3">
         Local Title and Closing Resources
       </h2>
@@ -381,21 +381,49 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
         />
       )}
 
-      {/* ─── Title + Meta ─── */}
-      <header className="border-b border-slate-100 bg-white">
-        <div className="mx-auto max-w-6xl px-6 pb-10 pt-10 md:pb-12 md:pt-14">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-slate-500">
-            <Link href="/" className="hover:text-brand-blue-deep transition-colors">Home</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-brand-blue-deep transition-colors">Blog</Link>
-            <span aria-hidden="true">/</span>
-            <span className="max-w-[220px] truncate text-slate-400">{displayTitle}</span>
-          </nav>
+      {/* ─── Title block (Paper: "Refresh — Article") ─── */}
+      <header className="bg-white">
+        <div className="mx-auto max-w-[1296px] px-6 pb-10 pt-10 md:pb-12 md:pt-16">
+          <div className="max-w-[1030px]">
+            <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">
+              <Link href="/blog" className="transition-colors hover:text-brand-navy">Guides</Link>
+              <span aria-hidden="true">/</span>
+              <span>{post.category}</span>
+            </nav>
 
-          {/* Hero comes before the headline so the article opens visually. */}
+            <h1 className="font-display text-[2.5rem] font-medium leading-[1.05] tracking-[-0.025em] text-brand-navy md:text-[3.5rem] lg:text-[4.25rem] lg:leading-[1.03]">
+              {displayTitle}
+            </h1>
+
+            {post.excerpt && (
+              <p className="mt-6 max-w-[820px] font-display text-xl leading-[1.45] text-brand-ink md:text-2xl md:leading-[1.42]">
+                {post.excerpt}
+              </p>
+            )}
+
+            <div className="mt-7 flex flex-wrap items-center gap-x-3.5 gap-y-2 text-[15px]">
+              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-brand-gray-bg">
+                <Image
+                  src="/will-rapuano-headshot.jpg"
+                  alt=""
+                  fill
+                  className="scale-[1.28] object-cover object-[50%_22%]"
+                  sizes="44px"
+                />
+              </div>
+              <Link href="/about-will-rapuano" className="font-bold text-brand-ink hover:underline">
+                Will Rapuano
+              </Link>
+              <span className="text-brand-ink-light">
+                {post.date} · {post.readTime}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <figure className="mx-auto max-w-[1296px] px-0 md:px-6">
           <div
-            className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-brand-navy shadow-[0_24px_70px_-38px_rgba(11,29,58,0.65)] md:aspect-[21/9]"
+            className="relative aspect-[3/2] overflow-hidden bg-brand-gray-bg md:aspect-[1296/560]"
             data-blog-hero
           >
             <Image
@@ -404,114 +432,39 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               fill
               className="object-cover"
               priority
-              sizes="(min-width: 1200px) 1152px, 100vw"
+              sizes="(min-width: 1344px) 1296px, 100vw"
               data-blog-hero-image
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/25 via-transparent to-transparent" aria-hidden="true" />
           </div>
-
-          <div className="mt-8 max-w-4xl md:mt-10">
-            {/* Category tag */}
-            <span className="mb-4 inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-blue-deep">
-              {post.category}
-            </span>
-
-            {/* Title */}
-            <h1 className="max-w-4xl font-display text-[2rem] font-semibold leading-[1.08] tracking-[-0.02em] text-brand-navy md:text-5xl md:leading-[1.1]">
-              {displayTitle}
-            </h1>
-
-            {/* Author + Date + Read time */}
-            <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slate-500">
-              <div className="flex items-center gap-2">
-                <div className="relative h-9 w-9 overflow-hidden rounded-full bg-brand-navy">
-                  <Image
-                    src="/will-rapuano-headshot.jpg"
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="36px"
-                  />
-                </div>
-                <span className="font-medium text-brand-navy">Will Rapuano</span>
-              </div>
-              <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
-              <span>{post.date}</span>
-              <span aria-hidden="true" className="hidden text-slate-300 sm:inline">·</span>
-              <span>{post.readTime}</span>
-            </div>
-
-            {/* Social Share */}
-            <div className="mt-6 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Share</span>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-600 hover:bg-blue-600 hover:text-white"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                Facebook
-              </a>
-              <a
-                href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-black hover:bg-black hover:text-white"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                X
-              </a>
-              <a
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-blue-700 hover:bg-blue-700 hover:text-white"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                LinkedIn
-              </a>
-              <a
-                href={`mailto:?subject=${shareTitle}&body=Check out this article: ${canonicalUrl}`}
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition-[background-color,border-color,color] duration-150 hover:border-slate-700 hover:bg-slate-700 hover:text-white"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-                Email
-              </a>
-            </div>
-          </div>
-        </div>
+          {heroImageAlt && (
+            <figcaption className="mt-2.5 px-6 text-[13px] text-brand-ink-light md:px-0" aria-hidden="true">
+              {heroImageAlt}
+            </figcaption>
+          )}
+        </figure>
       </header>
 
       {/* ─── Main Content ─── */}
       <div className="bg-white">
-        <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mx-auto max-w-[1296px] px-6 pb-20 pt-12 md:pt-16 lg:pb-24">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,720px)_minmax(0,1fr)] lg:gap-24">
 
             {/* Article */}
-            <article className="lg:col-span-2 min-w-0">
-              {/* Excerpt lead */}
-              <p className="text-lg text-gray-600 leading-relaxed mb-8 font-medium border-l-4 border-brand-blue-deep pl-5 max-w-[68ch]">
-                {post.excerpt}
-              </p>
-
+            <article className="min-w-0">
               {!isViennaTitleCompanyPost && (
-                <div className="mb-8 rounded-xl border border-brand-blue/20 bg-sky-50 p-5 lg:hidden">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue-deep">Planning a closing?</p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                    Get a local title quote for Virginia, Maryland, or Washington DC.
+                <div className="mb-10 border-l-4 border-brand-brass bg-brand-gray-bg px-5 py-5 lg:hidden">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-ink-light">Planning a closing?</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-brand-ink">
+                    Estimate title costs for Virginia, Maryland, or Washington DC.
                   </p>
-                  <Link
-                    href="/calculators/title-quote"
-                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-lg bg-brand-action px-5 py-2.5 text-sm font-bold text-white"
-                  >
-                    Get a Title Quote →
+                  <Link href="/calculators/title-quote" className="btn-primary mt-4">
+                    Estimate Title Costs →
                   </Link>
                 </div>
               )}
 
               {isViennaTitleCompanyPost && (
-                <div className="mb-8 rounded-xl border border-brand-blue/20 bg-blue-50 p-6">
+                <div className="mb-10 border-l-4 border-brand-brass bg-brand-gray-bg p-6">
                   <p className="text-xs font-semibold uppercase tracking-wide text-brand-blue-deep mb-2 max-w-[68ch]">
                     Vienna title search services
                   </p>
@@ -567,7 +520,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                           return (
                             <a
                               href={href}
-                              className="text-brand-blue-deep underline hover:text-brand-blue-700 transition-colors"
+                              className="text-brand-navy underline decoration-brand-brass decoration-2 underline-offset-[3px] transition-colors hover:text-brand-ink"
                               {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                             >
                               {children}
@@ -631,17 +584,17 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                         },
                         // Rendered as h2, not h1: the page heading above is the document's only h1.
                         // Styling is unchanged, so nothing looks different.
-                        h1: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="t-h3 text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h2: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="t-h4 text-brand-navy mt-10 mb-4">{children}</h2>,
-                        h3: ({ children, value }: any) => <h3 id={slugifyBlogHeading(portableBlockText(value))} className="t-h5 text-brand-navy mt-8 mb-3">{children}</h3>,
-                        h4: ({ children }: any) => <h4 className="t-h6 font-semibold text-brand-navy mt-8 mb-3">{children}</h4>,
+                        h1: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="font-display font-medium tracking-[-0.015em] text-brand-navy mt-14 mb-5 text-[1.875rem] leading-[1.15] md:text-[2.5rem]">{children}</h2>,
+                        h2: ({ children, value }: any) => <h2 id={slugifyBlogHeading(portableBlockText(value))} className="font-display font-medium tracking-[-0.015em] text-brand-navy mt-14 mb-5 text-[1.75rem] leading-[1.15] md:text-[2.25rem]">{children}</h2>,
+                        h3: ({ children, value }: any) => <h3 id={slugifyBlogHeading(portableBlockText(value))} className="font-display font-medium tracking-[-0.015em] text-brand-navy mt-10 mb-3 text-[1.375rem] leading-[1.25] md:text-[1.625rem]">{children}</h3>,
+                        h4: ({ children }: any) => <h4 className="mt-8 mb-3 text-xs font-extrabold uppercase tracking-[0.14em] text-brand-navy">{children}</h4>,
                       },
                     }}
                   />
                 ) : bodyContent ? (
                   <BlogArticle content={bodyContent} />
                 ) : (
-                  <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 text-center">
+                  <div className="bg-brand-gray-bg border border-brand-blue-100 rounded-xl p-6 text-center">
                     <p className="font-semibold text-brand-navy mb-2 max-w-[68ch] leading-relaxed">Full Article Coming Soon</p>
                     <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">
                       This article is being finalized. The URL is live and indexed for SEO.
@@ -658,50 +611,63 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               {showDmvTitleServices && <RelatedLocalTitleServices />}
 
               {/* ─── CTA Section ─── */}
-              <div className="mt-14 bg-brand-navy rounded-2xl p-8 text-center">
-                <h3 className="t-h4 text-white mb-3">
-                  Ready to Get a Title Quote?
-                </h3>
-                <p className="text-white/70 mb-6 max-w-md mx-auto">
+              <div className="mt-16 bg-brand-navy px-7 py-9 md:px-10 md:py-11">
+                <h2 className="font-display text-[1.875rem] font-medium leading-[1.12] tracking-[-0.015em] text-white md:text-[2.25rem]">
+                  Ready to get a title quote?
+                </h2>
+                <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-[#C9D6E0]">
                   Send your transaction details through DMV Title Guy. Will can answer initial questions and, when eligible, refer the request to Pruitt Title LLC for review.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Link
-                    href="/calculators/title-quote"
-                    className="btn-primary px-7 py-3.5"
-                  >
-                    Get a Free Quote →
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Link href="/calculators/title-quote" className="btn-brass">
+                    Estimate Title Costs →
                   </Link>
                   <Link
                     href="/title-insurance"
-                    className="inline-block border-2 border-white/30 hover:border-white text-white font-semibold px-7 py-3.5 rounded-lg transition-colors"
+                    className="inline-flex min-h-12 items-center justify-center border border-white/40 px-6 text-[15px] font-semibold text-white transition-colors hover:border-white"
                   >
                     Learn About Title Insurance
                   </Link>
                 </div>
               </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] font-semibold text-brand-ink-light">
+                <span className="text-xs font-bold uppercase tracking-[0.14em]">Share</span>
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" rel="noopener noreferrer" className="hover:text-brand-navy">Facebook</a>
+                <a href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`} target="_blank" rel="noopener noreferrer" className="hover:text-brand-navy">X</a>
+                <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`} target="_blank" rel="noopener noreferrer" className="hover:text-brand-navy">LinkedIn</a>
+                <a href={`mailto:?subject=${shareTitle}&body=Check out this article: ${canonicalUrl}`} className="hover:text-brand-navy">Email</a>
+              </div>
             </article>
 
             {/* ─── Sidebar ─── */}
-            <aside className="space-y-6 lg:sticky lg:top-24 h-fit min-w-0">
-              {/* Table of Contents */}
+            <aside className="h-fit min-w-0 space-y-10 lg:sticky lg:top-28 lg:pt-1.5">
               {toc.length > 0 && (
-                <div className="bg-gray-50 border border-gray-100 rounded-xl p-5">
-                  <h3 className="font-bold text-brand-navy mb-4 text-sm uppercase tracking-wide">
-                    On This Page
-                  </h3>
-                  <ul className="space-y-2.5">
+                <nav aria-label="On this page" className="hidden border-t-2 border-brand-navy pt-[18px] lg:block">
+                  <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-brand-navy">On this page</p>
+                  <ul className="mt-4 space-y-3">
                     {toc.map((item) => (
                       <li key={item.id}>
-                        <a
-                          href={`#${item.id}`}
-                          className="text-xs text-gray-600 hover:text-brand-blue-deep leading-snug block transition-colors"
-                        >
+                        <a href={`#${item.id}`} className="block text-[15px] leading-snug text-brand-ink-light transition-colors hover:text-brand-navy">
                           {item.label}
                         </a>
                       </li>
                     ))}
                   </ul>
+                </nav>
+              )}
+
+              {!isViennaTitleCompanyPost && (
+                <div className="hidden bg-brand-navy p-7 lg:block">
+                  <p className="font-display text-[1.625rem] font-medium leading-[1.2] text-white">
+                    Know your closing costs before you sign.
+                  </p>
+                  <p className="mt-3.5 text-[15px] leading-relaxed text-[#C9D6E0]">
+                    Title insurance, recordation, and transfer taxes for DC, Maryland, and Virginia.
+                  </p>
+                  <Link href="/calculators/title-quote" className="btn-brass mt-5">
+                    Open the calculator →
+                  </Link>
                 </div>
               )}
 
@@ -716,45 +682,40 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
 
               {/* Related Posts */}
               {related.length > 0 && (
-                <div className="bg-white border border-gray-100 rounded-xl p-5">
-                  <h3 className="font-bold text-brand-navy mb-4 text-sm uppercase tracking-wide">
-                    More Articles
-                  </h3>
-                  <ul className="space-y-4">
+                <div className="border-t-2 border-brand-navy pt-[18px]">
+                  <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-brand-navy">More guides</p>
+                  <ul className="mt-4 space-y-4">
                     {related.map((r) => (
                       <li key={r.slug}>
-                        <Link
-                          href={`/blog/${r.slug}`}
-                          className="text-sm font-medium text-brand-navy hover:text-brand-blue-deep leading-snug block transition-colors"
-                        >
+                        <Link href={`/blog/${r.slug}`} className="block font-display text-lg font-medium leading-snug text-brand-navy hover:underline">
                           {postDisplayTitle(r.slug, r.title)}
                         </Link>
-                        <span className="text-xs text-gray-600 mt-0.5 block">{r.date} · {r.readTime}</span>
+                        <span className="mt-1 block text-[13px] text-brand-ink-light">{r.date} · {r.readTime}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               )}
 
-              {/* Author Card */}
-              <div className="bg-white border border-gray-100 rounded-xl p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-full bg-brand-navy flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                    WR
+              {/* Author */}
+              <div className="border-t border-brand-line pt-6">
+                <div className="flex items-center gap-3.5">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-brand-gray-bg">
+                    <Image src="/will-rapuano-headshot.jpg" alt="" fill className="scale-[1.28] object-cover object-[50%_22%]" sizes="48px" />
                   </div>
                   <div>
-                    <p className="font-bold text-brand-navy text-sm max-w-[68ch] leading-relaxed">
+                    <p className="text-[15px] font-bold text-brand-navy">
                       <Link href={WILL.url.replace("https://dmvtitleguy.io", "")} className="hover:underline">
                         {WILL.name}
                       </Link>
                     </p>
-                    <p className="text-xs text-gray-500 max-w-[68ch]">{WILL.jobTitle}, Pruitt Title LLC</p>
+                    <p className="text-[13px] text-brand-ink-light">{WILL.jobTitle}, Pruitt Title LLC</p>
                   </div>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed max-w-[68ch]">
+                <p className="mt-3.5 text-sm leading-relaxed text-brand-ink-light">
                   Will creates educational resources for buyers, sellers, agents, and lenders across the DMV and connects
                   transaction questions with the appropriate Pruitt Title team member. Read more about{" "}
-                  <Link href="/about-will-rapuano" className="font-medium text-brand-blue-deep hover:underline">
+                  <Link href="/about-will-rapuano" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">
                     his role and this website
                   </Link>
                   .
@@ -767,37 +728,33 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
 
       {/* ─── Related Posts Section ─── */}
       {related.length > 0 && (
-        <section className="bg-gray-50 py-16 border-t border-gray-100">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="t-h4 text-brand-navy mb-8 text-center">
-              You Might Also Like
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
+        <section className="border-t border-brand-line bg-brand-gray-bg py-16 md:py-20">
+          <div className="mx-auto max-w-[1296px] px-6">
+            <div className="flex items-end justify-between gap-6">
+              <h2 className="font-display text-[2rem] font-medium leading-tight tracking-[-0.015em] text-brand-navy md:text-[2.5rem]">
+                Keep reading
+              </h2>
+              <Link href="/blog" className="shrink-0 text-[15px] font-bold text-brand-navy underline decoration-brand-brass decoration-2 underline-offset-4">
+                All guides →
+              </Link>
+            </div>
+            <div className="mt-9 grid gap-10 md:grid-cols-3 md:gap-8">
               {related.map((r) => (
-                <Link
-                  key={r.slug}
-                  href={`/blog/${r.slug}`}
-                  className="bg-white rounded-xl overflow-hidden border border-gray-100 group block"
-                >
-                  <div className="relative h-44 overflow-hidden bg-brand-navy">
-                      <Image
+                <Link key={r.slug} href={`/blog/${r.slug}`} className="group block">
+                  <div className="relative aspect-[3/2] overflow-hidden bg-brand-navy">
+                    <Image
                       src={resolvePostImage(r.slug, r.image) ?? r.image}
-                      alt={postDisplayTitle(r.slug, r.title)}
+                      alt=""
                       fill
-                      className="object-cover opacity-80"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-4">
-                      <span className="text-xs text-brand-blue-deep font-semibold">{r.category}</span>
-                    </div>
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-brand-navy text-sm leading-snug group-hover:text-brand-blue-deep transition-colors mb-2 line-clamp-2">
-                      {postDisplayTitle(r.slug, r.title)}
-                    </h3>
-                    <p className="text-xs text-gray-500 max-w-[68ch]">{r.date} · {r.readTime}</p>
-                  </div>
+                  <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-brand-ink-light">{r.category}</p>
+                  <h3 className="mt-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy group-hover:underline">
+                    {postDisplayTitle(r.slug, r.title)}
+                  </h3>
+                  <p className="mt-2 text-[13px] text-brand-ink-light">{r.date} · {r.readTime}</p>
                 </Link>
               ))}
             </div>

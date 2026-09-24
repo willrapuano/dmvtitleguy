@@ -76,10 +76,10 @@ export default function UploadForm() {
         {...getRootProps()}
         className={`flex min-h-[300px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-colors ${
           isDragActive
-            ? "border-brand-blue bg-blue-50"
+            ? "border-brand-blue bg-brand-gray-bg"
             : uploading
             ? "border-gray-300 bg-gray-50"
-            : "border-gray-300 bg-white hover:border-brand-blue hover:bg-blue-50/50"
+            : "border-gray-300 bg-white hover:border-brand-blue hover:bg-brand-gray-bg/50"
         }`}
       >
         <input {...getInputProps()} />
@@ -96,7 +96,7 @@ export default function UploadForm() {
         ) : isDragActive ? (
           <div className="flex flex-col items-center gap-3">
             <FileText className="h-10 w-10 text-brand-blue" />
-            <p className="text-sm font-medium text-brand-blue max-w-[68ch] leading-relaxed">Drop PDF here</p>
+            <p className="text-sm font-medium text-brand-navy max-w-[68ch] leading-relaxed">Drop PDF here</p>
           </div>
         ) : (
           <div className="flex flex-col items-center gap-3">

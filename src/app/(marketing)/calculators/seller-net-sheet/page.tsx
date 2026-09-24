@@ -45,9 +45,9 @@ export default function SellerNetSheetPage() {
       <section className="page-hero md:py-16">
         <div className="container-xl">
           <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-brand-blue">Home</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/calculators" className="hover:text-brand-blue">Calculators</Link>
+            <Link href="/calculators" className="hover:text-white">Calculators</Link>
             <span className="mx-2">/</span>
             <span>Seller Net Sheet</span>
           </nav>

@@ -97,7 +97,7 @@ export function WhyChooseUsClient() {
       {/* 9 Reasons Accordion */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-2">
+          <h2 className="prose-title mb-2">
             9 Questions to Ask Before You Choose
           </h2>
           <div className="mt-10 space-y-3">
@@ -148,7 +148,7 @@ export function WhyChooseUsClient() {
       {/* Protect Your Real Estate Investment */}
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-2">Protect Your Real Estate Investment</h2>
+          <h2 className="prose-title mb-2">Protect Your Real Estate Investment</h2>
           <div className="text-brand-muted leading-relaxed space-y-4 mt-8">
             <p className="max-w-[68ch]">
               Real estate has traditionally been a family&apos;s most valuable asset. It is a form of wealth that is protected
@@ -173,7 +173,7 @@ export function WhyChooseUsClient() {
       {/* 21 Reasons For Title Insurance */}
       <section className="section-light">
         <div className="container-xl max-w-4xl">
-          <h2 className="prose-title text-center mb-2">21 Reasons For Title Insurance</h2>
+          <h2 className="prose-title mb-2">21 Reasons For Title Insurance</h2>
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-3 mt-10">
             {REASONS_FOR_TITLE_INSURANCE.map((reason, i) => (
               <div key={i} className="flex items-start gap-3 py-2">

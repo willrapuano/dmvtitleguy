@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedInIcon, YouTubeIcon } from "@/components/BrandIcons";
 import { ALL_LOCATIONS } from "@/data/locations";
@@ -34,26 +33,18 @@ export function Footer() {
 
   return (
     <footer className="bg-brand-navy text-white">
-      <div className="border-b border-white/10 py-12 md:py-16">
-        <div className="container-xl">
-          <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-300">Practical next steps for DMV transactions</p>
-              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
-                Start with clear numbers—or ask Will for an introduction.
-              </h2>
-              <p className="mt-4 max-w-[62ch] leading-relaxed text-slate-300">
-                Estimate costs, share transaction context, or speak directly with Will. Any provider independently confirms acceptance, scope, and terms.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <Link href="/calculators/title-quote" className="btn-primary px-7">
-                Estimate Title Costs <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-              <Link href="/contact" className="btn-on-dark px-7">
-                Contact Will
-              </Link>
-            </div>
+      <div className="border-b border-white/10">
+        <div className="mx-auto flex max-w-[1296px] flex-col gap-7 px-6 py-14 md:flex-row md:items-center md:justify-between md:py-16">
+          <h2 className="font-display text-[2rem] font-medium leading-[1.1] tracking-[-0.02em] text-white md:text-5xl">
+            Get your numbers before you sign.
+          </h2>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <Link href="/calculators/title-quote" className="btn-brass px-7">
+              Estimate Title Costs <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link href="/contact" className="btn-on-dark px-7">
+              Contact Will
+            </Link>
           </div>
         </div>
       </div>
@@ -61,7 +52,7 @@ export function Footer() {
       {/* Areas Covered */}
       <div className="border-b border-white/10 bg-brand-navy-dark/40 py-8">
         <div className="container-xl">
-          <details className="group">
+          <details className="footer-areas group">
             <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue-300 lg:hidden">
               Areas Covered
               <span
@@ -98,16 +89,8 @@ export function Footer() {
            * tagline in the full lockup sets about 7px tall — so it goes below as
            * real text instead, where it is legible and selectable.
            */}
-          <Link href="/" className="inline-block" aria-label="DMV Title Guy — home">
-            <Image
-              src="/logo-wordmark-white.png"
-              alt="DMV Title Guy"
-              width={1235}
-              height={164}
-              sizes="220px"
-              className="h-auto w-[220px]"
-              priority={false}
-            />
+          <Link href="/" className="inline-block font-display text-[1.75rem] font-semibold leading-none tracking-[-0.01em] text-white" aria-label="DMV Title Guy — home">
+            DMV Title Guy
           </Link>
           <p className="mb-5 mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-300">
             Got your back on every contract
@@ -124,7 +107,7 @@ export function Footer() {
           <div className="space-y-2 text-sm text-slate-300">
             <p>
               <span className="block text-xs text-slate-400">Will’s direct line</span>
-              <a href={WILL.phoneHref} className="hover:text-brand-blue transition-colors">
+              <a href={WILL.phoneHref} className="hover:text-white transition-colors">
                 {WILL.phoneDisplay}
               </a>
             </p>
@@ -154,7 +137,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-slate-300">
               {QUICK_LINKS.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} prefetch={false} className="hover:text-brand-blue transition-colors">
+                  <Link href={l.href} prefetch={false} className="hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>

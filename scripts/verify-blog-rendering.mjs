@@ -88,8 +88,8 @@ async function worker() {
 
       if (h1Count !== 1) failures.push(`${route}: expected one h1, found ${h1Count}`);
       if (heroCount !== 1) failures.push(`${route}: expected one hero image, found ${heroCount}`);
-      if (visibleHtml.indexOf("data-blog-hero") > visibleHtml.indexOf("<h1")) {
-        failures.push(`${route}: hero image must render before the article h1`);
+      if (visibleHtml.indexOf("data-blog-hero") < visibleHtml.indexOf("<h1")) {
+        failures.push(`${route}: hero image must render after the article title block`);
       }
       if (articleBodyCount !== 1) failures.push(`${route}: expected one article body, found ${articleBodyCount}`);
       if (decodedJsonLd.failures.length) failures.push(`${route}: malformed JSON-LD (${decodedJsonLd.failures.length})`);

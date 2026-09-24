@@ -4,22 +4,24 @@
  */
 
 import type { Metadata } from "next";
-import { Open_Sans, Source_Serif_4 } from "next/font/google";
+import { Manrope, Newsreader } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SITE_NAME, SITE_URL } from "@/lib/brand-identity";
 import { AttributionCapture } from "@/components/AttributionCapture";
 
-const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
+const bodyFont = Manrope({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
 /**
- * Display face for headings. The wordmark in logo.png is a high-contrast serif.
- * Source Serif 4 is a clean, professional, and readable serif for headings.
- * Body copy stays on Open Sans.
+ * Capital Standard type system (Paper: "DMV Title Guy — Website Design Options").
+ * Newsreader for headings, set tight at medium weight; Manrope for body and UI.
  */
-const sourceSerif = Source_Serif_4({
+const displayFont = Newsreader({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  // Variable font with the optical-size axis: large headings get the tight
+  // display cut the Paper artboards use. Fixed weights drop the axis and
+  // every heading falls back to the loose text cut.
+  axes: ["opsz"],
   variable: "--font-display",
   display: "swap",
 });
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${openSans.variable} ${sourceSerif.variable}`}>
+    <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
       <body className="min-h-screen antialiased bg-white text-brand-dark-text font-sans">
         <AttributionCapture />
         <Script

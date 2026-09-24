@@ -53,7 +53,7 @@ export default function RequestTitleReviewPage() {
         <div className="container-xl grid md:grid-cols-2 gap-10 items-start">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-brand-blue">Home</Link>
+              <Link href="/" className="hover:text-white">Home</Link>
               <span className="mx-2">/</span>
               <span className="text-gray-200">Request Title Review</span>
             </nav>
@@ -81,15 +81,12 @@ export default function RequestTitleReviewPage() {
       {/* WHEN TO REQUEST */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title text-center mb-12">When to Request a Title Review</h2>
+          <h2 className="prose-title mb-12">When to Request a Title Review</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {scenarios.map((s) => (
               <div key={s.title} className="flex gap-4 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-green flex items-center justify-center">
-                  <s.icon className="h-6 w-6 text-brand-navy" />
-                </div>
                 <div>
-                  <h3 className="t-h6 text-brand-navy mb-1">{s.title}</h3>
+                  <h3 className="mb-2 font-display text-[1.375rem] font-medium leading-snug text-brand-navy">{s.title}</h3>
                   <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">{s.desc}</p>
                 </div>
               </div>
@@ -101,7 +98,7 @@ export default function RequestTitleReviewPage() {
       {/* FAQ */}
       <section className="section-light">
         <div className="container-xl max-w-3xl">
-          <h2 className="prose-title text-center mb-10">Frequently Asked Questions</h2>
+          <h2 className="prose-title mb-10">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {faqs.map((faq) => (
               <div key={faq.q} className="surface-card p-6">

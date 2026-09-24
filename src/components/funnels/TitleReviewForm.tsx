@@ -67,7 +67,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Need it faster? Call{" "}
-          <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
+          <a href="tel:+17038591467" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">(703) 859-1467</a>.
         </p>
       </div>
     );
@@ -127,7 +127,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
           </div>
         </div>
 
-        <div className="flex gap-3 rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-brand-navy">
+        <div className="flex gap-3 rounded-xl border border-brand-blue-100 bg-brand-gray-bg p-4 text-sm text-brand-navy">
           <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-brand-blue-deep" aria-hidden="true" />
           <p className="leading-relaxed">
             Have supporting documents? We&apos;ll provide secure transfer instructions after we receive your request.

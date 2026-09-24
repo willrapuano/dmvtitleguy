@@ -14,7 +14,7 @@ export function LeadSubmissionPending() {
       <h3 className="t-h5 text-brand-navy mb-2">Delivery is not yet confirmed.</h3>
       <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
         Please do not submit again. If you need to confirm your request, call Will at{" "}
-        <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
+        <a href="tel:+17038591467" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">(703) 859-1467</a>.
       </p>
     </div>
   );

@@ -91,7 +91,7 @@ export function LeadCaptureForm({
         <Heading className="t-h5 text-brand-navy mb-2">Your request was received.</Heading>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Will will review the information and may follow up. You can also call directly at{" "}
-          <a href="tel:+17038591467" className="text-brand-blue font-medium">(703) 859-1467</a>.
+          <a href="tel:+17038591467" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">(703) 859-1467</a>.
         </p>
       </div>
     );
