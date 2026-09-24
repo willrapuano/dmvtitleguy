@@ -100,6 +100,7 @@ for (const post of posts) {
   const body = post.body || [];
   body.forEach((b, i) => {
     if (!b._key) failures.push(`/blog/${post.slug} (block ${i}): missing _key — Sanity Studio cannot edit this item`);
+    if (b._type === "callout" && !spanText(b.body).trim()) failures.push(`/blog/${post.slug} (callout ${i}): callout "${b.title || ""}" has no body text`);
     const sig = blockSignature(b);
     const next = body[i + 1] && blockSignature(body[i + 1]);
     if (sig && next && sig === next && sig.length > 12) failures.push(`/blog/${post.slug} (block ${i}): the same ${b._type} appears twice in a row`);
