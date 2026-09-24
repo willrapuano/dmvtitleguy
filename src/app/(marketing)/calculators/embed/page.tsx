@@ -3,8 +3,8 @@ import Link from "next/link";
 import { EmbedSnippet } from "@/components/EmbedSnippet";
 
 export const metadata: Metadata = {
-  title: "Add the Closing Cost Calculator to Your Website | DMV Title Guy",
-  description: "A free DC, Maryland and Virginia closing cost calculator any real estate website can embed with one snippet.",
+  title: "Add Pruitt Title's Quote Calculator to Your Website | DMV Title Guy",
+  description: "Pruitt Title's title quote and closing cost calculators for DC, Maryland and Virginia, embeddable on any real estate website with one snippet.",
   robots: { index: false, follow: true },
   alternates: { canonical: "/calculators/embed" },
 };
@@ -22,9 +22,9 @@ export default function CalculatorEmbedPage() {
             <span>Embed</span>
           </nav>
           <p className="page-hero-eyebrow">Free for any website</p>
-          <h1 className="t-h1 text-white">Add the closing cost calculator to your site</h1>
+          <h1 className="t-h1 text-white">Add Pruitt Title&apos;s quote calculator to your site</h1>
           <p className="page-hero-lede">
-            Give your buyers and sellers a DC, Maryland and Virginia closing cost estimate without leaving your website. Copy one snippet; there is nothing to sign up for.
+            Give your buyers and sellers Pruitt Title&apos;s title quote, seller net sheet and closing cost calculators for DC, Maryland and Virginia without leaving your website. Copy one snippet; there is nothing to sign up for.
           </p>
         </div>
       </section>
@@ -40,7 +40,7 @@ export default function CalculatorEmbedPage() {
             </ol>
             <div className="mt-8"><EmbedSnippet /></div>
             <p className="mt-6 text-sm leading-relaxed text-brand-ink-light">
-              The calculator shows estimates only; figures depend on the contract, the lender and the settlement company. DMV Title Guy is an educational website by Will Rapuano and is not a title insurer or settlement provider.
+              The calculators are provided by Pruitt Title LLC through TitleCapture. Results are estimates until Pruitt Title reviews the contract. DMV Title Guy is an educational website by Will Rapuano and is not a title insurer or settlement provider.
             </p>
           </div>
           <div>
@@ -49,7 +49,7 @@ export default function CalculatorEmbedPage() {
               src="/embed/closing-costs"
               title="Closing cost calculator preview"
               loading="lazy"
-              className="mt-5 h-[900px] w-full border border-brand-line"
+              className="mt-5 h-[960px] w-full border border-brand-line"
             />
           </div>
         </div>

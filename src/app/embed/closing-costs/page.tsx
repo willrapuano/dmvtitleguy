@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { EmbedClosingCosts } from "@/components/EmbedClosingCosts";
 
-// Framed on other sites; the calculator lives at /calculators for search.
+// Framed on other sites; the calculators live at /calculators for search.
 export const metadata: Metadata = {
-  title: "Closing Cost Calculator | DMV Title Guy",
+  title: "Pruitt Title Quote Calculator | DMV Title Guy",
   robots: { index: false, follow: true },
-  alternates: { canonical: "/calculators" },
+  alternates: { canonical: "/calculators/title-quote" },
 };
 
-export default async function EmbedClosingCostsPage({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
-  const { state } = await searchParams;
-  const initial = state === "MD" || state === "DC" ? state : "VA";
-  return <EmbedClosingCosts initialState={initial} />;
+export default function EmbedClosingCostsPage() {
+  return <EmbedClosingCosts />;
 }
