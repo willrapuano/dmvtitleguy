@@ -4,7 +4,7 @@ That distinction matters before closing. A clean title search does not prove tha
 
 This guide explains what a title survey is, how it differs from a boundary survey, and how survey terminology differs across Washington DC, Maryland, and Virginia.
 
-## What is a title survey?
+## What is a title survey
 
 A title survey is a survey prepared so a title insurance company can decide what it will insure about the land's physical condition. It ties the records the title company found to what exists on the ground. It generally shows:
 
@@ -150,7 +150,7 @@ The survey's value is the decision it makes possible. Common findings include:
 
 Not every discrepancy prevents closing. The right response may be clarification, a revised survey, a recorded easement, a boundary-line agreement, corrective documents, an endorsement decision, a holdback, or a change to the contract. The facts, jurisdiction, lender requirements, and title underwriter all matter.
 
-## Which property survey should you order?
+## Choosing which property survey to order
 
 Use this decision sequence:
 
