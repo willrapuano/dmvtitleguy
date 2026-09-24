@@ -1,27 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
-
-type State = "VA" | "MD" | "DC";
-const STATES: { id: State; label: string }[] = [
-  { id: "VA", label: "Virginia" },
-  { id: "MD", label: "Maryland" },
-  { id: "DC", label: "Washington, DC" },
-];
+import { useEffect, useRef } from "react";
+import { TITLECAPTURE_QUOTE_URL } from "@/lib/titleCapture";
 
 /**
- * The calculator as it appears inside another site's iframe. It reports its height
- * to the parent page (a `dmvtitleguy:height` message) so the embed snippet can size
- * the iframe to fit; without the snippet's listener it simply scrolls.
+ * Pruitt Title's TitleCapture calculator suite (title quote, seller net sheet, loan
+ * estimate, closing disclosure and more) as it appears inside another site's iframe,
+ * with the site's disclosure. It reports its height to the parent page (a
+ * `dmvtitleguy:height` message) so the embed snippet can size the iframe to fit.
  */
-export function EmbedClosingCosts({ initialState }: { initialState: State }) {
-  const [state, setState] = useState<State>(initialState);
+export function EmbedClosingCosts() {
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!root.current || window.parent === window) return;
-    // The calculator's own height, not the document's: the root layout's min-h-screen
+    // The wrapper's own height, not the document's: the root layout's min-h-screen
     // would otherwise let the iframe grow but never shrink.
     const node = root.current;
     const post = () => window.parent.postMessage({ type: "dmvtitleguy:height", height: Math.ceil(node.getBoundingClientRect().height) }, "*");
@@ -32,28 +25,22 @@ export function EmbedClosingCosts({ initialState }: { initialState: State }) {
   }, []);
 
   return (
-    <div ref={root} className="bg-white p-4 sm:p-6">
-      <div role="tablist" aria-label="State" className="mb-6 flex gap-x-6 border-b border-brand-line">
-        {STATES.map((s) => (
-          <button
-            key={s.id}
-            role="tab"
-            type="button"
-            aria-selected={state === s.id}
-            onClick={() => setState(s.id)}
-            className={`-mb-px border-b-2 pb-3 pt-1 text-[15px] font-semibold ${state === s.id ? "border-brand-brass text-brand-navy" : "border-transparent text-brand-ink-light hover:text-brand-navy"}`}
-          >
-            {s.label}
-          </button>
-        ))}
-      </div>
-      <ClosingCostCalculator key={state} state={state} embedded />
-      <p className="mt-6 text-xs leading-relaxed text-brand-ink-light">
-        Closing cost calculator by{" "}
-        <a href="https://dmvtitleguy.io/calculators?utm_source=embed&utm_medium=widget&utm_campaign=closing-cost-calculator" target="_blank" rel="noopener" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">
+    <div ref={root} className="bg-white">
+      <iframe
+        src={TITLECAPTURE_QUOTE_URL}
+        className="block min-h-[900px] w-full border-0"
+        title="Pruitt Title quote and closing cost calculator (TitleCapture)"
+        allow="clipboard-write"
+        loading="eager"
+        referrerPolicy="strict-origin-when-cross-origin"
+        sandbox="allow-downloads allow-forms allow-modals allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-popups allow-popups-to-escape-sandbox"
+      />
+      <p className="px-4 py-3 text-xs leading-relaxed text-brand-ink-light">
+        Calculator provided by Pruitt Title LLC through TitleCapture; results are estimates until Pruitt Title reviews the contract. Shared by{" "}
+        <a href="https://dmvtitleguy.io/?utm_source=embed&utm_medium=widget&utm_campaign=pruitt-calculator" target="_blank" rel="noopener" className="font-semibold text-brand-navy underline decoration-brand-brass underline-offset-2">
           DMV Title Guy
         </a>
-        , an educational website by Will Rapuano. It is not a title insurer or settlement provider.
+        , an educational website by Will Rapuano.
       </p>
     </div>
   );

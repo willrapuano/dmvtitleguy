@@ -276,11 +276,9 @@ export interface CityOverrides {
 interface ClosingCostCalculatorProps {
   state: State;
   cityOverrides?: CityOverrides;
-  /** Rendered inside the /embed iframe on another site: links open dmvtitleguy.io in a new tab. */
-  embedded?: boolean;
 }
 
-export function ClosingCostCalculator({ state, cityOverrides, embedded = false }: ClosingCostCalculatorProps) {
+export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalculatorProps) {
   const purchasePriceId = useId();
   const loanAmountId = useId();
   const partyId = useId();
@@ -482,23 +480,16 @@ export function ClosingCostCalculator({ state, cityOverrides, embedded = false }
       </div>
 
       {/* CTA */}
-      {embedded ? (
-        <div className="flex flex-col items-start justify-between gap-3 border-t border-brand-line pt-5 sm:flex-row sm:items-center">
-          <p className="max-w-[60ch] text-sm leading-relaxed text-brand-ink-light">Estimates only. Actual figures depend on the contract, the lender, and the settlement company.</p>
-          <a href="https://dmvtitleguy.io/calculators/title-quote?utm_source=embed&utm_medium=widget&utm_campaign=closing-cost-calculator" target="_blank" rel="noopener" className="btn-primary whitespace-nowrap">Get an exact quote ↗</a>
+      <div className="bg-brand-navy text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 className="t-h6">Ready for a Precise Quote?</h3>
+          <p className="text-gray-300 text-sm max-w-[68ch] leading-relaxed">Will Rapuano can walk through actual costs for your transaction and, if you want, introduce you to Pruitt Title LLC.</p>
         </div>
-      ) : (
-        <div className="bg-brand-navy text-white rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <h3 className="t-h6">Ready for a Precise Quote?</h3>
-            <p className="text-gray-300 text-sm max-w-[68ch] leading-relaxed">Will Rapuano can walk through actual costs for your transaction and, if you want, introduce you to Pruitt Title LLC.</p>
-          </div>
-          <div className="flex gap-3">
-            <Link href="/calculators/title-quote" className="btn-primary whitespace-nowrap">Get a Real Quote</Link>
-            <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy whitespace-nowrap">Call Now</a>
-          </div>
+        <div className="flex gap-3">
+          <Link href="/calculators/title-quote" className="btn-primary whitespace-nowrap">Get a Real Quote</Link>
+          <a href="tel:+17038591467" className="btn-outline border-white text-white hover:bg-white hover:text-brand-navy whitespace-nowrap">Call Now</a>
         </div>
-      )}
+      </div>
     </div>
   );
 }
