@@ -82,7 +82,8 @@ expectMatch(calculator, /price - \(ownerOccupiedResidential \? 100000 : 0\)/, "M
 expectMatch(calculator, /recordationTax: price \* 0\.0025,/, "Virginia deed recordation must be $0.25/$100 of price (§ 58.1-801)");
 expectMatch(calculator, /deedOfTrustRecordationTax: loanAmount \* 0\.0025,/, "Virginia purchase deed of trust must be taxed at $0.25/$100 of the loan (§ 58.1-803)");
 expectMatch(calculator, /grantorTax: price \* 0\.001,/, "Virginia grantor's tax must be $0.10/$100 (§ 58.1-802)");
-for (const county of ["Fairfax County", "Arlington County", "Loudoun County", "Prince William County", "City of Alexandria"]) {
+// Fredericksburg City Code § 70-65 levies the same one-third.
+for (const county of ["Fairfax County", "Arlington County", "Loudoun County", "Prince William County", "City of Alexandria", "City of Fredericksburg"]) {
   expectMatch(rateData, new RegExp(`"${county}": 0\\.00083`), `${county} local recordation (§ 58.1-3800) must be listed`);
 }
 if (/DeedOfTrustTransferTax/.test(calculator)) failures.push("rate drift: a purchase-money deed of trust is not subject to PG County transfer tax (§ 10-188(d))");
