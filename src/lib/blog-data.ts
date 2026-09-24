@@ -68,6 +68,7 @@ function mapSanityPost(p: SanityBlogPost): BlogPost {
       // post images are JPEG now: they are photographs, were 24-bit PNG at up
       // to 3.3 MB each, and none had an alpha channel.
       `/blog/${p.slug}.jpg`,
+    imageAlt: p.mainImage?.alt?.trim() || undefined,
   };
 }
 
