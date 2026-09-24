@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { TitleQuotePanel } from "@/components/TitleQuotePanel";
 
 export const metadata: Metadata = {
   title: "Title Company Services for Credit Unions | DMV Title Guy",
@@ -13,7 +13,7 @@ export default function CreditUnionsPage() {
     <>
       {/* HERO */}
       <section className="page-hero">
-        <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
+        <div className="container-xl grid md:grid-cols-2 gap-10 items-start">
           <div>
             <nav className="text-xs text-gray-400 mb-4">
               <Link href="/" className="hover:text-white">Home</Link>
@@ -27,10 +27,7 @@ export default function CreditUnionsPage() {
               Title services designed for credit unions in Northern Virginia, DC, and Maryland.
             </p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h2 className="t-h5 font-semibold text-white mb-4">Get a Title Quote</h2>
-            <LeadCaptureForm location="credit-unions" />
-          </div>
+          <TitleQuotePanel />
         </div>
       </section>
 

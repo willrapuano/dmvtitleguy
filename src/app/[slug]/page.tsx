@@ -956,7 +956,7 @@ function LocationPage({ location }: { location: Location }) {
               )}
             </div>
             <div id="quote">
-              <LeadCaptureForm title={`Get a Quote from Will — ${locationName}`} location={`location-${slug}-form`} />
+              <LeadCaptureForm title={`Contact Will — ${locationName}`} location={`location-${slug}-form`} />
             </div>
           </div>
         </div>
