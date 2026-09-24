@@ -40,6 +40,8 @@ const staticChecks = [
   ["npm", ["run", "verify:titlecapture-fleet"]],
   ["npm", ["run", "verify:seo-contracts"]],
   ["node", ["scripts/verify-tax-facts.mjs"]],
+  ["npm", ["run", "verify:cms-content-fixture"]],
+  ["npm", ["run", "verify:cms-content"]],
   ["npm", ["run", "verify:canonical-domain"]],
   ["npm", ["run", "verify:blog-normalizer"]],
   ["npm", ["run", "verify:blog-publication"]],

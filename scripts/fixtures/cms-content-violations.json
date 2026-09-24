@@ -1,0 +1,224 @@
+[
+  {
+    "slug": "fixture-tax-claims",
+    "title": "Fixture: tax claims",
+    "body": [
+      {
+        "_key": "a1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "DC first-time homebuyers can claim the recordation tax exemption at closing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "a2",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "The combined rate for most residential transactions is 2.2% of the purchase price.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "a3",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Recordation tax is based on the loan amount and paid by the buyer.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "a4",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Northern Virginia sellers also owe the $0.15 congestion relief fee.",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fixture-identity",
+    "title": "Fixture: identity",
+    "body": [
+      {
+        "_key": "b1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "At DMV Title Guy, we close transactions every week.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "b2",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Get a quote from our DC title company for District closings.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "b3",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Contact DMVTitleGuy today to schedule a title search.",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fixture-structure",
+    "title": "Fixture: structure",
+    "body": [
+      {
+        "_key": "c1",
+        "_type": "callout",
+        "title": "Ready to Take the Next Step?",
+        "body": "See Virginia closing costs"
+      },
+      {
+        "_key": "c2",
+        "_type": "callout",
+        "title": "Ready to Take the Next Step?",
+        "body": "See Virginia closing costs"
+      },
+      {
+        "_key": "c3",
+        "_type": "callout",
+        "title": "Wire Fraud Warning",
+        "body": "Never wire funds based on email instructions."
+      },
+      {
+        "_key": "c4",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A paragraph between the two warnings.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "c5",
+        "_type": "callout",
+        "title": "Wire fraud warning!",
+        "body": "Never wire funds based on email instructions."
+      },
+      {
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "A block with no key.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "c6",
+        "_type": "callout",
+        "title": "Ready to Take the Next Step?",
+        "body": []
+      }
+    ]
+  },
+  {
+    "slug": "fixture-allowed",
+    "title": "Fixture: statements that must pass",
+    "body": [
+      {
+        "_key": "d1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "It is a reduced rate, not an exemption, for DC first-time buyers.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "d2",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Maryland has no separate state recordation tax.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "d3",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "See our DC title company guide for District closings.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "d4",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Pruitt Title closes transactions every week.",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  }
+]
