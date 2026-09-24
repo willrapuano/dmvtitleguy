@@ -213,12 +213,12 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
 
           <div className="relative min-h-[340px] sm:min-h-[460px] lg:min-h-0">
             <Image
-              src="/home-dc-rowhouses.jpg"
-              alt="Porch-front rowhouses in Washington, DC, with a District of Columbia flag hanging on the front"
+              src="/home-dc-blue-rowhouse.jpg"
+              alt="A blue-painted brick porch-front rowhouse with a red front door and spring flowers in Washington, DC"
               fill
               priority
               sizes="(min-width: 1024px) 44vw, 100vw"
-              className="object-cover object-center"
+              className="object-cover object-[center_62%] lg:object-center"
             />
             <div className="absolute bottom-0 left-0 bg-brand-navy px-6 py-[18px]">
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-brass">Photographed in</p>
