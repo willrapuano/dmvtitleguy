@@ -7,6 +7,7 @@ import {
   SITE_NAME,
   SITE_URL,
   WILL,
+  BUSINESS_PROFILE,
 } from "@/lib/brand-identity";
 import { serializeJsonLd } from "@/lib/json-ld";
 import { createPageMetadata } from "@/lib/site-metadata";
@@ -183,6 +184,16 @@ export default function AboutWillRapuanoPage() {
               <div>
                 <dt className="font-semibold text-brand-navy">Will’s direct line</dt>
                 <dd className="mt-1"><a href={WILL.phoneHref} className="text-brand-blue-deep hover:underline">{WILL.phoneDisplay}</a></dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-brand-navy">Office</dt>
+                <dd className="mt-1">
+                  <address className="not-italic text-brand-navy">
+                    {BUSINESS_PROFILE.name}
+                    <br />
+                    {BUSINESS_PROFILE.addressLine}
+                  </address>
+                </dd>
               </div>
               <div>
                 <dt className="font-semibold text-brand-navy">Will’s work email</dt>

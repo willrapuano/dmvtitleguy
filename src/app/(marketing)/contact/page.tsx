@@ -2,6 +2,7 @@ import Link from "next/link";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { PageHero } from "@/components/PageHero";
 import { createPageMetadata } from "@/lib/site-metadata";
+import { BUSINESS_PROFILE } from "@/lib/brand-identity";
 
 export const metadata = createPageMetadata({
   title: "Contact Will Rapuano | DMV Title Guy",
@@ -23,6 +24,9 @@ export default function ContactPage() {
               <a href="tel:+17038591467" className="font-semibold text-white hover:text-brand-blue-200">(703) 859-1467</a>
               <span>Or use the secure form</span>
             </div>
+            <address className="text-sm not-italic">
+              {BUSINESS_PROFILE.name} · {BUSINESS_PROFILE.addressLine}
+            </address>
           </div>
         }
         aside={<LeadCaptureForm location="contact" compact />}
