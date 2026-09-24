@@ -32,7 +32,7 @@ const titleInsuranceFaqs = [
   },
   {
     question: "How much does title insurance cost in DC, Maryland, and Virginia?",
-    answer: "Title insurance premiums vary by state, property value, policy, and transaction. Use the calculators for education only; the provider that accepts the matter must confirm actual coverage, rates, fees, terms, and disclosures.",
+    answer: "Title insurance premiums vary by state, property value, policy, and transaction. Calculator results are estimates, not a quote. Pruitt Title's actual quote, Closing Disclosure and settlement statement govern.",
   },
   {
     question: "What does a title search find?",
@@ -142,10 +142,10 @@ export default function TitleInsurancePage() {
                 reimbursed exactly as your title insurance policy provides.
               </p>
               <p className="max-w-[68ch]">
-                The provider that accepts a transaction should identify the
-                proposed underwriter, policy form, endorsements, exceptions,
-                exclusions, conditions, premium, and required disclosures before
-                the parties rely on coverage.
+                Before you rely on coverage, your title company should show you
+                the underwriter, policy form, endorsements, exceptions,
+                exclusions, conditions, and premium. If you close with Will and
+                Pruitt Title, Will walks you through them.
               </p>
             </div>
           </div>
@@ -289,7 +289,7 @@ export default function TitleInsurancePage() {
         <div className="container-xl text-center">
           <h2 className="prose-title mb-4">Ready to Open a Title Order?</h2>
           <p className="prose-subtitle max-w-xl mx-auto mb-6">
-            Contact Will through DMV Title Guy for an educational answer or to request a provider introduction. Submission does not create a title order or service relationship.
+            Contact Will with a question or for a quote from Pruitt Title. Sending a request doesn&apos;t open an order; Will confirms next steps with you.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link href="/calculators/title-quote" className="btn-primary">

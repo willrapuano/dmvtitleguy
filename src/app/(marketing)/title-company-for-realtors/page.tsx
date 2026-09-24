@@ -16,7 +16,7 @@ export default function RealtorsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "For Realtors" }]}
         eyebrow="For real estate professionals"
         title="Title and closing resources for Realtors across the DMV."
-        lede="Practical education for agents across Northern Virginia, Maryland, and Washington DC, plus a clear way to submit eligible transaction requests for review."
+        lede="Practical education for agents across Northern Virginia, Maryland, and Washington DC. When your clients are ready to close, Will and the Pruitt Title team handle the title and settlement."
         aside={<LeadCaptureForm location="realtors" compact />}
       />
 
@@ -31,15 +31,15 @@ export default function RealtorsPage() {
             </div>
             <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Transaction-Specific Intake</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Submit a non-sensitive summary so Will can identify next steps and whether a provider referral is appropriate.</p>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Send Will a non-sensitive summary of the deal, and he confirms the next steps with you.</p>
             </div>
             <div className="surface-card p-6">
               <h3 className="t-h5 font-semibold text-brand-navy mb-3">Local Process Guides</h3>
               <p className="text-gray-600 max-w-[68ch] leading-relaxed">Compare common Virginia, Maryland, and DC cost and process questions before setting client expectations.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Clear Provider Handoff</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">When an eligible request is referred, the provider confirms acceptance, scope, pricing, and delivery details.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">One Point of Contact</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Will confirms the quote, timing, and deliverables, and the Pruitt Title team handles the title work and closing.</p>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function RealtorsPage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Ready to Streamline Your Closings?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Schedule a broker briefing to discuss DMV Title Guy&apos;s educational resources and the boundaries of any provider introduction.
+            Schedule a broker briefing to walk through DMV Title Guy&apos;s resources and how Will and Pruitt Title handle your clients&apos; closings.
           </p>
           <Link href="/contact" className="btn-primary px-8">
             Schedule a Broker Briefing →

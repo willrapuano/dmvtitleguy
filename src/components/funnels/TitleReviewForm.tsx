@@ -63,7 +63,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
         <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
         <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
-          Will will review the information and may follow up. Submission is not provider acceptance or a title order.
+          Will reviews the details and confirms next steps with you. Sending this form doesn't open a title order.
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           Need it faster? Call{" "}
@@ -76,7 +76,7 @@ export function TitleReviewForm({ location = "request-title-review" }: TitleRevi
   return (
     <div className="rounded-xl bg-white p-5 shadow-lg sm:p-8">
       <h3 className="t-h5 text-brand-navy mb-2">Request a Title Review</h3>
-      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Tell Will about the property and what you need. An eligible request may be introduced to a provider for independent review.</p>
+      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Tell Will about the property and what you need. He'll follow up with next steps.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="hidden" aria-hidden="true">

@@ -19,7 +19,7 @@ export default function ContactPage() {
         title="Bring Will the question. Get a clear next step."
         lede={
           <div className="space-y-4">
-            <p>Ask about title concepts, transaction preparation, or an introduction to an appropriate provider. A submission is not a title order and does not guarantee provider acceptance.</p>
+            <p>Ask a title question, get a quote, or send Will the contract. When you&apos;re ready to close, Will and the Pruitt Title team handle your title and settlement.</p>
             <div className="grid gap-2 text-sm sm:grid-cols-2">
               <a href="tel:+17038591467" className="font-semibold text-white hover:text-brand-blue-200">(703) 859-1467</a>
               <span>Or use the secure form</span>
@@ -39,7 +39,7 @@ export default function ContactPage() {
             <div>
               <h2 className="t-h3 text-brand-navy mb-6">What happens next</h2>
               <p className="text-gray-600 mt-6 max-w-[68ch] leading-relaxed">
-                Will reviews the request and follows up about the appropriate next step. If a provider introduction is requested, that provider decides whether to accept the matter and supplies its own scope, timing, pricing, and required disclosures.
+                Will reviews your request and follows up with the next step. Sending the form doesn&apos;t open an order; for a closing, Will confirms the quote and timing with you, and Pruitt Title&apos;s quote and Closing Disclosure set the actual costs.
               </p>
             </div>
             <div>
@@ -67,11 +67,11 @@ export default function ContactPage() {
       <section className="section-navy">
         <div className="container-xl text-center">
           <h2 className="t-h3 mb-4">Choose a Next Step</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">Share enough context for Will to respond or make an appropriate introduction.</p>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">Share enough context for Will to answer your question or quote your closing.</p>
           <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <Link href="/investor-due-diligence" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
               <h3 className="font-semibold text-white mb-2">Investor Due Diligence</h3>
-              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Share property context and request an introduction.</p>
+              <p className="text-sm text-gray-300 max-w-[68ch] leading-relaxed">Share the property details for a title search and quote.</p>
             </Link>
             <Link href="/upload-contract" className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
               <h3 className="font-semibold text-white mb-2">Start Contract Intake</h3>

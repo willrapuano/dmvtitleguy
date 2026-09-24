@@ -100,7 +100,7 @@ export function SellerNetSheetCalculator() {
           <h2 className="t-h4 text-brand-navy">Build your seller estimate</h2>
           <p className="mt-2 max-w-[68ch] text-sm leading-relaxed text-brand-muted">
             Enter the figures you know. This calculator does not guess jurisdiction-specific taxes or contractual fees;
-            use your contract, payoff estimate, and provider quote for the most useful result.
+            use your contract, payoff estimate, and title quote for the most useful result.
           </p>
         </div>
 

@@ -53,15 +53,15 @@ const ABOUT_SCHEMA = {
 const roles = [
   {
     title: SITE_NAME,
-    text: "Will’s website for practical title education, calculators, local market resources, and direct relationship-building.",
+    text: "Will’s personal brand: practical title guides, calculators, and local market resources.",
   },
   {
     title: WILL.name,
-    text: "The person behind DMV Title Guy and your direct point of contact for educational questions and, when requested, a possible provider introduction.",
+    text: "The person behind DMV Title Guy and your direct contact for title questions, quotes, and closings.",
   },
   {
     title: PRUITT_TITLE.name,
-    text: "Will’s employer. An eligible request may be introduced to Pruitt for independent review; this website does not bind Pruitt or establish a service relationship.",
+    text: "The title and settlement company. Will and the Pruitt Title team handle your title work and your closing.",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function AboutWillRapuanoPage() {
               I created DMV Title Guy to publish the resources real estate professionals and consumers actually need—and to make it easy to reach me directly when a transaction is ready to move.
             </p>
             <p className="mt-5 max-w-[62ch] leading-relaxed text-brand-muted">
-              I am Will Rapuano, Marketing and Business Development Officer at Pruitt Title LLC. I operate DMV Title Guy as an educational and business-development website separate from Pruitt&apos;s corporate website. Eligible transaction requests may be referred to Pruitt for independent review; Pruitt confirms acceptance and service terms directly.
+              I am Will Rapuano, Marketing and Business Development Officer at Pruitt Title LLC. DMV Title Guy is my personal brand. When you&apos;re ready to close, the Pruitt Title team and I handle your title and settlement.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact" className="btn-primary px-8 text-center">
@@ -151,8 +151,8 @@ export default function AboutWillRapuanoPage() {
           <ol className="space-y-5">
             {[
               "Use DMV Title Guy to research title questions, compare costs, and prepare for your transaction.",
-              "Contact Will directly when you need an educational answer or want to request a provider introduction.",
-              "If you request transaction services, an eligible matter may be referred to Pruitt Title for independent review. Pruitt decides whether to accept it and confirms its own scope, pricing, timing, terms, and disclosures.",
+              "Contact Will directly with a question or for a quote.",
+              "When you're ready to close, send Will the contract. Will and the Pruitt Title team handle your title and settlement, and Pruitt Title's quote and Closing Disclosure set your actual costs.",
             ].map((step) => (
               <li key={step} className="flex gap-4 border-b border-slate-200 pb-5 last:border-b-0">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue-deep" aria-hidden="true" />

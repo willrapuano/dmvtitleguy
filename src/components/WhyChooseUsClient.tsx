@@ -15,7 +15,7 @@ const ACCORDION_ITEMS = [
   },
   {
     title: "Education & Preparation",
-    body: "Useful calculators, plain-language explanations, and early issue spotting can help parties ask better questions. These resources are educational and do not replace a provider's file-specific review.",
+    body: "Useful calculators, plain-language explanations, and early issue spotting can help parties ask better questions. These resources are general information and do not replace a title company's review of your file.",
   },
   {
     title: "Team & Capacity",
@@ -31,7 +31,7 @@ const ACCORDION_ITEMS = [
   },
   {
     title: "Policy-Specific Protection",
-    body: "Title insurance protection is governed by the policy actually issued, including covered risks, exclusions, exceptions, and conditions. Ask the accepted provider to explain the available policy and endorsements.",
+    body: "Title insurance protection is governed by the policy actually issued, including covered risks, exclusions, exceptions, and conditions. Ask your title company to explain the available policy and endorsements.",
   },
   {
     title: "Service Area & Signing",
@@ -39,7 +39,7 @@ const ACCORDION_ITEMS = [
   },
   {
     title: "Will, DMV Title Guy & Pruitt",
-    body: "Will Rapuano operates DMV Title Guy and works as Pruitt Title's Marketing and Business Development Officer. DMV Title Guy is not Pruitt's corporate site. A requested introduction does not bind Pruitt; Pruitt independently confirms acceptance and terms.",
+    body: "DMV Title Guy is Will Rapuano's personal brand. Will is Pruitt Title's Marketing and Business Development Officer, and he handles clients' closings through Pruitt Title LLC, which provides the title and settlement services.",
   },
 ];
 
@@ -89,7 +89,7 @@ export function WhyChooseUsClient() {
             How to Choose a Title Provider
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/80">
-            Will Rapuano operates DMV Title Guy as an education and business-development website separate from Pruitt Title LLC&apos;s corporate website. Will is Pruitt&apos;s Marketing and Business Development Officer. Eligible transaction requests may be referred to Pruitt for independent review; submission does not mean Pruitt has accepted the transaction.
+            Will Rapuano, Pruitt Title. DMV Title Guy is Will&apos;s personal brand, and Pruitt Title LLC provides the title and settlement services. Use these questions to compare any title company.
           </p>
         </div>
       </section>
@@ -162,9 +162,8 @@ export function WhyChooseUsClient() {
               exclusions, exceptions, and conditions.
             </p>
             <p className="max-w-[68ch]">
-              If you request an introduction through DMV Title Guy, an eligible matter may be referred to Pruitt Title
-              for independent review. Pruitt decides whether to accept the matter and confirms any available policy,
-              endorsements, signing options, pricing, timing, terms, and required disclosures directly.
+              When you&apos;re ready to close, Will and the Pruitt Title team handle your title and settlement. Pruitt
+              Title&apos;s quote and closing documents confirm your policy, endorsements, signing options and costs.
             </p>
           </div>
         </div>
@@ -192,7 +191,7 @@ export function WhyChooseUsClient() {
         <div className="container-xl text-center max-w-2xl">
           <h2 className="t-h2 text-white mb-4">Have a Transaction Question?</h2>
           <p className="text-white/80 mb-8 max-w-[68ch] leading-relaxed">
-            Contact Will through DMV Title Guy for an educational answer or to request a provider introduction. Submission does not create a Pruitt Title service relationship.
+            Contact Will with a question or for a quote from Pruitt Title. Will confirms next steps with you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/calculators/title-quote" className="btn-light px-8 py-3.5">

@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Can I schedule a weekend closing in Fairfax?",
-    answer: "Signing availability depends on the provider, lender, documents, jurisdiction, and transaction. If Pruitt accepts the file, confirm any evening, weekend, remote, mobile, or office option directly with Pruitt.",
+    answer: "Signing availability depends on the lender, documents, jurisdiction, and transaction. Ask Will which evening, weekend, remote, mobile, or office options work for your closing.",
   },
   {
     question: "What is the average time to close in Fairfax?",
@@ -64,7 +64,7 @@ export default function FairfaxTitlePage() {
             Reliable Title &amp; Settlement Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            DMV Title Guy publishes practical Fairfax title and closing guidance. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
+            DMV Title Guy publishes practical Fairfax title and closing guidance. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function FairfaxTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Fairfax County has a high transaction volume and varied property histories. Confirm record availability, provider capacity, and title-review timing for the specific file before relying on a closing deadline.
+            Fairfax County has a high transaction volume and varied property histories. Send Will the contract early; Pruitt Title confirms record availability and title-review timing before you rely on a closing deadline.
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function FairfaxTitlePage() {
               Fairfax County is the most populous jurisdiction in Virginia and one of the wealthiest counties in America. With a median home price around $650,000 and top-rated schools, Fairfax attracts families and professionals seeking quality of life near Washington DC.
             </p>
             <p className="max-w-[68ch]">
-              The Fairfax market ranges from older neighborhoods to Great Falls and McLean estates. Title questions can include easements, covenants, unreleased liens, or heirship concerns. Ask the accepted provider how it will investigate and communicate those matters.
+              The Fairfax market ranges from older neighborhoods to Great Falls and McLean estates. Title questions can include easements, covenants, unreleased liens, or heirship concerns. Will and the Pruitt Title team look into those matters and keep you posted on anything that needs attention.
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function FairfaxTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
             </Link>
           </div>
         </div>
@@ -220,7 +220,7 @@ export default function FairfaxTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Fairfax Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send Will the Fairfax property details to request an educational review or a possible provider introduction.
+            Send Will the Fairfax property details for a quote or a title question. Will confirms next steps with you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

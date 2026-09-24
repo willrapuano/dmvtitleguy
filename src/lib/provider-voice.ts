@@ -13,7 +13,7 @@ const THIRD_PERSON_PROVIDER_ACTIONS: Record<string, string> = {
   begins: "begin",
   delivers: "deliver",
   turns: "turn",
-  ensures: "help ensure",
+  ensures: "ensure",
   supports: "support",
   closes: "close",
   holds: "hold",
@@ -39,28 +39,25 @@ function preserveSentenceCase(match: string, replacement: string): string {
 }
 
 /**
- * Legacy articles were originally written in a title provider's first-person
- * voice. DMV Title Guy is an independent education and business-development
- * site, so rendered copy must not imply that the site itself performs a title
- * provider's regulated or operational work.
+ * Legacy articles were written in a first-person "we" voice. DMV Title Guy is
+ * Will Rapuano's personal brand, not a company, so "we handle…" is rewritten to
+ * name who actually does the work: Will and the Pruitt Title team. (An earlier
+ * version rewrote it to "a selected title provider may…", which wrongly framed
+ * Will as referring clients elsewhere; he closes them through Pruitt Title.)
  *
- * This deliberately leaves third-person, factual references to Pruitt Title
- * intact. Those references are separately governed by the visible disclosure
- * and the provider-truth release gate.
+ * Third-person references to Pruitt Title are left intact.
  */
 export function normalizeIndependentProviderVoice(input: string): string {
   return input
     .replace(
       /\b(?:at\s+)?(?:Pruitt Title(?: LLC)?|DMV Title Guy),?\s+we\s+(?=(?:issue|handle|provide|serve|coordinate|conduct|review|open|begin|deliver|turn|ensure|support|close|hold|disburse|prepare|record|clear|process|order|verify|explain|work with|make sure)\b)/gi,
-      (match) => preserveSentenceCase(match, "a selected title provider may "),
+      (match) => preserveSentenceCase(match, "Will and the Pruitt Title team "),
     )
     .replace(FIRST_PERSON_PROVIDER_ACTION, (match, action: string) => {
-      const normalizedAction = action.toLowerCase() === "ensure" ? "help ensure" : action.toLowerCase();
-      return preserveSentenceCase(match, `a selected title provider may ${normalizedAction}`);
+      return preserveSentenceCase(match, `Will and the Pruitt Title team ${action.toLowerCase()}`);
     })
     .replace(TEAM_PROVIDER_ACTION, (match, action: string) => {
-      const normalizedAction = THIRD_PERSON_PROVIDER_ACTIONS[action.toLowerCase()] ?? action.toLowerCase();
-      return preserveSentenceCase(match, `a selected title provider may ${normalizedAction}`);
+      return preserveSentenceCase(match, `the Pruitt Title team ${action.toLowerCase()}`);
     });
 }
 

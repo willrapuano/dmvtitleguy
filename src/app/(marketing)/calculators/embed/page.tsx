@@ -40,7 +40,7 @@ export default function CalculatorEmbedPage() {
             </ol>
             <div className="mt-8"><EmbedSnippet /></div>
             <p className="mt-6 text-sm leading-relaxed text-brand-ink-light">
-              The calculators are provided by Pruitt Title LLC through TitleCapture. Results are estimates until Pruitt Title reviews the contract. DMV Title Guy is an educational website by Will Rapuano and is not a title insurer or settlement provider.
+              The calculators are provided by Pruitt Title LLC through TitleCapture. Results are estimates until Pruitt Title reviews the contract. DMV Title Guy is Will Rapuano&apos;s personal brand; title and settlement services are provided by Pruitt Title LLC.
             </p>
           </div>
           <div>

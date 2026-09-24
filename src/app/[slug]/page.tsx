@@ -120,15 +120,15 @@ const BETHESDA_FAQS: FaqItem[] = [
   },
   {
     question: "What is escrow and how does it work in a Bethesda closing?",
-    answer: "Escrow is the neutral handling of money and documents during a closing. If a provider accepts the transaction, its written instructions and disclosures should identify who receives funds, the conditions for disbursement, and who coordinates recording.",
+    answer: "Escrow is the neutral handling of money and documents during a closing. When you close with Will and Pruitt Title, the written instructions and disclosures identify who receives funds, the conditions for disbursement, and who handles recording.",
   },
   {
     question: "How long does a title search take in Montgomery County?",
-    answer: "Timing varies with the property history, record availability, estates or trusts, unreleased deeds of trust, judgments, missing releases, and any curative work. The accepted provider should confirm its own timeline after reviewing the file.",
+    answer: "Timing varies with the property history, record availability, estates or trusts, unreleased deeds of trust, judgments, missing releases, and any curative work. Pruitt Title confirms the timeline after reviewing the file.",
   },
   {
     question: "Can Pruitt Title handle commercial real estate closings in Bethesda?",
-    answer: "Pruitt Title's official public information describes commercial title and settlement work. Eligibility, capacity, underwriting requirements, scope, and acceptance must be confirmed directly by Pruitt for the specific Bethesda transaction.",
+    answer: "Pruitt Title's official public information describes commercial title and settlement work. Send Will the Bethesda deal and he confirms the underwriting requirements, timing, and quote with you.",
   },
   {
     question: "What settlement issues are common in Bethesda older homes?",
@@ -147,7 +147,7 @@ const TYSONS_FAQS: FaqItem[] = [
   },
   {
     question: "Do you handle commercial real estate closings in Tysons?",
-    answer: "Tysons has a large office, retail, mixed-use, and investor market. Commercial files may require entity review, lender coordination, title endorsements, escrow, and settlement; the selected provider must confirm its eligibility and scope.",
+    answer: "Tysons has a large office, retail, mixed-use, and investor market. Commercial files may require entity review, lender coordination, title endorsements, escrow, and settlement. Send Will the deal and he confirms the quote, timing, and next steps with you.",
   },
   {
     question: "How long does a title search take for a Tysons property?",
@@ -159,11 +159,11 @@ const TYSONS_FAQS: FaqItem[] = [
   },
   {
     question: "Can Pruitt Title help with title insurance for a Tysons purchase?",
-    answer: "If Pruitt accepts an eligible Tysons transaction, it will confirm the available owner's or lender's policy, underwriting requirements, endorsements, exceptions, terms, and pricing directly.",
+    answer: "Pruitt Title's quote for your Tysons transaction lays out the available owner's and lender's policies, underwriting requirements, endorsements, exceptions, and pricing.",
   },
   {
     question: "How do I order a Tysons title search?",
-    answer: "Use Request Title Review to send the property details to Will. If you request transaction services, an eligible matter may be referred to a provider for independent review. The provider—not DMV Title Guy—confirms acceptance, document-transfer instructions, scope, pricing, timing, and terms.",
+    answer: "Use Request Title Review to send the property details to Will. Sending the request doesn't open an order; Will confirms the quote, timing, next steps and how to send documents securely.",
   },
 ];
 
@@ -280,7 +280,7 @@ function TysonsExpansionSections() {
           <h2 className={sectionHeadingClass}>Tysons VA Title Company for Residential and Commercial Closings</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
-              DMV Title Guy publishes educational guidance for Tysons and Tysons Corner transactions. If you request transaction services, an eligible matter may be introduced to Pruitt Title for independent review; Pruitt confirms whether it accepts the file and what services apply.
+              DMV Title Guy publishes educational guidance for Tysons and Tysons Corner transactions. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
             </p>
             <p className={bodyClass}>
               Tysons sits at the center of Northern Virginia's business corridor, with high-value condominiums, office properties, mixed-use redevelopment, retail assets, and nearby McLean and Vienna residential neighborhoods. That mix makes careful title work and clear settlement coordination especially important.
@@ -316,14 +316,14 @@ function TysonsExpansionSections() {
           <h2 className={sectionHeadingClass}>Why Choose Pruitt Title for Tysons?</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
-              Tysons transactions can involve tight lender timelines, entity ownership, high-value collateral, or commercial requirements. Ask any prospective provider how it identifies issues, communicates milestones, and confirms responsibilities for the particular file.
+              Tysons transactions can involve tight lender timelines, entity ownership, high-value collateral, or commercial requirements. Send Will the contract early so the Pruitt Title team can flag issues, and Will keeps you posted at each milestone.
             </p>
             <p className={bodyClass}>
               If you need title search support before a Tysons offer, closing, refinance, or commercial acquisition, start with our{" "}
               <Link href="/title-search-vienna-va" className="font-semibold text-brand-blue-deep hover:underline">
                 Vienna VA title search
               </Link>{" "}
-              guide or send Will a request for a possible provider introduction.
+              guide or send Will the property details.
             </p>
           </div>
         </div>
@@ -368,7 +368,7 @@ function TysonsExpansionSections() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Ask About a Tysons Transaction</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Share the property address and transaction context with Will. Any provider independently confirms acceptance, scope, pricing, timing, and terms.
+            Share the property address and transaction details with Will. He confirms the quote, timing and next steps with you.
           </p>
           <TitleSearchOrderButton className="btn-primary" />
         </div>
@@ -436,10 +436,10 @@ function BethesdaExpansionSections() {
           <h2 className={sectionHeadingClass}>Bethesda-Chevy Chase Title &amp; Escrow Services</h2>
           <div className="space-y-4">
             <p className={bodyClass}>
-              A Bethesda-Chevy Chase closing can involve title search, lien review, escrow coordination, lender communication, settlement-statement review, recording, and final policy issuance. The selected provider should identify which steps it accepts responsibility for in writing.
+              A Bethesda-Chevy Chase closing can involve title search, lien review, escrow coordination, lender communication, settlement-statement review, recording, and final policy issuance. Will and the Pruitt Title team handle these steps and keep you posted along the way.
             </p>
             <p className={bodyClass}>
-              Residential purchases, refinances, commercial closings, investor acquisitions, estates, and trust transfers can require different experience. Ask the selected provider to confirm its transaction fit and Montgomery County process.
+              Residential purchases, refinances, commercial closings, investor acquisitions, estates, and trust transfers can require different experience. Tell Will what kind of transaction you have, and he walks you through the Montgomery County process.
             </p>
           </div>
         </div>
@@ -810,23 +810,23 @@ function LocationPage({ location }: { location: Location }) {
   const priorityHero: Record<string, { h1: string; lede: string }> = {
     "title-company-herndon-va": {
       h1: "Herndon, VA Title Company & Closing Services",
-      lede: "DMV Title Guy provides practical title and closing education for Herndon transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+      lede: "DMV Title Guy provides practical title and closing education for Herndon transactions. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
     },
     "title-company-tysons-va": {
       h1: "Tysons, VA Title Company & Settlement Services",
-      lede: "DMV Title Guy provides practical title and closing education for Tysons and Tysons Corner transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+      lede: "DMV Title Guy provides practical title and closing education for Tysons and Tysons Corner transactions. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
     },
     "title-search-vienna-va": {
       h1: "Vienna, VA Title Search Services",
-      lede: "DMV Title Guy explains title-search issues for Vienna properties before a purchase, bid, refinance, or closing. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+      lede: "DMV Title Guy explains title-search issues for Vienna properties before a purchase, bid, refinance, or closing. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
     },
     "title-company-falls-church-va": {
       h1: "Title Company Serving Falls Church, VA",
-      lede: "DMV Title Guy provides practical title and closing education for Falls Church City and Falls Church addresses in Fairfax County. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+      lede: "DMV Title Guy provides practical title and closing education for Falls Church City and Falls Church addresses in Fairfax County. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
     },
     "title-company-silver-spring-md": {
       h1: "Title Company Serving Silver Spring, MD",
-      lede: "DMV Title Guy provides practical title and closing education for Silver Spring and Montgomery County transactions. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.",
+      lede: "DMV Title Guy provides practical title and closing education for Silver Spring and Montgomery County transactions. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
     },
   };
   const priorityHeroCopy = priorityHero[slug];
@@ -863,11 +863,11 @@ function LocationPage({ location }: { location: Location }) {
   ];
 
   const PROCESS_STEPS = [
-    { step: "1", title: "Provider Acceptance", desc: "The selected provider confirms whether it accepts the transaction and supplies its scope, pricing, timing, and terms." },
-    { step: "2", title: "Title Search", desc: "The accepted provider reviews relevant records and identifies matters that may need attention before settlement." },
-    { step: "3", title: "Title Commitment", desc: "The provider delivers the applicable commitment, requirements, exceptions, and coverage information." },
-    { step: "4", title: "Closing Coordination", desc: "The provider coordinates the accepted closing tasks with the lender, parties, and agents." },
-    { step: "5", title: "Settlement & Recording", desc: "The provider follows its written instructions for signing, funding, disbursement, recording, and post-closing work." },
+    { step: "1", title: "Send the Contract", desc: "Send Will the contract. He confirms the quote, timing, and next steps with you." },
+    { step: "2", title: "Title Search", desc: "The Pruitt Title team reviews the relevant records and flags anything that needs attention before settlement." },
+    { step: "3", title: "Title Commitment", desc: "The Pruitt Title team delivers the title commitment, requirements, exceptions, and coverage information." },
+    { step: "4", title: "Closing Coordination", desc: "The Pruitt Title team coordinates the closing with the lender, parties, and agents." },
+    { step: "5", title: "Settlement & Recording", desc: "The Pruitt Title team handles signing, funding, disbursement, recording, and post-closing work." },
   ];
 
   return (
@@ -904,10 +904,10 @@ function LocationPage({ location }: { location: Location }) {
               {priorityHeroCopy
                 ? priorityHeroCopy.lede
                 : isNeighborhood && parentLocation
-                ? `DMV Title Guy provides practical title and closing education for ${city} and nearby ${parentLocation.city} neighborhoods. Eligible requests may be referred to Pruitt Title LLC for independent review.`
+                ? `DMV Title Guy provides practical title and closing education for ${city} and nearby ${parentLocation.city} neighborhoods. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.`
                 : isSecondary
-                ? `DMV Title Guy provides local closing education for ${locationName}. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.`
-                : `DMV Title Guy provides practical title and closing education for ${locationName}${countySuffix}. Eligible requests may be referred to Pruitt Title LLC for independent review and transaction-specific acceptance.`}
+                ? `DMV Title Guy provides local closing education for ${locationName}. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.`
+                : `DMV Title Guy provides practical title and closing education for ${locationName}${countySuffix}. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.`}
             </p>
             <div className="flex flex-wrap gap-3">
               {hasCheckoutCta ? (
@@ -934,7 +934,7 @@ function LocationPage({ location }: { location: Location }) {
               <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">What to Understand</p>
               <h2 className="t-h3 text-brand-navy mb-4">Title and Closing Topics in {locationName}</h2>
               <p className="text-brand-muted mb-6 max-w-[68ch] mx-auto leading-relaxed">
-                These are common parts of a real estate closing. The provider that accepts the transaction must confirm its responsibilities, availability, pricing, timing, terms, and required disclosures directly.
+                These are common parts of a real estate closing. Will confirms which apply to your transaction, and Pruitt Title's quote and Closing Disclosure set the actual costs.
               </p>
               <ul className="grid grid-cols-2 gap-2">
                 {SERVICES_LIST.map((s) => (
@@ -956,7 +956,7 @@ function LocationPage({ location }: { location: Location }) {
               )}
             </div>
             <div id="quote">
-              <LeadCaptureForm title={`Request an Introduction — ${locationName}`} location={`location-${slug}-form`} />
+              <LeadCaptureForm title={`Get a Quote from Will — ${locationName}`} location={`location-${slug}-form`} />
             </div>
           </div>
         </div>
@@ -1295,7 +1295,7 @@ function CountyPage({ county }: { county: County }) {
             <p className="text-brand-blue text-sm uppercase tracking-widest font-semibold mb-2 max-w-[68ch] leading-relaxed">{stateFullName} Title Insurance</p>
             <h1 className="t-h1 text-white mb-4">Title Company in {fullName}</h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              DMV Title Guy provides local closing education for communities across {fullName}. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.
+              DMV Title Guy provides local closing education for communities across {fullName}. When you&apos;re ready to close, Will and the Pruitt Title team handle your title and settlement.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/calculators/title-quote" className="btn-primary">Get a Free Quote →</Link>
@@ -1346,8 +1346,8 @@ function CountyPage({ county }: { county: County }) {
       <section id="quote" className="section-navy">
         <div className="container-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="t-h3 text-white mb-4">Request an Introduction in {name}</h2>
-            <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Share your transaction question with Will. If you request a provider introduction, that provider independently confirms whether it accepts the matter and supplies its scope, pricing, and terms.</p>
+            <h2 className="t-h3 text-white mb-4">Get a {name} Title Quote from Will</h2>
+            <p className="text-gray-300 mb-4 max-w-[68ch] leading-relaxed">Share your transaction question with Will. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.</p>
             <div className="space-y-2 text-sm text-gray-300">
               <p className="flex items-center gap-2"><Phone size={14} strokeWidth={2.25} className="shrink-0 text-brand-navy/60" aria-hidden="true" /><a href="tel:+17038591467" className="text-brand-blue">(703) 859-1467</a></p>
             </div>

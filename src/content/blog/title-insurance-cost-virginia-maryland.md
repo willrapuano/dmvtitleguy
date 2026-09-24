@@ -56,7 +56,7 @@ The owner's policy premium is typically calculated on a rate per thousand dollar
 
 The lender's policy, when purchased simultaneously, is issued at a deeply discounted "simultaneous issue rate" - often $100-$300 for a standard transaction.
 
-For buyers searching from Central Virginia, DMV Title Guy's most relevant local guides are north of Richmond, including [Stafford title and closing guidance](/title-company-stafford-va) and the [Fredericksburg title company guide](/title-company-fredericksburg-va). Eligible service requests may be introduced to a provider for independent review.
+For buyers searching from Central Virginia, DMV Title Guy's most relevant local guides are north of Richmond, including [Stafford title and closing guidance](/title-company-stafford-va) and the [Fredericksburg title company guide](/title-company-fredericksburg-va). When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
 
 ---
 

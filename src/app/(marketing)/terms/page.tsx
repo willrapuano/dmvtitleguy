@@ -22,9 +22,10 @@ export default function TermsPage() {
 
           <h2 className="t-h6 text-brand-navy">1. Agreement and website operator</h2>
           <p>
-            By using dmvtitleguy.io, you agree to these Terms. This educational and business-development website is operated by {WILL.name}
-            as an education and business-development resource. It is not {PRUITT_TITLE.name}&apos;s corporate website
-            and does not create a separate title, escrow, insurance, legal, or settlement company.
+            By using dmvtitleguy.io, you agree to these Terms. DMV Title Guy is the personal brand of {WILL.name},
+            Marketing and Business Development Officer at {PRUITT_TITLE.name}. This website is not {PRUITT_TITLE.name}&apos;s
+            corporate website, and DMV Title Guy is not a separate title, escrow, insurance, legal, or settlement
+            company. Title and settlement services are provided by {PRUITT_TITLE.name}.
           </p>
 
           <h2 className="t-h6 text-brand-navy">2. Information, estimates, and calculators</h2>

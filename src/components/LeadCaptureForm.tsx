@@ -17,8 +17,8 @@ interface LeadCaptureFormProps {
 }
 
 export function LeadCaptureForm({
-  title = "Request a Provider Introduction",
-  subtitle = "Share the transaction details with Will. Submission does not create a service relationship with Pruitt Title or another provider.",
+  title = "Get a Quote from Will",
+  subtitle = "Share the transaction details with Will. Sending this form doesn't open an order; Will confirms next steps with you.",
   location = "site",
   compact = false,
   context,

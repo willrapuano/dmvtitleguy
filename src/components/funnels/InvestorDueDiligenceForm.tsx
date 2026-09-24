@@ -64,7 +64,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
         <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-3" />
         <h3 className="t-h5 text-brand-navy mb-2">Request Submitted!</h3>
         <p className="text-brand-muted text-sm mb-4 max-w-[68ch] leading-relaxed">
-          Will will review the information and may follow up. Any provider independently confirms acceptance, scope, timing, pricing, and terms.
+          Will reviews the details and confirms next steps with you. Sending this form doesn't open a title order.
         </p>
         <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
           For immediate assistance, call{" "}
@@ -77,7 +77,7 @@ export function InvestorDueDiligenceForm({ location = "investor-due-diligence" }
   return (
     <div className="rounded-xl bg-white p-5 shadow-lg sm:p-8">
       <h3 className="t-h5 text-brand-navy mb-2">Start Your Due Diligence</h3>
-      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Share the property details with Will to request an educational review or a possible provider introduction.</p>
+      <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">Send Will the property details for a title question or a quote.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="hidden" aria-hidden="true">

@@ -8,7 +8,7 @@ const AUDIENCE_CARDS = [
   { role: "For Realtors", desc: "Faster communication, fewer closing surprises, and a better client experience from contract to settlement.", icon: "Handshake", href: "/title-company-for-realtors" },
   { role: "For Lenders", desc: "Reliable coordination, cleaner files, and dependable settlement support for your active pipeline.", icon: "Landmark", href: "/title-company-for-lenders" },
   { role: "For Builders", desc: "Repeatable closing support for new construction, buyer coordination, and pipeline-ready settlement execution.", icon: "Hammer", href: "/title-company-for-builders" },
-  { role: "For Banks & Credit Unions", desc: "Educational title and closing resources plus a path to request an independent provider introduction.", icon: "Building2", href: "/title-company-for-credit-unions" },
+  { role: "For Banks & Credit Unions", desc: "Plain-language title and closing resources, and title and settlement for your members' closings through Pruitt Title.", icon: "Building2", href: "/title-company-for-credit-unions" },
 ];
 
 const MONEY_PAGES = [
@@ -199,14 +199,14 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
               Know what your closing will cost before you sign.
             </h1>
             <p className="mt-7 max-w-[54ch] text-[17px] leading-[1.65] text-brand-ink md:text-lg">
-              Independent educational guidance from Will Rapuano. Use local guides and calculators to understand the next step. When you need a provider, ask Will for an introduction; the provider independently confirms acceptance, scope, and terms.
+              Will Rapuano, Pruitt Title. Use the local guides and calculators to see what your closing will cost. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
             </p>
             <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap">
               <Link href="/calculators/title-quote" className="btn-primary px-7 py-4 text-base">
                 Estimate Title Costs <span aria-hidden="true">→</span>
               </Link>
               <Link href="/contact" className="btn-outline px-7 py-4 text-base">
-                Request an Introduction
+                Contact Will
               </Link>
             </div>
           </div>
@@ -240,7 +240,7 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
           {[
             { h: "A number", d: "Title premium, transfer and recordation taxes, and settlement fees for your price and county.", cta: "Open the calculator", href: "/calculators/title-quote" },
             { h: "An explanation", d: "Contracts, title insurance and closing costs, explained state by state with the statute cited.", cta: "Browse the guides", href: "/blog" },
-            { h: "A person", d: "Ask Will about a specific transaction, or request an introduction to a provider.", cta: "Contact Will", href: "/contact" },
+            { h: "A person", d: "Ask Will about a specific transaction, or get a quote for your closing.", cta: "Contact Will", href: "/contact" },
           ].map((item) => (
             <Link key={item.h} href={item.href} className="group flex flex-col gap-3 border-t border-white/20 pt-6 lg:border-l lg:border-t-0 lg:px-9 lg:pt-0">
               <span className="font-display text-[26px] font-medium text-white">{item.h}</span>
@@ -289,7 +289,7 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
               Founder of DMV Title Guy · Marketing and Business Development Officer at Pruitt Title LLC
             </p>
             <p className="mt-3 max-w-[58ch] text-[17px] leading-[1.7] text-brand-ink-light">
-              Will Rapuano created and operates DMV Title Guy to publish useful title resources and build direct relationships with real estate professionals and consumers. Eligible transaction requests may be referred to Pruitt Title LLC for independent review; Pruitt confirms whether it accepts the request and the applicable scope, pricing, terms, and disclosures.
+              Will Rapuano created DMV Title Guy to publish useful title resources and work directly with real estate professionals and consumers. When you're ready to close, Will and the Pruitt Title team handle your title and settlement, and Pruitt Title's quote and closing documents set your actual costs.
             </p>
             <div className="mt-8 flex flex-wrap items-end gap-8">
               <div>

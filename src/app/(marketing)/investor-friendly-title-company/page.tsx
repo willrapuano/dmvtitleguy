@@ -33,26 +33,26 @@ const TRANSACTION_TYPES = [
   },
   {
     title: "Cash & Time-Sensitive Transactions",
-    desc: "Factors that determine whether a requested timeline is realistic before a provider accepts the matter.",
+    desc: "Factors that determine whether a requested closing timeline is realistic.",
   },
 ];
 
 const FAQ_ITEMS = [
   {
     q: "Do you work with real estate investors?",
-    a: "DMV Title Guy provides investor-focused title and closing education. Eligible service requests can be referred to Pruitt Title LLC for review and transaction-specific acceptance.",
+    a: "Yes. Will and the Pruitt Title team handle title and settlement for investor closings, and DMV Title Guy publishes investor-focused title guides.",
   },
   {
     q: "How fast can you close a cash deal?",
-    a: "Timing depends on title findings, funding, document readiness, jurisdiction, and the provider that accepts the transaction. Submit the details for a transaction-specific timeline rather than relying on a generic rush-closing promise.",
+    a: "Timing depends on title findings, funding, document readiness, and jurisdiction. Send Will the details and he confirms a timeline for your deal rather than a generic rush-closing promise.",
   },
   {
     q: "What areas do you serve?",
-    a: "DMV Title Guy publishes transaction guidance for Washington, DC, Maryland, and Virginia. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.",
+    a: "Washington, DC, Maryland, and Virginia. Will and the Pruitt Title team handle title and settlement across the DMV.",
   },
   {
     q: "Who provides your title insurance?",
-    a: "Will Rapuano operates DMV Title Guy as an education and business-development site separate from Pruitt Title LLC's corporate website. When a request is eligible and accepted, the title and settlement provider is identified before services begin.",
+    a: "DMV Title Guy is Will Rapuano's personal brand. Title and settlement services are provided by Pruitt Title LLC, and your quote and closing documents name the title insurance underwriter for your policy.",
   },
 ];
 
@@ -94,14 +94,14 @@ export default function AllTransactionsPage() {
               Title and Closing Guidance for Complex DMV Transactions
             </h1>
             <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Use these resources to understand common title and settlement questions. Will can review an initial request and refer an eligible matter to Pruitt Title LLC for transaction-specific acceptance.
+              Use these resources to understand common title and settlement questions. When you&apos;re ready to close, Will and the Pruitt Title team handle your title and settlement.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/investor-friendly-title-company#quote"
                 className="btn-primary"
               >
-                Request an Introduction →
+                Get a Quote from Will →
               </Link>
               <a
                 href="tel:+17038591467"
@@ -124,7 +124,7 @@ export default function AllTransactionsPage() {
             <div>
               <h2 className="prose-title mb-4">Transaction Scenarios Covered</h2>
               <p className="text-brand-muted text-sm mb-6 max-w-[68ch] mx-auto leading-relaxed">
-                These topics explain common issues. They do not promise that a particular provider will accept every transaction or timeline.
+                These topics explain common issues. Will confirms what&apos;s realistic for your deal and timeline.
               </p>
               <ul className="space-y-4">
                 {TRANSACTION_TYPES.map((s) => (
@@ -144,7 +144,7 @@ export default function AllTransactionsPage() {
             </div>
             <div id="quote">
               <LeadCaptureForm
-                title="Request an Introduction"
+                title="Get a Quote from Will"
                 location="all-transactions-form"
               />
             </div>
@@ -159,9 +159,9 @@ export default function AllTransactionsPage() {
           <ol className="max-w-2xl mx-auto space-y-4">
             {[
               "Submit non-sensitive deal details through DMV Title Guy or call (703) 859-1467.",
-              "Will reviews the initial request and can refer an eligible matter to Pruitt Title LLC.",
-              "The provider confirms acceptance, scope, required documents, pricing, and a transaction-specific timeline.",
-              "After acceptance, the provider coordinates the applicable title, settlement, recording, and post-closing steps.",
+              "Will reviews the deal and confirms the quote, required documents, and timeline with you.",
+              "The Pruitt Title team runs the title search and works through any issues it finds.",
+              "Will and the Pruitt Title team handle settlement, recording, and post-closing steps.",
             ].map((step, i) => (
               <li key={i} className="flex gap-4 items-start">
                 <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
@@ -221,7 +221,7 @@ export default function AllTransactionsPage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
             </Link>
             <Link href="/upload-contract" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Start Contract Intake</h3>

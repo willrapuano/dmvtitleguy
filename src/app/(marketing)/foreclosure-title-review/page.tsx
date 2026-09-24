@@ -63,7 +63,7 @@ const reviewCovers = [
   {
     icon: Search,
     title: "Ownership and Foreclosure Chain",
-    desc: "An accepted provider may review the chain of title, foreclosure deed, trustee or substitute-trustee documents, and recorded transfer history.",
+    desc: "The Pruitt Title team reviews the chain of title, foreclosure deed, trustee or substitute-trustee documents, and recorded transfer history.",
   },
   {
     icon: FileSearch,
@@ -73,7 +73,7 @@ const reviewCovers = [
   {
     icon: Landmark,
     title: "HUD, Tax, and Government Items",
-    desc: "An accepted provider may flag HUD, federal-tax, state-tax, municipal, and government-related items that may affect title or closing.",
+    desc: "The Pruitt Title team flags HUD, federal-tax, state-tax, municipal, and government-related items that may affect title or closing.",
   },
   {
     icon: FileCheck,
@@ -88,7 +88,7 @@ const reviewCovers = [
   {
     icon: Shield,
     title: "Title Insurance Coordination",
-    desc: "An accepted provider may identify title issues that affect insurable title, lender approval, or post-closing policy work.",
+    desc: "The Pruitt Title team identifies title issues that affect insurable title, lender approval, or post-closing policy work.",
   },
 ];
 
@@ -110,7 +110,7 @@ const process = [
   {
     icon: Search,
     title: "2. Review Title and Defects",
-    desc: "An accepted provider may review ownership, the foreclosure chain, liens, judgments, taxes, HUD concerns, defects, and curative needs.",
+    desc: "The Pruitt Title team reviews ownership, the foreclosure chain, liens, judgments, taxes, HUD concerns, defects, and curative needs.",
   },
   {
     icon: CheckCircle2,
@@ -138,7 +138,7 @@ const faqs = [
   },
   {
     q: "Do you support foreclosure buyers across the DMV?",
-    a: "You can ask Will about a foreclosure property in DC, Maryland, or Virginia. Any provider must independently confirm eligibility, acceptance, scope, pricing, timing, terms, and reliance.",
+    a: "Yes. Send Will the foreclosure property in DC, Maryland, or Virginia. Will confirms the quote, timing, and next steps with you.",
   },
 ];
 
@@ -274,7 +274,7 @@ export default function ForeclosureTitleReviewPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">How It Works with Pruitt Title</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

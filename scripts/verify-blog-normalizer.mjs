@@ -13,11 +13,11 @@ const block = (key, text, style = "normal") => ({
 
 assert.equal(
   normalizeIndependentProviderVoice("At DMV Title Guy, we handle subject-to closings."),
-  "A selected title provider may handle subject-to closings.",
+  "Will and the Pruitt Title team handle subject-to closings.",
 );
 assert.equal(
   normalizeIndependentProviderVoice("We ensure the math balances. Our team records the deed."),
-  "A selected title provider may help ensure the math balances. A selected title provider may record the deed.",
+  "Will and the Pruitt Title team ensure the math balances. The Pruitt Title team records the deed.",
 );
 assert.equal(
   normalizeIndependentProviderVoice("Pruitt Title LLC provides settlement services."),

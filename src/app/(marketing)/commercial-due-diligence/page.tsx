@@ -28,7 +28,7 @@ const diligenceAreas = [
   {
     icon: Search,
     title: "Title and Ownership Review",
-    desc: "An accepted provider may review vesting, recorded deeds, ownership chain, legal-description issues, and prior transfers within its confirmed scope.",
+    desc: "The Pruitt Title team reviews vesting, recorded deeds, ownership chain, legal-description issues, and prior transfers.",
   },
   {
     icon: Scale,
@@ -48,7 +48,7 @@ const diligenceAreas = [
   {
     icon: Landmark,
     title: "Lender and Title Insurance Needs",
-    desc: "An accepted provider may identify title exceptions, endorsements, underwriting questions, and closing conditions that can affect financing.",
+    desc: "The Pruitt Title team identifies title exceptions, endorsements, underwriting questions, and closing conditions that can affect financing.",
   },
   {
     icon: Shield,
@@ -93,7 +93,7 @@ const process = [
   {
     icon: Search,
     title: "2. Review the Title Record",
-    desc: "An accepted provider may examine ownership, liens, judgments, taxes, easements, restrictions, entity concerns, and commercial closing requirements.",
+    desc: "The Pruitt Title team examines ownership, liens, judgments, taxes, easements, restrictions, entity concerns, and commercial closing requirements.",
   },
   {
     icon: CheckCircle2,
@@ -113,11 +113,11 @@ const faqs = [
   },
   {
     q: "What commercial properties do you review?",
-    a: "A provider may support due diligence for office, retail, industrial, mixed-use, multifamily, development, investor, distressed, or owner-operator properties. It must independently confirm eligibility, acceptance, scope, pricing, timing, and terms.",
+    a: "Due diligence can cover office, retail, industrial, mixed-use, multifamily, development, investor, distressed, or owner-operator properties. Send Will the property and he confirms the quote, timing, and next steps with you.",
   },
   {
     q: "Can you help with lender title requirements?",
-    a: "An accepted provider may identify title exceptions, curative needs, entity concerns, survey questions, endorsements, and closing conditions within its confirmed lender-facing scope.",
+    a: "The Pruitt Title team identifies title exceptions, curative needs, entity concerns, survey questions, endorsements, and closing conditions.",
   },
   {
     q: "What should I send to start commercial due diligence?",
@@ -185,7 +185,7 @@ export default function CommercialDueDiligencePage() {
           </h1>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl">
             Title due diligence for commercial buyers, investors, lenders, and
-            operators across DC, Maryland, and Virginia. An accepted provider may identify title
+            operators across DC, Maryland, and Virginia. The Pruitt Title team identifies title
             risks, liens, easements, restrictions, entity issues, and closing
             concerns before they slow the deal.
           </p>
@@ -258,7 +258,7 @@ export default function CommercialDueDiligencePage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">How It Works with Pruitt Title</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

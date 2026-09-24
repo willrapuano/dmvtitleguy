@@ -41,7 +41,7 @@ const investorServices = [
   {
     icon: Scale,
     title: "Lien and Judgment Checks",
-    desc: "An accepted provider may identify recorded liens, judgments, tax items, HOA charges, municipal issues, and payoff concerns within its confirmed scope.",
+    desc: "The Pruitt Title team identifies recorded liens, judgments, tax items, HOA charges, municipal issues, and payoff concerns.",
   },
   {
     icon: Users,
@@ -56,7 +56,7 @@ const investorServices = [
   {
     icon: Shield,
     title: "Title Insurance Coordination",
-    desc: "An accepted provider may coordinate curative and underwriting steps toward insurable title and settlement readiness within its confirmed scope.",
+    desc: "The Pruitt Title team coordinates curative and underwriting steps toward insurable title and settlement readiness.",
   },
 ];
 
@@ -95,8 +95,8 @@ const process = [
   },
   {
     icon: Search,
-    title: "2. Provider Reviews Title Risk",
-    desc: "We search ownership, liens, judgments, taxes, recorded exceptions, entity concerns, and investor-specific title issues.",
+    title: "2. Pruitt Title Reviews Title Risk",
+    desc: "The Pruitt Title team searches ownership, liens, judgments, taxes, recorded exceptions, entity concerns, and investor-specific title issues.",
   },
   {
     icon: FileCheck,
@@ -120,7 +120,7 @@ const faqs = [
   },
   {
     q: "Do you work with wholesalers and flippers?",
-    a: "You can ask Will about wholesale, flip, buy-and-hold, auction, foreclosure, or portfolio transactions. Any provider independently confirms eligibility, acceptance, scope, pricing, timing, and terms.",
+    a: "Yes. Send Will the details of your wholesale, flip, buy-and-hold, auction, foreclosure, or portfolio transaction. Will confirms the quote, timing, and next steps with you.",
   },
   {
     q: "What should I send to order title work?",
@@ -256,7 +256,7 @@ export default function InvestorTitleServicesPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">How It Works with Pruitt Title</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

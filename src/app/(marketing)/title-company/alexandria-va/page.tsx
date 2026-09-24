@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "How do historic covenants affect Alexandria title?",
-    answer: "Many Old Town properties have historic covenants or preservation restrictions. Ask the accepted provider whether its title-search scope addresses those recorded matters and how exceptions will be explained before closing.",
+    answer: "Many Old Town properties have historic covenants or preservation restrictions. Ask Will how Pruitt Title's title search will cover those recorded matters and how any exceptions will be explained before closing.",
   },
   {
     question: "Are RON closings available in Alexandria?",
@@ -64,7 +64,7 @@ export default function AlexandriaTitlePage() {
             Title Company Alexandria VA &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            DMV Title Guy publishes practical Alexandria title and closing guidance, from Old Town properties to West End new construction. Eligible service requests may be referred to Pruitt Title for independent review and transaction-specific acceptance.
+            DMV Title Guy publishes practical Alexandria title and closing guidance, from Old Town properties to West End new construction. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function AlexandriaTitlePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Alexandria's long history means some properties can involve older deeds, easements, or historic covenants. Ask the accepted provider how it will review the record chain and property-specific exceptions.
+            Alexandria's long history means some properties can involve older deeds, easements, or historic covenants. Ask Will how the Pruitt Title team will review the record chain and property-specific exceptions.
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function AlexandriaTitlePage() {
               Alexandria is a unique market in Northern Virginia—an independent city with its own character, separate from Fairfax County. With a median home price around $550,000 and a mix of historic properties, condos, and new construction, Alexandria offers something for every buyer.
             </p>
             <p className="max-w-[68ch]">
-              The city's historic district presents different title considerations from newer West End and Hybla Valley construction. Properties may involve historic easements, preservation covenants, or older record-chain questions that the accepted provider should research within its confirmed scope.
+              The city's historic district presents different title considerations from newer West End and Hybla Valley construction. Properties may involve historic easements, preservation covenants, or older record-chain questions that the title search should cover.
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function AlexandriaTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
             </Link>
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function AlexandriaTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Alexandria Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send Will the Alexandria property details to request an educational review or a possible provider introduction.
+            Send Will the Alexandria property details for a quote or a title question. Will confirms next steps with you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">

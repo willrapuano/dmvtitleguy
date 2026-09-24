@@ -35,7 +35,7 @@ const covers = [
   {
     icon: Search,
     title: "Ownership Chain",
-    desc: "An accepted provider may verify the recorded deed history and identify gaps, estate issues, missing releases, or transfers that need attention.",
+    desc: "The Pruitt Title team verifies the recorded deed history and identify gaps, estate issues, missing releases, or transfers that need attention.",
   },
   {
     icon: Scale,
@@ -45,7 +45,7 @@ const covers = [
   {
     icon: FileSearch,
     title: "Easements & Restrictions",
-    desc: "An accepted provider may review recorded easements, covenants, rights-of-way, and use restrictions that may affect value or future plans.",
+    desc: "The Pruitt Title team reviews recorded easements, covenants, rights-of-way, and use restrictions that may affect value or future plans.",
   },
   {
     icon: FileCheck,
@@ -55,7 +55,7 @@ const covers = [
   {
     icon: Building2,
     title: "HOA / Condo Review",
-    desc: "For association properties, a provider may review liens, assessments, resale-package concerns, and recorded declarations within its accepted scope.",
+    desc: "For association properties, the Pruitt Title team reviews liens, assessments, resale-package concerns, and recorded declarations.",
   },
   {
     icon: Shield,
@@ -73,7 +73,7 @@ const whyVienna = [
   {
     icon: Building2,
     title: "Residential and Investor Deals",
-    desc: "DMV Title Guy explains common questions for owner-occupied purchases, investor acquisitions, off-market deals, auctions, and refinances; a provider confirms the actual scope.",
+    desc: "DMV Title Guy explains common questions for owner-occupied purchases, investor acquisitions, off-market deals, auctions, and refinances; Will confirms what the search covers for your property.",
   },
   {
     icon: AlertTriangle,
@@ -91,7 +91,7 @@ const process = [
   {
     icon: Search,
     title: "2. We Run the Search",
-    desc: "An accepted provider may review land records, liens, judgments, taxes, easements, and title exceptions tied to the property.",
+    desc: "The Pruitt Title team reviews land records, liens, judgments, taxes, easements, and title exceptions tied to the property.",
   },
   {
     icon: CheckCircle2,
@@ -111,7 +111,7 @@ const faqs = [
   },
   {
     q: "How long does a Vienna title search take?",
-    a: "Timing depends on record availability, property history, the provider's accepted scope, and any curative or underwriting work. The provider confirms timing after reviewing the file.",
+    a: "Timing depends on record availability, property history, and any curative or underwriting work. Pruitt Title confirms timing after reviewing the file.",
   },
   {
     q: "Do Vienna properties have unique title issues?",
@@ -119,7 +119,7 @@ const faqs = [
   },
   {
     q: "Can you help clear a title defect after the search?",
-    a: "If a search identifies a defect, the accepted provider should explain the issue and possible cure path, such as a release, payoff, corrective deed, court document, or additional underwriting review.",
+    a: "If a search identifies a defect, the Pruitt Title team explains the issue and possible cure path, such as a release, payoff, corrective deed, court document, or additional underwriting review.",
   },
 ];
 
@@ -179,9 +179,9 @@ export default function TitleSearchViennaPage() {
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl">
               DMV Title Guy explains title-search issues for Vienna properties before
-              a purchase, bid, refinance, or closing. Eligible requests may be referred
-              to Pruitt Title LLC for independent review of recorded
-              liens, judgments, easements, ownership issues, and other title risks.
+              a purchase, bid, refinance, or closing. Will and the Pruitt Title team
+              search the recorded liens, judgments, easements, ownership issues, and
+              other title risks, then handle your title and settlement.
             </p>
             <div className="flex flex-wrap gap-4">
               <TitleSearchOrderButton />
@@ -198,7 +198,7 @@ export default function TitleSearchViennaPage() {
         <div className="container-xl">
           <h2 className="prose-title mb-4">What a Title Search Covers</h2>
           <p className="text-brand-ink text-lg mb-12 max-w-2xl">
-            A useful title search goes beyond a name check. An accepted provider may review the
+            A useful title search goes beyond a name check. The Pruitt Title team reviews the
             recorded history and the practical issues that can delay closing or
             reduce property value.
           </p>
@@ -235,7 +235,7 @@ export default function TitleSearchViennaPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">How It Works with Pruitt Title</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

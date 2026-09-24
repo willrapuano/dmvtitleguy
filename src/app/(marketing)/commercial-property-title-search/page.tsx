@@ -93,7 +93,7 @@ const process = [
   {
     icon: Search,
     title: "2. Run Commercial Title",
-    desc: "An accepted provider may review land records, liens, judgments, taxes, exceptions, entity concerns, and commercial-specific closing requirements.",
+    desc: "The Pruitt Title team reviews land records, liens, judgments, taxes, exceptions, entity concerns, and commercial-specific closing requirements.",
   },
   {
     icon: CheckCircle2,
@@ -117,7 +117,7 @@ const faqs = [
   },
   {
     q: "Can you coordinate commercial title insurance?",
-    a: "An accepted provider may identify title exceptions, curative needs, and underwriting questions within the confirmed scope for a commercial closing.",
+    a: "The Pruitt Title team identifies title exceptions, curative needs, and underwriting questions for a commercial closing.",
   },
   {
     q: "What documents help with a commercial title search?",
@@ -237,7 +237,7 @@ export default function CommercialPropertyTitleSearchPage() {
           <h2 className="prose-title mb-4">Commercial Due Diligence Support</h2>
           <p className="text-brand-ink text-lg mb-10 max-w-2xl">
             Title due diligence should produce usable answers, not just a pile
-            of exceptions. The accepted provider should turn its search into a clear action plan.
+            of exceptions. The Pruitt Title team turns its search into a clear action plan.
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {dueDiligence.map((item) => (
@@ -252,7 +252,7 @@ export default function CommercialPropertyTitleSearchPage() {
 
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="prose-title mb-12">A Typical Provider Process</h2>
+          <h2 className="prose-title mb-12">How It Works with Pruitt Title</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((step) => (
               <div key={step.title} className="text-center">

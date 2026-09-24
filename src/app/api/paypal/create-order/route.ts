@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function POST() {
   return NextResponse.json(
     {
-      error: "Online title-search payment is unavailable. Please request an introduction instead.",
+      error: "Online title-search payment is unavailable. Please send Will the property details instead.",
       requestPath: "/request-title-review",
     },
     { status: 503, headers: { "Cache-Control": "no-store" } }

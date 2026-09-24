@@ -117,7 +117,7 @@ function RelatedLocalTitleServices() {
         Local Title and Closing Resources
       </h2>
       <p className="text-gray-700 leading-relaxed mb-5 max-w-[68ch]">
-        Use these DMV Title Guy resources to understand local costs and process. Eligible title and settlement requests can be referred to Pruitt Title LLC for review.
+        Use these DMV Title Guy resources to understand local costs and process. When you&apos;re ready to close, Will and the Pruitt Title team handle your title and settlement.
       </p>
       <ul className="space-y-3 mb-6">
         {dmvTitleServiceLinks.map((link) => (
@@ -616,7 +616,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                   Ready to get a title quote?
                 </h2>
                 <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-[#C9D6E0]">
-                  Send your transaction details through DMV Title Guy. Will can answer initial questions and, when eligible, refer the request to Pruitt Title LLC for review.
+                  Send Will your transaction details for a quote from Pruitt Title. Will confirms next steps with you.
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Link href="/calculators/title-quote" className="btn-brass">

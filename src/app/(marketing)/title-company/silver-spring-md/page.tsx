@@ -22,19 +22,19 @@ const faqs = [
   },
   {
     question: "Does Maryland require an attorney at closing in Silver Spring?",
-    answer: "Maryland settlement and title-insurance work must be handled by an appropriately authorized provider. DMV Title Guy can provide initial education and refer an eligible request to Pruitt Title LLC for transaction-specific review.",
+    answer: "Maryland settlement and title-insurance work must be handled by an appropriately authorized provider. For clients closing with Will, the Pruitt Title team handles the title and settlement work.",
   },
   {
     question: "What is unique about Silver Spring real estate transactions?",
-    answer: "Silver Spring transactions range from downtown condominiums to established single-family homes and redevelopment areas. Ask the accepted provider to confirm its experience and scope for condominiums, trusts, estates, investments, or other property-specific issues.",
+    answer: "Silver Spring transactions range from downtown condominiums to established single-family homes and redevelopment areas. Tell Will early about condominiums, trusts, estates, investments, or other property-specific issues so the Pruitt Title team can plan for them.",
   },
   {
     question: "How long does a Silver Spring title search take?",
-    answer: "Timing depends on Montgomery County record availability, property history, condominium or HOA documents, the provider's accepted scope, and any curative work. The provider should confirm timing after reviewing the file.",
+    answer: "Timing depends on Montgomery County record availability, property history, condominium or HOA documents, and any curative work. Pruitt Title confirms timing after reviewing the file.",
   },
   {
     question: "Are there first-time homebuyer programs in Montgomery County?",
-    answer: "Montgomery County and Maryland may offer first-time-buyer programs or tax benefits subject to current eligibility rules. Verify them with the administering government agency, lender, tax adviser, and accepted settlement provider before relying on an example.",
+    answer: "Montgomery County and Maryland may offer first-time-buyer programs or tax benefits subject to current eligibility rules. Verify them with the administering government agency, your lender, and a tax adviser before relying on an example.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function SilverSpringTitlePage() {
             Title Company Silver Spring MD &mdash; Settlement & Title Services
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            DMV Title Guy provides local closing education for Silver Spring and Montgomery County. Eligible title and settlement requests can be referred to Pruitt Title LLC for review and transaction-specific acceptance.
+            DMV Title Guy provides local closing education for Silver Spring and Montgomery County. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
           </p>
         </div>
       </section>
@@ -164,7 +164,7 @@ export default function SilverSpringTitlePage() {
             </Link>
             <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
               <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Submit property info & request a title-search introduction.</p>
+              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
             </Link>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function SilverSpringTitlePage() {
         <div className="container-xl text-center">
           <h2 className="t-h3 text-white mb-4">Get Your Silver Spring Title Quote</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send Will the Silver Spring property details to request an educational review or a possible provider introduction.
+            Send Will the Silver Spring property details for a quote or a title question. Will confirms next steps with you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/maryland-closing-cost-calculator" className="btn-primary px-8">
