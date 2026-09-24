@@ -31,6 +31,16 @@ export const PRUITT_TITLE = {
   },
 } as const;
 
+/**
+ * Exactly as the Google Business Profile displays it (checked 2026-09-24).
+ * Site contact details must match the profile word for word — see
+ * docs/DMVTITLEGUY-SITE-BRIEF.md in velocity-connectors.
+ */
+export const BUSINESS_PROFILE = {
+  name: "Will Rapuano, Pruitt Title",
+  addressLine: `${PRUITT_TITLE.address.streetAddress}, ${PRUITT_TITLE.address.addressLocality}, ${PRUITT_TITLE.address.addressRegion} ${PRUITT_TITLE.address.postalCode}`,
+} as const;
+
 export const RELATIONSHIP_DISCLOSURE =
   "DMV Title Guy is an educational and business-development website operated by Will Rapuano. It is separate from Pruitt Title LLC’s corporate website and is not a title insurer, title agency, escrow company, or settlement provider. Will is Marketing and Business Development Officer at Pruitt Title. If you request transaction services, your information may be referred to Pruitt Title for its independent review. If Pruitt accepts the request, it confirms scope, pricing, terms, and required disclosures directly.";
 
