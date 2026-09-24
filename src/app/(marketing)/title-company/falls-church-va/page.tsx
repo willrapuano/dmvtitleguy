@@ -18,11 +18,11 @@ const faqs = [
   },
   {
     question: "How much are closing costs in Falls Church?",
-    answer: "Closing costs in Falls Church follow Virginia's standard structure. Buyers can expect to pay 2-5% of the purchase price, including recordation taxes and title insurance. Sellers pay the grantor tax ($0.50 per $500 of sales price) and any outstanding liens.",
+    answer: "Closing costs in Falls Church follow Virginia's standard structure. Buyers can expect to pay 2-5% of the purchase price, including recordation taxes and title insurance. Sellers pay the grantor tax ($0.50 per $500 of sales price, i.e. $0.10 per $100), the two Northern Virginia regional fees, and any outstanding liens.",
   },
   {
     question: "Does Falls Church have additional local transfer taxes?",
-    answer: "Falls Church has a relatively low additional tax burden compared to neighboring jurisdictions. The primary costs are the state grantor tax (seller) and state recordation tax (buyer), with minimal local add-ons.",
+    answer: "No city transfer tax applies. Sellers pay Virginia's grantor tax of $0.10 per $100 plus the two Northern Virginia regional fees that apply in every NVTA locality, including Falls Church: $0.10 per $100 each under Va. Code §§ 58.1-802.3 and 58.1-802.4. Buyers pay state recordation tax of $0.25 per $100 on the deed and on the loan. We found no Falls Church city recordation tax on top of that; the Arlington County Circuit Court, which records Falls Church deeds, can confirm the exact figure for a closing.",
   },
   {
     question: "How long does it take to close in Falls Church?",

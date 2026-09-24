@@ -174,7 +174,13 @@ const NOVA_JURISDICTIONS = new Set([
  *   Loudoun County — FY 2027 Proposed Budget: "$0.083 per $100 of recorded value"
  *   Prince William County — Circuit Court land-records fees: "1/3 of the state tax"
  *   City of Alexandria — alexandriava.gov/real-estate/recordation-tax: "$0.083 per $100"
- * Falls Church and Fredericksburg are absent because no official page confirmed it.
+ *   City of Fredericksburg — City Code § 70-65: "a City recordation tax in an amount equal
+ *     to one-third of the amount of the state recordation tax" (checked 2026-09-24). The
+ *     state deed calculator (ccdeedcalc.courts.state.va.us) charges $2,216.67 on a $500,000
+ *     Fredericksburg deed of bargain and sale: $1,250 state + $416.67 city + $500 grantor + $50 fees.
+ * Falls Church is absent: its Code of Ordinances Chapter 40 (Taxation) has no recordation-tax
+ * article and its adopted budget shows no city recordation revenue. Its deeds record with the
+ * Arlington clerk; confirm with that clerk before stating a Falls Church local rate.
  */
 export const VA_LOCAL_RECORDATION_RATES: Record<string, number> = {
   "Fairfax County": 0.00083,
@@ -182,6 +188,7 @@ export const VA_LOCAL_RECORDATION_RATES: Record<string, number> = {
   "Loudoun County": 0.00083,
   "Prince William County": 0.000833,
   "City of Alexandria": 0.00083,
+  "City of Fredericksburg": 0.000833,
 };
 
 export function vaLocalRecordationRate(county: string): number {
@@ -453,7 +460,7 @@ export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
     county: "City of Fredericksburg",
     medianHomePrice: 380000,
     localTransferTaxRate: 0,
-    localRecordationTaxRate: 0,
+    localRecordationTaxRate: vaLocalRecordationRate("City of Fredericksburg"),
     localTaxNote: "Deeds here go to the Fredericksburg Circuit Court Clerk, not to Spotsylvania or Stafford County — the city is independent of both, and levies no transfer tax of its own.",
     intro: "Calculate closing costs for Fredericksburg, VA properties. As an independent city between Northern Virginia and Richmond, Fredericksburg offers competitive pricing with a median around $380,000.",
     localTaxExplainer: "Fredericksburg is the one market in our coverage area outside Northern Virginia's two regional transfer fees, and for a seller that is worth real money: the $0.20 per $100 that a Prince William or Fairfax seller owes under §§ 58.1-802.3 and 58.1-802.4 does not apply here at all — about $760 kept on a $380,000 sale. Combined with prices well under the NoVA median, the same percentage rates land on a much smaller base.",
