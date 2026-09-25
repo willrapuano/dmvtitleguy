@@ -27,6 +27,12 @@ const mustCatch = [
   ["fixture-structure", "has no body text"],
   ["fixture-drafting-leftovers", "leftover AI-assistant text"],
   ["fixture-drafting-leftovers", "content-pipeline metadata"],
+  ["fixture-trailing-cta", "(block 1): the post ends with its own call to action"],
+  ["fixture-trailing-cta", "(block 2): the post ends with its own call to action"],
+  ["fixture-voice", "speaks as a title company"],
+  ["fixture-voice", "not Pruitt Title's blog"],
+  ["fixture-voice", "site voice claiming offices"],
+  ["fixture-voice", "say who to contact"],
 ];
 for (const [slug, text] of mustCatch) {
   assert.ok(out.split("\n").some((line) => line.includes(`/blog/${slug}`) && line.includes(text)), `expected a failure on ${slug}: ${text}`);
