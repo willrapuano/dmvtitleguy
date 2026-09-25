@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AudienceSections } from "@/components/AudienceSections";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { PageHero } from "@/components/PageHero";
 import { createPageMetadata } from "@/lib/site-metadata";
@@ -19,94 +20,46 @@ export default function RealtorsPage() {
         lede="Practical education for agents across Northern Virginia, Maryland, and Washington DC. When your clients are ready to close, Will and the Pruitt Title team handle the title and settlement."
         aside={<LeadCaptureForm location="realtors" compact />}
       />
+      <AudienceSections
+        label="Working with Realtors"
+        heading="A closing that reflects well on you."
+        intro="Your client sees one transaction. Will and the Pruitt Title team keep the title side clear, so every handoff feels intentional."
+        rows={[
+          { title: "Contract intake", body: "Send Will the ratified contract details and he confirms the next steps with you." },
+          { title: "One contact at Pruitt Title", body: "Will confirms the quote, timing and deliverables, and the Pruitt Title team handles the title work and closing." },
+          { title: "Answers your clients understand", body: "Plain-language guides on title insurance, surveys, closing costs and settlement you can send to a client." },
+          { title: "Local cost and process guides", body: "Compare Virginia, Maryland and DC costs and steps before you set a client's expectations." },
+        ]}
+        handoff="Agent → Will → Client"
+        handoffNote="Direct access keeps the answer close to the person who knows the file."
+        handoffLink={{ label: "Start contract intake →", href: "/upload-contract" }}
+      />
 
-      {/* SERVICES */}
-      <section className="section-light">
-        <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">How DMV Title Guy Helps Realtors</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Early Title-Issue Education</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Use plain-language resources to spot common title questions before they threaten a deadline.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Transaction-Specific Intake</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Send Will a non-sensitive summary of the deal, and he confirms the next steps with you.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Local Process Guides</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Compare common Virginia, Maryland, and DC cost and process questions before setting client expectations.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">One Point of Contact</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Will confirms the quote, timing, and deliverables, and the Pruitt Title team handles the title work and closing.</p>
-            </div>
+      <section className="bg-white py-14 md:py-16">
+        <div className="container-xl grid gap-8 lg:grid-cols-[360px_1fr] lg:gap-[70px]">
+          <div className="flex flex-col gap-4">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-brass">Agent resources</p>
+            <h2 className="font-display text-3xl font-medium leading-tight text-brand-navy md:text-4xl">Guides to send before a deadline slips.</h2>
           </div>
-        </div>
-      </section>
-
-      {/* HOW WE HELP */}
-      <section className="section-gray">
-        <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">How These Resources Support Your Business</h2>
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
-              <div>
-                <h3 className="t-h6 font-semibold text-brand-navy">Clear Title Issues Before They Delay Closings</h3>
-                <p className="text-gray-600 max-w-[68ch] leading-relaxed">Review common warning signs and route transaction-specific issues to the appropriate licensed professional.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
-              <div>
-              <h3 className="t-h6 font-semibold text-brand-navy">Useful Client Education</h3>
-                <p className="text-gray-600 max-w-[68ch] leading-relaxed">Share clear explanations of title insurance, surveys, closing costs, and settlement steps.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-8 h-8 bg-brand-action text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
-              <div>
-                <h3 className="t-h6 font-semibold text-brand-navy">No Pay-for-Referral Promise</h3>
-                <p className="text-gray-600 max-w-[68ch] leading-relaxed">DMV Title Guy does not promise referral payments for settlement-service business. Education and provider selection should serve the client and comply with applicable rules.</p>
-              </div>
-            </div>
+          <div className="flex flex-col gap-6">
+            <ul className="flex flex-col border-t border-brand-line">
+              {[
+                { href: "/blog/firpta-explained-dmv", label: "FIRPTA withholding basics" },
+                { href: "/blog/types-of-property-surveys-dc-md-va", label: "Property survey types in DC, MD and VA" },
+                { href: "/calculators/seller-net-sheet", label: "Seller net sheet" },
+                { href: "/contact", label: "Schedule a broker briefing with Will" },
+              ].map((item) => (
+                <li key={item.href} className="border-b border-brand-line">
+                  <Link href={item.href} className="flex items-center justify-between py-4 font-display text-xl text-brand-navy hover:text-brand-ink">
+                    {item.label} <span aria-hidden="true" className="text-brand-brass-dark">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="max-w-[68ch] text-sm leading-relaxed text-brand-ink-light">
+              No pay-for-referral promise: DMV Title Guy doesn&apos;t offer payments for settlement-service referrals. Your client chooses the title company that serves them best.
+            </p>
           </div>
-        </div>
-      </section>
-
-      <section className="section-light">
-        <div className="container-xl">
-          <h2 className="t-h4 text-brand-navy mb-4">Agent Risk Guides</h2>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/blog/firpta-explained-dmv" className="font-semibold text-brand-blue-deep hover:underline">FIRPTA withholding basics →</Link>
-            <Link href="/blog/types-of-property-surveys-dc-md-va" className="font-semibold text-brand-blue-deep hover:underline">Property survey types →</Link>
-            <Link href="/calculators/seller-net-sheet" className="font-semibold text-brand-blue-deep hover:underline">Seller net sheet →</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTRACT INTAKE CTA */}
-      <section className="py-12 bg-brand-action text-white">
-        <div className="container-xl text-center">
-          <h2 className="t-h4 mb-3">Start Contract Intake</h2>
-          <p className="text-lg mb-6 max-w-2xl mx-auto">Got a ratified contract? Send Will the basic transaction details and wait for an approved secure-transfer path.</p>
-          <Link href="/upload-contract" className="btn-light px-8">
-            Start Contract Intake →
-          </Link>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-navy">
-        <div className="container-xl text-center">
-          <h2 className="t-h3 text-white mb-4">Ready to Streamline Your Closings?</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Schedule a broker briefing to walk through DMV Title Guy&apos;s resources and how Will and Pruitt Title handle your clients&apos; closings.
-          </p>
-          <Link href="/contact" className="btn-primary px-8">
-            Schedule a Broker Briefing →
-          </Link>
         </div>
       </section>
     </>

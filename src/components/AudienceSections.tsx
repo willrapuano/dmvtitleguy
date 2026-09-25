@@ -4,7 +4,7 @@ import Link from "next/link";
  * The body of an audience page (builders, lenders, credit unions), built from the
  * Capital Standard "03 — Audience" template in Paper: a heading column beside
  * ruled, numbered rows, then a fog strip naming the handoff with a Contact Will
- * link. The template's dark closing band is left out because the site footer
+ * link (Contact Will by default). The template's dark closing band is left out because the site footer
  * already opens with one. Pages supply only the words, so the audiences stay one design.
  */
 export type AudienceRow = { title: string; body: string };
@@ -18,6 +18,7 @@ export function AudienceSections({
   rows,
   handoff,
   handoffNote,
+  handoffLink = { label: "Contact Will →", href: "/contact" },
 }: {
   label: string;
   heading: string;
@@ -26,6 +27,7 @@ export function AudienceSections({
   /** e.g. "Builder → Will → Buyer" */
   handoff: string;
   handoffNote: string;
+  handoffLink?: { label: string; href: string };
 }) {
   return (
     <>
@@ -56,8 +58,8 @@ export function AudienceSections({
           <p className="font-display text-3xl leading-tight text-brand-navy md:text-[37px]">{handoff}</p>
           <div className="flex flex-col items-start gap-3">
             <p className="text-sm leading-relaxed text-brand-ink-light">{handoffNote}</p>
-            <Link href="/contact" className="text-sm font-bold text-brand-navy underline decoration-brand-brass decoration-2 underline-offset-[3px] hover:text-brand-ink">
-              Contact Will →
+            <Link href={handoffLink.href} className="text-sm font-bold text-brand-navy underline decoration-brand-brass decoration-2 underline-offset-[3px] hover:text-brand-ink">
+              {handoffLink.label}
             </Link>
           </div>
         </div>
