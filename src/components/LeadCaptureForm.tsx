@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { trackAnalyticsEvent, trackLeadConversion } from "@/lib/client-analytics";
@@ -17,7 +18,7 @@ interface LeadCaptureFormProps {
 }
 
 export function LeadCaptureForm({
-  title = "Get a Quote from Will",
+  title = "Contact Will",
   subtitle = "Share the transaction details with Will. Sending this form doesn't open an order; Will confirms next steps with you.",
   location = "site",
   compact = false,
@@ -102,6 +103,11 @@ export function LeadCaptureForm({
       <div className={compact ? "mb-5" : "mb-6"}>
         <Heading className={`${compact ? "text-lg font-bold" : "t-h5"} text-brand-navy`}>{title}</Heading>
         <p className="text-brand-muted text-sm mt-1 max-w-[68ch] leading-relaxed">{subtitle}</p>
+        <p className="mt-2 text-sm font-semibold">
+          <Link href="/calculators/title-quote" className="text-brand-navy underline decoration-brand-brass decoration-2 underline-offset-[3px] hover:text-brand-ink">
+            Want a number now? Use Pruitt Title&apos;s instant quote calculator →
+          </Link>
+        </p>
       </div>
 
       <form onSubmit={handleSubmit} onFocus={handleFormInteraction} className="space-y-4">
@@ -258,7 +264,7 @@ export function LeadCaptureForm({
           disabled={status === "submitting"}
           className="w-full btn-primary py-3 text-base font-semibold disabled:opacity-60"
         >
-          {status === "submitting" ? "Sending…" : "Get Your Free Quote →"}
+          {status === "submitting" ? "Sending…" : "Send to Will →"}
         </button>
 
         <LeadRoutingNotice />

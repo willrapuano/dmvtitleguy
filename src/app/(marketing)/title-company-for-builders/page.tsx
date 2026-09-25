@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { AudienceSections } from "@/components/AudienceSections";
+import { PageHero } from "@/components/PageHero";
+import { TitleQuotePanel } from "@/components/TitleQuotePanel";
 
 export const metadata: Metadata = {
   title: "Title Company Services for Builders | DMV Title Guy",
@@ -11,66 +12,27 @@ export const metadata: Metadata = {
 export default function BuildersPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="page-hero">
-        <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <nav className="text-xs text-gray-400 mb-4">
-              <Link href="/" className="hover:text-white">Home</Link>
-              <span className="mx-2">/</span>
-              <span className="text-gray-200">Builders</span>
-            </nav>
-            <h1 className="t-h1 text-white mb-4">
-              Title Company Services for Builders
-            </h1>
-            <p className="text-lg text-gray-300 mb-6 max-w-lg">
-              Fast, reliable title services for builders and developers in Northern Virginia, DC, and Maryland.
-            </p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h2 className="t-h5 font-semibold text-white mb-4">Get a Title Quote</h2>
-            <LeadCaptureForm location="builders" />
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section-light">
-        <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">Why Builders Choose DMV Title Guy</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">New Construction Closings</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized expertise in new construction transactions and builder settlements.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Fast Turnaround Times</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We understand builder timelines and deliver on your schedule.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Multi-Unit Closings</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Experience handling multiple simultaneous closings for developments.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Dedicated Account Manager</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Single point of contact for all your projects and transactions.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-navy">
-        <div className="container-xl text-center">
-          <h2 className="t-h3 text-white mb-4">Partner with a Builder-Friendly Title Company</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us to discuss your upcoming projects.
-          </p>
-          <Link href="/contact" className="btn-primary px-8">
-            Get in Touch →
-          </Link>
-        </div>
-      </section>
+      <PageHero
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Builders" }]}
+        eyebrow="For builders"
+        title="Title Company Services for Builders"
+        lede="Title and settlement for new-construction sales across Virginia, Maryland and DC, handled by Will Rapuano and the Pruitt Title team."
+        aside={<TitleQuotePanel />}
+        alignTop
+      />
+      <AudienceSections
+        label="Working with builders"
+        heading="One title team for every home in the community."
+        intro="Your sales team, the buyer and the buyer's lender work from the same file, with Will as the direct contact."
+        rows={[
+          { title: "New construction closings", body: "Pruitt Title handles title and settlement for new-construction sales, with the builder, buyer and lender on the same file." },
+          { title: "One contact for your pipeline", body: "Will Rapuano is your direct line at Pruitt Title for every home in the community, from contract to closing." },
+          { title: "Documents in a secure portal", body: "Pruitt Title runs on Qualia. Documents move through Qualia Connect, a secure portal, instead of email, which cuts the risk of wire fraud." },
+          { title: "Numbers before the contract", body: "Your sales team can use the calculator above to show a buyer their title and settlement costs before the contract is written." },
+        ]}
+        handoff="Builder → Will → Buyer"
+        handoffNote="Questions go straight to the person who has the file in front of him."
+      />
     </>
   );
 }

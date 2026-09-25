@@ -14,6 +14,7 @@ export function PageHero({
   actions,
   aside,
   compact = false,
+  alignTop = false,
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -22,10 +23,12 @@ export function PageHero({
   actions?: ReactNode;
   aside?: ReactNode;
   compact?: boolean;
+  /** For a tall aside (the quote calculator): top-align the copy and give the aside the wider column. */
+  alignTop?: boolean;
 }) {
   return (
     <section className={`page-hero ${compact ? "md:py-16" : "md:py-24"}`}>
-      <div className={`container-xl grid items-center gap-10 ${aside ? "lg:grid-cols-[1.1fr_0.9fr] lg:gap-16" : ""}`}>
+      <div className={`container-xl grid ${alignTop ? "items-start" : "items-center"} gap-10 ${aside ? (alignTop ? "lg:grid-cols-[0.85fr_1.15fr] lg:gap-14" : "lg:grid-cols-[1.1fr_0.9fr] lg:gap-16") : ""}`}>
         <div className="page-hero-copy">
           {breadcrumbs && breadcrumbs.length > 0 && (
             <nav aria-label="Breadcrumb" className="mb-5">
