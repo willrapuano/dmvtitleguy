@@ -31,26 +31,26 @@ export default function CreditUnionsPage() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* HOW WILL AND PRUITT TITLE WORK WITH CREDIT UNIONS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">Why Credit Unions Choose DMV Title Guy</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">How Will and Pruitt Title work with credit unions</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Credit Union Expertise</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We understand credit union lending processes and requirements.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Closings for your members</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Pruitt Title handles title and settlement for credit union purchase and refinance loans in Virginia, Maryland and DC.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Member-Focused Service</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Treat your members like family with our white-glove service.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">A clear number for members</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Members can use the calculator above to see their title and settlement costs before they apply.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Competitive Pricing</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Special rates for credit union partners and their members.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Documents in a secure portal</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Pruitt Title runs on Qualia. Documents move through Qualia Connect, a secure portal, instead of email, which cuts the risk of wire fraud.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Dedicated Support</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Single point of contact for all your lending partnerships.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">One contact at Pruitt Title</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Will Rapuano is your direct line for every file, from contract to closing.</p>
             </div>
           </div>
         </div>
@@ -59,12 +59,12 @@ export default function CreditUnionsPage() {
       {/* CTA */}
       <section className="section-navy">
         <div className="container-xl text-center">
-          <h2 className="t-h3 text-white mb-4">Partner with Us</h2>
+          <h2 className="t-h3 text-white mb-4">Closing a member's loan in the DMV?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us to learn about credit union partnership options.
+            Talk to Will about title and settlement for your members.
           </p>
           <Link href="/contact" className="btn-primary px-8">
-            Get in Touch →
+            Contact Will →
           </Link>
         </div>
       </section>

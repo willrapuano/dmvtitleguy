@@ -31,26 +31,26 @@ export default function BuildersPage() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* HOW WILL AND PRUITT TITLE WORK WITH BUILDERS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">Why Builders Choose DMV Title Guy</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">How Will and Pruitt Title work with builders</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">New Construction Closings</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized expertise in new construction transactions and builder settlements.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">New construction closings</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Pruitt Title handles title and settlement for new-construction sales across Virginia, Maryland and DC, with the builder, buyer and lender on the same file.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Fast Turnaround Times</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We understand builder timelines and deliver on your schedule.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">One contact for your pipeline</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Will Rapuano is your direct line at Pruitt Title for every home in the community, from contract to closing.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Multi-Unit Closings</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Experience handling multiple simultaneous closings for developments.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Documents in a secure portal</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Pruitt Title runs on Qualia. Documents move through Qualia Connect, a secure portal, instead of email, which cuts the risk of wire fraud.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Dedicated Account Manager</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Single point of contact for all your projects and transactions.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Numbers before the contract</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Your sales team can use the calculator above to show a buyer their title and settlement costs before the contract is written.</p>
             </div>
           </div>
         </div>
@@ -59,12 +59,12 @@ export default function BuildersPage() {
       {/* CTA */}
       <section className="section-navy">
         <div className="container-xl text-center">
-          <h2 className="t-h3 text-white mb-4">Partner with a Builder-Friendly Title Company</h2>
+          <h2 className="t-h3 text-white mb-4">Planning a new community or a phase release?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us to discuss your upcoming projects.
+            Talk to Will about title and settlement for your upcoming closings.
           </p>
           <Link href="/contact" className="btn-primary px-8">
-            Get in Touch →
+            Contact Will →
           </Link>
         </div>
       </section>

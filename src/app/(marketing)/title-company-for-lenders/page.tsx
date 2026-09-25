@@ -31,26 +31,26 @@ export default function LendersPage() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* HOW WILL AND PRUITT TITLE WORK WITH LENDERS */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">Why Lenders Trust DMV Title Guy</h2>
+          <h2 className="t-h3 text-brand-navy mb-8">How Will and Pruitt Title work with lenders</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Comprehensive coverage to protect your mortgage investment.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's title insurance</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Pruitt Title issues lender's policies underwritten by First American Title Insurance Company, with the endorsements your loan requires.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Fast Turnaround</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">We meet your funding deadlines with quick title commitments.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Commitments and closing documents</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">The title commitment, payoffs and closing documents reach your team through Qualia Connect, Pruitt Title's secure portal, instead of email.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Online Status Tracking</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Real-time updates on title status through your pipeline.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">One contact at Pruitt Title</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Will Rapuano is your direct line for every file, from contract to closing.</p>
             </div>
             <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Competitive Rates</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Volume discounts available for frequent lender partners.</p>
+              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Closings across the DMV</h3>
+              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Pruitt Title closes purchase and refinance loans in Virginia, Maryland and DC.</p>
             </div>
           </div>
         </div>
@@ -59,12 +59,12 @@ export default function LendersPage() {
       {/* CTA */}
       <section className="section-navy">
         <div className="container-xl text-center">
-          <h2 className="t-h3 text-white mb-4">Become a Lending Partner</h2>
+          <h2 className="t-h3 text-white mb-4">Working on a loan in the DMV?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us to set up your account.
+            Talk to Will about your next file.
           </p>
           <Link href="/contact" className="btn-primary px-8">
-            Get Started →
+            Contact Will →
           </Link>
         </div>
       </section>
