@@ -5,6 +5,7 @@
 // - tax claims the 2026-09-23 audit had already corrected in code;
 // - posts speaking as the title company ("At DMV Title Guy, we close…");
 // - 111 duplicated callout boxes.
+// - posts ending with their own call to action above the template's quote panel.
 // This check fails the release if any of those return.
 //
 // Rules:
@@ -42,6 +43,11 @@ const identityRules = [
   { pattern: /\b(?:Contact|Call) (?:DMV ?Title ?Guy|DMVTitleGuy)\b[^.\n]{0,60}(?:title search|closing|settlement|escrow|consultation)/i, why: "DMV Title Guy does not perform title searches, closings or consultations" },
   { pattern: /\bour (?:DC|Bethesda|Maryland|Virginia|Fairfax|Arlington|Alexandria) title company\b(?! (?:guide|page|overview))/i, why: "DMV Title Guy does not own a title company; link to the guide or name Pruitt Title" },
   { pattern: /\bwe(?:'ll| will| can| also)? (?:close|conduct|disburse|underwrite) (?:transactions|closings|settlements|the closing|funds)\b/i, why: "site-voice claim of closing or disbursing" },
+  // 2026-09-25: a post closed with "At EKKO Title, we explain…", another title company's voice.
+  { pattern: /\bAt [A-Z][\w&.'-]*(?: [A-Z][\w&.'-]*){0,3} Title(?: LLC| Company| Group)?,? [Ww]e\b/, why: "speaks as a title company; name Will Rapuano or Pruitt Title in the third person" },
+  { pattern: /\bblog of Pruitt Title\b|\bPruitt Title'?s blog\b/i, why: "DMV Title Guy is Will Rapuano's personal brand, not Pruitt Title's blog" },
+  { pattern: /\bour (?:[A-Z][a-z]+ (?:and [A-Z][a-z]+ )?)?offices?\b/, why: "site voice claiming offices; link the location guide or name Pruitt Title" },
+  { pattern: /\b(?:call|contact|reach out to|email) us\b/i, why: "company voice; say who to contact (Will, Pruitt Title, the title company)" },
 ];
 
 // Drafting leftovers that reached a live post on 2026-09-24: an AI assistant's reply
@@ -64,6 +70,30 @@ function* texts(post) {
     else if (b._type === "accordion") for (const it of b.items || []) yield [`FAQ ${i}`, `${it.question || ""}\n${spanText(it.answer)}`];
     else if (b._type === "table") for (const r of b.rows || []) yield [`table ${i}`, (r.cells || []).join(" | ")];
   }
+}
+
+// The article template already ends every post with a "Ready to get a title quote?"
+// panel, and the sidebar carries the calculator and a contact form. A post that also
+// ends with its own call to action stacks two or three of them (Will, 2026-09-25;
+// 162 such blocks were removed from 108 posts). Boilerplate lines are skipped over.
+const TAIL_BOILERPLATE = /^DMV title services:|equal housing|^\*Pruitt Title/i;
+const TAIL_CTA = /calculator|\bquote\b|contact (?:will|our|us|pruitt)|\boffice\b|→|next step|estimate your|get started|reach out|call (?:will|us)|schedule/i;
+function trailingCtas(body) {
+  // The run of call-to-action blocks at the very end of the body, stopping at the
+  // first real content (including an FAQ answer, i.e. a block after a question).
+  const found = [];
+  for (let i = body.length - 1; i >= 0; i--) {
+    const b = body[i];
+    const text = b._type === "callout" ? `${b.title || ""} ${spanText(b.body)}`.trim() : spanText([b]).trim();
+    if (b._type === "block" && (!text || TAIL_BOILERPLATE.test(text))) continue;
+    const prev = body[i - 1];
+    const isFaqAnswer = b._type === "block" && prev?._type === "block" && spanText([prev]).trim().endsWith("?");
+    const ctaCallout = b._type === "callout" && /next step|ready to|get a (?:title )?quote|calculator/i.test(text) && spanText(b.body).length < 200;
+    const ctaLine = b._type === "block" && (b.style || "normal") === "normal" && !b.listItem && !isFaqAnswer && !text.endsWith("?") && text.length < 260 && TAIL_CTA.test(text);
+    if (!ctaCallout && !ctaLine) break;
+    found.push([i, text]);
+  }
+  return found;
 }
 
 const norm = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -112,6 +142,9 @@ for (const post of posts) {
     const next = body[i + 1] && blockSignature(body[i + 1]);
     if (sig && next && sig === next && sig.length > 12) failures.push(`/blog/${post.slug} (block ${i}): the same ${b._type} appears twice in a row`);
   });
+  for (const [i, text] of trailingCtas(body)) {
+    failures.push(`/blog/${post.slug} (block ${i}): the post ends with its own call to action; the article template already closes with the quote panel\n    ${text.slice(0, 180)}`);
+  }
   // A callout repeated anywhere in the post, e.g. an emoji-only title difference.
   const seen = new Map();
   body.forEach((b, i) => {

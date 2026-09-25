@@ -231,6 +231,45 @@
             "marks": []
           }
         ]
+      },
+      {
+        "_key": "al5",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Never wire money on emailed instructions; call the title company at a number you found independently.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "al6",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "How quickly can I get a title quote?",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "al7",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Most quotes come back the same day, and the calculator shows an estimate right away.",
+            "marks": []
+          }
+        ]
       }
     ]
   },
@@ -260,6 +299,130 @@
           {
             "_type": "span",
             "text": "status: approved target_keyword: title insurance",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fixture-trailing-cta",
+    "title": "Fixture: trailing calls to action",
+    "body": [
+      {
+        "_key": "t1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Title insurance protects against defects the search missed.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "t2",
+        "_type": "callout",
+        "tone": "info",
+        "title": "Ready to Take the Next Step?",
+        "body": [
+          {
+            "_key": "t2a",
+            "_type": "block",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "text": "See Virginia closing costs →",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_key": "t3",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Try our Virginia closing cost calculator before you make an offer.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "t4",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "DMV title services: Vienna, VA | Bethesda, MD",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fixture-voice",
+    "title": "Fixture: another company's voice",
+    "body": [
+      {
+        "_key": "v1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "At EKKO Title, we explain the difference at every closing.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "v2",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "DMV Title Guy is the blog of Pruitt Title, a settlement company.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "v3",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Title search for Virginia transactions: see our Vienna and Bethesda offices.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "v4",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Questions about your closing? Call us before the table.",
             "marks": []
           }
         ]
