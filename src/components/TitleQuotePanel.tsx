@@ -18,7 +18,7 @@ export function TitleQuotePanel({ heading = "Get a Title Quote" }: { heading?: s
       </div>
       <iframe
         src={TITLECAPTURE_QUOTE_URL}
-        className="block h-[820px] w-full border-0"
+        className="block h-[760px] w-full border-0 lg:h-[980px]"
         title="Pruitt Title quote calculator (TitleCapture)"
         allow="clipboard-write"
         loading="eager"
