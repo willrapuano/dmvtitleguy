@@ -1,0 +1,5851 @@
+{
+  "schemaVersion": 2,
+  "status": "DESCRIPTIVE_ONLY_NO_PERFORMANCE_EDIT",
+  "performanceEditAuthorized": false,
+  "manifest": {
+    "property": "sc-domain:dmvtitleguy.io",
+    "status": "DESCRIPTIVE_ONLY_NO_PERFORMANCE_EDIT",
+    "performanceEditAuthorized": false,
+    "capturedAt": "2026-09-27T14:02:58.462Z",
+    "capturedAtEastern": "Sep 27, 2026, 10:02:58 AM EDT",
+    "window": {
+      "windowName": "post-week-1",
+      "startDate": "2026-08-27",
+      "endDate": "2026-09-02",
+      "dates": [
+        "2026-08-27",
+        "2026-08-28",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02"
+      ],
+      "expectedCalendarDays": 7,
+      "purpose": "descriptive-final-checkpoint",
+      "protectedWindowName": null,
+      "decisionEligible": false,
+      "decisionNotBefore": null,
+      "canonical": true,
+      "canonicalOutputRelativePath": "docs/gsc-checkpoints/2026-09-09-post-week-1-final.json"
+    },
+    "finalCertification": {
+      "certifiedFinal": true,
+      "firstIncompleteDate": null,
+      "finalDataThrough": "2026-09-02",
+      "expectedCalendarDays": 7
+    },
+    "releaseWashoutDatesExcluded": [
+      "2026-08-26"
+    ],
+    "sourceTimezone": "America/Los_Angeles",
+    "reportingTimezone": "America/New_York",
+    "earliestPerformanceDecision": "2026-09-30",
+    "earliestConsolidationReview": "2026-10-25",
+    "joinGrain": "period or week x explicit normalized landing path x frozen cluster; never person x query",
+    "propertyAndQueryAggregation": "byProperty",
+    "pageAndQueryPageAggregation": "byPage; routing only; never compared to property coverage",
+    "exactPageUrlGrouping": true,
+    "canonicalNormalizationAppliedOnlyToSeparatePathDocket": true,
+    "queryGeographicModifierCaveat": "Query wording only; not searcher location, Local Pack geography, or Maps rank.",
+    "searchAnalyticsRowCaveat": "Query exports contain Google's visible top rows, not an exhaustive keyword universe; property totals remain authoritative.",
+    "pathMapVersion": "v1-2026-08-26",
+    "pathMapSource": "config/domain-redirects.mjs#legacyPathMappings",
+    "brandDictionaryVersion": "v1-2026-08-26",
+    "opportunityClassifier": "gsc-fresh-opportunities-current-source-hash",
+    "gitSha": "ce6bee5fab70398936912c4435c73c08a16063cf",
+    "gitWorkingTreeDirty": false,
+    "deploymentId": null,
+    "releaseTimestamp": "2026-08-26T22:00:00Z",
+    "generatorCodeArtifacts": {
+      "snapshot-gsc-checkpoint.mjs": {
+        "sha256": "d101a2592ecdaffc58b49486f1f99913c0579396f38d42100444da0536f54bf4",
+        "bytes": 20989
+      },
+      "lib/gsc-checkpoint.mjs": {
+        "sha256": "e1a6335a1f3d32669533ee4cb907ef21d4a20c317679b5aec3d88ca1fd5f97b3",
+        "bytes": 26037
+      },
+      "lib/gsc-fresh-opportunities.mjs": {
+        "sha256": "fc66e4f1da3f6bcb289ccfec01b074cd55492de6e5130e8b36efee5dbd649a63",
+        "bytes": 9649
+      },
+      "verify-gsc-checkpoint.mjs": {
+        "sha256": "d7673ebd11bcedcada5d6d3127aab172a81580ac2ded9c27209cf82d4e179370",
+        "bytes": 18165
+      },
+      "config/seo-checkpoints.json": {
+        "sha256": "c086faacdb6a8d785ce5ca5d8f819914b7d6aa662a61d3caafc26b188d4a7473",
+        "bytes": 1993
+      },
+      "config/domain-redirects.mjs": {
+        "sha256": "309b31a5f18b9474651c96c594df9b1145c4688d52fd429da09e5d1b53320af7",
+        "bytes": 4490
+      }
+    },
+    "requestDefinitions": [
+      {
+        "name": "completeness-daily-all",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date"
+        ],
+        "dataState": "all",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byProperty",
+        "resultCount": 7,
+        "terminal": false,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "completeness-daily-all",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date"
+        ],
+        "dataState": "all",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byProperty",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-page",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "page"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byPage",
+        "resultCount": 160,
+        "terminal": false,
+        "responseAggregationType": "byPage",
+        "metadata": null
+      },
+      {
+        "name": "final-page",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "page"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byPage",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byPage",
+        "metadata": null
+      },
+      {
+        "name": "final-property-daily",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byProperty",
+        "resultCount": 7,
+        "terminal": false,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-property-daily",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byProperty",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-property-total",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byProperty",
+        "resultCount": 1,
+        "terminal": false,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-property-total",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byProperty",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-query",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "query"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byProperty",
+        "resultCount": 348,
+        "terminal": false,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-query",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "query"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byProperty",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-query-date",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date",
+          "query"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byProperty",
+        "resultCount": 1031,
+        "terminal": false,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-query-date",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date",
+          "query"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byProperty",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byProperty",
+        "metadata": null
+      },
+      {
+        "name": "final-query-page",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "query",
+          "page"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byPage",
+        "resultCount": 578,
+        "terminal": false,
+        "responseAggregationType": "byPage",
+        "metadata": null
+      },
+      {
+        "name": "final-query-page",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "query",
+          "page"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byPage",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byPage",
+        "metadata": null
+      },
+      {
+        "name": "final-query-page-date",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date",
+          "query",
+          "page"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 0,
+        "aggregationType": "byPage",
+        "resultCount": 1432,
+        "terminal": false,
+        "responseAggregationType": "byPage",
+        "metadata": null
+      },
+      {
+        "name": "final-query-page-date",
+        "startDate": "2026-08-27",
+        "endDate": "2026-09-02",
+        "dimensions": [
+          "date",
+          "query",
+          "page"
+        ],
+        "dataState": "final",
+        "type": "web",
+        "rowLimit": 25000,
+        "startRow": 25000,
+        "aggregationType": "byPage",
+        "resultCount": 0,
+        "terminal": true,
+        "responseAggregationType": "byPage",
+        "metadata": null
+      }
+    ],
+    "rawQueryStorage": "repository-root/private-seo/gsc only",
+    "rawRetention": "13 months",
+    "canonicalArtifact": true,
+    "decisionEligible": false,
+    "decisionNotBefore": null
+  },
+  "propertyTotal": {
+    "clicks": 26,
+    "impressions": 4540,
+    "ctr": 0.005727,
+    "position": 27.3
+  },
+  "dailyMetrics": [
+    {
+      "date": "2026-08-27",
+      "clicks": 7,
+      "impressions": 693,
+      "ctr": 0.010101,
+      "position": 25.89,
+      "sourceRowPresent": true,
+      "final": true,
+      "shareOfWindowImpressions": 0.152643,
+      "anomalyOverThirtyPercent": false
+    },
+    {
+      "date": "2026-08-28",
+      "clicks": 7,
+      "impressions": 682,
+      "ctr": 0.010264,
+      "position": 28.6,
+      "sourceRowPresent": true,
+      "final": true,
+      "shareOfWindowImpressions": 0.15022,
+      "anomalyOverThirtyPercent": false
+    },
+    {
+      "date": "2026-08-29",
+      "clicks": 2,
+      "impressions": 584,
+      "ctr": 0.003425,
+      "position": 29.3,
+      "sourceRowPresent": true,
+      "final": true,
+      "shareOfWindowImpressions": 0.128634,
+      "anomalyOverThirtyPercent": false
+    },
+    {
+      "date": "2026-08-30",
+      "clicks": 0,
+      "impressions": 591,
+      "ctr": 0,
+      "position": 32.64,
+      "sourceRowPresent": true,
+      "final": true,
+      "shareOfWindowImpressions": 0.130176,
+      "anomalyOverThirtyPercent": false
+    },
+    {
+      "date": "2026-08-31",
+      "clicks": 3,
+      "impressions": 631,
+      "ctr": 0.004754,
+      "position": 25.64,
+      "sourceRowPresent": true,
+      "final": true,
+      "shareOfWindowImpressions": 0.138987,
+      "anomalyOverThirtyPercent": false
+    },
+    {
+      "date": "2026-09-01",
+      "clicks": 3,
+      "impressions": 620,
+      "ctr": 0.004839,
+      "position": 24.8,
+      "sourceRowPresent": true,
+      "final": true,
+      "shareOfWindowImpressions": 0.136564,
+      "anomalyOverThirtyPercent": false
+    },
+    {
+      "date": "2026-09-02",
+      "clicks": 4,
+      "impressions": 739,
+      "ctr": 0.005413,
+      "position": 25.1,
+      "sourceRowPresent": true,
+      "final": true,
+      "shareOfWindowImpressions": 0.162775,
+      "anomalyOverThirtyPercent": false
+    }
+  ],
+  "visibleQueryCoverage": {
+    "clicks": 2,
+    "impressions": 3089,
+    "ctr": 0.000647,
+    "position": 34.79,
+    "aggregationType": "byProperty",
+    "totalClicks": 26,
+    "totalImpressions": 4540,
+    "visibleClickCoveragePct": 7.69,
+    "visibleImpressionCoveragePct": 68.04,
+    "residualAnonymousOrSuppressedClicks": 24,
+    "residualAnonymousOrSuppressedImpressions": 1451
+  },
+  "queryOnlyAnalysisAggregates": {
+    "aggregationType": "byProperty",
+    "brandBuckets": {
+      "owned-brand": {
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 38.75
+      },
+      "partner-brand": {
+        "clicks": 0,
+        "impressions": 56,
+        "ctr": 0,
+        "position": 15.75
+      },
+      "visible-known-non-brand": {
+        "clicks": 2,
+        "impressions": 3025,
+        "ctr": 0.000661,
+        "position": 35.13
+      }
+    },
+    "intentBuckets": {
+      "other": {
+        "clicks": 0,
+        "impressions": 814,
+        "ctr": 0,
+        "position": 30.99
+      },
+      "property-survey": {
+        "clicks": 0,
+        "impressions": 55,
+        "ctr": 0,
+        "position": 19.89
+      },
+      "title-company-informational-or-ambiguous": {
+        "clicks": 0,
+        "impressions": 95,
+        "ctr": 0,
+        "position": 35.14
+      },
+      "title-company-local-commercial": {
+        "clicks": 2,
+        "impressions": 982,
+        "ctr": 0.002037,
+        "position": 17.55
+      },
+      "title-insurance-pricing": {
+        "clicks": 0,
+        "impressions": 1143,
+        "ctr": 0,
+        "position": 52.99
+      }
+    },
+    "queryGeographicModifierBuckets": {
+      "core-dmv-query-modifier": {
+        "clicks": 2,
+        "impressions": 1256,
+        "ctr": 0.001592,
+        "position": 20.5
+      },
+      "extended-dc-md-va-query-modifier": {
+        "clicks": 0,
+        "impressions": 1163,
+        "ctr": 0,
+        "position": 47.56
+      },
+      "outside-dc-md-va-query-modifier": {
+        "clicks": 0,
+        "impressions": 164,
+        "ctr": 0,
+        "position": 60.74
+      },
+      "unrecognized-or-no-geographic-modifier": {
+        "clicks": 0,
+        "impressions": 506,
+        "ctr": 0,
+        "position": 32.5
+      }
+    },
+    "intentByGeographicModifier": {
+      "other::core-dmv-query-modifier": {
+        "clicks": 0,
+        "impressions": 207,
+        "ctr": 0,
+        "position": 18.14
+      },
+      "other::extended-dc-md-va-query-modifier": {
+        "clicks": 0,
+        "impressions": 301,
+        "ctr": 0,
+        "position": 39.12
+      },
+      "other::unrecognized-or-no-geographic-modifier": {
+        "clicks": 0,
+        "impressions": 306,
+        "ctr": 0,
+        "position": 31.7
+      },
+      "property-survey::core-dmv-query-modifier": {
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 34
+      },
+      "property-survey::unrecognized-or-no-geographic-modifier": {
+        "clicks": 0,
+        "impressions": 48,
+        "ctr": 0,
+        "position": 17.84
+      },
+      "title-company-informational-or-ambiguous::unrecognized-or-no-geographic-modifier": {
+        "clicks": 0,
+        "impressions": 95,
+        "ctr": 0,
+        "position": 35.14
+      },
+      "title-company-local-commercial::core-dmv-query-modifier": {
+        "clicks": 2,
+        "impressions": 834,
+        "ctr": 0.002398,
+        "position": 15.21
+      },
+      "title-company-local-commercial::extended-dc-md-va-query-modifier": {
+        "clicks": 0,
+        "impressions": 123,
+        "ctr": 0,
+        "position": 29.95
+      },
+      "title-company-local-commercial::unrecognized-or-no-geographic-modifier": {
+        "clicks": 0,
+        "impressions": 25,
+        "ctr": 0,
+        "position": 34.64
+      },
+      "title-insurance-pricing::core-dmv-query-modifier": {
+        "clicks": 0,
+        "impressions": 208,
+        "ctr": 0,
+        "position": 43.6
+      },
+      "title-insurance-pricing::extended-dc-md-va-query-modifier": {
+        "clicks": 0,
+        "impressions": 739,
+        "ctr": 0,
+        "position": 53.93
+      },
+      "title-insurance-pricing::outside-dc-md-va-query-modifier": {
+        "clicks": 0,
+        "impressions": 164,
+        "ctr": 0,
+        "position": 60.74
+      },
+      "title-insurance-pricing::unrecognized-or-no-geographic-modifier": {
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 52.69
+      }
+    },
+    "frozenClusters": {
+      "property-survey": {
+        "clicks": 0,
+        "impressions": 53,
+        "ctr": 0,
+        "position": 20.12
+      },
+      "seller-proceeds": {
+        "clicks": 0,
+        "impressions": 36,
+        "ctr": 0,
+        "position": 71.58
+      },
+      "title-fees": {
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 18.2
+      },
+      "unclassified": {
+        "clicks": 2,
+        "impressions": 2980,
+        "ctr": 0.000671,
+        "position": 34.72
+      }
+    },
+    "positionBands": {
+      "1-3": {
+        "clicks": 0,
+        "impressions": 103,
+        "ctr": 0,
+        "position": 2.01
+      },
+      "11-20": {
+        "clicks": 2,
+        "impressions": 288,
+        "ctr": 0.006944,
+        "position": 15.19
+      },
+      "21-40": {
+        "clicks": 0,
+        "impressions": 891,
+        "ctr": 0,
+        "position": 29.45
+      },
+      "4-10": {
+        "clicks": 0,
+        "impressions": 471,
+        "ctr": 0,
+        "position": 6.6
+      },
+      "41+": {
+        "clicks": 0,
+        "impressions": 1336,
+        "ctr": 0,
+        "position": 55.05
+      }
+    }
+  },
+  "pageLevelRoutingTotals": {
+    "aggregationType": "byPage",
+    "exactPageMetric": {
+      "clicks": 26,
+      "impressions": 5076,
+      "ctr": 0.005122,
+      "position": 30.22
+    },
+    "exactQueryPageMetric": {
+      "clicks": 2,
+      "impressions": 3544,
+      "ctr": 0.000564,
+      "position": 38.16
+    },
+    "normalizedPathByFrozenCluster": {
+      "/::unclassified": {
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0,
+        "position": 11.81
+      },
+      "/about-will-rapuano::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      "/auction-property-title-search::unclassified": {
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 19.75
+      },
+      "/blog::unclassified": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 13.33
+      },
+      "/blog/alta-homeowner-policy::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12.5
+      },
+      "/blog/dc-first-time-homebuyer-tax-exemption::unclassified": {
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0,
+        "position": 17.86
+      },
+      "/blog/difference-between-lenders-and-owners-title-insurance::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 91
+      },
+      "/blog/enhanced-title-insurance-vs-standard::unclassified": {
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 71.25
+      },
+      "/blog/enhanced-vs-standard-title-insurance::title-fees": {
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 10.25
+      },
+      "/blog/enhanced-vs-standard-title-insurance::unclassified": {
+        "clicks": 0,
+        "impressions": 120,
+        "ctr": 0,
+        "position": 32.08
+      },
+      "/blog/firpta-explained-dmv::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 96
+      },
+      "/blog/how-much-does-title-insurance-cost::unclassified": {
+        "clicks": 0,
+        "impressions": 267,
+        "ctr": 0,
+        "position": 77.29
+      },
+      "/blog/how-to-compare-title-quotes::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      "/blog/nova-real-estate-market-q1-2026::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 93
+      },
+      "/blog/refinance-title-insurance::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 58.5
+      },
+      "/blog/settlement-company-virginia::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 81
+      },
+      "/blog/settlement-services-arlington-va::unclassified": {
+        "clicks": 0,
+        "impressions": 45,
+        "ctr": 0,
+        "position": 37.51
+      },
+      "/blog/standard-vs-extended-title-insurance::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 57.5
+      },
+      "/blog/title-companies-in-northern-virginia::unclassified": {
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 15.43
+      },
+      "/blog/title-company-maryland::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 77
+      },
+      "/blog/title-company-montgomery-county-md::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      "/blog/title-company-northern-virginia::unclassified": {
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 26.36
+      },
+      "/blog/title-company-woodbridge-va::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 14
+      },
+      "/blog/title-insurance-cost-dc::unclassified": {
+        "clicks": 0,
+        "impressions": 75,
+        "ctr": 0,
+        "position": 11.49
+      },
+      "/blog/title-insurance-cost-maryland::unclassified": {
+        "clicks": 0,
+        "impressions": 159,
+        "ctr": 0,
+        "position": 22.02
+      },
+      "/blog/title-insurance-cost-virginia-maryland::title-fees": {
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 16.43
+      },
+      "/blog/title-insurance-cost-virginia-maryland::unclassified": {
+        "clicks": 0,
+        "impressions": 667,
+        "ctr": 0,
+        "position": 52.2
+      },
+      "/blog/title-insurance-requirements-dc-md-va::unclassified": {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 18.6
+      },
+      "/blog/types-of-property-surveys-dc-md-va::property-survey": {
+        "clicks": 0,
+        "impressions": 53,
+        "ctr": 0,
+        "position": 20.12
+      },
+      "/blog/types-of-property-surveys-dc-md-va::unclassified": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 29.67
+      },
+      "/blog/virginia-real-estate-contract::unclassified": {
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 23.25
+      },
+      "/blog/what-is-a-title-settlement-fee::title-fees": {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 23.11
+      },
+      "/blog/what-is-a-title-settlement-fee::unclassified": {
+        "clicks": 0,
+        "impressions": 28,
+        "ctr": 0,
+        "position": 38.43
+      },
+      "/blog/what-is-enhanced-title-insurance::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 92.5
+      },
+      "/blog/who-chooses-the-title-company-in-virginia::unclassified": {
+        "clicks": 0,
+        "impressions": 128,
+        "ctr": 0,
+        "position": 23.55
+      },
+      "/blog/who-chooses-title-company-maryland::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 19
+      },
+      "/calculators/flip::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 55
+      },
+      "/calculators/home-equity::unclassified": {
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 73.33
+      },
+      "/calculators/seller-net-sheet::seller-proceeds": {
+        "clicks": 0,
+        "impressions": 35,
+        "ctr": 0,
+        "position": 72.77
+      },
+      "/calculators/seller-net-sheet::unclassified": {
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 69.87
+      },
+      "/calculators/title-quote::unclassified": {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 52.44
+      },
+      "/closing-costs/buyer-maryland::unclassified": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 61.33
+      },
+      "/closing-costs/maryland::unclassified": {
+        "clicks": 0,
+        "impressions": 75,
+        "ctr": 0,
+        "position": 75.76
+      },
+      "/contact::unclassified": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 31
+      },
+      "/foreclosure-title-review::unclassified": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7
+      },
+      "/maryland-closing-cost-calculator::seller-proceeds": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 30
+      },
+      "/maryland-closing-cost-calculator::unclassified": {
+        "clicks": 0,
+        "impressions": 263,
+        "ctr": 0,
+        "position": 55.23
+      },
+      "/my-classes::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 38
+      },
+      "/subscribe::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      "/title-company-alexandria-va::unclassified": {
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 44.2
+      },
+      "/title-company-annandale-va::unclassified": {
+        "clicks": 0,
+        "impressions": 42,
+        "ctr": 0,
+        "position": 38.95
+      },
+      "/title-company-arlington-va::unclassified": {
+        "clicks": 0,
+        "impressions": 48,
+        "ctr": 0,
+        "position": 36.43
+      },
+      "/title-company-ballston-va::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 40
+      },
+      "/title-company-bethesda-md::unclassified": {
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 11.06
+      },
+      "/title-company-bowie-md::unclassified": {
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 9.85
+      },
+      "/title-company-bristow-va::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 52.5
+      },
+      "/title-company-burke-va::unclassified": {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 62
+      },
+      "/title-company-carlyle-alexandria-va::unclassified": {
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 53.5
+      },
+      "/title-company-centreville-va::unclassified": {
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 19.5
+      },
+      "/title-company-chantilly-va::unclassified": {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 31.11
+      },
+      "/title-company-college-park-md::unclassified": {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 31.44
+      },
+      "/title-company-courthouse-va::unclassified": {
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 74.83
+      },
+      "/title-company-crystal-city-va::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 53
+      },
+      "/title-company-fairfax-county-va::unclassified": {
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 56
+      },
+      "/title-company-falls-church-va::unclassified": {
+        "clicks": 0,
+        "impressions": 56,
+        "ctr": 0,
+        "position": 7.82
+      },
+      "/title-company-for-builders::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 38
+      },
+      "/title-company-for-credit-unions::unclassified": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 42.33
+      },
+      "/title-company-for-lenders::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 62.5
+      },
+      "/title-company-for-realtors::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 21
+      },
+      "/title-company-fredericksburg-va::unclassified": {
+        "clicks": 0,
+        "impressions": 61,
+        "ctr": 0,
+        "position": 33.83
+      },
+      "/title-company-gainesville-va::unclassified": {
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 38.83
+      },
+      "/title-company-gaithersburg-md::unclassified": {
+        "clicks": 0,
+        "impressions": 60,
+        "ctr": 0,
+        "position": 37.52
+      },
+      "/title-company-germantown-md::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      "/title-company-great-falls-va::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 79
+      },
+      "/title-company-herndon-va::unclassified": {
+        "clicks": 0,
+        "impressions": 112,
+        "ctr": 0,
+        "position": 14.64
+      },
+      "/title-company-hyattsville-md::unclassified": {
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 30.87
+      },
+      "/title-company-laurel-md::unclassified": {
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 46.91
+      },
+      "/title-company-leesburg-va::unclassified": {
+        "clicks": 0,
+        "impressions": 53,
+        "ctr": 0,
+        "position": 28.77
+      },
+      "/title-company-manassas-park-va::unclassified": {
+        "clicks": 0,
+        "impressions": 42,
+        "ctr": 0,
+        "position": 29.62
+      },
+      "/title-company-manassas-va::unclassified": {
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 17.2
+      },
+      "/title-company-mclean-va::unclassified": {
+        "clicks": 0,
+        "impressions": 82,
+        "ctr": 0,
+        "position": 23.66
+      },
+      "/title-company-old-town-alexandria-va::unclassified": {
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 0.333333,
+        "position": 40.33
+      },
+      "/title-company-pentagon-city-va::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 19
+      },
+      "/title-company-potomac-md::unclassified": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 40.67
+      },
+      "/title-company-prince-georges-county-md::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      "/title-company-purcellville-va::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 15
+      },
+      "/title-company-reston-va::unclassified": {
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 42.91
+      },
+      "/title-company-rockville-md::unclassified": {
+        "clicks": 0,
+        "impressions": 41,
+        "ctr": 0,
+        "position": 46.03
+      },
+      "/title-company-rosslyn-va::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 77
+      },
+      "/title-company-shirlington-va::unclassified": {
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 18.42
+      },
+      "/title-company-silver-spring-md::unclassified": {
+        "clicks": 0,
+        "impressions": 188,
+        "ctr": 0,
+        "position": 15.11
+      },
+      "/title-company-south-riding-va::unclassified": {
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0,
+        "position": 44
+      },
+      "/title-company-spotsylvania-va::unclassified": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 49
+      },
+      "/title-company-springfield-va::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      "/title-company-stafford-va::unclassified": {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 14.34
+      },
+      "/title-company-sterling-va::unclassified": {
+        "clicks": 0,
+        "impressions": 18,
+        "ctr": 0,
+        "position": 76.5
+      },
+      "/title-company-tysons-va::unclassified": {
+        "clicks": 0,
+        "impressions": 80,
+        "ctr": 0,
+        "position": 7.89
+      },
+      "/title-company-upper-marlboro-md::unclassified": {
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 70.54
+      },
+      "/title-company-virginia-square-va::unclassified": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      "/title-company-washington-dc::unclassified": {
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 57
+      },
+      "/title-company-woodbridge-va::unclassified": {
+        "clicks": 0,
+        "impressions": 23,
+        "ctr": 0,
+        "position": 17.96
+      },
+      "/title-insurance-cost-by-state::unclassified": {
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 35.08
+      },
+      "/title-insurance::unclassified": {
+        "clicks": 0,
+        "impressions": 34,
+        "ctr": 0,
+        "position": 86.88
+      },
+      "/title-search-fairfax-va::unclassified": {
+        "clicks": 0,
+        "impressions": 56,
+        "ctr": 0,
+        "position": 16.29
+      },
+      "/title-search-vienna-va::unclassified": {
+        "clicks": 0,
+        "impressions": 70,
+        "ctr": 0,
+        "position": 9.7
+      },
+      "/why-choose-us::unclassified": {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 22.4
+      }
+    },
+    "coverageComparisonToPropertyProhibited": true
+  },
+  "pathIntentDocket": [
+    {
+      "status": "PROTECT_NO_CHANGE",
+      "normalizedPath": "/title-company-bethesda-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0,
+      "position": 9.49,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "First-page core-DMV commercial signal; preserve as a control.",
+      "rank": 1
+    },
+    {
+      "status": "PROTECT_NO_CHANGE",
+      "normalizedPath": "/title-company-bowie-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 9.79,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "First-page core-DMV commercial signal; preserve as a control.",
+      "rank": 2
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T1",
+      "normalizedPath": "/blog/types-of-property-surveys-dc-md-va",
+      "intent": "property-survey",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 48,
+      "ctr": 0,
+      "position": 17.84,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Strong page-one/page-two signal queued for the September 30 gate; no edit authorized.",
+      "rank": 3
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T1",
+      "normalizedPath": "/title-company-gaithersburg-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 12.5,
+      "activeDates": 5,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Strong page-one/page-two signal queued for the September 30 gate; no edit authorized.",
+      "rank": 4
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T1",
+      "normalizedPath": "/title-company-chantilly-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 16.57,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Strong page-one/page-two signal queued for the September 30 gate; no edit authorized.",
+      "rank": 5
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T2",
+      "normalizedPath": "/title-company-mclean-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 79,
+      "ctr": 0,
+      "position": 22.67,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Secondary relevant signal queued behind tier-one candidates; no edit authorized.",
+      "rank": 6
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T2",
+      "normalizedPath": "/title-company-arlington-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0,
+      "position": 37.16,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Secondary relevant signal queued behind tier-one candidates; no edit authorized.",
+      "rank": 7
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T2",
+      "normalizedPath": "/blog/who-chooses-the-title-company-in-virginia",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 22.41,
+      "activeDates": 5,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Secondary relevant signal queued behind tier-one candidates; no edit authorized.",
+      "rank": 8
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T2",
+      "normalizedPath": "/blog/title-company-northern-virginia",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 24.21,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Secondary relevant signal queued behind tier-one candidates; no edit authorized.",
+      "rank": 9
+    },
+    {
+      "status": "POST_GATE_CANDIDATE_T2",
+      "normalizedPath": "/title-company-college-park-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 32,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Secondary relevant signal queued behind tier-one candidates; no edit authorized.",
+      "rank": 10
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/blog/title-insurance-cost-maryland",
+      "intent": "title-insurance-pricing",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 156,
+      "ctr": 0,
+      "position": 21.35,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 11
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-silver-spring-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 143,
+      "ctr": 0,
+      "position": 9.85,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 0.9301,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 12
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-herndon-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 78,
+      "ctr": 0,
+      "position": 13.41,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0.7436,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 13
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/blog/title-insurance-cost-dc",
+      "intent": "title-insurance-pricing",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 75,
+      "ctr": 0,
+      "position": 11.49,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 14
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-tysons-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 56,
+      "ctr": 0,
+      "position": 7.57,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 0.9464,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 15
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-falls-church-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 53,
+      "ctr": 0,
+      "position": 6.15,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 0.9434,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 16
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-search-vienna-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 52,
+      "ctr": 0,
+      "position": 10.5,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 17
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-leesburg-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 27.82,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 0.9592,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 18
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-manassas-park-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 30.28,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 19
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-search-fairfax-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 14.11,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 0.8108,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 20
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-reston-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 39.61,
+      "activeDates": 5,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 21
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-manassas-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 17.2,
+      "activeDates": 2,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 22
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/blog/settlement-services-arlington-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 18.79,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0.5714,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 23
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/blog/who-chooses-the-title-company-in-virginia",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 25.5,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 24
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-shirlington-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 20.89,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 25
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-centreville-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 9.14,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 26
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/blog/title-companies-in-northern-virginia",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 15.43,
+      "activeDates": 5,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 27
+    },
+    {
+      "status": "WATCH_ROUTING",
+      "normalizedPath": "/title-company-woodbridge-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 23,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0.5,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Landing-page fit, redirect mapping, or query routing is unresolved; no edit authorized.",
+      "rank": 28
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-cost-virginia-maryland",
+      "intent": "title-insurance-pricing",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 309,
+      "ctr": 0,
+      "position": 45.71,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 29
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/how-much-does-title-insurance-cost",
+      "intent": "title-insurance-pricing",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 155,
+      "ctr": 0,
+      "position": 84.75,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 30
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/maryland-closing-cost-calculator",
+      "intent": "title-insurance-pricing",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 126,
+      "ctr": 0,
+      "position": 75.24,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 31
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/maryland-closing-cost-calculator",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 124,
+      "ctr": 0,
+      "position": 37.48,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 32
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-cost-virginia-maryland",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 123,
+      "ctr": 0,
+      "position": 56.06,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 33
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/enhanced-vs-standard-title-insurance",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 116,
+      "ctr": 0,
+      "position": 32.64,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 34
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-cost-virginia-maryland",
+      "intent": "title-insurance-pricing",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 76,
+      "ctr": 0,
+      "position": 68.28,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 35
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/how-much-does-title-insurance-cost",
+      "intent": "title-insurance-pricing",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 64,
+      "ctr": 0,
+      "position": 57.47,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 36
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-fredericksburg-va",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 55,
+      "ctr": 0,
+      "position": 32.58,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 0.8727,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 37
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/who-chooses-the-title-company-in-virginia",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 46,
+      "ctr": 0,
+      "position": 18.35,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 38
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/who-chooses-the-title-company-in-virginia",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 25.84,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 39
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/closing-costs/maryland",
+      "intent": "title-insurance-pricing",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 84.58,
+      "activeDates": 4,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 40
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-rockville-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 45.28,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0.6923,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 41
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/calculators/seller-net-sheet",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 70.53,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 42
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/what-is-a-title-settlement-fee",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 34.7,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 43
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gaithersburg-md",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0,
+      "position": 43.85,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 44
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-insurance",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 88.48,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 45
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-herndon-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0,
+      "position": 16.68,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 46
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/closing-costs/maryland",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 65,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 47
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-annandale-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 42.79,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0.6897,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 48
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-cost-virginia-maryland",
+      "intent": "title-insurance-pricing",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 58.75,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 49
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 7.62,
+      "activeDates": 5,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 50
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-silver-spring-md",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 32.8,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 51
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-tysons-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 5.89,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 52
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-search-fairfax-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 12.41,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 53
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-sterling-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 76.12,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 54
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-cost-virginia-maryland",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 36.94,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 55
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-silver-spring-md",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 41.56,
+      "activeDates": 3,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 56
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-company-northern-virginia",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 29.67,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 57
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/dc-first-time-homebuyer-tax-exemption",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 17.86,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 58
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/maryland-closing-cost-calculator",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 30.64,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 59
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/settlement-services-arlington-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 33.64,
+      "activeDates": 3,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 60
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gaithersburg-md",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 34.07,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 61
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-search-vienna-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 7.17,
+      "activeDates": 5,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 62
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-south-riding-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 44,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 63
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-washington-dc",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 56,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0.4545,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 64
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/settlement-services-arlington-va",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 68.36,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 65
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-annandale-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 22.6,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 66
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-upper-marlboro-md",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 67.1,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 67
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-laurel-md",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 36.89,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 68
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-silver-spring-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 12.63,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 69
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-woodbridge-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 19.87,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 70
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/calculators/title-quote",
+      "intent": "title-insurance-pricing",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 57.5,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 71
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-woodbridge-va",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 5.43,
+      "activeDates": 7,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 72
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-stafford-va",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 5.86,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 73
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-hyattsville-md",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 24.71,
+      "activeDates": 6,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 74
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/types-of-property-surveys-dc-md-va",
+      "intent": "property-survey",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 34,
+      "activeDates": 6,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 75
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-search-vienna-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.83,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 76
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-cost-virginia-maryland",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 14.5,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 77
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-insurance-cost-by-state",
+      "intent": "title-insurance-pricing",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 27.5,
+      "activeDates": 3,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 78
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/settlement-services-arlington-va",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 33.66,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 79
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-fairfax-county-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 56,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 80
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-requirements-dc-md-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 18.6,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 81
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/why-choose-us",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 22.4,
+      "activeDates": 5,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 82
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/calculators/seller-net-sheet",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 85.2,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 83
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-tysons-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8.5,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 84
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/who-chooses-the-title-company-in-virginia",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 9.5,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 85
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/enhanced-vs-standard-title-insurance",
+      "intent": "title-insurance-pricing",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10.25,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 86
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/enhanced-vs-standard-title-insurance",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 15.75,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 87
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/auction-property-title-search",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 19.75,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 88
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-fredericksburg-va",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 49,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 89
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/who-chooses-the-title-company-in-virginia",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 70.75,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 90
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/enhanced-title-insurance-vs-standard",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 71.25,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 91
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/calculators/home-equity",
+      "intent": "title-insurance-pricing",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 76.75,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 92
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-courthouse-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 84,
+      "activeDates": 4,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 93
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/foreclosure-title-review",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 94
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-shirlington-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 11,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 95
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 13.33,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 96
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-herndon-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 25.67,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 97
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-arlington-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 27.67,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 98
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/virginia-real-estate-contract",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 29.67,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 99
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gainesville-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 40,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 100
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-for-credit-unions",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 42.33,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 101
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-carlyle-alexandria-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 44.67,
+      "activeDates": 3,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 102
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-insurance-cost-maryland",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 57,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 103
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/closing-costs/buyer-maryland",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 61.33,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 104
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-burke-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 71,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 105
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/contact",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 106
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-prince-georges-county-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 107
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gaithersburg-md",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 108
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/alta-homeowner-policy",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 109
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-company-woodbridge-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 110
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-alexandria-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 16.5,
+      "activeDates": 2,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 111
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-company-northern-virginia",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 17.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 112
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-potomac-md",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 17.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 113
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/who-chooses-title-company-maryland",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 19,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 114
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-company-northern-virginia",
+      "intent": "title-company-local-commercial",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 25.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 115
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-leesburg-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 29,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 116
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-bethesda-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 35.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 117
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-fredericksburg-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 38,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 118
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-ballston-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 40,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 119
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/closing-costs/maryland",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 47.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 120
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-spotsylvania-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 49,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 121
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-alexandria-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 50,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 122
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-old-town-alexandria-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 51.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 123
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-leesburg-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 52,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 124
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-bristow-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 52.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 125
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-crystal-city-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 53,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 126
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/standard-vs-extended-title-insurance",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 57.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 127
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/refinance-title-insurance",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 58.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 128
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-rockville-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 60.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 129
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 62,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 130
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-for-lenders",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 62.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 131
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/calculators/home-equity",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 66.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 132
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-mclean-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 69,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 133
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-annandale-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 78.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 134
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gaithersburg-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 79.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 135
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-upper-marlboro-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 81,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 136
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-reston-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 81.5,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 137
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-chantilly-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 82,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 138
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-laurel-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 92,
+      "activeDates": 2,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 139
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/what-is-enhanced-title-insurance",
+      "intent": "other",
+      "geography": "extended-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 92.5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 140
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/about-will-rapuano",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 141
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/virginia-real-estate-contract",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 142
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gainesville-va",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 143
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-virginia-square-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 144
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-woodbridge-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 145
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/subscribe",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 146
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-south-riding-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 147
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/how-to-compare-title-quotes",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 148
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-germantown-md",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 149
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-stafford-va",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 150
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-silver-spring-md",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 151
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-bowie-md",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 152
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-college-park-md",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 153
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-mclean-va",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 154
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/calculators/title-quote",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 155
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-annandale-va",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 156
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-burke-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 157
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-purcellville-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 158
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-falls-church-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 159
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-old-town-alexandria-va",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 18,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 160
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-manassas-park-va",
+      "intent": "title-company-local-commercial",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 19,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 161
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-pentagon-city-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 19,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 162
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-for-realtors",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 21,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 163
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-manassas-park-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 21,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 164
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-manassas-park-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 23,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 165
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-company-montgomery-county-md",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 166
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-springfield-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 167
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-reston-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 168
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-falls-church-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 169
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-for-builders",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 170
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-arlington-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 171
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-insurance",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 172
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gainesville-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 173
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/my-classes",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 38,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 174
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-for-builders",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 175
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-college-park-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 48,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 176
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-courthouse-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 52,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 177
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/calculators/flip",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 178
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/types-of-property-surveys-dc-md-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 61,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "GREEN",
+      "technicalReasons": [],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 179
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-courthouse-va",
+      "intent": "other",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 61,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 180
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-tysons-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 61,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 181
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-falls-church-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 66,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 182
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-washington-dc",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 68,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 183
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-great-falls-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 184
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-woodbridge-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 185
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-gainesville-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 186
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-hyattsville-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 74,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 187
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-reston-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 75,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 188
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/title-company-maryland",
+      "intent": "title-company-local-commercial",
+      "geography": "core-dmv-query-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 189
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-rosslyn-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 190
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-stafford-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 191
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-carlyle-alexandria-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 192
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/settlement-company-virginia",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 81,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 193
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-south-riding-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 81,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 194
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/contact",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 82,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 195
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-sterling-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 196
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-upper-marlboro-md",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 84,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 197
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-burke-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 85,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 198
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-search-fairfax-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 86,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 199
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-great-falls-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 200
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-potomac-md",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 201
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-alexandria-va",
+      "intent": "title-company-informational-or-ambiguous",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88,
+      "activeDates": 1,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 202
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/difference-between-lenders-and-owners-title-insurance",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 203
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-company-centreville-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 92,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 204
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/nova-real-estate-market-q1-2026",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 93,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 205
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/title-search-fairfax-va",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 93,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 206
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "normalizedPath": "/blog/firpta-explained-dmv",
+      "intent": "other",
+      "geography": "unrecognized-or-no-geographic-modifier",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 96,
+      "activeDates": 1,
+      "fit": "UNRESOLVED",
+      "fitShare": 0,
+      "routingConflict": false,
+      "technicalState": "HOLD_TECHNICAL",
+      "technicalReasons": [
+        "verdict:NEUTRAL"
+      ],
+      "reasonHeld": "The finalized window does not meet the frozen descriptive signal thresholds.",
+      "rank": 207
+    },
+    {
+      "status": "EXCLUDE_OUTSIDE_SCOPE",
+      "normalizedPath": "/blog/title-insurance-cost-virginia-maryland",
+      "intent": "title-insurance-pricing",
+      "geography": "outside-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 116,
+      "ctr": 0,
+      "position": 55.14,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Query wording identifies demand outside DC, Maryland, and Virginia prioritization.",
+      "rank": 208
+    },
+    {
+      "status": "EXCLUDE_OUTSIDE_SCOPE",
+      "normalizedPath": "/blog/how-much-does-title-insurance-cost",
+      "intent": "title-insurance-pricing",
+      "geography": "outside-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 48,
+      "ctr": 0,
+      "position": 79.63,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Query wording identifies demand outside DC, Maryland, and Virginia prioritization.",
+      "rank": 209
+    },
+    {
+      "status": "EXCLUDE_OUTSIDE_SCOPE",
+      "normalizedPath": "/title-insurance-cost-by-state",
+      "intent": "title-insurance-pricing",
+      "geography": "outside-dc-md-va-query-modifier",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 41.57,
+      "activeDates": 7,
+      "fit": "CONFIRMED",
+      "fitShare": 1,
+      "routingConflict": true,
+      "technicalState": "UNKNOWN",
+      "technicalReasons": [
+        "not-inspected"
+      ],
+      "reasonHeld": "Query wording identifies demand outside DC, Maryland, and Virginia prioritization.",
+      "rank": 210
+    }
+  ],
+  "routingWatchCount": 17,
+  "redirectSourceWatchCount": 3,
+  "indexedUrlDiagnosticClassCounts": {
+    "legacy-scheme-or-www-origin": {
+      "clicks": 1,
+      "impressions": 122,
+      "ctr": 0.008197,
+      "position": 3.3
+    }
+  },
+  "counts": {
+    "visibleQueryRows": 348,
+    "exactPageRows": 160,
+    "exactQueryPageCells": 578,
+    "routingWatches": 17,
+    "redirectSourceWatches": 3,
+    "indexedUrlDiagnostics": 1,
+    "pathsOnDocket": 100,
+    "rowsAtReportingFloor": 124
+  },
+  "sitemaps": [
+    {
+      "url": {
+        "publicUrl": "https://dmvtitleguy.io/sitemap.xml",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "7dfc3d2fd0887d70f00701335dbb66c4f5b7ff8506c80ef126d9c3679a0602e1",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "isPending": false,
+      "isSitemapsIndex": false,
+      "lastSubmitted": "2026-08-26T16:04:41.317Z",
+      "errors": "0",
+      "warnings": "0"
+    }
+  ],
+  "priorityUrlInspection": [
+    {
+      "path": "/calculators/seller-net-sheet",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/calculators/seller-net-sheet",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "574cc2df6dd176653ab08d5b83765ee0eb2ddff131d8e1c240e5b457965323ee",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/calculators/seller-net-sheet",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "574cc2df6dd176653ab08d5b83765ee0eb2ddff131d8e1c240e5b457965323ee",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-08-26T16:10:49Z"
+    },
+    {
+      "path": "/blog/firpta-explained-dmv",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/firpta-explained-dmv",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "9b97e5eb0fd3a67dceec05b26b2894f74bc6994b5af0210ad66e1b4fe59b590d",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/firpta-explained-dmv",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "9b97e5eb0fd3a67dceec05b26b2894f74bc6994b5af0210ad66e1b4fe59b590d",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-23T07:17:31Z"
+    },
+    {
+      "path": "/blog/types-of-property-surveys-dc-md-va",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/types-of-property-surveys-dc-md-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "3882ea0b40c0123ae597f59ff913c1a0074b3686b5e9e5742810ff90506d5e82",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/types-of-property-surveys-dc-md-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "3882ea0b40c0123ae597f59ff913c1a0074b3686b5e9e5742810ff90506d5e82",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-08-26T16:12:31Z"
+    },
+    {
+      "path": "/about-will-rapuano",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/about-will-rapuano",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "c21a52147b099ac82a7e563aee710168e6192e1902623c984f9db116717a83ff",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/about-will-rapuano",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "c21a52147b099ac82a7e563aee710168e6192e1902623c984f9db116717a83ff",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-24T12:27:36Z"
+    },
+    {
+      "path": "/why-choose-us",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/why-choose-us",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "5d430e40a643f88c54fed3ebc015458b651ce8aeb3c50f0bc198c124f8063309",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/why-choose-us",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "5d430e40a643f88c54fed3ebc015458b651ce8aeb3c50f0bc198c124f8063309",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-08-26T16:27:55Z"
+    },
+    {
+      "path": "/title-company-bethesda-md",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-bethesda-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "a4661b3c070c66298ee8970e28d19429f82941e998511b1ef30ddfdaa77cee06",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-bethesda-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "a4661b3c070c66298ee8970e28d19429f82941e998511b1ef30ddfdaa77cee06",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-07T19:13:10Z"
+    },
+    {
+      "path": "/title-company-bowie-md",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-bowie-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "ae03236a60a977551e6501d8b19aa8dc88adce07b11ce05803bcc8fdf9c1bbaf",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-bowie-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "ae03236a60a977551e6501d8b19aa8dc88adce07b11ce05803bcc8fdf9c1bbaf",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-08-30T19:06:05Z"
+    },
+    {
+      "path": "/title-company-gaithersburg-md",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-gaithersburg-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "d0195d997161133358fcb8ae6e7402712b593effdb97745ef69f2070841b0277",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-gaithersburg-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "d0195d997161133358fcb8ae6e7402712b593effdb97745ef69f2070841b0277",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-23T23:49:52Z"
+    },
+    {
+      "path": "/title-company-chantilly-va",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-chantilly-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "678309a0eb1f97ee1932366800ab0c66e5a69aac00769333a51aa0a0226cbede",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-chantilly-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "678309a0eb1f97ee1932366800ab0c66e5a69aac00769333a51aa0a0226cbede",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-08-12T05:05:42Z"
+    },
+    {
+      "path": "/title-company-mclean-va",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-mclean-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "65e313c1225ca8824ab2348519ba25e179b4f10b2b2f9527035dbaf97d3db12a",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-mclean-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "65e313c1225ca8824ab2348519ba25e179b4f10b2b2f9527035dbaf97d3db12a",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-26T23:22:37Z"
+    },
+    {
+      "path": "/title-company-arlington-va",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-arlington-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "123eff6b0243a1c3b9dc3da44fca08d45de4f878b051370b02ad02478c885a67",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-arlington-va",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "123eff6b0243a1c3b9dc3da44fca08d45de4f878b051370b02ad02478c885a67",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-07T14:17:36Z"
+    },
+    {
+      "path": "/blog/who-chooses-the-title-company-in-virginia",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/who-chooses-the-title-company-in-virginia",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "2ad66d811fc4b8f679eb01575bb677ef3dc3df866f5e213c8846569d0059fb55",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/who-chooses-the-title-company-in-virginia",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "2ad66d811fc4b8f679eb01575bb677ef3dc3df866f5e213c8846569d0059fb55",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-23T16:29:10Z"
+    },
+    {
+      "path": "/blog/title-company-northern-virginia",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/title-company-northern-virginia",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "52aef5907536152af573d3236edd0751bbd2fa1ed9c71839c2d34adf90ece0a4",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/blog/title-company-northern-virginia",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "52aef5907536152af573d3236edd0751bbd2fa1ed9c71839c2d34adf90ece0a4",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-04T11:14:28Z"
+    },
+    {
+      "path": "/title-company-college-park-md",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "indexingState": "INDEXING_ALLOWED",
+      "pageFetchState": "SUCCESSFUL",
+      "robotsTxtState": "ALLOWED",
+      "googleCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-college-park-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "8174a4e7f91c94a2e4d3e04c4086fe9c661adc3d15ff55688d845c1778f1a01c",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "userCanonical": {
+        "publicUrl": "https://dmvtitleguy.io/title-company-college-park-md",
+        "urlClass": "canonical-origin-clean-url",
+        "fingerprint": "8174a4e7f91c94a2e4d3e04c4086fe9c661adc3d15ff55688d845c1778f1a01c",
+        "hasQuery": false,
+        "hasFragment": false
+      },
+      "lastCrawlTime": "2026-09-20T04:19:39Z"
+    }
+  ],
+  "privateArtifacts": {
+    "raw-search-analytics.json": {
+      "sha256": "4a6d8217f52d7eab12364b106b87b42118b24cf7f3d180e2e50ebbc159b5045a",
+      "bytes": 919476
+    },
+    "sitemaps.json": {
+      "sha256": "a90ee88fa60d07a9bb47eb1b3aebd715fb322c2325d87c11998e75fa40363d13",
+      "bytes": 445
+    },
+    "url-inspection.json": {
+      "sha256": "e23549b2e00679a98da10b16c6432e024ccec1bf0271fd3828f6f03d4bc1fe03",
+      "bytes": 19918
+    },
+    "checkpoint-inventory.json": {
+      "sha256": "4a5fa2c5c5ac1c255c84f004e3d8d6e1ebc1e0332ee9c78e375c9d00d28a0931",
+      "bytes": 912640
+    },
+    "summary.md": {
+      "sha256": "494603a533f26e51a9000a0a53a24b560e9b6b0f0964060a38390225bb03abe3",
+      "bytes": 53188
+    }
+  }
+}
