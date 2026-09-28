@@ -74,20 +74,20 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.127.0",
+    "@anthropic-ai/sdk": "^0.128.0",
     "@libsql/client": "^0.18.0",
     "@portabletext/react": "^8.0.1",
     "@prisma/adapter-libsql": "^7.10.0",
     "@prisma/client": "^7.10.0",
-    "@sanity/client": "^8.6.2",
+    "@sanity/client": "^8.7.0",
     "@sanity/image-url": "^2.0.3",
-    "@sanity/vision": "6.15.0",
+    "@sanity/vision": "6.16.0",
     "@vercel/blob": "^2.8.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "dotenv": "^18.0.1",
-    "lucide-react": "^1.47.0",
-    "next": "16.3.5",
+    "dotenv": "^18.0.3",
+    "lucide-react": "^1.48.0",
+    "next": "16.3.6",
     "next-sanity": "^13.3.4",
     "pdf-parse": "^2.4.5",
     "prisma": "^7.10.0",
@@ -96,8 +96,8 @@
     "react-dropzone": "^20.1.2",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
-    "resend": "^6.28.1",
-    "sanity": "6.15.0"
+    "resend": "^6.29.0",
+    "sanity": "6.16.0"
   },
   "devDependencies": {
     "@types/node": "^20",
