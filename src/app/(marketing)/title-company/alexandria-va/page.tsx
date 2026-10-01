@@ -8,7 +8,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company Alexandria VA | Settlement & Title Services",
-  description: "Practical Alexandria title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review.",
+  description: "Practical Alexandria title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement.",
   alternates: { canonical: "/title-company/alexandria-va" },
 };
 
@@ -47,7 +47,7 @@ export default function AlexandriaTitlePage() {
         state="VA" 
         county="Alexandria City" 
         slug="title-company/alexandria-va"
-        description="Practical Alexandria title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
+        description="Practical Alexandria title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement."
       />
 
       {/* HERO */}

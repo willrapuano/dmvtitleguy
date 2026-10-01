@@ -6,7 +6,7 @@ import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Investor Title Due Diligence Guide | DMV Title Guy",
-  description: "Educational title due-diligence guidance for DMV investors, with a path to request an independent provider review for an eligible property.",
+  description: "Title due diligence for DMV investors: the Pruitt Title team searches the title and flags liens and judgments. Get a quote from Will Rapuano.",
   alternates: { canonical: "https://dmvtitleguy.io/investor-due-diligence" },
 };
 
@@ -29,8 +29,8 @@ export default function InvestorDueDiligencePage() {
     <>
       <ServiceSchema
         name="Investor Due Diligence Request"
-        description="Educational title due-diligence guidance and a request path for a possible independent provider review."
-        serviceType="Investor Due Diligence Introduction"
+        description="Title search, lien and judgment checks, and ownership-chain review for DMV investors, from Will Rapuano and the Pruitt Title team."
+        serviceType="Investor Title Due Diligence"
       />
       <script
         type="application/ld+json"
