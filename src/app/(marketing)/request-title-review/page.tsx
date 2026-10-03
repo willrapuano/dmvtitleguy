@@ -6,7 +6,7 @@ import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Request a Title Review | DMV Title Guy",
-  description: "Send a property-title question to Will Rapuano. DMV Title Guy reviews the request and may introduce eligible matters to an independent provider.",
+  description: "Send a property-title question to Will Rapuano. Will confirms the quote and next steps, and the Pruitt Title team does the title work.",
   alternates: { canonical: "https://dmvtitleguy.io/request-title-review" },
   robots: { index: false, follow: true },
 };
@@ -30,7 +30,7 @@ export default function RequestTitleReviewPage() {
     <>
       <ServiceSchema
         name="Request a Title Review"
-        description="Send a property-title question to Will Rapuano for an initial educational review and, when requested and eligible, a possible provider introduction."
+        description="Send a property-title question to Will Rapuano. Will reviews the details, and the Pruitt Title team handles the title search and review."
         serviceType="Title Review"
       />
       <script

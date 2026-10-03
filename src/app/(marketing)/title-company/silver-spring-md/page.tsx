@@ -7,7 +7,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company in Silver Spring, MD | Settlement & Escrow",
-  description: "Practical Silver Spring and Montgomery County title and closing guidance, with a path to request an independent provider review.",
+  description: "Practical Silver Spring and Montgomery County title and closing guidance. Get a quote from Will Rapuano at Pruitt Title.",
   alternates: { canonical: "/title-company-silver-spring-md" },
 };
 

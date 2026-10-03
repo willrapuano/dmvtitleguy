@@ -6,7 +6,7 @@ import { ServiceSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Start Contract Intake | DMV Title Guy",
-  description: "Realtors and investors can send Will basic transaction details and request secure transfer instructions for a possible provider introduction.",
+  description: "Realtors and investors can send Will Rapuano the transaction details. Will and the Pruitt Title team handle the title work and settlement.",
   alternates: { canonical: "https://dmvtitleguy.io/upload-contract" },
   robots: { index: false, follow: true },
 };
@@ -28,8 +28,8 @@ export default function UploadContractPage() {
     <>
       <ServiceSchema
         name="Start Contract Intake"
-        description="Send Will basic transaction details and request a secure transfer path for a possible independent provider review."
-        serviceType="Transaction Introduction Request"
+        description="Send Will Rapuano basic transaction details and get secure instructions for the contract. The Pruitt Title team handles title and settlement."
+        serviceType="Contract Intake"
       />
       <script
         type="application/ld+json"

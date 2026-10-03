@@ -28,7 +28,7 @@ const displayFont = Newsreader({
 
 const defaultTitle = "DMV Title Guy | Title & Closing Services — DC, MD & VA";
 const defaultDescription =
-  "Practical title and closing guidance from Will Rapuano, with eligible transaction requests available for referral to Pruitt Title LLC for independent review.";
+  "Practical title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle title and settlement in Virginia, Maryland, and DC.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

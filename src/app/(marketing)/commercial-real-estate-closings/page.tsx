@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Commercial Closing Guide for DMV Deals | DMV Title Guy",
   description:
-    "Educational commercial-closing guidance for DMV buyers, sellers, lenders, and investors, with an option to request a provider introduction.",
+    "Commercial-closing guidance for DMV buyers, sellers, lenders, and investors. Will Rapuano and the Pruitt Title team handle title and settlement.",
   alternates: {
     canonical: "https://dmvtitleguy.io/commercial-real-estate-closings",
   },
