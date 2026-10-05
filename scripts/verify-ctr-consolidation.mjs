@@ -7,32 +7,32 @@ const isVercelPreview = new URL(targetOrigin).hostname.endsWith(".vercel.app");
 const fixtures = {
   "/title-company-herndon-va": {
     title: "Herndon VA Title Company Guide | DMV Title Guy",
-    description: "Practical Herndon and Fairfax County title and closing guidance. Request a provider introduction for independent review of an eligible transaction.",
+    description: "Practical Herndon and Fairfax County title and closing guidance. Will Rapuano and the Pruitt Title team handle your title and settlement.",
     h1: "Herndon, VA Title Company & Closing Services",
   },
   "/title-company-tysons-va": {
     title: "Tysons VA Title Company Guide | DMV Title Guy",
-    description: "Practical title and closing guidance for Tysons, Tysons Corner, and Fairfax County, plus a path to request an independent provider review.",
+    description: "Practical title and closing guidance for Tysons, Tysons Corner, and Fairfax County. Get a quote from Will Rapuano at Pruitt Title.",
     h1: "Tysons, VA Title Company & Settlement Services",
   },
   "/title-search-vienna-va": {
     title: "Vienna VA Title Search Guide | DMV Title Guy",
-    description: "Learn how Vienna title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
+    description: "Learn how Vienna title searches cover ownership, liens, easements, and other recorded matters, then get a quote from Will Rapuano at Pruitt Title.",
     h1: "Vienna, VA Title Search Services",
   },
   "/title-company-falls-church-va": {
     title: "Falls Church VA Title Company Guide | DMV Title Guy",
-    description: "Practical title and closing guidance for Falls Church City and Fairfax County addresses, plus a path to request a provider introduction.",
+    description: "Practical title and closing guidance for Falls Church City and Fairfax County addresses. Get a quote from Will Rapuano at Pruitt Title.",
     h1: "Title Company Serving Falls Church, VA",
   },
   "/title-company-silver-spring-md": {
     title: "Silver Spring MD Title Company Guide | DMV Title Guy",
-    description: "Practical title and closing guidance for Silver Spring and Montgomery County, plus a path to request a provider introduction.",
+    description: "Practical title and closing guidance for Silver Spring and Montgomery County. Get a quote from Will Rapuano at Pruitt Title.",
     h1: "Title Company Serving Silver Spring, MD",
   },
   "/why-choose-us": {
     title: "How to Choose a DMV Title Provider | DMV Title Guy",
-    description: "Use practical questions to compare title and settlement providers, understand Will Rapuano's role, and request an introduction without creating a service relationship.",
+    description: "Use practical questions to compare title and settlement providers, and see how Will Rapuano and the Pruitt Title team handle your closing.",
     h1: "How to Choose a Title Provider",
   },
   "/blog/what-is-a-title-settlement-fee": {

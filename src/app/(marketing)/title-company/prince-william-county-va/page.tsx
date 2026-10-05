@@ -8,7 +8,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company Prince William County VA | Settlement & Title Services",
-  description: "Practical Prince William County title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review.",
+  description: "Practical Prince William County title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement.",
   alternates: { canonical: "/title-company/prince-william-county-va" },
 };
 
@@ -47,7 +47,7 @@ export default function PrinceWilliamCountyTitlePage() {
         state="VA"
         county="Prince William County"
         slug="title-company/prince-william-county-va"
-        description="Practical Prince William County title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
+        description="Practical Prince William County title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement."
       />
 
       {/* HERO */}

@@ -7,7 +7,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company in Falls Church, VA | Local Settlement Services",
-  description: "Practical Falls Church title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title for independent review.",
+  description: "Practical Falls Church title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement.",
   alternates: { canonical: "/title-company-falls-church-va" },
 };
 
@@ -46,7 +46,7 @@ export default function FallsChurchTitlePage() {
         state="VA" 
         county="Falls Church City" 
         slug="title-company/falls-church-va"
-        description="Practical Falls Church title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
+        description="Practical Falls Church title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement."
       />
 
       {/* HERO */}
