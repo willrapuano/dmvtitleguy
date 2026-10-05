@@ -5,7 +5,7 @@ import { TitleQuotePanel } from "@/components/TitleQuotePanel";
 
 export const metadata: Metadata = {
   title: "Title Company Services for Lenders | DMV Title Guy",
-  description: "DMVTitleGuy provides reliable title services for lenders in Northern Virginia, DC, and Maryland. Fast turnarounds and competitive rates.",
+  description: "Lender's title insurance and closings in VA, MD and DC from Pruitt Title, with Will Rapuano as your one contact and documents in a secure portal.",
   alternates: { canonical: "https://dmvtitleguy.io/title-company-for-lenders" },
 };
 

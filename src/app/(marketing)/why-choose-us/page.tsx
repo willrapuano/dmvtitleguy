@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/site-metadata";
 export const metadata = createPageMetadata({
   title: "How to Choose a DMV Title Provider | DMV Title Guy",
   description:
-    "Use practical questions to compare title and settlement providers, understand Will Rapuano's role, and request an introduction without creating a service relationship.",
+    "Use practical questions to compare title and settlement providers, and see how Will Rapuano and the Pruitt Title team handle your closing.",
   path: "/why-choose-us",
 });
 

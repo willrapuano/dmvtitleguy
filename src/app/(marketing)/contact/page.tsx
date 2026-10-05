@@ -6,7 +6,7 @@ import { BUSINESS_PROFILE } from "@/lib/brand-identity";
 
 export const metadata = createPageMetadata({
   title: "Contact Will Rapuano | DMV Title Guy",
-  description: "Contact Will Rapuano for DMV title education, transaction questions, and a provider introduction in Northern Virginia, DC, and Maryland.",
+  description: "Contact Will Rapuano at Pruitt Title for title questions, quotes, and closings in Northern Virginia, DC, and Maryland.",
   path: "/contact",
 });
 

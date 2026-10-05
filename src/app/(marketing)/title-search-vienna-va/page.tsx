@@ -19,7 +19,7 @@ import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 export const metadata: Metadata = {
   title: "Vienna VA Title Search Guide | DMV Title Guy",
   description:
-    "Learn how Vienna title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
+    "Learn how Vienna title searches cover ownership, liens, easements, and other recorded matters, then get a quote from Will Rapuano at Pruitt Title.",
   alternates: {
     canonical: "https://dmvtitleguy.io/title-search-vienna-va",
   },

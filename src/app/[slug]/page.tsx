@@ -668,19 +668,19 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
         title: "Herndon VA Title Company Guide | DMV Title Guy",
-        description: "Practical Herndon and Fairfax County title and closing guidance. Request a provider introduction for independent review of an eligible transaction.",
+        description: "Practical Herndon and Fairfax County title and closing guidance. Will Rapuano and the Pruitt Title team handle your title and settlement.",
         ogTitle: "Herndon VA Title Company Guide | DMV Title Guy",
         ogDescription: "Educational title and closing guidance for Herndon and Fairfax County transactions.",
       },
       "title-search-vienna-va": {
         title: "Vienna VA Title Search Guide | DMV Title Guy",
-        description: "Learn how Vienna title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
+        description: "Learn how Vienna title searches cover ownership, liens, easements, and other recorded matters, then get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Vienna VA Title Search Guide | DMV Title Guy",
         ogDescription: "Educational guidance on title searches for Vienna properties.",
       },
       "title-company-tysons-va": {
         title: "Tysons VA Title Company Guide | DMV Title Guy",
-        description: "Practical title and closing guidance for Tysons, Tysons Corner, and Fairfax County, plus a path to request an independent provider review.",
+        description: "Practical title and closing guidance for Tysons, Tysons Corner, and Fairfax County. Get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Tysons VA Title Company Guide | DMV Title Guy",
         ogDescription: "Educational title and closing guidance for Tysons and Fairfax County transactions.",
       },
@@ -692,7 +692,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       },
       "title-company-reston-va": {
         title: "Title Company in Reston, VA | Title Insurance & Settlement",
-        description: "Practical Reston and Fairfax County title and closing guidance, with a path to request an independent provider review.",
+        description: "Practical Reston and Fairfax County title and closing guidance. Get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Title Company in Reston, VA | Title Insurance & Settlement",
         ogDescription: "Educational title and closing guidance for Reston and Fairfax County transactions.",
       },
@@ -710,7 +710,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       },
       "title-company-falls-church-va": {
         title: "Falls Church VA Title Company Guide | DMV Title Guy",
-        description: "Practical title and closing guidance for Falls Church City and Fairfax County addresses, plus a path to request a provider introduction.",
+        description: "Practical title and closing guidance for Falls Church City and Fairfax County addresses. Get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Falls Church VA Title Company Guide | DMV Title Guy",
         ogDescription: "Educational title and closing guidance for Falls Church transactions.",
       },
@@ -722,25 +722,25 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       },
       "title-company-woodbridge-va": {
         title: "Woodbridge VA Title Company & Closings | Pruitt Title",
-        description: "Practical Woodbridge and Prince William County title and closing guidance, with a path to request an independent provider review.",
+        description: "Practical Woodbridge and Prince William County title and closing guidance. Get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Woodbridge VA Title Company & Closings | Pruitt Title",
         ogDescription: "Title insurance, escrow, and closing services in Woodbridge and Prince William County.",
       },
       "title-company-fairfax-va": {
         title: "Title Company in Fairfax, VA | Settlement & Title Insurance",
-        description: "Practical Fairfax title-search and closing guidance, with a path to request an independent provider review.",
+        description: "Practical Fairfax title-search and closing guidance. Get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Title Company in Fairfax, VA | Settlement & Title Insurance",
         ogDescription: "Educational title-search and closing guidance for Fairfax City and Fairfax County.",
       },
       "title-company-silver-spring-md": {
         title: "Silver Spring MD Title Company Guide | DMV Title Guy",
-        description: "Practical title and closing guidance for Silver Spring and Montgomery County, plus a path to request a provider introduction.",
+        description: "Practical title and closing guidance for Silver Spring and Montgomery County. Get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Silver Spring MD Title Company Guide | DMV Title Guy",
         ogDescription: "Educational title and closing guidance for Silver Spring transactions.",
       },
       "title-search-fairfax-va": {
         title: "Fairfax VA Title Search Guide | DMV Title Guy",
-        description: "Learn how Fairfax title searches address ownership, liens, easements, restrictions, and other recorded matters before requesting a provider introduction.",
+        description: "Learn how Fairfax title searches cover ownership, liens, easements, and other recorded matters, then get a quote from Will Rapuano at Pruitt Title.",
         ogTitle: "Fairfax VA Title Search Guide | DMV Title Guy",
         ogDescription: "Educational title-search guidance for Fairfax City and Fairfax County.",
       },
@@ -767,14 +767,14 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         alternates: { canonical: `/${params.slug}` },
         openGraph: {
           title: `Title Company in ${locationName} | DMV Title Guy`,
-          description: `Local title and closing education for ${locationName}, with a path to request an independent provider review.`,
+          description: `Local title and closing guidance for ${locationName}. Get a quote from Will Rapuano at Pruitt Title.`,
         },
       };
     }
 
     return {
       title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
-      description: `Practical title and closing guidance for ${locationName}. Eligible service requests may be referred to Pruitt Title for independent review.`,
+      description: `Practical title and closing guidance for ${locationName}. Will Rapuano and the Pruitt Title team handle your title and settlement.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
         title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
@@ -786,7 +786,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const { fullName } = result.data;
   return {
     title: `Title Company in ${fullName} | DMV Title Guy`,
-    description: `Get practical title and closing guidance for ${fullName} from Will Rapuano. Eligible service requests may be referred to Pruitt Title LLC for independent review.`,
+    description: `Get practical title and closing guidance for ${fullName} from Will Rapuano. Will and the Pruitt Title team handle your title and settlement.`,
     alternates: { canonical: `/${params.slug}` },
   };
 }
