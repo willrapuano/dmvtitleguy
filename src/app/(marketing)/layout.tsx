@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import {
   BRAND_SAME_AS,
   PRUITT_TITLE,
-  FROZEN_WEBSITE_SCHEMA_DESCRIPTION,
+  RELATIONSHIP_DISCLOSURE,
   SITE_NAME,
   SITE_URL,
   WILL,
@@ -23,7 +23,7 @@ const IDENTITY_SCHEMA = {
       "@id": `${SITE_URL}/#website`,
       name: SITE_NAME,
       url: SITE_URL,
-      description: FROZEN_WEBSITE_SCHEMA_DESCRIPTION,
+      description: RELATIONSHIP_DISCLOSURE,
       creator: { "@id": `${WILL.url}#person` },
       publisher: { "@id": `${WILL.url}#person` },
       sameAs: BRAND_SAME_AS,

@@ -7,7 +7,7 @@ import { LocationSchema } from "@/components/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: "Title Company Bethesda MD | Settlement & Title Services",
-  description: "Practical Bethesda title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review.",
+  description: "Practical Bethesda title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement.",
   alternates: { canonical: "/title-company-bethesda-md" },
 };
 
@@ -46,7 +46,7 @@ export default function BethesdaTitlePage() {
         state="MD" 
         county="Montgomery County" 
         slug="title-company/bethesda-md"
-        description="Practical Bethesda title and closing guidance from DMV Title Guy. Eligible service requests may be referred to Pruitt Title LLC for independent review."
+        description="Practical Bethesda title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement."
       />
 
       {/* HERO */}

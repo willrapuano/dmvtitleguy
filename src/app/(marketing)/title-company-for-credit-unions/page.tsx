@@ -5,7 +5,7 @@ import { TitleQuotePanel } from "@/components/TitleQuotePanel";
 
 export const metadata: Metadata = {
   title: "Title Company Services for Credit Unions | DMV Title Guy",
-  description: "DMVTitleGuy provides title services for credit unions in Northern Virginia, DC, and Maryland. Understanding of CU processes.",
+  description: "Pruitt Title handles title and settlement for credit union loans in VA, MD and DC, with Will Rapuano as your one contact. Members can estimate costs.",
   alternates: { canonical: "https://dmvtitleguy.io/title-company-for-credit-unions" },
 };
 

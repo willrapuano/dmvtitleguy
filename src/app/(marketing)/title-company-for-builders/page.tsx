@@ -5,7 +5,7 @@ import { TitleQuotePanel } from "@/components/TitleQuotePanel";
 
 export const metadata: Metadata = {
   title: "Title Company Services for Builders | DMV Title Guy",
-  description: "DMVTitleGuy provides fast, reliable title services for builders and developers in Northern Virginia, DC, and Maryland.",
+  description: "Pruitt Title handles new-construction title and settlement in VA, MD and DC, with Will Rapuano as your one contact. Show buyers their costs up front.",
   alternates: { canonical: "https://dmvtitleguy.io/title-company-for-builders" },
 };
 
