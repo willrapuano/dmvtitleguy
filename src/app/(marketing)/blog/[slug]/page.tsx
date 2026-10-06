@@ -7,6 +7,7 @@ import {
   resolvePostImage,
   resolvePostImageAlt,
   resolvePostImageDimensions,
+  showsPostImage,
 } from "@/lib/post-image";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { BlogArticle } from "@/components/BlogArticle";
@@ -215,7 +216,8 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   const { post, portableTextBody, markdownContent } = postResult;
   if (!post) notFound();
 
-  const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  // A photo row, like the homepage's, so posts without a picture are left out.
+  const related = allPosts.filter((p) => p.slug !== post.slug && showsPostImage(p.slug)).slice(0, 3);
 
   // Split body and FAQs from markdown
   const { body: rawMarkdownBody, faqs } = markdownContent
@@ -278,6 +280,8 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   // which the publisher now requires. Before this, every post without an override
   // rendered its hero with alt="".
   const heroImageAlt = resolvePostImageAlt(post.slug) || post.imageAlt || "";
+  // heroImage still feeds the BlogPosting schema for posts that hide it.
+  const showHero = showsPostImage(post.slug);
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);
@@ -421,27 +425,29 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
           </div>
         </div>
 
-        <figure className="mx-auto max-w-[1296px] px-0 md:px-6">
-          <div
-            className="relative aspect-[3/2] overflow-hidden bg-brand-gray-bg md:aspect-[1296/560]"
-            data-blog-hero
-          >
-            <Image
-              src={heroImage}
-              alt={heroImageAlt}
-              fill
-              className="object-cover"
-              priority
-              sizes="(min-width: 1344px) 1296px, 100vw"
-              data-blog-hero-image
-            />
-          </div>
-          {heroImageAlt && (
-            <figcaption className="mt-2.5 px-6 text-[13px] text-brand-ink-light md:px-0" aria-hidden="true">
-              {heroImageAlt}
-            </figcaption>
-          )}
-        </figure>
+        {showHero && (
+          <figure className="mx-auto max-w-[1296px] px-0 md:px-6">
+            <div
+              className="relative aspect-[3/2] overflow-hidden bg-brand-gray-bg md:aspect-[1296/560]"
+              data-blog-hero
+            >
+              <Image
+                src={heroImage}
+                alt={heroImageAlt}
+                fill
+                className="object-cover"
+                priority
+                sizes="(min-width: 1344px) 1296px, 100vw"
+                data-blog-hero-image
+              />
+            </div>
+            {heroImageAlt && (
+              <figcaption className="mt-2.5 px-6 text-[13px] text-brand-ink-light md:px-0" aria-hidden="true">
+                {heroImageAlt}
+              </figcaption>
+            )}
+          </figure>
+        )}
       </header>
 
       {/* ─── Main Content ─── */}

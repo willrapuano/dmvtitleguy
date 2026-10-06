@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { postImageSrcSet, postImageUrl, resolvePostImage } from "@/lib/post-image";
+import { postImageSrcSet, postImageUrl, resolvePostImage, showsPostImage } from "@/lib/post-image";
+import { PostImagePlaceholder } from "@/components/PostImagePlaceholder";
 import { postDisplayTitle } from "@/lib/post-titles";
 
 interface Post {
@@ -25,24 +26,6 @@ const CATEGORY_ORDER = [
 ];
 
 const PAGE_SIZE = 12;
-
-/**
- * Vary the fallback wash by slug so a run of placeholders doesn't read as one
- * flat navy block. Deterministic, so SSR and client agree.
- */
-const PLACEHOLDER_WASHES = [
-  "radial-gradient(circle at 28% 24%, #1B3F6B 0%, #0B1D3A 58%, #071428 100%)",
-  "radial-gradient(circle at 72% 30%, #17395F 0%, #0B1D3A 60%, #071428 100%)",
-  "linear-gradient(135deg, #123458 0%, #0B1D3A 55%, #071428 100%)",
-];
-
-function placeholderWash(slug: string) {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i += 1) {
-    hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
-  }
-  return PLACEHOLDER_WASHES[hash % PLACEHOLDER_WASHES.length];
-}
 
 /**
  * Nearly every post has a real Sanity image, so the branded fallback here is a
@@ -73,20 +56,10 @@ function PostImage({
     if (img?.complete && img.naturalWidth === 0) setFailed(true);
   }, []);
 
-  const image = resolvePostImage(post.slug, post.image);
+  const image = showsPostImage(post.slug) ? resolvePostImage(post.slug, post.image) : undefined;
 
   if (!image || failed) {
-    return (
-      <div
-        className="absolute inset-0 flex items-center justify-center"
-        style={{ backgroundImage: placeholderWash(post.slug) }}
-      >
-        {/* Decorative watermark — the category already appears as a chip below. */}
-        <span aria-hidden="true" className="text-base font-bold tracking-tight text-white/40">
-          DMV <span className="text-brand-blue/70">Title Guy</span>
-        </span>
-      </div>
-    );
+    return <PostImagePlaceholder slug={post.slug} />;
   }
 
   const widest = widths[widths.length - 1];
