@@ -87,8 +87,12 @@ async function worker() {
       const schemaItemCount = faqSchemas[0]?.mainEntity?.length ?? 0;
 
       if (h1Count !== 1) failures.push(`${route}: expected one h1, found ${h1Count}`);
-      if (heroCount !== 1) failures.push(`${route}: expected one hero image, found ${heroCount}`);
-      if (visibleHtml.indexOf("data-blog-hero") < visibleHtml.indexOf("<h1")) {
+      // A post listed in POSTS_WITHOUT_DISPLAY_IMAGE (src/lib/post-image.ts) marks its
+      // header instead and must render no hero at all.
+      const heroOmitted = /data-blog-hero-omitted(?=[\s=>])/i.test(visibleHtml);
+      const expectedHeroes = heroOmitted ? 0 : 1;
+      if (heroCount !== expectedHeroes) failures.push(`${route}: expected ${expectedHeroes} hero image(s), found ${heroCount}`);
+      if (!heroOmitted && visibleHtml.indexOf("data-blog-hero") < visibleHtml.indexOf("<h1")) {
         failures.push(`${route}: hero image must render after the article title block`);
       }
       if (articleBodyCount !== 1) failures.push(`${route}: expected one article body, found ${articleBodyCount}`);

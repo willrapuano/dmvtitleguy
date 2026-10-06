@@ -143,6 +143,20 @@ const POST_IMAGE_DIMENSION_OVERRIDES: Record<string, { width: number; height: nu
   "enhanced-title-insurance-vs-standard": { width: 1672, height: 941 },
 };
 
+/**
+ * Posts that show no picture on the site. Will asked on 2026-10-06 for the
+ * escalation-clause post to run without one: a text graphic got cropped by the
+ * hero frame and a stock photo added nothing. The CMS image stays, but only as the
+ * social-share and structured-data image; the article hero is omitted and cards
+ * use the branded placeholder.
+ */
+const POSTS_WITHOUT_DISPLAY_IMAGE = new Set<string>(["escalation-clause-closing-costs"]);
+
+/** Whether the post's picture appears on the page and on cards. */
+export function showsPostImage(slug: string): boolean {
+  return !POSTS_WITHOUT_DISPLAY_IMAGE.has(slug);
+}
+
 /** The image a post should actually use. */
 export function resolvePostImage(slug: string, cmsImage?: string): string | undefined {
   return POST_IMAGE_OVERRIDES[slug] ?? cmsImage;
