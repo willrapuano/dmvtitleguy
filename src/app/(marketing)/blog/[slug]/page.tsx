@@ -386,7 +386,8 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
       )}
 
       {/* ─── Title block (Paper: "Refresh — Article") ─── */}
-      <header className="bg-white">
+      {/* data-blog-hero-omitted tells verify-blog-rendering the missing hero is deliberate. */}
+      <header className="bg-white" data-blog-hero-omitted={showHero ? undefined : ""}>
         <div className="mx-auto max-w-[1296px] px-6 pb-10 pt-10 md:pb-12 md:pt-16">
           <div className="max-w-[1030px]">
             <nav aria-label="Breadcrumb" className="mb-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-ink-light">
