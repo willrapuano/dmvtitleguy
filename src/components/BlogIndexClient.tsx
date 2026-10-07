@@ -126,6 +126,10 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
   const featured = active === "All" && query.trim() === "" ? filtered[0] : undefined;
   const gridPosts = featured ? filtered.slice(1) : filtered;
   const visiblePosts = gridPosts.slice(0, visibleCount);
+  // Every post stays in the HTML; the ones past visibleCount are hidden until
+  // "Load more". Rendering only the first page left 89 posts with no crawlable
+  // internal link (Ahrefs orphan pages, 2026-10-07). Hidden cards' lazy images
+  // are not fetched.
   const hasMore = visibleCount < gridPosts.length;
   const renderedCount = visiblePosts.length + (featured ? 1 : 0);
 
@@ -263,7 +267,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                 </div>
 
                 <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-                  {visiblePosts.map((post) => (
+                  {gridPosts.map((post, index) => (
                     <Link
                       key={post.slug}
                       href={`/blog/${post.slug}`}
@@ -273,7 +277,7 @@ export default function BlogIndexClient({ posts }: { posts: Post[] }) {
                          The featured card above keeps its prefetch; hover still
                          prefetches these. */
                       prefetch={false}
-                      className="group flex flex-col"
+                      className={`group flex-col ${index < visibleCount ? "flex" : "hidden"}`}
                     >
                       <div className="relative aspect-[3/2] overflow-hidden bg-brand-navy">
                         <PostImage

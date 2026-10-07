@@ -35,6 +35,29 @@ import { normalizeIndependentProviderVoice } from "@/lib/provider-voice.ts";
 // Preserve the last successful render if Sanity is temporarily unavailable.
 export const revalidate = 3600;
 
+/**
+ * "Keep reading": the next three posts after this one in its own category, wrapping
+ * around. Each post is linked from the three before it, so every post in a
+ * category gets internal links. The old rule (the three newest posts site-wide)
+ * linked the same three everywhere and left 89 posts with no internal link at all
+ * (Ahrefs orphan pages, 2026-10-07). Topped up with the newest posts elsewhere
+ * when a category is small. A photo row, so posts without a picture are left out.
+ */
+function relatedPosts<T extends { slug: string; category: string }>(post: T, allPosts: T[]): T[] {
+  const shown = allPosts.filter((p) => p.slug === post.slug || showsPostImage(p.slug));
+  const ring = shown.filter((p) => p.category === post.category);
+  const at = ring.findIndex((p) => p.slug === post.slug);
+  const picks: T[] = [];
+  for (let step = 1; step < ring.length && picks.length < 3; step++) {
+    picks.push(ring[(at + step) % ring.length]);
+  }
+  for (const p of shown) {
+    if (picks.length >= 3) break;
+    if (p.slug !== post.slug && !picks.includes(p)) picks.push(p);
+  }
+  return picks;
+}
+
 const INTERNAL_PATH_ALIASES: Record<string, string> = {
   "/construction-loan-title-insurance": "/title-company-for-builders",
 };
@@ -216,8 +239,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   const { post, portableTextBody, markdownContent } = postResult;
   if (!post) notFound();
 
-  // A photo row, like the homepage's, so posts without a picture are left out.
-  const related = allPosts.filter((p) => p.slug !== post.slug && showsPostImage(p.slug)).slice(0, 3);
+  const related = relatedPosts(post, allPosts);
 
   // Split body and FAQs from markdown
   const { body: rawMarkdownBody, faqs } = markdownContent
