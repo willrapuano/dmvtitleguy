@@ -141,6 +141,7 @@ const cityExamples = [
 const relatedResources = [
   { href: "/closing-costs/maryland", label: "Maryland closing costs guide" },
   { href: "/closing-costs/buyer-maryland", label: "Buyer closing costs in Maryland" },
+  { href: "/blog/title-insurance-cost-maryland", label: "Title insurance cost in Maryland" },
   { href: "/closing-costs-bethesda-md", label: "Bethesda closing cost calculator" },
   { href: "/closing-costs-rockville-md", label: "Rockville closing cost calculator" },
   { href: "/closing-costs-silver-spring-md", label: "Silver Spring closing cost calculator" },

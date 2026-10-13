@@ -236,6 +236,9 @@ export default function DCClosingCostsPage() {
             <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
               What is Title Insurance? →
             </Link>
+            <Link href="/blog/title-insurance-cost-dc" className="text-brand-blue-deep hover:underline">
+              Title Insurance Cost in DC →
+            </Link>
             <Link href="/calculators" className="text-brand-blue-deep hover:underline">
               Closing Cost Calculators →
             </Link>
