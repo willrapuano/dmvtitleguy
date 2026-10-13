@@ -18,12 +18,17 @@ const PAGE_SLUG = "maryland-closing-cost-calculator";
 const PAGE_URL = `${SITE_URL}/${PAGE_SLUG}`;
 
 const taxRateNotice =
-  "Tax rates verified as of June 2026. Rates are subject to change; confirm with the applicable circuit court clerk for the most current rates.";
+  "Montgomery and Prince George's rates verified as of June 2026; the other county rates come from the Maryland Department of Legislative Services' FY 2026 local tax rate table. Rates are subject to change; confirm with the applicable circuit court clerk for the most current rates.";
 
 const transferTaxRows = [
   { county: "State of Maryland", rate: "0.5% state transfer tax; 0.25% for qualifying first-time Maryland homebuyers, paid by seller." },
   { county: "Montgomery County", rate: "1.0% local transfer tax for consideration of $70,000 or more; 0.50% from $40,000 to $70,000; 0.25% under $40,000." },
   { county: "Prince George's County", rate: "1.4% local transfer tax; it does not apply to a purchase-money mortgage or deed of trust." },
+  { county: "Anne Arundel County", rate: "1.0% local transfer tax; 1.5% when the consideration is $1 million or more (FY 2026)." },
+  { county: "Baltimore County", rate: "1.5% local transfer tax (FY 2026)." },
+  { county: "Howard County", rate: "1.25% local transfer tax (FY 2026)." },
+  { county: "Frederick County", rate: "No county transfer tax (FY 2026)." },
+  { county: "Charles County", rate: "0.5% local transfer tax (FY 2026)." },
 ];
 
 const recordationRows = [
@@ -31,6 +36,11 @@ const recordationRows = [
   { county: "Montgomery County", rate: "$4.45 per $500 up to $500,000; $6.75 per $500 from $500,000.01-$600,000; $10.20 per $500 from $600,000.01-$750,000; $10.78 per $500 from $750,000.01-$1,000,000; $11.35 per $500 over $1,000,000." },
   { county: "Montgomery owner-occupied exemption", rate: "First $100,000 exempt for owner-occupied residential property when the buyer intends to occupy for 7 of the next 12 months." },
   { county: "Prince George's County", rate: "0.55%, equal to $2.75 per $500." },
+  { county: "Anne Arundel County", rate: "0.7%, equal to $3.50 per $500 (FY 2026)." },
+  { county: "Baltimore County", rate: "0.5%, equal to $5.00 per $1,000 (FY 2026)." },
+  { county: "Howard County", rate: "0.5%, equal to $5.00 per $1,000 (FY 2026)." },
+  { county: "Frederick County", rate: "1.4%, equal to $7.00 per $500 (FY 2026)." },
+  { county: "Charles County", rate: "1.4%, equal to $7.00 per $500 (FY 2026, up from $5.00 in FY 2025)." },
 ];
 
 const buyerCosts = [
@@ -151,6 +161,16 @@ const faqs = [
     question: "Who pays transfer tax in Maryland?",
     answer:
       "Transfer tax allocation is usually governed by the purchase contract, local custom, and negotiation. Maryland transactions can involve both state transfer tax and county transfer tax, so the contract should be reviewed before assuming whether the buyer, seller, or both sides pay.",
+  },
+  {
+    question: "What is the transfer tax in Baltimore County, Maryland?",
+    answer:
+      "Baltimore County charges a 1.5% county transfer tax and a recordation tax of $5.00 per $1,000 (0.5%), on top of Maryland's 0.5% state transfer tax (FY 2026 rates). On a $500,000 sale that is $7,500 county transfer, $2,500 recordation and $2,500 state transfer, $12,500 in total. Maryland law presumes the buyer and seller split these taxes equally unless the contract says otherwise.",
+  },
+  {
+    question: "What are the transfer and recordation taxes in Anne Arundel County?",
+    answer:
+      "Anne Arundel County charges a 1.0% county transfer tax, rising to 1.5% when the price is $1 million or more, and a recordation tax of $3.50 per $500 (0.7%), plus Maryland's 0.5% state transfer tax (FY 2026 rates). On a $500,000 sale that is $5,000 county transfer, $3,500 recordation and $2,500 state transfer, $11,000 in total, split equally by default unless the contract says otherwise.",
   },
   {
     question: "What is the Maryland recordation tax?",
