@@ -163,9 +163,9 @@ export const BLOG_SEO_OVERRIDES: Record<
       "Arlington settlement services guide for residential closings, title work, and escrow. Pruitt Title helps DMV deals close cleanly. Call today.",
   },
   "title-insurance-cost-virginia-maryland": {
-    title: "Title Insurance Cost in Virginia & Maryland (2026 Buyer Guide)",
+    title: "Title Insurance Cost in VA, MD & DC (2026 Buyer Guide)",
     description:
-      "What buyers actually pay for title insurance in VA and MD: owner vs lender policies, rate basics, and how to compare closing numbers. Free Pruitt Title quote online.",
+      "What buyers actually pay for title insurance in Virginia, Maryland and DC: owner vs lender policies, rate basics, and how to compare closing numbers. Free quote online.",
   },
   "how-much-does-title-insurance-cost": {
     title: "How Much Does Title Insurance Cost? VA/MD/DC Breakdown",
