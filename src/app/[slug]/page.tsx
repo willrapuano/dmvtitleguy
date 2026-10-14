@@ -667,10 +667,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
      */
     const seoOverrides: Record<string, { title: string; description: string; ogTitle?: string; ogDescription?: string }> = {
       "title-company-herndon-va": {
-        title: "Herndon VA Title Company Guide | DMV Title Guy",
-        description: "Practical Herndon and Fairfax County title and closing guidance. Will Rapuano and the Pruitt Title team handle your title and settlement.",
-        ogTitle: "Herndon VA Title Company Guide | DMV Title Guy",
-        ogDescription: "Educational title and closing guidance for Herndon and Fairfax County transactions.",
+        title: "Herndon VA Title Company: Instant Quote | DMV Title Guy",
+        description: "Closing in Herndon? Will Rapuano and Pruitt Title handle title insurance and settlement across Fairfax County. Get an instant title quote online.",
+        ogTitle: "Herndon VA Title Company: Instant Quote | DMV Title Guy",
+        ogDescription: "Herndon and Fairfax County title insurance and settlement with Will Rapuano and Pruitt Title.",
       },
       "title-search-vienna-va": {
         title: "Vienna VA Title Search Guide | DMV Title Guy",
@@ -679,10 +679,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Educational guidance on title searches for Vienna properties.",
       },
       "title-company-tysons-va": {
-        title: "Tysons VA Title Company Guide | DMV Title Guy",
-        description: "Practical title and closing guidance for Tysons, Tysons Corner, and Fairfax County. Get a quote from Will Rapuano at Pruitt Title.",
-        ogTitle: "Tysons VA Title Company Guide | DMV Title Guy",
-        ogDescription: "Educational title and closing guidance for Tysons and Fairfax County transactions.",
+        title: "Tysons VA Title Company: Instant Quote | DMV Title Guy",
+        description: "Closing in Tysons? Will Rapuano and Pruitt Title handle title insurance and settlement for Tysons and Fairfax County. Get an instant title quote online.",
+        ogTitle: "Tysons VA Title Company: Instant Quote | DMV Title Guy",
+        ogDescription: "Tysons and Fairfax County title insurance and settlement with Will Rapuano and Pruitt Title.",
       },
       "title-company-bethesda-md": {
         title: "Title Company in Bethesda, MD | Settlement, Escrow & Title Insurance",
@@ -709,10 +709,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Professional title insurance and closing services in Springfield, VA. Residential, commercial & investor closings. Since 2007.",
       },
       "title-company-falls-church-va": {
-        title: "Falls Church VA Title Company Guide | DMV Title Guy",
-        description: "Practical title and closing guidance for Falls Church City and Fairfax County addresses. Get a quote from Will Rapuano at Pruitt Title.",
-        ogTitle: "Falls Church VA Title Company Guide | DMV Title Guy",
-        ogDescription: "Educational title and closing guidance for Falls Church transactions.",
+        title: "Falls Church VA Title Company: Instant Quote | DMV Title Guy",
+        description: "Closing in Falls Church? Will Rapuano and Pruitt Title handle title insurance and settlement for Falls Church City and Fairfax County. Get an instant quote.",
+        ogTitle: "Falls Church VA Title Company: Instant Quote | DMV Title Guy",
+        ogDescription: "Falls Church title insurance and settlement with Will Rapuano and Pruitt Title.",
       },
       "title-company-stafford-va": {
         title: "Stafford VA Title and Escrow Closings | Pruitt Title",
@@ -733,10 +733,10 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Educational title-search and closing guidance for Fairfax City and Fairfax County.",
       },
       "title-company-silver-spring-md": {
-        title: "Silver Spring MD Title Company Guide | DMV Title Guy",
-        description: "Practical title and closing guidance for Silver Spring and Montgomery County. Get a quote from Will Rapuano at Pruitt Title.",
-        ogTitle: "Silver Spring MD Title Company Guide | DMV Title Guy",
-        ogDescription: "Educational title and closing guidance for Silver Spring transactions.",
+        title: "Silver Spring MD Title Company: Instant Quote | DMV Title Guy",
+        description: "Closing in Silver Spring? Will Rapuano and Pruitt Title handle title insurance and settlement across Montgomery County. Get an instant title quote online.",
+        ogTitle: "Silver Spring MD Title Company: Instant Quote | DMV Title Guy",
+        ogDescription: "Silver Spring and Montgomery County title insurance and settlement with Will Rapuano and Pruitt Title.",
       },
       "title-search-fairfax-va": {
         title: "Fairfax VA Title Search Guide | DMV Title Guy",
