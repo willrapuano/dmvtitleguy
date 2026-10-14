@@ -40,8 +40,8 @@ for (const [name, contents] of Object.entries(source).filter(
 
 assert.match(
   source.generatedLocations,
-  /title: "Falls Church VA Title Company Guide \| DMV Title Guy"/,
-  "Falls Church must keep a concise, query-aligned, branded search title."
+  /title: "Falls Church VA Title Company: Instant Quote \| DMV Title Guy"/,
+  "Falls Church must keep a concise, query-aligned, branded search title. (2026-10-14: \"Guide\" dropped; the page ranks ~10 for local title-company searches with 0 clicks.)"
 );
 assert.match(
   source.generatedLocations,
