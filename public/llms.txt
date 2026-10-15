@@ -1,0 +1,20 @@
+# DMV Title Guy
+
+> Plain-language guides and calculators for title insurance and closing costs in Virginia, Maryland and Washington, DC, written by Will Rapuano, Marketing and Business Development Officer at Pruitt Title in Vienna, Virginia. Will and Pruitt Title handle title insurance and settlement for buyers, sellers, agents and lenders across the DMV. The guides are general information, not legal or tax advice.
+
+## Calculators
+- [Instant title quote](https://dmvtitleguy.io/calculators/title-quote): Pruitt Title's title insurance and settlement quote
+- [Virginia closing cost calculator](https://dmvtitleguy.io/virginia-closing-cost-calculator)
+- [Maryland closing cost calculator](https://dmvtitleguy.io/maryland-closing-cost-calculator): county transfer and recordation rates
+- [DC closing cost calculator](https://dmvtitleguy.io/closing-costs/dc)
+
+## Key guides
+- [Title insurance cost in Virginia, Maryland and DC](https://dmvtitleguy.io/blog/title-insurance-cost-virginia-maryland)
+- [Closing costs in DC](https://dmvtitleguy.io/blog/closing-costs-dc)
+- [Enhanced vs standard title insurance](https://dmvtitleguy.io/blog/enhanced-vs-standard-title-insurance)
+- [Escalation clauses and closing costs](https://dmvtitleguy.io/blog/escalation-clause-closing-costs)
+- [DC first-time homebuyer recordation rate](https://dmvtitleguy.io/blog/dc-first-time-homebuyer-tax-exemption)
+- [All guides](https://dmvtitleguy.io/blog)
+
+## About
+- [About Will Rapuano](https://dmvtitleguy.io/about-will-rapuano)

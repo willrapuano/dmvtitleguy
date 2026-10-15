@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 import { CompactTitleQuote } from "@/components/CompactTitleQuote";
+import { DEFAULT_OG_IMAGE } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "Vienna VA Title Search Guide | DMV Title Guy",
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     canonical: "https://dmvtitleguy.io/title-search-vienna-va",
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Vienna VA Title Search Guide | DMV Title Guy",
     description: "Title search services for Vienna properties, including ownership, liens, easements, restrictions, and other recorded title risks.",
     url: "https://dmvtitleguy.io/title-search-vienna-va",

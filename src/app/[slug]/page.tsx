@@ -32,6 +32,7 @@ import {
   type County,
   type FaqItem,
 } from "@/data/locations";
+import { DEFAULT_OG_IMAGE } from "@/lib/site-metadata";
 import {
   CITY_CALCULATOR_DATA,
   getCityCalcData,
@@ -641,6 +642,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including title insurance, transfer taxes, and local fees.`,
       alternates: { canonical: `/${cityCalcData.slug}` },
       openGraph: {
+        images: [DEFAULT_OG_IMAGE],
         title: `Closing Costs in ${cityLabel} — Free Calculator`,
         description: `Estimate buyer and seller closing costs for ${cityLabel} real estate. Includes local ${cityCalcData.county} tax rates.`,
         url: `https://dmvtitleguy.io/${cityCalcData.slug}`,
@@ -753,6 +755,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         description: o.description,
         alternates: { canonical: `/${params.slug}` },
         openGraph: {
+          images: [DEFAULT_OG_IMAGE],
           title: o.ogTitle ?? o.title,
           description: o.ogDescription ?? o.description,
           url: `https://dmvtitleguy.io/${params.slug}`,
@@ -766,6 +769,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         description: `Title search, title insurance, escrow, and settlement services in ${locationName}. Serving ${countyLabel} buyers, sellers, investors, agents, and lenders.`,
         alternates: { canonical: `/${params.slug}` },
         openGraph: {
+          images: [DEFAULT_OG_IMAGE],
           title: `Title Company in ${locationName} | DMV Title Guy`,
           description: `Local title and closing guidance for ${locationName}. Get a quote from Will Rapuano at Pruitt Title.`,
         },
@@ -777,6 +781,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       description: `Practical title and closing guidance for ${locationName}. Will Rapuano and the Pruitt Title team handle your title and settlement.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
+        images: [DEFAULT_OG_IMAGE],
         title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
         description: `Expert title search, insurance & closing services in ${locationName}. Residential, commercial & investor transactions. Since 2007.`,
       },
