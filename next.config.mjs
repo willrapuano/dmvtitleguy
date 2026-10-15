@@ -31,6 +31,7 @@ function knownPathRedirects(host) {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   skipTrailingSlashRedirect: true,
+  poweredByHeader: false,
   turbopack: { root: __dirname },
   env: {
     NEXT_PUBLIC_PAYPAL_CLIENT_ID:
@@ -45,6 +46,22 @@ const nextConfig = {
       { protocol: "https", hostname: "cdn.sanity.io" },
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
+  },
+  async headers() {
+    // Baseline security headers (SEOmator audit 2026-10-15). Framing is denied
+    // everywhere except /embed/*, whose calculators are meant to run inside
+    // partner sites' iframes.
+    const common = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+    ];
+    return [
+      { source: "/:path*", headers: common },
+      {
+        source: "/((?!embed(?:/|$)).*)",
+        headers: [{ key: "X-Frame-Options", value: "SAMEORIGIN" }],
+      },
+    ];
   },
   async redirects() {
     return [
