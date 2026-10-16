@@ -48,6 +48,9 @@ const identityRules = [
   { pattern: /\bblog of Pruitt Title\b|\bPruitt Title'?s blog\b/i, why: "DMV Title Guy is Will Rapuano's personal brand, not Pruitt Title's blog" },
   { pattern: /\bour (?:[A-Z][a-z]+ (?:and [A-Z][a-z]+ )?)?offices?\b/, why: "site voice claiming offices; link the location guide or name Pruitt Title" },
   { pattern: /\b(?:call|contact|reach out to|email) us\b/i, why: "company voice; say who to contact (Will, Pruitt Title, the title company)" },
+  // 2026-10-16: two FAQ answers still signed off as "EKKO Title's settlement division"; the
+  // em-dash wording slipped past the "At X Title, we" rule above.
+  { pattern: /\bEKKO\b/i, why: "names another title company (EKKO Title); Will closes through Pruitt Title" },
 ];
 
 // Drafting leftovers that reached a live post on 2026-09-24: an AI assistant's reply
@@ -141,6 +144,12 @@ for (const post of posts) {
     const sig = blockSignature(b);
     const next = body[i + 1] && blockSignature(body[i + 1]);
     if (sig && next && sig === next && sig.length > 12) failures.push(`/blog/${post.slug} (block ${i}): the same ${b._type} appears twice in a row`);
+    // 2026-10-16: an old importer turned whole article sections into FAQ items (answers of
+    // 300-1,350 words in 17 posts). Real FAQ answers on the site top out near 120 words.
+    if (b._type === "accordion") for (const it of b.items || []) {
+      const words = spanText(it.answer).split(/\s+/).filter(Boolean).length;
+      if (words > 200) failures.push(`/blog/${post.slug} (FAQ ${i}): "${(it.question || "").slice(0, 60)}" has a ${words}-word answer; an article section was put in the FAQ, make it a normal section`);
+    }
   });
   for (const [i, text] of trailingCtas(body)) {
     failures.push(`/blog/${post.slug} (block ${i}): the post ends with its own call to action; the article template already closes with the quote panel\n    ${text.slice(0, 180)}`);

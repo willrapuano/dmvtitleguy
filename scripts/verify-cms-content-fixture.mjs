@@ -33,6 +33,8 @@ const mustCatch = [
   ["fixture-voice", "not Pruitt Title's blog"],
   ["fixture-voice", "site voice claiming offices"],
   ["fixture-voice", "say who to contact"],
+  ["fixture-faq-structure", "an article section was put in the FAQ"],
+  ["fixture-faq-structure", "names another title company (EKKO Title)"],
 ];
 for (const [slug, text] of mustCatch) {
   assert.ok(out.split("\n").some((line) => line.includes(`/blog/${slug}`) && line.includes(text)), `expected a failure on ${slug}: ${text}`);
