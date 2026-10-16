@@ -131,10 +131,9 @@ export default function SellerVirginiaClosingCostsPage() {
               <ul className="mt-3 space-y-2 text-sm">
                 <li>• Real Estate Commission (6%): $30,000</li>
                 <li>• Transfer Tax (0.1%): $500</li>
-                <li>• Owner's Title Insurance: $1,500-2,500</li>
                 <li>• Attorney Fees: $500-1,500</li>
                 <li>• Recording Fees: $50-150</li>
-                <li className="border-t border-gray-600 pt-2 font-semibold">• Estimated Total: $32,550 - $34,650</li>
+                <li className="border-t border-gray-600 pt-2 font-semibold">• Estimated Total: $31,050 - $32,150</li>
               </ul>
             </div>
           </div>

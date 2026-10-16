@@ -106,17 +106,17 @@ This is where things get specific to the DMV — and it matters, because the cus
 
 ### Virginia
 
-In Virginia, **the buyer typically pays for both** the lender's and owner's title insurance policies. This is the prevailing custom, though it's negotiable in any contract.
+In Virginia, **local practice, not the law, decides who pays** for the owner's policy, according to the Virginia Bureau of Insurance, and it can be negotiated in the contract. The borrower pays for the lender's policy.
 
-The policies are rate-regulated by the Virginia Bureau of Insurance, so you'll see consistent pricing regardless of which title company you use. Simultaneous issue discounts apply when both policies are issued at the same closing.
+Each insurer files its own rates with the Bureau of Insurance, and Virginia law lets the rate be negotiated (Va. Code § 38.2-4608), so compare the premium on every quote. When both policies are issued at the same closing, the lender's policy drops to a simultaneous-issue charge ($200 in Stewart Title's published schedule).
 
 Use our [Virginia closing cost calculator][LINK:/virginia-closing-cost-calculator] to get a realistic estimate for your transaction.
 
 ### Maryland
 
-Maryland flips the script on owner's title insurance. **In Maryland, it's customary for the seller to pay for the owner's title insurance policy**, while the buyer pays for the lender's policy. This is a significant distinction for buyers — in Maryland, you may be getting owner's title coverage at no direct cost to you, paid by the seller as part of closing costs. If you're buying in [Bethesda](/title-company-bethesda-md) or anywhere in Montgomery County, your closing settlement will follow this Maryland custom automatically.
+In Maryland, **who pays for the owner's policy depends in part on local custom** and can be negotiated with the seller, according to the Maryland Insurance Administration. The buyer pays for the lender's policy. If you're buying in [Bethesda](/title-company-bethesda-md) or anywhere in Montgomery County, ask your agent what's customary and make sure the contract says who pays.
 
-That said, this is custom, not law. In competitive markets or with seller concessions on the table, it can shift. Know what's standard before you negotiate.
+It's custom, not law. In competitive markets or with seller concessions on the table, it can shift. Know what's standard before you negotiate.
 
 Use our [Maryland closing cost calculator][LINK:/maryland-closing-cost-calculator] for a full breakdown of what to expect.
 
@@ -156,11 +156,11 @@ The core difference is who's protected. Lender's title insurance protects the ba
 
 ## How much does lender's title insurance cost in Virginia and Maryland?
 
-Costs vary by loan amount and purchase price. In Virginia, a lender's policy on a $500,000 loan typically runs $1,000–$1,500. An owner's policy purchased simultaneously on the same transaction typically adds $400–$700. Maryland has similar ranges. Both states regulate title insurance rates, so prices are consistent across licensed providers.
+Costs vary by loan amount, purchase price and underwriter. In Stewart Title's published Virginia schedule, a lender's policy on a $500,000 loan is $1,545 on its own. Bought with an owner's policy, the lender's policy drops to $200 and a $500,000 owner's policy is $2,097.50. In Maryland, Stewart's figures are $1,680, $350 and $2,507.50. Each insurer files its own rates, so compare quotes.
 
 ## Who pays for owner's title insurance in Virginia vs Maryland?
 
-In Virginia, the buyer typically pays for both the lender's and owner's policies. In Maryland, it's customary for the seller to cover the owner's title insurance policy, with the buyer paying for the lender's policy. These are customs, not laws — terms are always negotiable in the purchase contract.
+In Virginia, local practice, not the law, decides who pays for the owner's policy, according to the Virginia Bureau of Insurance. In Maryland, it depends in part on local custom and can be negotiated with the seller, according to the Maryland Insurance Administration. The borrower pays for the lender's policy. These are customs, not laws — terms are always negotiable in the purchase contract.
 
 ## Can I skip owner's title insurance?
 

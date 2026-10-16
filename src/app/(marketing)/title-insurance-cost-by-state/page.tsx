@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "Can I shop around for title insurance?",
-    answer: "Yes, in states without regulated rates, comparing providers can save you money.",
+    answer: "Yes. Each insurer files its own rates in Virginia, Maryland and DC, so premiums differ between companies, and in Virginia the rate can be negotiated (Va. Code § 38.2-4608). Compare the premium as well as the settlement fee on every quote.",
   },
   {
     question: "What does title insurance cover?",
@@ -61,7 +61,7 @@ export default function TitleInsuranceCostByStatePage() {
             Title Insurance Cost by State: A 2026 Comparison
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
-            Title insurance costs vary significantly by state due to differences in regulations, property values, and local practices. Learn what affects pricing in your area.
+            Title insurance costs differ between Virginia, Maryland and DC, and between underwriters. See real published premiums and what affects pricing in your area.
           </p>
         </div>
       </section>
@@ -86,64 +86,35 @@ export default function TitleInsuranceCostByStatePage() {
       <section className="section-gray">
         <div className="container-xl max-w-3xl">
           <h2 className="t-h4 text-brand-navy mb-4">Title Insurance Cost Breakdown by State</h2>
+          <p className="text-brand-muted mb-4 max-w-[68ch]">Premiums on a $500,000 purchase from Stewart Title&apos;s published rate manuals (Virginia effective July 1, 2025; Maryland November 24, 2025; DC February 26, 2024), before reissue or other discounts. Other underwriters file their own rates, so your quote may differ.</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-brand-muted border-collapse">
               <thead>
                 <tr className="bg-brand-navy text-white">
-                  <th className="text-left p-3">State</th>
-                  <th className="text-right p-3">Average Cost (Owner's Policy)</th>
-                  <th className="text-left p-3">Rate Type</th>
-                  <th className="text-left p-3">Notes</th>
+                  <th className="text-left p-3">Jurisdiction</th>
+                  <th className="text-right p-3">Standard owner&apos;s policy</th>
+                  <th className="text-right p-3">Enhanced owner&apos;s policy</th>
+                  <th className="text-left p-3">How rates work</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="p-3 font-semibold">Virginia</td>
-                  <td className="p-3 text-right">$1,200 - $2,500</td>
-                  <td className="p-3">Regulated</td>
-                  <td className="p-3">State-set rates based on home value</td>
+                  <td className="p-3 text-right">$2,097.50</td>
+                  <td className="p-3 text-right">$2,517.50</td>
+                  <td className="p-3">Each insurer files its own rates; can be negotiated</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold">Maryland</td>
-                  <td className="p-3 text-right">$1,000 - $2,200</td>
-                  <td className="p-3">Competitive</td>
-                  <td className="p-3">Rates vary by provider</td>
+                  <td className="p-3 text-right">$2,507.50</td>
+                  <td className="p-3 text-right">$3,007.50</td>
+                  <td className="p-3">Each underwriter files its own rates</td>
                 </tr>
                 <tr>
                   <td className="p-3 font-semibold">DC</td>
-                  <td className="p-3 text-right">$1,500 - $3,000</td>
-                  <td className="p-3">Regulated</td>
-                  <td className="p-3">Higher due to urban property values</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-semibold">California</td>
-                  <td className="p-3 text-right">$1,000 - $2,500</td>
-                  <td className="p-3">Competitive</td>
-                  <td className="p-3">Rates vary by provider</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-semibold">Texas</td>
-                  <td className="p-3 text-right">$1,200 - $2,800</td>
-                  <td className="p-3">Regulated</td>
-                  <td className="p-3">Includes endorsements</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-semibold">Florida</td>
-                  <td className="p-3 text-right">$1,500 - $3,500</td>
-                  <td className="p-3">Competitive</td>
-                  <td className="p-3">Higher due to property values and risk</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-semibold">New York</td>
-                  <td className="p-3 text-right">$2,000 - $4,500</td>
-                  <td className="p-3">Competitive</td>
-                  <td className="p-3">Highest costs in the nation</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-semibold">Colorado</td>
-                  <td className="p-3 text-right">$1,100 - $2,300</td>
-                  <td className="p-3">Competitive</td>
-                  <td className="p-3">Rates vary by provider</td>
+                  <td className="p-3 text-right">$2,700</td>
+                  <td className="p-3 text-right">$3,240</td>
+                  <td className="p-3">Each underwriter files its own rates</td>
                 </tr>
               </tbody>
             </table>
@@ -162,7 +133,7 @@ export default function TitleInsuranceCostByStatePage() {
             </div>
             <div>
               <h3 className="text-brand-navy t-h6 mb-2">2. State Regulations</h3>
-              <p className="max-w-[68ch]">Some states regulate rates (like Virginia and DC), while others allow competition (like Maryland). Regulated states have fixed rate schedules, while competitive states allow providers to set their own rates.</p>
+              <p className="max-w-[68ch]">In Virginia, Maryland and DC, each title insurer files its own rate schedule with the state insurance regulator, so premiums vary by underwriter. Virginia also lets insurers and agents negotiate the rate with a buyer.</p>
             </div>
             <div>
               <h3 className="text-brand-navy t-h6 mb-2">3. Local Practices</h3>
@@ -184,19 +155,19 @@ export default function TitleInsuranceCostByStatePage() {
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-brand-navy t-h6 mb-3">Virginia</h3>
               <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
-                Virginia has <strong>state-regulated rates</strong> set by the Virginia Bureau of Insurance. Rates are based on a schedule tied to the property's purchase price. Simultaneous issue discounts are available when buying both owner's and lender's policies together.
+                Each insurer files its own rates with the State Corporation Commission&apos;s Bureau of Insurance, and Virginia law lets the rate be <strong>negotiated</strong>. In Stewart&apos;s schedule, the lender&apos;s policy issued with an owner&apos;s policy is a flat $200.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-brand-navy t-h6 mb-3">Maryland</h3>
               <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
-                Maryland has a <strong>competitive market</strong> for title insurance, meaning rates can vary between providers. It's worth getting quotes from multiple title companies to find the best rate. Maryland also offers simultaneous issue discounts.
+                Each underwriter files its own rates with the Maryland Insurance Administration, so premiums <strong>vary between providers</strong>. In Stewart&apos;s schedule, the lender&apos;s policy issued with an owner&apos;s policy is $350.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-brand-navy t-h6 mb-3">Washington DC</h3>
               <p className="text-brand-muted text-sm max-w-[68ch] leading-relaxed">
-                DC has <strong>regulated rates</strong> set by the DC Insurance Commissioner. For a $500,000 home, owner's title insurance typically costs $1,800-2,400. DC requires an attorney or licensed title agent to conduct all real estate settlements.
+                Each underwriter files its own rates. In Stewart&apos;s DC schedule, a standard owner&apos;s policy on a <strong>$500,000</strong> home is $2,700, and the lender&apos;s policy issued with it is $100.
               </p>
             </div>
           </div>

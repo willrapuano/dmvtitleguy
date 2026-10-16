@@ -584,7 +584,7 @@ export default function MarylandCalculatorPage() {
                 loan and contract.
               </p>
               <p className="max-w-[68ch]">
-                Maryland title insurance rates are filed or regulated, and the exact premium depends on purchase price,
+                Each underwriter files its own Maryland title insurance rates, and the exact premium depends on purchase price,
                 loan amount, policy type, and whether simultaneous issue pricing applies.
               </p>
               <div className="flex flex-wrap gap-3">

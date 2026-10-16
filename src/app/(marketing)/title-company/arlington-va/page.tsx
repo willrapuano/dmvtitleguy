@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "How much does title insurance cost in Arlington, VA?",
-    answer: "Title insurance premiums in Arlington are regulated by the Virginia Bureau of Insurance. For a $500,000 home, owner's title insurance typically costs around $1,500-2,000. As a simultaneous issue state, Virginia offers discounts when lender's and owner's policies are issued together.",
+    answer: "Virginia title insurers file their own rates with the Bureau of Insurance and can negotiate them, so premiums vary. In Stewart Title's published Virginia schedule, a standard owner's policy on a $500,000 Arlington home is $2,097.50 before discounts, and the lender's policy issued with it is $200.",
   },
   {
     question: "What are the closing costs for sellers in Arlington?",

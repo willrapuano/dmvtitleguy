@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: "How much does title insurance cost in DC?",
-    answer: "DC title insurance rates are set by the DC Insurance Commissioner. For a $500,000 home, owner's title insurance typically costs $1,800-2,400. DC allows simultaneous issue discounts when both lender's and owner's policies are purchased together.",
+    answer: "Each title underwriter files its own DC rates, so premiums vary between companies. In Stewart Title's published DC schedule, a standard owner's policy on a $500,000 home is $2,700 before discounts, and the lender's policy issued with it is $100.",
   },
   {
     question: "What makes DC closings different from Maryland and Virginia?",
@@ -195,7 +195,7 @@ export default function DCClosingCostsPage() {
             </p>
             <h3 className="text-brand-navy font-bold text-base">Owner's Title Insurance</h3>
             <p className="max-w-[68ch]">
-              Owner's title insurance protects your investment against claims against your ownership of the property. It's a one-time premium paid at closing and provides coverage for as long as you own the property. For a $600,000 home in DC, owner's title insurance costs approximately $2,000-2,500.
+              Owner's title insurance protects your investment against claims against your ownership of the property. It's a one-time premium paid at closing and provides coverage for as long as you own the property. For a $600,000 home in DC, a standard owner&apos;s policy is $3,150 in Stewart Title&apos;s published schedule, before discounts. Other underwriters&apos; rates differ.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Lender's Title Insurance</h3>
             <p className="max-w-[68ch]">
@@ -203,7 +203,7 @@ export default function DCClosingCostsPage() {
             </p>
             <h3 className="text-brand-navy font-bold text-base">Simultaneous Issue Discount</h3>
             <p className="max-w-[68ch]">
-              DC allows a simultaneous issue discount when both owner's and lender's title insurance are purchased together. This can save buyers approximately 10-15% on their title insurance costs.
+              When the owner&apos;s and lender&apos;s policies are issued together, the lender&apos;s policy is heavily discounted. In Stewart Title&apos;s published DC schedule it becomes a flat $100, up to the amount of the owner&apos;s policy.
             </p>
           </div>
         </div>

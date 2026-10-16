@@ -142,13 +142,13 @@ export default function BuyerMarylandClosingCostsPage() {
               <p className="text-gray-300 max-w-[68ch] leading-relaxed">For a $500,000 Montgomery County principal residence with 20% down ($400,000 loan), taxes split equally:</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>• Loan Origination (1%): $4,000</li>
-                <li>• Title Insurance (Owner's + Lender's): $2,000-3,000</li>
+                <li>• Title Insurance (Owner's + Lender's): about $2,860 (Stewart&apos;s published rates)</li>
                 <li>• Appraisal: $400-500</li>
                 <li>• Inspection: $400-500</li>
                 <li>• Recordation Tax: $1,780</li>
                 <li>• State + County Transfer Tax: $3,750</li>
                 <li>• Prepaid Taxes/Insurance: $3,000-5,000</li>
-                <li className="border-t border-gray-600 pt-2 font-semibold">• Estimated Total: $15,300 - $18,500</li>
+                <li className="border-t border-gray-600 pt-2 font-semibold">• Estimated Total: $16,200 - $18,400</li>
               </ul>
             </div>
           </div>
