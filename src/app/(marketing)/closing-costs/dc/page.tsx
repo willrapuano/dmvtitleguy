@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "What makes DC closings different from Maryland and Virginia?",
-    answer: "DC uses a deed recording system and has the highest combined tax rates in the DMV region. DC doesn't require an attorney at closing: a title company's settlement agent or a notary can conduct the settlement. DC also has unique first-time homebuyer programs that can significantly reduce closing costs.",
+    answer: "DC uses a deed recording system and has the highest combined tax rates in the DMV region. A notary or a title company's settlement agent can conduct a DC closing, but the deed and other documents that affect title must be prepared by a DC-licensed attorney (D.C. Court of Appeals Rule 49). DC also has unique first-time homebuyer programs that can significantly reduce closing costs.",
   },
   {
     question: "How do DC's tax rates impact buyers at different price points?",
@@ -191,7 +191,7 @@ export default function DCClosingCostsPage() {
           <h2 className="t-h4 text-brand-navy mb-4">Title Insurance in Washington DC</h2>
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <p className="max-w-[68ch]">
-              DC doesn&apos;t require an attorney at closing: a title company&apos;s settlement agent or a notary can conduct the settlement. Title insurance protects against hidden title defects that could affect your ownership rights.
+              A notary or a title company&apos;s settlement agent can conduct a DC closing, but the deed and other documents that affect title must be prepared by a DC-licensed attorney (D.C. Court of Appeals Rule 49), so DC title companies work with one. Title insurance protects against hidden title defects that could affect your ownership rights.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Owner's Title Insurance</h3>
             <p className="max-w-[68ch]">
@@ -222,7 +222,7 @@ export default function DCClosingCostsPage() {
               <li><strong>Deed Recording:</strong> DC uses a deed recording system that requires proper documentation</li>
               <li><strong>First-Time Homebuyer Programs:</strong> DC offers several programs that can reduce or eliminate closing costs</li>
               <li><strong>Condo/Co-op Considerations:</strong> Many DC properties are condos or co-ops, which may have additional fees and resale certificate requirements</li>
-              <li><strong>No Attorney Requirement:</strong> A title company&apos;s settlement agent or a notary can conduct a DC settlement; hiring an attorney is optional</li>
+              <li><strong>Attorney-Prepared Documents:</strong> A DC-licensed attorney prepares the deed; a notary or settlement agent can run the closing, and hiring your own attorney is optional</li>
             </ul>
           </div>
         </div>
