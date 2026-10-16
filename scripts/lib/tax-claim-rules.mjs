@@ -1,4 +1,4 @@
-// Closing-tax claims that are false, each checked against the primary source cited
+// Closing-cost claims that are false, each checked against the primary source cited
 // next to it. Shared by verify-tax-facts (coded pages in src/) and verify-cms-content
 // (blog posts in Sanity), so a fact corrected in one place is guarded in both.
 
@@ -26,4 +26,8 @@ export const bannedClaims = [
   { pattern: /(?:does not add|no additional) (?:a )?local recordation tax/i, why: "NoVA localities levy the § 58.1-3800 local recordation tax" },
   // D.C. Code §§ 42-1103(a-4), 47-903(a-4): residential rates top out at 1.45% each.
   { pattern: /can exceed 2\.9%/i, why: "DC residential recordation + transfer tax is at most 2.9% combined" },
+  // Va. Code § 38.2-4608(E) and the SCC Virginia Title Insurance Guide: each insurer files its own
+  // rates and may negotiate them, and the SCC tells buyers to shop around. In MD and DC rates are
+  // filed per underwriter, so premiums still differ between companies.
+  { pattern: /(?:every|each|any) (?:licensed )?(?:title )?(?:company|agent|agency|insurer)[^.\n]{0,60}(?:charges?|pays?) (?:the )?(?:exact )?same (?:rate|premium)|same premium for the same|(?:cannot|can't|won't) (?:negotiate|shop)[^.\n]{0,40}premium|premiums?[^.\n]{0,40}\b(?:is|are) (?:not negotiable|the same across)|price is the price|rate is the rate|shopping around won't change|(?:rates?|premiums?)[^.\n]{0,20} (?:are|is) (?:set|fixed) by the (?:state|SCC|(?:Virginia )?State Corporation Commission)|identical down to the penny/i, why: "title premiums are not the same at every company: each insurer files its own rates, and Virginia lets them be negotiated (Va. Code § 38.2-4608)" },
 ];
