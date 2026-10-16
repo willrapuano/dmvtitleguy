@@ -6,7 +6,7 @@ import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 
 export const metadata: Metadata = {
   title: "Washington DC Closing Costs Guide | DMV Title Guy",
-  description: "Complete guide to DC closing costs for buyers and sellers. Learn about recordation tax, transfer tax, title insurance, and what to expect at settlement in Washington DC.",
+  description: "DC closing costs for buyers and sellers: recordation and transfer tax rates, the first-time buyer rate, title insurance and what to expect at settlement.",
   alternates: { canonical: "/closing-costs/dc" },
 };
 

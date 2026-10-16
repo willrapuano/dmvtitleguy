@@ -8,7 +8,7 @@ import { SITE_NAME, willPersonReference } from "@/lib/brand-identity";
 export const metadata: Metadata = {
   title: "Maryland Closing Cost Calculator (2026) | Buyer & Seller",
   description:
-    "Free Maryland closing cost calculator for buyers and sellers. Estimate MD transfer tax, recordation, title insurance, and county costs for Montgomery, PG, and statewide.",
+    "Free Maryland closing cost calculator. Estimate transfer and recordation taxes, title insurance and settlement costs for Montgomery, PG and other counties.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 
