@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "What are the title insurance rates in Prince William County, VA?",
-    answer: "Virginia regulates title insurance premiums statewide, including Prince William County. For a $525,000 home—the current median in Prince William—owner's title insurance typically costs $1,500-2,000. The simultaneous issue discount applies when both lender's and owner's policies are purchased together.",
+    answer: "Virginia title insurers file their own rates and can negotiate them, so premiums vary between companies. In Stewart Title's published Virginia schedule, a standard owner's policy on a $525,000 home—the current median in Prince William—is about $2,190 before discounts, and the lender's policy issued with it is $200.",
   },
   {
     question: "Who pays transfer taxes in Prince William County?",

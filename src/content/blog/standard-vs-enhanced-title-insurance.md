@@ -142,11 +142,11 @@ No. Your lender's title policy protects only the lender's interest in the proper
 
 ## Can I add enhanced coverage after closing?
 
-No. Title insurance is a one-time purchase at closing. You cannot upgrade from standard to enhanced after the closing date. This is why it's worth understanding the difference before you sign.
+Usually not. Stewart Title's Virginia and DC rate manuals contain no upgrade provision, so decide before closing. In Maryland, Stewart's manual lets an owner surrender a standard owner's policy and pay an upgrade premium for the enhanced policy. Either way, it's worth understanding the difference before you sign.
 
 ## How much does enhanced title insurance cost in Maryland, Virginia, and DC?
 
-Title insurance premiums in the DMV are state-regulated and based on purchase price. For a $600,000 home, you're typically looking at $1,400–$1,700 for a standard owner's policy and $1,700–$2,100 for enhanced coverage — a difference of roughly $300–$400. Exact quotes depend on the underwriter, the state, and the specific transaction details.
+Each underwriter files its own rates, based on the purchase price. In Stewart Title's published schedules, the enhanced policy is about 20 percent more than the standard one. For a $600,000 Virginia home, that's $2,472.50 for a standard owner's policy and $2,967.50 for enhanced coverage — a difference of $495. Exact quotes depend on the underwriter, the state, and the specific transaction details.
 
 ---
 

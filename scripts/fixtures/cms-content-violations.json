@@ -283,6 +283,19 @@
             "marks": []
           }
         ]
+      },
+      {
+        "_key": "dy",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Who pays for the owner's policy depends in part on local custom and can be negotiated with the seller, according to the Maryland Insurance Administration.",
+            "marks": []
+          }
+        ]
       }
     ]
   },
@@ -528,6 +541,45 @@
             "_key": "p4a",
             "question": "Can I shop the premium?",
             "answer": "No. The title company doesn't set it, so shopping around won't change what you pay for the policy."
+          }
+        ]
+      },
+      {
+        "_key": "p5",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Fairfax County follows Virginia's state-regulated title insurance rates.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "p6",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "In Maryland, it's customary for the seller to pay for the owner's title insurance policy.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "p7",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "You cannot upgrade from standard to enhanced after the closing date.",
+            "marks": []
           }
         ]
       }

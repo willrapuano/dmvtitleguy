@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "How much does title insurance cost in Montgomery County, MD?",
-    answer: "Maryland title insurance rates are filed with the Maryland Insurance Administration. For a $700,000 home in Bethesda, owner's title insurance typically costs $1,800-2,500. Maryland offers a simultaneous issue discount when both lender's and owner's policies are purchased together.",
+    answer: "Each underwriter files its own rates with the Maryland Insurance Administration, so premiums vary. In Stewart Title's published Maryland schedule, a standard owner's policy on a $700,000 Bethesda home is $3,295.50 before discounts, and the lender's policy issued with it is $350.",
   },
   {
     question: "What are the transfer and recordation taxes in Bethesda?",

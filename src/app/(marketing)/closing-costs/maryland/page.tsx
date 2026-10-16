@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "How much does title insurance cost in Maryland?",
-    answer: "Maryland title insurance rates are filed with the Maryland Insurance Administration. For a $500,000 home, owner's title insurance typically costs $1,500-2,000. Maryland offers a simultaneous issue discount when both lender's and owner's policies are purchased together.",
+    answer: "Each underwriter files its own rates with the Maryland Insurance Administration, so premiums vary between companies. In Stewart Title's published Maryland schedule, a standard owner's policy on a $500,000 home is $2,507.50 before discounts, and the lender's policy issued with it is $350.",
   },
   {
     question: "How do Maryland closing costs differ by county?",
@@ -231,7 +231,7 @@ export default function MarylandClosingCostsPage() {
             </p>
             <h3 className="text-brand-navy font-bold text-base">Owner's Title Insurance</h3>
             <p className="max-w-[68ch]">
-              Owner's title insurance protects your investment against claims against your ownership of the property. It's a one-time premium paid at closing and provides coverage for as long as you own the property. For a $500,000 home, owner's title insurance costs approximately $1,500-2,000.
+              Owner's title insurance protects your investment against claims against your ownership of the property. It's a one-time premium paid at closing and provides coverage for as long as you own the property. For a $500,000 home, a standard owner&apos;s policy is $2,507.50 in Stewart Title&apos;s published Maryland schedule, before discounts. Other underwriters&apos; rates differ.
             </p>
             <h3 className="text-brand-navy font-bold text-base">Lender's Title Insurance</h3>
             <p className="max-w-[68ch]">
@@ -239,7 +239,7 @@ export default function MarylandClosingCostsPage() {
             </p>
             <h3 className="text-brand-navy font-bold text-base">Simultaneous Issue Discount</h3>
             <p className="max-w-[68ch]">
-              Maryland offers a simultaneous issue discount when both owner's and lender's title insurance are purchased together. This can save buyers 10-20% on their title insurance costs.
+              When the owner&apos;s and lender&apos;s policies are issued together, the lender&apos;s policy is heavily discounted. In Stewart Title&apos;s published Maryland schedule it becomes a flat $350, up to the amount of the owner&apos;s policy.
             </p>
           </div>
         </div>

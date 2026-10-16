@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "How much does title insurance cost in Silver Spring, MD?",
-    answer: "Maryland title insurance rates are filed with the Maryland Insurance Administration. For a $525,000 home—the current median in Silver Spring—owner's title insurance typically costs $1,600-2,200. Maryland offers a simultaneous issue discount when both lender's and owner's policies are purchased together.",
+    answer: "Each underwriter files its own rates with the Maryland Insurance Administration, so premiums vary. In Stewart Title's published Maryland schedule, a standard owner's policy on a $525,000 home—the current median in Silver Spring—is $2,606 before discounts, and the lender's policy issued with it is $350.",
   },
   {
     question: "What are the transfer and recordation taxes in Silver Spring?",

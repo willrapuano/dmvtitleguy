@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "What are the title insurance rates in Fairfax County?",
-    answer: "Fairfax County follows Virginia's state-regulated title insurance rates. For a $600,000 home, owner's title insurance costs approximately $1,800-2,400. Virginia's simultaneous issue discount saves buyers money when purchasing both lender's and owner's coverage together.",
+    answer: "Virginia title insurers file their own rates and can negotiate them, so premiums vary between companies. In Stewart Title's published Virginia schedule, a standard owner's policy on a $600,000 Fairfax County home is $2,472.50 before discounts, and the lender's policy issued with it is $200.",
   },
   {
     question: "Who pays transfer taxes in Fairfax?",

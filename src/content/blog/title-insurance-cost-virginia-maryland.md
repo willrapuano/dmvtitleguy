@@ -37,7 +37,7 @@ Your mortgage lender requires this. It protects *their* investment - the loan am
 **Owner's Policy (Optional - But Not Really)**
 This one protects *you*. It covers your equity and ownership interest for as long as you own the property. Virginia lenders can't require you to buy it, but skipping it is a significant risk. Owner's policies protect against title defects that were already present before you bought - things like an undisclosed heir, a forged deed in the chain of title, or an old mechanics lien that wasn't properly released.
 
-The cost of adding an owner's policy when purchased simultaneously with the lender's policy is minimal. The premium difference is usually a few hundred dollars. The protection lasts as long as you hold the deed.
+Adding an owner's policy at the same closing costs less than its premium alone, because the lender's policy then drops to a simultaneous-issue charge ($200 in Stewart Title's published Virginia schedule). The protection lasts as long as you hold the deed.
 
 ---
 
@@ -45,16 +45,16 @@ The cost of adding an owner's policy when purchased simultaneously with the lend
 
 In Virginia, title insurance rates are set by each underwriting company (like First American, Fidelity, or Old Republic) and filed with the State Corporation Commission's Bureau of Insurance. They aren't the same everywhere, and Virginia law allows title insurers and agents to negotiate the rate with a buyer (Va. Code § 38.2-4608).
 
-What varies from one title company to another - and where the real pricing differences live - are the **settlement fees**: the title search, exam, closing/settlement fee, and notary charges. These are the line items you can actually compare when shopping title companies.
+What also varies from one title company to another are the **settlement fees**: the title search, exam, closing/settlement fee, and notary charges. These are the line items you can actually compare when shopping title companies.
 
 **Virginia premium rate structure:**
-The owner's policy premium is typically calculated on a rate per thousand dollars of purchase price, on a sliding scale. The rate decreases as the purchase price increases.
+The owner's policy premium is calculated per $1,000 of purchase price on a sliding scale, and the rate drops as the price rises. These examples use Stewart Title's published Virginia schedule (effective July 1, 2025), before discounts; other underwriters' rates differ.
 
-- For a $400,000 home, expect roughly **$1,400-$1,800** for the owner's policy
-- For a $700,000 home, expect roughly **$2,000-$2,500** for the owner's policy
-- For a $1M+ home, the rate per thousand decreases further
+- For a $400,000 home, a standard owner's policy is **$1,689.50**
+- For a $700,000 home, it is **$2,847.50**
+- At $1,000,000 it is $3,972.50, and the rate drops to $2.49 per $1,000 above that
 
-The lender's policy, when purchased simultaneously, is issued at a deeply discounted "simultaneous issue rate" - often $100-$300 for a standard transaction.
+The lender's policy, when purchased simultaneously, is issued at a deeply discounted "simultaneous issue rate" - $200 in Stewart's Virginia schedule, $350 in Maryland and $100 in DC.
 
 For buyers searching from Central Virginia, DMV Title Guy's most relevant local guides are north of Richmond, including [Stafford title and closing guidance](/title-company-stafford-va) and the [Fredericksburg title company guide](/title-company-fredericksburg-va). When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
 
@@ -66,11 +66,11 @@ Maryland functions similarly to Virginia on filed rates, but there are a few dis
 
 **Transfer and recordation taxes are higher in Maryland** - often 1% to 1.5% of the purchase price - which inflates the total closing cost picture compared to Northern Virginia. That can make the title insurance premium look relatively small by comparison.
 
-**Maryland buyers** can sometimes negotiate seller contribution to closing costs, which occasionally covers part of the title insurance. This is more common in Maryland than in Virginia's competitive market.
+**Maryland buyers** can sometimes negotiate seller contribution to closing costs, which occasionally covers part of the title insurance.
 
 **Prince George's County** and **Montgomery County** have separate county transfer taxes on top of state transfer taxes, making those closing statements noticeably more expensive than equivalent transactions just across the border in Fairfax.
 
-For Maryland transactions in the $400K-$800K range, combined owner's and lender's policies typically run **$1,500-$2,800**.
+For Maryland transactions in the $400K-$800K range, Stewart's published schedule puts combined owner's and lender's policies at about **$2,400-$4,040**.
 
 If you are comparing Maryland title insurance, taxes, and settlement costs, start with the [Maryland closing cost calculator](/maryland-closing-cost-calculator). For Montgomery County closings, see our [Bethesda title company and escrow services](/title-company-bethesda-md) page.
 
@@ -88,18 +88,18 @@ For title insurance, escrow, and settlement services in the District, see our [W
 
 ## What Drives the Real Cost Differences
 
-Since the insurance premium itself is regulated, here's where the variability actually lives:
+Here's what else goes into the bill, and where it varies:
 
 | Line Item | Typical Range | Notes |
 |-----------|---------------|-------|
 | Title Search | $150-$400 | County records research; complexity varies |
 | Title Exam / Abstract | $150-$350 | Attorney review of chain of title |
 | Settlement/Closing Fee | $400-$900 | The fee to conduct the actual closing |
-| Lender's Policy | $100-$300 (with simultaneous issue) | Separate if no owner's policy purchased |
-| Owner's Policy | $1,400-$2,500 (varies by price) | Varies by insurer; compare across quotes |
+| Lender's Policy | $200 with simultaneous issue (Stewart, VA) | Separate if no owner's policy purchased |
+| Owner's Policy | $1,689.50 at $400K to $3,222.50 at $800K (Stewart, VA) | Varies by insurer; compare across quotes |
 | Recording Fees | $25-$75 | County government charge |
 
-Total out-of-pocket for title insurance and settlement services on a typical Northern Virginia purchase: **$2,500-$4,500**, depending on purchase price and the title company.
+Total out-of-pocket for title insurance and settlement services on a typical Northern Virginia purchase: **$2,500-$4,800**, depending on purchase price and the title company.
 
 ---
 
@@ -141,7 +141,7 @@ In Virginia, you have the right to select your own title company. Your agent or 
 
 ## The Bottom Line for DMV Buyers
 
-Title insurance is a one-time cost at closing. On a $600,000 purchase in Northern Virginia, you're looking at roughly $1,800-$2,500 for the owner's policy and another $1,000-$1,500 in settlement fees and services. That's $3,000-$4,000 total, paid once, for coverage that lasts as long as you own the home.
+Title insurance is a one-time cost at closing. On a $600,000 purchase in Northern Virginia, a standard owner's policy is about $2,470 in Stewart Title's published schedule, plus $1,000-$1,500 in settlement fees and services. That's roughly $3,500-$4,000 total, paid once, for coverage that lasts as long as you own the home.
 
 Compare that to what happens if you don't have it and a title defect surfaces two years after closing: legal fees, potential loss of equity, a fight with whoever created the defect in the first place.
 
