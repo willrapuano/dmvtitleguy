@@ -829,6 +829,10 @@ function LocationPage({ location }: { location: Location }) {
       h1: "Title Company Serving Falls Church, VA",
       lede: "DMV Title Guy provides practical title and closing education for Falls Church City and Falls Church addresses in Fairfax County. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
     },
+    "title-company-manassas-va": {
+      h1: "Title Company in Manassas, VA",
+      lede: "DMV Title Guy explains how closings work in the City of Manassas, from where deeds are recorded to what sellers pay in tax. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
+    },
     "title-company-silver-spring-md": {
       h1: "Title Company Serving Silver Spring, MD",
       lede: "DMV Title Guy provides practical title and closing education for Silver Spring and Montgomery County transactions. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.",
@@ -1260,7 +1264,7 @@ function LocationPage({ location }: { location: Location }) {
                 </Link>
               </div>
             )}
-            {state === "VA" && slug !== "title-company-herndon-va" && (
+            {location.county === "Fairfax County" && slug !== "title-company-herndon-va" && (
               <div>
                 <h3 className="font-bold text-brand-navy mb-3">Herndon Title Services</h3>
                 <p className="text-sm text-brand-muted mb-3 max-w-[68ch] leading-relaxed">

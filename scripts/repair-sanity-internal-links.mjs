@@ -36,6 +36,7 @@ const replacements = new Map([
   ["/blog/what-is-lenders-title-insurance", "/blog/lender-title-insurance"],
   ["/blog/homeowners-title-insurance", "/blog/homeowner-title-insurance"],
   ["/blog/settlement-closing-fee", "/blog/what-is-a-title-settlement-fee"],
+  ["/blog/how-much-does-title-insurance-cost", "/blog/title-insurance-cost-virginia-maryland"],
 ]);
 
 const replacementPairs = [...replacements].flatMap(([source, destination]) => [

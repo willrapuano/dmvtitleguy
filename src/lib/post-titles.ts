@@ -283,14 +283,23 @@ export const BLOG_SEO_OVERRIDES: Record<
       "Arlington settlement services guide for residential closings, title work, and escrow. Pruitt Title helps DMV deals close cleanly. Call today.",
   },
   "title-insurance-cost-virginia-maryland": {
-    title: "Title Insurance Cost in VA, MD & DC (2026 Buyer Guide)",
+    // 2026-10-16: the single answer for "how much is title insurance"; the
+    // how-much-does-title-insurance-cost duplicate now 301s here.
+    title: "How Much Is Title Insurance? VA, MD & DC Costs (2026 Guide)",
     description:
       "What buyers pay for title insurance in Virginia, Maryland and DC, with real published premiums, simultaneous-issue rates and how to compare quotes.",
   },
   "how-much-does-title-insurance-cost": {
-    title: "How Much Does Title Insurance Cost? VA/MD/DC Breakdown",
+    title: "How Much Is Title Insurance? VA, MD & DC Costs (2026 Guide)",
+    canonical: "/blog/title-insurance-cost-virginia-maryland",
+  },
+  "title-insurance-cost-virginia": {
+    // 2026-10-16: targets "title insurance in Virginia", which was landing on
+    // who-chooses-the-title-company-in-virginia at ~#20.
+    title: "Title Insurance in Virginia: What It Costs in 2026",
     description:
-      "What title insurance costs in VA, MD and DC: real published premiums, how simultaneous issue works, and what you can compare. Get a free quote.",
+      "What title insurance costs in Virginia: Stewart Title's published premiums from $400K to $1M, the $200 lender's policy, and how to compare quotes.",
+    h1: "Title Insurance in Virginia: What It Costs in 2026",
   },
 };
 

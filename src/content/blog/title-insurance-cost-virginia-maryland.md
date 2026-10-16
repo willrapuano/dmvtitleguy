@@ -149,11 +149,14 @@ The math is straightforward. What isn't straightforward is knowing who to call w
 
 That's the part that matters more than the premium.
 
-For local title service pages, see [Vienna title company services](/title-search-vienna-va), [Springfield title company services](/title-company-springfield-va), [Bethesda title company services](/title-company-bethesda-md), and [Washington DC title company services](/title-company-washington-dc).
+For local title service pages, see the title company pages for [Herndon](/title-company-herndon-va), [Tysons](/title-company-tysons-va), [Falls Church](/title-company-falls-church-va), [Vienna](/title-search-vienna-va), [Manassas](/title-company-manassas-va), [Springfield](/title-company-springfield-va), [Silver Spring](/title-company-silver-spring-md), [Bethesda](/title-company-bethesda-md) and [Washington DC](/title-company-washington-dc).
 
 ---
 
 ## Frequently Asked Questions
+
+**How much does title insurance cost?**
+It depends on the price, the loan and the underwriter. For a $600,000 home, Stewart Title's published schedules come to about $2,670 in Virginia ($2,472.50 for a standard owner's policy plus $200 for the lender's policy issued with it), about $3,250 in Maryland ($2,901.50 plus $350) and about $3,250 in DC ($3,150 plus $100), before discounts. Other underwriters' rates differ.
 
 **Is title insurance required in Virginia?**
 The lender's policy is required if you're financing the purchase. The owner's policy is optional, but strongly recommended.
@@ -162,13 +165,13 @@ The lender's policy is required if you're financing the purchase. The owner's po
 In Virginia and Maryland, each underwriter files its own premium rates with the state, so premiums can differ between companies. Compare the premium along with settlement fees, search quality, and service experience.
 
 **Who pays for title insurance - buyer or seller?**
-In Virginia, it's typically the buyer. In Maryland, it varies by custom and negotiation. In DC, both parties pay portions of the transaction costs.
+The buyer customarily pays for both the owner's and lender's policies in Virginia, Maryland and DC. It can be negotiated in the contract.
 
 **How long does title insurance coverage last?**
 The owner's policy lasts as long as you or your heirs own the property. The lender's policy lasts until the mortgage is paid off.
 
 **What is a title insurance claim?**
-A claim is filed when a covered title defect surfaces after closing - like a previously unknown lien, an heir who claims ownership, or a recording error. The title company defends you and covers losses up to the policy limit.
+A claim is filed when a covered title defect surfaces after closing - like a previously unknown lien, an heir who claims ownership, or a recording error. The title insurer defends you and covers losses up to the policy limit.
 
 ---
 
