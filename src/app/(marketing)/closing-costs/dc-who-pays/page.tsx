@@ -114,7 +114,7 @@ export default function DCWhoPaysClosingCostsPage() {
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commissions:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
               <li><strong>DC Transfer Tax:</strong> 1.1% of purchase price (properties under $400K) or 1.45% (properties $400K and up) — owed by the seller by law (D.C. Code § 47-903(c)).</li>
-              <li><strong>Title Insurance for Buyer:</strong> Sellers often pay for the owner's title insurance policy as a concession.</li>
+              <li><strong>Title Insurance for Buyer:</strong> The buyer customarily pays for the owner&apos;s title insurance policy, though a seller can agree to cover it as a concession.</li>
               <li><strong>Prorated Property Taxes:</strong> Property taxes from January 1 to the closing date.</li>
               <li><strong>Outstanding Liens:</strong> Any liens on the property must be paid at closing.</li>
               <li><strong>Condo/Co-op Fees:</strong> Any outstanding monthly fees or special assessments.</li>

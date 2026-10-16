@@ -28,7 +28,7 @@ export const BLOG_FAQ_OVERRIDES: Record<string, BlogFAQItem[]> = {
     {
       question: "Who pays for owner's title insurance in Virginia, Maryland, and DC?",
       answer:
-        "That depends on local custom and the contract. The Virginia Bureau of Insurance and the Maryland Insurance Administration both say it follows local practice and can be negotiated, so check what your contract says.",
+        "The buyer customarily pays for the owner's policy in Virginia, Maryland and DC. It's local practice, not law, so it can be negotiated in the contract.",
     },
     {
       question: "Does a title search make owner's title insurance unnecessary?",

@@ -582,6 +582,19 @@
             "marks": []
           }
         ]
+      },
+      {
+        "_key": "p8",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "DC requires that a licensed DC attorney supervise the closing.",
+            "marks": []
+          }
+        ]
       }
     ]
   }

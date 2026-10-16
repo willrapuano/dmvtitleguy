@@ -41,7 +41,7 @@ A [title company](/blog/what-does-a-title-company-do) is the neutral third party
 
 4. **Closing coordination** — Scheduling the settlement, preparing documents, coordinating between buyer, seller, agents, and lender, and ensuring everything gets signed, funded, and recorded correctly.
 
-In Virginia, title companies act as settlement agents — they conduct the closing. Unlike Maryland, Virginia doesn't require an attorney at the closing table (though many title companies employ attorneys on staff).
+In Virginia, title companies act as settlement agents — they conduct the closing. Like Maryland and DC, Virginia doesn't require an attorney at the closing table (though many title companies employ attorneys on staff).
 
 ---
 
