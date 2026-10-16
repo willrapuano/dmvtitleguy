@@ -304,6 +304,12 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   const heroImageAlt = resolvePostImageAlt(post.slug) || post.imageAlt || "";
   // heroImage still feeds the BlogPosting schema for posts that hide it.
   const showHero = showsPostImage(post.slug);
+  // "Updated" appears only when the post changed on a later day than it was published.
+  const modifiedISO = blogPostModifiedDateISO(post);
+  const updatedLabel =
+    modifiedISO.slice(0, 10) > post.dateISO.slice(0, 10)
+      ? new Date(modifiedISO).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "America/New_York" })
+      : null;
 
   // Build share URLs
   const shareTitle = encodeURIComponent(displayTitle);
@@ -442,7 +448,12 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                 Will Rapuano
               </Link>
               <span className="text-brand-ink-light">
-                {post.date} · {post.readTime}
+                <time dateTime={post.dateISO}>{post.date}</time> · {post.readTime}
+                {updatedLabel && (
+                  <>
+                    {" · "}Updated <time dateTime={modifiedISO}>{updatedLabel}</time>
+                  </>
+                )}
               </span>
             </div>
           </div>
@@ -636,6 +647,13 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
               {articleFAQs.length > 0 && (
                 <FAQSection faqs={articleFAQs} includeSchema={false} />
               )}
+
+              {/* General-information note on every post (SEO audit 2026-10-15: money and legal
+                  topics without a disclaimer). Part of the template, not the post body. */}
+              <p data-blog-disclaimer className="mt-10 max-w-[68ch] text-[13px] leading-relaxed text-brand-ink-light">
+                General information about title insurance and closing costs in Virginia, Maryland and DC, not legal or
+                tax advice. Tax rates, fees and rules change, so confirm the figures for your own transaction.
+              </p>
 
               {showDmvTitleServices && <RelatedLocalTitleServices />}
 
