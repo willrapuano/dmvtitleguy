@@ -34,6 +34,9 @@ export const bannedClaims = [
   // Maryland Insurance Administration, A Consumer Guide to Title Insurance: who pays "depends in part on
   // local custom" and can be negotiated with the seller. No DMV regulator says the seller customarily pays.
   { pattern: /(?:customary|custom is|tradition(?:al)?(?: Maryland)? custom is|standard Maryland custom)[^.\n]{0,40}seller[^.\n]{0,30}(?:pay|cover)[^.\n]{0,20}owner'?s|seller[^.\n]{0,40}(?:pay|cover)s?[^.\n]{0,30}owner'?s[^.\n]{0,60}(?:a common practice|customary|standard Maryland custom|by tradition)/i, why: "who pays the owner's policy follows local custom and the contract (MIA consumer guide; Virginia Bureau of Insurance); don't state a seller-pays custom" },
+  // DC, like VA and MD, lets a title company's settlement agent or a notary conduct a residential
+  // settlement (owner, 2026-10-16); no attorney requirement.
+  { pattern: /DC (?:law )?requires (?:that )?(?:a licensed DC )?(?:an )?attorney|attorney must supervise|DC requires attorney involvement|District requires that certain closing functions/i, why: "DC doesn't require an attorney at closing; a settlement agent or notary can conduct it" },
   // Stewart's Maryland rate manual offers an upgrade from a standard to an enhanced owner's policy.
   { pattern: /cannot upgrade from standard to enhanced|can't upgrade from standard to enhanced/i, why: "Maryland rate manuals (Stewart, First National) allow a post-closing upgrade to the enhanced policy" },
 ];

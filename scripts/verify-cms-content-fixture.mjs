@@ -39,6 +39,7 @@ const mustCatch = [
   ["fixture-premium-claims", "not set by the state"],
   ["fixture-premium-claims", "don't state a seller-pays custom"],
   ["fixture-premium-claims", "allow a post-closing upgrade"],
+  ["fixture-premium-claims", "settlement agent or notary can conduct it"],
 ];
 for (const [slug, text] of mustCatch) {
   assert.ok(out.split("\n").some((line) => line.includes(`/blog/${slug}`) && line.includes(text)), `expected a failure on ${slug}: ${text}`);

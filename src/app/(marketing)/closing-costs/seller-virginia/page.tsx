@@ -89,7 +89,7 @@ export default function SellerVirginiaClosingCostsPage() {
           <div className="space-y-4 text-brand-muted leading-relaxed">
             <ul className="list-disc list-inside space-y-3">
               <li><strong>Real Estate Agent Commission:</strong> Typically 5-6% of the sale price, split between the buyer's and seller's agents.</li>
-              <li><strong>Title Insurance:</strong> Protects the buyer and lender from title disputes. Sellers often pay for the owner's title insurance policy.</li>
+              <li><strong>Title Insurance:</strong> Protects the buyer and lender from title disputes. In Virginia the buyer customarily pays for the owner&apos;s policy, unless the contract shifts it to the seller.</li>
               <li><strong>Transfer Taxes:</strong> Virginia charges a state grantor tax, and Northern Virginia adds two regional fees.</li>
               <li><strong>Attorney Fees:</strong> If you hire an attorney to handle the closing, expect to pay $500-$1,500.</li>
               <li><strong>Recording Fees:</strong> Paid to the county to record the deed transfer.</li>
