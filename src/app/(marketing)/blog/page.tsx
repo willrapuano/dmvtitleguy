@@ -9,7 +9,7 @@ export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: "Blog | DMV Title Guy — Title Insurance & Real Estate Tips",
-  description: "Expert insights on title insurance, closing costs, and real estate strategy for DC, Maryland, and Virginia agents, lenders, and buyers. Written by Will Rapuano, Pruitt Title LLC.",
+  description: "Title insurance, closing cost and settlement guides for DC, Maryland and Virginia buyers, sellers and agents, written by Will Rapuano of Pruitt Title.",
   path: "/blog",
 });
 

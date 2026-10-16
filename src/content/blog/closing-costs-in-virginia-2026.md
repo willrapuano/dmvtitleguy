@@ -12,7 +12,7 @@ compliance_notes: "APPROVED WITH NOTES 2026-03-20 — No violations. Add EHO sta
 publish_date: 2026-03-21
 internal_links:
   - /blog/what-is-a-title-settlement-fee → "title settlement fee"
-  - /blog/lenders-title-insurance-vs-owners-title-insurance → "title insurance"
+  - /blog/difference-between-lenders-and-owners-title-insurance → "title insurance"
   - /blog/what-does-a-title-company-do → "title company"
   - /contract-analyzer → CTA
   - /title-search-vienna-va → "Vienna title company"
@@ -62,7 +62,7 @@ Here's what a typical Virginia buyer pays at closing in 2026. These ranges refle
 |-----|--------------|-------|
 | [Title settlement fee](/blog/what-is-a-title-settlement-fee) | $450–$795 | The [title company's](/blog/what-does-a-title-company-do) professional fee |
 | Title search / examination | $150–$400 | Researching the property's ownership chain |
-| [Lender's title insurance](/blog/lenders-title-insurance-vs-owners-title-insurance) | $400–$1,200 | Required by your lender; based on loan amount |
+| [Lender's title insurance](/blog/difference-between-lenders-and-owners-title-insurance) | $400–$1,200 | Required by your lender; based on loan amount |
 | Owner's title insurance | $500–$1,500 | Optional but strongly recommended; based on purchase price |
 | Title insurance endorsements | $50–$200 | Additional coverage riders |
 
@@ -112,7 +112,7 @@ Virginia sellers have their own set of closing costs. Here's the breakdown:
 
 ## How Title Insurance Costs Work in Virginia
 
-[Title insurance](/blog/lenders-title-insurance-vs-owners-title-insurance) is one of the most misunderstood closing costs. Here's what matters:
+[Title insurance](/blog/difference-between-lenders-and-owners-title-insurance) is one of the most misunderstood closing costs. Here's what matters:
 
 **Lender's title insurance** is required on any mortgage transaction. The premium is based on the loan amount and protects only the lender's interest.
 

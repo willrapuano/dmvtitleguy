@@ -688,9 +688,9 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
       },
       "title-company-bethesda-md": {
         title: "Title Company in Bethesda, MD | Settlement, Escrow & Title Insurance",
-        description: "Bethesda MD title company for buyers, sellers, and agents. Fast settlement, escrow, and title insurance across Chevy Chase and Montgomery County. Free online title quote.",
+        description: "Closing in Bethesda? Will Rapuano and Pruitt Title handle title insurance, escrow and settlement across Montgomery County. Get an instant title quote online.",
         ogTitle: "Title Company in Bethesda, MD | Settlement, Escrow & Title Insurance",
-        ogDescription: "Bethesda MD title company for buyers, sellers, and agents. Fast settlement, escrow, and title insurance across Chevy Chase and Montgomery County. Free online title quote.",
+        ogDescription: "Closing in Bethesda? Will Rapuano and Pruitt Title handle title insurance, escrow and settlement across Montgomery County. Get an instant title quote online.",
       },
       "title-company-reston-va": {
         title: "Title Company in Reston, VA | Title Insurance & Settlement",

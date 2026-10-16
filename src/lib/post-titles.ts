@@ -142,6 +142,126 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",
     canonical: "/blog/what-is-a-title-settlement-fee",
   },
+  "enhanced-vs-standard-title-insurance": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    description:
+      "Enhanced title insurance costs about 20% more than standard. What it adds, published VA, MD and DC premiums, and when the upgrade is worth it.",
+  },
+  "who-chooses-the-title-company-in-virginia": {
+    title: "Who Chooses the Title Company in Virginia? Here's the No-BS Answer.",
+    description:
+      "Virginia buyers choose the settlement agent, and a seller can't make one a condition of the sale. What agents should know and how to guide clients.",
+  },
+  "dc-first-time-homebuyer-tax-exemption": {
+    title: "DC First-Time Homebuyer Recordation Tax: The 0.725% Rate and Who Qualifies",
+    description:
+      "DC first-time buyers pay a 0.725% recordation rate instead of 1.1% or 1.45%. Who qualifies, what it saves, and the separate lower-income exemption.",
+  },
+  "who-pays-closing-costs-maryland": {
+    title: "Who Pays Closing Costs in Maryland? Buyer vs Seller Customs Explained",
+    description:
+      "Who pays what at a Maryland closing: transfer and recordation taxes, title insurance and settlement fees, and what the contract can change.",
+  },
+  "understanding-subject-to-transactions": {
+    title: "Understanding Subject-To Transactions: What Buyers and Sellers Should Know",
+    description:
+      "How subject-to deals work, where the risks are for buyers and sellers, and what to check before you sign a subject-to agreement.",
+  },
+  "mechanic-lien-agent-virginia": {
+    title: "Mechanic's Lien Agent in Virginia: What Builders and Lenders Must Know Before Breaking Ground",
+    description:
+      "Virginia's mechanic's lien agent rules for builders, lenders and buyers: who names the agent, lien notices, and what title insurance needs at closing.",
+  },
+  "title-insurance-fsbo-northern-virginia": {
+    title: "Title Insurance for FSBO Buyers in Northern Virginia: What Happens With No Agent",
+    description:
+      "Buying directly from the owner in Northern Virginia? You choose the settlement agent, even if the FSBO contract doesn't say so. What to order, and when.",
+  },
+  "title-company-military-relocation-northern-virginia": {
+    title: "Title Company for Military and Out-of-State Relocation to Northern Virginia",
+    description:
+      "Moving to Northern Virginia on PCS orders or from out of state? You can close without being here and you choose the settlement agent. What to line up first.",
+  },
+  "closing-costs-dc": {
+    title: "Closing Costs in DC: What Buyers and Sellers Pay in the District",
+    description:
+      "What buyers and sellers pay at a DC closing: recordation and transfer tax rates, the 0.725% first-time buyer rate and a $700,000 sample breakdown.",
+  },
+  "title-insurance-requirements-dc-md-va": {
+    title: "Title Insurance Requirements in DC, Maryland, and Virginia: A Comparison",
+    description:
+      "Is title insurance required in DC, Maryland and Virginia? A side-by-side look at lender's and owner's policies, who chooses the company and typical costs.",
+  },
+  "builders-preferred-title-company": {
+    title: "Do You Have to Use the Builder's Title Company? RESPA Rights for DMV Homebuyers",
+    description:
+      "Do you have to use the builder's title company on a new home in the DMV? RESPA bars a seller from requiring one. Know your rights before you sign.",
+  },
+  "title-insurance-new-construction": {
+    title: "Title Insurance for New Construction: What Buyers of New Builds Actually Pay For",
+    description:
+      "Title insurance on a new build: what the owner's policy covers, why mechanic's liens matter, and what buyers pay in Virginia, Maryland and DC.",
+  },
+  "title-insurance-claims-process": {
+    title: "Understanding the Title Insurance Claims Process",
+    description:
+      "How a title insurance claim works: what's covered, how to file, and what the insurer does next. A plain-English guide for DMV homeowners.",
+  },
+  "title-and-settlement-services": {
+    title: "Title and Settlement Services: What You Should Expect From Your Closing Team",
+    description:
+      "What title and settlement services cover, what your closing team protects you from, and how to choose one in DC, Maryland or Virginia.",
+  },
+  // 2026-10-16 consolidation: these duplicates 301 to the survivor (config/domain-redirects.mjs);
+  // the canonical keeps them out of the sitemap and blog index.
+  "enhanced-title-insurance-vs-standard": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "standard-vs-enhanced-title-insurance": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "standard-vs-extended-title-insurance": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "title-insurance-enhanced-vs-standard": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "what-is-enhanced-title-insurance": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "alta-homeowner-policy": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "lenders-title-insurance-vs-owners-title-insurance": {
+    title: "Lender's vs Owner's Title Insurance: What's the Difference and Do You Need Both?",
+    canonical: "/blog/difference-between-lenders-and-owners-title-insurance",
+  },
+  "owners-policy-vs-lenders-policy": {
+    title: "Lender's vs Owner's Title Insurance: What's the Difference and Do You Need Both?",
+    canonical: "/blog/difference-between-lenders-and-owners-title-insurance",
+  },
+  "lenders-title-insurance": {
+    title: "Lender Title Insurance: What It Is, What It Costs, and Why Your Bank Requires It",
+    canonical: "/blog/lender-title-insurance",
+  },
+  "what-is-lenders-title-insurance": {
+    title: "Lender Title Insurance: What It Is, What It Costs, and Why Your Bank Requires It",
+    canonical: "/blog/lender-title-insurance",
+  },
+  "homeowners-title-insurance": {
+    title: "Homeowner Title Insurance: What It Covers and Why Many DMV Owners Keep It Too Low on the Priority List",
+    canonical: "/blog/homeowner-title-insurance",
+  },
+  "settlement-closing-fee": {
+    title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",
+    canonical: "/blog/what-is-a-title-settlement-fee",
+  },
   "title-company-vienna-va": {
     title: "Vienna VA Title Closings: How Closings Work | Pruitt Title",
     description:
@@ -165,12 +285,12 @@ export const BLOG_SEO_OVERRIDES: Record<
   "title-insurance-cost-virginia-maryland": {
     title: "Title Insurance Cost in VA, MD & DC (2026 Buyer Guide)",
     description:
-      "What buyers actually pay for title insurance in Virginia, Maryland and DC: owner vs lender policies, rate basics, and how to compare closing numbers. Free quote online.",
+      "What buyers pay for title insurance in Virginia, Maryland and DC, with real published premiums, simultaneous-issue rates and how to compare quotes.",
   },
   "how-much-does-title-insurance-cost": {
     title: "How Much Does Title Insurance Cost? VA/MD/DC Breakdown",
     description:
-      "Title insurance cost explained before you sign the Closing Disclosure. What drives the premium in VA, MD, and DC — and how to request a clear Pruitt Title quote today.",
+      "What title insurance costs in VA, MD and DC: real published premiums, how simultaneous issue works, and what you can compare. Get a free quote.",
   },
 };
 

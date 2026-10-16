@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // up the same searches and split the signal.
   title: "Title Insurance Calculator for Virginia, Maryland & DC | Pruitt Title",
   description:
-    "Free title insurance calculator for Virginia, Maryland, and DC. Estimate title insurance premiums and settlement costs for a purchase or refinance with Pruitt Title.",
+    "Free title insurance calculator for Virginia, Maryland and DC. Estimate premiums and settlement costs for a purchase or refinance with Pruitt Title.",
   alternates: { canonical: "https://dmvtitleguy.io/calculators/title-quote" },
 };
 

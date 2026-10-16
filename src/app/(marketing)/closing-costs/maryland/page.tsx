@@ -7,7 +7,7 @@ import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 
 export const metadata: Metadata = {
   title: "Maryland Closing Costs Guide | DMV Title Guy",
-  description: "Complete guide to Maryland closing costs for buyers and sellers. Learn about transfer taxes, recordation fees, title insurance, and what to expect at settlement.",
+  description: "Maryland closing costs for buyers and sellers: state and county transfer taxes, recordation tax, title insurance and what to expect at settlement.",
   alternates: { canonical: "/closing-costs/maryland" },
 };
 
@@ -56,7 +56,7 @@ export default function MarylandClosingCostsPage() {
             "@type": "Article",
             headline: "Maryland Closing Cost Guide",
             url: "https://dmvtitleguy.io/closing-costs/maryland",
-            description: "Complete guide to Maryland closing costs for buyers and sellers. Learn about transfer taxes, recordation fees, title insurance, and what to expect at settlement.",
+            description: "Maryland closing costs for buyers and sellers: state and county transfer taxes, recordation tax, title insurance and what to expect at settlement.",
             spatialCoverage: {
               "@type": "State",
               name: "Maryland",

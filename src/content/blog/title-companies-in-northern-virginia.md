@@ -13,7 +13,7 @@ publish_date: 2026-03-28
 internal_links:
   - /blog/what-does-a-title-company-do → "what a title company does"
   - /blog/what-is-a-title-settlement-fee → "settlement fees"
-  - /blog/lenders-title-insurance-vs-owners-title-insurance → "title insurance"
+  - /blog/difference-between-lenders-and-owners-title-insurance → "title insurance"
   - /blog/closing-costs-in-virginia-2026 → "closing costs"
   - /contact → CTA
   - /title-search-vienna-va → "Vienna title company"
@@ -35,7 +35,7 @@ A [title company](/blog/what-does-a-title-company-do) is the neutral third party
 
 1. **Title search and examination** — Researching the property's ownership history to identify any liens, encumbrances, or defects that could affect the transfer.
 
-2. **Title insurance** — Issuing [lender's and owner's title insurance](/blog/lenders-title-insurance-vs-owners-title-insurance) policies that protect against undiscovered title problems after closing.
+2. **Title insurance** — Issuing [lender's and owner's title insurance](/blog/difference-between-lenders-and-owners-title-insurance) policies that protect against undiscovered title problems after closing.
 
 3. **Escrow management** — Holding and disbursing funds (earnest money, proceeds, payoffs) according to the contract terms.
 
