@@ -43,7 +43,7 @@ The cost of adding an owner's policy when purchased simultaneously with the lend
 
 ## How Title Insurance Premiums Are Calculated in Virginia
 
-Virginia is a filed-rate state. This means title insurance premiums are set by the underwriting companies (like First American, Fidelity, or Old Republic) and filed with the state's Bureau of Insurance. Title agents cannot negotiate those rates up or down.
+In Virginia, title insurance rates are set by each underwriting company (like First American, Fidelity, or Old Republic) and filed with the State Corporation Commission's Bureau of Insurance. They aren't the same everywhere, and Virginia law allows title insurers and agents to negotiate the rate with a buyer (Va. Code § 38.2-4608).
 
 What varies from one title company to another - and where the real pricing differences live - are the **settlement fees**: the title search, exam, closing/settlement fee, and notary charges. These are the line items you can actually compare when shopping title companies.
 
@@ -78,7 +78,7 @@ If you are comparing Maryland title insurance, taxes, and settlement costs, star
 
 ## DC Title Insurance: The Outlier
 
-Washington DC operates under its own title insurance regulatory framework. The District does not use the same filed-rate system as Virginia and Maryland. Premiums tend to be slightly lower than surrounding jurisdictions, but the settlement fees and transaction taxes are substantially higher.
+Washington DC operates under its own title insurance regulatory framework. Title insurance there is regulated by the DC Department of Insurance, Securities and Banking. The bigger cost difference in DC is the transaction taxes.
 
 DC's **1.45% recordation tax** (buyer's side for mortgaged properties) is one of the highest in the region. On a $750,000 condo, that's $10,875 in taxes alone - which often dwarfs the title insurance premium itself.
 
@@ -96,7 +96,7 @@ Since the insurance premium itself is regulated, here's where the variability ac
 | Title Exam / Abstract | $150-$350 | Attorney review of chain of title |
 | Settlement/Closing Fee | $400-$900 | The fee to conduct the actual closing |
 | Lender's Policy | $100-$300 (with simultaneous issue) | Separate if no owner's policy purchased |
-| Owner's Policy | $1,400-$2,500 (varies by price) | Filed rate - not negotiable with agent |
+| Owner's Policy | $1,400-$2,500 (varies by price) | Varies by insurer; compare across quotes |
 | Recording Fees | $25-$75 | County government charge |
 
 Total out-of-pocket for title insurance and settlement services on a typical Northern Virginia purchase: **$2,500-$4,500**, depending on purchase price and the title company.
@@ -120,7 +120,7 @@ Most searches come back clean. But "most" isn't "all." And when there's a proble
 
 ## How to Compare Title Companies (Without Getting Burned)
 
-Since the insurance premium is fixed, here's what to actually evaluate:
+Along with the premium, here's what to evaluate:
 
 **1. Ask for a full fee sheet, not just the premium.**
 Request an itemized breakdown of all settlement charges. Some companies advertise low premiums and bury fees in "administrative charges" or "document preparation fees."
@@ -159,7 +159,7 @@ For local title service pages, see [Vienna title company services](/title-search
 The lender's policy is required if you're financing the purchase. The owner's policy is optional, but strongly recommended.
 
 **Can I shop around for a lower title insurance rate?**
-In Virginia and Maryland, the insurance premium itself is filed with the state and is the same across licensed agents. What you can compare is settlement fees, search quality, and service experience.
+In Virginia and Maryland, each underwriter files its own premium rates with the state, so premiums can differ between companies. Compare the premium along with settlement fees, search quality, and service experience.
 
 **Who pays for title insurance - buyer or seller?**
 In Virginia, it's typically the buyer. In Maryland, it varies by custom and negotiation. In DC, both parties pay portions of the transaction costs.

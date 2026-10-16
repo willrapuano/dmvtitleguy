@@ -270,6 +270,19 @@
             "marks": []
           }
         ]
+      },
+      {
+        "_key": "dz",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Title insurance rates in Virginia are not fixed by the state, and Virginia law lets insurers negotiate the rate, so comparing the premium is worth it.",
+            "marks": []
+          }
+        ]
       }
     ]
   },
@@ -459,6 +472,62 @@
             "_key": "f2b",
             "question": "Who signs off?",
             "answer": "Ask DMV Title Guy. At DMV Title Guy, EKKO Title's settlement division, the team works with buyers."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fixture-premium-claims",
+    "title": "Premium claims",
+    "body": [
+      {
+        "_key": "p1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Every licensed title company in Virginia charges the same premium for the same transaction value.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "p2",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "That means you cannot negotiate a lower title insurance premium by shopping around.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "p3",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "Title insurance premiums in Virginia are set by the State Corporation Commission.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "p4",
+        "_type": "accordion",
+        "items": [
+          {
+            "_key": "p4a",
+            "question": "Can I shop the premium?",
+            "answer": "No. The title company doesn't set it, so shopping around won't change what you pay for the policy."
           }
         ]
       }

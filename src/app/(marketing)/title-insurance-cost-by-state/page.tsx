@@ -77,7 +77,7 @@ export default function TitleInsuranceCostByStatePage() {
             Local insight
           </p>
           <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            In the DMV region, Virginia has regulated rates set by the state, while Maryland and DC allow more competition—meaning shopping around can yield savings.
+            Across the DMV, each title insurer files its own rates, so premiums vary between companies. In Virginia the rate can also be negotiated (Va. Code § 38.2-4608)—so shopping around can yield savings.
           </p>
         </div>
       </section>
