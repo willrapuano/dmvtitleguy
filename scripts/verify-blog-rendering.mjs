@@ -55,9 +55,11 @@ const expectations = new Map([
   ["/blog/how-to-read-a-title-commitment", { faq: true, inlineAccordions: 0 }],
   ["/blog/enhanced-title-insurance-vs-standard", { faq: true, inlineAccordions: 0 }],
   ["/blog/lenders-title-insurance-vs-owners-title-insurance", { faq: true, inlineAccordions: 0 }],
-  ["/blog/closing-costs-maryland-2026", { faq: false, inlineAccordions: 1 }],
+  // 2026-10-16: the stuffed accordion was unpacked into normal sections.
+  ["/blog/closing-costs-maryland-2026", { faq: false, inlineAccordions: 0 }],
   ["/blog/how-much-does-title-insurance-cost", { faq: true, inlineAccordions: 1 }],
-  ["/blog/title-companies-in-northern-virginia", { faq: true, inlineAccordions: 1 }],
+  // 2026-10-16: sections moved out of the accordion; the remaining Q&As render as the FAQ.
+  ["/blog/title-companies-in-northern-virginia", { faq: true, inlineAccordions: 0 }],
   ["/blog/1031-exchange-guide-investors", { faq: false, inlineAccordions: 0 }],
 ]);
 

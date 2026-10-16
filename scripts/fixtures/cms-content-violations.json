@@ -428,5 +428,40 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "fixture-faq-structure",
+    "title": "Fixture: FAQ structure",
+    "body": [
+      {
+        "_key": "f1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_type": "span",
+            "text": "An introduction paragraph about settlement.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "_key": "f2",
+        "_type": "accordion",
+        "items": [
+          {
+            "_key": "f2a",
+            "question": "What Is the Title Settlement Fee?",
+            "answer": "The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing. The settlement fee pays for running the closing."
+          },
+          {
+            "_key": "f2b",
+            "question": "Who signs off?",
+            "answer": "Ask DMV Title Guy. At DMV Title Guy, EKKO Title's settlement division, the team works with buyers."
+          }
+        ]
+      }
+    ]
   }
 ]
