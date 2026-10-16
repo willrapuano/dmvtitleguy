@@ -53,8 +53,11 @@ const expectations = new Map([
   ["/blog/what-does-a-title-company-do", { faq: true, inlineAccordions: 0 }],
   ["/blog/title-search-refinance", { faq: true, inlineAccordions: 0 }],
   ["/blog/how-to-read-a-title-commitment", { faq: true, inlineAccordions: 0 }],
-  ["/blog/enhanced-title-insurance-vs-standard", { faq: true, inlineAccordions: 0 }],
-  ["/blog/lenders-title-insurance-vs-owners-title-insurance", { faq: true, inlineAccordions: 0 }],
+  // 2026-10-16: enhanced-title-insurance-vs-standard and lenders-title-insurance-vs-owners-title-insurance
+  // now 301 to these survivors; the second gains its FAQ from blog-faq-overrides.ts.
+  ["/blog/enhanced-vs-standard-title-insurance", { faq: true, inlineAccordions: 0 }],
+  ["/blog/difference-between-lenders-and-owners-title-insurance", { faq: true, inlineAccordions: 0 }],
+  ["/blog/lender-title-insurance", { faq: true, inlineAccordions: 0 }],
   // 2026-10-16: the stuffed accordion was unpacked into normal sections.
   ["/blog/closing-costs-maryland-2026", { faq: false, inlineAccordions: 0 }],
   ["/blog/how-much-does-title-insurance-cost", { faq: true, inlineAccordions: 1 }],
@@ -142,21 +145,6 @@ async function worker() {
       if (expectation && inlineAccordionCount !== expectation.inlineAccordions) {
         failures.push(`${route}: expected ${expectation.inlineAccordions} inline accordions, found ${inlineAccordionCount}`);
       }
-      if (route === "/blog/enhanced-title-insurance-vs-standard") {
-        if (!visibleHtml.includes("enhanced-title-insurance-vs-standard-v2.jpg")) {
-          failures.push(`${route}: expected the topic-specific comparison hero`);
-        }
-        if (!visibleHtml.includes("baseline and expanded layers of title insurance protection")) {
-          failures.push(`${route}: expected meaningful comparison-image alt text`);
-        }
-        if (!html.includes('<meta property="og:image:width" content="1672"')) {
-          failures.push(`${route}: expected accurate Open Graph image width`);
-        }
-        if (!html.includes('<meta property="og:image:height" content="941"')) {
-          failures.push(`${route}: expected accurate Open Graph image height`);
-        }
-      }
-
       const ids = [...visibleHtml.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
       const idCounts = new Map(ids.map((id) => [id, ids.filter((candidate) => candidate === id).length]));
       const duplicateIds = [...idCounts.entries()].filter(([, total]) => total > 1);

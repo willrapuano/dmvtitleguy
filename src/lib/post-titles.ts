@@ -142,6 +142,56 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",
     canonical: "/blog/what-is-a-title-settlement-fee",
   },
+  // 2026-10-16 consolidation: these duplicates 301 to the survivor (config/domain-redirects.mjs);
+  // the canonical keeps them out of the sitemap and blog index.
+  "enhanced-title-insurance-vs-standard": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "standard-vs-enhanced-title-insurance": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "standard-vs-extended-title-insurance": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "title-insurance-enhanced-vs-standard": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "what-is-enhanced-title-insurance": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "alta-homeowner-policy": {
+    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    canonical: "/blog/enhanced-vs-standard-title-insurance",
+  },
+  "lenders-title-insurance-vs-owners-title-insurance": {
+    title: "Lender's vs Owner's Title Insurance: What's the Difference and Do You Need Both?",
+    canonical: "/blog/difference-between-lenders-and-owners-title-insurance",
+  },
+  "owners-policy-vs-lenders-policy": {
+    title: "Lender's vs Owner's Title Insurance: What's the Difference and Do You Need Both?",
+    canonical: "/blog/difference-between-lenders-and-owners-title-insurance",
+  },
+  "lenders-title-insurance": {
+    title: "Lender Title Insurance: What It Is, What It Costs, and Why Your Bank Requires It",
+    canonical: "/blog/lender-title-insurance",
+  },
+  "what-is-lenders-title-insurance": {
+    title: "Lender Title Insurance: What It Is, What It Costs, and Why Your Bank Requires It",
+    canonical: "/blog/lender-title-insurance",
+  },
+  "homeowners-title-insurance": {
+    title: "Homeowner Title Insurance: What It Covers and Why Many DMV Owners Keep It Too Low on the Priority List",
+    canonical: "/blog/homeowner-title-insurance",
+  },
+  "settlement-closing-fee": {
+    title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",
+    canonical: "/blog/what-is-a-title-settlement-fee",
+  },
   "title-company-vienna-va": {
     title: "Vienna VA Title Closings: How Closings Work | Pruitt Title",
     description:

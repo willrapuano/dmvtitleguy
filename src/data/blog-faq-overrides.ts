@@ -1,26 +1,61 @@
 import type { BlogFAQItem } from "@/lib/blog-portable-content";
 
 /**
- * A legacy URL and its newer duplicate cover the same enhanced-vs-standard
- * policy comparison. Reuse the first three clean, already-published Sanity FAQ
- * answers from `title-insurance-enhanced-vs-standard`; do not invent new copy.
+ * Code-level FAQs for posts whose CMS body has none.
+ *
+ * 2026-10-16: the lender's-vs-owner's and lender's-policy duplicates were 301'd to
+ * these two posts. The first set carries over the duplicate's published FAQ; the
+ * second uses Stewart Title's published rate manuals (VA eff. 2025-07-01, MD eff.
+ * 2025-11-24) for its figures.
  */
 export const BLOG_FAQ_OVERRIDES: Record<string, BlogFAQItem[]> = {
-  "enhanced-title-insurance-vs-standard": [
+  "difference-between-lenders-and-owners-title-insurance": [
     {
-      question: "What is the difference between standard and enhanced title insurance?",
+      question: "What is the difference between an owner's policy and a lender's policy?",
       answer:
-        "Standard owner's title insurance protects against a core set of title defects that existed before closing, such as undisclosed liens, forgery, recording errors, or ownership disputes. Enhanced owner's title insurance usually includes that same baseline coverage plus broader protections for certain boundary issues, permit-related problems, legal access issues, and other risks spelled out in the policy form.",
+        "An owner's policy protects the buyer or property owner. A lender's policy protects the mortgage lender. They are separate title insurance policies created for different interests in the same transaction.",
     },
     {
-      question: "Is enhanced title insurance worth it in Virginia, Maryland, or DC?",
+      question: "Is lender's title insurance required?",
       answer:
-        "It often can be, especially if the property is older, has additions or renovations, sits on a tight lot, or has a more complex ownership history. The value depends on the specific property and premium difference, but many DMV buyers decide the broader coverage is worth the added one-time cost.",
+        "If you are financing the purchase, the lender usually requires it before the loan can close. Cash buyers typically do not need a lender's policy because there is no mortgage lender involved.",
     },
     {
-      question: "Does a lender's policy include enhanced coverage?",
+      question: "Is owner's title insurance required?",
       answer:
-        "Not automatically. A lender's title insurance policy protects the lender's interest, not the buyer's ownership interest. Whether enhanced coverage exists on the lender side depends on the policy and transaction, but buyers still need to evaluate their own owner's policy separately.",
+        "It is often optional from a contract standpoint, but that does not mean it is unimportant. It is the policy that protects your ownership rights and equity against covered title defects.",
+    },
+    {
+      question: "Who pays for owner's title insurance in Virginia, Maryland, and DC?",
+      answer:
+        "That depends on local custom and the contract. The Virginia Bureau of Insurance and the Maryland Insurance Administration both say it follows local practice and can be negotiated, so check what your contract says.",
+    },
+    {
+      question: "Does a title search make owner's title insurance unnecessary?",
+      answer:
+        "No. A title search reduces risk, but it does not eliminate every possible issue. Title insurance exists because some defects are hidden, recorded incorrectly, or discovered only after closing.",
+    },
+  ],
+  "lender-title-insurance": [
+    {
+      question: "Is lender's title insurance required?",
+      answer:
+        "If you are financing the purchase, the lender usually requires it before the loan can close. Cash buyers typically do not need a lender's policy because there is no mortgage lender involved.",
+    },
+    {
+      question: "How much does lender's title insurance cost?",
+      answer:
+        "It depends on the loan amount and the underwriter. In Stewart Title's published Virginia schedule, a lender's policy on a $500,000 loan is $1,545 on its own, or $200 when it is issued with an owner's policy at a purchase. In Stewart's Maryland schedule, the same figures are $1,680 and $350. Other underwriters' rates differ.",
+    },
+    {
+      question: "Does the lender's policy protect me as the buyer?",
+      answer:
+        "No. It protects the lender's interest in the property, up to the loan amount. Only an owner's policy protects your ownership and equity.",
+    },
+    {
+      question: "Do I need a new lender's policy when I refinance?",
+      answer:
+        "Yes. A refinance is a new loan, so the new lender requires a new lender's policy. Many underwriters charge a lower refinance rate: Stewart's published refinance rate is 70% of its standard loan rate in Virginia and 60% in Maryland.",
     },
   ],
 };
