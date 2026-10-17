@@ -71,7 +71,7 @@ export function LocationSchema({ city, state, slug, description }: LocationSchem
         "@type": "WebPage",
         "@id": `${SITE_URL}/${slug}#webpage`,
         url: `${SITE_URL}/${slug}`,
-        name: `Title & Closing Services in ${locationName} | DMV Title Guy`,
+        name: `Title Company in ${locationName} | DMV Title Guy`,
         description: serviceDescription,
         isPartOf: { "@id": `${SITE_URL}/#website` },
         mainEntity: { "@id": `${SITE_URL}/${slug}#guide` },

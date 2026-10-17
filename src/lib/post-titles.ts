@@ -114,7 +114,7 @@ export const BLOG_SEO_OVERRIDES: Record<
    * Neither of these collides with a location slug, so neither was in the thirteen
    * above — but both target a phrase a landing page owns, which is the criterion
    * that actually matters. /title-search-fairfax-va and /title-company-sterling-va
-   * both exist and both target "Title & Closing Services in <place>".
+   * both exist and both target "Title Company in <place>" (before 2026-10-17, "Title & Closing Services in <place>").
    *
    * The second Sterling post, sterling-virginia-settlement, is gone: its title was
    * identical to this one's, so retitling only one of them achieved nothing. Its
@@ -211,6 +211,23 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "Title and Settlement Services: What You Should Expect From Your Closing Team",
     description:
       "What title and settlement services cover, what your closing team protects you from, and how to choose one in DC, Maryland or Virginia.",
+  },
+  // 2026-10-17: search titles Google was truncating (over 60 characters); the
+  // on-page heading keeps the CMS title.
+  "settlement-company-fairfax-county": {
+    title: "Choosing a Settlement Company in Fairfax County, VA",
+  },
+  "maryland-real-estate-contract": {
+    title: "Maryland Residential Contract of Sale: How It Works",
+  },
+  "dc-real-estate-purchase-contract": {
+    title: "DC Purchase Agreement: How a Home Purchase Contract Works",
+  },
+  "maryland-first-time-homebuyer-transfer-tax-exemption": {
+    title: "Maryland First-Time Homebuyer Transfer Tax Exemption",
+  },
+  "title-companies-near-me": {
+    title: "Title Companies Near Me: Choosing One in the DMV",
   },
   // 2026-10-16 consolidation: these duplicates 301 to the survivor (config/domain-redirects.mjs);
   // the canonical keeps them out of the sitemap and blog index.

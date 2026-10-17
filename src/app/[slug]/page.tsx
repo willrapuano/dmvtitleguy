@@ -699,9 +699,9 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
         ogDescription: "Educational title and closing guidance for Reston and Fairfax County transactions.",
       },
       "title-company-mclean-va": {
-        title: "Title Company in McLean, VA | Escrow, Insurance & Local Closings",
+        title: "Title Company in McLean, VA | Escrow & Closings",
         description: "Practical McLean and Fairfax County title and closing guidance, including considerations for residential and complex transactions.",
-        ogTitle: "Title Company in McLean, VA | Escrow, Insurance & Local Closings",
+        ogTitle: "Title Company in McLean, VA | Escrow & Closings",
         ogDescription: "Educational title and closing guidance for McLean and Fairfax County transactions.",
       },
       "title-company-springfield-va": {
@@ -777,20 +777,21 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     }
 
     return {
-      title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
+      title: `Title Company in ${locationName} | DMV Title Guy`,
       description: `Practical title and closing guidance for ${locationName}. Will Rapuano and the Pruitt Title team handle your title and settlement.`,
       alternates: { canonical: `/${params.slug}` },
       openGraph: {
         images: [DEFAULT_OG_IMAGE],
-        title: `Title & Closing Services in ${locationName} | DMV Title Guy`,
+        title: `Title Company in ${locationName} | DMV Title Guy`,
         description: `Expert title search, insurance & closing services in ${locationName}. Residential, commercial & investor transactions. Since 2007.`,
       },
     };
   }
 
-  const { fullName } = result.data;
+  const { fullName, name, state } = result.data;
   return {
-    title: `Title Company in ${fullName} | DMV Title Guy`,
+    // The state's short form keeps "…County, Maryland | DMV Title Guy" under 60 characters.
+    title: `Title Company in ${name}, ${state} | DMV Title Guy`,
     description: `Get practical title and closing guidance for ${fullName} from Will Rapuano. Will and the Pruitt Title team handle your title and settlement.`,
     alternates: { canonical: `/${params.slug}` },
   };
