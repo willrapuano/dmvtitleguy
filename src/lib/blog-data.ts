@@ -15,9 +15,12 @@ const LOCAL_MARKDOWN_BODY_OVERRIDES = new Set([
   "what-is-a-title-settlement-fee",
 ]);
 
+// Markdown-rendered bodies don't touch Sanity's _updatedAt, so a markdown edit
+// must bump its date here or the sitemap and BlogPosting keep the old one.
 const LOCAL_CONTENT_UPDATED_AT: Record<string, string> = {
   "firpta-explained-dmv": "2026-08-26T00:00:00.000Z",
-  "what-is-a-title-settlement-fee": "2026-08-26T00:00:00.000Z",
+  "what-is-a-title-settlement-fee": "2026-09-24T00:00:00.000Z",
+  "title-insurance-cost-virginia-maryland": "2026-10-17T00:00:00.000Z",
 };
 
 function normalizeCategory(category?: string | null, slug?: string): string {
