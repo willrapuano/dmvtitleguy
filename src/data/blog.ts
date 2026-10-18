@@ -19,6 +19,9 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Types of Property Surveys: A DMV Homebuyer and Closing Guide",
     date: "August 25, 2026",
     dateISO: "2026-08-25",
+    // Deepened 2026-09-24 (#85). Without this the sitemap kept saying Aug 25 and
+    // Google never came back for the new version.
+    updatedAtISO: "2026-09-24T00:00:00.000Z",
     excerpt: "Compare boundary surveys, location drawings, ALTA/NSPS land title surveys, topographic surveys, and building plats—and learn which survey fits a DC, Maryland, or Virginia transaction.",
     category: "Education",
     readTime: "9 min read",
