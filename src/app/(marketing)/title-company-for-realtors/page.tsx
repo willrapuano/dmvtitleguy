@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/site-metadata";
 export const metadata = createPageMetadata({
   title: "Title Company for Realtors in Northern Virginia, MD & DC",
   description:
-    "Will Rapuano and Pruitt Title for DMV agents: a free contract analyzer, VA, MD and DC closing cost calculators, client guides, agent training and one direct contact.",
+    "Will Rapuano and Pruitt Title for DMV agents: one direct contact, VA, MD and DC closing cost calculators with exact tax figures, client guides and agent training.",
   path: "/title-company-for-realtors",
 });
 
@@ -21,8 +21,8 @@ const reasons = [
     body: "Call me at (703) 859-1467. I'm your contact from the contract to the recorded deed, and the Pruitt Title team does the title work behind me.",
   },
   {
-    title: "Your contract gets a second look",
-    body: "Run NVAR, GCAAR and MAR contracts through my contract analyzer before they go out. It flags missing fields, signature gaps and date conflicts.",
+    title: "Your numbers are exact",
+    body: "The Virginia, Maryland and DC calculators show the actual closing taxes, county by county, so you can set a client's expectations before the offer.",
   },
   {
     title: "Your clients get straight answers",
@@ -150,16 +150,16 @@ export default function RealtorsPage() {
           <p className={eyebrow}>Free for agents</p>
           <h2 className={`${h2} mt-3 mb-10`}>Tools for you, guides for your clients.</h2>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr_1fr]">
-            <Link href="/agent-tools" className="flex flex-col justify-between rounded-sm bg-brand-navy p-8 text-white transition-opacity hover:opacity-95">
+            <a href="tel:+17038591467" className="flex flex-col justify-between rounded-sm bg-brand-navy p-8 text-white transition-opacity hover:opacity-95">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-brass">Contract analyzer</p>
-                <p className="mt-4 font-display text-2xl leading-snug">Catch contract mistakes before they become closing problems.</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-brass">Direct line</p>
+                <p className="mt-4 font-display text-2xl leading-snug">A question on a file? Call me before it becomes a closing problem.</p>
                 <p className="mt-4 text-sm leading-relaxed text-white/75">
-                  Upload an NVAR K1321, GCAAR 1301 or MAR contract to check for missing fields, signature issues and date conflicts.
+                  Title issues, payoffs, deadlines or a client who needs it explained. One call, and you're talking to the person handling the file.
                 </p>
               </div>
-              <span className="mt-8 text-sm font-bold">Open the analyzer →</span>
-            </Link>
+              <span className="mt-8 text-sm font-bold">Call (703) 859-1467 →</span>
+            </a>
             <div>
               <h3 className="mb-2 text-sm font-bold uppercase tracking-[0.1em] text-brand-navy">Calculators</h3>
               {tools.map((t) => (
