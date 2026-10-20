@@ -116,8 +116,11 @@ function marylandTaxes(county: string, price: number) {
   return { stateTransfer, countyTransfer, recordation, total, eachSide: total / 2 };
 }
 
-const usd = (n: number) =>
-  n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 2 });
+// Whole dollars when exact, otherwise full cents ("$11,637.50", never "$11,637.5").
+const usd = (n: number) => {
+  const digits = Number.isInteger(Math.round(n * 100) / 100) ? 0 : 2;
+  return n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: digits, maximumFractionDigits: digits });
+};
 
 const TABLE_PRICE = 500_000;
 
