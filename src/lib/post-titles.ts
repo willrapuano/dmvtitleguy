@@ -148,9 +148,9 @@ export const BLOG_SEO_OVERRIDES: Record<
       "Enhanced title insurance costs about 20% more than standard. What it adds, published VA, MD and DC premiums, and when the upgrade is worth it.",
   },
   "who-chooses-the-title-company-in-virginia": {
-    title: "Who Chooses the Title Company in Virginia? Here's the No-BS Answer.",
+    title: "Who Chooses the Title Company in Virginia? The Buyer, by Law",
     description:
-      "Virginia buyers choose the settlement agent, and a seller can't make one a condition of the sale. What agents should know and how to guide clients.",
+      "In Virginia the buyer picks the settlement company, and a seller can't require one (Va. Code § 55.1-1006). Lenders, title insurance and FSBO buys explained.",
   },
   "dc-first-time-homebuyer-tax-exemption": {
     title: "DC First-Time Homebuyer Recordation Tax: The 0.725% Rate and Who Qualifies",
@@ -219,12 +219,18 @@ export const BLOG_SEO_OVERRIDES: Record<
   },
   "maryland-real-estate-contract": {
     title: "Maryland Residential Contract of Sale: How It Works",
+    description:
+      "A section-by-section guide to the Maryland REALTORS® residential contract of sale: deposits, contingencies, disclosures, HOA rescission and transfer taxes.",
   },
   "dc-real-estate-purchase-contract": {
     title: "DC Purchase Agreement: How a Home Purchase Contract Works",
+    description:
+      "How a DC home purchase contract works on the GCAAR forms: seller disclosures, condo resale rights, TOPA, lead paint, and who pays DC's 1.1% to 1.45% taxes.",
   },
   "maryland-first-time-homebuyer-transfer-tax-exemption": {
     title: "Maryland First-Time Homebuyer Transfer Tax Exemption",
+    description:
+      "Qualifying first-time Maryland buyers pay no state transfer tax, which saves $1,000 on a $400,000 home. Who qualifies, the sworn statement and county taxes.",
   },
   "title-companies-near-me": {
     title: "Title Companies Near Me: Choosing One in the DMV",
