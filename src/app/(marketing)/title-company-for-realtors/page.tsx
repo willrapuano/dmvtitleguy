@@ -119,13 +119,14 @@ export default function RealtorsPage() {
       {/* Why agents send files */}
       <section className="bg-white py-16 md:py-24">
         <div className="container-xl grid items-center gap-12 lg:grid-cols-[400px_1fr] lg:gap-20">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-[400px] overflow-hidden rounded-sm bg-brand-gray-bg">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-[400px] overflow-hidden rounded-sm bg-brand-blue-50">
+            <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/3 bg-brand-navy/5" />
             <Image
               src="/will-rapuano-headshot.jpg"
               alt="Will Rapuano, Pruitt Title"
               fill
               sizes="(min-width: 1024px) 400px, 90vw"
-              className="object-cover object-[50%_30%]"
+              className="object-contain object-bottom pt-8 [mix-blend-mode:multiply]"
             />
           </div>
           <div>
@@ -204,7 +205,6 @@ export default function RealtorsPage() {
 
       <section className="bg-brand-gray-bg py-16 md:py-24">
         <div className="container-xl max-w-4xl">
-          <h2 className={`${h2} mb-8`}>Questions agents ask</h2>
           <FAQSection faqs={faqs} />
         </div>
       </section>
