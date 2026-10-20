@@ -15,7 +15,7 @@ export const bannedClaims = [
   // D.C. Code § 42-1103(e): first-time homebuyers get a reduced 0.725% rate, not an exemption.
   { pattern: /exempt from the recordation tax on properties up to|exempt buyers from recordation taxes/i, why: "DC first-time buyers get a reduced rate (§ 42-1103(e)), not an exemption" },
   // Prince George's County Code § 10-188(d)(1): purchase-money mortgages and deeds of trust are excluded.
-  { pattern: /also applies to mortgages and deeds of trust|deed of trust transfer tax on the loan/i, why: "PG transfer tax excludes purchase-money deeds of trust (PG Code § 10-188(d))" },
+  { pattern: /(?:also )?applies to mortgages and deeds of trust|deed of trust transfer tax on the loan/i, why: "PG transfer tax excludes purchase-money deeds of trust (PG Code § 10-188(d))" },
   // Frederick County imposes no county transfer tax.
   { pattern: /Frederick County is lower at 1\.0%/i, why: "Frederick has no county transfer tax" },
   // Va. Code § 58.1-802: grantor's tax is $0.50 per $500 ($0.10 per $100).
