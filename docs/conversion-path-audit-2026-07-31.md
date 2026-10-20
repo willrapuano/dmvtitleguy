@@ -40,6 +40,6 @@ Rotate the prior webhook if necessary, configure `GHL_WEBHOOK_URL` and `LEAD_PRO
 Two phone destinations remain in source:
 
 - `(703) 859-1467` on 27 primary contact and funnel links.
-- `(571) 474-4000` on 8 city/county landing-page CTA links.
+- `(571) 474-4000` on 8 city/county landing-page CTA links. Not Will's number (Will, 2026-10-19); replaced with (703) 859-1467.
 
 Pruitt Title's official site lists its main office as `(703) 462-9931`, but does not establish which direct DMV Title Guy number should be canonical. No phone numbers were rewritten without owner confirmation.
