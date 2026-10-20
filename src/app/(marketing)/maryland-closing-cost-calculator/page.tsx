@@ -6,9 +6,9 @@ import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 import { SITE_NAME, willPersonReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost Calculator (2026) | Buyer & Seller",
+  title: "Maryland Closing Cost & Transfer Tax Calculator (2026)",
   description:
-    "Free Maryland closing cost calculator. Estimate transfer and recordation taxes, title insurance and settlement costs for Montgomery, PG and other counties.",
+    "Free Maryland closing cost and transfer tax calculator, with the transfer and recordation tax on a $500,000 sale in Montgomery, PG, Baltimore County and more.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
 };
 
@@ -63,49 +63,69 @@ const sellerCosts = [
   "Lien releases and related recording charges",
 ];
 
+// FY 2026 rates, the same figures as the tables above. Md. Tax-Property § 13-203:
+// 0.5% state transfer tax. Each county sets its own transfer and recordation rates.
+const STATE_TRANSFER_RATE = 0.005;
+
+interface CountyRates {
+  county: string;
+  transfer: number;
+  /** Flat recordation rate; Montgomery uses its tiered schedule instead. */
+  recordation?: number;
+}
+
+const COUNTY_RATES: CountyRates[] = [
+  { county: "Montgomery County", transfer: 0.01 },
+  { county: "Prince George's County", transfer: 0.014, recordation: 0.0055 },
+  { county: "Anne Arundel County", transfer: 0.01, recordation: 0.007 },
+  { county: "Baltimore County", transfer: 0.015, recordation: 0.005 },
+  { county: "Howard County", transfer: 0.0125, recordation: 0.005 },
+  { county: "Frederick County", transfer: 0, recordation: 0.014 },
+  { county: "Charles County", transfer: 0.005, recordation: 0.014 },
+];
+
+// Montgomery County Bill 17-23 recordation tiers, per $500 of consideration.
+const MONTGOMERY_TIERS: [number, number][] = [
+  [500_000, 4.45],
+  [600_000, 6.75],
+  [750_000, 10.2],
+  [1_000_000, 10.78],
+  [Infinity, 11.35],
+];
+
+function montgomeryRecordation(price: number): number {
+  let tax = 0;
+  let floor = 0;
+  for (const [ceiling, perFiveHundred] of MONTGOMERY_TIERS) {
+    if (price <= floor) break;
+    tax += ((Math.min(price, ceiling) - floor) / 500) * perFiveHundred;
+    floor = ceiling;
+  }
+  return tax;
+}
+
+function marylandTaxes(county: string, price: number) {
+  const rates = COUNTY_RATES.find((r) => r.county === county);
+  if (!rates) throw new Error(`No rates for ${county}`);
+  // Anne Arundel's transfer tax rises to 1.5% at $1 million or more (FY 2026).
+  const transferRate = county === "Anne Arundel County" && price >= 1_000_000 ? 0.015 : rates.transfer;
+  const stateTransfer = price * STATE_TRANSFER_RATE;
+  const countyTransfer = price * transferRate;
+  const recordation = rates.recordation === undefined ? montgomeryRecordation(price) : price * rates.recordation;
+  const total = stateTransfer + countyTransfer + recordation;
+  return { stateTransfer, countyTransfer, recordation, total, eachSide: total / 2 };
+}
+
+const usd = (n: number) =>
+  n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 2 });
+
+const TABLE_PRICE = 500_000;
+
 const calculationExamples = [
-  {
-    title: "$400,000 Maryland Purchase With 10% Down",
-    lines: [
-      "Buyer costs are often driven by lender charges, title insurance, recording, transfer, recordation, and escrow deposits.",
-      "Buyer cash to close before down payment can land in the low five figures, depending on county, lender fees, and tax allocation.",
-    ],
-  },
-  {
-    title: "$600,000 Rockville Purchase With 20% Down",
-    lines: [
-      "Rockville purchases usually require Montgomery County-specific transfer and recordation review.",
-      "Closing costs are meaningfully higher than a lower-price statewide example because taxes and title insurance are tied to price and loan amount.",
-    ],
-  },
-  {
-    title: "$950,000 Bethesda Purchase With 20% Down",
-    lines: [
-      "Bethesda transactions often have higher purchase prices, so percentage-based taxes and title premiums can move the estimate quickly.",
-      "Buyer-side charges should be reviewed line by line against the contract, lender estimate, and county rules.",
-    ],
-  },
-  {
-    title: "$525,000 Silver Spring Seller Net Example",
-    lines: [
-      "Seller net estimates should account for commissions, payoff, transfer tax allocation, prorations, settlement fees, and any condo or HOA charges.",
-      "Seller costs can change materially if the contract shifts transfer tax responsibility or requires repairs/credits.",
-    ],
-  },
-  {
-    title: "$475,000 Prince George's County Purchase",
-    lines: [
-      "Prince George's County estimates should include the 1.4% county transfer tax and 0.55% recordation tax. A purchase-money deed of trust is not subject to the county transfer tax.",
-      "A Hyattsville, Bowie, or Upper Marlboro buyer should compare buyer cash to close and seller net because county tax allocation can shift by contract.",
-    ],
-  },
-  {
-    title: "$425,000 Baltimore County Seller Example",
-    lines: [
-      "Baltimore County seller costs usually start with commission, payoff, prorations, title company settlement fees, and any seller-paid transfer tax under the contract.",
-      "County-specific taxes and recording treatment should be checked before relying on a statewide Maryland closing cost estimate.",
-    ],
-  },
+  { title: "$600,000 Rockville purchase", county: "Montgomery County", price: 600_000 },
+  { title: "$950,000 Bethesda purchase", county: "Montgomery County", price: 950_000 },
+  { title: "$475,000 Prince George's County purchase", county: "Prince George's County", price: 475_000 },
+  { title: "$425,000 Baltimore County sale", county: "Baltimore County", price: 425_000 },
 ];
 
 const cityExamples = [
@@ -450,6 +470,46 @@ export default function MarylandCalculatorPage() {
           </div>
 
           <div className="mb-10">
+            <h2 className="t-h4 text-brand-navy mb-4">Maryland Transfer and Recordation Tax on a $500,000 Sale</h2>
+            <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-brand-navy text-white">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">County</th>
+                    <th className="px-4 py-3 font-semibold">State transfer</th>
+                    <th className="px-4 py-3 font-semibold">County transfer</th>
+                    <th className="px-4 py-3 font-semibold">Recordation</th>
+                    <th className="px-4 py-3 font-semibold">Total</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {COUNTY_RATES.map(({ county }) => {
+                    const t = marylandTaxes(county, TABLE_PRICE);
+                    return (
+                      <tr key={county}>
+                        <td className="px-4 py-3 font-semibold text-brand-navy">{county}</td>
+                        <td className="px-4 py-3 text-brand-muted">{usd(t.stateTransfer)}</td>
+                        <td className="px-4 py-3 text-brand-muted">{usd(t.countyTransfer)}</td>
+                        <td className="px-4 py-3 text-brand-muted">{usd(t.recordation)}</td>
+                        <td className="px-4 py-3 font-semibold text-brand-navy">{usd(t.total)}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-4 space-y-3 text-sm leading-relaxed text-brand-muted max-w-[68ch]">
+              <p>
+                Maryland law presumes the buyer and seller split these taxes equally unless the contract says
+                otherwise. A qualifying first-time Maryland homebuyer pays a 0.25% state transfer tax instead of 0.5%,
+                and the seller pays it. In Montgomery County, the first $100,000 is exempt from recordation tax for an
+                owner-occupied home, which saves {usd((100_000 / 500) * 4.45)}.
+              </p>
+              <p className="rounded-lg border border-brand-blue/20 bg-brand-blue/5 p-4 font-semibold text-brand-navy">{taxRateNotice}</p>
+            </div>
+          </div>
+
+          <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Maryland Seller Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed mb-5">
               <p className="max-w-[68ch]">
@@ -487,16 +547,26 @@ export default function MarylandCalculatorPage() {
           </div>
 
           <div className="mb-10">
-            <h2 className="t-h4 text-brand-navy mb-4">Example Maryland Closing Cost Calculations</h2>
+            <h2 className="t-h4 text-brand-navy mb-4">Example Maryland Closing Tax Calculations</h2>
+            <p className="text-sm leading-relaxed text-brand-muted max-w-[68ch]">
+              Transfer and recordation taxes only, before any first-time buyer or owner-occupied reductions. Title
+              insurance, settlement fees, lender charges and prepaid items come on top.
+            </p>
             <div className="mt-5 grid md:grid-cols-2 gap-5">
-              {calculationExamples.map((example) => (
-                <div key={example.title} className="rounded-lg bg-white p-5 shadow-sm">
-                  <h3 className="t-h6 text-brand-navy mb-3">{example.title}</h3>
-                  <ul className="list-disc pl-5 space-y-2 text-sm leading-relaxed text-brand-muted">
-                    {example.lines.map((line) => <li key={line}>{line}</li>)}
-                  </ul>
-                </div>
-              ))}
+              {calculationExamples.map((example) => {
+                const t = marylandTaxes(example.county, example.price);
+                return (
+                  <div key={example.title} className="rounded-lg bg-white p-5 shadow-sm">
+                    <h3 className="t-h6 text-brand-navy mb-3">{example.title}</h3>
+                    <ul className="space-y-1 text-sm leading-relaxed text-brand-muted">
+                      <li>State transfer tax (0.5%): {usd(t.stateTransfer)}</li>
+                      <li>{example.county} transfer tax: {usd(t.countyTransfer)}</li>
+                      <li>{example.county} recordation tax: {usd(t.recordation)}</li>
+                      <li className="font-semibold text-brand-navy">Total: {usd(t.total)}, or {usd(t.eachSide)} each if split equally</li>
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -525,9 +595,9 @@ export default function MarylandCalculatorPage() {
             <h2 className="t-h4 text-brand-navy mb-4">Prince George&apos;s County Closing Costs</h2>
             <div className="space-y-4 text-brand-muted text-sm leading-relaxed">
               <p className="max-w-[68ch]">
-                Prince George&apos;s County closing cost examples should account for the 1.4% county transfer tax,
-                0.55% recordation tax, and the additional county transfer tax that applies to mortgages and deeds of
-                trust. That means the loan amount can matter in addition to the purchase price.
+                Prince George&apos;s County closing cost examples should account for the 1.4% county transfer tax and
+                the 0.55% recordation tax, both on the price. The county transfer tax does not apply to a
+                purchase-money mortgage or deed of trust, so the loan amount does not add to it.
               </p>
               <p className="max-w-[68ch]">
                 Buyers and sellers in Bowie, Hyattsville, Upper Marlboro, Laurel, and College Park should use county
