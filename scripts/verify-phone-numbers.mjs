@@ -1,15 +1,21 @@
 // Every phone number shown or dialed on the site must be Will's: (703) 859-1467.
 // (571) 474-4000 sat on eight city CTAs for months; Will confirmed on 2026-10-19
 // it is not his number. Form placeholders using the 555-01xx fiction range are allowed.
-import { execFileSync } from "node:child_process";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 
 const ALLOWED_DIGITS = new Set(["7038591467"]);
-const files = execFileSync("git", ["ls-files", "src", "public"], { encoding: "utf8" })
-  .split("\n")
-  .filter((f) => /\.(tsx?|mjs|js|md|mdx|json|txt)$/.test(f));
+// Walk the tree rather than `git ls-files`: heavy-run verifies a copy without .git.
+function walk(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) return entry.name === "generated" ? [] : walk(path);
+    return /\.(tsx?|mjs|js|md|mdx|json|txt)$/.test(entry.name) ? [path] : [];
+  });
+}
+const files = ["src", "public"].flatMap(walk);
 
 const failures = [];
-const { readFileSync } = await import("node:fs");
 for (const file of files) {
   const text = readFileSync(file, "utf8");
   const patterns = [/tel:\+?1?([0-9]{10})/g, /\((\d{3})\)\s?(\d{3})-(\d{4})/g];
