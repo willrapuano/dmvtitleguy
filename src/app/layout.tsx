@@ -9,6 +9,7 @@ import Script from "next/script";
 import "./globals.css";
 import { SITE_NAME, SITE_URL } from "@/lib/brand-identity";
 import { AttributionCapture } from "@/components/AttributionCapture";
+import { ContactIntentTracker } from "@/components/ContactIntentTracker";
 
 const bodyFont = Manrope({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${bodyFont.variable} ${displayFont.variable}`}>
       <body className="min-h-screen antialiased bg-white text-brand-dark-text font-sans">
         <AttributionCapture />
+        <ContactIntentTracker />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7JQ2YPBX58"
           strategy="afterInteractive"

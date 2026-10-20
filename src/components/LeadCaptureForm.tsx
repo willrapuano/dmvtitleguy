@@ -49,6 +49,7 @@ export function LeadCaptureForm({
     e.preventDefault();
     setStatus("submitting");
     trackAnalyticsEvent("lead_form_submit", { form_type: "quote", page_context: location });
+    let failureStatus = "network";
     try {
       submissionIdRef.current ||= crypto.randomUUID();
       const website = String(new FormData(e.currentTarget as HTMLFormElement).get("website") || "");
@@ -57,6 +58,7 @@ export function LeadCaptureForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, ...getLeadAttribution(), formType: "quote", submissionId: submissionIdRef.current, website }),
       });
+      failureStatus = String(response.status);
       const result = await response.json();
       const outcome = classifyLeadSubmissionResponse(response, result);
       if (outcome.status === "error") throw new Error("Lead delivery failed");
@@ -66,7 +68,9 @@ export function LeadCaptureForm({
       }
       setStatus(outcome.status);
     } catch {
-      trackAnalyticsEvent("lead_form_submit_failure", { form_type: "quote", page_context: location });
+      // The HTTP status (or "network") makes a failed real lead diagnosable from GA4
+      // alone; runtime logs on this plan only reach back one day.
+      trackAnalyticsEvent("lead_form_submit_failure", { form_type: "quote", page_context: location, failure_status: failureStatus });
       setStatus("error");
     }
   };
