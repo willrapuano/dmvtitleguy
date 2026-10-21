@@ -21,7 +21,8 @@ for (const [dependency, expected] of Object.entries(expectedVersions)) {
 
 // Check every locked copy, including nested copies that root-only checks miss.
 const lock = JSON.parse(await readFile(new URL("../package-lock.json", import.meta.url), "utf8"));
-for (const [dependency, expected] of Object.entries({ "fast-uri": "3.1.7", mysql2: "3.24.3" })) {
+// GHSA-587h-7wmj-h5pm (launch-editor via vite <= 8.3.2): every Sanity CLI copy must be 8.3.3.
+for (const [dependency, expected] of Object.entries({ "fast-uri": "3.1.7", mysql2: "3.24.3", vite: "8.3.3" })) {
   const copies = Object.entries(lock.packages).filter(([path]) =>
     path === `node_modules/${dependency}` || path.endsWith(`/node_modules/${dependency}`)
   );
