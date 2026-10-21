@@ -23,6 +23,15 @@ export const legacyPathMappings = [
   ["/blog/who-does-title-insurance-protect-dmv", "/blog/who-does-title-insurance-protect"],
   ["/blog/sterling-virginia-settlement", "/blog/title-company-sterling-va"],
   ["/closing-costs/virginia", "/virginia-closing-cost-calculator"],
+  // 2026-10-20: the contract analyzer's API routes were lost in the April route-group
+  // move, so the tool never worked after that. Will chose to hide it; its pages now
+  // send agents to the Realtors page.
+  ["/agent-tools", "/title-company-for-realtors"],
+  ["/agent-tools/contract-analyzer", "/title-company-for-realtors"],
+  ["/agent-tools/contract-analyzer/login", "/title-company-for-realtors"],
+  ["/agent-tools/contract-analyzer/history", "/title-company-for-realtors"],
+  ["/agent-tools/contract-analyzer/pending", "/title-company-for-realtors"],
+  ["/agent-tools/admin", "/title-company-for-realtors"],
   // Keep the five pre-existing nested Northern Virginia landing pages live
   // and self-canonical while their Search Console measurement window is open.
   ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
