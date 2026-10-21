@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    *    inventory from drifting away from the canonical route data.
    *  - /privacy-policy and /terms, which serve `noindex`. Listing a noindex page in a
    *    sitemap asks Google to crawl something it is told not to index.
-   *  - /agent-tools/contract-analyzer, which 307s to a login wall.
+   *  - /agent-tools, hidden on 2026-10-20 (the contract analyzer stopped working in April).
    *
    * 35 routes that return 200 were absent entirely: every /calculators/* tool, the
    * /closing-costs/* guides, the /title-company/* hubs, the audience pages and
@@ -48,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...["/title-insurance", "/about-will-rapuano", "/why-choose-us", "/investor-friendly-title-company", "/calculators",
       // /request-title-review and /upload-contract are deliberately absent: both
       // serve "noindex, follow" as conversion endpoints, not landing pages.
-      "/agent-tools", "/contact",
+      "/contact",
       "/title-insurance-cost-by-state",
       "/title-company-for-builders", "/title-company-for-credit-unions",
       "/title-company-for-lenders", "/title-company-for-realtors",

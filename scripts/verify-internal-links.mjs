@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 
 const canonicalOrigin = "https://dmvtitleguy.io";
 const targetOrigin = (process.env.TARGET_ORIGIN || canonicalOrigin).replace(/\/$/, "");
-const allowedRedirectPaths = new Set(["/agent-tools/contract-analyzer"]);
+const allowedRedirectPaths = new Set();
 const priorityMinimums = new Map([
   ["/calculators/seller-net-sheet", 3],
   ["/blog/firpta-explained-dmv", 3],
