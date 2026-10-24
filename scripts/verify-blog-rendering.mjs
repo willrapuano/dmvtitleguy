@@ -1,4 +1,5 @@
 import { createClient } from "@sanity/client";
+import { legacyPathMappings } from "../config/domain-redirects.mjs";
 
 const origin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
 const concurrency = Number(process.env.VERIFY_CONCURRENCY || 8);
@@ -40,13 +41,18 @@ const sanity = createClient({
 const sanitySlugs = await sanity.fetch(
   `*[_type in ["post", "blogPost"] && !(_id in path("drafts.**")) && publishedAt <= now()].slug.current`,
 );
+// A post merged into another page 301s away and no longer renders as an article;
+// verify-domain-migration checks those redirects, so they are skipped here.
+const redirectedSources = new Set(legacyPathMappings.map(([source]) => source.replace(/\/$/, "")));
 const routes = [...new Set([
   ...sitemapRoutes,
   ...sanitySlugs.filter(Boolean).map((slug) => `/blog/${slug}`),
-])];
+])].filter((route) => !redirectedSources.has(route));
 
-if (routes.length < 100) {
-  throw new Error(`Expected at least 100 blog routes in sitemap; found ${routes.length}`);
+// Floor against a partial sitemap or CMS read. 2026-10-23: the prune merged 36 posts
+// into other pages, leaving about 93 live, so the floor moved from 100 to 80.
+if (routes.length < 80) {
+  throw new Error(`Expected at least 80 blog routes in sitemap; found ${routes.length}`);
 }
 
 const expectations = new Map([
