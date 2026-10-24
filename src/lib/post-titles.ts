@@ -27,7 +27,7 @@
  */
 export const BLOG_SEO_OVERRIDES: Record<
   string,
-  { title: string; description?: string; canonical?: string; h1?: string }
+  { title: string; description?: string; canonical?: string; h1?: string; noindex?: boolean }
 > = {
   // ── 2026-09-30 CTR decision (fixed pre/post windows in docs/seo-checkpoint-operations-2026-08-26.md).
   // Pages already ranking near page one whose result showed a truncated title or a
@@ -247,6 +247,40 @@ export const BLOG_SEO_OVERRIDES: Record<
   "title-companies-near-me": {
     title: "Title Companies Near Me: Choosing One in the DMV",
   },
+  // 2026-10-23 prune 2/3: off-topic or dated posts Google declined to index. They stay
+  // reachable by direct link but serve "noindex, follow" and leave the sitemap and blog index.
+  "ai-tools-real-estate-professionals": {
+    title: "AI Tools Every Real Estate Professional Should Know About",
+    noindex: true,
+  },
+  "networking-tips-real-estate-professionals": {
+    title: "Networking Tips for Real Estate Professionals in the DMV",
+    noindex: true,
+  },
+  "using-zillow-traffic-data-to-close-more-deals": {
+    title: "Using Zillow Traffic Data to Close More Deals: A Strategic Guide for DMV Agents",
+    noindex: true,
+  },
+  "real-estate-investing-strategies-dmv": {
+    title: "Real Estate Investing Strategies for the DMV Market",
+    noindex: true,
+  },
+  "nova-housing-market-update-2025": {
+    title: "Northern Virginia Housing Market Update: What's Happening in 2025",
+    noindex: true,
+  },
+  "nova-real-estate-market-q1-2026": {
+    title: "Northern Virginia Real Estate Market: Q1 2026 Update",
+    noindex: true,
+  },
+  "spring-housing-inventory-northern-virginia-2026": {
+    title: "Spring Housing Inventory in Northern Virginia: What the 2026 Market Is Telling Us",
+    noindex: true,
+  },
+  "reston-station-lofts": {
+    title: "Office-to-Condo Conversions: What the Lofts at Reston Station Mean for Local Buyers",
+    noindex: true,
+  },
   // 2026-10-23 prune: these posts 301 to the page they merged into (config/domain-redirects.mjs);
   // the canonical keeps them out of the sitemap and blog index.
   "title-companies-fredericksburg-va": {
@@ -465,6 +499,11 @@ export function postDisplayTitle(slug: string, cmsTitle: string): string {
 }
 
 /** Canonical route shared by article metadata and the sitemap. */
+/** Posts that serve "noindex, follow" and are left out of the sitemap and blog index. */
+export function isNoindexPost(slug: string): boolean {
+  return BLOG_SEO_OVERRIDES[slug]?.noindex === true;
+}
+
 export function postCanonicalPath(slug: string): string {
   return BLOG_SEO_OVERRIDES[slug]?.canonical || `/blog/${slug}`;
 }

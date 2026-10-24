@@ -6,7 +6,7 @@
 import { BlogPost, BLOG_POSTS, PUBLISHED_BLOG_POSTS } from "@/data/blog";
 import { getAllPosts, getPostBySlug, getAllPostSlugs, SanityBlogPost } from "./sanity-queries";
 import { getBlogContent, getMarkdownBlogSlugs } from "./blog-content";
-import { postCanonicalPath } from "./post-titles";
+import { isNoindexPost, postCanonicalPath } from "./post-titles";
 import { normalizeIndependentProviderVoice } from "./provider-voice.ts";
 
 const LOCAL_MARKDOWN_BODY_OVERRIDES = new Set([
@@ -117,7 +117,9 @@ export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
   }));
 
   const merged = mergeUniquePosts(mappedSanityPosts, staticPosts, markdownPosts);
-  const canonicalPosts = merged.filter((post) => postCanonicalPath(post.slug) === `/blog/${post.slug}`);
+  const canonicalPosts = merged.filter(
+    (post) => postCanonicalPath(post.slug) === `/blog/${post.slug}` && !isNoindexPost(post.slug),
+  );
   console.log(`[BlogData] Total merged posts: ${canonicalPosts.length}`);
   return canonicalPosts;
 }
