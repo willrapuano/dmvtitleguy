@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { PUBLISHED_BLOG_POSTS } from "../src/data/blog.ts";
-import { postCanonicalPath } from "../src/lib/post-titles.ts";
+import { isNoindexPost, postCanonicalPath } from "../src/lib/post-titles.ts";
 import { fetchWithRetry } from "./lib/fetch-with-retry.mjs";
 
 const targetOrigin = (process.env.TARGET_ORIGIN || "http://127.0.0.1:3000").replace(/\/$/, "");
@@ -29,8 +29,11 @@ const publishedSlugs = new Set([
   ...PUBLISHED_BLOG_POSTS.map((post) => post.slug),
   ...sanitySlugs,
 ]);
+// Noindex posts (BLOG_SEO_OVERRIDES noindex) are deliberately left out of the sitemap.
 const expectedArticleUrls = new Set(
-  Array.from(publishedSlugs, (slug) => `${canonicalOrigin}${postCanonicalPath(slug)}`)
+  Array.from(publishedSlugs)
+    .filter((slug) => !isNoindexPost(slug))
+    .map((slug) => `${canonicalOrigin}${postCanonicalPath(slug)}`)
 );
 const sitemapUrls = Array.from(sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
 const sitemapUrlSet = new Set(sitemapUrls);
