@@ -76,36 +76,46 @@ export const BLOG_SEO_OVERRIDES: Record<
   "title-company-arlington-va": {
     // Body already has a "Why Arlington Closings Are Different" section head.
     title: "An Arlington Closing Guide | DMV Title Guy",
+    canonical: "/title-company-arlington-va",
   },
   "title-company-alexandria-va": {
     title: "An Alexandria Closing Guide | DMV Title Guy",
+    canonical: "/title-company-alexandria-va",
   },
   "title-company-mclean-va": {
     title: "Why McLean Closings Need Extra Expertise | DMV Title Guy",
+    canonical: "/title-company-mclean-va",
   },
   "title-company-reston-va": {
     title: "Closing on a Home in Reston, VA | DMV Title Guy",
   },
   "title-company-woodbridge-va": {
     title: "Closing in Prince William County: A Woodbridge Guide",
+    canonical: "/title-company-woodbridge-va",
   },
   "title-company-bethesda-md": {
     title: "A Bethesda Closing Guide | DMV Title Guy",
+    canonical: "/title-company-bethesda-md",
   },
   "title-company-springfield-va": {
     title: "Closing in Fairfax County's Southern Corridor",
+    canonical: "/title-company-springfield-va",
   },
   "title-company-falls-church-va": {
     title: "A Closing Guide for Falls Church, VA | DMV Title Guy",
+    canonical: "/title-company-falls-church-va",
   },
   "title-company-sterling-va": {
     title: "A Closing Guide for the Dulles Corridor | DMV Title Guy",
+    canonical: "/title-company-sterling-va",
   },
   "title-company-fairfax-county-va": {
     title: "Closing in Fairfax County: What to Expect",
+    canonical: "/title-company-fairfax-county-va",
   },
   "title-company-loudoun-county-va": {
     title: "Closing in Virginia's Fastest-Growing County",
+    canonical: "/title-company-loudoun-county-va",
   },
   "title-company-montgomery-county-md": {
     title: "Settlement Services That Know Montgomery County",
@@ -126,6 +136,7 @@ export const BLOG_SEO_OVERRIDES: Record<
    */
   "title-company-fairfax-va": {
     title: "A Fairfax County Closing Guide | DMV Title Guy",
+    canonical: "/title-company-fairfax-county-va",
   },
   "what-is-a-title-quote": {
     title: "What Is a Title Quote? DMV Closing Guide | Free Quote | Pruitt Title",
@@ -186,6 +197,7 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "Closing Costs in DC: What Buyers and Sellers Pay in the District",
     description:
       "What buyers and sellers pay at a DC closing: recordation and transfer tax rates, the 0.725% first-time buyer rate and a $700,000 sample breakdown.",
+    canonical: "/closing-costs/dc",
   },
   "title-insurance-requirements-dc-md-va": {
     title: "Title Insurance Requirements in DC, Maryland, and Virginia: A Comparison",
@@ -235,6 +247,116 @@ export const BLOG_SEO_OVERRIDES: Record<
   "title-companies-near-me": {
     title: "Title Companies Near Me: Choosing One in the DMV",
   },
+  // 2026-10-23 prune: these posts 301 to the page they merged into (config/domain-redirects.mjs);
+  // the canonical keeps them out of the sitemap and blog index.
+  "title-companies-fredericksburg-va": {
+    title: "Title Companies in Fredericksburg VA: What to Know Before Closing",
+    canonical: "/title-company-fredericksburg-va",
+  },
+  "real-estate-closing-company-dc": {
+    title: "Real Estate Closing Company in DC: What the District's Unique Settlement Rules Mean for Your Transaction",
+    canonical: "/title-company-washington-dc",
+  },
+  "why-is-title-insurance-so-expensive": {
+    title: "Why Is Title Insurance So Expensive? A Breakdown for DMV Homebuyers",
+    canonical: "/blog/why-is-title-insurance-so-expensive-what-dmv-buyers-are-actually-paying-for",
+  },
+  "what-happens-at-closing": {
+    title: "What Happens at Closing? A Real Walkthrough of Closing Day",
+    canonical: "/blog/what-happens-at-closing-real-estate",
+  },
+  "closing-costs-in-virginia-2026": {
+    title: "Closing Costs in Virginia: The Complete 2026 Breakdown",
+    canonical: "/blog/closing-costs-virginia",
+  },
+  "closing-costs-maryland": {
+    title: "Closing Costs in Maryland: What Buyers and Sellers Should Expect",
+    canonical: "/blog/closing-costs-maryland-2026",
+  },
+  "real-estate-wire-fraud-dmv": {
+    title: "Real Estate Wire Fraud: How to Protect Yourself at Closing in the DMV",
+    canonical: "/blog/understanding-wire-fraud-real-estate",
+  },
+  "virginia-residential-sales-contract": {
+    title: "Virginia Residential Sales Contract: What Buyers and Sellers Need to Know Before You Sign",
+    canonical: "/blog/virginia-real-estate-contract",
+  },
+  "first-time-homebuyer-guide-dmv": {
+    title: "First-Time Homebuyer Guide: What to Know in DC, Maryland & Virginia",
+    canonical: "/blog/first-time-homebuyer-closing-tax-breaks-dmv",
+  },
+  "title-companies-new-construction": {
+    title: "The Role of Title Companies in New Construction Transactions",
+    canonical: "/blog/title-insurance-new-construction",
+  },
+  "1031-exchange-guide-investors": {
+    title: "1031 Exchange Guide for DMV Real Estate Investors",
+    canonical: "/investor-title-services",
+  },
+  "title-companies-in-northern-virginia": {
+    title: "Title Companies in Northern Virginia: Your Complete Guide",
+    canonical: "/blog/title-company-northern-virginia",
+  },
+  "best-title-company-near-me": {
+    title: "How to Find the Best Title Company Near Me (And What to Actually Look For)",
+    canonical: "/blog/title-companies-near-me",
+  },
+  "settlement-company-near-me": {
+    title: "How to Find a Settlement Company Near Me: A DMV Buyer's and Seller's Guide",
+    canonical: "/blog/title-companies-near-me",
+  },
+  "how-to-choose-right-title-company-dmv": {
+    title: "How to Choose the Right Title Company in the DMV",
+    canonical: "/blog/how-to-choose-a-title-company-in-virginia-maryland-or-dc",
+  },
+  "buyer-closing-cost-calculator-estimating-real-estate-fees": {
+    title: "Buyer Closing Cost Calculator: Estimating Your Real Estate Fees",
+    canonical: "/calculators",
+  },
+  "closing-cost-estimator": {
+    title: "Why Every Homebuyer Needs a Closing Cost Estimator",
+    canonical: "/calculators",
+  },
+  "seller-net-sheet": {
+    title: "Your Secret Weapon in a Listing Appointment: The Seller Net Sheet",
+    canonical: "/calculators/seller-net-sheet",
+  },
+  "net-sheet-calculator-dmv": {
+    title: "Seller's Net Sheet Calculator for the DMV: How Much Will You Actually Walk Away With?",
+    canonical: "/calculators/seller-net-sheet",
+  },
+  "title-quote": {
+    title: "Get a Title Quote Online \u2014 Virginia, Maryland & DC | Pruitt Title",
+    canonical: "/calculators/title-quote",
+  },
+  "difference-between-lenders-and-owners-title-insurance": {
+    title: "Lender's vs Owner's Title Insurance: What's the Difference and Do You Need Both?",
+    canonical: "/title-insurance",
+  },
+  "who-does-title-insurance-protect": {
+    title: "Who Does Title Insurance Protect? A Plain-English Answer for DMV Homebuyers",
+    canonical: "/title-insurance",
+  },
+  "homeowner-title-insurance": {
+    title: "Homeowner Title Insurance: What It Covers and Why Many DMV Owners Keep It Too Low on the Priority List",
+    canonical: "/title-insurance",
+  },
+  "common-title-defects-protection": {
+    title: "Common Title Defects and How Title Insurance Protects Against Them",
+    canonical: "/title-insurance",
+  },
+  "title-search-vs-title-insurance": {
+    title: "Title Search vs Title Insurance: What's the Difference?",
+    canonical: "/title-insurance",
+  },
+  "property-ownership-verification-title-searches": {
+    title: "How Title Searches Verify Property Ownership and Why It Matters",
+    canonical: "/blog/what-does-a-title-company-do",
+  },
+  "title-insurance-real-estate-lenders-dmv": {
+    title: "Why Title Insurance Matters for Real Estate Lenders in the DMV",
+    canonical: "/blog/lender-title-insurance",
+  },
   // 2026-10-16 consolidation: these duplicates 301 to the survivor (config/domain-redirects.mjs);
   // the canonical keeps them out of the sitemap and blog index.
   "enhanced-title-insurance-vs-standard": {
@@ -263,11 +385,11 @@ export const BLOG_SEO_OVERRIDES: Record<
   },
   "lenders-title-insurance-vs-owners-title-insurance": {
     title: "Lender's vs Owner's Title Insurance: What's the Difference and Do You Need Both?",
-    canonical: "/blog/difference-between-lenders-and-owners-title-insurance",
+    canonical: "/title-insurance",
   },
   "owners-policy-vs-lenders-policy": {
     title: "Lender's vs Owner's Title Insurance: What's the Difference and Do You Need Both?",
-    canonical: "/blog/difference-between-lenders-and-owners-title-insurance",
+    canonical: "/title-insurance",
   },
   "lenders-title-insurance": {
     title: "Lender Title Insurance: What It Is, What It Costs, and Why Your Bank Requires It",
@@ -279,7 +401,7 @@ export const BLOG_SEO_OVERRIDES: Record<
   },
   "homeowners-title-insurance": {
     title: "Homeowner Title Insurance: What It Covers and Why Many DMV Owners Keep It Too Low on the Priority List",
-    canonical: "/blog/homeowner-title-insurance",
+    canonical: "/title-insurance",
   },
   "settlement-closing-fee": {
     title: "What Is a Title Settlement Fee? What It Covers in VA, MD & DC",
@@ -299,6 +421,7 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "Construction Loans in Maryland: Title Review | Pruitt Title",
     description:
       "Construction loans Maryland guide for title, draw, and closing issues. Pruitt Title helps builders and buyers review title early. Call today.",
+    canonical: "/blog/construction-loan-title-insurance",
   },
   "settlement-services-arlington-va": {
     title: "Settlement Services in Arlington, VA: A Guide | Pruitt Title",

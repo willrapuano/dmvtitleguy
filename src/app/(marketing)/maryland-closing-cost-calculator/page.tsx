@@ -168,7 +168,6 @@ const relatedResources = [
   { href: "/closing-costs-bethesda-md", label: "Bethesda closing cost calculator" },
   { href: "/closing-costs-rockville-md", label: "Rockville closing cost calculator" },
   { href: "/closing-costs-silver-spring-md", label: "Silver Spring closing cost calculator" },
-  { href: "/closing-costs-gaithersburg-md", label: "Gaithersburg closing cost calculator" },
   { href: "/title-company-montgomery-county-md", label: "Montgomery County title and settlement services" },
   { href: "/title-insurance", label: "Maryland title insurance" },
   { href: "/calculators/title-quote", label: "Get a title insurance quote" },
@@ -609,7 +608,6 @@ export default function MarylandCalculatorPage() {
               <div className="flex flex-wrap gap-3">
                 <Link href="/title-company-prince-georges-county-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Prince George&apos;s County title company</Link>
                 <Link href="/title-company-bowie-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bowie title company</Link>
-                <Link href="/closing-costs-bowie-md" className="text-sm font-semibold text-brand-blue-deep hover:underline">Bowie closing cost calculator</Link>
               </div>
             </div>
           </div>

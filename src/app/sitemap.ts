@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { ALL_LOCATIONS, COUNTIES } from "@/data/locations";
 import { blogPostModifiedDateISO } from "@/data/blog";
-import { CITY_CALCULATOR_DATA } from "@/data/closingCostData";
+import { CITY_CALCULATOR_DATA, RETIRED_CITY_CALCULATOR_SLUGS } from "@/data/closingCostData";
 import { GLOSSARY_TERMS } from "@/data/glossary";
 import { fetchAllBlogPosts } from "@/lib/blog-data";
 import { postCanonicalPath } from "@/lib/post-titles";
@@ -95,7 +95,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
-  const cityCalcPages: MetadataRoute.Sitemap = CITY_CALCULATOR_DATA.map((city) => ({
+  const cityCalcPages: MetadataRoute.Sitemap = CITY_CALCULATOR_DATA
+    .filter((city) => !RETIRED_CITY_CALCULATOR_SLUGS.has(city.slug))
+    .map((city) => ({
     url: `${BASE_URL}/${city.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.8,

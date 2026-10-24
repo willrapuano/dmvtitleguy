@@ -35,6 +35,8 @@ import {
 import { DEFAULT_OG_IMAGE } from "@/lib/site-metadata";
 import {
   CITY_CALCULATOR_DATA,
+  RETIRED_CITY_CALCULATOR_SLUGS,
+  cityCalculatorHref,
   getCityCalcData,
   regionalTransportationFeeRate,
   regionalFeeParagraph,
@@ -620,7 +622,9 @@ export async function generateStaticParams() {
     .filter((location) => !DEDICATED_LOCATION_SLUGS.has(location.slug))
     .map((location) => ({ slug: location.slug }));
   const countySlugs = COUNTIES.map((c) => ({ slug: c.slug }));
-  const cityCalcSlugs = CITY_CALCULATOR_DATA.map((c) => ({ slug: c.slug }));
+  const cityCalcSlugs = CITY_CALCULATOR_DATA
+    .filter((c) => !RETIRED_CITY_CALCULATOR_SLUGS.has(c.slug))
+    .map((c) => ({ slug: c.slug }));
   return [...locationSlugs, ...countySlugs, ...cityCalcSlugs];
 }
 
@@ -1135,7 +1139,7 @@ function LocationPage({ location }: { location: Location }) {
 
             <p className="mt-6">
               <Link
-                href={`/${localCost.data.slug}`}
+                href={cityCalculatorHref(localCost.data)}
                 className="text-sm font-semibold text-brand-blue-deep hover:underline"
               >
                 {localCost.basis === "city"

@@ -4,6 +4,7 @@ import { CityCalculatorSchema } from "@/components/SchemaMarkup";
 import TitleQuoteEmbed from "@/components/TitleQuoteEmbed";
 import {
   CITY_CALCULATOR_DATA,
+  RETIRED_CITY_CALCULATOR_SLUGS,
   getStateCalcSlug,
   getStateFullName,
   getLocationSlug,
@@ -33,7 +34,7 @@ export default function CityCalculatorPage({ data }: Props) {
 
   // Get other city calculator pages for cross-linking (same state, max 4)
   const relatedCalcPages = CITY_CALCULATOR_DATA.filter(
-    (c) => c.state === data.state && c.slug !== data.slug
+    (c) => c.state === data.state && c.slug !== data.slug && !RETIRED_CITY_CALCULATOR_SLUGS.has(c.slug)
   ).slice(0, 4);
 
   return (
