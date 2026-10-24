@@ -6,7 +6,7 @@ import { typeid } from "typeid-js";
 
 const expectedVersions = {
   "deepmerge-ts": "8.0.2",
-  dompurify: "3.4.14",
+  dompurify: "3.4.17",
   "fast-uri": "3.1.7",
   nanoid: "3.3.18",
 };
@@ -22,7 +22,8 @@ for (const [dependency, expected] of Object.entries(expectedVersions)) {
 // Check every locked copy, including nested copies that root-only checks miss.
 const lock = JSON.parse(await readFile(new URL("../package-lock.json", import.meta.url), "utf8"));
 // GHSA-587h-7wmj-h5pm (launch-editor via vite <= 8.3.2): every Sanity CLI copy must be 8.3.3 (pinned 2026-10-20).
-for (const [dependency, expected] of Object.entries({ "fast-uri": "3.1.7", mysql2: "3.24.3", vite: "8.3.3" })) {
+// 2026-10-23: GHSA-mrhx-c7xc-m3w5 (zod < 4.6.6) and GHSA-xjj6-f33q-929c (undici 7 < 7.30.1).
+for (const [dependency, expected] of Object.entries({ "fast-uri": "3.1.7", mysql2: "3.24.3", vite: "8.3.3", zod: "4.6.6" })) {
   const copies = Object.entries(lock.packages).filter(([path]) =>
     path === `node_modules/${dependency}` || path.endsWith(`/node_modules/${dependency}`)
   );
