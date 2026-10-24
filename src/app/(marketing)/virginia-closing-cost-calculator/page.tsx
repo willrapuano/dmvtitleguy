@@ -97,11 +97,8 @@ const relatedResources = [
   { href: "/blog/who-chooses-the-title-company-in-virginia", label: "Who chooses the title company in Virginia" },
   { href: "/blog/virginia-real-estate-contract", label: "The Virginia real estate contract" },
   { href: "/closing-costs-fairfax-va", label: "Fairfax closing cost calculator" },
-  { href: "/closing-costs-arlington-va", label: "Arlington closing cost calculator" },
   { href: "/closing-costs-alexandria-va", label: "Alexandria closing cost calculator" },
   { href: "/closing-costs-ashburn-va", label: "Ashburn closing cost calculator" },
-  { href: "/closing-costs-woodbridge-va", label: "Woodbridge closing cost calculator" },
-  { href: "/closing-costs-fredericksburg-va", label: "Fredericksburg closing cost calculator" },
   { href: "/calculators/seller-net-sheet", label: "Seller net sheet calculator" },
   { href: "/calculators/title-quote", label: "Get a title insurance quote" },
 ];

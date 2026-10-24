@@ -316,6 +316,30 @@ export function countyTransferTaxParagraph(
   );
 }
 
+/**
+ * City calculator pages retired on 2026-10-23. Google had declined to index them
+ * ("Crawled - currently not indexed" or never crawled), and each now 301s to its
+ * state calculator (config/domain-redirects.mjs). Their data stays: location pages
+ * still use it for each city's cost basis. They are left out of the sitemap and of
+ * static generation.
+ */
+export const RETIRED_CITY_CALCULATOR_SLUGS = new Set([
+  "closing-costs-arlington-va",
+  "closing-costs-mclean-va",
+  "closing-costs-vienna-va",
+  "closing-costs-reston-va",
+  "closing-costs-woodbridge-va",
+  "closing-costs-fredericksburg-va",
+  "closing-costs-bowie-md",
+  "closing-costs-gaithersburg-md",
+  "closing-costs-washington-dc",
+]);
+
+/** Where to link for a city's calculator: its own page, or its state calculator once retired. */
+export function cityCalculatorHref(city: Pick<CityClosingCostData, "slug" | "state">): string {
+  return RETIRED_CITY_CALCULATOR_SLUGS.has(city.slug) ? `/${getStateCalcSlug(city.state)}` : `/${city.slug}`;
+}
+
 export const CITY_CALCULATOR_DATA: CityClosingCostData[] = [
   // ── Virginia Tier 1 ──
   {
