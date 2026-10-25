@@ -66,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/calculators/seller-net-sheet", "/calculators/smart-compare", "/calculators/title-quote"]
       .map((p) => entry(p, 0.7)),
 
-    ...["/my-classes", "/advertising-services"].map((p) => entry(p, 0.7)),
+    ...["/my-classes"].map((p) => entry(p, 0.7)),
     entry("/subscribe", 0.6),
   ];
 

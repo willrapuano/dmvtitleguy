@@ -214,6 +214,7 @@ export async function generateMetadata(
     title,
     description,
     alternates: { canonical },
+    ...(seoOverride?.noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: "article",
       url: canonical,
