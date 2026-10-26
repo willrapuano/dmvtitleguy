@@ -46,4 +46,26 @@ assert.match(calculator, /\{TITLE_PREMIUM_SOURCE_NOTE\}/, "The calculator must l
 assert.match(TITLE_PREMIUM_SOURCE_NOTE, /Pruitt Title's rates/);
 assert.match(TITLE_PREMIUM_SOURCE_NOTE, /before reissue or other discounts/);
 
-console.log("Calculator title premiums match Pruitt Title's quote calculator in VA, MD and DC.");
+// Pages that show the calculator (and Vienna, which shares Fairfax's cost table) quote the
+// same Pruitt rates in their FAQs, so the answer and the calculator never disagree.
+const usd = (n) => `$${n.toLocaleString("en-US")}`;
+const faqExamples = [
+  ["fairfax-va", 600_000],
+  ["vienna-va", 600_000],
+  ["arlington-va", 500_000],
+  ["loudoun-county-va", 775_000],
+  ["prince-william-county-va", 525_000],
+];
+for (const [slug, price] of faqExamples) {
+  const page = await readFile(`src/app/(marketing)/title-company/${slug}/page.tsx`, "utf8");
+  assert.doesNotMatch(page, /Stewart/, `${slug}: FAQ must quote Pruitt Title's rates, like the calculator`);
+  assert.match(page, /At Pruitt Title's rates \(a First American Eagle owner's policy, before discounts\)/, `${slug}: FAQ must say whose rates it quotes`);
+  assert.ok(page.includes(`${usd(price)}`) && page.includes(`is ${usd(ownersTitlePremium("VA", price))}`), `${slug}: FAQ owner's premium on ${usd(price)} must be ${usd(ownersTitlePremium("VA", price))}`);
+  assert.ok(page.includes("lender's policy issued with it is $200"), `${slug}: FAQ lender's premium must be $200`);
+}
+const localPage = await readFile("src/components/LocalTitleCompanyPage.tsx", "utf8");
+assert.doesNotMatch(localPage, /Stewart|STEWART/, "The local cost table must use the calculator's schedule");
+assert.match(localPage, /ownersTitlePremium\("VA", EXAMPLE_PRICE\)/);
+assert.match(localPage, /simultaneousLendersTitlePremium\("VA", EXAMPLE_LOAN\)/);
+
+console.log("Calculator title premiums and the calculator pages' FAQs match Pruitt Title's quote calculator in VA, MD and DC.");

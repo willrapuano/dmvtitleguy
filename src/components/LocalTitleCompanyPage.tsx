@@ -7,6 +7,7 @@ import {
   REGIONAL_TRANSPORTATION_FEE_RATE,
   vaLocalRecordationRate,
 } from "@/data/closingCostData";
+import { ownersTitlePremium, simultaneousLendersTitlePremium } from "@/lib/titlePremiums";
 
 /**
  * Buyer- and seller-facing "title company in {town}" page.
@@ -18,12 +19,10 @@ import {
  * the calculators.
  */
 
-// Stewart Title's published Virginia schedule (eff. 2025-07-01), before discounts.
-// Same figures as title-insurance-cost-virginia-maryland.md.
+// Title premiums use Pruitt Title's rates (First American Eagle owner's policy plus the
+// simultaneous loan policy), the same schedule as the closing cost calculator.
 const EXAMPLE_PRICE = 600_000;
 const EXAMPLE_LOAN = 480_000;
-const STEWART_VA_OWNERS_600K = 2472.5;
-const STEWART_VA_SIMULTANEOUS_LENDERS = 200;
 const VA_RECORDATION_RATE = 0.0025; // Va. Code § 58.1-801, $0.25 per $100
 const VA_GRANTOR_RATE = 0.001; // Va. Code § 58.1-802, $0.50 per $500
 
@@ -47,8 +46,8 @@ export function LocalTitleCompanyPage({ content }: { content: LocalTitleCompanyC
   const { town, county } = content;
   const local = vaLocalRecordationRate(county);
   const rows: { item: string; amount: number; payer: string }[] = [
-    { item: "Owner's title insurance, standard policy", amount: STEWART_VA_OWNERS_600K, payer: "Buyer, by custom" },
-    { item: "Lender's title insurance, issued with the owner's policy", amount: STEWART_VA_SIMULTANEOUS_LENDERS, payer: "Buyer" },
+    { item: "Owner's title insurance, Eagle policy", amount: ownersTitlePremium("VA", EXAMPLE_PRICE), payer: "Buyer, by custom" },
+    { item: "Lender's title insurance, issued with the owner's policy", amount: simultaneousLendersTitlePremium("VA", EXAMPLE_LOAN), payer: "Buyer" },
     { item: "Virginia recordation tax on the deed ($0.25 per $100)", amount: EXAMPLE_PRICE * VA_RECORDATION_RATE, payer: "Buyer" },
     { item: "Virginia recordation tax on the deed of trust ($0.25 per $100)", amount: EXAMPLE_LOAN * VA_RECORDATION_RATE, payer: "Buyer" },
     { item: `${county} recordation tax on both (about $0.083 per $100)`, amount: Math.round((EXAMPLE_PRICE + EXAMPLE_LOAN) * local * 100) / 100, payer: "Buyer" },
@@ -86,8 +85,8 @@ export function LocalTitleCompanyPage({ content }: { content: LocalTitleCompanyC
         <div className="container-xl max-w-3xl">
           <h2 className="prose-title mb-4">What title and taxes cost on a {usd(EXAMPLE_PRICE)} {town} purchase</h2>
           <p className="text-brand-muted leading-relaxed mb-6 max-w-[68ch]">
-            The example below assumes a {usd(EXAMPLE_PRICE)} price and a {usd(EXAMPLE_LOAN)} loan. Title premiums come from Stewart&apos;s
-            published Virginia schedule, before discounts. Virginia insurers file their own rates and can negotiate them
+            The example below assumes a {usd(EXAMPLE_PRICE)} price and a {usd(EXAMPLE_LOAN)} loan. Title premiums are Pruitt Title&apos;s rates (a First
+            American Eagle owner&apos;s policy), before discounts. Virginia insurers file their own rates and can negotiate them
             (<a className="text-brand-blue-deep hover:underline" href="https://law.lis.virginia.gov/vacode/title38.2/chapter46/section38.2-4608/">Va. Code § 38.2-4608</a>),
             so your quote can differ. Settlement fees and the clerk&apos;s recording charges are not included.
           </p>
