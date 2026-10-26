@@ -73,7 +73,7 @@ const content: LocalTitleCompanyContent = {
     {
       question: "How much is title insurance in Vienna, VA?",
       answer:
-        "It depends on the price, the loan and the insurer. In Stewart's published Virginia schedule, before discounts, a standard owner's policy on a $600,000 home is $2,472.50 and the lender's policy issued with it is $200. Virginia insurers can negotiate their rates, so compare quotes.",
+        "It depends on the price, the loan and the insurer. At Pruitt Title's rates (a First American Eagle owner's policy, before discounts), the owner's policy on a $600,000 home is $2,968 and the lender's policy issued with it is $200. Virginia insurers can negotiate their rates, so compare quotes.",
     },
     {
       question: "Do I need owner's title insurance in Vienna?",

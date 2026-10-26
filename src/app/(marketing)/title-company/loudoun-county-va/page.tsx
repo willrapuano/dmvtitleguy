@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "How much does title insurance cost in Loudoun County, VA?",
-    answer: "Virginia title insurers file their own rates and can negotiate them, so premiums vary. In Stewart Title's published Virginia schedule, a standard owner's policy on a $775,000 home—the current median in Loudoun—is about $3,130 before discounts, and the lender's policy issued with it is $200.",
+    answer: "Virginia title insurers file their own rates and can negotiate them, so premiums vary. At Pruitt Title's rates (a First American Eagle owner's policy, before discounts), the owner's policy on a $775,000 home—the current median in Loudoun—is $3,755, and the lender's policy issued with it is $200.",
   },
   {
     question: "What are the closing costs for buyers in Loudoun County?",

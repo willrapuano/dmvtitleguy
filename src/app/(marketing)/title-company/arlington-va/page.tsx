@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: "How much does title insurance cost in Arlington, VA?",
-    answer: "Virginia title insurers file their own rates with the Bureau of Insurance and can negotiate them, so premiums vary. In Stewart Title's published Virginia schedule, a standard owner's policy on a $500,000 Arlington home is $2,097.50 before discounts, and the lender's policy issued with it is $200.",
+    answer: "Virginia title insurers file their own rates with the Bureau of Insurance and can negotiate them, so premiums vary. At Pruitt Title's rates (a First American Eagle owner's policy, before discounts), the owner's policy on a $500,000 Arlington home is $2,518, and the lender's policy issued with it is $200.",
   },
   {
     question: "What are the closing costs for sellers in Arlington?",
