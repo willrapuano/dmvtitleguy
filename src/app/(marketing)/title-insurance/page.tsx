@@ -21,6 +21,17 @@ const resources = [
   { title: "Contract to Close Chart", file: "/guides/contract-to-close-chart.pdf" },
 ];
 
+// Guides this hub points to. Several had been crawled but not indexed (2026-10-23 sweep),
+// and the hub absorbed seven basic title-insurance posts in the 10-23 merge.
+const titleInsuranceGuides = [
+  { href: "/blog/title-insurance-cost-virginia-maryland", label: "What title insurance costs in Virginia and Maryland" },
+  { href: "/blog/enhanced-vs-standard-title-insurance", label: "Enhanced vs. standard owner's title insurance" },
+  { href: "/blog/lender-title-insurance", label: "Lender's title insurance: what it is and why your lender requires it" },
+  { href: "/blog/how-to-read-a-title-commitment", label: "How to read a title commitment" },
+  { href: "/blog/closing-protection-letter", label: "What a closing protection letter is" },
+  { href: "/blog/title-insurance-claims-process", label: "How a title insurance claim works" },
+];
+
 const titleInsuranceFaqs = [
   {
     question: "What is title insurance?",
@@ -275,6 +286,19 @@ export default function TitleInsurancePage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section-light">
+        <div className="container-xl max-w-3xl">
+          <h2 className="prose-title mb-4">Title Insurance Guides</h2>
+          <ul className="space-y-2 text-brand-blue-deep">
+            {titleInsuranceGuides.map((g) => (
+              <li key={g.href}>
+                <Link href={g.href} className="hover:underline">{g.label} →</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

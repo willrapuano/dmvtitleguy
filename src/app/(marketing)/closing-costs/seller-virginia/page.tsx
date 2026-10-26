@@ -160,6 +160,12 @@ export default function SellerVirginiaClosingCostsPage() {
             <Link href="/blog/firpta-explained-dmv" className="text-brand-blue-deep hover:underline">
               FIRPTA Withholding Guide →
             </Link>
+            <Link href="/blog/who-pays-closing-costs-in-virginia" className="text-brand-blue-deep hover:underline">
+              Who Pays Closing Costs in Virginia →
+            </Link>
+            <Link href="/blog/title-company-northern-virginia" className="text-brand-blue-deep hover:underline">
+              Choosing a Title Company in Northern Virginia →
+            </Link>
             <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
               Maryland Closing Costs →
             </Link>

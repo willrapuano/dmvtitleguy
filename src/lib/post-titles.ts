@@ -158,6 +158,11 @@ export const BLOG_SEO_OVERRIDES: Record<
     description:
       "Enhanced title insurance costs about 20% more than standard. What it adds, published VA, MD and DC premiums, and when the upgrade is worth it.",
   },
+  "how-to-read-a-title-commitment": {
+    title: "How to Read a Title Commitment: A Guide for Agents and Buyers",
+    description:
+      "How to read a title commitment schedule by schedule: requirements to clear before closing, exceptions the policy won't cover, and what to question.",
+  },
   "who-chooses-the-title-company-in-virginia": {
     title: "Who Chooses the Title Company in Virginia? The Buyer, by Law",
     description:
