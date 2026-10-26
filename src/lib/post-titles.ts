@@ -450,7 +450,7 @@ export const BLOG_SEO_OVERRIDES: Record<
     title: "Vienna VA Title Closings: How Closings Work | Pruitt Title",
     description:
       "Vienna title company guide explaining how closings work locally, with Pruitt Title insights from 17+ years serving Fairfax County. Call today.",
-    canonical: "/title-search-vienna-va",
+    canonical: "/title-company/vienna-va",
     // Without an h1 the heading fell back to the brand-stripped CMS title, "Title
     // Company in Vienna, VA" — the landing page's phrase, on a post already
     // canonicalised to it. Avoids the body's "Why Vienna Real Estate Closings Are

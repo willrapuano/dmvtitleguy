@@ -167,7 +167,7 @@ function DmvTitleServicesFooterLinks() {
   return (
     <p className="mb-4 leading-relaxed max-w-[68ch]">
       <strong className="font-semibold text-gray-900">DMV title services:</strong>{" "}
-      <Link href="/title-search-vienna-va" className="text-brand-blue-deep hover:underline">
+      <Link href="/title-company/vienna-va" className="text-brand-blue-deep hover:underline">
         Vienna, VA
       </Link>
       {" | "}

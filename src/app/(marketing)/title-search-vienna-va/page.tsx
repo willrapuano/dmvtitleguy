@@ -185,6 +185,10 @@ export default function TitleSearchViennaPage() {
               search the recorded liens, judgments, easements, ownership issues, and
               other title risks, then handle your title and settlement.
             </p>
+            <p className="text-sm text-gray-300 -mt-4 mb-8 max-w-2xl">
+              Buying or selling a home in Vienna? See{" "}
+              <Link href="/title-company/vienna-va" className="text-white underline">title insurance and closings in Vienna</Link>.
+            </p>
             <div className="flex flex-wrap gap-4">
               <TitleSearchOrderButton />
               <Link href="/upload-contract" className="btn-outline px-6 py-3 text-base font-semibold text-white border-white/40 hover:bg-white/10">

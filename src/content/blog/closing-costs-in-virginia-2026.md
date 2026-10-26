@@ -15,7 +15,7 @@ internal_links:
   - /blog/difference-between-lenders-and-owners-title-insurance → "title insurance"
   - /blog/what-does-a-title-company-do → "title company"
   - /contract-analyzer → CTA
-  - /title-search-vienna-va → "Vienna title company"
+  - /title-company/vienna-va → "Vienna title company"
   - /title-company-herndon-va → "Herndon title company"
 ---
 
@@ -183,6 +183,6 @@ Virginia closing costs aren't a mystery — they're a math problem. Know the lin
 ## Next Steps
 
 - [Get a title quote in Arlington](/title-company-arlington-va)
-- [Get a title quote in Fairfax](/title-search-fairfax-va)
+- [Get a title quote in Fairfax](/title-company/fairfax-va)
 - [Get a title quote in Alexandria](/title-company-alexandria-va)
 - [Compare Maryland closing costs](/closing-costs/maryland)
