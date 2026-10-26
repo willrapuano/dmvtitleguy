@@ -69,7 +69,7 @@ export function LocalTitleCompanyPage({ content }: { content: LocalTitleCompanyC
             <span className="mx-2">/</span>
             <span className="text-gray-200">{town}, VA</span>
           </nav>
-          <h1 className="t-h1 text-white mb-4">Title Company in {town}, VA</h1>
+          <h1 className="t-h1 text-white mb-4">{`Title Company in ${town}, VA`}</h1>
           <div className="text-lg text-gray-300 max-w-2xl space-y-4">{content.intro}</div>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Link href="/calculators/title-quote" className="btn-primary px-8">
