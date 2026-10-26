@@ -35,7 +35,6 @@ export const legacyPathMappings = [
   // Keep the five pre-existing nested Northern Virginia landing pages live
   // and self-canonical while their Search Console measurement window is open.
   ["/title-company/silver-spring-md", "/title-company-silver-spring-md"],
-  ["/title-company/vienna-va", "/title-search-vienna-va"],
   ["/title-company/mclean-va", "/title-company-mclean-va"],
   ["/title-company/rockville-md", "/title-company-rockville-md"],
   ["/title-company/bethesda-md", "/title-company-bethesda-md"],
@@ -54,8 +53,11 @@ export const legacyPathMappings = [
   ["/title-company/herndon", "/title-company-herndon-va"],
   ["/title-company/falls-church-va", "/title-company-falls-church-va"],
   ["/closing-cost-calculator-maryland", "/maryland-closing-cost-calculator"],
-  ["/title-company-vienna-va", "/title-search-vienna-va"],
-  ["/title-company-fairfax-va", "/title-search-fairfax-va"],
+  // 2026-10-26: buyer "title company" searches belong on the buyer pages, not the
+  // investor title-search guides they used to redirect to.
+  ["/title-company-vienna-va", "/title-company/vienna-va"],
+  ["/title-company-fairfax-va", "/title-company/fairfax-va"],
+  ["/blog/title-company-vienna-va", "/title-company/vienna-va"],
   ["/blog/title-settlement-fee", "/blog/what-is-a-title-settlement-fee"],
   // 2026-10-16: duplicate-topic posts consolidated into the strongest page per cluster
   // (most Search Console impressions, or the fuller guide when neither had any).

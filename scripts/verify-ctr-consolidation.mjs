@@ -20,6 +20,16 @@ const fixtures = {
     description: "Learn how Vienna title searches cover ownership, liens, easements, and other recorded matters, then get a quote from Will Rapuano at Pruitt Title.",
     h1: "Vienna, VA Title Search Services",
   },
+  "/title-company/vienna-va": {
+    title: "Vienna VA Title Company & Title Insurance | Pruitt Title",
+    description: "Buying or selling in Vienna, VA? Will Rapuano and Pruitt Title handle title insurance and settlement from their Vienna office. See costs and get a quote.",
+    h1: "Title Company in Vienna, VA",
+  },
+  "/title-company/fairfax-va": {
+    title: "Fairfax VA Title Company & Title Insurance | Pruitt Title",
+    description: "Buying or selling in Fairfax, VA? Will Rapuano and Pruitt Title handle title insurance and settlement in Fairfax County and the City of Fairfax. Get a quote.",
+    h1: "Title Company in Fairfax, VA",
+  },
   "/title-company-falls-church-va": {
     title: "Falls Church VA Title Company: Instant Quote | DMV Title Guy",
     description: "Closing in Falls Church? Will Rapuano and Pruitt Title handle title insurance and settlement for Falls Church City and Fairfax County. Get an instant quote.",
@@ -46,6 +56,11 @@ const redirectFixtures = {
   "/title-company/falls-church-va": "/title-company-falls-church-va",
   "/title-company/silver-spring-md": "/title-company-silver-spring-md",
   "/blog/title-settlement-fee": "/blog/what-is-a-title-settlement-fee",
+  // Buyer "title company" intent goes to the buyer pages, never the investor
+  // title-search guides (2026-10-26).
+  "/title-company-vienna-va": "/title-company/vienna-va",
+  "/title-company-fairfax-va": "/title-company/fairfax-va",
+  "/blog/title-company-vienna-va": "/title-company/vienna-va",
 };
 
 function decodeHtml(value = "") {
@@ -105,7 +120,7 @@ for (const [path, expected] of Object.entries(fixtures)) {
   assert.equal(metaContent(html, "property", "og:url"), canonical, `${path} og:url mismatch`);
   assert.ok(!/<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i.test(html), `${path} is noindex`);
 
-  if (path.startsWith("/title-company-") || path === "/title-search-vienna-va") {
+  if (path.startsWith("/title-company-") || path.startsWith("/title-company/") || path === "/title-search-vienna-va") {
     assert.ok(html.includes(canonical), `${path} structured data does not reference its canonical URL`);
   }
 }

@@ -16,7 +16,7 @@ internal_links:
   - /blog/difference-between-lenders-and-owners-title-insurance → "title insurance"
   - /blog/closing-costs-in-virginia-2026 → "closing costs"
   - /contact → CTA
-  - /title-search-vienna-va → "Vienna title company"
+  - /title-company/vienna-va → "Vienna title company"
   - /title-company-herndon-va → "Herndon title company"
   - /title-company-springfield-va → "Springfield title company"
 ---
@@ -163,7 +163,7 @@ Don't treat the title company as an afterthought. Ask questions. Compare fees. C
 
 ## Next Steps
 
-- [Get a title quote in Fairfax](/title-search-fairfax-va)
+- [Get a title quote in Fairfax](/title-company/fairfax-va)
 - [Get a title quote in Arlington](/title-company-arlington-va)
 - [Get a title quote in Alexandria](/title-company-alexandria-va)
 - [Get a title quote in Falls Church](/title-company-falls-church-va)

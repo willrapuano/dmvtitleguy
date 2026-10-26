@@ -1,237 +1,115 @@
-import { Lightbulb } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FAQSection } from "@/components/FAQSection";
 import { ClosingCostCalculator } from "@/components/ClosingCostCalculator";
+import { LocalTitleCompanyPage, type LocalTitleCompanyContent } from "@/components/LocalTitleCompanyPage";
 import { regionalTransportationFeeRate, vaLocalRecordationRate } from "@/data/closingCostData";
-import { LocationSchema } from "@/components/SchemaMarkup";
+import { DEFAULT_OG_IMAGE } from "@/lib/site-metadata";
+
+const title = "Fairfax VA Title Company & Title Insurance | Pruitt Title";
+const description =
+  "Buying or selling in Fairfax, VA? Will Rapuano and Pruitt Title handle title insurance and settlement in Fairfax County and the City of Fairfax. Get a quote.";
 
 export const metadata: Metadata = {
-  title: "Title Company in Fairfax, VA | Settlement & Title Insurance",
-  description: "Practical Fairfax title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement.",
+  title,
+  description,
   alternates: { canonical: "/title-company/fairfax-va" },
+  openGraph: {
+    images: [DEFAULT_OG_IMAGE],
+    title,
+    description,
+    url: "https://dmvtitleguy.io/title-company/fairfax-va",
+    type: "website",
+  },
 };
 
-const faqs = [
-  {
-    question: "What are the title insurance rates in Fairfax County?",
-    answer: "Virginia title insurers file their own rates and can negotiate them, so premiums vary between companies. In Stewart Title's published Virginia schedule, a standard owner's policy on a $600,000 Fairfax County home is $2,472.50 before discounts, and the lender's policy issued with it is $200.",
-  },
-  {
-    question: "Who pays transfer taxes in Fairfax?",
-    answer: "In Fairfax County, the grantor tax is paid by the seller ($0.50 per $500 of sales price). The buyer typically pays the state recordation tax ($0.25 per $100) and any applicable local recordation taxes.",
-  },
-  {
-    question: "Can I schedule a weekend closing in Fairfax?",
-    answer: "Signing availability depends on the lender, documents, jurisdiction, and transaction. Ask Will which evening, weekend, remote, mobile, or office options work for your closing.",
-  },
-  {
-    question: "What is the average time to close in Fairfax?",
-    answer: "Standard residential closings in Fairfax County typically take 30-45 days. Cash purchases can close faster (7-14 days), while financed purchases depend on lender timelines. We expedite whenever possible.",
-  },
-  {
-    question: "What makes Fairfax title searches unique?",
-    answer: "Fairfax County has extensive land records with both current and historical properties. Older homes may have complex title histories including easements, covenants, and prior estate transfers that require thorough research.",
-  },
-  {
-    question: "Does Fairfax County have additional transfer taxes?",
-    answer: "Fairfax County adds a local recordation tax to the state rate. The combined state and local recordation tax is about $0.33 per $100, charged on the sales price and again on the purchase loan, making it important to budget accordingly.",
-  },
-];
+const content: LocalTitleCompanyContent = {
+  town: "Fairfax",
+  slug: "title-company/fairfax-va",
+  county: "Fairfax County",
+  schemaDescription:
+    "Title insurance and settlement for Fairfax, VA buyers and sellers with Will Rapuano and Pruitt Title, including costs, taxes and how a Fairfax closing works.",
+  intro: (
+    <p>
+      Will Rapuano and the Pruitt Title team handle title insurance and settlement for home purchases, sales and
+      refinances in Fairfax County and the City of Fairfax. Will&apos;s office is nearby in Vienna.
+    </p>
+  ),
+  localNotes: [
+    {
+      heading: "Fairfax County and the City of Fairfax are separate",
+      body: (
+        <>
+          <p>
+            A Fairfax mailing address can mean Fairfax County or the City of Fairfax, an independent city surrounded by
+            the county. The deed records at the same place either way: the Fairfax Circuit Court&apos;s Land Records
+            Division, at the county courthouse on Chain Bridge Road, takes documents for both.
+          </p>
+          <p>
+            The taxes differ. City of Fairfax homeowners pay City of Fairfax real estate tax instead of the county&apos;s,
+            and the settlement statement prorates whichever bill applies. The cost example above uses Fairfax County
+            rates. For a City of Fairfax property, the city can add a local recordation tax of
+            one-third of the state tax only if it levies one, so ask Will or the Circuit Court Clerk to confirm.
+          </p>
+        </>
+      ),
+    },
+    {
+      heading: "Investor or pre-purchase title search",
+      body: (
+        <p>
+          Buying at auction, off-market or as an investor, and want the title searched before you commit? See the{" "}
+          <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">Fairfax title search guide</Link>.
+        </p>
+      ),
+    },
+  ],
+  faqs: [
+    {
+      question: "How much is title insurance in Fairfax, VA?",
+      answer:
+        "It depends on the price, the loan and the insurer. In Stewart's published Virginia schedule, before discounts, a standard owner's policy on a $600,000 home is $2,472.50 and the lender's policy issued with it is $200. Virginia insurers can negotiate their rates, so compare quotes.",
+    },
+    {
+      question: "Who pays transfer taxes in Fairfax?",
+      answer:
+        "By custom the seller pays the Virginia grantor tax ($0.50 per $500 of the price) and the Northern Virginia transportation fees ($0.20 per $100). The buyer pays the state and local recordation taxes on the deed and the loan. The contract can change that.",
+    },
+    {
+      question: "Do I need owner's title insurance in Fairfax?",
+      answer:
+        "Your lender requires a lender's policy, which protects only the loan. The owner's policy is optional. It protects you and your heirs for as long as you own the home, for a one-time premium at closing.",
+    },
+    {
+      question: "Can I use a different title company than the one the seller suggests?",
+      answer:
+        "Yes. In Virginia the buyer chooses the settlement agent, and a seller can't require a particular company as a condition of the sale (Va. Code § 55.1-1006).",
+    },
+    {
+      question: "Can I schedule a weekend closing in Fairfax?",
+      answer:
+        "Signing options depend on the lender, the documents and the transaction. Ask Will which office, evening, weekend, mobile or remote options work for your closing.",
+    },
+  ],
+  related: [
+    { href: "/closing-costs-fairfax-va", label: "Fairfax County closing cost calculator" },
+    { href: "/title-insurance", label: "What title insurance covers" },
+    { href: "/blog/who-chooses-the-title-company-in-virginia", label: "Who chooses the title company in Virginia" },
+    { href: "/title-company/vienna-va", label: "Title company in Vienna" },
+    { href: "/title-company-mclean-va", label: "Title company in McLean" },
+    { href: "/title-company/arlington-va", label: "Title company in Arlington" },
+    { href: "/title-search-fairfax-va", label: "Fairfax title search for investors" },
+  ],
+  calculator: (
+    <ClosingCostCalculator
+      state="VA"
+      cityOverrides={{
+        localRecordationTaxRate: vaLocalRecordationRate("Fairfax County"),
+        regionalTransportationFeeRate: regionalTransportationFeeRate("Fairfax County"),
+      }}
+    />
+  ),
+};
 
 export default function FairfaxTitlePage() {
-  return (
-    <>
-      <LocationSchema 
-        city="Fairfax" 
-        state="VA" 
-        county="Fairfax County" 
-        slug="title-company/fairfax-va"
-        description="Practical Fairfax title and closing guidance from Will Rapuano. Will and the Pruitt Title team handle your title and settlement."
-      />
-
-      {/* HERO */}
-      <section className="page-hero">
-        <div className="container-xl">
-          <nav className="text-xs text-gray-400 mb-4">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/virginia-closing-cost-calculator" className="hover:text-white">Virginia Closing Costs</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-200">Fairfax</span>
-          </nav>
-          <h1 className="t-h1 text-white mb-4">
-            Reliable Title &amp; Settlement Services
-          </h1>
-          <p className="text-lg text-gray-300 max-w-2xl">
-            DMV Title Guy publishes practical Fairfax title and closing guidance. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
-          </p>
-        </div>
-      </section>
-
-      <ClosingCostCalculator
-        state="VA"
-        cityOverrides={{
-          localRecordationTaxRate: vaLocalRecordationRate("Fairfax County"),
-          regionalTransportationFeeRate: regionalTransportationFeeRate("Fairfax County"),
-        }}
-      />
-
-      {/* LOCAL INSIGHT */}
-      <section className="bg-brand-action py-10 text-white">
-        <div className="container-xl max-w-3xl">
-          {/* The label previously used an undefined brand colour utility, so it
-              inherited the band's white and carried no emphasis at all. Now an
-              eyebrow with a real icon, matching the homepage pattern. */}
-          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-blue-100">
-            <Lightbulb size={14} strokeWidth={2} aria-hidden="true" />
-            Local insight
-          </p>
-          <p className="mt-3 max-w-[68ch] text-lg leading-relaxed">
-            Fairfax County has a high transaction volume and varied property histories. Send Will the contract early; Pruitt Title confirms record availability and title-review timing before you rely on a closing deadline.
-          </p>
-        </div>
-      </section>
-
-      {/* LOCAL CONTEXT */}
-      <section className="section-gray">
-        <div className="container-xl max-w-3xl">
-          <h2 className="t-h4 text-brand-navy mb-4">Why Fairfax Real Estate Matters</h2>
-          <div className="space-y-4 text-brand-muted leading-relaxed">
-            <p className="max-w-[68ch]">
-              Fairfax County is the most populous jurisdiction in Virginia and one of the wealthiest counties in America. With a median home price around $650,000 and top-rated schools, Fairfax attracts families and professionals seeking quality of life near Washington DC.
-            </p>
-            <p className="max-w-[68ch]">
-              The Fairfax market ranges from older neighborhoods to Great Falls and McLean estates. Title questions can include easements, covenants, unreleased liens, or heirship concerns. Will and the Pruitt Title team look into those matters and keep you posted on anything that needs attention.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section-light">
-        <div className="container-xl">
-          <h2 className="t-h3 text-brand-navy mb-8">Title Services in Fairfax</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Title Searches</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Thorough title research covering Fairfax County land records and court filings.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Owner's Title Insurance</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Protect your investment with comprehensive owner's title insurance coverage.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Lender's Title Insurance</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">ALTA policies for all major lenders operating in Fairfax County.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Settlement Services</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Full-service closings from contract to recorded deed and title policy delivery.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">New Construction Closings</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">Specialized title services for new construction purchases and builder transactions.</p>
-            </div>
-            <div className="surface-card p-6">
-              <h3 className="t-h5 font-semibold text-brand-navy mb-3">Remote Online Notarization</h3>
-              <p className="text-gray-600 max-w-[68ch] leading-relaxed">RON available for convenient remote signing options.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* INVESTOR SERVICES */}
-      <section className="py-12 bg-white">
-        <div className="container-xl">
-          <h2 className="t-h5 text-brand-navy mb-6">Investor Services</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/investor-title-services" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
-              <h3 className="font-semibold text-brand-navy mb-1">Investor Title Services</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Title searches, auction support & wholesale closings.</p>
-            </Link>
-            <Link href="/auction-property-title-search" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
-              <h3 className="font-semibold text-brand-navy mb-1">Auction Property Title Search</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Pre-auction title search & risk assessment.</p>
-            </Link>
-            <Link href="/foreclosure-title-review" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
-              <h3 className="font-semibold text-brand-navy mb-1">Foreclosure Title Review</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Surviving liens & chain-of-title review.</p>
-            </Link>
-            <Link href="/investor-due-diligence" className="surface-card p-5 transition-colors duration-150 hover:border-brand-blue/40">
-              <h3 className="font-semibold text-brand-navy mb-1">Investor Due Diligence</h3>
-              <p className="text-sm text-brand-muted max-w-[68ch] leading-relaxed">Send Will the property details to get a title search started.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-      {/* INTERNAL LINKS */}
-      <section className="section-light">
-        <div className="container-xl">
-          <h2 className="t-h5 text-brand-navy mb-6">Related Resources</h2>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/title-insurance" className="text-brand-blue-deep hover:underline">
-              What is Title Insurance? →
-            </Link>
-            <Link href="/calculators" className="text-brand-blue-deep hover:underline">
-              Closing Cost Calculators →
-            </Link>
-            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
-              Virginia Closing Costs Guide →
-            </Link>
-            <Link href="/virginia-closing-cost-calculator" className="text-brand-blue-deep hover:underline">
-              Virginia Closing Cost Calculator →
-            </Link>
-            <Link href="/title-company/arlington-va" className="text-brand-blue-deep hover:underline">
-              Arlington Title Services →
-            </Link>
-            <Link href="/title-search-vienna-va" className="text-brand-blue-deep hover:underline">
-              Vienna Title Services →
-            </Link>
-            <Link href="/title-company-mclean-va" className="text-brand-blue-deep hover:underline">
-              McLean Title Services →
-            </Link>
-            <Link href="/title-company/alexandria-va" className="text-brand-blue-deep hover:underline">
-              Alexandria Title Services →
-            </Link>
-            <Link href="/title-company-falls-church-va" className="text-brand-blue-deep hover:underline">
-              Falls Church Title Services →
-            </Link>
-            <Link href="/closing-costs/maryland" className="text-brand-blue-deep hover:underline">
-              Maryland Closing Costs →
-            </Link>
-            <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">
-              DC Closing Costs →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="section-light">
-        <div className="container-xl max-w-3xl">
-          <FAQSection faqs={faqs} />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-navy">
-        <div className="container-xl text-center">
-          <h2 className="t-h3 text-white mb-4">Get Your Fairfax Title Quote</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Send Will the Fairfax property details for a quote or a title question. Will confirms next steps with you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/virginia-closing-cost-calculator" className="btn-primary px-8">
-              Get a Quote →
-            </Link>
-            <a href="tel:+17038591467" className="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-brand-navy transition-colors">
-              Call (703) 859-1467
-            </a>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  return <LocalTitleCompanyPage content={content} />;
 }

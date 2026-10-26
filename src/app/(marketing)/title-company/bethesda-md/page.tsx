@@ -195,7 +195,7 @@ export default function BethesdaTitlePage() {
             <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
             <Link href="/closing-costs/dc" className="text-brand-blue-deep hover:underline">

@@ -25,6 +25,8 @@ const STATIC_VALID_PATHS = new Set([
   "/title-company-stafford-va",
   "/title-company-herndon-va",
   "/title-search-vienna-va",
+  "/title-company/vienna-va",
+  "/title-company/fairfax-va",
   "/title-company-springfield-va",
   "/title-company-bethesda-md",
 ]);
