@@ -14,6 +14,7 @@
     "verify:release": "node scripts/verify-release.mjs",
     "verify:community-quotes": "node scripts/verify-community-quote-fleet.mjs",
     "verify:titlecapture-fleet": "node scripts/verify-titlecapture-fleet.mjs",
+    "verify:title-premiums": "node --no-warnings --experimental-strip-types scripts/verify-title-premiums.mjs",
     "verify:seo-contracts": "node scripts/verify-seo-contracts.mjs",
     "verify:migration": "node scripts/verify-domain-migration.mjs",
     "verify:lead-security": "node scripts/verify-lead-security.mjs",

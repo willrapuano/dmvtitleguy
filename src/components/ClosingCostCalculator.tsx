@@ -7,6 +7,11 @@ import {
   MD_FIRST_TIME_TRANSFER_TAX_RATE,
   MD_STATE_TRANSFER_TAX_RATE,
 } from "@/data/closingCostData";
+import {
+  ownersTitlePremium,
+  simultaneousLendersTitlePremium,
+  TITLE_PREMIUM_SOURCE_NOTE,
+} from "@/lib/titlePremiums";
 
 type State = "VA" | "MD" | "DC";
 type PartyType = "buyer" | "seller" | "both";
@@ -93,8 +98,8 @@ function calculateMontgomeryRecordationTax(price: number, ownerOccupiedResidenti
 function calculateVA(price: number, loanAmount: number): CalcResult {
   const buyerCosts: Record<string, number> = {
     titleSearch: 250,
-    titleInsuranceLender: price * 0.0035,
-    titleInsuranceOwner: price * 0.004,
+    titleInsuranceLender: simultaneousLendersTitlePremium("VA", loanAmount),
+    titleInsuranceOwner: ownersTitlePremium("VA", price),
     settlementFee: 495,
     recordingFee: price < 500000 ? 100 : 150,
     recordationTax: price * 0.0025, // § 58.1-801: state recordation tax on the deed, $0.25/$100 of price
@@ -145,8 +150,8 @@ function calculateMD(
 
   const buyerCosts: Record<string, number> = {
     titleSearch: 250,
-    titleInsuranceLender: price * 0.004,
-    titleInsuranceOwner: price * 0.0045,
+    titleInsuranceLender: simultaneousLendersTitlePremium("MD", loanAmount),
+    titleInsuranceOwner: ownersTitlePremium("MD", price),
     settlementFee: 495,
     recordingFee: 150,
     stateTransferTax: buyerStateTransferTax,
@@ -181,8 +186,8 @@ function calculateDC(price: number, loanAmount: number): CalcResult {
 
   const buyerCosts: Record<string, number> = {
     titleSearch: 250,
-    titleInsuranceLender: price * 0.004,
-    titleInsuranceOwner: price * 0.005,
+    titleInsuranceLender: simultaneousLendersTitlePremium("DC", loanAmount),
+    titleInsuranceOwner: ownersTitlePremium("DC", price),
     settlementFee: 595,
     recordingFee: 200,
     recordationTax: deedTax,
@@ -457,6 +462,7 @@ export function ClosingCostCalculator({ state, cityOverrides }: ClosingCostCalcu
         </div>
 
         <p className="text-xs text-brand-muted mt-3 max-w-[68ch]">{cityOverrides?.localTaxNote ?? config.transferTaxNote}</p>
+        <p className="text-xs text-brand-muted mt-2 max-w-[68ch]">{TITLE_PREMIUM_SOURCE_NOTE}</p>
         {state === "MD" && marylandCounty === "montgomery" && (
           <p className="text-xs text-brand-muted mt-2 max-w-[68ch]">
             Montgomery County recordation tax uses the Bill 17-23 tiered schedule and applies the first $100,000 owner-occupied residential exemption when selected.
