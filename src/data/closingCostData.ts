@@ -631,8 +631,8 @@ export function getLocationSlug(city: string, state: StateCode): string {
   const citySlug = city.toLowerCase().replace(/\s+/g, "-").replace(/'/g, "");
   const stateSlug = state.toLowerCase();
   const consolidatedRoutes: Record<string, string> = {
-    "fairfax-va": "title-search-fairfax-va",
-    "vienna-va": "title-search-vienna-va",
+    "fairfax-va": "title-company/fairfax-va",
+    "vienna-va": "title-company/vienna-va",
   };
   const consolidated = consolidatedRoutes[`${citySlug}-${stateSlug}`];
   if (consolidated) return consolidated;

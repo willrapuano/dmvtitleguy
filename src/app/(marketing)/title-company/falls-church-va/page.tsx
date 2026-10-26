@@ -179,7 +179,7 @@ export default function FallsChurchTitlePage() {
             <Link href="/title-company-arlington-va" className="text-brand-blue-deep hover:underline">
               Arlington Title Services →
             </Link>
-            <Link href="/title-search-fairfax-va" className="text-brand-blue-deep hover:underline">
+            <Link href="/title-company/fairfax-va" className="text-brand-blue-deep hover:underline">
               Fairfax Title Services →
             </Link>
             <Link href="/title-company-alexandria-va" className="text-brand-blue-deep hover:underline">

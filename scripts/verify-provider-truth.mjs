@@ -1,10 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
-import { execFileSync } from "node:child_process";
+import { readFile, readdir } from "node:fs/promises";
 
-const files = execFileSync("rg", ["--files", "src/app", "src/content", "src/data"], { encoding: "utf8" })
-  .trim()
-  .split("\n")
+// Node's own walk instead of `rg --files`: the Linux release machine has no ripgrep.
+const files = (
+  await Promise.all(
+    ["src/app", "src/content", "src/data"].map((dir) => readdir(dir, { recursive: true }).then((names) => names.map((name) => `${dir}/${name}`)))
+  )
+)
+  .flat()
   .filter((file) => /\.(tsx?|md)$/.test(file));
 
 const forbidden = [

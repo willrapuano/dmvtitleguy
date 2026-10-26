@@ -18,7 +18,7 @@ import { TitleSearchOrderButton } from "@/components/TitleSearchCheckout";
 import { CompactTitleQuote } from "@/components/CompactTitleQuote";
 
 export const metadata: Metadata = {
-  title: "Fairfax, VA Title Company & Title Search | Pruitt Title",
+  title: "Fairfax VA Title Search Guide | DMV Title Guy",
   description:
     "Learn how Fairfax title searches cover ownership, liens, easements, and other recorded matters, then get a quote from Will Rapuano at Pruitt Title.",
   alternates: {
@@ -222,6 +222,10 @@ export default function TitleSearchFairfaxPage() {
               Get a Fairfax title search before closing, bidding, or committing
               to a deal. The Pruitt Title team reviews ownership, liens, judgments, taxes, easements,
               and title defects so you know what you are taking on.
+            </p>
+            <p className="text-sm text-gray-300 -mt-4 mb-8 max-w-2xl">
+              Buying or selling a home in Fairfax? See{" "}
+              <Link href="/title-company/fairfax-va" className="text-white underline">title insurance and closings in Fairfax</Link>.
             </p>
             <div className="flex flex-wrap gap-4">
               <TitleSearchOrderButton />
