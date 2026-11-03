@@ -198,7 +198,7 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
               DC · Maryland · Virginia
             </p>
             <h1 className="font-display text-[2.75rem] font-medium leading-[1.02] tracking-[-0.028em] text-brand-navy sm:text-6xl xl:text-[4.5rem]">
-              Know what your closing will cost before you sign.
+              Close with Pruitt Title. Know your costs before you sign.
             </h1>
             <p className="mt-7 max-w-[54ch] text-[17px] leading-[1.65] text-brand-ink md:text-lg">
               Will Rapuano, Pruitt Title. Use the local guides and calculators to see what your closing will cost. When you're ready to close, Will and the Pruitt Title team handle your title and settlement.
@@ -311,6 +311,48 @@ export function HomePageClient({ latestGuides = [] }: { latestGuides?: HomeGuide
               sizes="(min-width: 1024px) 480px, 90vw"
               className="object-cover object-[50%_58%] [transform:scale(1.28)] [transform-origin:50%_62%]"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRUITT TITLE ──────────────────────────────────────────
+          Facts from pruitt-title.com (checked 2026-11-03). Will is with Pruitt Title;
+          this is his site, not Pruitt's, so the section links to Pruitt's own. */}
+      <section className="border-t border-brand-line bg-white">
+        <div className="mx-auto max-w-[1296px] px-5 py-16 sm:px-8 lg:px-6 lg:py-20">
+          <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-brand-muted">Pruitt Title</p>
+          <h2 className="mt-5 max-w-[24ch] font-display text-3xl font-medium leading-[1.1] tracking-[-0.015em] text-brand-navy md:text-[2.25rem]">
+            Will Rapuano and the Pruitt Title team handle your closing
+          </h2>
+          <div className="mt-8 grid gap-10 md:grid-cols-2 lg:gap-14">
+            <div className="space-y-4 text-[17px] leading-[1.7] text-brand-ink-light">
+              <p className="max-w-[58ch]">
+                Pruitt Title, LLC is an independently owned title, settlement and escrow company. It handles residential
+                and commercial transactions in Virginia, Maryland and the District of Columbia.
+              </p>
+              <p className="max-w-[58ch]">
+                Will is Pruitt Title&apos;s Marketing and Business Development Officer. He works with buyers, sellers,
+                agents and lenders from the office at 1900 Gallows Rd Ste 230, Vienna, VA 22182.
+              </p>
+              <p className="max-w-[58ch]">
+                <a href="https://pruitt-title.com/" className="border-b-2 border-brand-brass pb-0.5 font-bold text-brand-navy" rel="noopener">
+                  Visit Pruitt Title&apos;s website
+                </a>
+              </p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-muted">Closings Pruitt Title handles</p>
+              <ul className="mt-4 space-y-3 text-[17px] text-brand-ink">
+                <li>Resale purchases and sales</li>
+                <li>Refinances</li>
+                <li>New construction</li>
+                <li>Remote closings with an in-home representative</li>
+              </ul>
+              <p className="mt-6 text-[15px] leading-[1.6] text-brand-muted max-w-[52ch]">
+                To close with Pruitt Title, tell your agent and lender you&apos;ve chosen Pruitt Title, or call Will at{" "}
+                <a href="tel:+17038591467" className="font-semibold text-brand-navy hover:underline">(703) 859-1467</a>.
+              </p>
+            </div>
           </div>
         </div>
       </section>
