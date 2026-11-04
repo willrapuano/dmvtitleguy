@@ -7,8 +7,10 @@ import { createPageMetadata } from "@/lib/site-metadata";
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
-  title: "Title Insurance & Closing Costs: VA, MD, DC | DMV Title Guy",
-  description: "Estimate title insurance and closing costs for Virginia, Maryland, and DC with free calculators and plain-English guides from Will Rapuano, Pruitt Title.",
+  // Leads with the Google Business Profile name so the homepage, not a dozen city pages,
+  // answers "pruitt title" searches (2026-11-03; it averaged position 6 for that query).
+  title: "Will Rapuano, Pruitt Title | Title & Closings in VA, MD, DC",
+  description: "Will Rapuano and the Pruitt Title team handle title insurance and settlement in Virginia, Maryland and DC. Estimate your closing costs with free calculators.",
   path: "/",
 });
 
