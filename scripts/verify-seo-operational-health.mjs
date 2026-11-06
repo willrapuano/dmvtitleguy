@@ -472,9 +472,11 @@ assert.equal(methodNotAllowed().status, 405);
 
 assert.deepEqual(vercel.crons, [
   { path: "/api/cron/reconcile-ghl-opportunities", schedule: "*/15 * * * *" },
+  { path: "/api/cron/indexnow", schedule: "0 13 * * *" },
 ]);
 assert.deepEqual(cronOff.crons, [
   { path: "/api/cron/reconcile-ghl-opportunities", schedule: "*/15 * * * *" },
+  { path: "/api/cron/indexnow", schedule: "0 13 * * *" },
 ]);
 assert.equal(
   Object.hasOwn(vercel.functions ?? {}, "src/app/api/cron/seo-health/route.ts"),
