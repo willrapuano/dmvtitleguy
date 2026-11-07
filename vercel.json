@@ -8,6 +8,10 @@
     {
       "path": "/api/cron/reconcile-ghl-opportunities",
       "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/cron/indexnow",
+      "schedule": "0 13 * * *"
     }
   ],
   "functions": {
