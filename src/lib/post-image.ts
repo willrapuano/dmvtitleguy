@@ -157,9 +157,6 @@ const POSTS_WITHOUT_DISPLAY_IMAGE = new Set<string>([
   "virginia-vs-maryland-vs-dc-closing-costs",
   "title-company-vs-attorney-closing-dmv",
   "first-time-homebuyer-closing-tax-breaks-dmv",
-  // 2026-11-03 scam post: published with no photo, so the /blog/<slug>.jpg fallback
-  // 404'd and the homepage "Latest guides" card showed a broken image.
-  "fake-real-estate-contract-scam",
 ]);
 
 /** Whether the post's picture appears on the page and on cards. */
