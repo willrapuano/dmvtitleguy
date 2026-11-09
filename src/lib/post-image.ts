@@ -152,11 +152,8 @@ const POST_IMAGE_DIMENSION_OVERRIDES: Record<string, { width: number; height: nu
  */
 const POSTS_WITHOUT_DISPLAY_IMAGE = new Set<string>([
   "escalation-clause-closing-costs",
-  // 2026-10-17 comparison guides: no real photo yet, and no picture beats a weak one.
-  "montgomery-vs-prince-georges-county-closing-costs",
-  "virginia-vs-maryland-vs-dc-closing-costs",
-  "title-company-vs-attorney-closing-dmv",
-  "first-time-homebuyer-closing-tax-breaks-dmv",
+  // The four 2026-10-17 comparison guides left this list on 2026-11-10, when they got real
+  // photos (Will: every post needs a picture).
 ]);
 
 /** Whether the post's picture appears on the page and on cards. */

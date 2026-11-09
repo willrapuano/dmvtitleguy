@@ -17,11 +17,11 @@
 //
 // Usage: node scripts/verify-cms-content.mjs   (reads published posts; no token needed)
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { bannedClaims } from "./lib/tax-claim-rules.mjs";
 
 const PROJECT_ID = (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "4s0dloxi").trim();
-const QUERY = '*[_type=="post" && !(_id in path("drafts.**"))]{"slug":slug.current,title,excerpt,body}';
+const QUERY = '*[_type=="post" && !(_id in path("drafts.**"))]{"slug":slug.current,title,excerpt,body,"hasImage":defined(mainImage.asset)}';
 
 const cmsClaims = [
   // D.C. Code § 42-1103(e): the first-time benefit is a reduced 0.725% rate. The only full
@@ -136,6 +136,11 @@ for (const post of posts) {
         }
       }
     }
+  }
+  // Will 2026-11-07: an article can't be published without a picture. A post with no
+  // CMS image falls back to /blog/<slug>.jpg, which only exists for the local posts.
+  if (post.hasImage === false && !existsSync(new URL(`../public/blog/${post.slug}.jpg`, import.meta.url))) {
+    failures.push(`/blog/${post.slug}: published without a picture; add a main image (with alt text) before publishing`);
   }
   const body = post.body || [];
   body.forEach((b, i) => {

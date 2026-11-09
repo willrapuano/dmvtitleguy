@@ -24,6 +24,7 @@ const mustCatch = [
   ["fixture-structure", "the same callout appears twice in a row"],
   ["fixture-structure", "(callouts 2 and 4): the same callout appears twice"],
   ["fixture-structure", "missing _key"],
+  ["fixture-no-image", "published without a picture"],
   ["fixture-structure", "has no body text"],
   ["fixture-drafting-leftovers", "leftover AI-assistant text"],
   ["fixture-drafting-leftovers", "content-pipeline metadata"],
