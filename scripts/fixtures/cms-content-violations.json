@@ -362,7 +362,7 @@
             "children": [
               {
                 "_type": "span",
-                "text": "See Virginia closing costs →",
+                "text": "See Virginia closing costs \u2192",
                 "marks": []
               }
             ]
@@ -597,5 +597,27 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "fixture-no-image",
+    "title": "Fixture without a picture",
+    "excerpt": "x",
+    "body": [
+      {
+        "_key": "a1",
+        "_type": "block",
+        "style": "normal",
+        "markDefs": [],
+        "children": [
+          {
+            "_key": "a2",
+            "_type": "span",
+            "marks": [],
+            "text": "A plain sentence."
+          }
+        ]
+      }
+    ],
+    "hasImage": false
   }
 ]

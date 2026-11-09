@@ -58,11 +58,14 @@ export const post = defineType({
       title: "Main Image",
       type: "image",
       options: { hotspot: true },
+      // Will 2026-11-07: no post goes live without a picture.
+      validation: (Rule) => Rule.required().assetRequired(),
       fields: [
         defineField({
           name: "alt",
           title: "Alt Text",
           type: "string",
+          validation: (Rule) => Rule.required(),
         }),
       ],
     }),
