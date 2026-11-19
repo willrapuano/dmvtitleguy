@@ -64,6 +64,35 @@ When withholding is required, the filing package commonly includes:
 
 The current [Instructions for Form 8288](https://www.irs.gov/instructions/i8288) generally require filing and payment by the 20th day after the transfer, subject to special procedures when a withholding-certificate application is pending or a different exception applies. The parties should use the current form revision and instructions rather than an old closing checklist.
 
+## FIRPTA documents at closing: a checklist
+
+Which documents a closing needs depends on whether the seller is a foreign person and whether an exception applies.
+
+**When the seller is not a foreign person**
+
+- **Certification of non-foreign status.** The seller signs, under penalties of perjury, that they are not a foreign person. It includes the seller's name, U.S. taxpayer identification number and home address (an office address for an entity).
+- **Qualified substitute statement, if one is used.** When the seller gives the certification to the person responsible for the closing instead of the buyer, that person gives the buyer a statement, under penalties of perjury, that they hold the certification.
+
+**When the seller is a foreign person and withholding applies**
+
+- **Form 8288**, the withholding return, filed with the withheld amount by the 20th day after the transfer.
+- **Form 8288-A** for each foreign seller. Copies A and B go to the IRS with Form 8288, and the buyer keeps Copy C. The IRS stamps Copy B and sends it to the seller, who generally needs it to claim credit for the withholding on a U.S. tax return.
+- **The settlement statement**, which shows the withheld amount coming out of the seller's proceeds.
+
+**When the seller is a foreign person but withholding may be reduced or not required**
+
+- **Form 8288-B**, the application for a withholding certificate, when the seller is asking the IRS to reduce or eliminate withholding.
+- **Notice of nonrecognition transfer**, when the seller claims that no gain or loss is recognized because of a nonrecognition provision or a tax treaty. The buyer files a copy with the IRS by the 20th day after the transfer.
+- **Documentation of the buyer's residence plans**, when a residence-based exception or the reduced 10% rate is being relied on.
+
+## What the closing agent does and doesn't do
+
+The person responsible for the closing, such as the title company or settlement attorney, can act as the **qualified substitute**. That means they receive the seller's non-foreign certification, so the seller's taxpayer number doesn't have to go to the buyer.
+
+The settlement team also typically gathers the FIRPTA documents, shows the withholding on the settlement statement, and helps send the forms and payment to the IRS.
+
+What doesn't move to the closing agent is the legal duty. The IRS treats the buyer as the withholding agent, and on [Form 8288](https://www.irs.gov/instructions/i8288) it says not to list a title company as the withholding agent unless it is the entity actually responsible for withholding. Handling the money and the paperwork doesn't make the settlement company responsible for the tax.
+
 ## A practical FIRPTA timeline
 
 ### Before or immediately after contract ratification
@@ -109,6 +138,10 @@ Generally, yes. The IRS identifies the buyer or transferee as the withholding ag
 ## When can FIRPTA withholding be reduced to 10%?
 
 A 10% rate may apply when the amount realized is more than $300,000 but no more than $1,000,000 and the buyer satisfies the residence-use requirements. Confirm the facts and current IRS rules before relying on the reduced rate.
+
+## What documents are needed for FIRPTA at closing?
+
+If the seller isn't a foreign person, usually a signed certification of non-foreign status. If withholding applies, Form 8288 and a Form 8288-A for each foreign seller, filed with the payment within 20 days. A withholding-certificate application (Form 8288-B) or a notice of nonrecognition applies only in specific cases.
 
 ## What is a FIRPTA affidavit?
 
