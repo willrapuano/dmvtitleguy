@@ -7,7 +7,7 @@ import { REGIONAL_TRANSPORTATION_FEE_RATE } from "@/data/closingCostData";
 import { SITE_NAME, willPersonReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
-  title: "Virginia Closing Cost Calculator (2026) | Buyer & Seller",
+  title: "Virginia Closing Cost & Transfer Tax Calculator (2026)",
   description:
     "Free Virginia closing cost calculator. Estimate recordation and grantor tax, Northern Virginia fees, title insurance and settlement costs, with worked examples.",
   alternates: { canonical: "https://dmvtitleguy.io/virginia-closing-cost-calculator" },

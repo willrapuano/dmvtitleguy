@@ -154,9 +154,9 @@ export const BLOG_SEO_OVERRIDES: Record<
     canonical: "/blog/what-is-a-title-settlement-fee",
   },
   "enhanced-vs-standard-title-insurance": {
-    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    title: "Enhanced Owner's Policy vs Standard Title Insurance",
     description:
-      "Enhanced title insurance costs about 20% more than standard. What it adds, published VA, MD and DC premiums, and when the upgrade is worth it.",
+      "An enhanced owner's policy (ALTA Homeowner's) covers 33 risks vs 10 for standard, for about 20% more. What it adds, VA, MD and DC premiums, and who qualifies.",
   },
   "how-to-read-a-title-commitment": {
     title: "How to Read a Title Commitment: A Guide for Agents and Buyers",
@@ -399,27 +399,27 @@ export const BLOG_SEO_OVERRIDES: Record<
   // 2026-10-16 consolidation: these duplicates 301 to the survivor (config/domain-redirects.mjs);
   // the canonical keeps them out of the sitemap and blog index.
   "enhanced-title-insurance-vs-standard": {
-    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    title: "Enhanced Owner's Policy vs Standard Title Insurance",
     canonical: "/blog/enhanced-vs-standard-title-insurance",
   },
   "standard-vs-enhanced-title-insurance": {
-    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    title: "Enhanced Owner's Policy vs Standard Title Insurance",
     canonical: "/blog/enhanced-vs-standard-title-insurance",
   },
   "standard-vs-extended-title-insurance": {
-    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    title: "Enhanced Owner's Policy vs Standard Title Insurance",
     canonical: "/blog/enhanced-vs-standard-title-insurance",
   },
   "title-insurance-enhanced-vs-standard": {
-    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    title: "Enhanced Owner's Policy vs Standard Title Insurance",
     canonical: "/blog/enhanced-vs-standard-title-insurance",
   },
   "what-is-enhanced-title-insurance": {
-    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    title: "Enhanced Owner's Policy vs Standard Title Insurance",
     canonical: "/blog/enhanced-vs-standard-title-insurance",
   },
   "alta-homeowner-policy": {
-    title: "Enhanced vs Standard Title Insurance: Which Policy Do You Actually Need?",
+    title: "Enhanced Owner's Policy vs Standard Title Insurance",
     canonical: "/blog/enhanced-vs-standard-title-insurance",
   },
   "lenders-title-insurance-vs-owners-title-insurance": {

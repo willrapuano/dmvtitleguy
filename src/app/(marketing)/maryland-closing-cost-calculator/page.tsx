@@ -6,7 +6,7 @@ import { TIER1_LOCATIONS, TIER2_LOCATIONS } from "@/data/locations";
 import { SITE_NAME, willPersonReference } from "@/lib/brand-identity";
 
 export const metadata: Metadata = {
-  title: "Maryland Closing Cost & Transfer Tax Calculator (2026)",
+  title: "Maryland Closing Cost, Transfer & Recordation Tax Calculator",
   description:
     "Free Maryland closing cost and transfer tax calculator, with the transfer and recordation tax on a $500,000 sale in Montgomery, PG, Baltimore County and more.",
   alternates: { canonical: "https://dmvtitleguy.io/maryland-closing-cost-calculator" },
