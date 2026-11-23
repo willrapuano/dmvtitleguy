@@ -628,6 +628,13 @@ export async function generateStaticParams() {
   return [...locationSlugs, ...countySlugs, ...cityCalcSlugs];
 }
 
+// Per-page meta descriptions for city calculator pages that rank on page 1 (Will 2026-11-23
+// "Approved": description only, no title/H1 change). Keep each <=158 characters.
+const CITY_CALC_DESCRIPTION_OVERRIDES: Record<string, string> = {
+  "closing-costs-fairfax-va":
+    "Fairfax closing costs for buyers and sellers: grantor tax, recordation tax, title insurance and settlement fees, plus a free calculator for your price.",
+};
+
 // ─── Metadata ──────────────────────────────────────────────────────────────────
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
@@ -643,7 +650,9 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
          this data — so two indexable pages competed for one phrase despite sharing
          only 1.8% of their body text. */
       title: `Closing Costs in ${cityLabel} | DMV Title Guy`,
-      description: `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including title insurance, transfer taxes, and local fees.`,
+      description:
+        CITY_CALC_DESCRIPTION_OVERRIDES[cityCalcData.slug] ??
+        `Free closing cost calculator for ${cityLabel}. Estimate buyer and seller closing costs including title insurance, transfer taxes, and local fees.`,
       alternates: { canonical: `/${cityCalcData.slug}` },
       openGraph: {
         images: [DEFAULT_OG_IMAGE],
