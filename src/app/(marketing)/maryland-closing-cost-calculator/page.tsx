@@ -473,15 +473,15 @@ export default function MarylandCalculatorPage() {
 
           <div className="mb-10">
             <h2 className="t-h4 text-brand-navy mb-4">Maryland Transfer and Recordation Tax on a $500,000 Sale</h2>
-            <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
-              <table className="w-full text-left text-sm">
+            <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white [background-attachment:local,local,scroll,scroll] [background-image:linear-gradient(to_right,white_24px,transparent),linear-gradient(to_left,white_24px,transparent),linear-gradient(to_right,rgba(15,23,42,0.08),transparent),linear-gradient(to_left,rgba(15,23,42,0.08),transparent)] [background-position:left_center,right_center,left_center,right_center] [background-repeat:no-repeat] [background-size:28px_100%,28px_100%,12px_100%,12px_100%]">
+              <table className="w-full text-left text-[11.5px] tabular-nums sm:text-sm">
                 <thead className="bg-brand-navy text-white">
                   <tr>
-                    <th className="px-4 py-3 font-semibold">County</th>
-                    <th className="px-4 py-3 font-semibold">State transfer</th>
-                    <th className="px-4 py-3 font-semibold">County transfer</th>
-                    <th className="px-4 py-3 font-semibold">Recordation</th>
-                    <th className="px-4 py-3 font-semibold">Total</th>
+                    <th className="px-2 py-2.5 font-semibold leading-tight sm:px-4 sm:py-3">County</th>
+                    <th className="px-1 py-2.5 text-right font-semibold leading-tight sm:px-4 sm:py-3 sm:text-left">State transfer</th>
+                    <th className="px-1 py-2.5 text-right font-semibold leading-tight sm:px-4 sm:py-3 sm:text-left">County transfer</th>
+                    <th className="px-1 py-2.5 text-right font-semibold leading-tight sm:px-4 sm:py-3 sm:text-left">Recordation</th>
+                    <th className="px-2 py-2.5 text-right font-semibold leading-tight sm:px-4 sm:py-3 sm:text-left">Total</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
@@ -489,11 +489,11 @@ export default function MarylandCalculatorPage() {
                     const t = marylandTaxes(county, TABLE_PRICE);
                     return (
                       <tr key={county}>
-                        <td className="px-4 py-3 font-semibold text-brand-navy">{county}</td>
-                        <td className="px-4 py-3 text-brand-muted">{usd(t.stateTransfer)}</td>
-                        <td className="px-4 py-3 text-brand-muted">{usd(t.countyTransfer)}</td>
-                        <td className="px-4 py-3 text-brand-muted">{usd(t.recordation)}</td>
-                        <td className="px-4 py-3 font-semibold text-brand-navy">{usd(t.total)}</td>
+                        <td className="px-2 py-2.5 font-semibold leading-snug text-brand-navy sm:px-4 sm:py-3">{county}</td>
+                        <td className="whitespace-nowrap px-1 py-2.5 text-right text-brand-muted sm:px-4 sm:py-3 sm:text-left">{usd(t.stateTransfer)}</td>
+                        <td className="whitespace-nowrap px-1 py-2.5 text-right text-brand-muted sm:px-4 sm:py-3 sm:text-left">{usd(t.countyTransfer)}</td>
+                        <td className="whitespace-nowrap px-1 py-2.5 text-right text-brand-muted sm:px-4 sm:py-3 sm:text-left">{usd(t.recordation)}</td>
+                        <td className="whitespace-nowrap px-2 py-2.5 text-right font-semibold text-brand-navy sm:px-4 sm:py-3 sm:text-left">{usd(t.total)}</td>
                       </tr>
                     );
                   })}

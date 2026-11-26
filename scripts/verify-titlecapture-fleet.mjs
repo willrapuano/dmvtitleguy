@@ -43,7 +43,13 @@ assert.match(embed, /Powered by TitleCapture/, "The quote source must be visible
 assert.match(embed, /Results are estimates until Pruitt Title reviews/, "The quote must disclose its estimate status.");
 assert.match(embed, /allow-storage-access-by-user-activation/, "The embedded vendor flow must be able to request storage access after a user action.");
 assert.match(compact, /allow-storage-access-by-user-activation/, "The compact vendor flow must be able to request storage access after a user action.");
-assert.doesNotMatch(embed, /<a[^>]+titlecapture/i, "The full quote flow must stay embedded on DMV Title Guy.");
+assert.match(embed, /<iframe[\s\S]*?src=\{TITLECAPTURE_QUOTE_URL\}/, "The full quote flow must keep the embedded iframe primary on DMV Title Guy.");
+for (const match of embed.matchAll(/<a\b[\s\S]*?>/gi)) {
+  if (/titlecapture/i.test(match[0])) {
+    assert.match(match[0], /target="_blank"/, "Any direct-open fallback link in TitleQuoteEmbed must open in a new tab.");
+    assert.match(match[0], /rel="noopener noreferrer"/, "Any direct-open fallback link in TitleQuoteEmbed must set noopener noreferrer.");
+  }
+}
 assert.doesNotMatch(compact, /<a[^>]+titlecapture/i, "The compact quote flow must stay embedded on DMV Title Guy.");
 
 for (const [index, route] of titleCaptureSources.entries()) {
